@@ -19,10 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.tidb.model.AnnotationForGetBranchDetailsOutput;
 import com.volcengine.tidb.model.EndpointsForGetBranchDetailsOutput;
 import com.volcengine.tidb.model.UsagesForGetBranchDetailsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,7 +36,7 @@ import javax.validation.Valid;
 
 public class BranchForGetBranchDetailsOutput {
   @SerializedName("Annotations")
-  private String annotations = null;
+  private List<AnnotationForGetBranchDetailsOutput> annotations = null;
 
   @SerializedName("BranchId")
   private String branchId = null;
@@ -68,6 +71,9 @@ public class BranchForGetBranchDetailsOutput {
   @SerializedName("ParentTimestamp")
   private String parentTimestamp = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("State")
   private String state = null;
 
@@ -80,8 +86,16 @@ public class BranchForGetBranchDetailsOutput {
   @SerializedName("UserPrefix")
   private String userPrefix = null;
 
-  public BranchForGetBranchDetailsOutput annotations(String annotations) {
+  public BranchForGetBranchDetailsOutput annotations(List<AnnotationForGetBranchDetailsOutput> annotations) {
     this.annotations = annotations;
+    return this;
+  }
+
+  public BranchForGetBranchDetailsOutput addAnnotationsItem(AnnotationForGetBranchDetailsOutput annotationsItem) {
+    if (this.annotations == null) {
+      this.annotations = new ArrayList<AnnotationForGetBranchDetailsOutput>();
+    }
+    this.annotations.add(annotationsItem);
     return this;
   }
 
@@ -89,12 +103,13 @@ public class BranchForGetBranchDetailsOutput {
    * Get annotations
    * @return annotations
   **/
+  @Valid
   @Schema(description = "")
-  public String getAnnotations() {
+  public List<AnnotationForGetBranchDetailsOutput> getAnnotations() {
     return annotations;
   }
 
-  public void setAnnotations(String annotations) {
+  public void setAnnotations(List<AnnotationForGetBranchDetailsOutput> annotations) {
     this.annotations = annotations;
   }
 
@@ -297,6 +312,24 @@ public class BranchForGetBranchDetailsOutput {
     this.parentTimestamp = parentTimestamp;
   }
 
+  public BranchForGetBranchDetailsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public BranchForGetBranchDetailsOutput state(String state) {
     this.state = state;
     return this;
@@ -392,6 +425,7 @@ public class BranchForGetBranchDetailsOutput {
         Objects.equals(this.parentDisplayName, branchForGetBranchDetailsOutput.parentDisplayName) &&
         Objects.equals(this.parentId, branchForGetBranchDetailsOutput.parentId) &&
         Objects.equals(this.parentTimestamp, branchForGetBranchDetailsOutput.parentTimestamp) &&
+        Objects.equals(this.projectName, branchForGetBranchDetailsOutput.projectName) &&
         Objects.equals(this.state, branchForGetBranchDetailsOutput.state) &&
         Objects.equals(this.updateTime, branchForGetBranchDetailsOutput.updateTime) &&
         Objects.equals(this.usages, branchForGetBranchDetailsOutput.usages) &&
@@ -400,7 +434,7 @@ public class BranchForGetBranchDetailsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, branchId, clusterId, createTime, createdBy, displayName, endpoints, hasSetPwd, name, parentDisplayName, parentId, parentTimestamp, state, updateTime, usages, userPrefix);
+    return Objects.hash(annotations, branchId, clusterId, createTime, createdBy, displayName, endpoints, hasSetPwd, name, parentDisplayName, parentId, parentTimestamp, projectName, state, updateTime, usages, userPrefix);
   }
 
 
@@ -421,6 +455,7 @@ public class BranchForGetBranchDetailsOutput {
     sb.append("    parentDisplayName: ").append(toIndentedString(parentDisplayName)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    parentTimestamp: ").append(toIndentedString(parentTimestamp)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    usages: ").append(toIndentedString(usages)).append("\n");

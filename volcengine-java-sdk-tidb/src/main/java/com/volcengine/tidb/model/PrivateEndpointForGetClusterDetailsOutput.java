@@ -19,10 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AlicloudForGetClusterDetailsOutput;
-import com.volcengine.tidb.model.AwsForGetClusterDetailsOutput;
+import com.volcengine.tidb.model.AuthorizedNetworkForGetClusterDetailsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,11 +33,11 @@ import javax.validation.Valid;
 
 
 public class PrivateEndpointForGetClusterDetailsOutput {
-  @SerializedName("Alicloud")
-  private AlicloudForGetClusterDetailsOutput alicloud = null;
+  @SerializedName("AuthorizedNetworks")
+  private List<AuthorizedNetworkForGetClusterDetailsOutput> authorizedNetworks = null;
 
-  @SerializedName("Aws")
-  private AwsForGetClusterDetailsOutput aws = null;
+  @SerializedName("Disabled")
+  private Boolean disabled = null;
 
   @SerializedName("Host")
   private String host = null;
@@ -44,42 +45,61 @@ public class PrivateEndpointForGetClusterDetailsOutput {
   @SerializedName("Port")
   private Integer port = null;
 
-  public PrivateEndpointForGetClusterDetailsOutput alicloud(AlicloudForGetClusterDetailsOutput alicloud) {
-    this.alicloud = alicloud;
+  @SerializedName("SecurityGroupCount")
+  private Integer securityGroupCount = null;
+
+  @SerializedName("ServiceName")
+  private String serviceName = null;
+
+  @SerializedName("VpcEndpointId")
+  private String vpcEndpointId = null;
+
+  @SerializedName("VpcEndpointName")
+  private String vpcEndpointName = null;
+
+  public PrivateEndpointForGetClusterDetailsOutput authorizedNetworks(List<AuthorizedNetworkForGetClusterDetailsOutput> authorizedNetworks) {
+    this.authorizedNetworks = authorizedNetworks;
+    return this;
+  }
+
+  public PrivateEndpointForGetClusterDetailsOutput addAuthorizedNetworksItem(AuthorizedNetworkForGetClusterDetailsOutput authorizedNetworksItem) {
+    if (this.authorizedNetworks == null) {
+      this.authorizedNetworks = new ArrayList<AuthorizedNetworkForGetClusterDetailsOutput>();
+    }
+    this.authorizedNetworks.add(authorizedNetworksItem);
     return this;
   }
 
    /**
-   * Get alicloud
-   * @return alicloud
+   * Get authorizedNetworks
+   * @return authorizedNetworks
   **/
   @Valid
   @Schema(description = "")
-  public AlicloudForGetClusterDetailsOutput getAlicloud() {
-    return alicloud;
+  public List<AuthorizedNetworkForGetClusterDetailsOutput> getAuthorizedNetworks() {
+    return authorizedNetworks;
   }
 
-  public void setAlicloud(AlicloudForGetClusterDetailsOutput alicloud) {
-    this.alicloud = alicloud;
+  public void setAuthorizedNetworks(List<AuthorizedNetworkForGetClusterDetailsOutput> authorizedNetworks) {
+    this.authorizedNetworks = authorizedNetworks;
   }
 
-  public PrivateEndpointForGetClusterDetailsOutput aws(AwsForGetClusterDetailsOutput aws) {
-    this.aws = aws;
+  public PrivateEndpointForGetClusterDetailsOutput disabled(Boolean disabled) {
+    this.disabled = disabled;
     return this;
   }
 
    /**
-   * Get aws
-   * @return aws
+   * Get disabled
+   * @return disabled
   **/
-  @Valid
   @Schema(description = "")
-  public AwsForGetClusterDetailsOutput getAws() {
-    return aws;
+  public Boolean isDisabled() {
+    return disabled;
   }
 
-  public void setAws(AwsForGetClusterDetailsOutput aws) {
-    this.aws = aws;
+  public void setDisabled(Boolean disabled) {
+    this.disabled = disabled;
   }
 
   public PrivateEndpointForGetClusterDetailsOutput host(String host) {
@@ -118,6 +138,78 @@ public class PrivateEndpointForGetClusterDetailsOutput {
     this.port = port;
   }
 
+  public PrivateEndpointForGetClusterDetailsOutput securityGroupCount(Integer securityGroupCount) {
+    this.securityGroupCount = securityGroupCount;
+    return this;
+  }
+
+   /**
+   * Get securityGroupCount
+   * @return securityGroupCount
+  **/
+  @Schema(description = "")
+  public Integer getSecurityGroupCount() {
+    return securityGroupCount;
+  }
+
+  public void setSecurityGroupCount(Integer securityGroupCount) {
+    this.securityGroupCount = securityGroupCount;
+  }
+
+  public PrivateEndpointForGetClusterDetailsOutput serviceName(String serviceName) {
+    this.serviceName = serviceName;
+    return this;
+  }
+
+   /**
+   * Get serviceName
+   * @return serviceName
+  **/
+  @Schema(description = "")
+  public String getServiceName() {
+    return serviceName;
+  }
+
+  public void setServiceName(String serviceName) {
+    this.serviceName = serviceName;
+  }
+
+  public PrivateEndpointForGetClusterDetailsOutput vpcEndpointId(String vpcEndpointId) {
+    this.vpcEndpointId = vpcEndpointId;
+    return this;
+  }
+
+   /**
+   * Get vpcEndpointId
+   * @return vpcEndpointId
+  **/
+  @Schema(description = "")
+  public String getVpcEndpointId() {
+    return vpcEndpointId;
+  }
+
+  public void setVpcEndpointId(String vpcEndpointId) {
+    this.vpcEndpointId = vpcEndpointId;
+  }
+
+  public PrivateEndpointForGetClusterDetailsOutput vpcEndpointName(String vpcEndpointName) {
+    this.vpcEndpointName = vpcEndpointName;
+    return this;
+  }
+
+   /**
+   * Get vpcEndpointName
+   * @return vpcEndpointName
+  **/
+  @Schema(description = "")
+  public String getVpcEndpointName() {
+    return vpcEndpointName;
+  }
+
+  public void setVpcEndpointName(String vpcEndpointName) {
+    this.vpcEndpointName = vpcEndpointName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,15 +220,19 @@ public class PrivateEndpointForGetClusterDetailsOutput {
       return false;
     }
     PrivateEndpointForGetClusterDetailsOutput privateEndpointForGetClusterDetailsOutput = (PrivateEndpointForGetClusterDetailsOutput) o;
-    return Objects.equals(this.alicloud, privateEndpointForGetClusterDetailsOutput.alicloud) &&
-        Objects.equals(this.aws, privateEndpointForGetClusterDetailsOutput.aws) &&
+    return Objects.equals(this.authorizedNetworks, privateEndpointForGetClusterDetailsOutput.authorizedNetworks) &&
+        Objects.equals(this.disabled, privateEndpointForGetClusterDetailsOutput.disabled) &&
         Objects.equals(this.host, privateEndpointForGetClusterDetailsOutput.host) &&
-        Objects.equals(this.port, privateEndpointForGetClusterDetailsOutput.port);
+        Objects.equals(this.port, privateEndpointForGetClusterDetailsOutput.port) &&
+        Objects.equals(this.securityGroupCount, privateEndpointForGetClusterDetailsOutput.securityGroupCount) &&
+        Objects.equals(this.serviceName, privateEndpointForGetClusterDetailsOutput.serviceName) &&
+        Objects.equals(this.vpcEndpointId, privateEndpointForGetClusterDetailsOutput.vpcEndpointId) &&
+        Objects.equals(this.vpcEndpointName, privateEndpointForGetClusterDetailsOutput.vpcEndpointName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alicloud, aws, host, port);
+    return Objects.hash(authorizedNetworks, disabled, host, port, securityGroupCount, serviceName, vpcEndpointId, vpcEndpointName);
   }
 
 
@@ -145,10 +241,14 @@ public class PrivateEndpointForGetClusterDetailsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrivateEndpointForGetClusterDetailsOutput {\n");
     
-    sb.append("    alicloud: ").append(toIndentedString(alicloud)).append("\n");
-    sb.append("    aws: ").append(toIndentedString(aws)).append("\n");
+    sb.append("    authorizedNetworks: ").append(toIndentedString(authorizedNetworks)).append("\n");
+    sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    securityGroupCount: ").append(toIndentedString(securityGroupCount)).append("\n");
+    sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    vpcEndpointId: ").append(toIndentedString(vpcEndpointId)).append("\n");
+    sb.append("    vpcEndpointName: ").append(toIndentedString(vpcEndpointName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

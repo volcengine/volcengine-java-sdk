@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.tidb.model.TagFilterForListClustersInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -44,6 +47,9 @@ public class ListClustersRequest {
 
   @SerializedName("Skip")
   private Integer skip = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForListClustersInput> tagFilters = null;
 
   public ListClustersRequest filter(String filter) {
     this.filter = filter;
@@ -135,6 +141,33 @@ public class ListClustersRequest {
     this.skip = skip;
   }
 
+  public ListClustersRequest tagFilters(List<TagFilterForListClustersInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public ListClustersRequest addTagFiltersItem(TagFilterForListClustersInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForListClustersInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForListClustersInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForListClustersInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,12 +182,13 @@ public class ListClustersRequest {
         Objects.equals(this.pageSize, listClustersRequest.pageSize) &&
         Objects.equals(this.pageToken, listClustersRequest.pageToken) &&
         Objects.equals(this.projectName, listClustersRequest.projectName) &&
-        Objects.equals(this.skip, listClustersRequest.skip);
+        Objects.equals(this.skip, listClustersRequest.skip) &&
+        Objects.equals(this.tagFilters, listClustersRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, pageSize, pageToken, projectName, skip);
+    return Objects.hash(filter, pageSize, pageToken, projectName, skip, tagFilters);
   }
 
 
@@ -168,6 +202,7 @@ public class ListClustersRequest {
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    skip: ").append(toIndentedString(skip)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

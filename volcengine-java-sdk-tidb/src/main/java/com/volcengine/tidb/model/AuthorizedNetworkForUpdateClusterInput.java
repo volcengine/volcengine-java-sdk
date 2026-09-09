@@ -33,11 +33,14 @@ public class AuthorizedNetworkForUpdateClusterInput {
   @SerializedName("DisplayName")
   private String displayName = null;
 
-  @SerializedName("EndIpAddress")
-  private String endIpAddress = null;
+  @SerializedName("SecurityGroupCount")
+  private Integer securityGroupCount = null;
 
-  @SerializedName("StartIpAddress")
-  private String startIpAddress = null;
+  @SerializedName("VpcEndpointId")
+  private String vpcEndpointId = null;
+
+  @SerializedName("VpcEndpointName")
+  private String vpcEndpointName = null;
 
   public AuthorizedNetworkForUpdateClusterInput displayName(String displayName) {
     this.displayName = displayName;
@@ -57,40 +60,58 @@ public class AuthorizedNetworkForUpdateClusterInput {
     this.displayName = displayName;
   }
 
-  public AuthorizedNetworkForUpdateClusterInput endIpAddress(String endIpAddress) {
-    this.endIpAddress = endIpAddress;
+  public AuthorizedNetworkForUpdateClusterInput securityGroupCount(Integer securityGroupCount) {
+    this.securityGroupCount = securityGroupCount;
     return this;
   }
 
    /**
-   * Get endIpAddress
-   * @return endIpAddress
+   * Get securityGroupCount
+   * @return securityGroupCount
   **/
   @Schema(description = "")
-  public String getEndIpAddress() {
-    return endIpAddress;
+  public Integer getSecurityGroupCount() {
+    return securityGroupCount;
   }
 
-  public void setEndIpAddress(String endIpAddress) {
-    this.endIpAddress = endIpAddress;
+  public void setSecurityGroupCount(Integer securityGroupCount) {
+    this.securityGroupCount = securityGroupCount;
   }
 
-  public AuthorizedNetworkForUpdateClusterInput startIpAddress(String startIpAddress) {
-    this.startIpAddress = startIpAddress;
+  public AuthorizedNetworkForUpdateClusterInput vpcEndpointId(String vpcEndpointId) {
+    this.vpcEndpointId = vpcEndpointId;
     return this;
   }
 
    /**
-   * Get startIpAddress
-   * @return startIpAddress
+   * Get vpcEndpointId
+   * @return vpcEndpointId
   **/
   @Schema(description = "")
-  public String getStartIpAddress() {
-    return startIpAddress;
+  public String getVpcEndpointId() {
+    return vpcEndpointId;
   }
 
-  public void setStartIpAddress(String startIpAddress) {
-    this.startIpAddress = startIpAddress;
+  public void setVpcEndpointId(String vpcEndpointId) {
+    this.vpcEndpointId = vpcEndpointId;
+  }
+
+  public AuthorizedNetworkForUpdateClusterInput vpcEndpointName(String vpcEndpointName) {
+    this.vpcEndpointName = vpcEndpointName;
+    return this;
+  }
+
+   /**
+   * Get vpcEndpointName
+   * @return vpcEndpointName
+  **/
+  @Schema(description = "")
+  public String getVpcEndpointName() {
+    return vpcEndpointName;
+  }
+
+  public void setVpcEndpointName(String vpcEndpointName) {
+    this.vpcEndpointName = vpcEndpointName;
   }
 
 
@@ -104,13 +125,14 @@ public class AuthorizedNetworkForUpdateClusterInput {
     }
     AuthorizedNetworkForUpdateClusterInput authorizedNetworkForUpdateClusterInput = (AuthorizedNetworkForUpdateClusterInput) o;
     return Objects.equals(this.displayName, authorizedNetworkForUpdateClusterInput.displayName) &&
-        Objects.equals(this.endIpAddress, authorizedNetworkForUpdateClusterInput.endIpAddress) &&
-        Objects.equals(this.startIpAddress, authorizedNetworkForUpdateClusterInput.startIpAddress);
+        Objects.equals(this.securityGroupCount, authorizedNetworkForUpdateClusterInput.securityGroupCount) &&
+        Objects.equals(this.vpcEndpointId, authorizedNetworkForUpdateClusterInput.vpcEndpointId) &&
+        Objects.equals(this.vpcEndpointName, authorizedNetworkForUpdateClusterInput.vpcEndpointName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, endIpAddress, startIpAddress);
+    return Objects.hash(displayName, securityGroupCount, vpcEndpointId, vpcEndpointName);
   }
 
 
@@ -120,8 +142,9 @@ public class AuthorizedNetworkForUpdateClusterInput {
     sb.append("class AuthorizedNetworkForUpdateClusterInput {\n");
     
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    endIpAddress: ").append(toIndentedString(endIpAddress)).append("\n");
-    sb.append("    startIpAddress: ").append(toIndentedString(startIpAddress)).append("\n");
+    sb.append("    securityGroupCount: ").append(toIndentedString(securityGroupCount)).append("\n");
+    sb.append("    vpcEndpointId: ").append(toIndentedString(vpcEndpointId)).append("\n");
+    sb.append("    vpcEndpointName: ").append(toIndentedString(vpcEndpointName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

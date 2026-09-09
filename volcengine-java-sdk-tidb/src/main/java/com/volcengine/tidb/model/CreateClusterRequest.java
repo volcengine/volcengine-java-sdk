@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.tidb.model.AutoScalingForCreateClusterInput;
 import com.volcengine.tidb.model.EncryptionConfigForCreateClusterInput;
+import com.volcengine.tidb.model.TagForCreateClusterInput;
 import com.volcengine.tidb.model.ZoneForCreateClusterInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -147,6 +148,9 @@ public class CreateClusterRequest {
     }
   }  @SerializedName("ServicePlan")
   private ServicePlanEnum servicePlan = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateClusterInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -282,6 +286,33 @@ public class CreateClusterRequest {
     this.servicePlan = servicePlan;
   }
 
+  public CreateClusterRequest tags(List<TagForCreateClusterInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateClusterRequest addTagsItem(TagForCreateClusterInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateClusterInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateClusterInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateClusterInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateClusterRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -345,13 +376,14 @@ public class CreateClusterRequest {
         Objects.equals(this.projectName, createClusterRequest.projectName) &&
         Objects.equals(this.regionId, createClusterRequest.regionId) &&
         Objects.equals(this.servicePlan, createClusterRequest.servicePlan) &&
+        Objects.equals(this.tags, createClusterRequest.tags) &&
         Objects.equals(this.vpcId, createClusterRequest.vpcId) &&
         Objects.equals(this.zones, createClusterRequest.zones);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, displayName, encryptionConfig, highAvailabilityType, projectName, regionId, servicePlan, vpcId, zones);
+    return Objects.hash(autoScaling, displayName, encryptionConfig, highAvailabilityType, projectName, regionId, servicePlan, tags, vpcId, zones);
   }
 
 
@@ -367,6 +399,7 @@ public class CreateClusterRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    servicePlan: ").append(toIndentedString(servicePlan)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
     sb.append("}");
