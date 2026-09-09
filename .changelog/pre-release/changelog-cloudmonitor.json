@@ -1,0 +1,14 @@
+{
+  "actions": [
+    "ListIntegrationCenterIntegrationConfigs",
+    "PerformIntegrationCenterIntegrationConfig",
+    "UpdateIntegrationCenterIntegrationConfig",
+    "CreateIntegrationCenterIntegrationConfig",
+    "GetMetricData",
+    "DeleteIntegrationCenterIntegrationConfig",
+    "GetIntegrationCenterIntegrationConfig"
+  ],
+  "description": "CLOUDMONITOR: 新增 DeleteIntegrationCenterIntegrationConfig, GetIntegrationCenterIntegrationConfig, ListIntegrationCenterIntegrationConfigs, PerformIntegrationCenterIntegrationConfig, UpdateIntegrationCenterIntegrationConfig, CreateIntegrationCenterIntegrationConfig；修改 GetMetricData",
+  "modules": "service/cloudmonitor",
+  "type": "feature"
+}
