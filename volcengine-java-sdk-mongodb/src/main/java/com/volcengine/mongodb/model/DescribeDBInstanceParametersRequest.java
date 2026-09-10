@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstanceParametersRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -40,11 +41,16 @@ public class DescribeDBInstanceParametersRequest {
    */
   @JsonAdapter(ParameterRoleEnum.Adapter.class)
   public enum ParameterRoleEnum {
-    CONFIGSERVER("ConfigServer"),
-    MONGOS("Mongos"),
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown"),
+    @SerializedName("Node")
     NODE("Node"),
+    @SerializedName("Shard")
     SHARD("Shard"),
-    UNKNOWN("Unknown");
+    @SerializedName("ConfigServer")
+    CONFIGSERVER("ConfigServer"),
+    @SerializedName("Mongos")
+    MONGOS("Mongos");
 
     private String value;
 

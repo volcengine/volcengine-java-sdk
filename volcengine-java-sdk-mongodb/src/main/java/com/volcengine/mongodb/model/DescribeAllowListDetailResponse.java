@@ -31,9 +31,13 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeAllowListDetailResponse {
+
+public class DescribeAllowListDetailResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AllowList")
   private String allowList = null;
+
+  @SerializedName("AllowListCategory")
+  private String allowListCategory = null;
 
   @SerializedName("AllowListDesc")
   private String allowListDesc = null;
@@ -49,6 +53,9 @@ public class DescribeAllowListDetailResponse {
 
   @SerializedName("AssociatedInstances")
   private List<AssociatedInstanceForDescribeAllowListDetailOutput> associatedInstances = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   public DescribeAllowListDetailResponse allowList(String allowList) {
     this.allowList = allowList;
@@ -66,6 +73,24 @@ public class DescribeAllowListDetailResponse {
 
   public void setAllowList(String allowList) {
     this.allowList = allowList;
+  }
+
+  public DescribeAllowListDetailResponse allowListCategory(String allowListCategory) {
+    this.allowListCategory = allowListCategory;
+    return this;
+  }
+
+   /**
+   * Get allowListCategory
+   * @return allowListCategory
+  **/
+  @Schema(description = "")
+  public String getAllowListCategory() {
+    return allowListCategory;
+  }
+
+  public void setAllowListCategory(String allowListCategory) {
+    this.allowListCategory = allowListCategory;
   }
 
   public DescribeAllowListDetailResponse allowListDesc(String allowListDesc) {
@@ -167,6 +192,24 @@ public class DescribeAllowListDetailResponse {
     this.associatedInstances = associatedInstances;
   }
 
+  public DescribeAllowListDetailResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -178,16 +221,18 @@ public class DescribeAllowListDetailResponse {
     }
     DescribeAllowListDetailResponse describeAllowListDetailResponse = (DescribeAllowListDetailResponse) o;
     return Objects.equals(this.allowList, describeAllowListDetailResponse.allowList) &&
+        Objects.equals(this.allowListCategory, describeAllowListDetailResponse.allowListCategory) &&
         Objects.equals(this.allowListDesc, describeAllowListDetailResponse.allowListDesc) &&
         Objects.equals(this.allowListId, describeAllowListDetailResponse.allowListId) &&
         Objects.equals(this.allowListName, describeAllowListDetailResponse.allowListName) &&
         Objects.equals(this.allowListType, describeAllowListDetailResponse.allowListType) &&
-        Objects.equals(this.associatedInstances, describeAllowListDetailResponse.associatedInstances);
+        Objects.equals(this.associatedInstances, describeAllowListDetailResponse.associatedInstances) &&
+        Objects.equals(this.projectName, describeAllowListDetailResponse.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, allowListType, associatedInstances);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, allowListType, associatedInstances, projectName);
   }
 
 
@@ -197,11 +242,13 @@ public class DescribeAllowListDetailResponse {
     sb.append("class DescribeAllowListDetailResponse {\n");
     
     sb.append("    allowList: ").append(toIndentedString(allowList)).append("\n");
+    sb.append("    allowListCategory: ").append(toIndentedString(allowListCategory)).append("\n");
     sb.append("    allowListDesc: ").append(toIndentedString(allowListDesc)).append("\n");
     sb.append("    allowListId: ").append(toIndentedString(allowListId)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
     sb.append("    associatedInstances: ").append(toIndentedString(associatedInstances)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

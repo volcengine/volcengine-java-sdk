@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateDBInstanceResponse {
+
+public class CreateDBInstanceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceId")
   private String instanceId = null;
 

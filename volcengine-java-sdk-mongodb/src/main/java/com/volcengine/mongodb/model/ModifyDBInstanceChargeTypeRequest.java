@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceChargeTypeRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -39,8 +40,11 @@ public class ModifyDBInstanceChargeTypeRequest {
    */
   @JsonAdapter(ChargeTypeEnum.Adapter.class)
   public enum ChargeTypeEnum {
+    @SerializedName("NotEnabled")
     NOTENABLED("NotEnabled"),
+    @SerializedName("PostPaid")
     POSTPAID("PostPaid"),
+    @SerializedName("Prepaid")
     PREPAID("Prepaid");
 
     private String value;
@@ -90,8 +94,10 @@ public class ModifyDBInstanceChargeTypeRequest {
    */
   @JsonAdapter(PeriodUnitEnum.Adapter.class)
   public enum PeriodUnitEnum {
-    MONTH("Month"),
-    YEAR("Year");
+    @SerializedName("Year")
+    YEAR("Year"),
+    @SerializedName("Month")
+    MONTH("Month");
 
     private String value;
 
@@ -156,7 +162,8 @@ public class ModifyDBInstanceChargeTypeRequest {
    * Get chargeType
    * @return chargeType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public ChargeTypeEnum getChargeType() {
     return chargeType;
   }

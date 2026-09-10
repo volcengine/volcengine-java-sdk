@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeAvailabilityZonesRequest {
   @SerializedName("RegionId")
   private String regionId = null;
@@ -41,7 +42,8 @@ public class DescribeAvailabilityZonesRequest {
    * Get regionId
    * @return regionId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegionId() {
     return regionId;
   }

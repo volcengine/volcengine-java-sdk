@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeAvailabilityZonesResponse {
+
+public class DescribeAvailabilityZonesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RegionId")
   private String regionId = null;
 

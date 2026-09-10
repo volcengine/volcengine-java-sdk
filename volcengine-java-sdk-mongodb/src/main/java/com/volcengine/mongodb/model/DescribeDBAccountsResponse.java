@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeDBAccountsResponse {
+
+public class DescribeDBAccountsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Accounts")
   private List<AccountForDescribeDBAccountsOutput> accounts = null;
 

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceSpecRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -37,7 +38,9 @@ public class ModifyDBInstanceSpecRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
+    @SerializedName("ReplicaSet")
     REPLICASET("ReplicaSet"),
+    @SerializedName("ShardedCluster")
     SHARDEDCLUSTER("ShardedCluster");
 
     private String value;
@@ -119,7 +122,8 @@ public class ModifyDBInstanceSpecRequest {
    * Get instanceType
    * @return instanceType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public InstanceTypeEnum getInstanceType() {
     return instanceType;
   }

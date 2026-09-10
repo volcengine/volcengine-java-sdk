@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceSSLRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -37,8 +38,11 @@ public class ModifyDBInstanceSSLRequest {
    */
   @JsonAdapter(SsLActionEnum.Adapter.class)
   public enum SsLActionEnum {
-    CLOSE("Close"),
+    @SerializedName("Open")
     OPEN("Open"),
+    @SerializedName("Close")
+    CLOSE("Close"),
+    @SerializedName("Update")
     UPDATE("Update");
 
     private String value;
@@ -105,7 +109,8 @@ public class ModifyDBInstanceSSLRequest {
    * Get ssLAction
    * @return ssLAction
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public SsLActionEnum getSsLAction() {
     return ssLAction;
   }

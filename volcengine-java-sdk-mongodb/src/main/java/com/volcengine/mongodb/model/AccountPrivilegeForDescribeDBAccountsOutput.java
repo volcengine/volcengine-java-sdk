@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AccountPrivilegeForDescribeDBAccountsOutput {
   @SerializedName("DBName")
   private String dbName = null;

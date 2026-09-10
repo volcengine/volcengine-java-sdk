@@ -28,15 +28,106 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConfigServerForDescribeDBInstanceDetailOutput {
   @SerializedName("ConfigServerNodeId")
   private String configServerNodeId = null;
 
-  @SerializedName("NodeRole")
-  private String nodeRole = null;
+  /**
+   * Gets or Sets nodeRole
+   */
+  @JsonAdapter(NodeRoleEnum.Adapter.class)
+  public enum NodeRoleEnum {
+    @SerializedName("Primary")
+    PRIMARY("Primary"),
+    @SerializedName("Secondary")
+    SECONDARY("Secondary"),
+    @SerializedName("Hidden")
+    HIDDEN("Hidden"),
+    @SerializedName("ReadOnly")
+    READONLY("ReadOnly");
 
-  @SerializedName("NodeStatus")
-  private String nodeStatus = null;
+    private String value;
+
+    NodeRoleEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NodeRoleEnum fromValue(String input) {
+      for (NodeRoleEnum b : NodeRoleEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NodeRoleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NodeRoleEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NodeRoleEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NodeRoleEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NodeRole")
+  private NodeRoleEnum nodeRole = null;
+
+  /**
+   * Gets or Sets nodeStatus
+   */
+  @JsonAdapter(NodeStatusEnum.Adapter.class)
+  public enum NodeStatusEnum {
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Error")
+    ERROR("Error");
+
+    private String value;
+
+    NodeStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NodeStatusEnum fromValue(String input) {
+      for (NodeStatusEnum b : NodeStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NodeStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NodeStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NodeStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NodeStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NodeStatus")
+  private NodeStatusEnum nodeStatus = null;
 
   @SerializedName("TotalMemoryGB")
   private Double totalMemoryGB = null;
@@ -49,6 +140,9 @@ public class ConfigServerForDescribeDBInstanceDetailOutput {
 
   @SerializedName("UsedvCPU")
   private Double usedvCPU = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
   public ConfigServerForDescribeDBInstanceDetailOutput configServerNodeId(String configServerNodeId) {
     this.configServerNodeId = configServerNodeId;
@@ -68,7 +162,7 @@ public class ConfigServerForDescribeDBInstanceDetailOutput {
     this.configServerNodeId = configServerNodeId;
   }
 
-  public ConfigServerForDescribeDBInstanceDetailOutput nodeRole(String nodeRole) {
+  public ConfigServerForDescribeDBInstanceDetailOutput nodeRole(NodeRoleEnum nodeRole) {
     this.nodeRole = nodeRole;
     return this;
   }
@@ -78,15 +172,15 @@ public class ConfigServerForDescribeDBInstanceDetailOutput {
    * @return nodeRole
   **/
   @Schema(description = "")
-  public String getNodeRole() {
+  public NodeRoleEnum getNodeRole() {
     return nodeRole;
   }
 
-  public void setNodeRole(String nodeRole) {
+  public void setNodeRole(NodeRoleEnum nodeRole) {
     this.nodeRole = nodeRole;
   }
 
-  public ConfigServerForDescribeDBInstanceDetailOutput nodeStatus(String nodeStatus) {
+  public ConfigServerForDescribeDBInstanceDetailOutput nodeStatus(NodeStatusEnum nodeStatus) {
     this.nodeStatus = nodeStatus;
     return this;
   }
@@ -96,11 +190,11 @@ public class ConfigServerForDescribeDBInstanceDetailOutput {
    * @return nodeStatus
   **/
   @Schema(description = "")
-  public String getNodeStatus() {
+  public NodeStatusEnum getNodeStatus() {
     return nodeStatus;
   }
 
-  public void setNodeStatus(String nodeStatus) {
+  public void setNodeStatus(NodeStatusEnum nodeStatus) {
     this.nodeStatus = nodeStatus;
   }
 
@@ -176,6 +270,24 @@ public class ConfigServerForDescribeDBInstanceDetailOutput {
     this.usedvCPU = usedvCPU;
   }
 
+  public ConfigServerForDescribeDBInstanceDetailOutput zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -192,12 +304,13 @@ public class ConfigServerForDescribeDBInstanceDetailOutput {
         Objects.equals(this.totalMemoryGB, configServerForDescribeDBInstanceDetailOutput.totalMemoryGB) &&
         Objects.equals(this.totalvCPU, configServerForDescribeDBInstanceDetailOutput.totalvCPU) &&
         Objects.equals(this.usedMemoryGB, configServerForDescribeDBInstanceDetailOutput.usedMemoryGB) &&
-        Objects.equals(this.usedvCPU, configServerForDescribeDBInstanceDetailOutput.usedvCPU);
+        Objects.equals(this.usedvCPU, configServerForDescribeDBInstanceDetailOutput.usedvCPU) &&
+        Objects.equals(this.zoneId, configServerForDescribeDBInstanceDetailOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configServerNodeId, nodeRole, nodeStatus, totalMemoryGB, totalvCPU, usedMemoryGB, usedvCPU);
+    return Objects.hash(configServerNodeId, nodeRole, nodeStatus, totalMemoryGB, totalvCPU, usedMemoryGB, usedvCPU, zoneId);
   }
 
 
@@ -213,6 +326,7 @@ public class ConfigServerForDescribeDBInstanceDetailOutput {
     sb.append("    totalvCPU: ").append(toIndentedString(totalvCPU)).append("\n");
     sb.append("    usedMemoryGB: ").append(toIndentedString(usedMemoryGB)).append("\n");
     sb.append("    usedvCPU: ").append(toIndentedString(usedvCPU)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

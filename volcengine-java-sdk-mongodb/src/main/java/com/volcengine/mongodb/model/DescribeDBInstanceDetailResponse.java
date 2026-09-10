@@ -29,7 +29,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeDBInstanceDetailResponse {
+
+public class DescribeDBInstanceDetailResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DBInstance")
   private DBInstanceForDescribeDBInstanceDetailOutput dbInstance = null;
 

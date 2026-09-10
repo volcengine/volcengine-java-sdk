@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DBAddressForDescribeDBEndpointOutput {
   @SerializedName("AddressDomain")
   private String addressDomain = null;
@@ -38,14 +39,64 @@ public class DBAddressForDescribeDBEndpointOutput {
   @SerializedName("AddressPort")
   private String addressPort = null;
 
-  @SerializedName("AddressType")
-  private String addressType = null;
+  /**
+   * Gets or Sets addressType
+   */
+  @JsonAdapter(AddressTypeEnum.Adapter.class)
+  public enum AddressTypeEnum {
+    @SerializedName("Primary")
+    PRIMARY("Primary"),
+    @SerializedName("Secondary")
+    SECONDARY("Secondary"),
+    @SerializedName("Hidden")
+    HIDDEN("Hidden"),
+    @SerializedName("ReadyOnly")
+    READYONLY("ReadyOnly");
+
+    private String value;
+
+    AddressTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AddressTypeEnum fromValue(String input) {
+      for (AddressTypeEnum b : AddressTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AddressTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AddressTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AddressTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AddressTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AddressType")
+  private AddressTypeEnum addressType = null;
 
   @SerializedName("EipId")
   private String eipId = null;
 
   @SerializedName("NodeId")
   private String nodeId = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
   public DBAddressForDescribeDBEndpointOutput addressDomain(String addressDomain) {
     this.addressDomain = addressDomain;
@@ -101,7 +152,7 @@ public class DBAddressForDescribeDBEndpointOutput {
     this.addressPort = addressPort;
   }
 
-  public DBAddressForDescribeDBEndpointOutput addressType(String addressType) {
+  public DBAddressForDescribeDBEndpointOutput addressType(AddressTypeEnum addressType) {
     this.addressType = addressType;
     return this;
   }
@@ -111,11 +162,11 @@ public class DBAddressForDescribeDBEndpointOutput {
    * @return addressType
   **/
   @Schema(description = "")
-  public String getAddressType() {
+  public AddressTypeEnum getAddressType() {
     return addressType;
   }
 
-  public void setAddressType(String addressType) {
+  public void setAddressType(AddressTypeEnum addressType) {
     this.addressType = addressType;
   }
 
@@ -155,6 +206,24 @@ public class DBAddressForDescribeDBEndpointOutput {
     this.nodeId = nodeId;
   }
 
+  public DBAddressForDescribeDBEndpointOutput zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,12 +239,13 @@ public class DBAddressForDescribeDBEndpointOutput {
         Objects.equals(this.addressPort, dbAddressForDescribeDBEndpointOutput.addressPort) &&
         Objects.equals(this.addressType, dbAddressForDescribeDBEndpointOutput.addressType) &&
         Objects.equals(this.eipId, dbAddressForDescribeDBEndpointOutput.eipId) &&
-        Objects.equals(this.nodeId, dbAddressForDescribeDBEndpointOutput.nodeId);
+        Objects.equals(this.nodeId, dbAddressForDescribeDBEndpointOutput.nodeId) &&
+        Objects.equals(this.zoneId, dbAddressForDescribeDBEndpointOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressDomain, addressIP, addressPort, addressType, eipId, nodeId);
+    return Objects.hash(addressDomain, addressIP, addressPort, addressType, eipId, nodeId, zoneId);
   }
 
 
@@ -190,6 +260,7 @@ public class DBAddressForDescribeDBEndpointOutput {
     sb.append("    addressType: ").append(toIndentedString(addressType)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

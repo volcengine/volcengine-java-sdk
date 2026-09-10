@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AssociateAllowListRequest {
   @SerializedName("AllowListIds")
   private List<String> allowListIds = null;

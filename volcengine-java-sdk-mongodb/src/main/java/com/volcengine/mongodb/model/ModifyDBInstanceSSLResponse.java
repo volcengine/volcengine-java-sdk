@@ -21,7 +21,8 @@ import javax.validation.Valid;
  */
 
 
-public class ModifyDBInstanceSSLResponse {
+
+public class ModifyDBInstanceSSLResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {

@@ -28,9 +28,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBAccountsRequest {
   @SerializedName("AccountName")
   private String accountName = null;
+
+  @SerializedName("AuthDB")
+  private String authDB = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -57,6 +61,24 @@ public class DescribeDBAccountsRequest {
 
   public void setAccountName(String accountName) {
     this.accountName = accountName;
+  }
+
+  public DescribeDBAccountsRequest authDB(String authDB) {
+    this.authDB = authDB;
+    return this;
+  }
+
+   /**
+   * Get authDB
+   * @return authDB
+  **/
+  @Schema(description = "")
+  public String getAuthDB() {
+    return authDB;
+  }
+
+  public void setAuthDB(String authDB) {
+    this.authDB = authDB;
   }
 
   public DescribeDBAccountsRequest instanceId(String instanceId) {
@@ -125,6 +147,7 @@ public class DescribeDBAccountsRequest {
     }
     DescribeDBAccountsRequest describeDBAccountsRequest = (DescribeDBAccountsRequest) o;
     return Objects.equals(this.accountName, describeDBAccountsRequest.accountName) &&
+        Objects.equals(this.authDB, describeDBAccountsRequest.authDB) &&
         Objects.equals(this.instanceId, describeDBAccountsRequest.instanceId) &&
         Objects.equals(this.pageNumber, describeDBAccountsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDBAccountsRequest.pageSize);
@@ -132,7 +155,7 @@ public class DescribeDBAccountsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, instanceId, pageNumber, pageSize);
+    return Objects.hash(accountName, authDB, instanceId, pageNumber, pageSize);
   }
 
 
@@ -142,6 +165,7 @@ public class DescribeDBAccountsRequest {
     sb.append("class DescribeDBAccountsRequest {\n");
     
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    authDB: ").append(toIndentedString(authDB)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
