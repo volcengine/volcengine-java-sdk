@@ -19,12 +19,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.tidb.model.AnnotationForUpdateClusterInput;
 import com.volcengine.tidb.model.AuditLogConfigForUpdateClusterInput;
 import com.volcengine.tidb.model.AutoScalingForUpdateClusterInput;
 import com.volcengine.tidb.model.AutomatedBackupPolicyForUpdateClusterInput;
 import com.volcengine.tidb.model.EncryptionConfigForUpdateClusterInput;
 import com.volcengine.tidb.model.EndpointsForUpdateClusterInput;
+import com.volcengine.tidb.model.LabelForUpdateClusterInput;
 import com.volcengine.tidb.model.SpendingLimitForUpdateClusterInput;
+import com.volcengine.tidb.model.TagForUpdateClusterInput;
 import com.volcengine.tidb.model.ZoneForUpdateClusterInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -40,7 +43,7 @@ import javax.validation.Valid;
 
 public class ClusterForUpdateClusterInput {
   @SerializedName("Annotations")
-  private String annotations = null;
+  private List<AnnotationForUpdateClusterInput> annotations = null;
 
   @SerializedName("AuditLogConfig")
   private AuditLogConfigForUpdateClusterInput auditLogConfig = null;
@@ -113,7 +116,7 @@ public class ClusterForUpdateClusterInput {
   private HighAvailabilityTypeEnum highAvailabilityType = null;
 
   @SerializedName("Labels")
-  private String labels = null;
+  private List<LabelForUpdateClusterInput> labels = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -247,6 +250,9 @@ public class ClusterForUpdateClusterInput {
   }  @SerializedName("State")
   private StateEnum state = null;
 
+  @SerializedName("Tags")
+  private List<TagForUpdateClusterInput> tags = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -262,8 +268,16 @@ public class ClusterForUpdateClusterInput {
   @SerializedName("Zones")
   private List<ZoneForUpdateClusterInput> zones = null;
 
-  public ClusterForUpdateClusterInput annotations(String annotations) {
+  public ClusterForUpdateClusterInput annotations(List<AnnotationForUpdateClusterInput> annotations) {
     this.annotations = annotations;
+    return this;
+  }
+
+  public ClusterForUpdateClusterInput addAnnotationsItem(AnnotationForUpdateClusterInput annotationsItem) {
+    if (this.annotations == null) {
+      this.annotations = new ArrayList<AnnotationForUpdateClusterInput>();
+    }
+    this.annotations.add(annotationsItem);
     return this;
   }
 
@@ -271,12 +285,13 @@ public class ClusterForUpdateClusterInput {
    * Get annotations
    * @return annotations
   **/
+  @Valid
   @Schema(description = "")
-  public String getAnnotations() {
+  public List<AnnotationForUpdateClusterInput> getAnnotations() {
     return annotations;
   }
 
-  public void setAnnotations(String annotations) {
+  public void setAnnotations(List<AnnotationForUpdateClusterInput> annotations) {
     this.annotations = annotations;
   }
 
@@ -447,8 +462,16 @@ public class ClusterForUpdateClusterInput {
     this.highAvailabilityType = highAvailabilityType;
   }
 
-  public ClusterForUpdateClusterInput labels(String labels) {
+  public ClusterForUpdateClusterInput labels(List<LabelForUpdateClusterInput> labels) {
     this.labels = labels;
+    return this;
+  }
+
+  public ClusterForUpdateClusterInput addLabelsItem(LabelForUpdateClusterInput labelsItem) {
+    if (this.labels == null) {
+      this.labels = new ArrayList<LabelForUpdateClusterInput>();
+    }
+    this.labels.add(labelsItem);
     return this;
   }
 
@@ -456,12 +479,13 @@ public class ClusterForUpdateClusterInput {
    * Get labels
    * @return labels
   **/
+  @Valid
   @Schema(description = "")
-  public String getLabels() {
+  public List<LabelForUpdateClusterInput> getLabels() {
     return labels;
   }
 
-  public void setLabels(String labels) {
+  public void setLabels(List<LabelForUpdateClusterInput> labels) {
     this.labels = labels;
   }
 
@@ -572,6 +596,33 @@ public class ClusterForUpdateClusterInput {
 
   public void setState(StateEnum state) {
     this.state = state;
+  }
+
+  public ClusterForUpdateClusterInput tags(List<TagForUpdateClusterInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ClusterForUpdateClusterInput addTagsItem(TagForUpdateClusterInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForUpdateClusterInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForUpdateClusterInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForUpdateClusterInput> tags) {
+    this.tags = tags;
   }
 
   public ClusterForUpdateClusterInput updateTime(String updateTime) {
@@ -700,6 +751,7 @@ public class ClusterForUpdateClusterInput {
         Objects.equals(this.servicePlan, clusterForUpdateClusterInput.servicePlan) &&
         Objects.equals(this.spendingLimit, clusterForUpdateClusterInput.spendingLimit) &&
         Objects.equals(this.state, clusterForUpdateClusterInput.state) &&
+        Objects.equals(this.tags, clusterForUpdateClusterInput.tags) &&
         Objects.equals(this.updateTime, clusterForUpdateClusterInput.updateTime) &&
         Objects.equals(this.userPrefix, clusterForUpdateClusterInput.userPrefix) &&
         Objects.equals(this.version, clusterForUpdateClusterInput.version) &&
@@ -709,7 +761,7 @@ public class ClusterForUpdateClusterInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, auditLogConfig, autoScaling, automatedBackupPolicy, clusterId, createTime, displayName, encryptionConfig, endpoints, highAvailabilityType, labels, name, projectName, regionId, servicePlan, spendingLimit, state, updateTime, userPrefix, version, vpcId, zones);
+    return Objects.hash(annotations, auditLogConfig, autoScaling, automatedBackupPolicy, clusterId, createTime, displayName, encryptionConfig, endpoints, highAvailabilityType, labels, name, projectName, regionId, servicePlan, spendingLimit, state, tags, updateTime, userPrefix, version, vpcId, zones);
   }
 
 
@@ -735,6 +787,7 @@ public class ClusterForUpdateClusterInput {
     sb.append("    servicePlan: ").append(toIndentedString(servicePlan)).append("\n");
     sb.append("    spendingLimit: ").append(toIndentedString(spendingLimit)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    userPrefix: ").append(toIndentedString(userPrefix)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.tidb.model.AutoScalingForDescribePriceDetailInput;
 import com.volcengine.tidb.model.EncryptionConfigForDescribePriceDetailInput;
+import com.volcengine.tidb.model.TagForDescribePriceDetailInput;
 import com.volcengine.tidb.model.ZoneForDescribePriceDetailInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -147,6 +148,9 @@ public class CreateReqForDescribePriceDetailInput {
     }
   }  @SerializedName("ServicePlan")
   private ServicePlanEnum servicePlan = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribePriceDetailInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -282,6 +286,33 @@ public class CreateReqForDescribePriceDetailInput {
     this.servicePlan = servicePlan;
   }
 
+  public CreateReqForDescribePriceDetailInput tags(List<TagForDescribePriceDetailInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateReqForDescribePriceDetailInput addTagsItem(TagForDescribePriceDetailInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribePriceDetailInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribePriceDetailInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribePriceDetailInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateReqForDescribePriceDetailInput vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -344,13 +375,14 @@ public class CreateReqForDescribePriceDetailInput {
         Objects.equals(this.projectName, createReqForDescribePriceDetailInput.projectName) &&
         Objects.equals(this.regionId, createReqForDescribePriceDetailInput.regionId) &&
         Objects.equals(this.servicePlan, createReqForDescribePriceDetailInput.servicePlan) &&
+        Objects.equals(this.tags, createReqForDescribePriceDetailInput.tags) &&
         Objects.equals(this.vpcId, createReqForDescribePriceDetailInput.vpcId) &&
         Objects.equals(this.zones, createReqForDescribePriceDetailInput.zones);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, displayName, encryptionConfig, highAvailabilityType, projectName, regionId, servicePlan, vpcId, zones);
+    return Objects.hash(autoScaling, displayName, encryptionConfig, highAvailabilityType, projectName, regionId, servicePlan, tags, vpcId, zones);
   }
 
 
@@ -366,6 +398,7 @@ public class CreateReqForDescribePriceDetailInput {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    servicePlan: ").append(toIndentedString(servicePlan)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
     sb.append("}");

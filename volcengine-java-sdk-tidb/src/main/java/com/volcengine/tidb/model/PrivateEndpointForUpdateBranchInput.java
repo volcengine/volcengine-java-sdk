@@ -19,10 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AlicloudForUpdateBranchInput;
-import com.volcengine.tidb.model.AwsForUpdateBranchInput;
+import com.volcengine.tidb.model.AuthorizedNetworkForUpdateBranchInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,11 +33,11 @@ import javax.validation.Valid;
 
 
 public class PrivateEndpointForUpdateBranchInput {
-  @SerializedName("Alicloud")
-  private AlicloudForUpdateBranchInput alicloud = null;
+  @SerializedName("AuthorizedNetworks")
+  private List<AuthorizedNetworkForUpdateBranchInput> authorizedNetworks = null;
 
-  @SerializedName("Aws")
-  private AwsForUpdateBranchInput aws = null;
+  @SerializedName("Disabled")
+  private Boolean disabled = null;
 
   @SerializedName("Host")
   private String host = null;
@@ -44,42 +45,61 @@ public class PrivateEndpointForUpdateBranchInput {
   @SerializedName("Port")
   private Integer port = null;
 
-  public PrivateEndpointForUpdateBranchInput alicloud(AlicloudForUpdateBranchInput alicloud) {
-    this.alicloud = alicloud;
+  @SerializedName("SecurityGroupCount")
+  private Integer securityGroupCount = null;
+
+  @SerializedName("ServiceName")
+  private String serviceName = null;
+
+  @SerializedName("VpcEndpointId")
+  private String vpcEndpointId = null;
+
+  @SerializedName("VpcEndpointName")
+  private String vpcEndpointName = null;
+
+  public PrivateEndpointForUpdateBranchInput authorizedNetworks(List<AuthorizedNetworkForUpdateBranchInput> authorizedNetworks) {
+    this.authorizedNetworks = authorizedNetworks;
+    return this;
+  }
+
+  public PrivateEndpointForUpdateBranchInput addAuthorizedNetworksItem(AuthorizedNetworkForUpdateBranchInput authorizedNetworksItem) {
+    if (this.authorizedNetworks == null) {
+      this.authorizedNetworks = new ArrayList<AuthorizedNetworkForUpdateBranchInput>();
+    }
+    this.authorizedNetworks.add(authorizedNetworksItem);
     return this;
   }
 
    /**
-   * Get alicloud
-   * @return alicloud
+   * Get authorizedNetworks
+   * @return authorizedNetworks
   **/
   @Valid
   @Schema(description = "")
-  public AlicloudForUpdateBranchInput getAlicloud() {
-    return alicloud;
+  public List<AuthorizedNetworkForUpdateBranchInput> getAuthorizedNetworks() {
+    return authorizedNetworks;
   }
 
-  public void setAlicloud(AlicloudForUpdateBranchInput alicloud) {
-    this.alicloud = alicloud;
+  public void setAuthorizedNetworks(List<AuthorizedNetworkForUpdateBranchInput> authorizedNetworks) {
+    this.authorizedNetworks = authorizedNetworks;
   }
 
-  public PrivateEndpointForUpdateBranchInput aws(AwsForUpdateBranchInput aws) {
-    this.aws = aws;
+  public PrivateEndpointForUpdateBranchInput disabled(Boolean disabled) {
+    this.disabled = disabled;
     return this;
   }
 
    /**
-   * Get aws
-   * @return aws
+   * Get disabled
+   * @return disabled
   **/
-  @Valid
   @Schema(description = "")
-  public AwsForUpdateBranchInput getAws() {
-    return aws;
+  public Boolean isDisabled() {
+    return disabled;
   }
 
-  public void setAws(AwsForUpdateBranchInput aws) {
-    this.aws = aws;
+  public void setDisabled(Boolean disabled) {
+    this.disabled = disabled;
   }
 
   public PrivateEndpointForUpdateBranchInput host(String host) {
@@ -118,6 +138,78 @@ public class PrivateEndpointForUpdateBranchInput {
     this.port = port;
   }
 
+  public PrivateEndpointForUpdateBranchInput securityGroupCount(Integer securityGroupCount) {
+    this.securityGroupCount = securityGroupCount;
+    return this;
+  }
+
+   /**
+   * Get securityGroupCount
+   * @return securityGroupCount
+  **/
+  @Schema(description = "")
+  public Integer getSecurityGroupCount() {
+    return securityGroupCount;
+  }
+
+  public void setSecurityGroupCount(Integer securityGroupCount) {
+    this.securityGroupCount = securityGroupCount;
+  }
+
+  public PrivateEndpointForUpdateBranchInput serviceName(String serviceName) {
+    this.serviceName = serviceName;
+    return this;
+  }
+
+   /**
+   * Get serviceName
+   * @return serviceName
+  **/
+  @Schema(description = "")
+  public String getServiceName() {
+    return serviceName;
+  }
+
+  public void setServiceName(String serviceName) {
+    this.serviceName = serviceName;
+  }
+
+  public PrivateEndpointForUpdateBranchInput vpcEndpointId(String vpcEndpointId) {
+    this.vpcEndpointId = vpcEndpointId;
+    return this;
+  }
+
+   /**
+   * Get vpcEndpointId
+   * @return vpcEndpointId
+  **/
+  @Schema(description = "")
+  public String getVpcEndpointId() {
+    return vpcEndpointId;
+  }
+
+  public void setVpcEndpointId(String vpcEndpointId) {
+    this.vpcEndpointId = vpcEndpointId;
+  }
+
+  public PrivateEndpointForUpdateBranchInput vpcEndpointName(String vpcEndpointName) {
+    this.vpcEndpointName = vpcEndpointName;
+    return this;
+  }
+
+   /**
+   * Get vpcEndpointName
+   * @return vpcEndpointName
+  **/
+  @Schema(description = "")
+  public String getVpcEndpointName() {
+    return vpcEndpointName;
+  }
+
+  public void setVpcEndpointName(String vpcEndpointName) {
+    this.vpcEndpointName = vpcEndpointName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,15 +220,19 @@ public class PrivateEndpointForUpdateBranchInput {
       return false;
     }
     PrivateEndpointForUpdateBranchInput privateEndpointForUpdateBranchInput = (PrivateEndpointForUpdateBranchInput) o;
-    return Objects.equals(this.alicloud, privateEndpointForUpdateBranchInput.alicloud) &&
-        Objects.equals(this.aws, privateEndpointForUpdateBranchInput.aws) &&
+    return Objects.equals(this.authorizedNetworks, privateEndpointForUpdateBranchInput.authorizedNetworks) &&
+        Objects.equals(this.disabled, privateEndpointForUpdateBranchInput.disabled) &&
         Objects.equals(this.host, privateEndpointForUpdateBranchInput.host) &&
-        Objects.equals(this.port, privateEndpointForUpdateBranchInput.port);
+        Objects.equals(this.port, privateEndpointForUpdateBranchInput.port) &&
+        Objects.equals(this.securityGroupCount, privateEndpointForUpdateBranchInput.securityGroupCount) &&
+        Objects.equals(this.serviceName, privateEndpointForUpdateBranchInput.serviceName) &&
+        Objects.equals(this.vpcEndpointId, privateEndpointForUpdateBranchInput.vpcEndpointId) &&
+        Objects.equals(this.vpcEndpointName, privateEndpointForUpdateBranchInput.vpcEndpointName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alicloud, aws, host, port);
+    return Objects.hash(authorizedNetworks, disabled, host, port, securityGroupCount, serviceName, vpcEndpointId, vpcEndpointName);
   }
 
 
@@ -145,10 +241,14 @@ public class PrivateEndpointForUpdateBranchInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrivateEndpointForUpdateBranchInput {\n");
     
-    sb.append("    alicloud: ").append(toIndentedString(alicloud)).append("\n");
-    sb.append("    aws: ").append(toIndentedString(aws)).append("\n");
+    sb.append("    authorizedNetworks: ").append(toIndentedString(authorizedNetworks)).append("\n");
+    sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    securityGroupCount: ").append(toIndentedString(securityGroupCount)).append("\n");
+    sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    vpcEndpointId: ").append(toIndentedString(vpcEndpointId)).append("\n");
+    sb.append("    vpcEndpointName: ").append(toIndentedString(vpcEndpointName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

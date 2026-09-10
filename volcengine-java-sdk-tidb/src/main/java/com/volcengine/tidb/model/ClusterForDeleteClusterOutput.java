@@ -19,12 +19,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.tidb.model.AnnotationForDeleteClusterOutput;
 import com.volcengine.tidb.model.AuditLogConfigForDeleteClusterOutput;
 import com.volcengine.tidb.model.AutoScalingForDeleteClusterOutput;
 import com.volcengine.tidb.model.AutomatedBackupPolicyForDeleteClusterOutput;
 import com.volcengine.tidb.model.EncryptionConfigForDeleteClusterOutput;
 import com.volcengine.tidb.model.EndpointsForDeleteClusterOutput;
+import com.volcengine.tidb.model.LabelForDeleteClusterOutput;
 import com.volcengine.tidb.model.SpendingLimitForDeleteClusterOutput;
+import com.volcengine.tidb.model.TagForDeleteClusterOutput;
 import com.volcengine.tidb.model.ZoneForDeleteClusterOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -40,7 +43,7 @@ import javax.validation.Valid;
 
 public class ClusterForDeleteClusterOutput {
   @SerializedName("Annotations")
-  private String annotations = null;
+  private List<AnnotationForDeleteClusterOutput> annotations = null;
 
   @SerializedName("AuditLogConfig")
   private AuditLogConfigForDeleteClusterOutput auditLogConfig = null;
@@ -113,7 +116,7 @@ public class ClusterForDeleteClusterOutput {
   private HighAvailabilityTypeEnum highAvailabilityType = null;
 
   @SerializedName("Labels")
-  private String labels = null;
+  private List<LabelForDeleteClusterOutput> labels = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -247,6 +250,9 @@ public class ClusterForDeleteClusterOutput {
   }  @SerializedName("State")
   private StateEnum state = null;
 
+  @SerializedName("Tags")
+  private List<TagForDeleteClusterOutput> tags = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -262,8 +268,16 @@ public class ClusterForDeleteClusterOutput {
   @SerializedName("Zones")
   private List<ZoneForDeleteClusterOutput> zones = null;
 
-  public ClusterForDeleteClusterOutput annotations(String annotations) {
+  public ClusterForDeleteClusterOutput annotations(List<AnnotationForDeleteClusterOutput> annotations) {
     this.annotations = annotations;
+    return this;
+  }
+
+  public ClusterForDeleteClusterOutput addAnnotationsItem(AnnotationForDeleteClusterOutput annotationsItem) {
+    if (this.annotations == null) {
+      this.annotations = new ArrayList<AnnotationForDeleteClusterOutput>();
+    }
+    this.annotations.add(annotationsItem);
     return this;
   }
 
@@ -271,12 +285,13 @@ public class ClusterForDeleteClusterOutput {
    * Get annotations
    * @return annotations
   **/
+  @Valid
   @Schema(description = "")
-  public String getAnnotations() {
+  public List<AnnotationForDeleteClusterOutput> getAnnotations() {
     return annotations;
   }
 
-  public void setAnnotations(String annotations) {
+  public void setAnnotations(List<AnnotationForDeleteClusterOutput> annotations) {
     this.annotations = annotations;
   }
 
@@ -447,8 +462,16 @@ public class ClusterForDeleteClusterOutput {
     this.highAvailabilityType = highAvailabilityType;
   }
 
-  public ClusterForDeleteClusterOutput labels(String labels) {
+  public ClusterForDeleteClusterOutput labels(List<LabelForDeleteClusterOutput> labels) {
     this.labels = labels;
+    return this;
+  }
+
+  public ClusterForDeleteClusterOutput addLabelsItem(LabelForDeleteClusterOutput labelsItem) {
+    if (this.labels == null) {
+      this.labels = new ArrayList<LabelForDeleteClusterOutput>();
+    }
+    this.labels.add(labelsItem);
     return this;
   }
 
@@ -456,12 +479,13 @@ public class ClusterForDeleteClusterOutput {
    * Get labels
    * @return labels
   **/
+  @Valid
   @Schema(description = "")
-  public String getLabels() {
+  public List<LabelForDeleteClusterOutput> getLabels() {
     return labels;
   }
 
-  public void setLabels(String labels) {
+  public void setLabels(List<LabelForDeleteClusterOutput> labels) {
     this.labels = labels;
   }
 
@@ -572,6 +596,33 @@ public class ClusterForDeleteClusterOutput {
 
   public void setState(StateEnum state) {
     this.state = state;
+  }
+
+  public ClusterForDeleteClusterOutput tags(List<TagForDeleteClusterOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ClusterForDeleteClusterOutput addTagsItem(TagForDeleteClusterOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDeleteClusterOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDeleteClusterOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDeleteClusterOutput> tags) {
+    this.tags = tags;
   }
 
   public ClusterForDeleteClusterOutput updateTime(String updateTime) {
@@ -700,6 +751,7 @@ public class ClusterForDeleteClusterOutput {
         Objects.equals(this.servicePlan, clusterForDeleteClusterOutput.servicePlan) &&
         Objects.equals(this.spendingLimit, clusterForDeleteClusterOutput.spendingLimit) &&
         Objects.equals(this.state, clusterForDeleteClusterOutput.state) &&
+        Objects.equals(this.tags, clusterForDeleteClusterOutput.tags) &&
         Objects.equals(this.updateTime, clusterForDeleteClusterOutput.updateTime) &&
         Objects.equals(this.userPrefix, clusterForDeleteClusterOutput.userPrefix) &&
         Objects.equals(this.version, clusterForDeleteClusterOutput.version) &&
@@ -709,7 +761,7 @@ public class ClusterForDeleteClusterOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, auditLogConfig, autoScaling, automatedBackupPolicy, clusterId, createTime, displayName, encryptionConfig, endpoints, highAvailabilityType, labels, name, projectName, regionId, servicePlan, spendingLimit, state, updateTime, userPrefix, version, vpcId, zones);
+    return Objects.hash(annotations, auditLogConfig, autoScaling, automatedBackupPolicy, clusterId, createTime, displayName, encryptionConfig, endpoints, highAvailabilityType, labels, name, projectName, regionId, servicePlan, spendingLimit, state, tags, updateTime, userPrefix, version, vpcId, zones);
   }
 
 
@@ -735,6 +787,7 @@ public class ClusterForDeleteClusterOutput {
     sb.append("    servicePlan: ").append(toIndentedString(servicePlan)).append("\n");
     sb.append("    spendingLimit: ").append(toIndentedString(spendingLimit)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    userPrefix: ").append(toIndentedString(userPrefix)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

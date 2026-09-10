@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AuthorizedNetworkForGetClusterDetailsOutput;
+import com.volcengine.tidb.model.ConvertAuthorizedNetworkForGetClusterDetailsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class PublicEndpointForGetClusterDetailsOutput {
   @SerializedName("AuthorizedNetworks")
-  private List<AuthorizedNetworkForGetClusterDetailsOutput> authorizedNetworks = null;
+  private List<ConvertAuthorizedNetworkForGetClusterDetailsOutput> authorizedNetworks = null;
 
   @SerializedName("Disabled")
   private Boolean disabled = null;
@@ -45,14 +45,14 @@ public class PublicEndpointForGetClusterDetailsOutput {
   @SerializedName("Port")
   private Integer port = null;
 
-  public PublicEndpointForGetClusterDetailsOutput authorizedNetworks(List<AuthorizedNetworkForGetClusterDetailsOutput> authorizedNetworks) {
+  public PublicEndpointForGetClusterDetailsOutput authorizedNetworks(List<ConvertAuthorizedNetworkForGetClusterDetailsOutput> authorizedNetworks) {
     this.authorizedNetworks = authorizedNetworks;
     return this;
   }
 
-  public PublicEndpointForGetClusterDetailsOutput addAuthorizedNetworksItem(AuthorizedNetworkForGetClusterDetailsOutput authorizedNetworksItem) {
+  public PublicEndpointForGetClusterDetailsOutput addAuthorizedNetworksItem(ConvertAuthorizedNetworkForGetClusterDetailsOutput authorizedNetworksItem) {
     if (this.authorizedNetworks == null) {
-      this.authorizedNetworks = new ArrayList<AuthorizedNetworkForGetClusterDetailsOutput>();
+      this.authorizedNetworks = new ArrayList<ConvertAuthorizedNetworkForGetClusterDetailsOutput>();
     }
     this.authorizedNetworks.add(authorizedNetworksItem);
     return this;
@@ -64,11 +64,11 @@ public class PublicEndpointForGetClusterDetailsOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<AuthorizedNetworkForGetClusterDetailsOutput> getAuthorizedNetworks() {
+  public List<ConvertAuthorizedNetworkForGetClusterDetailsOutput> getAuthorizedNetworks() {
     return authorizedNetworks;
   }
 
-  public void setAuthorizedNetworks(List<AuthorizedNetworkForGetClusterDetailsOutput> authorizedNetworks) {
+  public void setAuthorizedNetworks(List<ConvertAuthorizedNetworkForGetClusterDetailsOutput> authorizedNetworks) {
     this.authorizedNetworks = authorizedNetworks;
   }
 

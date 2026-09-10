@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AuthorizedNetworkForUpdateClusterInput;
+import com.volcengine.tidb.model.ConvertAuthorizedNetworkForUpdateClusterInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class PublicEndpointForUpdateClusterInput {
   @SerializedName("AuthorizedNetworks")
-  private List<AuthorizedNetworkForUpdateClusterInput> authorizedNetworks = null;
+  private List<ConvertAuthorizedNetworkForUpdateClusterInput> authorizedNetworks = null;
 
   @SerializedName("Disabled")
   private Boolean disabled = null;
@@ -45,14 +45,14 @@ public class PublicEndpointForUpdateClusterInput {
   @SerializedName("Port")
   private Integer port = null;
 
-  public PublicEndpointForUpdateClusterInput authorizedNetworks(List<AuthorizedNetworkForUpdateClusterInput> authorizedNetworks) {
+  public PublicEndpointForUpdateClusterInput authorizedNetworks(List<ConvertAuthorizedNetworkForUpdateClusterInput> authorizedNetworks) {
     this.authorizedNetworks = authorizedNetworks;
     return this;
   }
 
-  public PublicEndpointForUpdateClusterInput addAuthorizedNetworksItem(AuthorizedNetworkForUpdateClusterInput authorizedNetworksItem) {
+  public PublicEndpointForUpdateClusterInput addAuthorizedNetworksItem(ConvertAuthorizedNetworkForUpdateClusterInput authorizedNetworksItem) {
     if (this.authorizedNetworks == null) {
-      this.authorizedNetworks = new ArrayList<AuthorizedNetworkForUpdateClusterInput>();
+      this.authorizedNetworks = new ArrayList<ConvertAuthorizedNetworkForUpdateClusterInput>();
     }
     this.authorizedNetworks.add(authorizedNetworksItem);
     return this;
@@ -64,11 +64,11 @@ public class PublicEndpointForUpdateClusterInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<AuthorizedNetworkForUpdateClusterInput> getAuthorizedNetworks() {
+  public List<ConvertAuthorizedNetworkForUpdateClusterInput> getAuthorizedNetworks() {
     return authorizedNetworks;
   }
 
-  public void setAuthorizedNetworks(List<AuthorizedNetworkForUpdateClusterInput> authorizedNetworks) {
+  public void setAuthorizedNetworks(List<ConvertAuthorizedNetworkForUpdateClusterInput> authorizedNetworks) {
     this.authorizedNetworks = authorizedNetworks;
   }
 
