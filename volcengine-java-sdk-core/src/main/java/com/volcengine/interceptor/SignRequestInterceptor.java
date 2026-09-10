@@ -7,6 +7,9 @@ import com.volcengine.Pair;
 import com.volcengine.ProgressRequestBody;
 import com.volcengine.auth.CredentialProvider;
 import com.volcengine.auth.CredentialValue;
+import com.volcengine.auth.OidcCredentialProvider;
+import com.volcengine.auth.SamlCredentialProvider;
+import com.volcengine.auth.StsAssumeRoleProvider;
 import com.volcengine.sign.Credentials;
 import com.volcengine.sign.ServiceInfo;
 import com.volcengine.sign.VolcstackSign;
@@ -58,6 +61,11 @@ public class SignRequestInterceptor implements RequestInterceptor {
                 );
                 context.getApiClient().setCredentialProvider(credentialProvider);
             }
+            // When an STS/OIDC/SAML provider has no explicit proxyUrl, fall back to
+            // the ApiClient's httpProxy/httpsProxy (and HTTP(S)_PROXY env) so the
+            // credential-fetch request reuses the same proxy configuration as the
+            // business API client. Explicit proxyUrl on the provider always wins.
+            applyProxyFallback(credentialProvider, context.getApiClient());
             CredentialValue credentialValue = credentialProvider.get();
             if (credentialValue == null) {
                 throw new ApiException("credentialProvider return null");
@@ -134,6 +142,36 @@ public class SignRequestInterceptor implements RequestInterceptor {
         }
         context.getRequestContext().setRequest(request);
         return context;
+    }
+
+    /**
+     * Fall back to the ApiClient's proxy configuration for STS/OIDC/SAML
+     * providers that have no explicit proxyUrl. Mirrors the Go SDK behaviour
+     * where NewSession transfers Config.HTTPProxy/HTTPSProxy to the credential
+     * provider. Only fills the gap: an explicit proxyUrl on the provider is
+     * left untouched.
+     */
+    private static void applyProxyFallback(CredentialProvider credentialProvider, com.volcengine.ApiClient apiClient) {
+        if (credentialProvider == null || apiClient == null) {
+            return;
+        }
+        Object provider = credentialProvider.getProvider();
+        if (provider instanceof StsAssumeRoleProvider) {
+            StsAssumeRoleProvider p = (StsAssumeRoleProvider) provider;
+            if (StringUtils.isEmpty(p.getProxyUrl())) {
+                p.setProxyUrl(apiClient.resolveCredsProxy());
+            }
+        } else if (provider instanceof OidcCredentialProvider) {
+            OidcCredentialProvider p = (OidcCredentialProvider) provider;
+            if (StringUtils.isEmpty(p.getProxyUrl())) {
+                p.setProxyUrl(apiClient.resolveCredsProxy());
+            }
+        } else if (provider instanceof SamlCredentialProvider) {
+            SamlCredentialProvider p = (SamlCredentialProvider) provider;
+            if (StringUtils.isEmpty(p.getProxyUrl())) {
+                p.setProxyUrl(apiClient.resolveCredsProxy());
+            }
+        }
     }
 
     private static void setHeader(Map<String, String> headers, String name, String value) {

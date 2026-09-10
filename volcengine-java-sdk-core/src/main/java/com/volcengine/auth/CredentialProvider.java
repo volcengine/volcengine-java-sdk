@@ -16,6 +16,10 @@ public class CredentialProvider {
         readWriteLock = new ReentrantReadWriteLock();
     }
 
+    public Provider getProvider() {
+        return provider;
+    }
+
     public CredentialValue get() throws ApiException {
         try {
             readWriteLock.readLock().lock();

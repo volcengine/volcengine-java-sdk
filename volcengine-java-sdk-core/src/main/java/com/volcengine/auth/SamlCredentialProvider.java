@@ -173,6 +173,10 @@ public class SamlCredentialProvider implements Provider {
         this.retryIntervalMs = retryIntervalMs;
     }
 
+    public String getProxyUrl() {
+        return proxyUrl;
+    }
+
     /**
      * Set the forward proxy for reaching the STS endpoint, format
      * {@code scheme://[user:password@]host:port}. When empty, JVM default proxy

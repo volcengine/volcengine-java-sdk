@@ -695,6 +695,36 @@ public class ApiClient extends BaseClient{
     }
 
     /**
+     * Resolve the proxy URL used by STS/OIDC/SAML credential providers when the
+     * provider itself has no explicit proxyUrl configured.
+     *
+     * <p>The selection rule mirrors {@link #updateClientProxy()} for the business
+     * API client, so credential-fetch requests share the same proxy semantics:
+     * when {@code disableSSL} is true the HTTP side is used, otherwise the HTTPS
+     * side; within each side the {@code ApiClient} field takes precedence, then
+     * the upper-case environment variable, then the lower-case one.
+     *
+     * @return the resolved proxy URL, or {@code null} if none is configured.
+     */
+    public String resolveCredsProxy() {
+        if (disableSSL) {
+            return firstNonEmpty(httpProxy, "HTTP_PROXY");
+        }
+        return firstNonEmpty(httpsProxy, "HTTPS_PROXY");
+    }
+
+    private static String firstNonEmpty(String value, String env) {
+        if (!StringUtils.isEmpty(value)) {
+            return value;
+        }
+        String envProxy = System.getenv(env.toUpperCase());
+        if (StringUtils.isEmpty(envProxy)) {
+            envProxy = System.getenv(env.toLowerCase());
+        }
+        return StringUtils.isEmpty(envProxy) ? null : envProxy;
+    }
+
+    /**
      * Format the given parameter object into string.
      *
      * @param param Parameter
