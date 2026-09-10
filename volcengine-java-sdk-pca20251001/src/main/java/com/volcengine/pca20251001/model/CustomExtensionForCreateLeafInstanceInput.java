@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CustomExtensionsForCreateSubInstanceInput
+ * CustomExtensionForCreateLeafInstanceInput
  */
 
 
 
-public class CustomExtensionsForCreateSubInstanceInput {
+public class CustomExtensionForCreateLeafInstanceInput {
   @SerializedName("Critical")
   private Boolean critical = null;
 
@@ -39,7 +39,10 @@ public class CustomExtensionsForCreateSubInstanceInput {
   @SerializedName("Value")
   private String value = null;
 
-  public CustomExtensionsForCreateSubInstanceInput critical(Boolean critical) {
+  @SerializedName("ValueBytes")
+  private String valueBytes = null;
+
+  public CustomExtensionForCreateLeafInstanceInput critical(Boolean critical) {
     this.critical = critical;
     return this;
   }
@@ -57,7 +60,7 @@ public class CustomExtensionsForCreateSubInstanceInput {
     this.critical = critical;
   }
 
-  public CustomExtensionsForCreateSubInstanceInput objectIdentifier(String objectIdentifier) {
+  public CustomExtensionForCreateLeafInstanceInput objectIdentifier(String objectIdentifier) {
     this.objectIdentifier = objectIdentifier;
     return this;
   }
@@ -75,7 +78,7 @@ public class CustomExtensionsForCreateSubInstanceInput {
     this.objectIdentifier = objectIdentifier;
   }
 
-  public CustomExtensionsForCreateSubInstanceInput value(String value) {
+  public CustomExtensionForCreateLeafInstanceInput value(String value) {
     this.value = value;
     return this;
   }
@@ -93,6 +96,24 @@ public class CustomExtensionsForCreateSubInstanceInput {
     this.value = value;
   }
 
+  public CustomExtensionForCreateLeafInstanceInput valueBytes(String valueBytes) {
+    this.valueBytes = valueBytes;
+    return this;
+  }
+
+   /**
+   * Get valueBytes
+   * @return valueBytes
+  **/
+  @Schema(description = "")
+  public String getValueBytes() {
+    return valueBytes;
+  }
+
+  public void setValueBytes(String valueBytes) {
+    this.valueBytes = valueBytes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,26 +123,28 @@ public class CustomExtensionsForCreateSubInstanceInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CustomExtensionsForCreateSubInstanceInput customExtensionsForCreateSubInstanceInput = (CustomExtensionsForCreateSubInstanceInput) o;
-    return Objects.equals(this.critical, customExtensionsForCreateSubInstanceInput.critical) &&
-        Objects.equals(this.objectIdentifier, customExtensionsForCreateSubInstanceInput.objectIdentifier) &&
-        Objects.equals(this.value, customExtensionsForCreateSubInstanceInput.value);
+    CustomExtensionForCreateLeafInstanceInput customExtensionForCreateLeafInstanceInput = (CustomExtensionForCreateLeafInstanceInput) o;
+    return Objects.equals(this.critical, customExtensionForCreateLeafInstanceInput.critical) &&
+        Objects.equals(this.objectIdentifier, customExtensionForCreateLeafInstanceInput.objectIdentifier) &&
+        Objects.equals(this.value, customExtensionForCreateLeafInstanceInput.value) &&
+        Objects.equals(this.valueBytes, customExtensionForCreateLeafInstanceInput.valueBytes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(critical, objectIdentifier, value);
+    return Objects.hash(critical, objectIdentifier, value, valueBytes);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CustomExtensionsForCreateSubInstanceInput {\n");
+    sb.append("class CustomExtensionForCreateLeafInstanceInput {\n");
     
     sb.append("    critical: ").append(toIndentedString(critical)).append("\n");
     sb.append("    objectIdentifier: ").append(toIndentedString(objectIdentifier)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    valueBytes: ").append(toIndentedString(valueBytes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

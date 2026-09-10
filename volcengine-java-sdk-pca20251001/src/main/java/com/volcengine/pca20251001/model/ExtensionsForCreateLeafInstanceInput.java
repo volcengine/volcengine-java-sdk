@@ -19,11 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.pca20251001.model.CustomExtensionsForCreateLeafInstanceInput;
+import com.volcengine.pca20251001.model.CustomExtensionForCreateLeafInstanceInput;
 import com.volcengine.pca20251001.model.ExtendedKeyUsagesForCreateLeafInstanceInput;
 import com.volcengine.pca20251001.model.KeyUsagesForCreateLeafInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,7 +36,7 @@ import javax.validation.Valid;
 
 public class ExtensionsForCreateLeafInstanceInput {
   @SerializedName("CustomExtensions")
-  private CustomExtensionsForCreateLeafInstanceInput customExtensions = null;
+  private List<CustomExtensionForCreateLeafInstanceInput> customExtensions = null;
 
   @SerializedName("ExtendedKeyUsages")
   private ExtendedKeyUsagesForCreateLeafInstanceInput extendedKeyUsages = null;
@@ -42,8 +44,16 @@ public class ExtensionsForCreateLeafInstanceInput {
   @SerializedName("KeyUsages")
   private KeyUsagesForCreateLeafInstanceInput keyUsages = null;
 
-  public ExtensionsForCreateLeafInstanceInput customExtensions(CustomExtensionsForCreateLeafInstanceInput customExtensions) {
+  public ExtensionsForCreateLeafInstanceInput customExtensions(List<CustomExtensionForCreateLeafInstanceInput> customExtensions) {
     this.customExtensions = customExtensions;
+    return this;
+  }
+
+  public ExtensionsForCreateLeafInstanceInput addCustomExtensionsItem(CustomExtensionForCreateLeafInstanceInput customExtensionsItem) {
+    if (this.customExtensions == null) {
+      this.customExtensions = new ArrayList<CustomExtensionForCreateLeafInstanceInput>();
+    }
+    this.customExtensions.add(customExtensionsItem);
     return this;
   }
 
@@ -53,11 +63,11 @@ public class ExtensionsForCreateLeafInstanceInput {
   **/
   @Valid
   @Schema(description = "")
-  public CustomExtensionsForCreateLeafInstanceInput getCustomExtensions() {
+  public List<CustomExtensionForCreateLeafInstanceInput> getCustomExtensions() {
     return customExtensions;
   }
 
-  public void setCustomExtensions(CustomExtensionsForCreateLeafInstanceInput customExtensions) {
+  public void setCustomExtensions(List<CustomExtensionForCreateLeafInstanceInput> customExtensions) {
     this.customExtensions = customExtensions;
   }
 

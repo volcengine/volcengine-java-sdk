@@ -19,11 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.pca20251001.model.CustomExtensionsForCreateSubInstanceInput;
+import com.volcengine.pca20251001.model.CustomExtensionForCreateSubInstanceInput;
 import com.volcengine.pca20251001.model.ExtendedKeyUsagesForCreateSubInstanceInput;
 import com.volcengine.pca20251001.model.KeyUsagesForCreateSubInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,7 +36,7 @@ import javax.validation.Valid;
 
 public class ExtensionsForCreateSubInstanceInput {
   @SerializedName("CustomExtensions")
-  private CustomExtensionsForCreateSubInstanceInput customExtensions = null;
+  private List<CustomExtensionForCreateSubInstanceInput> customExtensions = null;
 
   @SerializedName("ExtendedKeyUsages")
   private ExtendedKeyUsagesForCreateSubInstanceInput extendedKeyUsages = null;
@@ -42,8 +44,16 @@ public class ExtensionsForCreateSubInstanceInput {
   @SerializedName("KeyUsages")
   private KeyUsagesForCreateSubInstanceInput keyUsages = null;
 
-  public ExtensionsForCreateSubInstanceInput customExtensions(CustomExtensionsForCreateSubInstanceInput customExtensions) {
+  public ExtensionsForCreateSubInstanceInput customExtensions(List<CustomExtensionForCreateSubInstanceInput> customExtensions) {
     this.customExtensions = customExtensions;
+    return this;
+  }
+
+  public ExtensionsForCreateSubInstanceInput addCustomExtensionsItem(CustomExtensionForCreateSubInstanceInput customExtensionsItem) {
+    if (this.customExtensions == null) {
+      this.customExtensions = new ArrayList<CustomExtensionForCreateSubInstanceInput>();
+    }
+    this.customExtensions.add(customExtensionsItem);
     return this;
   }
 
@@ -53,11 +63,11 @@ public class ExtensionsForCreateSubInstanceInput {
   **/
   @Valid
   @Schema(description = "")
-  public CustomExtensionsForCreateSubInstanceInput getCustomExtensions() {
+  public List<CustomExtensionForCreateSubInstanceInput> getCustomExtensions() {
     return customExtensions;
   }
 
-  public void setCustomExtensions(CustomExtensionsForCreateSubInstanceInput customExtensions) {
+  public void setCustomExtensions(List<CustomExtensionForCreateSubInstanceInput> customExtensions) {
     this.customExtensions = customExtensions;
   }
 

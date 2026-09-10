@@ -24,58 +24,37 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CustomExtensionsForCreateRootInstanceInput
+ * TagForListC2PAInstancesOutput
  */
 
 
 
-public class CustomExtensionsForCreateRootInstanceInput {
-  @SerializedName("Critical")
-  private Boolean critical = null;
-
-  @SerializedName("ObjectIdentifier")
-  private String objectIdentifier = null;
+public class TagForListC2PAInstancesOutput {
+  @SerializedName("Key")
+  private String key = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public CustomExtensionsForCreateRootInstanceInput critical(Boolean critical) {
-    this.critical = critical;
+  public TagForListC2PAInstancesOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get critical
-   * @return critical
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public Boolean isCritical() {
-    return critical;
+  public String getKey() {
+    return key;
   }
 
-  public void setCritical(Boolean critical) {
-    this.critical = critical;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public CustomExtensionsForCreateRootInstanceInput objectIdentifier(String objectIdentifier) {
-    this.objectIdentifier = objectIdentifier;
-    return this;
-  }
-
-   /**
-   * Get objectIdentifier
-   * @return objectIdentifier
-  **/
-  @Schema(description = "")
-  public String getObjectIdentifier() {
-    return objectIdentifier;
-  }
-
-  public void setObjectIdentifier(String objectIdentifier) {
-    this.objectIdentifier = objectIdentifier;
-  }
-
-  public CustomExtensionsForCreateRootInstanceInput value(String value) {
+  public TagForListC2PAInstancesOutput value(String value) {
     this.value = value;
     return this;
   }
@@ -102,25 +81,23 @@ public class CustomExtensionsForCreateRootInstanceInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CustomExtensionsForCreateRootInstanceInput customExtensionsForCreateRootInstanceInput = (CustomExtensionsForCreateRootInstanceInput) o;
-    return Objects.equals(this.critical, customExtensionsForCreateRootInstanceInput.critical) &&
-        Objects.equals(this.objectIdentifier, customExtensionsForCreateRootInstanceInput.objectIdentifier) &&
-        Objects.equals(this.value, customExtensionsForCreateRootInstanceInput.value);
+    TagForListC2PAInstancesOutput tagForListC2PAInstancesOutput = (TagForListC2PAInstancesOutput) o;
+    return Objects.equals(this.key, tagForListC2PAInstancesOutput.key) &&
+        Objects.equals(this.value, tagForListC2PAInstancesOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(critical, objectIdentifier, value);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CustomExtensionsForCreateRootInstanceInput {\n");
+    sb.append("class TagForListC2PAInstancesOutput {\n");
     
-    sb.append("    critical: ").append(toIndentedString(critical)).append("\n");
-    sb.append("    objectIdentifier: ").append(toIndentedString(objectIdentifier)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
