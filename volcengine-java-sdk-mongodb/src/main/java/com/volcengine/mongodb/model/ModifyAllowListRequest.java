@@ -28,9 +28,56 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyAllowListRequest {
   @SerializedName("AllowList")
   private String allowList = null;
+
+  /**
+   * Gets or Sets allowListCategory
+   */
+  @JsonAdapter(AllowListCategoryEnum.Adapter.class)
+  public enum AllowListCategoryEnum {
+    @SerializedName("Ordinary")
+    ORDINARY("Ordinary"),
+    @SerializedName("Default")
+    DEFAULT("Default");
+
+    private String value;
+
+    AllowListCategoryEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AllowListCategoryEnum fromValue(String input) {
+      for (AllowListCategoryEnum b : AllowListCategoryEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AllowListCategoryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AllowListCategoryEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AllowListCategoryEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AllowListCategoryEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AllowListCategory")
+  private AllowListCategoryEnum allowListCategory = null;
 
   @SerializedName("AllowListDesc")
   private String allowListDesc = null;
@@ -49,8 +96,11 @@ public class ModifyAllowListRequest {
    */
   @JsonAdapter(ModifyModeEnum.Adapter.class)
   public enum ModifyModeEnum {
-    APPEND("Append"),
+    @SerializedName("Cover")
     COVER("Cover"),
+    @SerializedName("Append")
+    APPEND("Append"),
+    @SerializedName("Delete")
     DELETE("Delete");
 
     private String value;
@@ -107,6 +157,24 @@ public class ModifyAllowListRequest {
     this.allowList = allowList;
   }
 
+  public ModifyAllowListRequest allowListCategory(AllowListCategoryEnum allowListCategory) {
+    this.allowListCategory = allowListCategory;
+    return this;
+  }
+
+   /**
+   * Get allowListCategory
+   * @return allowListCategory
+  **/
+  @Schema(description = "")
+  public AllowListCategoryEnum getAllowListCategory() {
+    return allowListCategory;
+  }
+
+  public void setAllowListCategory(AllowListCategoryEnum allowListCategory) {
+    this.allowListCategory = allowListCategory;
+  }
+
   public ModifyAllowListRequest allowListDesc(String allowListDesc) {
     this.allowListDesc = allowListDesc;
     return this;
@@ -134,7 +202,8 @@ public class ModifyAllowListRequest {
    * Get allowListId
    * @return allowListId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAllowListId() {
     return allowListId;
   }
@@ -152,7 +221,8 @@ public class ModifyAllowListRequest {
    * Get allowListName
    * @return allowListName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAllowListName() {
     return allowListName;
   }
@@ -208,6 +278,7 @@ public class ModifyAllowListRequest {
     }
     ModifyAllowListRequest modifyAllowListRequest = (ModifyAllowListRequest) o;
     return Objects.equals(this.allowList, modifyAllowListRequest.allowList) &&
+        Objects.equals(this.allowListCategory, modifyAllowListRequest.allowListCategory) &&
         Objects.equals(this.allowListDesc, modifyAllowListRequest.allowListDesc) &&
         Objects.equals(this.allowListId, modifyAllowListRequest.allowListId) &&
         Objects.equals(this.allowListName, modifyAllowListRequest.allowListName) &&
@@ -217,7 +288,7 @@ public class ModifyAllowListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode);
   }
 
 
@@ -227,6 +298,7 @@ public class ModifyAllowListRequest {
     sb.append("class ModifyAllowListRequest {\n");
     
     sb.append("    allowList: ").append(toIndentedString(allowList)).append("\n");
+    sb.append("    allowListCategory: ").append(toIndentedString(allowListCategory)).append("\n");
     sb.append("    allowListDesc: ").append(toIndentedString(allowListDesc)).append("\n");
     sb.append("    allowListId: ").append(toIndentedString(allowListId)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");

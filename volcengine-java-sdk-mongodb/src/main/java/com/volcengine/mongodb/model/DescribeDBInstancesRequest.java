@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mongodb.model.FilterByTagForDescribeDBInstancesInput;
 import com.volcengine.mongodb.model.TagFilterForDescribeDBInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -29,6 +30,7 @@ import javax.validation.Valid;
 /**
  * DescribeDBInstancesRequest
  */
+
 
 
 public class DescribeDBInstancesRequest {
@@ -43,6 +45,7 @@ public class DescribeDBInstancesRequest {
    */
   @JsonAdapter(DbEngineEnum.Adapter.class)
   public enum DbEngineEnum {
+    @SerializedName("MongoDB")
     MONGODB("MongoDB");
 
     private String value;
@@ -86,8 +89,18 @@ public class DescribeDBInstancesRequest {
    */
   @JsonAdapter(DbEngineVersionEnum.Adapter.class)
   public enum DbEngineVersionEnum {
-    _4_0("MongoDB_4_0"),
-    _5_0("MongoDB_5_0");
+    @SerializedName("MongoDB_4_0")
+    MONGODB_4_0("MongoDB_4_0"),
+    @SerializedName("MongoDB_4_2")
+    MONGODB_4_2("MongoDB_4_2"),
+    @SerializedName("MongoDB_4_4")
+    MONGODB_4_4("MongoDB_4_4"),
+    @SerializedName("MongoDB_5_0")
+    MONGODB_5_0("MongoDB_5_0"),
+    @SerializedName("MongoDB_6_0")
+    MONGODB_6_0("MongoDB_6_0"),
+    @SerializedName("MongoDB_Inner_4_0")
+    MONGODB_INNER_4_0("MongoDB_Inner_4_0");
 
     private String value;
 
@@ -125,6 +138,9 @@ public class DescribeDBInstancesRequest {
   }  @SerializedName("DBEngineVersion")
   private DbEngineVersionEnum dbEngineVersion = null;
 
+  @SerializedName("FilterByTags")
+  private List<FilterByTagForDescribeDBInstancesInput> filterByTags = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -136,37 +152,80 @@ public class DescribeDBInstancesRequest {
    */
   @JsonAdapter(InstanceStatusEnum.Adapter.class)
   public enum InstanceStatusEnum {
-    ALLOWLISTMAINTAINING("AllowListMaintaining"),
-    CLOSED("Closed"),
-    CLOSING("Closing"),
-    CREATEFAILED("CreateFailed"),
+    @SerializedName("Creating")
     CREATING("Creating"),
-    DELETED("Deleted"),
-    DELETING("Deleting"),
-    DESTROYED("Destroyed"),
-    DESTROYING("Destroying"),
-    ERROR("Error"),
-    IMPORTING("Importing"),
-    MIGRATING("Migrating"),
-    NETCREATING("NetCreating"),
-    NETRELEASING("NetReleasing"),
-    NETWORKMAINTAINING("NetworkMaintaining"),
-    REBUILDING("Rebuilding"),
-    RECLAIMING("Reclaiming"),
-    RECYCLED("Recycled"),
-    RELEASED("Released"),
-    RESTARTING("Restarting"),
-    RESTORING("Restoring"),
-    RESUMING("Resuming"),
+    @SerializedName("Running")
     RUNNING("Running"),
-    SSLUPDATING("SSLUpdating"),
-    SCALING("Scaling"),
-    TDEMAINTAINING("TDEMaintaining"),
-    TASKFAILED_AVAILABLE("TaskFailed_Available"),
-    UNAVAILABLE("Unavailable"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Destroying")
+    DESTROYING("Destroying"),
+    @SerializedName("Restarting")
+    RESTARTING("Restarting"),
+    @SerializedName("Rebuilding")
+    REBUILDING("Rebuilding"),
+    @SerializedName("Updating")
     UPDATING("Updating"),
+    @SerializedName("Migrating")
+    MIGRATING("Migrating"),
+    @SerializedName("Restoring")
+    RESTORING("Restoring"),
+    @SerializedName("Importing")
+    IMPORTING("Importing"),
+    @SerializedName("Error")
+    ERROR("Error"),
+    @SerializedName("Scaling")
+    SCALING("Scaling"),
+    @SerializedName("Upgrading")
     UPGRADING("Upgrading"),
-    WAITINGPAID("WaitingPaid");
+    @SerializedName("Deleted")
+    DELETED("Deleted"),
+    @SerializedName("Recycled")
+    RECYCLED("Recycled"),
+    @SerializedName("Closed")
+    CLOSED("Closed"),
+    @SerializedName("CreateFailed")
+    CREATEFAILED("CreateFailed"),
+    @SerializedName("NetCreating")
+    NETCREATING("NetCreating"),
+    @SerializedName("NetReleasing")
+    NETRELEASING("NetReleasing"),
+    @SerializedName("WaitingPaid")
+    WAITINGPAID("WaitingPaid"),
+    @SerializedName("Closing")
+    CLOSING("Closing"),
+    @SerializedName("Released")
+    RELEASED("Released"),
+    @SerializedName("Destroyed")
+    DESTROYED("Destroyed"),
+    @SerializedName("Reclaiming")
+    RECLAIMING("Reclaiming"),
+    @SerializedName("Resuming")
+    RESUMING("Resuming"),
+    @SerializedName("AllowListMaintaining")
+    ALLOWLISTMAINTAINING("AllowListMaintaining"),
+    @SerializedName("TaskFailed_Available")
+    TASKFAILED_AVAILABLE("TaskFailed_Available"),
+    @SerializedName("Unavailable")
+    UNAVAILABLE("Unavailable"),
+    @SerializedName("NetworkMaintaining")
+    NETWORKMAINTAINING("NetworkMaintaining"),
+    @SerializedName("TDEMaintaining")
+    TDEMAINTAINING("TDEMaintaining"),
+    @SerializedName("SSLUpdating")
+    SSLUPDATING("SSLUpdating"),
+    @SerializedName("SwitchMastering")
+    SWITCHMASTERING("SwitchMastering"),
+    @SerializedName("Temporary")
+    TEMPORARY("Temporary"),
+    @SerializedName("RoleChanging")
+    ROLECHANGING("RoleChanging"),
+    @SerializedName("CrossClusterMigrating")
+    CROSSCLUSTERMIGRATING("CrossClusterMigrating"),
+    @SerializedName("CrossNodeMigrating")
+    CROSSNODEMIGRATING("CrossNodeMigrating"),
+    @SerializedName("MultiAzMigrating")
+    MULTIAZMIGRATING("MultiAzMigrating");
 
     private String value;
 
@@ -209,7 +268,9 @@ public class DescribeDBInstancesRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
+    @SerializedName("ReplicaSet")
     REPLICASET("ReplicaSet"),
+    @SerializedName("ShardedCluster")
     SHARDEDCLUSTER("ShardedCluster");
 
     private String value;
@@ -253,6 +314,9 @@ public class DescribeDBInstancesRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeDBInstancesInput> tagFilters = null;
@@ -341,6 +405,33 @@ public class DescribeDBInstancesRequest {
     this.dbEngineVersion = dbEngineVersion;
   }
 
+  public DescribeDBInstancesRequest filterByTags(List<FilterByTagForDescribeDBInstancesInput> filterByTags) {
+    this.filterByTags = filterByTags;
+    return this;
+  }
+
+  public DescribeDBInstancesRequest addFilterByTagsItem(FilterByTagForDescribeDBInstancesInput filterByTagsItem) {
+    if (this.filterByTags == null) {
+      this.filterByTags = new ArrayList<FilterByTagForDescribeDBInstancesInput>();
+    }
+    this.filterByTags.add(filterByTagsItem);
+    return this;
+  }
+
+   /**
+   * Get filterByTags
+   * @return filterByTags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FilterByTagForDescribeDBInstancesInput> getFilterByTags() {
+    return filterByTags;
+  }
+
+  public void setFilterByTags(List<FilterByTagForDescribeDBInstancesInput> filterByTags) {
+    this.filterByTags = filterByTags;
+  }
+
   public DescribeDBInstancesRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -368,7 +459,7 @@ public class DescribeDBInstancesRequest {
    * Get instanceName
    * @return instanceName
   **/
- @Size(max=64)  @Schema(description = "")
+  @Schema(description = "")
   public String getInstanceName() {
     return instanceName;
   }
@@ -447,6 +538,24 @@ public class DescribeDBInstancesRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeDBInstancesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeDBInstancesRequest tagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
@@ -562,12 +671,14 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.createStartTime, describeDBInstancesRequest.createStartTime) &&
         Objects.equals(this.dbEngine, describeDBInstancesRequest.dbEngine) &&
         Objects.equals(this.dbEngineVersion, describeDBInstancesRequest.dbEngineVersion) &&
+        Objects.equals(this.filterByTags, describeDBInstancesRequest.filterByTags) &&
         Objects.equals(this.instanceId, describeDBInstancesRequest.instanceId) &&
         Objects.equals(this.instanceName, describeDBInstancesRequest.instanceName) &&
         Objects.equals(this.instanceStatus, describeDBInstancesRequest.instanceStatus) &&
         Objects.equals(this.instanceType, describeDBInstancesRequest.instanceType) &&
         Objects.equals(this.pageNumber, describeDBInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
+        Objects.equals(this.projectName, describeDBInstancesRequest.projectName) &&
         Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.updateEndTime, describeDBInstancesRequest.updateEndTime) &&
         Objects.equals(this.updateStartTime, describeDBInstancesRequest.updateStartTime) &&
@@ -577,7 +688,7 @@ public class DescribeDBInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createEndTime, createStartTime, dbEngine, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, pageNumber, pageSize, tagFilters, updateEndTime, updateStartTime, vpcId, zoneId);
+    return Objects.hash(createEndTime, createStartTime, dbEngine, dbEngineVersion, filterByTags, instanceId, instanceName, instanceStatus, instanceType, pageNumber, pageSize, projectName, tagFilters, updateEndTime, updateStartTime, vpcId, zoneId);
   }
 
 
@@ -590,12 +701,14 @@ public class DescribeDBInstancesRequest {
     sb.append("    createStartTime: ").append(toIndentedString(createStartTime)).append("\n");
     sb.append("    dbEngine: ").append(toIndentedString(dbEngine)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
+    sb.append("    filterByTags: ").append(toIndentedString(filterByTags)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    updateEndTime: ").append(toIndentedString(updateEndTime)).append("\n");
     sb.append("    updateStartTime: ").append(toIndentedString(updateStartTime)).append("\n");

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mongodb.model.ConfigServerNodeSpecForDescribeNodeSpecsOutput;
 import com.volcengine.mongodb.model.MongosNodeSpecForDescribeNodeSpecsOutput;
 import com.volcengine.mongodb.model.NodeSpecForDescribeNodeSpecsOutput;
 import com.volcengine.mongodb.model.ShardNodeSpecForDescribeNodeSpecsOutput;
@@ -33,7 +34,11 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeNodeSpecsResponse {
+
+public class DescribeNodeSpecsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ConfigServerNodeSpecs")
+  private List<ConfigServerNodeSpecForDescribeNodeSpecsOutput> configServerNodeSpecs = null;
+
   @SerializedName("MongosNodeSpecs")
   private List<MongosNodeSpecForDescribeNodeSpecsOutput> mongosNodeSpecs = null;
 
@@ -42,6 +47,33 @@ public class DescribeNodeSpecsResponse {
 
   @SerializedName("ShardNodeSpecs")
   private List<ShardNodeSpecForDescribeNodeSpecsOutput> shardNodeSpecs = null;
+
+  public DescribeNodeSpecsResponse configServerNodeSpecs(List<ConfigServerNodeSpecForDescribeNodeSpecsOutput> configServerNodeSpecs) {
+    this.configServerNodeSpecs = configServerNodeSpecs;
+    return this;
+  }
+
+  public DescribeNodeSpecsResponse addConfigServerNodeSpecsItem(ConfigServerNodeSpecForDescribeNodeSpecsOutput configServerNodeSpecsItem) {
+    if (this.configServerNodeSpecs == null) {
+      this.configServerNodeSpecs = new ArrayList<ConfigServerNodeSpecForDescribeNodeSpecsOutput>();
+    }
+    this.configServerNodeSpecs.add(configServerNodeSpecsItem);
+    return this;
+  }
+
+   /**
+   * Get configServerNodeSpecs
+   * @return configServerNodeSpecs
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ConfigServerNodeSpecForDescribeNodeSpecsOutput> getConfigServerNodeSpecs() {
+    return configServerNodeSpecs;
+  }
+
+  public void setConfigServerNodeSpecs(List<ConfigServerNodeSpecForDescribeNodeSpecsOutput> configServerNodeSpecs) {
+    this.configServerNodeSpecs = configServerNodeSpecs;
+  }
 
   public DescribeNodeSpecsResponse mongosNodeSpecs(List<MongosNodeSpecForDescribeNodeSpecsOutput> mongosNodeSpecs) {
     this.mongosNodeSpecs = mongosNodeSpecs;
@@ -134,14 +166,15 @@ public class DescribeNodeSpecsResponse {
       return false;
     }
     DescribeNodeSpecsResponse describeNodeSpecsResponse = (DescribeNodeSpecsResponse) o;
-    return Objects.equals(this.mongosNodeSpecs, describeNodeSpecsResponse.mongosNodeSpecs) &&
+    return Objects.equals(this.configServerNodeSpecs, describeNodeSpecsResponse.configServerNodeSpecs) &&
+        Objects.equals(this.mongosNodeSpecs, describeNodeSpecsResponse.mongosNodeSpecs) &&
         Objects.equals(this.nodeSpecs, describeNodeSpecsResponse.nodeSpecs) &&
         Objects.equals(this.shardNodeSpecs, describeNodeSpecsResponse.shardNodeSpecs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mongosNodeSpecs, nodeSpecs, shardNodeSpecs);
+    return Objects.hash(configServerNodeSpecs, mongosNodeSpecs, nodeSpecs, shardNodeSpecs);
   }
 
 
@@ -150,6 +183,7 @@ public class DescribeNodeSpecsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeNodeSpecsResponse {\n");
     
+    sb.append("    configServerNodeSpecs: ").append(toIndentedString(configServerNodeSpecs)).append("\n");
     sb.append("    mongosNodeSpecs: ").append(toIndentedString(mongosNodeSpecs)).append("\n");
     sb.append("    nodeSpecs: ").append(toIndentedString(nodeSpecs)).append("\n");
     sb.append("    shardNodeSpecs: ").append(toIndentedString(shardNodeSpecs)).append("\n");

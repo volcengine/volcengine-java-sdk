@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AuthorizedNetworkForListBranchesOutput;
+import com.volcengine.tidb.model.ConvertAuthorizedNetworkForListBranchesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class PublicEndpointForListBranchesOutput {
   @SerializedName("AuthorizedNetworks")
-  private List<AuthorizedNetworkForListBranchesOutput> authorizedNetworks = null;
+  private List<ConvertAuthorizedNetworkForListBranchesOutput> authorizedNetworks = null;
 
   @SerializedName("Disabled")
   private Boolean disabled = null;
@@ -45,14 +45,14 @@ public class PublicEndpointForListBranchesOutput {
   @SerializedName("Port")
   private Integer port = null;
 
-  public PublicEndpointForListBranchesOutput authorizedNetworks(List<AuthorizedNetworkForListBranchesOutput> authorizedNetworks) {
+  public PublicEndpointForListBranchesOutput authorizedNetworks(List<ConvertAuthorizedNetworkForListBranchesOutput> authorizedNetworks) {
     this.authorizedNetworks = authorizedNetworks;
     return this;
   }
 
-  public PublicEndpointForListBranchesOutput addAuthorizedNetworksItem(AuthorizedNetworkForListBranchesOutput authorizedNetworksItem) {
+  public PublicEndpointForListBranchesOutput addAuthorizedNetworksItem(ConvertAuthorizedNetworkForListBranchesOutput authorizedNetworksItem) {
     if (this.authorizedNetworks == null) {
-      this.authorizedNetworks = new ArrayList<AuthorizedNetworkForListBranchesOutput>();
+      this.authorizedNetworks = new ArrayList<ConvertAuthorizedNetworkForListBranchesOutput>();
     }
     this.authorizedNetworks.add(authorizedNetworksItem);
     return this;
@@ -64,11 +64,11 @@ public class PublicEndpointForListBranchesOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<AuthorizedNetworkForListBranchesOutput> getAuthorizedNetworks() {
+  public List<ConvertAuthorizedNetworkForListBranchesOutput> getAuthorizedNetworks() {
     return authorizedNetworks;
   }
 
-  public void setAuthorizedNetworks(List<AuthorizedNetworkForListBranchesOutput> authorizedNetworks) {
+  public void setAuthorizedNetworks(List<ConvertAuthorizedNetworkForListBranchesOutput> authorizedNetworks) {
     this.authorizedNetworks = authorizedNetworks;
   }
 

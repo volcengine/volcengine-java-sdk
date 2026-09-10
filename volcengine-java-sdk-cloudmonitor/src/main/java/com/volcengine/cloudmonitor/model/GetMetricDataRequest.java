@@ -51,6 +51,9 @@ public class GetMetricDataRequest {
   @SerializedName("Period")
   private String period = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("StartTime")
   private Integer startTime = null;
 
@@ -187,6 +190,24 @@ public class GetMetricDataRequest {
     this.period = period;
   }
 
+  public GetMetricDataRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public GetMetricDataRequest startTime(Integer startTime) {
     this.startTime = startTime;
     return this;
@@ -266,6 +287,7 @@ public class GetMetricDataRequest {
         Objects.equals(this.metricName, getMetricDataRequest.metricName) &&
         Objects.equals(this.namespace, getMetricDataRequest.namespace) &&
         Objects.equals(this.period, getMetricDataRequest.period) &&
+        Objects.equals(this.projectName, getMetricDataRequest.projectName) &&
         Objects.equals(this.startTime, getMetricDataRequest.startTime) &&
         Objects.equals(this.statisticsMethods, getMetricDataRequest.statisticsMethods) &&
         Objects.equals(this.subNamespace, getMetricDataRequest.subNamespace);
@@ -273,7 +295,7 @@ public class GetMetricDataRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, groupBy, instances, metricName, namespace, period, startTime, statisticsMethods, subNamespace);
+    return Objects.hash(endTime, groupBy, instances, metricName, namespace, period, projectName, startTime, statisticsMethods, subNamespace);
   }
 
 
@@ -288,6 +310,7 @@ public class GetMetricDataRequest {
     sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    statisticsMethods: ").append(toIndentedString(statisticsMethods)).append("\n");
     sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");

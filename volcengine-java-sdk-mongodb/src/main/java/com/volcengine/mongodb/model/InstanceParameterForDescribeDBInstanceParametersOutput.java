@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceParameterForDescribeDBInstanceParametersOutput {
   @SerializedName("CheckingCode")
   private String checkingCode = null;
@@ -44,11 +45,114 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
   @SerializedName("ParameterDescription")
   private String parameterDescription = null;
 
-  @SerializedName("ParameterRole")
-  private String parameterRole = null;
+  @SerializedName("ParameterNames")
+  private String parameterNames = null;
 
-  @SerializedName("ParameterType")
-  private String parameterType = null;
+  /**
+   * Gets or Sets parameterRole
+   */
+  @JsonAdapter(ParameterRoleEnum.Adapter.class)
+  public enum ParameterRoleEnum {
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown"),
+    @SerializedName("Node")
+    NODE("Node"),
+    @SerializedName("Shard")
+    SHARD("Shard"),
+    @SerializedName("ConfigServer")
+    CONFIGSERVER("ConfigServer"),
+    @SerializedName("Mongos")
+    MONGOS("Mongos");
+
+    private String value;
+
+    ParameterRoleEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ParameterRoleEnum fromValue(String input) {
+      for (ParameterRoleEnum b : ParameterRoleEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ParameterRoleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ParameterRoleEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ParameterRoleEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ParameterRoleEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ParameterRole")
+  private ParameterRoleEnum parameterRole = null;
+
+  /**
+   * Gets or Sets parameterType
+   */
+  @JsonAdapter(ParameterTypeEnum.Adapter.class)
+  public enum ParameterTypeEnum {
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown"),
+    @SerializedName("String")
+    STRING("String"),
+    @SerializedName("Integer")
+    INTEGER("Integer"),
+    @SerializedName("Boolean")
+    BOOLEAN("Boolean"),
+    @SerializedName("List")
+    LIST("List"),
+    @SerializedName("Float")
+    FLOAT("Float");
+
+    private String value;
+
+    ParameterTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ParameterTypeEnum fromValue(String input) {
+      for (ParameterTypeEnum b : ParameterTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ParameterTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ParameterTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ParameterTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ParameterTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ParameterType")
+  private ParameterTypeEnum parameterType = null;
 
   @SerializedName("ParameterValue")
   private String parameterValue = null;
@@ -143,7 +247,25 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
     this.parameterDescription = parameterDescription;
   }
 
-  public InstanceParameterForDescribeDBInstanceParametersOutput parameterRole(String parameterRole) {
+  public InstanceParameterForDescribeDBInstanceParametersOutput parameterNames(String parameterNames) {
+    this.parameterNames = parameterNames;
+    return this;
+  }
+
+   /**
+   * Get parameterNames
+   * @return parameterNames
+  **/
+  @Schema(description = "")
+  public String getParameterNames() {
+    return parameterNames;
+  }
+
+  public void setParameterNames(String parameterNames) {
+    this.parameterNames = parameterNames;
+  }
+
+  public InstanceParameterForDescribeDBInstanceParametersOutput parameterRole(ParameterRoleEnum parameterRole) {
     this.parameterRole = parameterRole;
     return this;
   }
@@ -153,15 +275,15 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
    * @return parameterRole
   **/
   @Schema(description = "")
-  public String getParameterRole() {
+  public ParameterRoleEnum getParameterRole() {
     return parameterRole;
   }
 
-  public void setParameterRole(String parameterRole) {
+  public void setParameterRole(ParameterRoleEnum parameterRole) {
     this.parameterRole = parameterRole;
   }
 
-  public InstanceParameterForDescribeDBInstanceParametersOutput parameterType(String parameterType) {
+  public InstanceParameterForDescribeDBInstanceParametersOutput parameterType(ParameterTypeEnum parameterType) {
     this.parameterType = parameterType;
     return this;
   }
@@ -171,11 +293,11 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
    * @return parameterType
   **/
   @Schema(description = "")
-  public String getParameterType() {
+  public ParameterTypeEnum getParameterType() {
     return parameterType;
   }
 
-  public void setParameterType(String parameterType) {
+  public void setParameterType(ParameterTypeEnum parameterType) {
     this.parameterType = parameterType;
   }
 
@@ -212,6 +334,7 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
         Objects.equals(this.forceRestart, instanceParameterForDescribeDBInstanceParametersOutput.forceRestart) &&
         Objects.equals(this.parameterDefaultValue, instanceParameterForDescribeDBInstanceParametersOutput.parameterDefaultValue) &&
         Objects.equals(this.parameterDescription, instanceParameterForDescribeDBInstanceParametersOutput.parameterDescription) &&
+        Objects.equals(this.parameterNames, instanceParameterForDescribeDBInstanceParametersOutput.parameterNames) &&
         Objects.equals(this.parameterRole, instanceParameterForDescribeDBInstanceParametersOutput.parameterRole) &&
         Objects.equals(this.parameterType, instanceParameterForDescribeDBInstanceParametersOutput.parameterType) &&
         Objects.equals(this.parameterValue, instanceParameterForDescribeDBInstanceParametersOutput.parameterValue);
@@ -219,7 +342,7 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkingCode, forceModify, forceRestart, parameterDefaultValue, parameterDescription, parameterRole, parameterType, parameterValue);
+    return Objects.hash(checkingCode, forceModify, forceRestart, parameterDefaultValue, parameterDescription, parameterNames, parameterRole, parameterType, parameterValue);
   }
 
 
@@ -233,6 +356,7 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
     sb.append("    forceRestart: ").append(toIndentedString(forceRestart)).append("\n");
     sb.append("    parameterDefaultValue: ").append(toIndentedString(parameterDefaultValue)).append("\n");
     sb.append("    parameterDescription: ").append(toIndentedString(parameterDescription)).append("\n");
+    sb.append("    parameterNames: ").append(toIndentedString(parameterNames)).append("\n");
     sb.append("    parameterRole: ").append(toIndentedString(parameterRole)).append("\n");
     sb.append("    parameterType: ").append(toIndentedString(parameterType)).append("\n");
     sb.append("    parameterValue: ").append(toIndentedString(parameterValue)).append("\n");

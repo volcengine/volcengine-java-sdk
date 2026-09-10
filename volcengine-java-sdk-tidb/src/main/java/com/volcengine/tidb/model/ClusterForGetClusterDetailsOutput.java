@@ -19,12 +19,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.tidb.model.AnnotationForGetClusterDetailsOutput;
 import com.volcengine.tidb.model.AuditLogConfigForGetClusterDetailsOutput;
 import com.volcengine.tidb.model.AutoScalingForGetClusterDetailsOutput;
 import com.volcengine.tidb.model.AutomatedBackupPolicyForGetClusterDetailsOutput;
 import com.volcengine.tidb.model.EncryptionConfigForGetClusterDetailsOutput;
 import com.volcengine.tidb.model.EndpointsForGetClusterDetailsOutput;
+import com.volcengine.tidb.model.LabelForGetClusterDetailsOutput;
 import com.volcengine.tidb.model.SpendingLimitForGetClusterDetailsOutput;
+import com.volcengine.tidb.model.TagForGetClusterDetailsOutput;
 import com.volcengine.tidb.model.ZoneForGetClusterDetailsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -40,7 +43,7 @@ import javax.validation.Valid;
 
 public class ClusterForGetClusterDetailsOutput {
   @SerializedName("Annotations")
-  private String annotations = null;
+  private List<AnnotationForGetClusterDetailsOutput> annotations = null;
 
   @SerializedName("AuditLogConfig")
   private AuditLogConfigForGetClusterDetailsOutput auditLogConfig = null;
@@ -113,7 +116,7 @@ public class ClusterForGetClusterDetailsOutput {
   private HighAvailabilityTypeEnum highAvailabilityType = null;
 
   @SerializedName("Labels")
-  private String labels = null;
+  private List<LabelForGetClusterDetailsOutput> labels = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -247,6 +250,9 @@ public class ClusterForGetClusterDetailsOutput {
   }  @SerializedName("State")
   private StateEnum state = null;
 
+  @SerializedName("Tags")
+  private List<TagForGetClusterDetailsOutput> tags = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -262,8 +268,16 @@ public class ClusterForGetClusterDetailsOutput {
   @SerializedName("Zones")
   private List<ZoneForGetClusterDetailsOutput> zones = null;
 
-  public ClusterForGetClusterDetailsOutput annotations(String annotations) {
+  public ClusterForGetClusterDetailsOutput annotations(List<AnnotationForGetClusterDetailsOutput> annotations) {
     this.annotations = annotations;
+    return this;
+  }
+
+  public ClusterForGetClusterDetailsOutput addAnnotationsItem(AnnotationForGetClusterDetailsOutput annotationsItem) {
+    if (this.annotations == null) {
+      this.annotations = new ArrayList<AnnotationForGetClusterDetailsOutput>();
+    }
+    this.annotations.add(annotationsItem);
     return this;
   }
 
@@ -271,12 +285,13 @@ public class ClusterForGetClusterDetailsOutput {
    * Get annotations
    * @return annotations
   **/
+  @Valid
   @Schema(description = "")
-  public String getAnnotations() {
+  public List<AnnotationForGetClusterDetailsOutput> getAnnotations() {
     return annotations;
   }
 
-  public void setAnnotations(String annotations) {
+  public void setAnnotations(List<AnnotationForGetClusterDetailsOutput> annotations) {
     this.annotations = annotations;
   }
 
@@ -447,8 +462,16 @@ public class ClusterForGetClusterDetailsOutput {
     this.highAvailabilityType = highAvailabilityType;
   }
 
-  public ClusterForGetClusterDetailsOutput labels(String labels) {
+  public ClusterForGetClusterDetailsOutput labels(List<LabelForGetClusterDetailsOutput> labels) {
     this.labels = labels;
+    return this;
+  }
+
+  public ClusterForGetClusterDetailsOutput addLabelsItem(LabelForGetClusterDetailsOutput labelsItem) {
+    if (this.labels == null) {
+      this.labels = new ArrayList<LabelForGetClusterDetailsOutput>();
+    }
+    this.labels.add(labelsItem);
     return this;
   }
 
@@ -456,12 +479,13 @@ public class ClusterForGetClusterDetailsOutput {
    * Get labels
    * @return labels
   **/
+  @Valid
   @Schema(description = "")
-  public String getLabels() {
+  public List<LabelForGetClusterDetailsOutput> getLabels() {
     return labels;
   }
 
-  public void setLabels(String labels) {
+  public void setLabels(List<LabelForGetClusterDetailsOutput> labels) {
     this.labels = labels;
   }
 
@@ -572,6 +596,33 @@ public class ClusterForGetClusterDetailsOutput {
 
   public void setState(StateEnum state) {
     this.state = state;
+  }
+
+  public ClusterForGetClusterDetailsOutput tags(List<TagForGetClusterDetailsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ClusterForGetClusterDetailsOutput addTagsItem(TagForGetClusterDetailsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForGetClusterDetailsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForGetClusterDetailsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForGetClusterDetailsOutput> tags) {
+    this.tags = tags;
   }
 
   public ClusterForGetClusterDetailsOutput updateTime(String updateTime) {
@@ -700,6 +751,7 @@ public class ClusterForGetClusterDetailsOutput {
         Objects.equals(this.servicePlan, clusterForGetClusterDetailsOutput.servicePlan) &&
         Objects.equals(this.spendingLimit, clusterForGetClusterDetailsOutput.spendingLimit) &&
         Objects.equals(this.state, clusterForGetClusterDetailsOutput.state) &&
+        Objects.equals(this.tags, clusterForGetClusterDetailsOutput.tags) &&
         Objects.equals(this.updateTime, clusterForGetClusterDetailsOutput.updateTime) &&
         Objects.equals(this.userPrefix, clusterForGetClusterDetailsOutput.userPrefix) &&
         Objects.equals(this.version, clusterForGetClusterDetailsOutput.version) &&
@@ -709,7 +761,7 @@ public class ClusterForGetClusterDetailsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, auditLogConfig, autoScaling, automatedBackupPolicy, clusterId, createTime, displayName, encryptionConfig, endpoints, highAvailabilityType, labels, name, projectName, regionId, servicePlan, spendingLimit, state, updateTime, userPrefix, version, vpcId, zones);
+    return Objects.hash(annotations, auditLogConfig, autoScaling, automatedBackupPolicy, clusterId, createTime, displayName, encryptionConfig, endpoints, highAvailabilityType, labels, name, projectName, regionId, servicePlan, spendingLimit, state, tags, updateTime, userPrefix, version, vpcId, zones);
   }
 
 
@@ -735,6 +787,7 @@ public class ClusterForGetClusterDetailsOutput {
     sb.append("    servicePlan: ").append(toIndentedString(servicePlan)).append("\n");
     sb.append("    spendingLimit: ").append(toIndentedString(spendingLimit)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    userPrefix: ").append(toIndentedString(userPrefix)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

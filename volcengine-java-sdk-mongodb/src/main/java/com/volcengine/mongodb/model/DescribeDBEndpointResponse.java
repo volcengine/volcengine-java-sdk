@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeDBEndpointResponse {
+
+public class DescribeDBEndpointResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DBEndpoints")
   private List<DBEndpointForDescribeDBEndpointOutput> dbEndpoints = null;
 

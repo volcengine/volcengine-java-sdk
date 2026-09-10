@@ -94,6 +94,9 @@ public class BackupForGetBackupOutput {
   }  @SerializedName("State")
   private StateEnum state = null;
 
+  @SerializedName("Type")
+  private String type = null;
+
   public BackupForGetBackupOutput backupId(String backupId) {
     this.backupId = backupId;
     return this;
@@ -220,6 +223,24 @@ public class BackupForGetBackupOutput {
     this.state = state;
   }
 
+  public BackupForGetBackupOutput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -236,12 +257,13 @@ public class BackupForGetBackupOutput {
         Objects.equals(this.createTime, backupForGetBackupOutput.createTime) &&
         Objects.equals(this.expireTime, backupForGetBackupOutput.expireTime) &&
         Objects.equals(this.name, backupForGetBackupOutput.name) &&
-        Objects.equals(this.state, backupForGetBackupOutput.state);
+        Objects.equals(this.state, backupForGetBackupOutput.state) &&
+        Objects.equals(this.type, backupForGetBackupOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, backupTime, clusterId, createTime, expireTime, name, state);
+    return Objects.hash(backupId, backupTime, clusterId, createTime, expireTime, name, state, type);
   }
 
 
@@ -257,6 +279,7 @@ public class BackupForGetBackupOutput {
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

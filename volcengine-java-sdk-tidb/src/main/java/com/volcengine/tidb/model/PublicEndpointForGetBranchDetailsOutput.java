@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AuthorizedNetworkForGetBranchDetailsOutput;
+import com.volcengine.tidb.model.ConvertAuthorizedNetworkForGetBranchDetailsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class PublicEndpointForGetBranchDetailsOutput {
   @SerializedName("AuthorizedNetworks")
-  private List<AuthorizedNetworkForGetBranchDetailsOutput> authorizedNetworks = null;
+  private List<ConvertAuthorizedNetworkForGetBranchDetailsOutput> authorizedNetworks = null;
 
   @SerializedName("Disabled")
   private Boolean disabled = null;
@@ -45,14 +45,14 @@ public class PublicEndpointForGetBranchDetailsOutput {
   @SerializedName("Port")
   private Integer port = null;
 
-  public PublicEndpointForGetBranchDetailsOutput authorizedNetworks(List<AuthorizedNetworkForGetBranchDetailsOutput> authorizedNetworks) {
+  public PublicEndpointForGetBranchDetailsOutput authorizedNetworks(List<ConvertAuthorizedNetworkForGetBranchDetailsOutput> authorizedNetworks) {
     this.authorizedNetworks = authorizedNetworks;
     return this;
   }
 
-  public PublicEndpointForGetBranchDetailsOutput addAuthorizedNetworksItem(AuthorizedNetworkForGetBranchDetailsOutput authorizedNetworksItem) {
+  public PublicEndpointForGetBranchDetailsOutput addAuthorizedNetworksItem(ConvertAuthorizedNetworkForGetBranchDetailsOutput authorizedNetworksItem) {
     if (this.authorizedNetworks == null) {
-      this.authorizedNetworks = new ArrayList<AuthorizedNetworkForGetBranchDetailsOutput>();
+      this.authorizedNetworks = new ArrayList<ConvertAuthorizedNetworkForGetBranchDetailsOutput>();
     }
     this.authorizedNetworks.add(authorizedNetworksItem);
     return this;
@@ -64,11 +64,11 @@ public class PublicEndpointForGetBranchDetailsOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<AuthorizedNetworkForGetBranchDetailsOutput> getAuthorizedNetworks() {
+  public List<ConvertAuthorizedNetworkForGetBranchDetailsOutput> getAuthorizedNetworks() {
     return authorizedNetworks;
   }
 
-  public void setAuthorizedNetworks(List<AuthorizedNetworkForGetBranchDetailsOutput> authorizedNetworks) {
+  public void setAuthorizedNetworks(List<ConvertAuthorizedNetworkForGetBranchDetailsOutput> authorizedNetworks) {
     this.authorizedNetworks = authorizedNetworks;
   }
 

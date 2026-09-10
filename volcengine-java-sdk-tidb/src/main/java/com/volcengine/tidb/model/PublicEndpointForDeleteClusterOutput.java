@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.AuthorizedNetworkForDeleteClusterOutput;
+import com.volcengine.tidb.model.ConvertAuthorizedNetworkForDeleteClusterOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class PublicEndpointForDeleteClusterOutput {
   @SerializedName("AuthorizedNetworks")
-  private List<AuthorizedNetworkForDeleteClusterOutput> authorizedNetworks = null;
+  private List<ConvertAuthorizedNetworkForDeleteClusterOutput> authorizedNetworks = null;
 
   @SerializedName("Disabled")
   private Boolean disabled = null;
@@ -45,14 +45,14 @@ public class PublicEndpointForDeleteClusterOutput {
   @SerializedName("Port")
   private Integer port = null;
 
-  public PublicEndpointForDeleteClusterOutput authorizedNetworks(List<AuthorizedNetworkForDeleteClusterOutput> authorizedNetworks) {
+  public PublicEndpointForDeleteClusterOutput authorizedNetworks(List<ConvertAuthorizedNetworkForDeleteClusterOutput> authorizedNetworks) {
     this.authorizedNetworks = authorizedNetworks;
     return this;
   }
 
-  public PublicEndpointForDeleteClusterOutput addAuthorizedNetworksItem(AuthorizedNetworkForDeleteClusterOutput authorizedNetworksItem) {
+  public PublicEndpointForDeleteClusterOutput addAuthorizedNetworksItem(ConvertAuthorizedNetworkForDeleteClusterOutput authorizedNetworksItem) {
     if (this.authorizedNetworks == null) {
-      this.authorizedNetworks = new ArrayList<AuthorizedNetworkForDeleteClusterOutput>();
+      this.authorizedNetworks = new ArrayList<ConvertAuthorizedNetworkForDeleteClusterOutput>();
     }
     this.authorizedNetworks.add(authorizedNetworksItem);
     return this;
@@ -64,11 +64,11 @@ public class PublicEndpointForDeleteClusterOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<AuthorizedNetworkForDeleteClusterOutput> getAuthorizedNetworks() {
+  public List<ConvertAuthorizedNetworkForDeleteClusterOutput> getAuthorizedNetworks() {
     return authorizedNetworks;
   }
 
-  public void setAuthorizedNetworks(List<AuthorizedNetworkForDeleteClusterOutput> authorizedNetworks) {
+  public void setAuthorizedNetworks(List<ConvertAuthorizedNetworkForDeleteClusterOutput> authorizedNetworks) {
     this.authorizedNetworks = authorizedNetworks;
   }
 

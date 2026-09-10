@@ -30,7 +30,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDBEndpointRequest {
+  @SerializedName("AllShard")
+  private Boolean allShard = null;
+
   @SerializedName("EipIds")
   private List<String> eipIds = null;
 
@@ -45,9 +49,13 @@ public class CreateDBEndpointRequest {
    */
   @JsonAdapter(NetworkTypeEnum.Adapter.class)
   public enum NetworkTypeEnum {
-    INNERPLB("InnerPLB"),
+    @SerializedName("Private")
     PRIVATE("Private"),
+    @SerializedName("Public")
     PUBLIC("Public"),
+    @SerializedName("InnerPLB")
+    INNERPLB("InnerPLB"),
+    @SerializedName("StorageInner")
     STORAGEINNER("StorageInner");
 
     private String value;
@@ -88,6 +96,27 @@ public class CreateDBEndpointRequest {
 
   @SerializedName("ObjectId")
   private String objectId = null;
+
+  @SerializedName("ObjectIds")
+  private List<String> objectIds = null;
+
+  public CreateDBEndpointRequest allShard(Boolean allShard) {
+    this.allShard = allShard;
+    return this;
+  }
+
+   /**
+   * Get allShard
+   * @return allShard
+  **/
+  @Schema(description = "")
+  public Boolean isAllShard() {
+    return allShard;
+  }
+
+  public void setAllShard(Boolean allShard) {
+    this.allShard = allShard;
+  }
 
   public CreateDBEndpointRequest eipIds(List<String> eipIds) {
     this.eipIds = eipIds;
@@ -196,6 +225,32 @@ public class CreateDBEndpointRequest {
     this.objectId = objectId;
   }
 
+  public CreateDBEndpointRequest objectIds(List<String> objectIds) {
+    this.objectIds = objectIds;
+    return this;
+  }
+
+  public CreateDBEndpointRequest addObjectIdsItem(String objectIdsItem) {
+    if (this.objectIds == null) {
+      this.objectIds = new ArrayList<String>();
+    }
+    this.objectIds.add(objectIdsItem);
+    return this;
+  }
+
+   /**
+   * Get objectIds
+   * @return objectIds
+  **/
+  @Schema(description = "")
+  public List<String> getObjectIds() {
+    return objectIds;
+  }
+
+  public void setObjectIds(List<String> objectIds) {
+    this.objectIds = objectIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -206,16 +261,18 @@ public class CreateDBEndpointRequest {
       return false;
     }
     CreateDBEndpointRequest createDBEndpointRequest = (CreateDBEndpointRequest) o;
-    return Objects.equals(this.eipIds, createDBEndpointRequest.eipIds) &&
+    return Objects.equals(this.allShard, createDBEndpointRequest.allShard) &&
+        Objects.equals(this.eipIds, createDBEndpointRequest.eipIds) &&
         Objects.equals(this.instanceId, createDBEndpointRequest.instanceId) &&
         Objects.equals(this.mongosNodeIds, createDBEndpointRequest.mongosNodeIds) &&
         Objects.equals(this.networkType, createDBEndpointRequest.networkType) &&
-        Objects.equals(this.objectId, createDBEndpointRequest.objectId);
+        Objects.equals(this.objectId, createDBEndpointRequest.objectId) &&
+        Objects.equals(this.objectIds, createDBEndpointRequest.objectIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipIds, instanceId, mongosNodeIds, networkType, objectId);
+    return Objects.hash(allShard, eipIds, instanceId, mongosNodeIds, networkType, objectId, objectIds);
   }
 
 
@@ -224,11 +281,13 @@ public class CreateDBEndpointRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBEndpointRequest {\n");
     
+    sb.append("    allShard: ").append(toIndentedString(allShard)).append("\n");
     sb.append("    eipIds: ").append(toIndentedString(eipIds)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    mongosNodeIds: ").append(toIndentedString(mongosNodeIds)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
+    sb.append("    objectIds: ").append(toIndentedString(objectIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
