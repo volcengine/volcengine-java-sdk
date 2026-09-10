@@ -36,7 +36,7 @@ public class VideoProjectTaskBatchSetExpeditedRequest {
   private String projectId = null;
 
   @SerializedName("taskIds")
-  private List<Integer> taskIds = null;
+  private List<String> taskIds = null;
 
   public VideoProjectTaskBatchSetExpeditedRequest projectId(String projectId) {
     this.projectId = projectId;
@@ -57,14 +57,14 @@ public class VideoProjectTaskBatchSetExpeditedRequest {
     this.projectId = projectId;
   }
 
-  public VideoProjectTaskBatchSetExpeditedRequest taskIds(List<Integer> taskIds) {
+  public VideoProjectTaskBatchSetExpeditedRequest taskIds(List<String> taskIds) {
     this.taskIds = taskIds;
     return this;
   }
 
-  public VideoProjectTaskBatchSetExpeditedRequest addTaskIdsItem(Integer taskIdsItem) {
+  public VideoProjectTaskBatchSetExpeditedRequest addTaskIdsItem(String taskIdsItem) {
     if (this.taskIds == null) {
-      this.taskIds = new ArrayList<Integer>();
+      this.taskIds = new ArrayList<String>();
     }
     this.taskIds.add(taskIdsItem);
     return this;
@@ -75,11 +75,11 @@ public class VideoProjectTaskBatchSetExpeditedRequest {
    * @return taskIds
   **/
   @Schema(description = "")
-  public List<Integer> getTaskIds() {
+  public List<String> getTaskIds() {
     return taskIds;
   }
 
-  public void setTaskIds(List<Integer> taskIds) {
+  public void setTaskIds(List<String> taskIds) {
     this.taskIds = taskIds;
   }
 
