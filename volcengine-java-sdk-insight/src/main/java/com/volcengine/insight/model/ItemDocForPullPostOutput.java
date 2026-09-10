@@ -46,7 +46,7 @@ public class ItemDocForPullPostOutput {
   private String dedupID = null;
 
   @SerializedName("DocStatus")
-  private String docStatus = null;
+  private Integer docStatus = null;
 
   @SerializedName("Emotion")
   private String emotion = null;
@@ -56,6 +56,12 @@ public class ItemDocForPullPostOutput {
 
   @SerializedName("IsFollow")
   private Boolean isFollow = null;
+
+  @SerializedName("Keywords")
+  private List<String> keywords = null;
+
+  @SerializedName("LevelName")
+  private String levelName = null;
 
   @SerializedName("MainDomain")
   private String mainDomain = null;
@@ -92,6 +98,9 @@ public class ItemDocForPullPostOutput {
 
   @SerializedName("Url")
   private String url = null;
+
+  @SerializedName("WarnLevel")
+  private Integer warnLevel = null;
 
   @SerializedName("locations")
   private List<LocationForPullPostOutput> locations = null;
@@ -168,7 +177,7 @@ public class ItemDocForPullPostOutput {
     this.dedupID = dedupID;
   }
 
-  public ItemDocForPullPostOutput docStatus(String docStatus) {
+  public ItemDocForPullPostOutput docStatus(Integer docStatus) {
     this.docStatus = docStatus;
     return this;
   }
@@ -178,11 +187,11 @@ public class ItemDocForPullPostOutput {
    * @return docStatus
   **/
   @Schema(description = "")
-  public String getDocStatus() {
+  public Integer getDocStatus() {
     return docStatus;
   }
 
-  public void setDocStatus(String docStatus) {
+  public void setDocStatus(Integer docStatus) {
     this.docStatus = docStatus;
   }
 
@@ -238,6 +247,50 @@ public class ItemDocForPullPostOutput {
 
   public void setIsFollow(Boolean isFollow) {
     this.isFollow = isFollow;
+  }
+
+  public ItemDocForPullPostOutput keywords(List<String> keywords) {
+    this.keywords = keywords;
+    return this;
+  }
+
+  public ItemDocForPullPostOutput addKeywordsItem(String keywordsItem) {
+    if (this.keywords == null) {
+      this.keywords = new ArrayList<String>();
+    }
+    this.keywords.add(keywordsItem);
+    return this;
+  }
+
+   /**
+   * Get keywords
+   * @return keywords
+  **/
+  @Schema(description = "")
+  public List<String> getKeywords() {
+    return keywords;
+  }
+
+  public void setKeywords(List<String> keywords) {
+    this.keywords = keywords;
+  }
+
+  public ItemDocForPullPostOutput levelName(String levelName) {
+    this.levelName = levelName;
+    return this;
+  }
+
+   /**
+   * Get levelName
+   * @return levelName
+  **/
+  @Schema(description = "")
+  public String getLevelName() {
+    return levelName;
+  }
+
+  public void setLevelName(String levelName) {
+    this.levelName = levelName;
   }
 
   public ItemDocForPullPostOutput mainDomain(String mainDomain) {
@@ -464,6 +517,24 @@ public class ItemDocForPullPostOutput {
     this.url = url;
   }
 
+  public ItemDocForPullPostOutput warnLevel(Integer warnLevel) {
+    this.warnLevel = warnLevel;
+    return this;
+  }
+
+   /**
+   * Get warnLevel
+   * @return warnLevel
+  **/
+  @Schema(description = "")
+  public Integer getWarnLevel() {
+    return warnLevel;
+  }
+
+  public void setWarnLevel(Integer warnLevel) {
+    this.warnLevel = warnLevel;
+  }
+
   public ItemDocForPullPostOutput locations(List<LocationForPullPostOutput> locations) {
     this.locations = locations;
     return this;
@@ -509,6 +580,8 @@ public class ItemDocForPullPostOutput {
         Objects.equals(this.emotion, itemDocForPullPostOutput.emotion) &&
         Objects.equals(this.fansCount, itemDocForPullPostOutput.fansCount) &&
         Objects.equals(this.isFollow, itemDocForPullPostOutput.isFollow) &&
+        Objects.equals(this.keywords, itemDocForPullPostOutput.keywords) &&
+        Objects.equals(this.levelName, itemDocForPullPostOutput.levelName) &&
         Objects.equals(this.mainDomain, itemDocForPullPostOutput.mainDomain) &&
         Objects.equals(this.mediaName, itemDocForPullPostOutput.mediaName) &&
         Objects.equals(this.mediaUid, itemDocForPullPostOutput.mediaUid) &&
@@ -521,12 +594,13 @@ public class ItemDocForPullPostOutput {
         Objects.equals(this.summary, itemDocForPullPostOutput.summary) &&
         Objects.equals(this.title, itemDocForPullPostOutput.title) &&
         Objects.equals(this.url, itemDocForPullPostOutput.url) &&
+        Objects.equals(this.warnLevel, itemDocForPullPostOutput.warnLevel) &&
         Objects.equals(this.locations, itemDocForPullPostOutput.locations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asr, content, coverUrl, dedupID, docStatus, emotion, fansCount, isFollow, mainDomain, mediaName, mediaUid, ocr, ocrHigh, postID, publishTime, reason, riskType, summary, title, url, locations);
+    return Objects.hash(asr, content, coverUrl, dedupID, docStatus, emotion, fansCount, isFollow, keywords, levelName, mainDomain, mediaName, mediaUid, ocr, ocrHigh, postID, publishTime, reason, riskType, summary, title, url, warnLevel, locations);
   }
 
 
@@ -543,6 +617,8 @@ public class ItemDocForPullPostOutput {
     sb.append("    emotion: ").append(toIndentedString(emotion)).append("\n");
     sb.append("    fansCount: ").append(toIndentedString(fansCount)).append("\n");
     sb.append("    isFollow: ").append(toIndentedString(isFollow)).append("\n");
+    sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
+    sb.append("    levelName: ").append(toIndentedString(levelName)).append("\n");
     sb.append("    mainDomain: ").append(toIndentedString(mainDomain)).append("\n");
     sb.append("    mediaName: ").append(toIndentedString(mediaName)).append("\n");
     sb.append("    mediaUid: ").append(toIndentedString(mediaUid)).append("\n");
@@ -555,6 +631,7 @@ public class ItemDocForPullPostOutput {
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    warnLevel: ").append(toIndentedString(warnLevel)).append("\n");
     sb.append("    locations: ").append(toIndentedString(locations)).append("\n");
     sb.append("}");
     return sb.toString();
