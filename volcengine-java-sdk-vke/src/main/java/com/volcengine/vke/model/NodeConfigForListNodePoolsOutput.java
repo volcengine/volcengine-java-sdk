@@ -24,6 +24,7 @@ import com.volcengine.vke.model.DataVolumeForListNodePoolsOutput;
 import com.volcengine.vke.model.InstancesDistributionForListNodePoolsOutput;
 import com.volcengine.vke.model.PublicAccessConfigForListNodePoolsOutput;
 import com.volcengine.vke.model.SecurityForListNodePoolsOutput;
+import com.volcengine.vke.model.SpotPriceLimitForListNodePoolsOutput;
 import com.volcengine.vke.model.SystemVolumeForListNodePoolsOutput;
 import com.volcengine.vke.model.TagForListNodePoolsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -154,6 +155,9 @@ public class NodeConfigForListNodePoolsOutput {
   @SerializedName("Security")
   private SecurityForListNodePoolsOutput security = null;
 
+  @SerializedName("SpotPriceLimits")
+  private List<SpotPriceLimitForListNodePoolsOutput> spotPriceLimits = null;
+
   /**
    * Gets or Sets spotStrategy
    */
@@ -162,7 +166,9 @@ public class NodeConfigForListNodePoolsOutput {
     @SerializedName("NoSpot")
     NOSPOT("NoSpot"),
     @SerializedName("SpotAsPriceGo")
-    SPOTASPRICEGO("SpotAsPriceGo");
+    SPOTASPRICEGO("SpotAsPriceGo"),
+    @SerializedName("SpotWithPriceLimit")
+    SPOTWITHPRICELIMIT("SpotWithPriceLimit");
 
     private String value;
 
@@ -670,6 +676,33 @@ public class NodeConfigForListNodePoolsOutput {
     this.security = security;
   }
 
+  public NodeConfigForListNodePoolsOutput spotPriceLimits(List<SpotPriceLimitForListNodePoolsOutput> spotPriceLimits) {
+    this.spotPriceLimits = spotPriceLimits;
+    return this;
+  }
+
+  public NodeConfigForListNodePoolsOutput addSpotPriceLimitsItem(SpotPriceLimitForListNodePoolsOutput spotPriceLimitsItem) {
+    if (this.spotPriceLimits == null) {
+      this.spotPriceLimits = new ArrayList<SpotPriceLimitForListNodePoolsOutput>();
+    }
+    this.spotPriceLimits.add(spotPriceLimitsItem);
+    return this;
+  }
+
+   /**
+   * Get spotPriceLimits
+   * @return spotPriceLimits
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SpotPriceLimitForListNodePoolsOutput> getSpotPriceLimits() {
+    return spotPriceLimits;
+  }
+
+  public void setSpotPriceLimits(List<SpotPriceLimitForListNodePoolsOutput> spotPriceLimits) {
+    this.spotPriceLimits = spotPriceLimits;
+  }
+
   public NodeConfigForListNodePoolsOutput spotStrategy(SpotStrategyEnum spotStrategy) {
     this.spotStrategy = spotStrategy;
     return this;
@@ -794,6 +827,7 @@ public class NodeConfigForListNodePoolsOutput {
         Objects.equals(this.publicAccessConfig, nodeConfigForListNodePoolsOutput.publicAccessConfig) &&
         Objects.equals(this.publicAccessEnabled, nodeConfigForListNodePoolsOutput.publicAccessEnabled) &&
         Objects.equals(this.security, nodeConfigForListNodePoolsOutput.security) &&
+        Objects.equals(this.spotPriceLimits, nodeConfigForListNodePoolsOutput.spotPriceLimits) &&
         Objects.equals(this.spotStrategy, nodeConfigForListNodePoolsOutput.spotStrategy) &&
         Objects.equals(this.subnetIds, nodeConfigForListNodePoolsOutput.subnetIds) &&
         Objects.equals(this.systemVolume, nodeConfigForListNodePoolsOutput.systemVolume) &&
@@ -802,7 +836,7 @@ public class NodeConfigForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, affinityGroupConfig, autoRenew, autoRenewPeriod, dataVolumes, deploymentSetGroupNumber, deploymentSetId, gpuDriverVersion, hostname, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceName, instanceTypeIds, instancesDistribution, namePrefix, networkTrafficMode, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, spotStrategy, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, affinityGroupConfig, autoRenew, autoRenewPeriod, dataVolumes, deploymentSetGroupNumber, deploymentSetId, gpuDriverVersion, hostname, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceName, instanceTypeIds, instancesDistribution, namePrefix, networkTrafficMode, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, spotPriceLimits, spotStrategy, subnetIds, systemVolume, tags);
   }
 
 
@@ -835,6 +869,7 @@ public class NodeConfigForListNodePoolsOutput {
     sb.append("    publicAccessConfig: ").append(toIndentedString(publicAccessConfig)).append("\n");
     sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
+    sb.append("    spotPriceLimits: ").append(toIndentedString(spotPriceLimits)).append("\n");
     sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    systemVolume: ").append(toIndentedString(systemVolume)).append("\n");

@@ -25,6 +25,7 @@ import com.volcengine.vke.model.GpuDriverConfigForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.InstancesDistributionForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.PublicAccessConfigForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.SecurityForUpdateNodePoolConfigInput;
+import com.volcengine.vke.model.SpotPriceLimitForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.SystemVolumeForUpdateNodePoolConfigInput;
 import com.volcengine.vke.model.TagForUpdateNodePoolConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -154,6 +155,57 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @SerializedName("Security")
   private SecurityForUpdateNodePoolConfigInput security = null;
+
+  @SerializedName("SpotPriceLimits")
+  private List<SpotPriceLimitForUpdateNodePoolConfigInput> spotPriceLimits = null;
+
+  /**
+   * Gets or Sets spotStrategy
+   */
+  @JsonAdapter(SpotStrategyEnum.Adapter.class)
+  public enum SpotStrategyEnum {
+    @SerializedName("NoSpot")
+    NOSPOT("NoSpot"),
+    @SerializedName("SpotAsPriceGo")
+    SPOTASPRICEGO("SpotAsPriceGo"),
+    @SerializedName("SpotWithPriceLimit")
+    SPOTWITHPRICELIMIT("SpotWithPriceLimit");
+
+    private String value;
+
+    SpotStrategyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SpotStrategyEnum fromValue(String input) {
+      for (SpotStrategyEnum b : SpotStrategyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SpotStrategyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SpotStrategyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SpotStrategyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SpotStrategyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SpotStrategy")
+  private SpotStrategyEnum spotStrategy = null;
 
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
@@ -626,6 +678,51 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     this.security = security;
   }
 
+  public NodeConfigForUpdateNodePoolConfigInput spotPriceLimits(List<SpotPriceLimitForUpdateNodePoolConfigInput> spotPriceLimits) {
+    this.spotPriceLimits = spotPriceLimits;
+    return this;
+  }
+
+  public NodeConfigForUpdateNodePoolConfigInput addSpotPriceLimitsItem(SpotPriceLimitForUpdateNodePoolConfigInput spotPriceLimitsItem) {
+    if (this.spotPriceLimits == null) {
+      this.spotPriceLimits = new ArrayList<SpotPriceLimitForUpdateNodePoolConfigInput>();
+    }
+    this.spotPriceLimits.add(spotPriceLimitsItem);
+    return this;
+  }
+
+   /**
+   * Get spotPriceLimits
+   * @return spotPriceLimits
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SpotPriceLimitForUpdateNodePoolConfigInput> getSpotPriceLimits() {
+    return spotPriceLimits;
+  }
+
+  public void setSpotPriceLimits(List<SpotPriceLimitForUpdateNodePoolConfigInput> spotPriceLimits) {
+    this.spotPriceLimits = spotPriceLimits;
+  }
+
+  public NodeConfigForUpdateNodePoolConfigInput spotStrategy(SpotStrategyEnum spotStrategy) {
+    this.spotStrategy = spotStrategy;
+    return this;
+  }
+
+   /**
+   * Get spotStrategy
+   * @return spotStrategy
+  **/
+  @Schema(description = "")
+  public SpotStrategyEnum getSpotStrategy() {
+    return spotStrategy;
+  }
+
+  public void setSpotStrategy(SpotStrategyEnum spotStrategy) {
+    this.spotStrategy = spotStrategy;
+  }
+
   public NodeConfigForUpdateNodePoolConfigInput subnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
     return this;
@@ -732,6 +829,8 @@ public class NodeConfigForUpdateNodePoolConfigInput {
         Objects.equals(this.publicAccessConfig, nodeConfigForUpdateNodePoolConfigInput.publicAccessConfig) &&
         Objects.equals(this.publicAccessEnabled, nodeConfigForUpdateNodePoolConfigInput.publicAccessEnabled) &&
         Objects.equals(this.security, nodeConfigForUpdateNodePoolConfigInput.security) &&
+        Objects.equals(this.spotPriceLimits, nodeConfigForUpdateNodePoolConfigInput.spotPriceLimits) &&
+        Objects.equals(this.spotStrategy, nodeConfigForUpdateNodePoolConfigInput.spotStrategy) &&
         Objects.equals(this.subnetIds, nodeConfigForUpdateNodePoolConfigInput.subnetIds) &&
         Objects.equals(this.systemVolume, nodeConfigForUpdateNodePoolConfigInput.systemVolume) &&
         Objects.equals(this.tags, nodeConfigForUpdateNodePoolConfigInput.tags);
@@ -739,7 +838,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, affinityGroupConfig, autoRenew, autoRenewPeriod, cpuMaxFrequency, dataVolumes, gpuDriverConfig, gpuDriverVersion, hostname, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceName, instanceTypeIds, instancesDistribution, namePrefix, networkTrafficMode, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, affinityGroupConfig, autoRenew, autoRenewPeriod, cpuMaxFrequency, dataVolumes, gpuDriverConfig, gpuDriverVersion, hostname, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceName, instanceTypeIds, instancesDistribution, namePrefix, networkTrafficMode, period, preScript, projectName, publicAccessConfig, publicAccessEnabled, security, spotPriceLimits, spotStrategy, subnetIds, systemVolume, tags);
   }
 
 
@@ -772,6 +871,8 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     sb.append("    publicAccessConfig: ").append(toIndentedString(publicAccessConfig)).append("\n");
     sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
+    sb.append("    spotPriceLimits: ").append(toIndentedString(spotPriceLimits)).append("\n");
+    sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    systemVolume: ").append(toIndentedString(systemVolume)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

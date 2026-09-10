@@ -88,8 +88,17 @@ public class KubeletConfigForCreateNodePoolInput {
   @SerializedName("EvictionHard")
   private List<EvictionHardForCreateNodePoolInput> evictionHard = null;
 
+  @SerializedName("FailSwapOn")
+  private Boolean failSwapOn = null;
+
   @SerializedName("FeatureGates")
   private FeatureGatesForCreateNodePoolInput featureGates = null;
+
+  @SerializedName("ImageGCHighThresholdPercent")
+  private Integer imageGCHighThresholdPercent = null;
+
+  @SerializedName("ImageGCLowThresholdPercent")
+  private Integer imageGCLowThresholdPercent = null;
 
   @SerializedName("KubeApiBurst")
   private Integer kubeApiBurst = null;
@@ -274,6 +283,24 @@ public class KubeletConfigForCreateNodePoolInput {
     this.evictionHard = evictionHard;
   }
 
+  public KubeletConfigForCreateNodePoolInput failSwapOn(Boolean failSwapOn) {
+    this.failSwapOn = failSwapOn;
+    return this;
+  }
+
+   /**
+   * Get failSwapOn
+   * @return failSwapOn
+  **/
+  @Schema(description = "")
+  public Boolean isFailSwapOn() {
+    return failSwapOn;
+  }
+
+  public void setFailSwapOn(Boolean failSwapOn) {
+    this.failSwapOn = failSwapOn;
+  }
+
   public KubeletConfigForCreateNodePoolInput featureGates(FeatureGatesForCreateNodePoolInput featureGates) {
     this.featureGates = featureGates;
     return this;
@@ -291,6 +318,42 @@ public class KubeletConfigForCreateNodePoolInput {
 
   public void setFeatureGates(FeatureGatesForCreateNodePoolInput featureGates) {
     this.featureGates = featureGates;
+  }
+
+  public KubeletConfigForCreateNodePoolInput imageGCHighThresholdPercent(Integer imageGCHighThresholdPercent) {
+    this.imageGCHighThresholdPercent = imageGCHighThresholdPercent;
+    return this;
+  }
+
+   /**
+   * Get imageGCHighThresholdPercent
+   * @return imageGCHighThresholdPercent
+  **/
+  @Schema(description = "")
+  public Integer getImageGCHighThresholdPercent() {
+    return imageGCHighThresholdPercent;
+  }
+
+  public void setImageGCHighThresholdPercent(Integer imageGCHighThresholdPercent) {
+    this.imageGCHighThresholdPercent = imageGCHighThresholdPercent;
+  }
+
+  public KubeletConfigForCreateNodePoolInput imageGCLowThresholdPercent(Integer imageGCLowThresholdPercent) {
+    this.imageGCLowThresholdPercent = imageGCLowThresholdPercent;
+    return this;
+  }
+
+   /**
+   * Get imageGCLowThresholdPercent
+   * @return imageGCLowThresholdPercent
+  **/
+  @Schema(description = "")
+  public Integer getImageGCLowThresholdPercent() {
+    return imageGCLowThresholdPercent;
+  }
+
+  public void setImageGCLowThresholdPercent(Integer imageGCLowThresholdPercent) {
+    this.imageGCLowThresholdPercent = imageGCLowThresholdPercent;
   }
 
   public KubeletConfigForCreateNodePoolInput kubeApiBurst(Integer kubeApiBurst) {
@@ -504,7 +567,10 @@ public class KubeletConfigForCreateNodePoolInput {
     return Objects.equals(this.cpuCfsQuota, kubeletConfigForCreateNodePoolInput.cpuCfsQuota) &&
         Objects.equals(this.cpuManagerPolicy, kubeletConfigForCreateNodePoolInput.cpuManagerPolicy) &&
         Objects.equals(this.evictionHard, kubeletConfigForCreateNodePoolInput.evictionHard) &&
+        Objects.equals(this.failSwapOn, kubeletConfigForCreateNodePoolInput.failSwapOn) &&
         Objects.equals(this.featureGates, kubeletConfigForCreateNodePoolInput.featureGates) &&
+        Objects.equals(this.imageGCHighThresholdPercent, kubeletConfigForCreateNodePoolInput.imageGCHighThresholdPercent) &&
+        Objects.equals(this.imageGCLowThresholdPercent, kubeletConfigForCreateNodePoolInput.imageGCLowThresholdPercent) &&
         Objects.equals(this.kubeApiBurst, kubeletConfigForCreateNodePoolInput.kubeApiBurst) &&
         Objects.equals(this.kubeApiQps, kubeletConfigForCreateNodePoolInput.kubeApiQps) &&
         Objects.equals(this.kubeReserved, kubeletConfigForCreateNodePoolInput.kubeReserved) &&
@@ -519,7 +585,7 @@ public class KubeletConfigForCreateNodePoolInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuCfsQuota, cpuManagerPolicy, evictionHard, featureGates, kubeApiBurst, kubeApiQps, kubeReserved, maxPods, registryBurst, registryPullQps, serializeImagePulls, systemReserved, topologyManagerPolicy, topologyManagerScope);
+    return Objects.hash(cpuCfsQuota, cpuManagerPolicy, evictionHard, failSwapOn, featureGates, imageGCHighThresholdPercent, imageGCLowThresholdPercent, kubeApiBurst, kubeApiQps, kubeReserved, maxPods, registryBurst, registryPullQps, serializeImagePulls, systemReserved, topologyManagerPolicy, topologyManagerScope);
   }
 
 
@@ -531,7 +597,10 @@ public class KubeletConfigForCreateNodePoolInput {
     sb.append("    cpuCfsQuota: ").append(toIndentedString(cpuCfsQuota)).append("\n");
     sb.append("    cpuManagerPolicy: ").append(toIndentedString(cpuManagerPolicy)).append("\n");
     sb.append("    evictionHard: ").append(toIndentedString(evictionHard)).append("\n");
+    sb.append("    failSwapOn: ").append(toIndentedString(failSwapOn)).append("\n");
     sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
+    sb.append("    imageGCHighThresholdPercent: ").append(toIndentedString(imageGCHighThresholdPercent)).append("\n");
+    sb.append("    imageGCLowThresholdPercent: ").append(toIndentedString(imageGCLowThresholdPercent)).append("\n");
     sb.append("    kubeApiBurst: ").append(toIndentedString(kubeApiBurst)).append("\n");
     sb.append("    kubeApiQps: ").append(toIndentedString(kubeApiQps)).append("\n");
     sb.append("    kubeReserved: ").append(toIndentedString(kubeReserved)).append("\n");
