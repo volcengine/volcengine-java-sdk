@@ -37,6 +37,8 @@ import com.volcengine.cloudmonitor.model.CreateContactsRequest;
 import com.volcengine.cloudmonitor.model.CreateContactsResponse;
 import com.volcengine.cloudmonitor.model.CreateEventRuleRequest;
 import com.volcengine.cloudmonitor.model.CreateEventRuleResponse;
+import com.volcengine.cloudmonitor.model.CreateIntegrationCenterIntegrationConfigRequest;
+import com.volcengine.cloudmonitor.model.CreateIntegrationCenterIntegrationConfigResponse;
 import com.volcengine.cloudmonitor.model.CreateNotificationRequest;
 import com.volcengine.cloudmonitor.model.CreateNotificationResponse;
 import com.volcengine.cloudmonitor.model.CreateNotifyTemplateRequest;
@@ -59,6 +61,8 @@ import com.volcengine.cloudmonitor.model.DeleteContactsByIdsRequest;
 import com.volcengine.cloudmonitor.model.DeleteContactsByIdsResponse;
 import com.volcengine.cloudmonitor.model.DeleteEventRuleRequest;
 import com.volcengine.cloudmonitor.model.DeleteEventRuleResponse;
+import com.volcengine.cloudmonitor.model.DeleteIntegrationCenterIntegrationConfigRequest;
+import com.volcengine.cloudmonitor.model.DeleteIntegrationCenterIntegrationConfigResponse;
 import com.volcengine.cloudmonitor.model.DeleteNotificationsByIdsRequest;
 import com.volcengine.cloudmonitor.model.DeleteNotificationsByIdsResponse;
 import com.volcengine.cloudmonitor.model.DeleteNotifyTemplatesByIdsRequest;
@@ -79,6 +83,8 @@ import com.volcengine.cloudmonitor.model.EnableEventRuleRequest;
 import com.volcengine.cloudmonitor.model.EnableEventRuleResponse;
 import com.volcengine.cloudmonitor.model.EnablePresetAlertTemplateRequest;
 import com.volcengine.cloudmonitor.model.EnablePresetAlertTemplateResponse;
+import com.volcengine.cloudmonitor.model.GetIntegrationCenterIntegrationConfigRequest;
+import com.volcengine.cloudmonitor.model.GetIntegrationCenterIntegrationConfigResponse;
 import com.volcengine.cloudmonitor.model.GetMetricDataRequest;
 import com.volcengine.cloudmonitor.model.GetMetricDataResponse;
 import com.volcengine.cloudmonitor.model.GetO11yAgentECSAutoInstallRequest;
@@ -105,6 +111,8 @@ import com.volcengine.cloudmonitor.model.ListEventRulesRequest;
 import com.volcengine.cloudmonitor.model.ListEventRulesResponse;
 import com.volcengine.cloudmonitor.model.ListEventsRequest;
 import com.volcengine.cloudmonitor.model.ListEventsResponse;
+import com.volcengine.cloudmonitor.model.ListIntegrationCenterIntegrationConfigsRequest;
+import com.volcengine.cloudmonitor.model.ListIntegrationCenterIntegrationConfigsResponse;
 import com.volcengine.cloudmonitor.model.ListNotificationsRequest;
 import com.volcengine.cloudmonitor.model.ListNotificationsResponse;
 import com.volcengine.cloudmonitor.model.ListNotifyTemplatesRequest;
@@ -135,6 +143,8 @@ import com.volcengine.cloudmonitor.model.ListWebhooksRequest;
 import com.volcengine.cloudmonitor.model.ListWebhooksResponse;
 import com.volcengine.cloudmonitor.model.ModifyStateOfSilencePolicyByIdsRequest;
 import com.volcengine.cloudmonitor.model.ModifyStateOfSilencePolicyByIdsResponse;
+import com.volcengine.cloudmonitor.model.PerformIntegrationCenterIntegrationConfigRequest;
+import com.volcengine.cloudmonitor.model.PerformIntegrationCenterIntegrationConfigResponse;
 import com.volcengine.cloudmonitor.model.PerformO11yAgentECSDeployTaskRequest;
 import com.volcengine.cloudmonitor.model.PerformO11yAgentECSDeployTaskResponse;
 import com.volcengine.cloudmonitor.model.SetStateOfRulesByIdsRequest;
@@ -155,6 +165,8 @@ import com.volcengine.cloudmonitor.model.UpdateContactsWithContactGroupsRequest;
 import com.volcengine.cloudmonitor.model.UpdateContactsWithContactGroupsResponse;
 import com.volcengine.cloudmonitor.model.UpdateEventRuleRequest;
 import com.volcengine.cloudmonitor.model.UpdateEventRuleResponse;
+import com.volcengine.cloudmonitor.model.UpdateIntegrationCenterIntegrationConfigRequest;
+import com.volcengine.cloudmonitor.model.UpdateIntegrationCenterIntegrationConfigResponse;
 import com.volcengine.cloudmonitor.model.UpdateNotificationRequest;
 import com.volcengine.cloudmonitor.model.UpdateNotificationResponse;
 import com.volcengine.cloudmonitor.model.UpdateNotifyTemplateRequest;
@@ -814,6 +826,130 @@ public class CloudmonitorApi {
 
         com.squareup.okhttp.Call call = createEventRuleValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateEventRuleResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createIntegrationCenterIntegrationConfig
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createIntegrationCenterIntegrationConfigCall(CreateIntegrationCenterIntegrationConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateIntegrationCenterIntegrationConfig/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createIntegrationCenterIntegrationConfigValidateBeforeCall(CreateIntegrationCenterIntegrationConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createIntegrationCenterIntegrationConfig(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createIntegrationCenterIntegrationConfigCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateIntegrationCenterIntegrationConfigResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateIntegrationCenterIntegrationConfigResponse createIntegrationCenterIntegrationConfig(CreateIntegrationCenterIntegrationConfigRequest body) throws ApiException {
+        ApiResponse<CreateIntegrationCenterIntegrationConfigResponse> resp = createIntegrationCenterIntegrationConfigWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateIntegrationCenterIntegrationConfigResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateIntegrationCenterIntegrationConfigResponse> createIntegrationCenterIntegrationConfigWithHttpInfo( @NotNull CreateIntegrationCenterIntegrationConfigRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createIntegrationCenterIntegrationConfigValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateIntegrationCenterIntegrationConfigResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createIntegrationCenterIntegrationConfigAsync(CreateIntegrationCenterIntegrationConfigRequest body, final ApiCallback<CreateIntegrationCenterIntegrationConfigResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createIntegrationCenterIntegrationConfigValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateIntegrationCenterIntegrationConfigResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2182,6 +2318,130 @@ public class CloudmonitorApi {
         return call;
     }
     /**
+     * Build call for deleteIntegrationCenterIntegrationConfig
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteIntegrationCenterIntegrationConfigCall(DeleteIntegrationCenterIntegrationConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DeleteIntegrationCenterIntegrationConfig/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteIntegrationCenterIntegrationConfigValidateBeforeCall(DeleteIntegrationCenterIntegrationConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling deleteIntegrationCenterIntegrationConfig(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteIntegrationCenterIntegrationConfigCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DeleteIntegrationCenterIntegrationConfigResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteIntegrationCenterIntegrationConfigResponse deleteIntegrationCenterIntegrationConfig(DeleteIntegrationCenterIntegrationConfigRequest body) throws ApiException {
+        ApiResponse<DeleteIntegrationCenterIntegrationConfigResponse> resp = deleteIntegrationCenterIntegrationConfigWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DeleteIntegrationCenterIntegrationConfigResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteIntegrationCenterIntegrationConfigResponse> deleteIntegrationCenterIntegrationConfigWithHttpInfo( @NotNull DeleteIntegrationCenterIntegrationConfigRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteIntegrationCenterIntegrationConfigValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteIntegrationCenterIntegrationConfigResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteIntegrationCenterIntegrationConfigAsync(DeleteIntegrationCenterIntegrationConfigRequest body, final ApiCallback<DeleteIntegrationCenterIntegrationConfigResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteIntegrationCenterIntegrationConfigValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteIntegrationCenterIntegrationConfigResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for deleteNotificationsByIds
      * @param body  (required)
      * @param progressListener Progress listener
@@ -3418,6 +3678,130 @@ public class CloudmonitorApi {
 
         com.squareup.okhttp.Call call = enablePresetAlertTemplateValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<EnablePresetAlertTemplateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getIntegrationCenterIntegrationConfig
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getIntegrationCenterIntegrationConfigCall(GetIntegrationCenterIntegrationConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetIntegrationCenterIntegrationConfig/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getIntegrationCenterIntegrationConfigValidateBeforeCall(GetIntegrationCenterIntegrationConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getIntegrationCenterIntegrationConfig(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getIntegrationCenterIntegrationConfigCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetIntegrationCenterIntegrationConfigResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetIntegrationCenterIntegrationConfigResponse getIntegrationCenterIntegrationConfig(GetIntegrationCenterIntegrationConfigRequest body) throws ApiException {
+        ApiResponse<GetIntegrationCenterIntegrationConfigResponse> resp = getIntegrationCenterIntegrationConfigWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetIntegrationCenterIntegrationConfigResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetIntegrationCenterIntegrationConfigResponse> getIntegrationCenterIntegrationConfigWithHttpInfo( @NotNull GetIntegrationCenterIntegrationConfigRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getIntegrationCenterIntegrationConfigValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetIntegrationCenterIntegrationConfigResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getIntegrationCenterIntegrationConfigAsync(GetIntegrationCenterIntegrationConfigRequest body, final ApiCallback<GetIntegrationCenterIntegrationConfigResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getIntegrationCenterIntegrationConfigValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetIntegrationCenterIntegrationConfigResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -5030,6 +5414,130 @@ public class CloudmonitorApi {
 
         com.squareup.okhttp.Call call = listEventsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ListEventsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listIntegrationCenterIntegrationConfigs
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listIntegrationCenterIntegrationConfigsCall(ListIntegrationCenterIntegrationConfigsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListIntegrationCenterIntegrationConfigs/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listIntegrationCenterIntegrationConfigsValidateBeforeCall(ListIntegrationCenterIntegrationConfigsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listIntegrationCenterIntegrationConfigs(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listIntegrationCenterIntegrationConfigsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListIntegrationCenterIntegrationConfigsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListIntegrationCenterIntegrationConfigsResponse listIntegrationCenterIntegrationConfigs(ListIntegrationCenterIntegrationConfigsRequest body) throws ApiException {
+        ApiResponse<ListIntegrationCenterIntegrationConfigsResponse> resp = listIntegrationCenterIntegrationConfigsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListIntegrationCenterIntegrationConfigsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListIntegrationCenterIntegrationConfigsResponse> listIntegrationCenterIntegrationConfigsWithHttpInfo( @NotNull ListIntegrationCenterIntegrationConfigsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listIntegrationCenterIntegrationConfigsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListIntegrationCenterIntegrationConfigsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listIntegrationCenterIntegrationConfigsAsync(ListIntegrationCenterIntegrationConfigsRequest body, final ApiCallback<ListIntegrationCenterIntegrationConfigsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listIntegrationCenterIntegrationConfigsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListIntegrationCenterIntegrationConfigsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -6894,6 +7402,130 @@ public class CloudmonitorApi {
         return call;
     }
     /**
+     * Build call for performIntegrationCenterIntegrationConfig
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call performIntegrationCenterIntegrationConfigCall(PerformIntegrationCenterIntegrationConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/PerformIntegrationCenterIntegrationConfig/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call performIntegrationCenterIntegrationConfigValidateBeforeCall(PerformIntegrationCenterIntegrationConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling performIntegrationCenterIntegrationConfig(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = performIntegrationCenterIntegrationConfigCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return PerformIntegrationCenterIntegrationConfigResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PerformIntegrationCenterIntegrationConfigResponse performIntegrationCenterIntegrationConfig(PerformIntegrationCenterIntegrationConfigRequest body) throws ApiException {
+        ApiResponse<PerformIntegrationCenterIntegrationConfigResponse> resp = performIntegrationCenterIntegrationConfigWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;PerformIntegrationCenterIntegrationConfigResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PerformIntegrationCenterIntegrationConfigResponse> performIntegrationCenterIntegrationConfigWithHttpInfo( @NotNull PerformIntegrationCenterIntegrationConfigRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = performIntegrationCenterIntegrationConfigValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<PerformIntegrationCenterIntegrationConfigResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call performIntegrationCenterIntegrationConfigAsync(PerformIntegrationCenterIntegrationConfigRequest body, final ApiCallback<PerformIntegrationCenterIntegrationConfigResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = performIntegrationCenterIntegrationConfigValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PerformIntegrationCenterIntegrationConfigResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for performO11yAgentECSDeployTask
      * @param body  (required)
      * @param progressListener Progress listener
@@ -8130,6 +8762,130 @@ public class CloudmonitorApi {
 
         com.squareup.okhttp.Call call = updateEventRuleValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<UpdateEventRuleResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateIntegrationCenterIntegrationConfig
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateIntegrationCenterIntegrationConfigCall(UpdateIntegrationCenterIntegrationConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/UpdateIntegrationCenterIntegrationConfig/2018-01-01/cloudmonitor/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateIntegrationCenterIntegrationConfigValidateBeforeCall(UpdateIntegrationCenterIntegrationConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateIntegrationCenterIntegrationConfig(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = updateIntegrationCenterIntegrationConfigCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return UpdateIntegrationCenterIntegrationConfigResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UpdateIntegrationCenterIntegrationConfigResponse updateIntegrationCenterIntegrationConfig(UpdateIntegrationCenterIntegrationConfigRequest body) throws ApiException {
+        ApiResponse<UpdateIntegrationCenterIntegrationConfigResponse> resp = updateIntegrationCenterIntegrationConfigWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;UpdateIntegrationCenterIntegrationConfigResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UpdateIntegrationCenterIntegrationConfigResponse> updateIntegrationCenterIntegrationConfigWithHttpInfo( @NotNull UpdateIntegrationCenterIntegrationConfigRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = updateIntegrationCenterIntegrationConfigValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<UpdateIntegrationCenterIntegrationConfigResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateIntegrationCenterIntegrationConfigAsync(UpdateIntegrationCenterIntegrationConfigRequest body, final ApiCallback<UpdateIntegrationCenterIntegrationConfigResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateIntegrationCenterIntegrationConfigValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UpdateIntegrationCenterIntegrationConfigResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
