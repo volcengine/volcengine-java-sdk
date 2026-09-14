@@ -38,6 +38,9 @@ public class DescribeReservedStorageCapacityRequest {
   @SerializedName("PageSize")
   private String pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ReservedStorageCapacityIds")
   private List<String> reservedStorageCapacityIds = null;
 
@@ -87,6 +90,24 @@ public class DescribeReservedStorageCapacityRequest {
 
   public void setPageSize(String pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeReservedStorageCapacityRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeReservedStorageCapacityRequest reservedStorageCapacityIds(List<String> reservedStorageCapacityIds) {
@@ -199,6 +220,7 @@ public class DescribeReservedStorageCapacityRequest {
     DescribeReservedStorageCapacityRequest describeReservedStorageCapacityRequest = (DescribeReservedStorageCapacityRequest) o;
     return Objects.equals(this.pageNumber, describeReservedStorageCapacityRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeReservedStorageCapacityRequest.pageSize) &&
+        Objects.equals(this.projectName, describeReservedStorageCapacityRequest.projectName) &&
         Objects.equals(this.reservedStorageCapacityIds, describeReservedStorageCapacityRequest.reservedStorageCapacityIds) &&
         Objects.equals(this.reservedStorageCapacityName, describeReservedStorageCapacityRequest.reservedStorageCapacityName) &&
         Objects.equals(this.status, describeReservedStorageCapacityRequest.status) &&
@@ -208,7 +230,7 @@ public class DescribeReservedStorageCapacityRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, reservedStorageCapacityIds, reservedStorageCapacityName, status, volumeType, zoneId);
+    return Objects.hash(pageNumber, pageSize, projectName, reservedStorageCapacityIds, reservedStorageCapacityName, status, volumeType, zoneId);
   }
 
 
@@ -219,6 +241,7 @@ public class DescribeReservedStorageCapacityRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    reservedStorageCapacityIds: ").append(toIndentedString(reservedStorageCapacityIds)).append("\n");
     sb.append("    reservedStorageCapacityName: ").append(toIndentedString(reservedStorageCapacityName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

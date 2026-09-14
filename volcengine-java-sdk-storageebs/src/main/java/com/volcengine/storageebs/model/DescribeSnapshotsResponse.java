@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class DescribeSnapshotsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -44,6 +47,24 @@ public class DescribeSnapshotsResponse extends com.volcengine.model.AbstractResp
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
+
+  public DescribeSnapshotsResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
 
   public DescribeSnapshotsResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -136,7 +157,8 @@ public class DescribeSnapshotsResponse extends com.volcengine.model.AbstractResp
       return false;
     }
     DescribeSnapshotsResponse describeSnapshotsResponse = (DescribeSnapshotsResponse) o;
-    return Objects.equals(this.pageNumber, describeSnapshotsResponse.pageNumber) &&
+    return Objects.equals(this.nextToken, describeSnapshotsResponse.nextToken) &&
+        Objects.equals(this.pageNumber, describeSnapshotsResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeSnapshotsResponse.pageSize) &&
         Objects.equals(this.snapshots, describeSnapshotsResponse.snapshots) &&
         Objects.equals(this.totalCount, describeSnapshotsResponse.totalCount);
@@ -144,7 +166,7 @@ public class DescribeSnapshotsResponse extends com.volcengine.model.AbstractResp
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, snapshots, totalCount);
+    return Objects.hash(nextToken, pageNumber, pageSize, snapshots, totalCount);
   }
 
 
@@ -153,6 +175,7 @@ public class DescribeSnapshotsResponse extends com.volcengine.model.AbstractResp
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeSnapshotsResponse {\n");
     
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    snapshots: ").append(toIndentedString(snapshots)).append("\n");
