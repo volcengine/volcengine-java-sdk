@@ -39,6 +39,9 @@ public class FilterForListRegistriesInput {
   @SerializedName("Projects")
   private List<String> projects = null;
 
+  @SerializedName("ProxyCacheEnabled")
+  private Boolean proxyCacheEnabled = null;
+
   @SerializedName("Statuses")
   private List<StatusForListRegistriesInput> statuses = null;
 
@@ -95,6 +98,24 @@ public class FilterForListRegistriesInput {
 
   public void setProjects(List<String> projects) {
     this.projects = projects;
+  }
+
+  public FilterForListRegistriesInput proxyCacheEnabled(Boolean proxyCacheEnabled) {
+    this.proxyCacheEnabled = proxyCacheEnabled;
+    return this;
+  }
+
+   /**
+   * Get proxyCacheEnabled
+   * @return proxyCacheEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isProxyCacheEnabled() {
+    return proxyCacheEnabled;
+  }
+
+  public void setProxyCacheEnabled(Boolean proxyCacheEnabled) {
+    this.proxyCacheEnabled = proxyCacheEnabled;
   }
 
   public FilterForListRegistriesInput statuses(List<StatusForListRegistriesInput> statuses) {
@@ -162,13 +183,14 @@ public class FilterForListRegistriesInput {
     FilterForListRegistriesInput filterForListRegistriesInput = (FilterForListRegistriesInput) o;
     return Objects.equals(this.names, filterForListRegistriesInput.names) &&
         Objects.equals(this.projects, filterForListRegistriesInput.projects) &&
+        Objects.equals(this.proxyCacheEnabled, filterForListRegistriesInput.proxyCacheEnabled) &&
         Objects.equals(this.statuses, filterForListRegistriesInput.statuses) &&
         Objects.equals(this.types, filterForListRegistriesInput.types);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(names, projects, statuses, types);
+    return Objects.hash(names, projects, proxyCacheEnabled, statuses, types);
   }
 
 
@@ -179,6 +201,7 @@ public class FilterForListRegistriesInput {
     
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
+    sb.append("    proxyCacheEnabled: ").append(toIndentedString(proxyCacheEnabled)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("}");

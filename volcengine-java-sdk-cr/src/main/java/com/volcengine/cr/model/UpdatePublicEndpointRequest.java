@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class UpdatePublicEndpointRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Enabled")
   private Boolean enabled = null;
 
   @SerializedName("Registry")
   private String registry = null;
+
+  public UpdatePublicEndpointRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public UpdatePublicEndpointRequest enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -83,13 +104,14 @@ public class UpdatePublicEndpointRequest {
       return false;
     }
     UpdatePublicEndpointRequest updatePublicEndpointRequest = (UpdatePublicEndpointRequest) o;
-    return Objects.equals(this.enabled, updatePublicEndpointRequest.enabled) &&
+    return Objects.equals(this.clientToken, updatePublicEndpointRequest.clientToken) &&
+        Objects.equals(this.enabled, updatePublicEndpointRequest.enabled) &&
         Objects.equals(this.registry, updatePublicEndpointRequest.registry);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, registry);
+    return Objects.hash(clientToken, enabled, registry);
   }
 
 
@@ -98,6 +120,7 @@ public class UpdatePublicEndpointRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdatePublicEndpointRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
     sb.append("}");
