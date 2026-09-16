@@ -14,43 +14,15 @@ package com.volcengine.vke.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DrainForListRemedyConfigsOutput
+ * DeleteRemedyRuleResponse
  */
 
 
 
-public class DrainForListRemedyConfigsOutput {
-  @SerializedName("WaitFor")
-  private Integer waitFor = null;
-
-  public DrainForListRemedyConfigsOutput waitFor(Integer waitFor) {
-    this.waitFor = waitFor;
-    return this;
-  }
-
-   /**
-   * Get waitFor
-   * @return waitFor
-  **/
-  @Schema(description = "")
-  public Integer getWaitFor() {
-    return waitFor;
-  }
-
-  public void setWaitFor(Integer waitFor) {
-    this.waitFor = waitFor;
-  }
-
+public class DeleteRemedyRuleResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,22 +32,20 @@ public class DrainForListRemedyConfigsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DrainForListRemedyConfigsOutput drainForListRemedyConfigsOutput = (DrainForListRemedyConfigsOutput) o;
-    return Objects.equals(this.waitFor, drainForListRemedyConfigsOutput.waitFor);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(waitFor);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DrainForListRemedyConfigsOutput {\n");
+    sb.append("class DeleteRemedyRuleResponse {\n");
     
-    sb.append("    waitFor: ").append(toIndentedString(waitFor)).append("\n");
     sb.append("}");
     return sb.toString();
   }

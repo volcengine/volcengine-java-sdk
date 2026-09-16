@@ -19,59 +19,57 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vke.model.LabelForListRemedyConfigsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * InterveneCordonForListRemedyConfigsOutput
+ * ParamForListDiagnosticTaskOutput
  */
 
 
 
-public class InterveneCordonForListRemedyConfigsOutput {
-  @SerializedName("Enabled")
-  private Boolean enabled = null;
+public class ParamForListDiagnosticTaskOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("Label")
-  private LabelForListRemedyConfigsOutput label = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public InterveneCordonForListRemedyConfigsOutput enabled(Boolean enabled) {
-    this.enabled = enabled;
+  public ParamForListDiagnosticTaskOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get enabled
-   * @return enabled
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public Boolean isEnabled() {
-    return enabled;
+  public String getKey() {
+    return key;
   }
 
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public InterveneCordonForListRemedyConfigsOutput label(LabelForListRemedyConfigsOutput label) {
-    this.label = label;
+  public ParamForListDiagnosticTaskOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get label
-   * @return label
+   * Get value
+   * @return value
   **/
-  @Valid
   @Schema(description = "")
-  public LabelForListRemedyConfigsOutput getLabel() {
-    return label;
+  public String getValue() {
+    return value;
   }
 
-  public void setLabel(LabelForListRemedyConfigsOutput label) {
-    this.label = label;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -83,24 +81,24 @@ public class InterveneCordonForListRemedyConfigsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InterveneCordonForListRemedyConfigsOutput interveneCordonForListRemedyConfigsOutput = (InterveneCordonForListRemedyConfigsOutput) o;
-    return Objects.equals(this.enabled, interveneCordonForListRemedyConfigsOutput.enabled) &&
-        Objects.equals(this.label, interveneCordonForListRemedyConfigsOutput.label);
+    ParamForListDiagnosticTaskOutput paramForListDiagnosticTaskOutput = (ParamForListDiagnosticTaskOutput) o;
+    return Objects.equals(this.key, paramForListDiagnosticTaskOutput.key) &&
+        Objects.equals(this.value, paramForListDiagnosticTaskOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, label);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InterveneCordonForListRemedyConfigsOutput {\n");
+    sb.append("class ParamForListDiagnosticTaskOutput {\n");
     
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

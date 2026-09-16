@@ -19,59 +19,57 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vke.model.LabelForListRemedyConfigsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * InterveneDrainForListRemedyConfigsOutput
+ * UpgradePolicyForUpgradeNodePoolsInput
  */
 
 
 
-public class InterveneDrainForListRemedyConfigsOutput {
-  @SerializedName("Enabled")
-  private Boolean enabled = null;
+public class UpgradePolicyForUpgradeNodePoolsInput {
+  @SerializedName("MaxFailed")
+  private Integer maxFailed = null;
 
-  @SerializedName("Label")
-  private LabelForListRemedyConfigsOutput label = null;
+  @SerializedName("MaxUnavailable")
+  private Integer maxUnavailable = null;
 
-  public InterveneDrainForListRemedyConfigsOutput enabled(Boolean enabled) {
-    this.enabled = enabled;
+  public UpgradePolicyForUpgradeNodePoolsInput maxFailed(Integer maxFailed) {
+    this.maxFailed = maxFailed;
     return this;
   }
 
    /**
-   * Get enabled
-   * @return enabled
+   * Get maxFailed
+   * @return maxFailed
   **/
   @Schema(description = "")
-  public Boolean isEnabled() {
-    return enabled;
+  public Integer getMaxFailed() {
+    return maxFailed;
   }
 
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
+  public void setMaxFailed(Integer maxFailed) {
+    this.maxFailed = maxFailed;
   }
 
-  public InterveneDrainForListRemedyConfigsOutput label(LabelForListRemedyConfigsOutput label) {
-    this.label = label;
+  public UpgradePolicyForUpgradeNodePoolsInput maxUnavailable(Integer maxUnavailable) {
+    this.maxUnavailable = maxUnavailable;
     return this;
   }
 
    /**
-   * Get label
-   * @return label
+   * Get maxUnavailable
+   * @return maxUnavailable
   **/
-  @Valid
   @Schema(description = "")
-  public LabelForListRemedyConfigsOutput getLabel() {
-    return label;
+  public Integer getMaxUnavailable() {
+    return maxUnavailable;
   }
 
-  public void setLabel(LabelForListRemedyConfigsOutput label) {
-    this.label = label;
+  public void setMaxUnavailable(Integer maxUnavailable) {
+    this.maxUnavailable = maxUnavailable;
   }
 
 
@@ -83,24 +81,24 @@ public class InterveneDrainForListRemedyConfigsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InterveneDrainForListRemedyConfigsOutput interveneDrainForListRemedyConfigsOutput = (InterveneDrainForListRemedyConfigsOutput) o;
-    return Objects.equals(this.enabled, interveneDrainForListRemedyConfigsOutput.enabled) &&
-        Objects.equals(this.label, interveneDrainForListRemedyConfigsOutput.label);
+    UpgradePolicyForUpgradeNodePoolsInput upgradePolicyForUpgradeNodePoolsInput = (UpgradePolicyForUpgradeNodePoolsInput) o;
+    return Objects.equals(this.maxFailed, upgradePolicyForUpgradeNodePoolsInput.maxFailed) &&
+        Objects.equals(this.maxUnavailable, upgradePolicyForUpgradeNodePoolsInput.maxUnavailable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, label);
+    return Objects.hash(maxFailed, maxUnavailable);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InterveneDrainForListRemedyConfigsOutput {\n");
+    sb.append("class UpgradePolicyForUpgradeNodePoolsInput {\n");
     
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    maxFailed: ").append(toIndentedString(maxFailed)).append("\n");
+    sb.append("    maxUnavailable: ").append(toIndentedString(maxUnavailable)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ActionForListRemedyConfigsOutput
+ * ParamForCreateDiagnosticTaskInput
  */
 
 
 
-public class ActionForListRemedyConfigsOutput {
-  @SerializedName("RebootEcs")
-  private Boolean rebootEcs = null;
+public class ParamForCreateDiagnosticTaskInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("WaitFor")
-  private Integer waitFor = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public ActionForListRemedyConfigsOutput rebootEcs(Boolean rebootEcs) {
-    this.rebootEcs = rebootEcs;
+  public ParamForCreateDiagnosticTaskInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get rebootEcs
-   * @return rebootEcs
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public Boolean isRebootEcs() {
-    return rebootEcs;
+  public String getKey() {
+    return key;
   }
 
-  public void setRebootEcs(Boolean rebootEcs) {
-    this.rebootEcs = rebootEcs;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public ActionForListRemedyConfigsOutput waitFor(Integer waitFor) {
-    this.waitFor = waitFor;
+  public ParamForCreateDiagnosticTaskInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get waitFor
-   * @return waitFor
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public Integer getWaitFor() {
-    return waitFor;
+  public String getValue() {
+    return value;
   }
 
-  public void setWaitFor(Integer waitFor) {
-    this.waitFor = waitFor;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -81,24 +81,24 @@ public class ActionForListRemedyConfigsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ActionForListRemedyConfigsOutput actionForListRemedyConfigsOutput = (ActionForListRemedyConfigsOutput) o;
-    return Objects.equals(this.rebootEcs, actionForListRemedyConfigsOutput.rebootEcs) &&
-        Objects.equals(this.waitFor, actionForListRemedyConfigsOutput.waitFor);
+    ParamForCreateDiagnosticTaskInput paramForCreateDiagnosticTaskInput = (ParamForCreateDiagnosticTaskInput) o;
+    return Objects.equals(this.key, paramForCreateDiagnosticTaskInput.key) &&
+        Objects.equals(this.value, paramForCreateDiagnosticTaskInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rebootEcs, waitFor);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ActionForListRemedyConfigsOutput {\n");
+    sb.append("class ParamForCreateDiagnosticTaskInput {\n");
     
-    sb.append("    rebootEcs: ").append(toIndentedString(rebootEcs)).append("\n");
-    sb.append("    waitFor: ").append(toIndentedString(waitFor)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,0 +1,23 @@
+{
+  "actions": [
+    "ListDiagnosticTaskResults",
+    "DeleteNodes",
+    "UpdateClusterVersion",
+    "DeleteRemedyRule",
+    "ListInspectionPolicies",
+    "UpgradeNodePools",
+    "CreateDiagnosticTask",
+    "ListDiagnosticTask",
+    "CreateRemedyRule",
+    "UpdateInspectionPolicy",
+    "CreateInspectionPolicy",
+    "ListNodes",
+    "ListRemedyConfigs",
+    "CreateNodes",
+    "UpdateRemedyRule",
+    "DeleteInspectionPolicy"
+  ],
+  "description": "VKE: 新增 UpdateClusterVersion, UpdateRemedyRule, CreateRemedyRule, ListDiagnosticTask, ListDiagnosticTaskResults, DeleteRemedyRule, ListInspectionPolicies, UpdateInspectionPolicy, UpgradeNodePools, CreateDiagnosticTask, CreateInspectionPolicy, DeleteInspectionPolicy；修改 DeleteNodes, ListNodes, ListRemedyConfigs, CreateNodes",
+  "modules": "service/vke",
+  "type": "breaking-change"
+}
