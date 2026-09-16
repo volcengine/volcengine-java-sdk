@@ -1,14 +1,10 @@
 package com.volcengine.auth;
 
-import com.squareup.okhttp.Authenticator;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
+import com.squareup.okhttp.OkHttpClient;
 import com.volcengine.*;
 import com.volcengine.sign.Credentials;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.net.Proxy;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -35,8 +31,13 @@ public class StsAssumeRoleProvider implements Provider {
     // Proxy / TLS customization for the STS endpoint. Empty by default: JVM /
     // OkHttp defaults (including standard proxy environment variables) apply.
     private String proxyUrl;
+    private String fallbackProxyUrl;
     private String caFile;
     private boolean insecureSkipVerify;
+    private ApiClient.TlsSettings baselineTls;
+    private OkHttpClient baselineProxy;
+    private String baselineHttpProxy;
+    private String baselineHttpsProxy;
 
     private CredentialValue credentialValue;
 
@@ -60,6 +61,33 @@ public class StsAssumeRoleProvider implements Provider {
                 .setEndpoint(this.host)
                 .setCredentials(Credentials.getCredentials(accessKey, securityKey, sessionToken))
                 .setRegion(this.region);
+    }
+
+    private StsAssumeRoleProvider(StsAssumeRoleProvider source, String fallbackProxyUrl) {
+        accessKey = source.accessKey;
+        securityKey = source.securityKey;
+        sessionToken = source.sessionToken;
+        roleName = source.roleName;
+        accountId = source.accountId;
+        host = source.host;
+        region = source.region;
+        schema = source.schema;
+        timeout = source.timeout;
+        durationSeconds = source.durationSeconds;
+        expireBufferSeconds = source.expireBufferSeconds;
+        proxyUrl = source.proxyUrl;
+        caFile = source.caFile;
+        insecureSkipVerify = source.insecureSkipVerify;
+        this.fallbackProxyUrl = fallbackProxyUrl;
+        apiClient = source.apiClient.copyForCredentialProvider();
+        baselineTls = source.baselineTls;
+        baselineProxy = source.baselineProxy;
+        baselineHttpProxy = source.baselineHttpProxy;
+        baselineHttpsProxy = source.baselineHttpsProxy;
+    }
+
+    synchronized StsAssumeRoleProvider bind(String httpProxy, String httpsProxy) {
+        return new StsAssumeRoleProvider(this, apiClient.getDisableSSL() ? httpProxy : httpsProxy);
     }
 
     public String getAccessKey() {
@@ -163,10 +191,10 @@ public class StsAssumeRoleProvider implements Provider {
 
     /**
      * Set the forward proxy for reaching the STS endpoint, format
-     * {@code scheme://[user:password@]host:port}. When empty, OkHttp / JVM
-     * default proxy selection applies (including HTTP_PROXY / HTTPS_PROXY).
+     * {@code http://[user:password@]host:port}. When empty, the bound client's
+     * STS-scheme proxy applies, then the original ApiClient proxy selection.
      */
-    public void setProxyUrl(String proxyUrl) {
+    public synchronized void setProxyUrl(String proxyUrl) {
         this.proxyUrl = proxyUrl;
     }
 
@@ -178,7 +206,7 @@ public class StsAssumeRoleProvider implements Provider {
      * Set a custom PEM CA bundle used to verify the STS server certificate.
      * When empty, the JVM default trust store is used.
      */
-    public void setCaFile(String caFile) {
+    public synchronized void setCaFile(String caFile) {
         this.caFile = caFile;
     }
 
@@ -190,7 +218,7 @@ public class StsAssumeRoleProvider implements Provider {
      * When {@code true}, skip STS TLS certificate and hostname verification.
      * For debugging only; never enable in production.
      */
-    public void setInsecureSkipVerify(boolean insecureSkipVerify) {
+    public synchronized void setInsecureSkipVerify(boolean insecureSkipVerify) {
         this.insecureSkipVerify = insecureSkipVerify;
     }
 
@@ -199,64 +227,69 @@ public class StsAssumeRoleProvider implements Provider {
      * request. Only touches the settings the caller explicitly configured, so
      * host / region / credentials / timeout set elsewhere are preserved.
      */
-    void applyHttpConfig() throws ApiException {
-        StsHttpConfig config = new StsHttpConfig(proxyUrl, caFile, insecureSkipVerify);
-        if (config.isEmpty()) {
-            return;
-        }
-
-        if (!isNullOrEmpty(proxyUrl)) {
-            // ApiClient.updateClientProxy() selects httpProxy when disableSSL,
-            // otherwise httpsProxy; set both so the proxy applies regardless of
-            // the schema. Proxy credentials (user:password@) are carried via an
-            // OkHttp proxy Authenticator.
-            apiClient.setHttpProxy(proxyUrl);
-            apiClient.setHttpsProxy(proxyUrl);
-            String proxyAuthHeader = StsFormRequest.proxyAuthorizationHeader(proxyUrl);
-            if (proxyAuthHeader != null) {
-                applyProxyAuthenticator(proxyAuthHeader);
-            }
-        }
-
-        if (insecureSkipVerify) {
-            // verifyingSsl = false trusts all certificates and disables hostname
-            // verification, matching InsecureSkipVerify in the Go SDK.
-            apiClient.setVerifyingSsl(false);
-        } else if (!isNullOrEmpty(caFile)) {
-            // Read the CA bundle into memory and hand a detached ByteArrayInputStream
-            // to the ApiClient. Using Files.newInputStream(...) directly would leak a
-            // file descriptor on every refresh(), since applySslSettings() never closes
-            // the stream and refresh() re-opens it each time.
+    synchronized void applyHttpConfig() throws ApiException {
+        String resolvedProxy = isNullOrEmpty(proxyUrl) ? fallbackProxyUrl : proxyUrl;
+        boolean tlsOverride = insecureSkipVerify || !isNullOrEmpty(caFile);
+        byte[] caBytes = null;
+        if (!insecureSkipVerify && !isNullOrEmpty(caFile)) {
             try {
-                byte[] caBytes = Files.readAllBytes(Paths.get(caFile));
-                apiClient.setSslCaCert(new ByteArrayInputStream(caBytes));
+                caBytes = Files.readAllBytes(Paths.get(caFile));
             } catch (IOException e) {
-                throw new ApiException("StsAssumeRoleProvider: unable to read CAFile \"" + caFile + "\" - " + e.getMessage());
+                throw new ApiException("StsAssumeRoleProvider: unable to read CAFile \"" + caFile + "\"");
             }
+        }
+        if (!isNullOrEmpty(resolvedProxy)) {
+            StsFormRequest.parseProxy(resolvedProxy);
+        }
+        // Detach before overriding any caller-owned transport settings.
+        if (tlsOverride || baselineTls != null || !isNullOrEmpty(resolvedProxy) || baselineProxy != null) {
+            apiClient.setHttpClient(apiClient.getHttpClient().clone());
+        }
+        if (tlsOverride) {
+            ApiClient.TlsSettings previous = apiClient.snapshotTlsSettings();
+            try {
+                apiClient.applyStsTlsSettings(insecureSkipVerify, caBytes);
+            } catch (RuntimeException e) {
+                throw new ApiException("StsAssumeRoleProvider: invalid TLS configuration", e, 0, null);
+            }
+            if (baselineTls == null) {
+                baselineTls = previous;
+            }
+        } else if (baselineTls != null) {
+            apiClient.restoreTlsSettings(baselineTls);
+            baselineTls = null;
+        }
+        if (!isNullOrEmpty(resolvedProxy)) {
+            if (baselineProxy == null) {
+                baselineProxy = apiClient.getHttpClient().clone();
+                baselineHttpProxy = apiClient.getHttpProxy();
+                baselineHttpsProxy = apiClient.getHttpsProxy();
+            }
+            apiClient.setHttpProxy(resolvedProxy);
+            apiClient.setHttpsProxy(resolvedProxy);
+            restoreProxyTransport();
+            apiClient.getHttpClient().setProxy(StsFormRequest.parseProxy(resolvedProxy));
+            if (StsFormRequest.proxyAuthorizationHeader(resolvedProxy) != null) {
+                StsProxySupport.configure(apiClient.getHttpClient(), resolvedProxy,
+                        StsFormRequest.normalizeEndpoint(apiClient.getEndpoint(),
+                                apiClient.getDisableSSL() ? "http" : "https"));
+            }
+        } else if (baselineProxy != null) {
+            apiClient.setHttpProxy(baselineHttpProxy);
+            apiClient.setHttpsProxy(baselineHttpsProxy);
+            apiClient.getHttpClient().setProxy(baselineProxy.getProxy());
+            apiClient.getHttpClient().setProxySelector(baselineProxy.getProxySelector());
+            restoreProxyTransport();
+            baselineProxy = null;
         }
     }
 
-    private void applyProxyAuthenticator(final String proxyAuthHeader) {
-        apiClient.getHttpClient().setAuthenticator(new Authenticator() {
-            @Override
-            public Request authenticate(Proxy proxy, Response response) throws IOException {
-                return null;
-            }
-
-            @Override
-            public Request authenticateProxy(Proxy proxy, Response response) throws IOException {
-                // Idempotent guard: if the request already carries a Proxy-Authorization
-                // header, our credentials were already tried and rejected. Return null so
-                // OkHttp stops retrying instead of resubmitting the same header until it
-                // hits the follow-up cap. Only inject on the first (unauthenticated) attempt.
-                if (response.request().header("Proxy-Authorization") != null) {
-                    return null;
-                }
-                return response.request().newBuilder()
-                        .header("Proxy-Authorization", proxyAuthHeader)
-                        .build();
-            }
-        });
+    private void restoreProxyTransport() {
+        apiClient.getHttpClient().setAuthenticator(baselineProxy.getAuthenticator());
+        apiClient.getHttpClient().setSocketFactory(baselineProxy.getSocketFactory());
+        apiClient.getHttpClient().setDns(baselineProxy.getDns());
+        apiClient.getHttpClient().setFollowRedirects(baselineProxy.getFollowRedirects());
+        apiClient.getHttpClient().setFollowSslRedirects(baselineProxy.getFollowSslRedirects());
     }
 
     private static boolean isNullOrEmpty(String s) {
@@ -296,7 +329,7 @@ public class StsAssumeRoleProvider implements Provider {
         return System.currentTimeMillis() / 1000 > expirationTime;
     }
 
-    public void refresh() throws ApiException {
+    public synchronized void refresh() throws ApiException {
         applyHttpConfig();
         UniversalApi api = new UniversalApi(apiClient);
         UniversalRequest request = new UniversalRequest("sts", "AssumeRole", "2018-01-01", HttpMethod.GET, ContentType.Default);

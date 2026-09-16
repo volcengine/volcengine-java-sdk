@@ -53,6 +53,7 @@ public class OidcCredentialProvider implements Provider {
     // Proxy / TLS customization for the STS endpoint. Empty by default: JVM
     // defaults (including standard proxy system properties) apply.
     private String proxyUrl;
+    private String fallbackProxyUrl;
     private String caFile;
     private boolean insecureSkipVerify;
 
@@ -90,6 +91,22 @@ public class OidcCredentialProvider implements Provider {
         }
 
         return new OidcCredentialProvider(roleTrn, roleSessionName, oidcTokenFile, rolePolicy, stsEndpoint);
+    }
+
+    synchronized OidcCredentialProvider bind(String httpProxy, String httpsProxy) {
+        OidcCredentialProvider copy = new OidcCredentialProvider(
+                roleTrn, roleSessionName, oidcTokenFile, rolePolicy, stsEndpoint);
+        copy.durationSeconds = durationSeconds;
+        copy.expireBufferSeconds = expireBufferSeconds;
+        copy.schema = schema;
+        copy.maxRetries = maxRetries;
+        copy.retryIntervalMs = retryIntervalMs;
+        copy.proxyUrl = proxyUrl;
+        copy.caFile = caFile;
+        copy.insecureSkipVerify = insecureSkipVerify;
+        copy.fallbackProxyUrl = StsFormRequest.normalizeEndpoint(stsEndpoint, schema).startsWith("http://")
+                ? httpProxy : httpsProxy;
+        return copy;
     }
 
     @Override
@@ -196,8 +213,8 @@ public class OidcCredentialProvider implements Provider {
 
     /**
      * Set the forward proxy for reaching the STS endpoint, format
-     * {@code scheme://[user:password@]host:port}. When empty, JVM default proxy
-     * selection applies (including HTTP_PROXY / HTTPS_PROXY).
+     * {@code http://[user:password@]host:port}. When empty, the bound client's
+     * STS-scheme proxy applies, then the original JVM proxy selection.
      */
     public void setProxyUrl(String proxyUrl) {
         this.proxyUrl = proxyUrl;
@@ -220,7 +237,8 @@ public class OidcCredentialProvider implements Provider {
     }
 
     private StsHttpConfig buildHttpConfig() {
-        StsHttpConfig config = new StsHttpConfig(proxyUrl, caFile, insecureSkipVerify);
+        StsHttpConfig config = new StsHttpConfig(
+                isNullOrEmpty(proxyUrl) ? fallbackProxyUrl : proxyUrl, caFile, insecureSkipVerify);
         return config.isEmpty() ? null : config;
     }
 

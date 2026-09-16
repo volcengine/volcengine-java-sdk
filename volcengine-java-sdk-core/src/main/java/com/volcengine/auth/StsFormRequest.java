@@ -1,5 +1,13 @@
 package com.volcengine.auth;
 
+import com.squareup.okhttp.Authenticator;
+import com.squareup.okhttp.Challenge;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
+import com.squareup.okhttp.ResponseBody;
 import com.volcengine.ApiException;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -19,6 +27,7 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Shared HTTP helper for STS form-encoded POST requests (AssumeRoleWithOIDC,
@@ -91,6 +100,11 @@ class StsFormRequest {
     }
 
     private static String doPost(String requestUrl, String formBody, String providerName, String action, StsHttpConfig httpConfig) throws ApiException {
+        if (requestUrl.startsWith("https://") && httpConfig != null
+                && !isNullOrEmpty(httpConfig.getProxyUrl())
+                && proxyAuthorizationHeader(httpConfig.getProxyUrl()) != null) {
+            return doAuthenticatedPost(requestUrl, formBody, providerName, action, httpConfig);
+        }
         HttpURLConnection connection = null;
         try {
             connection = openConnection(requestUrl, httpConfig);
@@ -182,15 +196,72 @@ class StsFormRequest {
         return connection;
     }
 
-    private static Proxy parseProxy(String proxyUrl) throws ApiException {
+    static Proxy parseProxy(String proxyUrl) throws ApiException {
         try {
             URI uri = new URI(proxyUrl);
-            if (uri.getHost() == null || uri.getPort() < 0) {
-                throw new ApiException("invalid proxy url \"" + proxyUrl + "\": missing host or port");
+            if (!"http".equalsIgnoreCase(uri.getScheme()) || uri.getHost() == null
+                    || uri.getPort() <= 0 || uri.getPort() > 65535) {
+                throw new ApiException("invalid proxy url: expected http://[user:password@]host:port");
             }
             return new Proxy(Proxy.Type.HTTP, new InetSocketAddress(uri.getHost(), uri.getPort()));
         } catch (URISyntaxException e) {
-            throw new ApiException("invalid proxy url \"" + proxyUrl + "\": " + e.getMessage());
+            throw new ApiException("invalid proxy url");
+        }
+    }
+
+    static Authenticator proxyAuthenticator(String proxyUrl) throws ApiException {
+        final Proxy expectedProxy = parseProxy(proxyUrl);
+        final String header = proxyAuthorizationHeader(proxyUrl);
+        return new Authenticator() {
+            @Override public Request authenticate(Proxy proxy, Response response) {
+                return null;
+            }
+            @Override public Request authenticateProxy(Proxy proxy, Response response) {
+                if (!expectedProxy.equals(proxy) || header == null
+                        || response.request().header("Proxy-Authorization") != null) {
+                    return null;
+                }
+                for (Challenge challenge : response.challenges()) {
+                    if ("Basic".equalsIgnoreCase(challenge.getScheme())) {
+                        return response.request().newBuilder().header("Proxy-Authorization", header).build();
+                    }
+                }
+                return null;
+            }
+        };
+    }
+
+    private static String doAuthenticatedPost(String requestUrl, String formBody, String providerName,
+                                             String action, StsHttpConfig config) throws ApiException {
+        OkHttpClient client = new OkHttpClient();
+        client.setConnectTimeout(DEFAULT_CONNECT_TIMEOUT_MS, TimeUnit.MILLISECONDS);
+        client.setReadTimeout(DEFAULT_READ_TIMEOUT_MS, TimeUnit.MILLISECONDS);
+        client.setWriteTimeout(DEFAULT_READ_TIMEOUT_MS, TimeUnit.MILLISECONDS);
+        client.setRetryOnConnectionFailure(false);
+        StsProxySupport.configure(client, config.getProxyUrl(), requestUrl);
+        if (config.isInsecureSkipVerify() || !isNullOrEmpty(config.getCaFile())) {
+            client.setSslSocketFactory(StsTlsSupport.buildSslContext(config).getSocketFactory());
+            if (config.isInsecureSkipVerify()) {
+                client.setHostnameVerifier(StsTlsSupport.trustAllHostnameVerifier());
+            }
+        }
+        Request request = new Request.Builder().url(requestUrl).header("Accept", ACCEPT)
+                .post(RequestBody.create(MediaType.parse(FORM_URLENCODED),
+                        formBody.getBytes(StandardCharsets.UTF_8))).build();
+        try {
+            Response response = client.newCall(request).execute();
+            try (ResponseBody body = response.body()) {
+                String text = readResponseBody(body.byteStream());
+                if (response.code() != 200) {
+                    throw new ApiException(response.code(), providerName + ": " + action
+                            + " request failed with status " + response.code() + (text.isEmpty() ? "" : " - " + text));
+                }
+                return text;
+            }
+        } catch (StsProxySupport.AuthenticationException e) {
+            throw new ApiException(407, e.getMessage());
+        } catch (IOException e) {
+            throw new StsTransientException(providerName + ": " + action + " request failed - " + e.getMessage());
         }
     }
 
@@ -209,7 +280,7 @@ class StsFormRequest {
             byte[] raw = userInfo.getBytes(StandardCharsets.UTF_8);
             return "Basic " + Base64.getEncoder().encodeToString(raw);
         } catch (URISyntaxException e) {
-            throw new ApiException("invalid proxy url \"" + proxyUrl + "\": " + e.getMessage());
+            throw new ApiException("invalid proxy url");
         }
     }
 

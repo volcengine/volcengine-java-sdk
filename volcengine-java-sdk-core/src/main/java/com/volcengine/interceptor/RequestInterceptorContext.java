@@ -12,6 +12,16 @@ import java.util.Map;
 import java.util.UUID;
 
 public class RequestInterceptorContext {
+    private com.volcengine.auth.CredentialProvider credentialProvider;
+
+    public com.volcengine.auth.CredentialProvider getCredentialProvider() {
+        return credentialProvider;
+    }
+
+    public void setCredentialProvider(com.volcengine.auth.CredentialProvider credentialProvider) {
+        this.credentialProvider = credentialProvider;
+    }
+
     private final String invocationId = UUID.randomUUID().toString();
     private int retryCount;
     private int maxAttempts = 1;

@@ -102,7 +102,7 @@ import java.util.regex.Pattern;
 import static com.volcengine.observability.debugger.LogLevel.LOG_DEBUG_WITH_CONFIG;
 import static com.volcengine.observability.debugger.SdkDebugLog.SDK_CORE_LOGGER;
 
-public class ApiClient extends BaseClient{
+public class ApiClient extends BaseClient implements Cloneable {
     private final static String DefaultAuthentication = "volcengineSign";
 
     private boolean debugging = false;
@@ -135,6 +135,8 @@ public class ApiClient extends BaseClient{
     private EndpointResolver endpointResolver;
 
     private CredentialProvider credentialProvider;
+    private CredentialProvider boundCredentialProvider;
+    private ProxySelector managedProxySelector;
 
     private Integer maxIdleConns = 5;
 
@@ -243,8 +245,11 @@ public class ApiClient extends BaseClient{
      * @param disableSSL
      * @return An instance of OkHttpClient
      */
-    public ApiClient setDisableSSL(boolean disableSSL) {
+    public synchronized ApiClient setDisableSSL(boolean disableSSL) {
         this.disableSSL = disableSSL;
+        if (httpClient.getProxySelector() == managedProxySelector) {
+            updateClientProxy();
+        }
         return this;
     }
 
@@ -622,8 +627,9 @@ public class ApiClient extends BaseClient{
      *
      * @return Api client
      */
-    public ApiClient setHttpProxy(String httpProxy) {
+    public synchronized ApiClient setHttpProxy(String httpProxy) {
         this.httpProxy = httpProxy;
+        boundCredentialProvider = null;
         updateClientProxy();
         return this;
     }
@@ -642,23 +648,27 @@ public class ApiClient extends BaseClient{
      *
      * @return Api client
      */
-    public ApiClient setHttpsProxy(String httpsProxy) {
+    public synchronized ApiClient setHttpsProxy(String httpsProxy) {
         this.httpsProxy = httpsProxy;
+        boundCredentialProvider = null;
         updateClientProxy();
         return this;
     }
 
     private void updateClientProxy() {
-        httpClient.setProxySelector(new ProxySelector() {
+        final boolean plain = disableSSL;
+        final String http = httpProxy;
+        final String https = httpsProxy;
+        managedProxySelector = new ProxySelector() {
             @Override
             public List<Proxy> select(URI uri) {
 
                 List<Proxy> proxies = new ArrayList<>();
 
-                if (disableSSL) {
-                    addProxy(proxies, httpProxy, "HTTP_PROXY");
+                if (plain) {
+                    addProxy(proxies, http, "HTTP_PROXY");
                 } else {
-                    addProxy(proxies, httpsProxy, "HTTPS_PROXY");
+                    addProxy(proxies, https, "HTTPS_PROXY");
                 }
 
                 return proxies;
@@ -667,10 +677,11 @@ public class ApiClient extends BaseClient{
             @Override
             public void connectFailed(URI uri, SocketAddress sa, IOException ioe) {
             }
-        });
+        };
+        httpClient.setProxySelector(managedProxySelector);
     }
 
-    private void addProxy(List<Proxy> proxies, String proxy, String env) {
+    private static void addProxy(List<Proxy> proxies, String proxy, String env) {
         if (!StringUtils.isEmpty(proxy)) {
             try {
                 URI u = new URI(proxy);
@@ -1926,13 +1937,93 @@ public class ApiClient extends BaseClient{
         }
     }
 
-    public CredentialProvider getCredentialProvider() {
-        return credentialProvider;
+    public synchronized CredentialProvider getCredentialProvider() {
+        if (credentialProvider == null) {
+            return null;
+        }
+        if (boundCredentialProvider == null) {
+            boundCredentialProvider = credentialProvider.bind(httpProxy, httpsProxy);
+        }
+        return boundCredentialProvider;
     }
 
-    public ApiClient setCredentialProvider(CredentialProvider credentialProvider) {
+    public synchronized ApiClient setCredentialProvider(CredentialProvider credentialProvider) {
         this.credentialProvider = credentialProvider;
+        this.boundCredentialProvider = null;
         return this;
+    }
+
+    /**
+     * Configuration copy for a built-in credential provider. Transport options,
+     * including caller TLS factories and timeouts, are retained without replaying
+     * a possibly consumed CA InputStream.
+     */
+    public synchronized ApiClient copyForCredentialProvider() {
+        try {
+            ApiClient copy = (ApiClient) super.clone();
+            copy.httpClient = httpClient.clone();
+            copy.defaultHeaderMap = new HashMap<String, String>(defaultHeaderMap);
+            copy.keyManagers = keyManagers == null ? null : keyManagers.clone();
+            copy.customBootstrapRegion = customBootstrapRegion == null ? null
+                    : new java.util.HashSet<String>(customBootstrapRegion);
+            copy.authentications = new HashMap<String, Authentication>(authentications);
+            Authentication auth = authentications.get(DefaultAuthentication);
+            if (auth instanceof VolcstackSign) {
+                copy.authentications.put(DefaultAuthentication, ((VolcstackSign) auth).copy());
+            }
+            copy.authentications = Collections.unmodifiableMap(copy.authentications);
+            if (credentials != null) {
+                copy.setCredentials(Credentials.getCredentials(credentials.getAccessKey(),
+                        credentials.getSecretKey(), credentials.getSessionToken()));
+            }
+            copy.boundCredentialProvider = null;
+            copy.sdkConfigLog = null;
+            if (httpClient.getProxySelector() == managedProxySelector) {
+                copy.updateClientProxy();
+            }
+            return copy;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError(e);
+        }
+    }
+
+    /** Effective TLS state, including caller-owned factories, without replaying streams. */
+    public static final class TlsSettings {
+        private final InputStream ca;
+        private final boolean verifying;
+        private final javax.net.ssl.SSLSocketFactory factory;
+        private final HostnameVerifier verifier;
+
+        private TlsSettings(ApiClient client) {
+            ca = client.sslCaCert;
+            verifying = client.verifyingSsl;
+            factory = client.httpClient.getSslSocketFactory();
+            verifier = client.httpClient.getHostnameVerifier();
+        }
+    }
+
+    public TlsSettings snapshotTlsSettings() {
+        return new TlsSettings(this);
+    }
+
+    public void restoreTlsSettings(TlsSettings settings) {
+        sslCaCert = settings.ca;
+        verifyingSsl = settings.verifying;
+        httpClient.setSslSocketFactory(settings.factory);
+        httpClient.setHostnameVerifier(settings.verifier);
+    }
+
+    /** Validate and publish a single TLS update, retaining client key managers. */
+    public void applyStsTlsSettings(boolean insecure, byte[] ca) {
+        TlsSettings previous = snapshotTlsSettings();
+        try {
+            sslCaCert = ca == null ? null : new java.io.ByteArrayInputStream(ca);
+            verifyingSsl = !insecure;
+            applySslSettings();
+        } catch (RuntimeException e) {
+            restoreTlsSettings(previous);
+            throw e;
+        }
     }
 
     public EndpointResolver getEndpointResolver() {
