@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class GetAuthorizationTokenRequest {
+  @SerializedName("ExpiresAt")
+  private Long expiresAt = null;
+
   @SerializedName("Registry")
   private String registry = null;
+
+  public GetAuthorizationTokenRequest expiresAt(Long expiresAt) {
+    this.expiresAt = expiresAt;
+    return this;
+  }
+
+   /**
+   * Get expiresAt
+   * @return expiresAt
+  **/
+  @Schema(description = "")
+  public Long getExpiresAt() {
+    return expiresAt;
+  }
+
+  public void setExpiresAt(Long expiresAt) {
+    this.expiresAt = expiresAt;
+  }
 
   public GetAuthorizationTokenRequest registry(String registry) {
     this.registry = registry;
@@ -62,12 +83,13 @@ public class GetAuthorizationTokenRequest {
       return false;
     }
     GetAuthorizationTokenRequest getAuthorizationTokenRequest = (GetAuthorizationTokenRequest) o;
-    return Objects.equals(this.registry, getAuthorizationTokenRequest.registry);
+    return Objects.equals(this.expiresAt, getAuthorizationTokenRequest.expiresAt) &&
+        Objects.equals(this.registry, getAuthorizationTokenRequest.registry);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(registry);
+    return Objects.hash(expiresAt, registry);
   }
 
 
@@ -76,6 +98,7 @@ public class GetAuthorizationTokenRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAuthorizationTokenRequest {\n");
     
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
     sb.append("}");
     return sb.toString();

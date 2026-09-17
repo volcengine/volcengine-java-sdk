@@ -30,8 +30,53 @@ import javax.validation.Valid;
 
 
 public class ProxyCacheForListRegistriesOutput {
+  @SerializedName("Endpoint")
+  private String endpoint = null;
+
+  @SerializedName("SkipSSLVerify")
+  private Boolean skipSSLVerify = null;
+
   @SerializedName("Type")
   private String type = null;
+
+  @SerializedName("Username")
+  private String username = null;
+
+  public ProxyCacheForListRegistriesOutput endpoint(String endpoint) {
+    this.endpoint = endpoint;
+    return this;
+  }
+
+   /**
+   * Get endpoint
+   * @return endpoint
+  **/
+  @Schema(description = "")
+  public String getEndpoint() {
+    return endpoint;
+  }
+
+  public void setEndpoint(String endpoint) {
+    this.endpoint = endpoint;
+  }
+
+  public ProxyCacheForListRegistriesOutput skipSSLVerify(Boolean skipSSLVerify) {
+    this.skipSSLVerify = skipSSLVerify;
+    return this;
+  }
+
+   /**
+   * Get skipSSLVerify
+   * @return skipSSLVerify
+  **/
+  @Schema(description = "")
+  public Boolean isSkipSSLVerify() {
+    return skipSSLVerify;
+  }
+
+  public void setSkipSSLVerify(Boolean skipSSLVerify) {
+    this.skipSSLVerify = skipSSLVerify;
+  }
 
   public ProxyCacheForListRegistriesOutput type(String type) {
     this.type = type;
@@ -51,6 +96,24 @@ public class ProxyCacheForListRegistriesOutput {
     this.type = type;
   }
 
+  public ProxyCacheForListRegistriesOutput username(String username) {
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Get username
+   * @return username
+  **/
+  @Schema(description = "")
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +124,15 @@ public class ProxyCacheForListRegistriesOutput {
       return false;
     }
     ProxyCacheForListRegistriesOutput proxyCacheForListRegistriesOutput = (ProxyCacheForListRegistriesOutput) o;
-    return Objects.equals(this.type, proxyCacheForListRegistriesOutput.type);
+    return Objects.equals(this.endpoint, proxyCacheForListRegistriesOutput.endpoint) &&
+        Objects.equals(this.skipSSLVerify, proxyCacheForListRegistriesOutput.skipSSLVerify) &&
+        Objects.equals(this.type, proxyCacheForListRegistriesOutput.type) &&
+        Objects.equals(this.username, proxyCacheForListRegistriesOutput.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type);
+    return Objects.hash(endpoint, skipSSLVerify, type, username);
   }
 
 
@@ -75,7 +141,10 @@ public class ProxyCacheForListRegistriesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProxyCacheForListRegistriesOutput {\n");
     
+    sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
+    sb.append("    skipSSLVerify: ").append(toIndentedString(skipSSLVerify)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }
