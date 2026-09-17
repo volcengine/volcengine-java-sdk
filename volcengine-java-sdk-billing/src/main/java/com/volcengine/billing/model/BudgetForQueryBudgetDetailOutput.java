@@ -36,146 +36,17 @@ public class BudgetForQueryBudgetDetailOutput {
   @SerializedName("BudgetName")
   private String budgetName = null;
 
-  /**
-   * Gets or Sets budgetPlanType
-   */
-  @JsonAdapter(BudgetPlanTypeEnum.Adapter.class)
-  public enum BudgetPlanTypeEnum {
-    @SerializedName("fixed_amount")
-    FIXED_AMOUNT("fixed_amount"),
-    @SerializedName("planning")
-    PLANNING("planning");
-
-    private String value;
-
-    BudgetPlanTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BudgetPlanTypeEnum fromValue(String input) {
-      for (BudgetPlanTypeEnum b : BudgetPlanTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BudgetPlanTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BudgetPlanTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BudgetPlanTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BudgetPlanTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BudgetPlanType")
-  private BudgetPlanTypeEnum budgetPlanType = null;
+  @SerializedName("BudgetPlanType")
+  private String budgetPlanType = null;
 
   @SerializedName("BudgetStartTime")
   private String budgetStartTime = null;
 
-  /**
-   * Gets or Sets budgetType
-   */
-  @JsonAdapter(BudgetTypeEnum.Adapter.class)
-  public enum BudgetTypeEnum {
-    @SerializedName("cost_budget")
-    COST_BUDGET("cost_budget");
+  @SerializedName("BudgetType")
+  private String budgetType = null;
 
-    private String value;
-
-    BudgetTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BudgetTypeEnum fromValue(String input) {
-      for (BudgetTypeEnum b : BudgetTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BudgetTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BudgetTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BudgetTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BudgetTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BudgetType")
-  private BudgetTypeEnum budgetType = null;
-
-  /**
-   * Gets or Sets period
-   */
-  @JsonAdapter(PeriodEnum.Adapter.class)
-  public enum PeriodEnum {
-    @SerializedName("month")
-    MONTH("month"),
-    @SerializedName("quarter")
-    QUARTER("quarter"),
-    @SerializedName("year")
-    YEAR("year");
-
-    private String value;
-
-    PeriodEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static PeriodEnum fromValue(String input) {
-      for (PeriodEnum b : PeriodEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<PeriodEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PeriodEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public PeriodEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return PeriodEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Period")
-  private PeriodEnum period = null;
+  @SerializedName("Period")
+  private String period = null;
 
   public BudgetForQueryBudgetDetailOutput budgetEndTime(String budgetEndTime) {
     this.budgetEndTime = budgetEndTime;
@@ -213,7 +84,7 @@ public class BudgetForQueryBudgetDetailOutput {
     this.budgetName = budgetName;
   }
 
-  public BudgetForQueryBudgetDetailOutput budgetPlanType(BudgetPlanTypeEnum budgetPlanType) {
+  public BudgetForQueryBudgetDetailOutput budgetPlanType(String budgetPlanType) {
     this.budgetPlanType = budgetPlanType;
     return this;
   }
@@ -223,11 +94,11 @@ public class BudgetForQueryBudgetDetailOutput {
    * @return budgetPlanType
   **/
   @Schema(description = "")
-  public BudgetPlanTypeEnum getBudgetPlanType() {
+  public String getBudgetPlanType() {
     return budgetPlanType;
   }
 
-  public void setBudgetPlanType(BudgetPlanTypeEnum budgetPlanType) {
+  public void setBudgetPlanType(String budgetPlanType) {
     this.budgetPlanType = budgetPlanType;
   }
 
@@ -249,7 +120,7 @@ public class BudgetForQueryBudgetDetailOutput {
     this.budgetStartTime = budgetStartTime;
   }
 
-  public BudgetForQueryBudgetDetailOutput budgetType(BudgetTypeEnum budgetType) {
+  public BudgetForQueryBudgetDetailOutput budgetType(String budgetType) {
     this.budgetType = budgetType;
     return this;
   }
@@ -259,15 +130,15 @@ public class BudgetForQueryBudgetDetailOutput {
    * @return budgetType
   **/
   @Schema(description = "")
-  public BudgetTypeEnum getBudgetType() {
+  public String getBudgetType() {
     return budgetType;
   }
 
-  public void setBudgetType(BudgetTypeEnum budgetType) {
+  public void setBudgetType(String budgetType) {
     this.budgetType = budgetType;
   }
 
-  public BudgetForQueryBudgetDetailOutput period(PeriodEnum period) {
+  public BudgetForQueryBudgetDetailOutput period(String period) {
     this.period = period;
     return this;
   }
@@ -277,11 +148,11 @@ public class BudgetForQueryBudgetDetailOutput {
    * @return period
   **/
   @Schema(description = "")
-  public PeriodEnum getPeriod() {
+  public String getPeriod() {
     return period;
   }
 
-  public void setPeriod(PeriodEnum period) {
+  public void setPeriod(String period) {
     this.period = period;
   }
 

@@ -48,6 +48,21 @@ public class OrderFailRefundInfoForGetOrderOutput {
   @SerializedName("PayableAmount")
   private String payableAmount = null;
 
+  @SerializedName("PointDeductAmount")
+  private String pointDeductAmount = null;
+
+  @SerializedName("PreTaxPayableAmount")
+  private String preTaxPayableAmount = null;
+
+  @SerializedName("SettlePayableAmount")
+  private String settlePayableAmount = null;
+
+  @SerializedName("SettleTax")
+  private String settleTax = null;
+
+  @SerializedName("Tax")
+  private String tax = null;
+
   public OrderFailRefundInfoForGetOrderOutput couponAmount(String couponAmount) {
     this.couponAmount = couponAmount;
     return this;
@@ -156,6 +171,96 @@ public class OrderFailRefundInfoForGetOrderOutput {
     this.payableAmount = payableAmount;
   }
 
+  public OrderFailRefundInfoForGetOrderOutput pointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+    return this;
+  }
+
+   /**
+   * Get pointDeductAmount
+   * @return pointDeductAmount
+  **/
+  @Schema(description = "")
+  public String getPointDeductAmount() {
+    return pointDeductAmount;
+  }
+
+  public void setPointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+  }
+
+  public OrderFailRefundInfoForGetOrderOutput preTaxPayableAmount(String preTaxPayableAmount) {
+    this.preTaxPayableAmount = preTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get preTaxPayableAmount
+   * @return preTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getPreTaxPayableAmount() {
+    return preTaxPayableAmount;
+  }
+
+  public void setPreTaxPayableAmount(String preTaxPayableAmount) {
+    this.preTaxPayableAmount = preTaxPayableAmount;
+  }
+
+  public OrderFailRefundInfoForGetOrderOutput settlePayableAmount(String settlePayableAmount) {
+    this.settlePayableAmount = settlePayableAmount;
+    return this;
+  }
+
+   /**
+   * Get settlePayableAmount
+   * @return settlePayableAmount
+  **/
+  @Schema(description = "")
+  public String getSettlePayableAmount() {
+    return settlePayableAmount;
+  }
+
+  public void setSettlePayableAmount(String settlePayableAmount) {
+    this.settlePayableAmount = settlePayableAmount;
+  }
+
+  public OrderFailRefundInfoForGetOrderOutput settleTax(String settleTax) {
+    this.settleTax = settleTax;
+    return this;
+  }
+
+   /**
+   * Get settleTax
+   * @return settleTax
+  **/
+  @Schema(description = "")
+  public String getSettleTax() {
+    return settleTax;
+  }
+
+  public void setSettleTax(String settleTax) {
+    this.settleTax = settleTax;
+  }
+
+  public OrderFailRefundInfoForGetOrderOutput tax(String tax) {
+    this.tax = tax;
+    return this;
+  }
+
+   /**
+   * Get tax
+   * @return tax
+  **/
+  @Schema(description = "")
+  public String getTax() {
+    return tax;
+  }
+
+  public void setTax(String tax) {
+    this.tax = tax;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -171,12 +276,17 @@ public class OrderFailRefundInfoForGetOrderOutput {
         Objects.equals(this.discountAmount, orderFailRefundInfoForGetOrderOutput.discountAmount) &&
         Objects.equals(this.originalAmount, orderFailRefundInfoForGetOrderOutput.originalAmount) &&
         Objects.equals(this.paidAmount, orderFailRefundInfoForGetOrderOutput.paidAmount) &&
-        Objects.equals(this.payableAmount, orderFailRefundInfoForGetOrderOutput.payableAmount);
+        Objects.equals(this.payableAmount, orderFailRefundInfoForGetOrderOutput.payableAmount) &&
+        Objects.equals(this.pointDeductAmount, orderFailRefundInfoForGetOrderOutput.pointDeductAmount) &&
+        Objects.equals(this.preTaxPayableAmount, orderFailRefundInfoForGetOrderOutput.preTaxPayableAmount) &&
+        Objects.equals(this.settlePayableAmount, orderFailRefundInfoForGetOrderOutput.settlePayableAmount) &&
+        Objects.equals(this.settleTax, orderFailRefundInfoForGetOrderOutput.settleTax) &&
+        Objects.equals(this.tax, orderFailRefundInfoForGetOrderOutput.tax);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(couponAmount, deductionCount, discountAmount, originalAmount, paidAmount, payableAmount);
+    return Objects.hash(couponAmount, deductionCount, discountAmount, originalAmount, paidAmount, payableAmount, pointDeductAmount, preTaxPayableAmount, settlePayableAmount, settleTax, tax);
   }
 
 
@@ -191,6 +301,11 @@ public class OrderFailRefundInfoForGetOrderOutput {
     sb.append("    originalAmount: ").append(toIndentedString(originalAmount)).append("\n");
     sb.append("    paidAmount: ").append(toIndentedString(paidAmount)).append("\n");
     sb.append("    payableAmount: ").append(toIndentedString(payableAmount)).append("\n");
+    sb.append("    pointDeductAmount: ").append(toIndentedString(pointDeductAmount)).append("\n");
+    sb.append("    preTaxPayableAmount: ").append(toIndentedString(preTaxPayableAmount)).append("\n");
+    sb.append("    settlePayableAmount: ").append(toIndentedString(settlePayableAmount)).append("\n");
+    sb.append("    settleTax: ").append(toIndentedString(settleTax)).append("\n");
+    sb.append("    tax: ").append(toIndentedString(tax)).append("\n");
     sb.append("}");
     return sb.toString();
   }

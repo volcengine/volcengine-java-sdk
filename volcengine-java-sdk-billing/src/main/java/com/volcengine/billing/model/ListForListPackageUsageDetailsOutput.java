@@ -102,53 +102,8 @@ public class ListForListPackageUsageDetailsOutput {
   @SerializedName("OwnerID")
   private String ownerID = null;
 
-  /**
-   * Gets or Sets packageType
-   */
-  @JsonAdapter(PackageTypeEnum.Adapter.class)
-  public enum PackageTypeEnum {
-    @SerializedName("Periodic")
-    PERIODIC("Periodic"),
-    @SerializedName("Diminishing")
-    DIMINISHING("Diminishing"),
-    @SerializedName("Hybrid")
-    HYBRID("Hybrid");
-
-    private String value;
-
-    PackageTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static PackageTypeEnum fromValue(String input) {
-      for (PackageTypeEnum b : PackageTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<PackageTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PackageTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public PackageTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return PackageTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("PackageType")
-  private PackageTypeEnum packageType = null;
+  @SerializedName("PackageType")
+  private String packageType = null;
 
   @SerializedName("Product")
   private String product = null;
@@ -612,7 +567,7 @@ public class ListForListPackageUsageDetailsOutput {
     this.ownerID = ownerID;
   }
 
-  public ListForListPackageUsageDetailsOutput packageType(PackageTypeEnum packageType) {
+  public ListForListPackageUsageDetailsOutput packageType(String packageType) {
     this.packageType = packageType;
     return this;
   }
@@ -622,11 +577,11 @@ public class ListForListPackageUsageDetailsOutput {
    * @return packageType
   **/
   @Schema(description = "")
-  public PackageTypeEnum getPackageType() {
+  public String getPackageType() {
     return packageType;
   }
 
-  public void setPackageType(PackageTypeEnum packageType) {
+  public void setPackageType(String packageType) {
     this.packageType = packageType;
   }
 
