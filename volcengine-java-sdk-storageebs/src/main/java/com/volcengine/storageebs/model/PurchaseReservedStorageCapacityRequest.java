@@ -42,6 +42,9 @@ public class PurchaseReservedStorageCapacityRequest {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ReservedCapacity")
   private Integer reservedCapacity = null;
 
@@ -124,6 +127,24 @@ public class PurchaseReservedStorageCapacityRequest {
 
   public void setPeriodUnit(String periodUnit) {
     this.periodUnit = periodUnit;
+  }
+
+  public PurchaseReservedStorageCapacityRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public PurchaseReservedStorageCapacityRequest reservedCapacity(Integer reservedCapacity) {
@@ -212,6 +233,7 @@ public class PurchaseReservedStorageCapacityRequest {
         Objects.equals(this.effectiveAt, purchaseReservedStorageCapacityRequest.effectiveAt) &&
         Objects.equals(this.period, purchaseReservedStorageCapacityRequest.period) &&
         Objects.equals(this.periodUnit, purchaseReservedStorageCapacityRequest.periodUnit) &&
+        Objects.equals(this.projectName, purchaseReservedStorageCapacityRequest.projectName) &&
         Objects.equals(this.reservedCapacity, purchaseReservedStorageCapacityRequest.reservedCapacity) &&
         Objects.equals(this.reservedStorageCapacityName, purchaseReservedStorageCapacityRequest.reservedStorageCapacityName) &&
         Objects.equals(this.volumeType, purchaseReservedStorageCapacityRequest.volumeType) &&
@@ -220,7 +242,7 @@ public class PurchaseReservedStorageCapacityRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, effectiveAt, period, periodUnit, reservedCapacity, reservedStorageCapacityName, volumeType, zoneId);
+    return Objects.hash(clientToken, effectiveAt, period, periodUnit, projectName, reservedCapacity, reservedStorageCapacityName, volumeType, zoneId);
   }
 
 
@@ -233,6 +255,7 @@ public class PurchaseReservedStorageCapacityRequest {
     sb.append("    effectiveAt: ").append(toIndentedString(effectiveAt)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    reservedCapacity: ").append(toIndentedString(reservedCapacity)).append("\n");
     sb.append("    reservedStorageCapacityName: ").append(toIndentedString(reservedStorageCapacityName)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");

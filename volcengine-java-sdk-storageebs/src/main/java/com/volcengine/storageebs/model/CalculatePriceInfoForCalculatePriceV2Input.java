@@ -75,6 +75,9 @@ public class CalculatePriceInfoForCalculatePriceV2Input {
   @SerializedName("VolumeType")
   private String volumeType = null;
 
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
   public CalculatePriceInfoForCalculatePriceV2Input action(String action) {
     this.action = action;
     return this;
@@ -336,6 +339,24 @@ public class CalculatePriceInfoForCalculatePriceV2Input {
     this.volumeType = volumeType;
   }
 
+  public CalculatePriceInfoForCalculatePriceV2Input zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -359,12 +380,13 @@ public class CalculatePriceInfoForCalculatePriceV2Input {
         Objects.equals(this.times, calculatePriceInfoForCalculatePriceV2Input.times) &&
         Objects.equals(this.volumeID, calculatePriceInfoForCalculatePriceV2Input.volumeID) &&
         Objects.equals(this.volumeKind, calculatePriceInfoForCalculatePriceV2Input.volumeKind) &&
-        Objects.equals(this.volumeType, calculatePriceInfoForCalculatePriceV2Input.volumeType);
+        Objects.equals(this.volumeType, calculatePriceInfoForCalculatePriceV2Input.volumeType) &&
+        Objects.equals(this.zoneId, calculatePriceInfoForCalculatePriceV2Input.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, chargeType, count, endTime, extraPerformances, instanceID, period, purchaseTime, region, size, times, volumeID, volumeKind, volumeType);
+    return Objects.hash(action, chargeType, count, endTime, extraPerformances, instanceID, period, purchaseTime, region, size, times, volumeID, volumeKind, volumeType, zoneId);
   }
 
 
@@ -387,6 +409,7 @@ public class CalculatePriceInfoForCalculatePriceV2Input {
     sb.append("    volumeID: ").append(toIndentedString(volumeID)).append("\n");
     sb.append("    volumeKind: ").append(toIndentedString(volumeKind)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

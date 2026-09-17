@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,9 @@ import javax.validation.Valid;
 public class CreateVolumeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("VolumeId")
   private String volumeId = null;
+
+  @SerializedName("VolumeIds")
+  private List<String> volumeIds = null;
 
   public CreateVolumeResponse volumeId(String volumeId) {
     this.volumeId = volumeId;
@@ -51,6 +56,32 @@ public class CreateVolumeResponse extends com.volcengine.model.AbstractResponse 
     this.volumeId = volumeId;
   }
 
+  public CreateVolumeResponse volumeIds(List<String> volumeIds) {
+    this.volumeIds = volumeIds;
+    return this;
+  }
+
+  public CreateVolumeResponse addVolumeIdsItem(String volumeIdsItem) {
+    if (this.volumeIds == null) {
+      this.volumeIds = new ArrayList<String>();
+    }
+    this.volumeIds.add(volumeIdsItem);
+    return this;
+  }
+
+   /**
+   * Get volumeIds
+   * @return volumeIds
+  **/
+  @Schema(description = "")
+  public List<String> getVolumeIds() {
+    return volumeIds;
+  }
+
+  public void setVolumeIds(List<String> volumeIds) {
+    this.volumeIds = volumeIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +92,13 @@ public class CreateVolumeResponse extends com.volcengine.model.AbstractResponse 
       return false;
     }
     CreateVolumeResponse createVolumeResponse = (CreateVolumeResponse) o;
-    return Objects.equals(this.volumeId, createVolumeResponse.volumeId);
+    return Objects.equals(this.volumeId, createVolumeResponse.volumeId) &&
+        Objects.equals(this.volumeIds, createVolumeResponse.volumeIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(volumeId);
+    return Objects.hash(volumeId, volumeIds);
   }
 
 
@@ -76,6 +108,7 @@ public class CreateVolumeResponse extends com.volcengine.model.AbstractResponse 
     sb.append("class CreateVolumeResponse {\n");
     
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
+    sb.append("    volumeIds: ").append(toIndentedString(volumeIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
