@@ -36,6 +36,9 @@ public class VpcForUpdateVpcEndpointInput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("Region")
+  private String region = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -76,6 +79,24 @@ public class VpcForUpdateVpcEndpointInput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public VpcForUpdateVpcEndpointInput region(String region) {
+    this.region = region;
+    return this;
+  }
+
+   /**
+   * Get region
+   * @return region
+  **/
+  @Schema(description = "")
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
   }
 
   public VpcForUpdateVpcEndpointInput subnetId(String subnetId) {
@@ -126,13 +147,14 @@ public class VpcForUpdateVpcEndpointInput {
     VpcForUpdateVpcEndpointInput vpcForUpdateVpcEndpointInput = (VpcForUpdateVpcEndpointInput) o;
     return Objects.equals(this.accountId, vpcForUpdateVpcEndpointInput.accountId) &&
         Objects.equals(this.description, vpcForUpdateVpcEndpointInput.description) &&
+        Objects.equals(this.region, vpcForUpdateVpcEndpointInput.region) &&
         Objects.equals(this.subnetId, vpcForUpdateVpcEndpointInput.subnetId) &&
         Objects.equals(this.vpcId, vpcForUpdateVpcEndpointInput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, description, subnetId, vpcId);
+    return Objects.hash(accountId, description, region, subnetId, vpcId);
   }
 
 
@@ -143,6 +165,7 @@ public class VpcForUpdateVpcEndpointInput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

@@ -43,8 +43,14 @@ public class OrderInfoForListOrdersOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
+  @SerializedName("CurrencySettlement")
+  private String currencySettlement = null;
+
   @SerializedName("DiscountAmount")
   private String discountAmount = null;
+
+  @SerializedName("ExchangeRate")
+  private String exchangeRate = null;
 
   @SerializedName("OrderFailRefundInfo")
   private OrderFailRefundInfoForListOrdersOutput orderFailRefundInfo = null;
@@ -70,17 +76,38 @@ public class OrderInfoForListOrdersOutput {
   @SerializedName("PayerID")
   private Integer payerID = null;
 
+  @SerializedName("PointDeductAmount")
+  private String pointDeductAmount = null;
+
+  @SerializedName("Points")
+  private String points = null;
+
+  @SerializedName("PreTaxPayableAmount")
+  private String preTaxPayableAmount = null;
+
   @SerializedName("SellerCustomerName")
   private String sellerCustomerName = null;
 
   @SerializedName("SellerID")
   private Integer sellerID = null;
 
+  @SerializedName("SettlePayableAmount")
+  private String settlePayableAmount = null;
+
+  @SerializedName("SettleTax")
+  private String settleTax = null;
+
   @SerializedName("Status")
   private String status = null;
 
   @SerializedName("SubjectNo")
   private String subjectNo = null;
+
+  @SerializedName("Tax")
+  private String tax = null;
+
+  @SerializedName("TaxRate")
+  private String taxRate = null;
 
   public OrderInfoForListOrdersOutput buyerCustomerName(String buyerCustomerName) {
     this.buyerCustomerName = buyerCustomerName;
@@ -154,6 +181,24 @@ public class OrderInfoForListOrdersOutput {
     this.createTime = createTime;
   }
 
+  public OrderInfoForListOrdersOutput currencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
+    return this;
+  }
+
+   /**
+   * Get currencySettlement
+   * @return currencySettlement
+  **/
+  @Schema(description = "")
+  public String getCurrencySettlement() {
+    return currencySettlement;
+  }
+
+  public void setCurrencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
+  }
+
   public OrderInfoForListOrdersOutput discountAmount(String discountAmount) {
     this.discountAmount = discountAmount;
     return this;
@@ -170,6 +215,24 @@ public class OrderInfoForListOrdersOutput {
 
   public void setDiscountAmount(String discountAmount) {
     this.discountAmount = discountAmount;
+  }
+
+  public OrderInfoForListOrdersOutput exchangeRate(String exchangeRate) {
+    this.exchangeRate = exchangeRate;
+    return this;
+  }
+
+   /**
+   * Get exchangeRate
+   * @return exchangeRate
+  **/
+  @Schema(description = "")
+  public String getExchangeRate() {
+    return exchangeRate;
+  }
+
+  public void setExchangeRate(String exchangeRate) {
+    this.exchangeRate = exchangeRate;
   }
 
   public OrderInfoForListOrdersOutput orderFailRefundInfo(OrderFailRefundInfoForListOrdersOutput orderFailRefundInfo) {
@@ -317,6 +380,60 @@ public class OrderInfoForListOrdersOutput {
     this.payerID = payerID;
   }
 
+  public OrderInfoForListOrdersOutput pointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+    return this;
+  }
+
+   /**
+   * Get pointDeductAmount
+   * @return pointDeductAmount
+  **/
+  @Schema(description = "")
+  public String getPointDeductAmount() {
+    return pointDeductAmount;
+  }
+
+  public void setPointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+  }
+
+  public OrderInfoForListOrdersOutput points(String points) {
+    this.points = points;
+    return this;
+  }
+
+   /**
+   * Get points
+   * @return points
+  **/
+  @Schema(description = "")
+  public String getPoints() {
+    return points;
+  }
+
+  public void setPoints(String points) {
+    this.points = points;
+  }
+
+  public OrderInfoForListOrdersOutput preTaxPayableAmount(String preTaxPayableAmount) {
+    this.preTaxPayableAmount = preTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get preTaxPayableAmount
+   * @return preTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getPreTaxPayableAmount() {
+    return preTaxPayableAmount;
+  }
+
+  public void setPreTaxPayableAmount(String preTaxPayableAmount) {
+    this.preTaxPayableAmount = preTaxPayableAmount;
+  }
+
   public OrderInfoForListOrdersOutput sellerCustomerName(String sellerCustomerName) {
     this.sellerCustomerName = sellerCustomerName;
     return this;
@@ -351,6 +468,42 @@ public class OrderInfoForListOrdersOutput {
 
   public void setSellerID(Integer sellerID) {
     this.sellerID = sellerID;
+  }
+
+  public OrderInfoForListOrdersOutput settlePayableAmount(String settlePayableAmount) {
+    this.settlePayableAmount = settlePayableAmount;
+    return this;
+  }
+
+   /**
+   * Get settlePayableAmount
+   * @return settlePayableAmount
+  **/
+  @Schema(description = "")
+  public String getSettlePayableAmount() {
+    return settlePayableAmount;
+  }
+
+  public void setSettlePayableAmount(String settlePayableAmount) {
+    this.settlePayableAmount = settlePayableAmount;
+  }
+
+  public OrderInfoForListOrdersOutput settleTax(String settleTax) {
+    this.settleTax = settleTax;
+    return this;
+  }
+
+   /**
+   * Get settleTax
+   * @return settleTax
+  **/
+  @Schema(description = "")
+  public String getSettleTax() {
+    return settleTax;
+  }
+
+  public void setSettleTax(String settleTax) {
+    this.settleTax = settleTax;
   }
 
   public OrderInfoForListOrdersOutput status(String status) {
@@ -389,6 +542,42 @@ public class OrderInfoForListOrdersOutput {
     this.subjectNo = subjectNo;
   }
 
+  public OrderInfoForListOrdersOutput tax(String tax) {
+    this.tax = tax;
+    return this;
+  }
+
+   /**
+   * Get tax
+   * @return tax
+  **/
+  @Schema(description = "")
+  public String getTax() {
+    return tax;
+  }
+
+  public void setTax(String tax) {
+    this.tax = tax;
+  }
+
+  public OrderInfoForListOrdersOutput taxRate(String taxRate) {
+    this.taxRate = taxRate;
+    return this;
+  }
+
+   /**
+   * Get taxRate
+   * @return taxRate
+  **/
+  @Schema(description = "")
+  public String getTaxRate() {
+    return taxRate;
+  }
+
+  public void setTaxRate(String taxRate) {
+    this.taxRate = taxRate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -403,7 +592,9 @@ public class OrderInfoForListOrdersOutput {
         Objects.equals(this.buyerID, orderInfoForListOrdersOutput.buyerID) &&
         Objects.equals(this.couponAmount, orderInfoForListOrdersOutput.couponAmount) &&
         Objects.equals(this.createTime, orderInfoForListOrdersOutput.createTime) &&
+        Objects.equals(this.currencySettlement, orderInfoForListOrdersOutput.currencySettlement) &&
         Objects.equals(this.discountAmount, orderInfoForListOrdersOutput.discountAmount) &&
+        Objects.equals(this.exchangeRate, orderInfoForListOrdersOutput.exchangeRate) &&
         Objects.equals(this.orderFailRefundInfo, orderInfoForListOrdersOutput.orderFailRefundInfo) &&
         Objects.equals(this.orderID, orderInfoForListOrdersOutput.orderID) &&
         Objects.equals(this.orderType, orderInfoForListOrdersOutput.orderType) &&
@@ -412,15 +603,22 @@ public class OrderInfoForListOrdersOutput {
         Objects.equals(this.payableAmount, orderInfoForListOrdersOutput.payableAmount) &&
         Objects.equals(this.payerCustomerName, orderInfoForListOrdersOutput.payerCustomerName) &&
         Objects.equals(this.payerID, orderInfoForListOrdersOutput.payerID) &&
+        Objects.equals(this.pointDeductAmount, orderInfoForListOrdersOutput.pointDeductAmount) &&
+        Objects.equals(this.points, orderInfoForListOrdersOutput.points) &&
+        Objects.equals(this.preTaxPayableAmount, orderInfoForListOrdersOutput.preTaxPayableAmount) &&
         Objects.equals(this.sellerCustomerName, orderInfoForListOrdersOutput.sellerCustomerName) &&
         Objects.equals(this.sellerID, orderInfoForListOrdersOutput.sellerID) &&
+        Objects.equals(this.settlePayableAmount, orderInfoForListOrdersOutput.settlePayableAmount) &&
+        Objects.equals(this.settleTax, orderInfoForListOrdersOutput.settleTax) &&
         Objects.equals(this.status, orderInfoForListOrdersOutput.status) &&
-        Objects.equals(this.subjectNo, orderInfoForListOrdersOutput.subjectNo);
+        Objects.equals(this.subjectNo, orderInfoForListOrdersOutput.subjectNo) &&
+        Objects.equals(this.tax, orderInfoForListOrdersOutput.tax) &&
+        Objects.equals(this.taxRate, orderInfoForListOrdersOutput.taxRate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(buyerCustomerName, buyerID, couponAmount, createTime, discountAmount, orderFailRefundInfo, orderID, orderType, originalAmount, paidAmount, payableAmount, payerCustomerName, payerID, sellerCustomerName, sellerID, status, subjectNo);
+    return Objects.hash(buyerCustomerName, buyerID, couponAmount, createTime, currencySettlement, discountAmount, exchangeRate, orderFailRefundInfo, orderID, orderType, originalAmount, paidAmount, payableAmount, payerCustomerName, payerID, pointDeductAmount, points, preTaxPayableAmount, sellerCustomerName, sellerID, settlePayableAmount, settleTax, status, subjectNo, tax, taxRate);
   }
 
 
@@ -433,7 +631,9 @@ public class OrderInfoForListOrdersOutput {
     sb.append("    buyerID: ").append(toIndentedString(buyerID)).append("\n");
     sb.append("    couponAmount: ").append(toIndentedString(couponAmount)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    currencySettlement: ").append(toIndentedString(currencySettlement)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
+    sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
     sb.append("    orderFailRefundInfo: ").append(toIndentedString(orderFailRefundInfo)).append("\n");
     sb.append("    orderID: ").append(toIndentedString(orderID)).append("\n");
     sb.append("    orderType: ").append(toIndentedString(orderType)).append("\n");
@@ -442,10 +642,17 @@ public class OrderInfoForListOrdersOutput {
     sb.append("    payableAmount: ").append(toIndentedString(payableAmount)).append("\n");
     sb.append("    payerCustomerName: ").append(toIndentedString(payerCustomerName)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
+    sb.append("    pointDeductAmount: ").append(toIndentedString(pointDeductAmount)).append("\n");
+    sb.append("    points: ").append(toIndentedString(points)).append("\n");
+    sb.append("    preTaxPayableAmount: ").append(toIndentedString(preTaxPayableAmount)).append("\n");
     sb.append("    sellerCustomerName: ").append(toIndentedString(sellerCustomerName)).append("\n");
     sb.append("    sellerID: ").append(toIndentedString(sellerID)).append("\n");
+    sb.append("    settlePayableAmount: ").append(toIndentedString(settlePayableAmount)).append("\n");
+    sb.append("    settleTax: ").append(toIndentedString(settleTax)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subjectNo: ").append(toIndentedString(subjectNo)).append("\n");
+    sb.append("    tax: ").append(toIndentedString(tax)).append("\n");
+    sb.append("    taxRate: ").append(toIndentedString(taxRate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

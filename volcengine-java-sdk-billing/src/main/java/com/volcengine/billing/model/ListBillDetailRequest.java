@@ -78,6 +78,9 @@ public class ListBillDetailRequest {
   @SerializedName("Project")
   private List<String> project = null;
 
+  @SerializedName("SalesChannel")
+  private List<String> salesChannel = null;
+
   @SerializedName("TagKV")
   private List<TagKVForListBillDetailInput> tagKV = null;
 
@@ -404,6 +407,32 @@ public class ListBillDetailRequest {
     this.project = project;
   }
 
+  public ListBillDetailRequest salesChannel(List<String> salesChannel) {
+    this.salesChannel = salesChannel;
+    return this;
+  }
+
+  public ListBillDetailRequest addSalesChannelItem(String salesChannelItem) {
+    if (this.salesChannel == null) {
+      this.salesChannel = new ArrayList<String>();
+    }
+    this.salesChannel.add(salesChannelItem);
+    return this;
+  }
+
+   /**
+   * Get salesChannel
+   * @return salesChannel
+  **/
+  @Schema(description = "")
+  public List<String> getSalesChannel() {
+    return salesChannel;
+  }
+
+  public void setSalesChannel(List<String> salesChannel) {
+    this.salesChannel = salesChannel;
+  }
+
   public ListBillDetailRequest tagKV(List<TagKVForListBillDetailInput> tagKV) {
     this.tagKV = tagKV;
     return this;
@@ -474,13 +503,14 @@ public class ListBillDetailRequest {
         Objects.equals(this.payerID, listBillDetailRequest.payerID) &&
         Objects.equals(this.product, listBillDetailRequest.product) &&
         Objects.equals(this.project, listBillDetailRequest.project) &&
+        Objects.equals(this.salesChannel, listBillDetailRequest.salesChannel) &&
         Objects.equals(this.tagKV, listBillDetailRequest.tagKV) &&
         Objects.equals(this.tagKVFilterMode, listBillDetailRequest.tagKVFilterMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, groupTerm, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project, tagKV, tagKVFilterMode);
+    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, groupTerm, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project, salesChannel, tagKV, tagKVFilterMode);
   }
 
 
@@ -504,6 +534,7 @@ public class ListBillDetailRequest {
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
+    sb.append("    salesChannel: ").append(toIndentedString(salesChannel)).append("\n");
     sb.append("    tagKV: ").append(toIndentedString(tagKV)).append("\n");
     sb.append("    tagKVFilterMode: ").append(toIndentedString(tagKVFilterMode)).append("\n");
     sb.append("}");

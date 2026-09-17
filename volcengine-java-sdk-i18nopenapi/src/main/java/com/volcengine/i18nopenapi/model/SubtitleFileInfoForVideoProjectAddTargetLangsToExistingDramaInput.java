@@ -30,6 +30,12 @@ import javax.validation.Valid;
 
 
 public class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput {
+  @SerializedName("arrangement")
+  private Integer arrangement = null;
+
+  @SerializedName("effectType")
+  private Integer effectType = null;
+
   @SerializedName("fileName")
   private String fileName = null;
 
@@ -39,8 +45,47 @@ public class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput {
   @SerializedName("fileUrl")
   private String fileUrl = null;
 
+  @SerializedName("subtitleId")
+  private String subtitleId = null;
+
   @SerializedName("subtitleLang")
   private Integer subtitleLang = null;
+
+  public SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput arrangement(Integer arrangement) {
+    this.arrangement = arrangement;
+    return this;
+  }
+
+   /**
+   * Get arrangement
+   * @return arrangement
+  **/
+  @Schema(description = "")
+  public Integer getArrangement() {
+    return arrangement;
+  }
+
+  public void setArrangement(Integer arrangement) {
+    this.arrangement = arrangement;
+  }
+
+  public SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput effectType(Integer effectType) {
+    this.effectType = effectType;
+    return this;
+  }
+
+   /**
+   * Get effectType
+   * @return effectType
+  **/
+  @Schema(description = "")
+  public Integer getEffectType() {
+    return effectType;
+  }
+
+  public void setEffectType(Integer effectType) {
+    this.effectType = effectType;
+  }
 
   public SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput fileName(String fileName) {
     this.fileName = fileName;
@@ -96,6 +141,24 @@ public class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput {
     this.fileUrl = fileUrl;
   }
 
+  public SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput subtitleId(String subtitleId) {
+    this.subtitleId = subtitleId;
+    return this;
+  }
+
+   /**
+   * Get subtitleId
+   * @return subtitleId
+  **/
+  @Schema(description = "")
+  public String getSubtitleId() {
+    return subtitleId;
+  }
+
+  public void setSubtitleId(String subtitleId) {
+    this.subtitleId = subtitleId;
+  }
+
   public SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput subtitleLang(Integer subtitleLang) {
     this.subtitleLang = subtitleLang;
     return this;
@@ -124,15 +187,18 @@ public class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput {
       return false;
     }
     SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput = (SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput) o;
-    return Objects.equals(this.fileName, subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.fileName) &&
+    return Objects.equals(this.arrangement, subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.arrangement) &&
+        Objects.equals(this.effectType, subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.effectType) &&
+        Objects.equals(this.fileName, subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.fileName) &&
         Objects.equals(this.fileType, subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.fileType) &&
         Objects.equals(this.fileUrl, subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.fileUrl) &&
+        Objects.equals(this.subtitleId, subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.subtitleId) &&
         Objects.equals(this.subtitleLang, subtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput.subtitleLang);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileName, fileType, fileUrl, subtitleLang);
+    return Objects.hash(arrangement, effectType, fileName, fileType, fileUrl, subtitleId, subtitleLang);
   }
 
 
@@ -141,9 +207,12 @@ public class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubtitleFileInfoForVideoProjectAddTargetLangsToExistingDramaInput {\n");
     
+    sb.append("    arrangement: ").append(toIndentedString(arrangement)).append("\n");
+    sb.append("    effectType: ").append(toIndentedString(effectType)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
     sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
+    sb.append("    subtitleId: ").append(toIndentedString(subtitleId)).append("\n");
     sb.append("    subtitleLang: ").append(toIndentedString(subtitleLang)).append("\n");
     sb.append("}");
     return sb.toString();

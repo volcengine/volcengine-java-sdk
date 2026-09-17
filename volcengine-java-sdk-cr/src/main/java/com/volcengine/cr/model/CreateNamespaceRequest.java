@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class CreateNamespaceRequest {
+  @SerializedName("AutoCreateRepositoryDisabled")
+  private Boolean autoCreateRepositoryDisabled = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -41,6 +44,27 @@ public class CreateNamespaceRequest {
 
   @SerializedName("Registry")
   private String registry = null;
+
+  @SerializedName("RepositoryDefaultAccessLevel")
+  private String repositoryDefaultAccessLevel = null;
+
+  public CreateNamespaceRequest autoCreateRepositoryDisabled(Boolean autoCreateRepositoryDisabled) {
+    this.autoCreateRepositoryDisabled = autoCreateRepositoryDisabled;
+    return this;
+  }
+
+   /**
+   * Get autoCreateRepositoryDisabled
+   * @return autoCreateRepositoryDisabled
+  **/
+  @Schema(description = "")
+  public Boolean isAutoCreateRepositoryDisabled() {
+    return autoCreateRepositoryDisabled;
+  }
+
+  public void setAutoCreateRepositoryDisabled(Boolean autoCreateRepositoryDisabled) {
+    this.autoCreateRepositoryDisabled = autoCreateRepositoryDisabled;
+  }
 
   public CreateNamespaceRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -116,6 +140,24 @@ public class CreateNamespaceRequest {
     this.registry = registry;
   }
 
+  public CreateNamespaceRequest repositoryDefaultAccessLevel(String repositoryDefaultAccessLevel) {
+    this.repositoryDefaultAccessLevel = repositoryDefaultAccessLevel;
+    return this;
+  }
+
+   /**
+   * Get repositoryDefaultAccessLevel
+   * @return repositoryDefaultAccessLevel
+  **/
+  @Schema(description = "")
+  public String getRepositoryDefaultAccessLevel() {
+    return repositoryDefaultAccessLevel;
+  }
+
+  public void setRepositoryDefaultAccessLevel(String repositoryDefaultAccessLevel) {
+    this.repositoryDefaultAccessLevel = repositoryDefaultAccessLevel;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,15 +168,17 @@ public class CreateNamespaceRequest {
       return false;
     }
     CreateNamespaceRequest createNamespaceRequest = (CreateNamespaceRequest) o;
-    return Objects.equals(this.clientToken, createNamespaceRequest.clientToken) &&
+    return Objects.equals(this.autoCreateRepositoryDisabled, createNamespaceRequest.autoCreateRepositoryDisabled) &&
+        Objects.equals(this.clientToken, createNamespaceRequest.clientToken) &&
         Objects.equals(this.name, createNamespaceRequest.name) &&
         Objects.equals(this.project, createNamespaceRequest.project) &&
-        Objects.equals(this.registry, createNamespaceRequest.registry);
+        Objects.equals(this.registry, createNamespaceRequest.registry) &&
+        Objects.equals(this.repositoryDefaultAccessLevel, createNamespaceRequest.repositoryDefaultAccessLevel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, name, project, registry);
+    return Objects.hash(autoCreateRepositoryDisabled, clientToken, name, project, registry, repositoryDefaultAccessLevel);
   }
 
 
@@ -143,10 +187,12 @@ public class CreateNamespaceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNamespaceRequest {\n");
     
+    sb.append("    autoCreateRepositoryDisabled: ").append(toIndentedString(autoCreateRepositoryDisabled)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
+    sb.append("    repositoryDefaultAccessLevel: ").append(toIndentedString(repositoryDefaultAccessLevel)).append("\n");
     sb.append("}");
     return sb.toString();
   }

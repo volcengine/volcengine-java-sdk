@@ -30,49 +30,8 @@ import javax.validation.Valid;
 
 
 public class BudgetAlertRuleListForQueryBudgetDetailOutput {
-  /**
-   * Gets or Sets budgetAlertItem
-   */
-  @JsonAdapter(BudgetAlertItemEnum.Adapter.class)
-  public enum BudgetAlertItemEnum {
-    @SerializedName("actual_amount")
-    ACTUAL_AMOUNT("actual_amount");
-
-    private String value;
-
-    BudgetAlertItemEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BudgetAlertItemEnum fromValue(String input) {
-      for (BudgetAlertItemEnum b : BudgetAlertItemEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BudgetAlertItemEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BudgetAlertItemEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BudgetAlertItemEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BudgetAlertItemEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BudgetAlertItem")
-  private BudgetAlertItemEnum budgetAlertItem = null;
+  @SerializedName("BudgetAlertItem")
+  private String budgetAlertItem = null;
 
   @SerializedName("BudgetAlertRuleID")
   private String budgetAlertRuleID = null;
@@ -80,53 +39,10 @@ public class BudgetAlertRuleListForQueryBudgetDetailOutput {
   @SerializedName("BudgetAlertThreshold")
   private String budgetAlertThreshold = null;
 
-  /**
-   * Gets or Sets budgetAlertThresholdType
-   */
-  @JsonAdapter(BudgetAlertThresholdTypeEnum.Adapter.class)
-  public enum BudgetAlertThresholdTypeEnum {
-    @SerializedName("amount")
-    AMOUNT("amount"),
-    @SerializedName("ratio")
-    RATIO("ratio");
+  @SerializedName("BudgetAlertThresholdType")
+  private String budgetAlertThresholdType = null;
 
-    private String value;
-
-    BudgetAlertThresholdTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BudgetAlertThresholdTypeEnum fromValue(String input) {
-      for (BudgetAlertThresholdTypeEnum b : BudgetAlertThresholdTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BudgetAlertThresholdTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BudgetAlertThresholdTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BudgetAlertThresholdTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BudgetAlertThresholdTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BudgetAlertThresholdType")
-  private BudgetAlertThresholdTypeEnum budgetAlertThresholdType = null;
-
-  public BudgetAlertRuleListForQueryBudgetDetailOutput budgetAlertItem(BudgetAlertItemEnum budgetAlertItem) {
+  public BudgetAlertRuleListForQueryBudgetDetailOutput budgetAlertItem(String budgetAlertItem) {
     this.budgetAlertItem = budgetAlertItem;
     return this;
   }
@@ -136,11 +52,11 @@ public class BudgetAlertRuleListForQueryBudgetDetailOutput {
    * @return budgetAlertItem
   **/
   @Schema(description = "")
-  public BudgetAlertItemEnum getBudgetAlertItem() {
+  public String getBudgetAlertItem() {
     return budgetAlertItem;
   }
 
-  public void setBudgetAlertItem(BudgetAlertItemEnum budgetAlertItem) {
+  public void setBudgetAlertItem(String budgetAlertItem) {
     this.budgetAlertItem = budgetAlertItem;
   }
 
@@ -180,7 +96,7 @@ public class BudgetAlertRuleListForQueryBudgetDetailOutput {
     this.budgetAlertThreshold = budgetAlertThreshold;
   }
 
-  public BudgetAlertRuleListForQueryBudgetDetailOutput budgetAlertThresholdType(BudgetAlertThresholdTypeEnum budgetAlertThresholdType) {
+  public BudgetAlertRuleListForQueryBudgetDetailOutput budgetAlertThresholdType(String budgetAlertThresholdType) {
     this.budgetAlertThresholdType = budgetAlertThresholdType;
     return this;
   }
@@ -190,11 +106,11 @@ public class BudgetAlertRuleListForQueryBudgetDetailOutput {
    * @return budgetAlertThresholdType
   **/
   @Schema(description = "")
-  public BudgetAlertThresholdTypeEnum getBudgetAlertThresholdType() {
+  public String getBudgetAlertThresholdType() {
     return budgetAlertThresholdType;
   }
 
-  public void setBudgetAlertThresholdType(BudgetAlertThresholdTypeEnum budgetAlertThresholdType) {
+  public void setBudgetAlertThresholdType(String budgetAlertThresholdType) {
     this.budgetAlertThresholdType = budgetAlertThresholdType;
   }
 

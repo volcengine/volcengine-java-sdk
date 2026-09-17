@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vke.model.ConfigForListRemedyConfigsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,79 +30,10 @@ import javax.validation.Valid;
 
 
 public class RemedyStrategyForListRemedyConfigsOutput {
-  @SerializedName("Config")
-  private ConfigForListRemedyConfigsOutput config = null;
+  @SerializedName("Type")
+  private String type = null;
 
-  /**
-   * Gets or Sets type
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    @SerializedName("Notify")
-    NOTIFY("Notify"),
-    @SerializedName("CordonNode")
-    CORDONNODE("CordonNode"),
-    @SerializedName("DrainNode")
-    DRAINNODE("DrainNode"),
-    @SerializedName("Remedy")
-    REMEDY("Remedy");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TypeEnum fromValue(String input) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Type")
-  private TypeEnum type = null;
-
-  public RemedyStrategyForListRemedyConfigsOutput config(ConfigForListRemedyConfigsOutput config) {
-    this.config = config;
-    return this;
-  }
-
-   /**
-   * Get config
-   * @return config
-  **/
-  @Valid
-  @Schema(description = "")
-  public ConfigForListRemedyConfigsOutput getConfig() {
-    return config;
-  }
-
-  public void setConfig(ConfigForListRemedyConfigsOutput config) {
-    this.config = config;
-  }
-
-  public RemedyStrategyForListRemedyConfigsOutput type(TypeEnum type) {
+  public RemedyStrategyForListRemedyConfigsOutput type(String type) {
     this.type = type;
     return this;
   }
@@ -113,11 +43,11 @@ public class RemedyStrategyForListRemedyConfigsOutput {
    * @return type
   **/
   @Schema(description = "")
-  public TypeEnum getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(TypeEnum type) {
+  public void setType(String type) {
     this.type = type;
   }
 
@@ -131,13 +61,12 @@ public class RemedyStrategyForListRemedyConfigsOutput {
       return false;
     }
     RemedyStrategyForListRemedyConfigsOutput remedyStrategyForListRemedyConfigsOutput = (RemedyStrategyForListRemedyConfigsOutput) o;
-    return Objects.equals(this.config, remedyStrategyForListRemedyConfigsOutput.config) &&
-        Objects.equals(this.type, remedyStrategyForListRemedyConfigsOutput.type);
+    return Objects.equals(this.type, remedyStrategyForListRemedyConfigsOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, type);
+    return Objects.hash(type);
   }
 
 
@@ -146,7 +75,6 @@ public class RemedyStrategyForListRemedyConfigsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RemedyStrategyForListRemedyConfigsOutput {\n");
     
-    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

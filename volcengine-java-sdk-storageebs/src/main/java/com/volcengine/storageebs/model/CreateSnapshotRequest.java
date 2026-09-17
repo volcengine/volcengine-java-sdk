@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.storageebs.model.SourceForCreateSnapshotInput;
 import com.volcengine.storageebs.model.TagForCreateSnapshotInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -47,6 +48,9 @@ public class CreateSnapshotRequest {
 
   @SerializedName("SnapshotName")
   private String snapshotName = null;
+
+  @SerializedName("Source")
+  private SourceForCreateSnapshotInput source = null;
 
   @SerializedName("Tags")
   private List<TagForCreateSnapshotInput> tags = null;
@@ -145,6 +149,25 @@ public class CreateSnapshotRequest {
     this.snapshotName = snapshotName;
   }
 
+  public CreateSnapshotRequest source(SourceForCreateSnapshotInput source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Valid
+  @Schema(description = "")
+  public SourceForCreateSnapshotInput getSource() {
+    return source;
+  }
+
+  public void setSource(SourceForCreateSnapshotInput source) {
+    this.source = source;
+  }
+
   public CreateSnapshotRequest tags(List<TagForCreateSnapshotInput> tags) {
     this.tags = tags;
     return this;
@@ -206,13 +229,14 @@ public class CreateSnapshotRequest {
         Objects.equals(this.projectName, createSnapshotRequest.projectName) &&
         Objects.equals(this.retentionDays, createSnapshotRequest.retentionDays) &&
         Objects.equals(this.snapshotName, createSnapshotRequest.snapshotName) &&
+        Objects.equals(this.source, createSnapshotRequest.source) &&
         Objects.equals(this.tags, createSnapshotRequest.tags) &&
         Objects.equals(this.volumeId, createSnapshotRequest.volumeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, projectName, retentionDays, snapshotName, tags, volumeId);
+    return Objects.hash(clientToken, description, projectName, retentionDays, snapshotName, source, tags, volumeId);
   }
 
 
@@ -226,6 +250,7 @@ public class CreateSnapshotRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");
     sb.append("    snapshotName: ").append(toIndentedString(snapshotName)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
     sb.append("}");

@@ -48,97 +48,11 @@ public class BudgetListForListBudgetOutput {
   @SerializedName("BudgetStartTime")
   private String budgetStartTime = null;
 
-  /**
-   * Gets or Sets budgetType
-   */
-  @JsonAdapter(BudgetTypeEnum.Adapter.class)
-  public enum BudgetTypeEnum {
-    @SerializedName("cost_budget")
-    COST_BUDGET("cost_budget");
+  @SerializedName("BudgetType")
+  private String budgetType = null;
 
-    private String value;
-
-    BudgetTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BudgetTypeEnum fromValue(String input) {
-      for (BudgetTypeEnum b : BudgetTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BudgetTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BudgetTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BudgetTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BudgetTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BudgetType")
-  private BudgetTypeEnum budgetType = null;
-
-  /**
-   * Gets or Sets period
-   */
-  @JsonAdapter(PeriodEnum.Adapter.class)
-  public enum PeriodEnum {
-    @SerializedName("month")
-    MONTH("month"),
-    @SerializedName("quarter")
-    QUARTER("quarter"),
-    @SerializedName("year")
-    YEAR("year");
-
-    private String value;
-
-    PeriodEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static PeriodEnum fromValue(String input) {
-      for (PeriodEnum b : PeriodEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<PeriodEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PeriodEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public PeriodEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return PeriodEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Period")
-  private PeriodEnum period = null;
+  @SerializedName("Period")
+  private String period = null;
 
   @SerializedName("Ratio")
   private String ratio = null;
@@ -254,7 +168,7 @@ public class BudgetListForListBudgetOutput {
     this.budgetStartTime = budgetStartTime;
   }
 
-  public BudgetListForListBudgetOutput budgetType(BudgetTypeEnum budgetType) {
+  public BudgetListForListBudgetOutput budgetType(String budgetType) {
     this.budgetType = budgetType;
     return this;
   }
@@ -264,15 +178,15 @@ public class BudgetListForListBudgetOutput {
    * @return budgetType
   **/
   @Schema(description = "")
-  public BudgetTypeEnum getBudgetType() {
+  public String getBudgetType() {
     return budgetType;
   }
 
-  public void setBudgetType(BudgetTypeEnum budgetType) {
+  public void setBudgetType(String budgetType) {
     this.budgetType = budgetType;
   }
 
-  public BudgetListForListBudgetOutput period(PeriodEnum period) {
+  public BudgetListForListBudgetOutput period(String period) {
     this.period = period;
     return this;
   }
@@ -282,11 +196,11 @@ public class BudgetListForListBudgetOutput {
    * @return period
   **/
   @Schema(description = "")
-  public PeriodEnum getPeriod() {
+  public String getPeriod() {
     return period;
   }
 
-  public void setPeriod(PeriodEnum period) {
+  public void setPeriod(String period) {
     this.period = period;
   }
 

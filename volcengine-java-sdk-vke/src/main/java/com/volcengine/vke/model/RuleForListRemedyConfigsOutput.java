@@ -33,53 +33,8 @@ import javax.validation.Valid;
 
 
 public class RuleForListRemedyConfigsOutput {
-  /**
-   * Gets or Sets faultType
-   */
-  @JsonAdapter(FaultTypeEnum.Adapter.class)
-  public enum FaultTypeEnum {
-    @SerializedName("GPUFault")
-    GPUFAULT("GPUFault"),
-    @SerializedName("NodeFault")
-    NODEFAULT("NodeFault"),
-    @SerializedName("SystemFault")
-    SYSTEMFAULT("SystemFault");
-
-    private String value;
-
-    FaultTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static FaultTypeEnum fromValue(String input) {
-      for (FaultTypeEnum b : FaultTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<FaultTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FaultTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public FaultTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return FaultTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("FaultType")
-  private FaultTypeEnum faultType = null;
+  @SerializedName("FaultType")
+  private String faultType = null;
 
   @SerializedName("IncidentTypes")
   private List<String> incidentTypes = null;
@@ -87,7 +42,7 @@ public class RuleForListRemedyConfigsOutput {
   @SerializedName("RemedyStrategy")
   private RemedyStrategyForListRemedyConfigsOutput remedyStrategy = null;
 
-  public RuleForListRemedyConfigsOutput faultType(FaultTypeEnum faultType) {
+  public RuleForListRemedyConfigsOutput faultType(String faultType) {
     this.faultType = faultType;
     return this;
   }
@@ -97,11 +52,11 @@ public class RuleForListRemedyConfigsOutput {
    * @return faultType
   **/
   @Schema(description = "")
-  public FaultTypeEnum getFaultType() {
+  public String getFaultType() {
     return faultType;
   }
 
-  public void setFaultType(FaultTypeEnum faultType) {
+  public void setFaultType(String faultType) {
     this.faultType = faultType;
   }
 

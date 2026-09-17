@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.BaseRespForVideoProjectSerialDubTaskCreateOutput;
+import com.volcengine.i18nopenapi.model.EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput;
 import com.volcengine.i18nopenapi.model.SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -39,6 +40,9 @@ public class DataForVideoProjectSerialDubTaskCreateOutput {
 
   @SerializedName("DubTaskIDs")
   private List<String> dubTaskIDs = null;
+
+  @SerializedName("EffectSubtitleFileCheckReports")
+  private List<EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput> effectSubtitleFileCheckReports = null;
 
   @SerializedName("SubtitleFileCheckReports")
   private List<SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput> subtitleFileCheckReports = null;
@@ -89,6 +93,33 @@ public class DataForVideoProjectSerialDubTaskCreateOutput {
 
   public void setDubTaskIDs(List<String> dubTaskIDs) {
     this.dubTaskIDs = dubTaskIDs;
+  }
+
+  public DataForVideoProjectSerialDubTaskCreateOutput effectSubtitleFileCheckReports(List<EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput> effectSubtitleFileCheckReports) {
+    this.effectSubtitleFileCheckReports = effectSubtitleFileCheckReports;
+    return this;
+  }
+
+  public DataForVideoProjectSerialDubTaskCreateOutput addEffectSubtitleFileCheckReportsItem(EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput effectSubtitleFileCheckReportsItem) {
+    if (this.effectSubtitleFileCheckReports == null) {
+      this.effectSubtitleFileCheckReports = new ArrayList<EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput>();
+    }
+    this.effectSubtitleFileCheckReports.add(effectSubtitleFileCheckReportsItem);
+    return this;
+  }
+
+   /**
+   * Get effectSubtitleFileCheckReports
+   * @return effectSubtitleFileCheckReports
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput> getEffectSubtitleFileCheckReports() {
+    return effectSubtitleFileCheckReports;
+  }
+
+  public void setEffectSubtitleFileCheckReports(List<EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput> effectSubtitleFileCheckReports) {
+    this.effectSubtitleFileCheckReports = effectSubtitleFileCheckReports;
   }
 
   public DataForVideoProjectSerialDubTaskCreateOutput subtitleFileCheckReports(List<SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput> subtitleFileCheckReports) {
@@ -156,13 +187,14 @@ public class DataForVideoProjectSerialDubTaskCreateOutput {
     DataForVideoProjectSerialDubTaskCreateOutput dataForVideoProjectSerialDubTaskCreateOutput = (DataForVideoProjectSerialDubTaskCreateOutput) o;
     return Objects.equals(this.baseResp, dataForVideoProjectSerialDubTaskCreateOutput.baseResp) &&
         Objects.equals(this.dubTaskIDs, dataForVideoProjectSerialDubTaskCreateOutput.dubTaskIDs) &&
+        Objects.equals(this.effectSubtitleFileCheckReports, dataForVideoProjectSerialDubTaskCreateOutput.effectSubtitleFileCheckReports) &&
         Objects.equals(this.subtitleFileCheckReports, dataForVideoProjectSerialDubTaskCreateOutput.subtitleFileCheckReports) &&
         Objects.equals(this.taskIDs, dataForVideoProjectSerialDubTaskCreateOutput.taskIDs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseResp, dubTaskIDs, subtitleFileCheckReports, taskIDs);
+    return Objects.hash(baseResp, dubTaskIDs, effectSubtitleFileCheckReports, subtitleFileCheckReports, taskIDs);
   }
 
 
@@ -173,6 +205,7 @@ public class DataForVideoProjectSerialDubTaskCreateOutput {
     
     sb.append("    baseResp: ").append(toIndentedString(baseResp)).append("\n");
     sb.append("    dubTaskIDs: ").append(toIndentedString(dubTaskIDs)).append("\n");
+    sb.append("    effectSubtitleFileCheckReports: ").append(toIndentedString(effectSubtitleFileCheckReports)).append("\n");
     sb.append("    subtitleFileCheckReports: ").append(toIndentedString(subtitleFileCheckReports)).append("\n");
     sb.append("    taskIDs: ").append(toIndentedString(taskIDs)).append("\n");
     sb.append("}");

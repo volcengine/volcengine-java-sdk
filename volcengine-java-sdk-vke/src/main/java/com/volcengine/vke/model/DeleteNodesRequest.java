@@ -79,6 +79,9 @@ public class DeleteNodesRequest {
   @SerializedName("ClusterId")
   private String clusterId = null;
 
+  @SerializedName("Drain")
+  private Boolean drain = null;
+
   @SerializedName("Ids")
   private List<String> ids = null;
 
@@ -174,6 +177,24 @@ public class DeleteNodesRequest {
     this.clusterId = clusterId;
   }
 
+  public DeleteNodesRequest drain(Boolean drain) {
+    this.drain = drain;
+    return this;
+  }
+
+   /**
+   * Get drain
+   * @return drain
+  **/
+  @Schema(description = "")
+  public Boolean isDrain() {
+    return drain;
+  }
+
+  public void setDrain(Boolean drain) {
+    this.drain = drain;
+  }
+
   public DeleteNodesRequest ids(List<String> ids) {
     this.ids = ids;
     return this;
@@ -256,6 +277,7 @@ public class DeleteNodesRequest {
     DeleteNodesRequest deleteNodesRequest = (DeleteNodesRequest) o;
     return Objects.equals(this.cascadingDeleteResources, deleteNodesRequest.cascadingDeleteResources) &&
         Objects.equals(this.clusterId, deleteNodesRequest.clusterId) &&
+        Objects.equals(this.drain, deleteNodesRequest.drain) &&
         Objects.equals(this.ids, deleteNodesRequest.ids) &&
         Objects.equals(this.nodePoolId, deleteNodesRequest.nodePoolId) &&
         Objects.equals(this.retainResources, deleteNodesRequest.retainResources);
@@ -263,7 +285,7 @@ public class DeleteNodesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cascadingDeleteResources, clusterId, ids, nodePoolId, retainResources);
+    return Objects.hash(cascadingDeleteResources, clusterId, drain, ids, nodePoolId, retainResources);
   }
 
 
@@ -274,6 +296,7 @@ public class DeleteNodesRequest {
     
     sb.append("    cascadingDeleteResources: ").append(toIndentedString(cascadingDeleteResources)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    drain: ").append(toIndentedString(drain)).append("\n");
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    nodePoolId: ").append(toIndentedString(nodePoolId)).append("\n");
     sb.append("    retainResources: ").append(toIndentedString(retainResources)).append("\n");

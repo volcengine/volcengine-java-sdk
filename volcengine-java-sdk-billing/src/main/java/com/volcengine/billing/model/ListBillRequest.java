@@ -65,6 +65,9 @@ public class ListBillRequest {
   @SerializedName("Product")
   private List<String> product = null;
 
+  @SerializedName("SalesChannel")
+  private List<String> salesChannel = null;
+
   public ListBillRequest billCategoryParent(List<String> billCategoryParent) {
     this.billCategoryParent = billCategoryParent;
     return this;
@@ -305,6 +308,32 @@ public class ListBillRequest {
     this.product = product;
   }
 
+  public ListBillRequest salesChannel(List<String> salesChannel) {
+    this.salesChannel = salesChannel;
+    return this;
+  }
+
+  public ListBillRequest addSalesChannelItem(String salesChannelItem) {
+    if (this.salesChannel == null) {
+      this.salesChannel = new ArrayList<String>();
+    }
+    this.salesChannel.add(salesChannelItem);
+    return this;
+  }
+
+   /**
+   * Get salesChannel
+   * @return salesChannel
+  **/
+  @Schema(description = "")
+  public List<String> getSalesChannel() {
+    return salesChannel;
+  }
+
+  public void setSalesChannel(List<String> salesChannel) {
+    this.salesChannel = salesChannel;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -325,12 +354,13 @@ public class ListBillRequest {
         Objects.equals(this.ownerID, listBillRequest.ownerID) &&
         Objects.equals(this.payStatus, listBillRequest.payStatus) &&
         Objects.equals(this.payerID, listBillRequest.payerID) &&
-        Objects.equals(this.product, listBillRequest.product);
+        Objects.equals(this.product, listBillRequest.product) &&
+        Objects.equals(this.salesChannel, listBillRequest.salesChannel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategoryParent, billPeriod, billingMode, ignoreZero, limit, needRecordNum, offset, ownerID, payStatus, payerID, product);
+    return Objects.hash(billCategoryParent, billPeriod, billingMode, ignoreZero, limit, needRecordNum, offset, ownerID, payStatus, payerID, product, salesChannel);
   }
 
 
@@ -350,6 +380,7 @@ public class ListBillRequest {
     sb.append("    payStatus: ").append(toIndentedString(payStatus)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    salesChannel: ").append(toIndentedString(salesChannel)).append("\n");
     sb.append("}");
     return sb.toString();
   }

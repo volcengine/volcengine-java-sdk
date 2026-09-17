@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ActionForListRemedyConfigsOutput
+ * UpdateClusterVersionResponse
  */
 
 
 
-public class ActionForListRemedyConfigsOutput {
-  @SerializedName("RebootEcs")
-  private Boolean rebootEcs = null;
+public class UpdateClusterVersionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("TaskId")
+  private String taskId = null;
 
-  @SerializedName("WaitFor")
-  private Integer waitFor = null;
-
-  public ActionForListRemedyConfigsOutput rebootEcs(Boolean rebootEcs) {
-    this.rebootEcs = rebootEcs;
+  public UpdateClusterVersionResponse taskId(String taskId) {
+    this.taskId = taskId;
     return this;
   }
 
    /**
-   * Get rebootEcs
-   * @return rebootEcs
+   * Get taskId
+   * @return taskId
   **/
   @Schema(description = "")
-  public Boolean isRebootEcs() {
-    return rebootEcs;
+  public String getTaskId() {
+    return taskId;
   }
 
-  public void setRebootEcs(Boolean rebootEcs) {
-    this.rebootEcs = rebootEcs;
-  }
-
-  public ActionForListRemedyConfigsOutput waitFor(Integer waitFor) {
-    this.waitFor = waitFor;
-    return this;
-  }
-
-   /**
-   * Get waitFor
-   * @return waitFor
-  **/
-  @Schema(description = "")
-  public Integer getWaitFor() {
-    return waitFor;
-  }
-
-  public void setWaitFor(Integer waitFor) {
-    this.waitFor = waitFor;
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
   }
 
 
@@ -81,24 +60,22 @@ public class ActionForListRemedyConfigsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ActionForListRemedyConfigsOutput actionForListRemedyConfigsOutput = (ActionForListRemedyConfigsOutput) o;
-    return Objects.equals(this.rebootEcs, actionForListRemedyConfigsOutput.rebootEcs) &&
-        Objects.equals(this.waitFor, actionForListRemedyConfigsOutput.waitFor);
+    UpdateClusterVersionResponse updateClusterVersionResponse = (UpdateClusterVersionResponse) o;
+    return Objects.equals(this.taskId, updateClusterVersionResponse.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rebootEcs, waitFor);
+    return Objects.hash(taskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ActionForListRemedyConfigsOutput {\n");
+    sb.append("class UpdateClusterVersionResponse {\n");
     
-    sb.append("    rebootEcs: ").append(toIndentedString(rebootEcs)).append("\n");
-    sb.append("    waitFor: ").append(toIndentedString(waitFor)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

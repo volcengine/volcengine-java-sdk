@@ -33,6 +33,9 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
   @SerializedName("AccountId")
   private String accountId = null;
 
+  @SerializedName("CreatedAt")
+  private String createdAt = null;
+
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
@@ -41,6 +44,9 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RemainingSize")
   private Integer remainingSize = null;
@@ -76,6 +82,24 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public RscInfoForDescribeReservedStorageCapacityOutput createdAt(String createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Get createdAt
+   * @return createdAt
+  **/
+  @Schema(description = "")
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
   }
 
   public RscInfoForDescribeReservedStorageCapacityOutput expiredTime(String expiredTime) {
@@ -130,6 +154,24 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public RscInfoForDescribeReservedStorageCapacityOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public RscInfoForDescribeReservedStorageCapacityOutput remainingSize(Integer remainingSize) {
@@ -251,9 +293,11 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
     }
     RscInfoForDescribeReservedStorageCapacityOutput rscInfoForDescribeReservedStorageCapacityOutput = (RscInfoForDescribeReservedStorageCapacityOutput) o;
     return Objects.equals(this.accountId, rscInfoForDescribeReservedStorageCapacityOutput.accountId) &&
+        Objects.equals(this.createdAt, rscInfoForDescribeReservedStorageCapacityOutput.createdAt) &&
         Objects.equals(this.expiredTime, rscInfoForDescribeReservedStorageCapacityOutput.expiredTime) &&
         Objects.equals(this.id, rscInfoForDescribeReservedStorageCapacityOutput.id) &&
         Objects.equals(this.name, rscInfoForDescribeReservedStorageCapacityOutput.name) &&
+        Objects.equals(this.projectName, rscInfoForDescribeReservedStorageCapacityOutput.projectName) &&
         Objects.equals(this.remainingSize, rscInfoForDescribeReservedStorageCapacityOutput.remainingSize) &&
         Objects.equals(this.size, rscInfoForDescribeReservedStorageCapacityOutput.size) &&
         Objects.equals(this.status, rscInfoForDescribeReservedStorageCapacityOutput.status) &&
@@ -264,7 +308,7 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, expiredTime, id, name, remainingSize, size, status, takeEffectTime, type, zoneId);
+    return Objects.hash(accountId, createdAt, expiredTime, id, name, projectName, remainingSize, size, status, takeEffectTime, type, zoneId);
   }
 
 
@@ -274,9 +318,11 @@ public class RscInfoForDescribeReservedStorageCapacityOutput {
     sb.append("class RscInfoForDescribeReservedStorageCapacityOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remainingSize: ").append(toIndentedString(remainingSize)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
