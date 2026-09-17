@@ -45,6 +45,9 @@ public class QueryBalanceAcctResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("CreditLimit")
   private String creditLimit = null;
 
+  @SerializedName("Currency")
+  private String currency = null;
+
   @SerializedName("FreezeAmount")
   private String freezeAmount = null;
 
@@ -138,6 +141,24 @@ public class QueryBalanceAcctResponse extends com.volcengine.model.AbstractRespo
     this.creditLimit = creditLimit;
   }
 
+  public QueryBalanceAcctResponse currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @Schema(description = "")
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
   public QueryBalanceAcctResponse freezeAmount(String freezeAmount) {
     this.freezeAmount = freezeAmount;
     return this;
@@ -171,12 +192,13 @@ public class QueryBalanceAcctResponse extends com.volcengine.model.AbstractRespo
         Objects.equals(this.availableBalance, queryBalanceAcctResponse.availableBalance) &&
         Objects.equals(this.cashBalance, queryBalanceAcctResponse.cashBalance) &&
         Objects.equals(this.creditLimit, queryBalanceAcctResponse.creditLimit) &&
+        Objects.equals(this.currency, queryBalanceAcctResponse.currency) &&
         Objects.equals(this.freezeAmount, queryBalanceAcctResponse.freezeAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, arrearsBalance, availableBalance, cashBalance, creditLimit, freezeAmount);
+    return Objects.hash(accountID, arrearsBalance, availableBalance, cashBalance, creditLimit, currency, freezeAmount);
   }
 
 
@@ -190,6 +212,7 @@ public class QueryBalanceAcctResponse extends com.volcengine.model.AbstractRespo
     sb.append("    availableBalance: ").append(toIndentedString(availableBalance)).append("\n");
     sb.append("    cashBalance: ").append(toIndentedString(cashBalance)).append("\n");
     sb.append("    creditLimit: ").append(toIndentedString(creditLimit)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    freezeAmount: ").append(toIndentedString(freezeAmount)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -190,7 +190,8 @@ public class ListCostAnalysisOpenApiRequest {
    * Get limit
    * @return limit
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getLimit() {
     return limit;
   }
@@ -208,7 +209,8 @@ public class ListCostAnalysisOpenApiRequest {
    * Get offset
    * @return offset
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getOffset() {
     return offset;
   }

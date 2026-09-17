@@ -40,6 +40,9 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
   @SerializedName("CouponAmount")
   private String couponAmount = null;
 
+  @SerializedName("CurrencySettlement")
+  private String currencySettlement = null;
+
   @SerializedName("DeductionCount")
   private String deductionCount = null;
 
@@ -51,6 +54,9 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
 
   @SerializedName("EndTime")
   private String endTime = null;
+
+  @SerializedName("ExchangeRate")
+  private String exchangeRate = null;
 
   @SerializedName("InstanceID")
   private String instanceID = null;
@@ -82,11 +88,32 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
   @SerializedName("PickupVoucherID")
   private String pickupVoucherID = null;
 
+  @SerializedName("PointDeductAmount")
+  private String pointDeductAmount = null;
+
+  @SerializedName("Points")
+  private String points = null;
+
+  @SerializedName("PreTaxPayableAmount")
+  private String preTaxPayableAmount = null;
+
   @SerializedName("Product")
   private String product = null;
 
+  @SerializedName("SettlePayableAmount")
+  private String settlePayableAmount = null;
+
+  @SerializedName("SettleTax")
+  private String settleTax = null;
+
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tax")
+  private String tax = null;
+
+  @SerializedName("TaxRate")
+  private String taxRate = null;
 
   @SerializedName("Times")
   private String times = null;
@@ -143,6 +170,24 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
 
   public void setCouponAmount(String couponAmount) {
     this.couponAmount = couponAmount;
+  }
+
+  public OrderProductInfoForListOrderProductDetailsOutput currencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
+    return this;
+  }
+
+   /**
+   * Get currencySettlement
+   * @return currencySettlement
+  **/
+  @Schema(description = "")
+  public String getCurrencySettlement() {
+    return currencySettlement;
+  }
+
+  public void setCurrencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
   }
 
   public OrderProductInfoForListOrderProductDetailsOutput deductionCount(String deductionCount) {
@@ -215,6 +260,24 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
 
   public void setEndTime(String endTime) {
     this.endTime = endTime;
+  }
+
+  public OrderProductInfoForListOrderProductDetailsOutput exchangeRate(String exchangeRate) {
+    this.exchangeRate = exchangeRate;
+    return this;
+  }
+
+   /**
+   * Get exchangeRate
+   * @return exchangeRate
+  **/
+  @Schema(description = "")
+  public String getExchangeRate() {
+    return exchangeRate;
+  }
+
+  public void setExchangeRate(String exchangeRate) {
+    this.exchangeRate = exchangeRate;
   }
 
   public OrderProductInfoForListOrderProductDetailsOutput instanceID(String instanceID) {
@@ -398,6 +461,60 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
     this.pickupVoucherID = pickupVoucherID;
   }
 
+  public OrderProductInfoForListOrderProductDetailsOutput pointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+    return this;
+  }
+
+   /**
+   * Get pointDeductAmount
+   * @return pointDeductAmount
+  **/
+  @Schema(description = "")
+  public String getPointDeductAmount() {
+    return pointDeductAmount;
+  }
+
+  public void setPointDeductAmount(String pointDeductAmount) {
+    this.pointDeductAmount = pointDeductAmount;
+  }
+
+  public OrderProductInfoForListOrderProductDetailsOutput points(String points) {
+    this.points = points;
+    return this;
+  }
+
+   /**
+   * Get points
+   * @return points
+  **/
+  @Schema(description = "")
+  public String getPoints() {
+    return points;
+  }
+
+  public void setPoints(String points) {
+    this.points = points;
+  }
+
+  public OrderProductInfoForListOrderProductDetailsOutput preTaxPayableAmount(String preTaxPayableAmount) {
+    this.preTaxPayableAmount = preTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get preTaxPayableAmount
+   * @return preTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getPreTaxPayableAmount() {
+    return preTaxPayableAmount;
+  }
+
+  public void setPreTaxPayableAmount(String preTaxPayableAmount) {
+    this.preTaxPayableAmount = preTaxPayableAmount;
+  }
+
   public OrderProductInfoForListOrderProductDetailsOutput product(String product) {
     this.product = product;
     return this;
@@ -416,6 +533,42 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
     this.product = product;
   }
 
+  public OrderProductInfoForListOrderProductDetailsOutput settlePayableAmount(String settlePayableAmount) {
+    this.settlePayableAmount = settlePayableAmount;
+    return this;
+  }
+
+   /**
+   * Get settlePayableAmount
+   * @return settlePayableAmount
+  **/
+  @Schema(description = "")
+  public String getSettlePayableAmount() {
+    return settlePayableAmount;
+  }
+
+  public void setSettlePayableAmount(String settlePayableAmount) {
+    this.settlePayableAmount = settlePayableAmount;
+  }
+
+  public OrderProductInfoForListOrderProductDetailsOutput settleTax(String settleTax) {
+    this.settleTax = settleTax;
+    return this;
+  }
+
+   /**
+   * Get settleTax
+   * @return settleTax
+  **/
+  @Schema(description = "")
+  public String getSettleTax() {
+    return settleTax;
+  }
+
+  public void setSettleTax(String settleTax) {
+    this.settleTax = settleTax;
+  }
+
   public OrderProductInfoForListOrderProductDetailsOutput status(String status) {
     this.status = status;
     return this;
@@ -432,6 +585,42 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public OrderProductInfoForListOrderProductDetailsOutput tax(String tax) {
+    this.tax = tax;
+    return this;
+  }
+
+   /**
+   * Get tax
+   * @return tax
+  **/
+  @Schema(description = "")
+  public String getTax() {
+    return tax;
+  }
+
+  public void setTax(String tax) {
+    this.tax = tax;
+  }
+
+  public OrderProductInfoForListOrderProductDetailsOutput taxRate(String taxRate) {
+    this.taxRate = taxRate;
+    return this;
+  }
+
+   /**
+   * Get taxRate
+   * @return taxRate
+  **/
+  @Schema(description = "")
+  public String getTaxRate() {
+    return taxRate;
+  }
+
+  public void setTaxRate(String taxRate) {
+    this.taxRate = taxRate;
   }
 
   public OrderProductInfoForListOrderProductDetailsOutput times(String times) {
@@ -465,10 +654,12 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
     return Objects.equals(this.beginTime, orderProductInfoForListOrderProductDetailsOutput.beginTime) &&
         Objects.equals(this.configurationCode, orderProductInfoForListOrderProductDetailsOutput.configurationCode) &&
         Objects.equals(this.couponAmount, orderProductInfoForListOrderProductDetailsOutput.couponAmount) &&
+        Objects.equals(this.currencySettlement, orderProductInfoForListOrderProductDetailsOutput.currencySettlement) &&
         Objects.equals(this.deductionCount, orderProductInfoForListOrderProductDetailsOutput.deductionCount) &&
         Objects.equals(this.deductionCountUnit, orderProductInfoForListOrderProductDetailsOutput.deductionCountUnit) &&
         Objects.equals(this.discountAmount, orderProductInfoForListOrderProductDetailsOutput.discountAmount) &&
         Objects.equals(this.endTime, orderProductInfoForListOrderProductDetailsOutput.endTime) &&
+        Objects.equals(this.exchangeRate, orderProductInfoForListOrderProductDetailsOutput.exchangeRate) &&
         Objects.equals(this.instanceID, orderProductInfoForListOrderProductDetailsOutput.instanceID) &&
         Objects.equals(this.orderFailRefundInfo, orderProductInfoForListOrderProductDetailsOutput.orderFailRefundInfo) &&
         Objects.equals(this.originalAmount, orderProductInfoForListOrderProductDetailsOutput.originalAmount) &&
@@ -479,14 +670,21 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
         Objects.equals(this.paymentMethod, orderProductInfoForListOrderProductDetailsOutput.paymentMethod) &&
         Objects.equals(this.period, orderProductInfoForListOrderProductDetailsOutput.period) &&
         Objects.equals(this.pickupVoucherID, orderProductInfoForListOrderProductDetailsOutput.pickupVoucherID) &&
+        Objects.equals(this.pointDeductAmount, orderProductInfoForListOrderProductDetailsOutput.pointDeductAmount) &&
+        Objects.equals(this.points, orderProductInfoForListOrderProductDetailsOutput.points) &&
+        Objects.equals(this.preTaxPayableAmount, orderProductInfoForListOrderProductDetailsOutput.preTaxPayableAmount) &&
         Objects.equals(this.product, orderProductInfoForListOrderProductDetailsOutput.product) &&
+        Objects.equals(this.settlePayableAmount, orderProductInfoForListOrderProductDetailsOutput.settlePayableAmount) &&
+        Objects.equals(this.settleTax, orderProductInfoForListOrderProductDetailsOutput.settleTax) &&
         Objects.equals(this.status, orderProductInfoForListOrderProductDetailsOutput.status) &&
+        Objects.equals(this.tax, orderProductInfoForListOrderProductDetailsOutput.tax) &&
+        Objects.equals(this.taxRate, orderProductInfoForListOrderProductDetailsOutput.taxRate) &&
         Objects.equals(this.times, orderProductInfoForListOrderProductDetailsOutput.times);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(beginTime, configurationCode, couponAmount, deductionCount, deductionCountUnit, discountAmount, endTime, instanceID, orderFailRefundInfo, originalAmount, paidAmount, payableAmount, payerCustomerName, payerID, paymentMethod, period, pickupVoucherID, product, status, times);
+    return Objects.hash(beginTime, configurationCode, couponAmount, currencySettlement, deductionCount, deductionCountUnit, discountAmount, endTime, exchangeRate, instanceID, orderFailRefundInfo, originalAmount, paidAmount, payableAmount, payerCustomerName, payerID, paymentMethod, period, pickupVoucherID, pointDeductAmount, points, preTaxPayableAmount, product, settlePayableAmount, settleTax, status, tax, taxRate, times);
   }
 
 
@@ -498,10 +696,12 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
     sb.append("    beginTime: ").append(toIndentedString(beginTime)).append("\n");
     sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
     sb.append("    couponAmount: ").append(toIndentedString(couponAmount)).append("\n");
+    sb.append("    currencySettlement: ").append(toIndentedString(currencySettlement)).append("\n");
     sb.append("    deductionCount: ").append(toIndentedString(deductionCount)).append("\n");
     sb.append("    deductionCountUnit: ").append(toIndentedString(deductionCountUnit)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
     sb.append("    orderFailRefundInfo: ").append(toIndentedString(orderFailRefundInfo)).append("\n");
     sb.append("    originalAmount: ").append(toIndentedString(originalAmount)).append("\n");
@@ -512,8 +712,15 @@ public class OrderProductInfoForListOrderProductDetailsOutput {
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    pickupVoucherID: ").append(toIndentedString(pickupVoucherID)).append("\n");
+    sb.append("    pointDeductAmount: ").append(toIndentedString(pointDeductAmount)).append("\n");
+    sb.append("    points: ").append(toIndentedString(points)).append("\n");
+    sb.append("    preTaxPayableAmount: ").append(toIndentedString(preTaxPayableAmount)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    settlePayableAmount: ").append(toIndentedString(settlePayableAmount)).append("\n");
+    sb.append("    settleTax: ").append(toIndentedString(settleTax)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tax: ").append(toIndentedString(tax)).append("\n");
+    sb.append("    taxRate: ").append(toIndentedString(taxRate)).append("\n");
     sb.append("    times: ").append(toIndentedString(times)).append("\n");
     sb.append("}");
     return sb.toString();

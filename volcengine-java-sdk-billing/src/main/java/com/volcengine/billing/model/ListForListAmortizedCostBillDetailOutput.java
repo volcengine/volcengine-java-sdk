@@ -108,9 +108,6 @@ public class ListForListAmortizedCostBillDetailOutput {
   @SerializedName("DailyAmortizedOriginalBillAmount")
   private String dailyAmortizedOriginalBillAmount = null;
 
-  @SerializedName("DailyAmortizedPaidAmount")
-  private String dailyAmortizedPaidAmount = null;
-
   @SerializedName("DailyAmortizedPayableAmount")
   private String dailyAmortizedPayableAmount = null;
 
@@ -236,9 +233,6 @@ public class ListForListAmortizedCostBillDetailOutput {
 
   @SerializedName("OwnerUserName")
   private String ownerUserName = null;
-
-  @SerializedName("PaidAmount")
-  private String paidAmount = null;
 
   @SerializedName("PayableAmount")
   private String payableAmount = null;
@@ -850,24 +844,6 @@ public class ListForListAmortizedCostBillDetailOutput {
 
   public void setDailyAmortizedOriginalBillAmount(String dailyAmortizedOriginalBillAmount) {
     this.dailyAmortizedOriginalBillAmount = dailyAmortizedOriginalBillAmount;
-  }
-
-  public ListForListAmortizedCostBillDetailOutput dailyAmortizedPaidAmount(String dailyAmortizedPaidAmount) {
-    this.dailyAmortizedPaidAmount = dailyAmortizedPaidAmount;
-    return this;
-  }
-
-   /**
-   * Get dailyAmortizedPaidAmount
-   * @return dailyAmortizedPaidAmount
-  **/
-  @Schema(description = "")
-  public String getDailyAmortizedPaidAmount() {
-    return dailyAmortizedPaidAmount;
-  }
-
-  public void setDailyAmortizedPaidAmount(String dailyAmortizedPaidAmount) {
-    this.dailyAmortizedPaidAmount = dailyAmortizedPaidAmount;
   }
 
   public ListForListAmortizedCostBillDetailOutput dailyAmortizedPayableAmount(String dailyAmortizedPayableAmount) {
@@ -1624,24 +1600,6 @@ public class ListForListAmortizedCostBillDetailOutput {
 
   public void setOwnerUserName(String ownerUserName) {
     this.ownerUserName = ownerUserName;
-  }
-
-  public ListForListAmortizedCostBillDetailOutput paidAmount(String paidAmount) {
-    this.paidAmount = paidAmount;
-    return this;
-  }
-
-   /**
-   * Get paidAmount
-   * @return paidAmount
-  **/
-  @Schema(description = "")
-  public String getPaidAmount() {
-    return paidAmount;
-  }
-
-  public void setPaidAmount(String paidAmount) {
-    this.paidAmount = paidAmount;
   }
 
   public ListForListAmortizedCostBillDetailOutput payableAmount(String payableAmount) {
@@ -2544,7 +2502,6 @@ public class ListForListAmortizedCostBillDetailOutput {
         Objects.equals(this.dailyAmortizedCouponAmount, listForListAmortizedCostBillDetailOutput.dailyAmortizedCouponAmount) &&
         Objects.equals(this.dailyAmortizedDiscountBillAmount, listForListAmortizedCostBillDetailOutput.dailyAmortizedDiscountBillAmount) &&
         Objects.equals(this.dailyAmortizedOriginalBillAmount, listForListAmortizedCostBillDetailOutput.dailyAmortizedOriginalBillAmount) &&
-        Objects.equals(this.dailyAmortizedPaidAmount, listForListAmortizedCostBillDetailOutput.dailyAmortizedPaidAmount) &&
         Objects.equals(this.dailyAmortizedPayableAmount, listForListAmortizedCostBillDetailOutput.dailyAmortizedPayableAmount) &&
         Objects.equals(this.dailyAmortizedPointDeductAmount, listForListAmortizedCostBillDetailOutput.dailyAmortizedPointDeductAmount) &&
         Objects.equals(this.dailyAmortizedPosttaxAmount, listForListAmortizedCostBillDetailOutput.dailyAmortizedPosttaxAmount) &&
@@ -2587,7 +2544,6 @@ public class ListForListAmortizedCostBillDetailOutput {
         Objects.equals(this.ownerCustomerName, listForListAmortizedCostBillDetailOutput.ownerCustomerName) &&
         Objects.equals(this.ownerID, listForListAmortizedCostBillDetailOutput.ownerID) &&
         Objects.equals(this.ownerUserName, listForListAmortizedCostBillDetailOutput.ownerUserName) &&
-        Objects.equals(this.paidAmount, listForListAmortizedCostBillDetailOutput.paidAmount) &&
         Objects.equals(this.payableAmount, listForListAmortizedCostBillDetailOutput.payableAmount) &&
         Objects.equals(this.payerCustomerName, listForListAmortizedCostBillDetailOutput.payerCustomerName) &&
         Objects.equals(this.payerID, listForListAmortizedCostBillDetailOutput.payerID) &&
@@ -2640,7 +2596,7 @@ public class ListForListAmortizedCostBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, costID, count, countryArea, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPointDeductAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, exchangeRate, expandField, expenseBeginTime, expenseEndTime, factor, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, pointDeductAmount, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, projectRemark, realValue, region, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tagRemark, tax, taxAmount, taxRate, tradeTime, unit, useDuration, useDurationUnit, zone);
+    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, chargeItemCode, configName, configurationCode, costID, count, countryArea, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPayableAmount, dailyAmortizedPointDeductAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, exchangeRate, expandField, expenseBeginTime, expenseEndTime, factor, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, payableAmount, payerCustomerName, payerID, payerUserName, pointDeductAmount, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, projectRemark, realValue, region, resourceID, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tagRemark, tax, taxAmount, taxRate, tradeTime, unit, useDuration, useDurationUnit, zone);
   }
 
 
@@ -2675,7 +2631,6 @@ public class ListForListAmortizedCostBillDetailOutput {
     sb.append("    dailyAmortizedCouponAmount: ").append(toIndentedString(dailyAmortizedCouponAmount)).append("\n");
     sb.append("    dailyAmortizedDiscountBillAmount: ").append(toIndentedString(dailyAmortizedDiscountBillAmount)).append("\n");
     sb.append("    dailyAmortizedOriginalBillAmount: ").append(toIndentedString(dailyAmortizedOriginalBillAmount)).append("\n");
-    sb.append("    dailyAmortizedPaidAmount: ").append(toIndentedString(dailyAmortizedPaidAmount)).append("\n");
     sb.append("    dailyAmortizedPayableAmount: ").append(toIndentedString(dailyAmortizedPayableAmount)).append("\n");
     sb.append("    dailyAmortizedPointDeductAmount: ").append(toIndentedString(dailyAmortizedPointDeductAmount)).append("\n");
     sb.append("    dailyAmortizedPosttaxAmount: ").append(toIndentedString(dailyAmortizedPosttaxAmount)).append("\n");
@@ -2718,7 +2673,6 @@ public class ListForListAmortizedCostBillDetailOutput {
     sb.append("    ownerCustomerName: ").append(toIndentedString(ownerCustomerName)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    ownerUserName: ").append(toIndentedString(ownerUserName)).append("\n");
-    sb.append("    paidAmount: ").append(toIndentedString(paidAmount)).append("\n");
     sb.append("    payableAmount: ").append(toIndentedString(payableAmount)).append("\n");
     sb.append("    payerCustomerName: ").append(toIndentedString(payerCustomerName)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");

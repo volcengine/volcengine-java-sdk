@@ -138,6 +138,9 @@ public class ListForListBillOutput {
   @SerializedName("RoundBillAmount")
   private String roundBillAmount = null;
 
+  @SerializedName("SalesChannel")
+  private String salesChannel = null;
+
   @SerializedName("SavingPlanOriginalAmount")
   private String savingPlanOriginalAmount = null;
 
@@ -837,6 +840,24 @@ public class ListForListBillOutput {
     this.roundBillAmount = roundBillAmount;
   }
 
+  public ListForListBillOutput salesChannel(String salesChannel) {
+    this.salesChannel = salesChannel;
+    return this;
+  }
+
+   /**
+   * Get salesChannel
+   * @return salesChannel
+  **/
+  @Schema(description = "")
+  public String getSalesChannel() {
+    return salesChannel;
+  }
+
+  public void setSalesChannel(String salesChannel) {
+    this.salesChannel = salesChannel;
+  }
+
   public ListForListBillOutput savingPlanOriginalAmount(String savingPlanOriginalAmount) {
     this.savingPlanOriginalAmount = savingPlanOriginalAmount;
     return this;
@@ -1189,6 +1210,7 @@ public class ListForListBillOutput {
         Objects.equals(this.productZh, listForListBillOutput.productZh) &&
         Objects.equals(this.realValue, listForListBillOutput.realValue) &&
         Objects.equals(this.roundBillAmount, listForListBillOutput.roundBillAmount) &&
+        Objects.equals(this.salesChannel, listForListBillOutput.salesChannel) &&
         Objects.equals(this.savingPlanOriginalAmount, listForListBillOutput.savingPlanOriginalAmount) &&
         Objects.equals(this.sellerCustomerName, listForListBillOutput.sellerCustomerName) &&
         Objects.equals(this.sellerID, listForListBillOutput.sellerID) &&
@@ -1210,7 +1232,7 @@ public class ListForListBillOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategoryParent, billDetailNum, billID, billPeriod, billingMode, busiPeriod, businessMode, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, discountBillAmount, exchangeRate, expenseBeginTime, expenseEndTime, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payStatus, payableAmount, payerCustomerName, payerID, payerUserName, pointDeductAmount, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, product, productZh, realValue, roundBillAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, subjectName, tax, taxRate, tradeTime, unpaidAmount);
+    return Objects.hash(billCategoryParent, billDetailNum, billID, billPeriod, billingMode, busiPeriod, businessMode, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, discountBillAmount, exchangeRate, expenseBeginTime, expenseEndTime, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payStatus, payableAmount, payerCustomerName, payerID, payerUserName, pointDeductAmount, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, product, productZh, realValue, roundBillAmount, salesChannel, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, subjectName, tax, taxRate, tradeTime, unpaidAmount);
   }
 
 
@@ -1255,6 +1277,7 @@ public class ListForListBillOutput {
     sb.append("    productZh: ").append(toIndentedString(productZh)).append("\n");
     sb.append("    realValue: ").append(toIndentedString(realValue)).append("\n");
     sb.append("    roundBillAmount: ").append(toIndentedString(roundBillAmount)).append("\n");
+    sb.append("    salesChannel: ").append(toIndentedString(salesChannel)).append("\n");
     sb.append("    savingPlanOriginalAmount: ").append(toIndentedString(savingPlanOriginalAmount)).append("\n");
     sb.append("    sellerCustomerName: ").append(toIndentedString(sellerCustomerName)).append("\n");
     sb.append("    sellerID: ").append(toIndentedString(sellerID)).append("\n");
