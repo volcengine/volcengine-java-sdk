@@ -43,6 +43,9 @@ public class ItemForListNodesOutput {
   @SerializedName("ClusterId")
   private String clusterId = null;
 
+  @SerializedName("ContainerStorageMountPoint")
+  private String containerStorageMountPoint = null;
+
   @SerializedName("ContainerStoragePath")
   private String containerStoragePath = null;
 
@@ -194,6 +197,24 @@ public class ItemForListNodesOutput {
 
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
+  }
+
+  public ItemForListNodesOutput containerStorageMountPoint(String containerStorageMountPoint) {
+    this.containerStorageMountPoint = containerStorageMountPoint;
+    return this;
+  }
+
+   /**
+   * Get containerStorageMountPoint
+   * @return containerStorageMountPoint
+  **/
+  @Schema(description = "")
+  public String getContainerStorageMountPoint() {
+    return containerStorageMountPoint;
+  }
+
+  public void setContainerStorageMountPoint(String containerStorageMountPoint) {
+    this.containerStorageMountPoint = containerStorageMountPoint;
   }
 
   public ItemForListNodesOutput containerStoragePath(String containerStoragePath) {
@@ -543,6 +564,7 @@ public class ItemForListNodesOutput {
     return Objects.equals(this.additionalContainerStorageEnabled, itemForListNodesOutput.additionalContainerStorageEnabled) &&
         Objects.equals(this.affinityGroupId, itemForListNodesOutput.affinityGroupId) &&
         Objects.equals(this.clusterId, itemForListNodesOutput.clusterId) &&
+        Objects.equals(this.containerStorageMountPoint, itemForListNodesOutput.containerStorageMountPoint) &&
         Objects.equals(this.containerStoragePath, itemForListNodesOutput.containerStoragePath) &&
         Objects.equals(this.createClientToken, itemForListNodesOutput.createClientToken) &&
         Objects.equals(this.createTime, itemForListNodesOutput.createTime) &&
@@ -565,7 +587,7 @@ public class ItemForListNodesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, affinityGroupId, clusterId, containerStoragePath, createClientToken, createTime, gpuDriverVersion, id, imageId, initializeScript, instanceId, isVirtual, kubernetesConfig, metadataName, name, nodePoolId, preScript, roles, status, updateTime, zoneId);
+    return Objects.hash(additionalContainerStorageEnabled, affinityGroupId, clusterId, containerStorageMountPoint, containerStoragePath, createClientToken, createTime, gpuDriverVersion, id, imageId, initializeScript, instanceId, isVirtual, kubernetesConfig, metadataName, name, nodePoolId, preScript, roles, status, updateTime, zoneId);
   }
 
 
@@ -577,6 +599,7 @@ public class ItemForListNodesOutput {
     sb.append("    additionalContainerStorageEnabled: ").append(toIndentedString(additionalContainerStorageEnabled)).append("\n");
     sb.append("    affinityGroupId: ").append(toIndentedString(affinityGroupId)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    containerStorageMountPoint: ").append(toIndentedString(containerStorageMountPoint)).append("\n");
     sb.append("    containerStoragePath: ").append(toIndentedString(containerStoragePath)).append("\n");
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");

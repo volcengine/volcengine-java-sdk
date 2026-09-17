@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * LabelForListRemedyConfigsOutput
+ * UpdateClusterVersionResponse
  */
 
 
 
-public class LabelForListRemedyConfigsOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class UpdateClusterVersionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("TaskId")
+  private String taskId = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public LabelForListRemedyConfigsOutput key(String key) {
-    this.key = key;
+  public UpdateClusterVersionResponse taskId(String taskId) {
+    this.taskId = taskId;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get taskId
+   * @return taskId
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getTaskId() {
+    return taskId;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public LabelForListRemedyConfigsOutput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
   }
 
 
@@ -81,24 +60,22 @@ public class LabelForListRemedyConfigsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LabelForListRemedyConfigsOutput labelForListRemedyConfigsOutput = (LabelForListRemedyConfigsOutput) o;
-    return Objects.equals(this.key, labelForListRemedyConfigsOutput.key) &&
-        Objects.equals(this.value, labelForListRemedyConfigsOutput.value);
+    UpdateClusterVersionResponse updateClusterVersionResponse = (UpdateClusterVersionResponse) o;
+    return Objects.equals(this.taskId, updateClusterVersionResponse.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(taskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LabelForListRemedyConfigsOutput {\n");
+    sb.append("class UpdateClusterVersionResponse {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

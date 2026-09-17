@@ -43,6 +43,9 @@ public class CreateNodesRequest {
   @SerializedName("ClusterId")
   private String clusterId = null;
 
+  @SerializedName("ContainerStorageMountPoint")
+  private String containerStorageMountPoint = null;
+
   @SerializedName("ContainerStoragePath")
   private String containerStoragePath = null;
 
@@ -129,6 +132,24 @@ public class CreateNodesRequest {
 
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
+  }
+
+  public CreateNodesRequest containerStorageMountPoint(String containerStorageMountPoint) {
+    this.containerStorageMountPoint = containerStorageMountPoint;
+    return this;
+  }
+
+   /**
+   * Get containerStorageMountPoint
+   * @return containerStorageMountPoint
+  **/
+  @Schema(description = "")
+  public String getContainerStorageMountPoint() {
+    return containerStorageMountPoint;
+  }
+
+  public void setContainerStorageMountPoint(String containerStorageMountPoint) {
+    this.containerStorageMountPoint = containerStorageMountPoint;
   }
 
   public CreateNodesRequest containerStoragePath(String containerStoragePath) {
@@ -352,6 +373,7 @@ public class CreateNodesRequest {
     return Objects.equals(this.additionalContainerStorageEnabled, createNodesRequest.additionalContainerStorageEnabled) &&
         Objects.equals(this.clientToken, createNodesRequest.clientToken) &&
         Objects.equals(this.clusterId, createNodesRequest.clusterId) &&
+        Objects.equals(this.containerStorageMountPoint, createNodesRequest.containerStorageMountPoint) &&
         Objects.equals(this.containerStoragePath, createNodesRequest.containerStoragePath) &&
         Objects.equals(this.gpuDriverConfig, createNodesRequest.gpuDriverConfig) &&
         Objects.equals(this.gpuDriverVersion, createNodesRequest.gpuDriverVersion) &&
@@ -367,7 +389,7 @@ public class CreateNodesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, gpuDriverConfig, gpuDriverVersion, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig, nodePoolId, preScript, skipReplaceSystem);
+    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStorageMountPoint, containerStoragePath, gpuDriverConfig, gpuDriverVersion, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig, nodePoolId, preScript, skipReplaceSystem);
   }
 
 
@@ -379,6 +401,7 @@ public class CreateNodesRequest {
     sb.append("    additionalContainerStorageEnabled: ").append(toIndentedString(additionalContainerStorageEnabled)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    containerStorageMountPoint: ").append(toIndentedString(containerStorageMountPoint)).append("\n");
     sb.append("    containerStoragePath: ").append(toIndentedString(containerStoragePath)).append("\n");
     sb.append("    gpuDriverConfig: ").append(toIndentedString(gpuDriverConfig)).append("\n");
     sb.append("    gpuDriverVersion: ").append(toIndentedString(gpuDriverVersion)).append("\n");
