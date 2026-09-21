@@ -176,6 +176,18 @@ public class SampleCode {
 }
 ```
 
+### STS Provider 配置与迁移
+
+以下代理/TLS 规则适用于 `StsAssumeRoleProvider`、`OidcCredentialProvider` 和 `SamlCredentialProvider`：
+
+- `proxyUrl` 仅支持 HTTP 正向代理：`http://[user:password@]host:port`，必须显式填写 `1..65535` 范围内的端口。HTTPS STS 可通过 HTTP 代理建立 CONNECT 隧道；不支持 TLS-to-proxy（`https://` 代理 URL）和 SOCKS。
+- Provider 显式代理优先于绑定客户端显式设置的 `httpProxy` / `httpsProxy`，按 **STS URL** 的协议选择，不使用业务 API 协议。两者均未指定时，OIDC/SAML 保留 URLConnection 代理选择，包括 JVM `http.proxyHost` / `http.proxyPort` 和 `https.proxyHost` / `https.proxyPort` 系统属性，不解析 `HTTP_PROXY` / `HTTPS_PROXY` 及其小写环境变量。AssumeRole 保留原 ApiClient 的代理选择，包括其支持的代理环境变量。
+- `caFile` 为空且 `insecureSkipVerify=false` 时，撤销 Provider TLS 覆盖并使用原传输 TLS 设置，其中可能包含自定义 factory。仅原设置未定制时才使用 JVM 默认信任库。`insecureSkipVerify=true` 优先于 `caFile`，仅清空 CA 不会恢复证书校验。
+
+**快照迁移说明：** 上述三个精确内置类型通过 `CredentialProvider` 直接传入 `ApiClient` 时，每个客户端在首次访问凭证时创建快照，并拥有独立缓存和刷新锁。修改源对象的角色、源凭证、代理、TLS、到期或重试设置，不再更新已有绑定。修改后需对每个受影响客户端再次调用 `apiClient.setCredentialProvider(credentialProvider)`；仅能通过构造参数设置的字段需新建 Provider。将源 AssumeRole Provider 的到期时间设为 `0` 不会强制已有绑定刷新。独立的客户端缓存可能增加 STS 请求量。自定义 Provider、子类和默认凭证链保持原有行为。
+
+AssumeRole 内部 ApiClient 的快照隔离 SDK 重试次数、退避时间上下限和 `retryErrorCodes` 集合，同时保留自定义策略的运行时类型。策略若包含额外可变引用，必须重写 `BackoffStrategy.copy()` / `RetryCondition.copy()`，调用 `super.copy()` 并复制结果中的这些字段。这不代表 JSON helper、拦截器、TLS factory 等任意对象都被深复制。OIDC/SAML 会快照重试次数和间隔；OIDC 仍在刷新时读取 Token 文件内容。绑定和传输详情见[代理配置](4-Proxy-zh.md)。
+
 ### AssumeRole
 
 动态访问凭证信息，支持动态刷新；在 STS 临时 Token 过期前 60s 会进行自动刷新，避免临界时间点 Token 过期。
@@ -206,8 +218,8 @@ public class SampleCode {
         stsAssumeRoleProvider.setExpireBufferSeconds(60); // STS 过期缓冲时间，单位为秒。在到期前提前多少秒刷新凭证，以避免过期期间的调用失败，默认: 60s
         stsAssumeRoleProvider.setSchema("https"); // STS服务协议，默认: https
         // 访问 STS 的代理 / TLS（选填）
-        // stsAssumeRoleProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY 环境变量
-        // stsAssumeRoleProvider.setCaFile("/path/to/ca.pem");                  // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用 JVM 默认信任库
+        // stsAssumeRoleProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理，显式端口 1..65535；回退规则见上文
+        // stsAssumeRoleProvider.setCaFile("/path/to/ca.pem");                  // PEM CA；为空且 insecureSkipVerify=false 时恢复原传输 TLS，可能是自定义配置
         // stsAssumeRoleProvider.setInsecureSkipVerify(false);                  // 传 true 可跳过 STS TLS 证书校验，仅限联调（自签证书 / 代理拦截）；默认 false，生产禁用
         CredentialProvider credentialProvider = new CredentialProvider(stsAssumeRoleProvider);
 
@@ -250,8 +262,8 @@ public class SampleCode {
         oidcProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
         oidcProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
         // 访问 STS 的代理 / TLS（选填）
-        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY 环境变量
-        // oidcProvider.setCaFile("/path/to/ca.pem");                  // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用 JVM 默认信任库
+        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理；留空先按 STS 协议使用客户端 fallback，再由 URLConnection 选择，不解析代理环境变量
+        // oidcProvider.setCaFile("/path/to/ca.pem");                  // PEM CA；为空且 insecureSkipVerify=false 时使用原传输 TLS，可能是自定义配置
         // oidcProvider.setInsecureSkipVerify(false);                  // 传 true 可跳过 STS TLS 证书校验，仅限联调；默认 false，生产禁用
 
         CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
@@ -315,8 +327,8 @@ public class SampleCode {
         samlProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
         samlProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
         // 访问 STS 的代理 / TLS（选填）
-        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // 访问 STS 的正向代理，格式 scheme://[user:password@]host:port；留空回退到 HTTP_PROXY / HTTPS_PROXY 环境变量
-        // samlProvider.setCaFile("/path/to/ca.pem");                  // 自定义 CA 证书（PEM），用于校验 STS 服务端证书；留空使用 JVM 默认信任库
+        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理；留空先按 STS 协议使用客户端 fallback，再由 URLConnection 选择，不解析代理环境变量
+        // samlProvider.setCaFile("/path/to/ca.pem");                  // PEM CA；为空且 insecureSkipVerify=false 时使用原传输 TLS，可能是自定义配置
         // samlProvider.setInsecureSkipVerify(false);                  // 传 true 可跳过 STS TLS 证书校验，仅限联调；默认 false，生产禁用
 
         CredentialProvider credentialProvider = new CredentialProvider(samlProvider);

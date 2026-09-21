@@ -12,6 +12,17 @@ import java.util.Map;
 import java.util.UUID;
 
 
+/**
+ * Provider that obtains temporary credentials via STS AssumeRole.
+ *
+ * <p>When this exact built-in type is wrapped in {@link CredentialProvider},
+ * ApiClient snapshots its configuration on first credential access. Source role,
+ * credentials, proxy, TLS, expiry, and retry changes require calling
+ * {@link ApiClient#setCredentialProvider(CredentialProvider)} again on each
+ * affected client. Source cache or expiration changes do not update an existing
+ * binding. Separate client caches may increase STS calls. Subclasses retain
+ * their existing identity and are not snapshotted by this binding mechanism.
+ */
 public class StsAssumeRoleProvider implements Provider {
     private String accessKey;
     private String securityKey;
@@ -28,8 +39,8 @@ public class StsAssumeRoleProvider implements Provider {
 
     private int expireBufferSeconds = 60;
 
-    // Proxy / TLS customization for the STS endpoint. Empty by default: JVM /
-    // OkHttp defaults (including standard proxy environment variables) apply.
+    // Without provider or client fallback overrides, retain the original
+    // ApiClient transport, including its supported proxy environment variables.
     private String proxyUrl;
     private String fallbackProxyUrl;
     private String caFile;
@@ -190,9 +201,12 @@ public class StsAssumeRoleProvider implements Provider {
     }
 
     /**
-     * Set the forward proxy for reaching the STS endpoint, format
-     * {@code http://[user:password@]host:port}. When empty, the bound client's
-     * STS-scheme proxy applies, then the original ApiClient proxy selection.
+     * Set the HTTP forward proxy for reaching the STS endpoint, format
+     * {@code http://[user:password@]host:port}, with an explicit port in
+     * {@code 1..65535}. TLS-to-proxy and SOCKS are unsupported.
+     * When empty, the bound client's explicit STS-scheme proxy applies, then
+     * the original ApiClient proxy selection, including supported proxy
+     * environment variables.
      */
     public synchronized void setProxyUrl(String proxyUrl) {
         this.proxyUrl = proxyUrl;
@@ -204,7 +218,10 @@ public class StsAssumeRoleProvider implements Provider {
 
     /**
      * Set a custom PEM CA bundle used to verify the STS server certificate.
-     * When empty, the JVM default trust store is used.
+     * When empty and {@code insecureSkipVerify == false}, the next STS refresh
+     * removes provider TLS overrides and restores the original ApiClient TLS
+     * settings, including any custom factory. JVM default trust applies only
+     * if the original settings were not customized.
      */
     public synchronized void setCaFile(String caFile) {
         this.caFile = caFile;
@@ -216,6 +233,8 @@ public class StsAssumeRoleProvider implements Provider {
 
     /**
      * When {@code true}, skip STS TLS certificate and hostname verification.
+     * Takes precedence over {@code caFile}. When {@code false}, a configured CA
+     * still applies; only an empty CA also removes all provider TLS overrides.
      * For debugging only; never enable in production.
      */
     public synchronized void setInsecureSkipVerify(boolean insecureSkipVerify) {

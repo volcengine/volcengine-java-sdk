@@ -174,6 +174,18 @@ public class SampleCode {
 }
 ```
 
+### STS Provider Configuration and Migration
+
+The following proxy/TLS rules apply to `StsAssumeRoleProvider`, `OidcCredentialProvider`, and `SamlCredentialProvider`:
+
+- `proxyUrl` supports only HTTP forward proxies: `http://[user:password@]host:port`, with an explicit port in `1..65535`. HTTPS STS can use CONNECT through an HTTP proxy; TLS-to-proxy (`https://` proxy URLs) and SOCKS are unsupported.
+- An explicit provider proxy takes precedence over the bound client's explicit `httpProxy` / `httpsProxy`, selected by the **STS URL** scheme, not the business API scheme. Without either, OIDC/SAML retain URLConnection proxy selection, including JVM `http.proxyHost` / `http.proxyPort` and `https.proxyHost` / `https.proxyPort` system properties. They do not parse `HTTP_PROXY` / `HTTPS_PROXY` or their lowercase variants. AssumeRole retains its original ApiClient proxy selection, including supported proxy environment variables.
+- An empty `caFile` together with `insecureSkipVerify=false` removes the provider TLS override and uses the original transport TLS settings, which may include a custom factory. JVM default trust applies only when the original settings were not customized. `insecureSkipVerify=true` takes precedence over `caFile`; clearing the CA alone does not restore verification.
+
+**Snapshot migration:** When supplied directly through `CredentialProvider`, these exact built-in classes are snapshotted on first credential access by each `ApiClient`, with separate caches and refresh locks. Changing the source object's role, source credentials, proxy, TLS, expiry, or retry settings no longer updates an existing binding. After changes, call `apiClient.setCredentialProvider(credentialProvider)` again on each affected client; use a new provider for constructor-only settings. Setting the source AssumeRole provider's expiration time to `0` does not force an existing binding to refresh. Separate client caches may increase STS calls. Custom providers, subclasses, and the default credential chain retain their existing behavior.
+
+For AssumeRole's internal ApiClient, the snapshot isolates the SDK retry count, backoff delay bounds, and `retryErrorCodes` set while retaining custom strategies' runtime types. Strategies with additional mutable references must override `BackoffStrategy.copy()` / `RetryCondition.copy()`, call `super.copy()`, and copy those fields on the result. This is not a deep-copy guarantee for arbitrary objects such as JSON helpers, interceptors, or TLS factories. OIDC/SAML snapshot their retry count and interval; OIDC still reads the token file at refresh time. See [Proxy](4-Proxy.md) for binding and transport details.
+
 ### AssumeRole
 
 AssumeRole supports dynamic credentials with auto refresh.
@@ -204,8 +216,8 @@ public class SampleCode {
         stsAssumeRoleProvider.setExpireBufferSeconds(60);
         stsAssumeRoleProvider.setSchema("https");
         // Proxy / TLS for reaching STS (optional)
-        // stsAssumeRoleProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // Forward proxy for STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY env vars
-        // stsAssumeRoleProvider.setCaFile("/path/to/ca.pem");                  // Custom CA bundle (PEM) to verify the STS server certificate; empty uses the JVM default trust store
+        // stsAssumeRoleProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; explicit port 1..65535; fallback rules above
+        // stsAssumeRoleProvider.setCaFile("/path/to/ca.pem");                  // PEM CA; empty + insecureSkipVerify=false restores original transport TLS, possibly custom
         // stsAssumeRoleProvider.setInsecureSkipVerify(false);                  // Pass true to skip STS TLS verification (self-signed / intercepting proxy); debugging only, default false, never in production
         CredentialProvider credentialProvider = new CredentialProvider(stsAssumeRoleProvider);
 
@@ -247,8 +259,8 @@ public class SampleCode {
         oidcProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
         oidcProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
         // Proxy / TLS for reaching STS (optional)
-        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // Forward proxy for STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY env vars
-        // oidcProvider.setCaFile("/path/to/ca.pem");                  // Custom CA bundle (PEM) to verify the STS server certificate; empty uses the JVM default trust store
+        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; empty uses client STS-scheme fallback, then URLConnection, not proxy env vars
+        // oidcProvider.setCaFile("/path/to/ca.pem");                  // PEM CA; empty + insecureSkipVerify=false uses original transport TLS, possibly custom
         // oidcProvider.setInsecureSkipVerify(false);                  // Pass true to skip STS TLS verification; debugging only, default false, never in production
 
         CredentialProvider credentialProvider = new CredentialProvider(oidcProvider);
@@ -312,8 +324,8 @@ public class SampleCode {
         samlProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
         samlProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
         // Proxy / TLS for reaching STS (optional)
-        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // Forward proxy for STS, format scheme://[user:password@]host:port; empty falls back to HTTP_PROXY / HTTPS_PROXY env vars
-        // samlProvider.setCaFile("/path/to/ca.pem");                  // Custom CA bundle (PEM) to verify the STS server certificate; empty uses the JVM default trust store
+        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; empty uses client STS-scheme fallback, then URLConnection, not proxy env vars
+        // samlProvider.setCaFile("/path/to/ca.pem");                  // PEM CA; empty + insecureSkipVerify=false uses original transport TLS, possibly custom
         // samlProvider.setInsecureSkipVerify(false);                  // Pass true to skip STS TLS verification; debugging only, default false, never in production
 
         CredentialProvider credentialProvider = new CredentialProvider(samlProvider);

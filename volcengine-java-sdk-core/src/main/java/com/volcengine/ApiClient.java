@@ -147,7 +147,7 @@ public class ApiClient extends BaseClient implements Cloneable {
     private Boolean useDualStack;
 
     private boolean autoRetry = DefaultRetryerSetting.DEFAULT_AUTO_RETRY_ENABLED;
-    private final Retryer retryer = DefaultRetryerSetting.newDefaultRetryer();
+    private Retryer retryer = DefaultRetryerSetting.newDefaultRetryer();
 
     private String httpProxy;
     private String httpsProxy;
@@ -706,14 +706,15 @@ public class ApiClient extends BaseClient implements Cloneable {
     }
 
     /**
-     * Resolve the proxy URL used by STS/OIDC/SAML credential providers when the
-     * provider itself has no explicit proxyUrl configured.
+     * Legacy proxy lookup retained for compatibility. Selects by this business
+     * client's {@code disableSSL}: HTTP when true, HTTPS otherwise. The client
+     * field takes precedence over the upper-case, then lower-case environment
+     * variable.
      *
-     * <p>The selection rule mirrors {@link #updateClientProxy()} for the business
-     * API client, so credential-fetch requests share the same proxy semantics:
-     * when {@code disableSSL} is true the HTTP side is used, otherwise the HTTPS
-     * side; within each side the {@code ApiClient} field takes precedence, then
-     * the upper-case environment variable, then the lower-case one.
+     * <p>Credential-provider binding does not call this method. Built-in providers
+     * select the explicit client fallback by their STS URL scheme and otherwise
+     * retain their original transport's proxy selection. This return value does
+     * not describe the route taken by an STS request.
      *
      * @return the resolved proxy URL, or {@code null} if none is configured.
      */
@@ -1956,12 +1957,14 @@ public class ApiClient extends BaseClient implements Cloneable {
     /**
      * Configuration copy for a built-in credential provider. Transport options,
      * including caller TLS factories and timeouts, are retained without replaying
-     * a possibly consumed CA InputStream.
+     * a possibly consumed CA InputStream. Retry configuration uses the strategies'
+     * copy contracts; custom strategies must copy any additional mutable references.
      */
     public synchronized ApiClient copyForCredentialProvider() {
         try {
             ApiClient copy = (ApiClient) super.clone();
             copy.httpClient = httpClient.clone();
+            copy.retryer = retryer.copy();
             copy.defaultHeaderMap = new HashMap<String, String>(defaultHeaderMap);
             copy.keyManagers = keyManagers == null ? null : keyManagers.clone();
             copy.customBootstrapRegion = customBootstrapRegion == null ? null

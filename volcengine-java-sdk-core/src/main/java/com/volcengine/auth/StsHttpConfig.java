@@ -11,15 +11,27 @@ package com.volcengine.auth;
  *
  * <p>Semantics:
  * <ul>
- *   <li><b>proxyUrl</b> — forward proxy address, format
- *       {@code scheme://[user:password@]host:port}. When empty, the JVM default
- *       proxy selection applies (including {@code HTTP_PROXY} / {@code HTTPS_PROXY}
- *       system properties / environment).</li>
- *   <li><b>caFile</b> — path to a PEM CA bundle used to verify the STS server
- *       certificate. When empty, the JVM default trust store is used.</li>
- *   <li><b>insecureSkipVerify</b> — when {@code true}, TLS certificate chain and
- *       hostname verification are skipped. For debugging only; never enable in
- *       production.</li>
+ *   <li><b>proxyUrl</b> - HTTP forward proxy address, format
+ *       {@code http://[user:password@]host:port}, with an explicit port in
+ *       {@code 1..65535}. HTTPS STS supports CONNECT through an HTTP proxy;
+ *       TLS-to-proxy ({@code https://} proxy URLs) and SOCKS are unsupported.
+ *       Provider bindings prefer the explicit provider proxy, then the bound
+ *       client's explicit proxy selected by the STS URL scheme. With neither,
+ *       OIDC/SAML retain URLConnection proxy selection, including JVM
+ *       {@code http.proxyHost}/{@code http.proxyPort} and
+ *       {@code https.proxyHost}/{@code https.proxyPort} system properties;
+ *       they do not parse {@code HTTP_PROXY}/{@code HTTPS_PROXY} or their
+ *       lowercase environment variants. AssumeRole retains its original
+ *       ApiClient proxy selection, including supported proxy environment
+ *       variables.</li>
+ *   <li><b>caFile</b> - path to a PEM CA bundle used to verify the STS server
+ *       certificate. Empty together with {@code insecureSkipVerify == false}
+ *       uses the original transport TLS settings, including any custom factory.
+ *       JVM default trust applies only if those settings were not customized.</li>
+ *   <li><b>insecureSkipVerify</b> - when {@code true}, TLS certificate chain and
+ *       hostname verification are skipped, taking precedence over {@code caFile}.
+ *       Clearing the CA alone does not restore verification. For debugging
+ *       only; never enable in production.</li>
  * </ul>
  */
 public class StsHttpConfig {
