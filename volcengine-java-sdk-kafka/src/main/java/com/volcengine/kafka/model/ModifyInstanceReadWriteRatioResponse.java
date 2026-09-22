@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateMigrateTaskStatusResponse
+ * ModifyInstanceReadWriteRatioResponse
  */
 
 
 
-public class UpdateMigrateTaskStatusResponse extends com.volcengine.model.AbstractResponse {
+public class ModifyInstanceReadWriteRatioResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class UpdateMigrateTaskStatusResponse extends com.volcengine.model.Abstra
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateMigrateTaskStatusResponse {\n");
+    sb.append("class ModifyInstanceReadWriteRatioResponse {\n");
     
     sb.append("}");
     return sb.toString();

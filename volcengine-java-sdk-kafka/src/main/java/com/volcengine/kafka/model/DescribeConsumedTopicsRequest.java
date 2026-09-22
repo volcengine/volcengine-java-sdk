@@ -42,6 +42,12 @@ public class DescribeConsumedTopicsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("SortBy")
+  private String sortBy = null;
+
+  @SerializedName("SortOrder")
+  private String sortOrder = null;
+
   @SerializedName("TopicName")
   private String topicName = null;
 
@@ -121,6 +127,42 @@ public class DescribeConsumedTopicsRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeConsumedTopicsRequest sortBy(String sortBy) {
+    this.sortBy = sortBy;
+    return this;
+  }
+
+   /**
+   * Get sortBy
+   * @return sortBy
+  **/
+  @Schema(description = "")
+  public String getSortBy() {
+    return sortBy;
+  }
+
+  public void setSortBy(String sortBy) {
+    this.sortBy = sortBy;
+  }
+
+  public DescribeConsumedTopicsRequest sortOrder(String sortOrder) {
+    this.sortOrder = sortOrder;
+    return this;
+  }
+
+   /**
+   * Get sortOrder
+   * @return sortOrder
+  **/
+  @Schema(description = "")
+  public String getSortOrder() {
+    return sortOrder;
+  }
+
+  public void setSortOrder(String sortOrder) {
+    this.sortOrder = sortOrder;
+  }
+
   public DescribeConsumedTopicsRequest topicName(String topicName) {
     this.topicName = topicName;
     return this;
@@ -153,12 +195,14 @@ public class DescribeConsumedTopicsRequest {
         Objects.equals(this.instanceId, describeConsumedTopicsRequest.instanceId) &&
         Objects.equals(this.pageNumber, describeConsumedTopicsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeConsumedTopicsRequest.pageSize) &&
+        Objects.equals(this.sortBy, describeConsumedTopicsRequest.sortBy) &&
+        Objects.equals(this.sortOrder, describeConsumedTopicsRequest.sortOrder) &&
         Objects.equals(this.topicName, describeConsumedTopicsRequest.topicName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupId, instanceId, pageNumber, pageSize, topicName);
+    return Objects.hash(groupId, instanceId, pageNumber, pageSize, sortBy, sortOrder, topicName);
   }
 
 
@@ -171,6 +215,8 @@ public class DescribeConsumedTopicsRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
+    sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -24,16 +24,41 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeletePrivateDomainFromPublicRequest
+ * DeleteConsumedTopicOffsetsRequest
  */
 
 
 
-public class DeletePrivateDomainFromPublicRequest {
+public class DeleteConsumedTopicOffsetsRequest {
+  @SerializedName("GroupId")
+  private String groupId = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  public DeletePrivateDomainFromPublicRequest instanceId(String instanceId) {
+  @SerializedName("TopicName")
+  private String topicName = null;
+
+  public DeleteConsumedTopicOffsetsRequest groupId(String groupId) {
+    this.groupId = groupId;
+    return this;
+  }
+
+   /**
+   * Get groupId
+   * @return groupId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getGroupId() {
+    return groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  public DeleteConsumedTopicOffsetsRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -52,6 +77,25 @@ public class DeletePrivateDomainFromPublicRequest {
     this.instanceId = instanceId;
   }
 
+  public DeleteConsumedTopicOffsetsRequest topicName(String topicName) {
+    this.topicName = topicName;
+    return this;
+  }
+
+   /**
+   * Get topicName
+   * @return topicName
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getTopicName() {
+    return topicName;
+  }
+
+  public void setTopicName(String topicName) {
+    this.topicName = topicName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,22 +105,26 @@ public class DeletePrivateDomainFromPublicRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeletePrivateDomainFromPublicRequest deletePrivateDomainFromPublicRequest = (DeletePrivateDomainFromPublicRequest) o;
-    return Objects.equals(this.instanceId, deletePrivateDomainFromPublicRequest.instanceId);
+    DeleteConsumedTopicOffsetsRequest deleteConsumedTopicOffsetsRequest = (DeleteConsumedTopicOffsetsRequest) o;
+    return Objects.equals(this.groupId, deleteConsumedTopicOffsetsRequest.groupId) &&
+        Objects.equals(this.instanceId, deleteConsumedTopicOffsetsRequest.instanceId) &&
+        Objects.equals(this.topicName, deleteConsumedTopicOffsetsRequest.topicName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(groupId, instanceId, topicName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeletePrivateDomainFromPublicRequest {\n");
+    sb.append("class DeleteConsumedTopicOffsetsRequest {\n");
     
+    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeletePrivateDomainFromPublicResponse
+ * RestartInstanceResponse
  */
 
 
 
-public class DeletePrivateDomainFromPublicResponse extends com.volcengine.model.AbstractResponse {
+public class RestartInstanceResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class DeletePrivateDomainFromPublicResponse extends com.volcengine.model.
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeletePrivateDomainFromPublicResponse {\n");
+    sb.append("class RestartInstanceResponse {\n");
     
     sb.append("}");
     return sb.toString();

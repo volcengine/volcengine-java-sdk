@@ -39,6 +39,12 @@ public class InstancesInfoForDescribeInstancesOutput {
   @SerializedName("AccountId")
   private String accountId = null;
 
+  @SerializedName("AutoUseGroup")
+  private Boolean autoUseGroup = null;
+
+  @SerializedName("AutoUseTopic")
+  private Boolean autoUseTopic = null;
+
   @SerializedName("ChargeDetail")
   private ChargeDetailForDescribeInstancesOutput chargeDetail = null;
 
@@ -48,8 +54,26 @@ public class InstancesInfoForDescribeInstancesOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
+  @SerializedName("DefaultPartitionNumber")
+  private Integer defaultPartitionNumber = null;
+
+  @SerializedName("DefaultReplicaFactor")
+  private Integer defaultReplicaFactor = null;
+
+  @SerializedName("DiskEncrypted")
+  private Boolean diskEncrypted = null;
+
+  @SerializedName("DynamicModifyAutoTopicParameter")
+  private Boolean dynamicModifyAutoTopicParameter = null;
+
+  @SerializedName("DynamicPlainUser")
+  private Boolean dynamicPlainUser = null;
+
   @SerializedName("EipId")
   private String eipId = null;
+
+  @SerializedName("HighRead")
+  private Boolean highRead = null;
 
   @SerializedName("InstanceDescription")
   private String instanceDescription = null;
@@ -63,11 +87,23 @@ public class InstancesInfoForDescribeInstancesOutput {
   @SerializedName("InstanceStatus")
   private String instanceStatus = null;
 
+  @SerializedName("IsNewService")
+  private Boolean isNewService = null;
+
+  @SerializedName("MinorVersion")
+  private Integer minorVersion = null;
+
   @SerializedName("PrivateDomainOnPublic")
   private Boolean privateDomainOnPublic = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ReadBandwidth")
+  private Integer readBandwidth = null;
+
+  @SerializedName("ReadWriteRatio")
+  private Integer readWriteRatio = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
@@ -93,6 +129,9 @@ public class InstancesInfoForDescribeInstancesOutput {
   @SerializedName("UsablePartitionNumber")
   private Integer usablePartitionNumber = null;
 
+  @SerializedName("UsableTopicNumber")
+  private Integer usableTopicNumber = null;
+
   @SerializedName("UsedGroupNumber")
   private Integer usedGroupNumber = null;
 
@@ -110,6 +149,9 @@ public class InstancesInfoForDescribeInstancesOutput {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  @SerializedName("WriteBandwidth")
+  private Integer writeBandwidth = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -130,6 +172,42 @@ public class InstancesInfoForDescribeInstancesOutput {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput autoUseGroup(Boolean autoUseGroup) {
+    this.autoUseGroup = autoUseGroup;
+    return this;
+  }
+
+   /**
+   * Get autoUseGroup
+   * @return autoUseGroup
+  **/
+  @Schema(description = "")
+  public Boolean isAutoUseGroup() {
+    return autoUseGroup;
+  }
+
+  public void setAutoUseGroup(Boolean autoUseGroup) {
+    this.autoUseGroup = autoUseGroup;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput autoUseTopic(Boolean autoUseTopic) {
+    this.autoUseTopic = autoUseTopic;
+    return this;
+  }
+
+   /**
+   * Get autoUseTopic
+   * @return autoUseTopic
+  **/
+  @Schema(description = "")
+  public Boolean isAutoUseTopic() {
+    return autoUseTopic;
+  }
+
+  public void setAutoUseTopic(Boolean autoUseTopic) {
+    this.autoUseTopic = autoUseTopic;
   }
 
   public InstancesInfoForDescribeInstancesOutput chargeDetail(ChargeDetailForDescribeInstancesOutput chargeDetail) {
@@ -187,6 +265,96 @@ public class InstancesInfoForDescribeInstancesOutput {
     this.createTime = createTime;
   }
 
+  public InstancesInfoForDescribeInstancesOutput defaultPartitionNumber(Integer defaultPartitionNumber) {
+    this.defaultPartitionNumber = defaultPartitionNumber;
+    return this;
+  }
+
+   /**
+   * Get defaultPartitionNumber
+   * @return defaultPartitionNumber
+  **/
+  @Schema(description = "")
+  public Integer getDefaultPartitionNumber() {
+    return defaultPartitionNumber;
+  }
+
+  public void setDefaultPartitionNumber(Integer defaultPartitionNumber) {
+    this.defaultPartitionNumber = defaultPartitionNumber;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput defaultReplicaFactor(Integer defaultReplicaFactor) {
+    this.defaultReplicaFactor = defaultReplicaFactor;
+    return this;
+  }
+
+   /**
+   * Get defaultReplicaFactor
+   * @return defaultReplicaFactor
+  **/
+  @Schema(description = "")
+  public Integer getDefaultReplicaFactor() {
+    return defaultReplicaFactor;
+  }
+
+  public void setDefaultReplicaFactor(Integer defaultReplicaFactor) {
+    this.defaultReplicaFactor = defaultReplicaFactor;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput diskEncrypted(Boolean diskEncrypted) {
+    this.diskEncrypted = diskEncrypted;
+    return this;
+  }
+
+   /**
+   * Get diskEncrypted
+   * @return diskEncrypted
+  **/
+  @Schema(description = "")
+  public Boolean isDiskEncrypted() {
+    return diskEncrypted;
+  }
+
+  public void setDiskEncrypted(Boolean diskEncrypted) {
+    this.diskEncrypted = diskEncrypted;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput dynamicModifyAutoTopicParameter(Boolean dynamicModifyAutoTopicParameter) {
+    this.dynamicModifyAutoTopicParameter = dynamicModifyAutoTopicParameter;
+    return this;
+  }
+
+   /**
+   * Get dynamicModifyAutoTopicParameter
+   * @return dynamicModifyAutoTopicParameter
+  **/
+  @Schema(description = "")
+  public Boolean isDynamicModifyAutoTopicParameter() {
+    return dynamicModifyAutoTopicParameter;
+  }
+
+  public void setDynamicModifyAutoTopicParameter(Boolean dynamicModifyAutoTopicParameter) {
+    this.dynamicModifyAutoTopicParameter = dynamicModifyAutoTopicParameter;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput dynamicPlainUser(Boolean dynamicPlainUser) {
+    this.dynamicPlainUser = dynamicPlainUser;
+    return this;
+  }
+
+   /**
+   * Get dynamicPlainUser
+   * @return dynamicPlainUser
+  **/
+  @Schema(description = "")
+  public Boolean isDynamicPlainUser() {
+    return dynamicPlainUser;
+  }
+
+  public void setDynamicPlainUser(Boolean dynamicPlainUser) {
+    this.dynamicPlainUser = dynamicPlainUser;
+  }
+
   public InstancesInfoForDescribeInstancesOutput eipId(String eipId) {
     this.eipId = eipId;
     return this;
@@ -203,6 +371,24 @@ public class InstancesInfoForDescribeInstancesOutput {
 
   public void setEipId(String eipId) {
     this.eipId = eipId;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput highRead(Boolean highRead) {
+    this.highRead = highRead;
+    return this;
+  }
+
+   /**
+   * Get highRead
+   * @return highRead
+  **/
+  @Schema(description = "")
+  public Boolean isHighRead() {
+    return highRead;
+  }
+
+  public void setHighRead(Boolean highRead) {
+    this.highRead = highRead;
   }
 
   public InstancesInfoForDescribeInstancesOutput instanceDescription(String instanceDescription) {
@@ -277,6 +463,42 @@ public class InstancesInfoForDescribeInstancesOutput {
     this.instanceStatus = instanceStatus;
   }
 
+  public InstancesInfoForDescribeInstancesOutput isNewService(Boolean isNewService) {
+    this.isNewService = isNewService;
+    return this;
+  }
+
+   /**
+   * Get isNewService
+   * @return isNewService
+  **/
+  @Schema(description = "")
+  public Boolean isIsNewService() {
+    return isNewService;
+  }
+
+  public void setIsNewService(Boolean isNewService) {
+    this.isNewService = isNewService;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput minorVersion(Integer minorVersion) {
+    this.minorVersion = minorVersion;
+    return this;
+  }
+
+   /**
+   * Get minorVersion
+   * @return minorVersion
+  **/
+  @Schema(description = "")
+  public Integer getMinorVersion() {
+    return minorVersion;
+  }
+
+  public void setMinorVersion(Integer minorVersion) {
+    this.minorVersion = minorVersion;
+  }
+
   public InstancesInfoForDescribeInstancesOutput privateDomainOnPublic(Boolean privateDomainOnPublic) {
     this.privateDomainOnPublic = privateDomainOnPublic;
     return this;
@@ -311,6 +533,42 @@ public class InstancesInfoForDescribeInstancesOutput {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput readBandwidth(Integer readBandwidth) {
+    this.readBandwidth = readBandwidth;
+    return this;
+  }
+
+   /**
+   * Get readBandwidth
+   * @return readBandwidth
+  **/
+  @Schema(description = "")
+  public Integer getReadBandwidth() {
+    return readBandwidth;
+  }
+
+  public void setReadBandwidth(Integer readBandwidth) {
+    this.readBandwidth = readBandwidth;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput readWriteRatio(Integer readWriteRatio) {
+    this.readWriteRatio = readWriteRatio;
+    return this;
+  }
+
+   /**
+   * Get readWriteRatio
+   * @return readWriteRatio
+  **/
+  @Schema(description = "")
+  public Integer getReadWriteRatio() {
+    return readWriteRatio;
+  }
+
+  public void setReadWriteRatio(Integer readWriteRatio) {
+    this.readWriteRatio = readWriteRatio;
   }
 
   public InstancesInfoForDescribeInstancesOutput regionId(String regionId) {
@@ -474,6 +732,24 @@ public class InstancesInfoForDescribeInstancesOutput {
     this.usablePartitionNumber = usablePartitionNumber;
   }
 
+  public InstancesInfoForDescribeInstancesOutput usableTopicNumber(Integer usableTopicNumber) {
+    this.usableTopicNumber = usableTopicNumber;
+    return this;
+  }
+
+   /**
+   * Get usableTopicNumber
+   * @return usableTopicNumber
+  **/
+  @Schema(description = "")
+  public Integer getUsableTopicNumber() {
+    return usableTopicNumber;
+  }
+
+  public void setUsableTopicNumber(Integer usableTopicNumber) {
+    this.usableTopicNumber = usableTopicNumber;
+  }
+
   public InstancesInfoForDescribeInstancesOutput usedGroupNumber(Integer usedGroupNumber) {
     this.usedGroupNumber = usedGroupNumber;
     return this;
@@ -582,6 +858,24 @@ public class InstancesInfoForDescribeInstancesOutput {
     this.vpcId = vpcId;
   }
 
+  public InstancesInfoForDescribeInstancesOutput writeBandwidth(Integer writeBandwidth) {
+    this.writeBandwidth = writeBandwidth;
+    return this;
+  }
+
+   /**
+   * Get writeBandwidth
+   * @return writeBandwidth
+  **/
+  @Schema(description = "")
+  public Integer getWriteBandwidth() {
+    return writeBandwidth;
+  }
+
+  public void setWriteBandwidth(Integer writeBandwidth) {
+    this.writeBandwidth = writeBandwidth;
+  }
+
   public InstancesInfoForDescribeInstancesOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -611,16 +905,28 @@ public class InstancesInfoForDescribeInstancesOutput {
     }
     InstancesInfoForDescribeInstancesOutput instancesInfoForDescribeInstancesOutput = (InstancesInfoForDescribeInstancesOutput) o;
     return Objects.equals(this.accountId, instancesInfoForDescribeInstancesOutput.accountId) &&
+        Objects.equals(this.autoUseGroup, instancesInfoForDescribeInstancesOutput.autoUseGroup) &&
+        Objects.equals(this.autoUseTopic, instancesInfoForDescribeInstancesOutput.autoUseTopic) &&
         Objects.equals(this.chargeDetail, instancesInfoForDescribeInstancesOutput.chargeDetail) &&
         Objects.equals(this.computeSpec, instancesInfoForDescribeInstancesOutput.computeSpec) &&
         Objects.equals(this.createTime, instancesInfoForDescribeInstancesOutput.createTime) &&
+        Objects.equals(this.defaultPartitionNumber, instancesInfoForDescribeInstancesOutput.defaultPartitionNumber) &&
+        Objects.equals(this.defaultReplicaFactor, instancesInfoForDescribeInstancesOutput.defaultReplicaFactor) &&
+        Objects.equals(this.diskEncrypted, instancesInfoForDescribeInstancesOutput.diskEncrypted) &&
+        Objects.equals(this.dynamicModifyAutoTopicParameter, instancesInfoForDescribeInstancesOutput.dynamicModifyAutoTopicParameter) &&
+        Objects.equals(this.dynamicPlainUser, instancesInfoForDescribeInstancesOutput.dynamicPlainUser) &&
         Objects.equals(this.eipId, instancesInfoForDescribeInstancesOutput.eipId) &&
+        Objects.equals(this.highRead, instancesInfoForDescribeInstancesOutput.highRead) &&
         Objects.equals(this.instanceDescription, instancesInfoForDescribeInstancesOutput.instanceDescription) &&
         Objects.equals(this.instanceId, instancesInfoForDescribeInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instancesInfoForDescribeInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, instancesInfoForDescribeInstancesOutput.instanceStatus) &&
+        Objects.equals(this.isNewService, instancesInfoForDescribeInstancesOutput.isNewService) &&
+        Objects.equals(this.minorVersion, instancesInfoForDescribeInstancesOutput.minorVersion) &&
         Objects.equals(this.privateDomainOnPublic, instancesInfoForDescribeInstancesOutput.privateDomainOnPublic) &&
         Objects.equals(this.projectName, instancesInfoForDescribeInstancesOutput.projectName) &&
+        Objects.equals(this.readBandwidth, instancesInfoForDescribeInstancesOutput.readBandwidth) &&
+        Objects.equals(this.readWriteRatio, instancesInfoForDescribeInstancesOutput.readWriteRatio) &&
         Objects.equals(this.regionId, instancesInfoForDescribeInstancesOutput.regionId) &&
         Objects.equals(this.storageSpace, instancesInfoForDescribeInstancesOutput.storageSpace) &&
         Objects.equals(this.storageType, instancesInfoForDescribeInstancesOutput.storageType) &&
@@ -629,18 +935,20 @@ public class InstancesInfoForDescribeInstancesOutput {
         Objects.equals(this.tags, instancesInfoForDescribeInstancesOutput.tags) &&
         Objects.equals(this.usableGroupNumber, instancesInfoForDescribeInstancesOutput.usableGroupNumber) &&
         Objects.equals(this.usablePartitionNumber, instancesInfoForDescribeInstancesOutput.usablePartitionNumber) &&
+        Objects.equals(this.usableTopicNumber, instancesInfoForDescribeInstancesOutput.usableTopicNumber) &&
         Objects.equals(this.usedGroupNumber, instancesInfoForDescribeInstancesOutput.usedGroupNumber) &&
         Objects.equals(this.usedPartitionNumber, instancesInfoForDescribeInstancesOutput.usedPartitionNumber) &&
         Objects.equals(this.usedStorageSpace, instancesInfoForDescribeInstancesOutput.usedStorageSpace) &&
         Objects.equals(this.usedTopicNumber, instancesInfoForDescribeInstancesOutput.usedTopicNumber) &&
         Objects.equals(this.version, instancesInfoForDescribeInstancesOutput.version) &&
         Objects.equals(this.vpcId, instancesInfoForDescribeInstancesOutput.vpcId) &&
+        Objects.equals(this.writeBandwidth, instancesInfoForDescribeInstancesOutput.writeBandwidth) &&
         Objects.equals(this.zoneId, instancesInfoForDescribeInstancesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, chargeDetail, computeSpec, createTime, eipId, instanceDescription, instanceId, instanceName, instanceStatus, privateDomainOnPublic, projectName, regionId, storageSpace, storageType, subnetId, tagInfos, tags, usableGroupNumber, usablePartitionNumber, usedGroupNumber, usedPartitionNumber, usedStorageSpace, usedTopicNumber, version, vpcId, zoneId);
+    return Objects.hash(accountId, autoUseGroup, autoUseTopic, chargeDetail, computeSpec, createTime, defaultPartitionNumber, defaultReplicaFactor, diskEncrypted, dynamicModifyAutoTopicParameter, dynamicPlainUser, eipId, highRead, instanceDescription, instanceId, instanceName, instanceStatus, isNewService, minorVersion, privateDomainOnPublic, projectName, readBandwidth, readWriteRatio, regionId, storageSpace, storageType, subnetId, tagInfos, tags, usableGroupNumber, usablePartitionNumber, usableTopicNumber, usedGroupNumber, usedPartitionNumber, usedStorageSpace, usedTopicNumber, version, vpcId, writeBandwidth, zoneId);
   }
 
 
@@ -650,16 +958,28 @@ public class InstancesInfoForDescribeInstancesOutput {
     sb.append("class InstancesInfoForDescribeInstancesOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    autoUseGroup: ").append(toIndentedString(autoUseGroup)).append("\n");
+    sb.append("    autoUseTopic: ").append(toIndentedString(autoUseTopic)).append("\n");
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
     sb.append("    computeSpec: ").append(toIndentedString(computeSpec)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    defaultPartitionNumber: ").append(toIndentedString(defaultPartitionNumber)).append("\n");
+    sb.append("    defaultReplicaFactor: ").append(toIndentedString(defaultReplicaFactor)).append("\n");
+    sb.append("    diskEncrypted: ").append(toIndentedString(diskEncrypted)).append("\n");
+    sb.append("    dynamicModifyAutoTopicParameter: ").append(toIndentedString(dynamicModifyAutoTopicParameter)).append("\n");
+    sb.append("    dynamicPlainUser: ").append(toIndentedString(dynamicPlainUser)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
+    sb.append("    highRead: ").append(toIndentedString(highRead)).append("\n");
     sb.append("    instanceDescription: ").append(toIndentedString(instanceDescription)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
+    sb.append("    isNewService: ").append(toIndentedString(isNewService)).append("\n");
+    sb.append("    minorVersion: ").append(toIndentedString(minorVersion)).append("\n");
     sb.append("    privateDomainOnPublic: ").append(toIndentedString(privateDomainOnPublic)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    readBandwidth: ").append(toIndentedString(readBandwidth)).append("\n");
+    sb.append("    readWriteRatio: ").append(toIndentedString(readWriteRatio)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
@@ -668,12 +988,14 @@ public class InstancesInfoForDescribeInstancesOutput {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    usableGroupNumber: ").append(toIndentedString(usableGroupNumber)).append("\n");
     sb.append("    usablePartitionNumber: ").append(toIndentedString(usablePartitionNumber)).append("\n");
+    sb.append("    usableTopicNumber: ").append(toIndentedString(usableTopicNumber)).append("\n");
     sb.append("    usedGroupNumber: ").append(toIndentedString(usedGroupNumber)).append("\n");
     sb.append("    usedPartitionNumber: ").append(toIndentedString(usedPartitionNumber)).append("\n");
     sb.append("    usedStorageSpace: ").append(toIndentedString(usedStorageSpace)).append("\n");
     sb.append("    usedTopicNumber: ").append(toIndentedString(usedTopicNumber)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    writeBandwidth: ").append(toIndentedString(writeBandwidth)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
