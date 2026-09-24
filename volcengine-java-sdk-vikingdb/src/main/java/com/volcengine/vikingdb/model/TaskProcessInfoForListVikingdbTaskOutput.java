@@ -35,6 +35,9 @@ public class TaskProcessInfoForListVikingdbTaskOutput {
   @SerializedName("ErrorMessage")
   private String errorMessage = null;
 
+  @SerializedName("EstimatedRemainingTime")
+  private String estimatedRemainingTime = null;
+
   @SerializedName("SampleData")
   private List<Object> sampleData = null;
 
@@ -69,6 +72,24 @@ public class TaskProcessInfoForListVikingdbTaskOutput {
 
   public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
+  }
+
+  public TaskProcessInfoForListVikingdbTaskOutput estimatedRemainingTime(String estimatedRemainingTime) {
+    this.estimatedRemainingTime = estimatedRemainingTime;
+    return this;
+  }
+
+   /**
+   * Get estimatedRemainingTime
+   * @return estimatedRemainingTime
+  **/
+  @Schema(description = "")
+  public String getEstimatedRemainingTime() {
+    return estimatedRemainingTime;
+  }
+
+  public void setEstimatedRemainingTime(String estimatedRemainingTime) {
+    this.estimatedRemainingTime = estimatedRemainingTime;
   }
 
   public TaskProcessInfoForListVikingdbTaskOutput sampleData(List<Object> sampleData) {
@@ -198,6 +219,7 @@ public class TaskProcessInfoForListVikingdbTaskOutput {
     }
     TaskProcessInfoForListVikingdbTaskOutput taskProcessInfoForListVikingdbTaskOutput = (TaskProcessInfoForListVikingdbTaskOutput) o;
     return Objects.equals(this.errorMessage, taskProcessInfoForListVikingdbTaskOutput.errorMessage) &&
+        Objects.equals(this.estimatedRemainingTime, taskProcessInfoForListVikingdbTaskOutput.estimatedRemainingTime) &&
         Objects.equals(this.sampleData, taskProcessInfoForListVikingdbTaskOutput.sampleData) &&
         Objects.equals(this.sampleTimestamp, taskProcessInfoForListVikingdbTaskOutput.sampleTimestamp) &&
         Objects.equals(this.scanDataCount, taskProcessInfoForListVikingdbTaskOutput.scanDataCount) &&
@@ -208,7 +230,7 @@ public class TaskProcessInfoForListVikingdbTaskOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorMessage, sampleData, sampleTimestamp, scanDataCount, taskProgress, totalDataCount, totalFilterCount);
+    return Objects.hash(errorMessage, estimatedRemainingTime, sampleData, sampleTimestamp, scanDataCount, taskProgress, totalDataCount, totalFilterCount);
   }
 
 
@@ -218,6 +240,7 @@ public class TaskProcessInfoForListVikingdbTaskOutput {
     sb.append("class TaskProcessInfoForListVikingdbTaskOutput {\n");
     
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    estimatedRemainingTime: ").append(toIndentedString(estimatedRemainingTime)).append("\n");
     sb.append("    sampleData: ").append(toIndentedString(sampleData)).append("\n");
     sb.append("    sampleTimestamp: ").append(toIndentedString(sampleTimestamp)).append("\n");
     sb.append("    scanDataCount: ").append(toIndentedString(scanDataCount)).append("\n");
