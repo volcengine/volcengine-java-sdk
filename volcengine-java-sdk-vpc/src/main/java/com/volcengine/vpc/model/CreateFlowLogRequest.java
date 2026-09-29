@@ -48,6 +48,9 @@ public class CreateFlowLogRequest {
   @SerializedName("FlowLogName")
   private String flowLogName = null;
 
+  @SerializedName("FlowLogVersion")
+  private Integer flowLogVersion = null;
+
   @SerializedName("LogProjectName")
   private String logProjectName = null;
 
@@ -162,6 +165,24 @@ public class CreateFlowLogRequest {
 
   public void setFlowLogName(String flowLogName) {
     this.flowLogName = flowLogName;
+  }
+
+  public CreateFlowLogRequest flowLogVersion(Integer flowLogVersion) {
+    this.flowLogVersion = flowLogVersion;
+    return this;
+  }
+
+   /**
+   * Get flowLogVersion
+   * @return flowLogVersion
+  **/
+  @Schema(description = "")
+  public Integer getFlowLogVersion() {
+    return flowLogVersion;
+  }
+
+  public void setFlowLogVersion(Integer flowLogVersion) {
+    this.flowLogVersion = flowLogVersion;
   }
 
   public CreateFlowLogRequest logProjectName(String logProjectName) {
@@ -345,6 +366,7 @@ public class CreateFlowLogRequest {
         Objects.equals(this.description, createFlowLogRequest.description) &&
         Objects.equals(this.enableIndex, createFlowLogRequest.enableIndex) &&
         Objects.equals(this.flowLogName, createFlowLogRequest.flowLogName) &&
+        Objects.equals(this.flowLogVersion, createFlowLogRequest.flowLogVersion) &&
         Objects.equals(this.logProjectName, createFlowLogRequest.logProjectName) &&
         Objects.equals(this.logTopicName, createFlowLogRequest.logTopicName) &&
         Objects.equals(this.projectName, createFlowLogRequest.projectName) &&
@@ -357,7 +379,7 @@ public class CreateFlowLogRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregationInterval, clientToken, description, enableIndex, flowLogName, logProjectName, logTopicName, projectName, resourceId, resourceType, tags, trafficPath, trafficType);
+    return Objects.hash(aggregationInterval, clientToken, description, enableIndex, flowLogName, flowLogVersion, logProjectName, logTopicName, projectName, resourceId, resourceType, tags, trafficPath, trafficType);
   }
 
 
@@ -371,6 +393,7 @@ public class CreateFlowLogRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableIndex: ").append(toIndentedString(enableIndex)).append("\n");
     sb.append("    flowLogName: ").append(toIndentedString(flowLogName)).append("\n");
+    sb.append("    flowLogVersion: ").append(toIndentedString(flowLogVersion)).append("\n");
     sb.append("    logProjectName: ").append(toIndentedString(logProjectName)).append("\n");
     sb.append("    logTopicName: ").append(toIndentedString(logTopicName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

@@ -48,6 +48,9 @@ public class DescribeIpamResourceCidrsRequest {
   @SerializedName("ResourceName")
   private String resourceName = null;
 
+  @SerializedName("ResourceRegionId")
+  private String resourceRegionId = null;
+
   @SerializedName("ResourceType")
   private String resourceType = null;
 
@@ -163,6 +166,24 @@ public class DescribeIpamResourceCidrsRequest {
     this.resourceName = resourceName;
   }
 
+  public DescribeIpamResourceCidrsRequest resourceRegionId(String resourceRegionId) {
+    this.resourceRegionId = resourceRegionId;
+    return this;
+  }
+
+   /**
+   * Get resourceRegionId
+   * @return resourceRegionId
+  **/
+  @Schema(description = "")
+  public String getResourceRegionId() {
+    return resourceRegionId;
+  }
+
+  public void setResourceRegionId(String resourceRegionId) {
+    this.resourceRegionId = resourceRegionId;
+  }
+
   public DescribeIpamResourceCidrsRequest resourceType(String resourceType) {
     this.resourceType = resourceType;
     return this;
@@ -216,13 +237,14 @@ public class DescribeIpamResourceCidrsRequest {
         Objects.equals(this.nextToken, describeIpamResourceCidrsRequest.nextToken) &&
         Objects.equals(this.resourceId, describeIpamResourceCidrsRequest.resourceId) &&
         Objects.equals(this.resourceName, describeIpamResourceCidrsRequest.resourceName) &&
+        Objects.equals(this.resourceRegionId, describeIpamResourceCidrsRequest.resourceRegionId) &&
         Objects.equals(this.resourceType, describeIpamResourceCidrsRequest.resourceType) &&
         Objects.equals(this.vpcId, describeIpamResourceCidrsRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipamPoolId, ipamScopeId, maxResults, nextToken, resourceId, resourceName, resourceType, vpcId);
+    return Objects.hash(ipamPoolId, ipamScopeId, maxResults, nextToken, resourceId, resourceName, resourceRegionId, resourceType, vpcId);
   }
 
 
@@ -237,6 +259,7 @@ public class DescribeIpamResourceCidrsRequest {
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
+    sb.append("    resourceRegionId: ").append(toIndentedString(resourceRegionId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

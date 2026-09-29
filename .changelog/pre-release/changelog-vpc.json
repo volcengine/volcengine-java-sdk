@@ -1,0 +1,24 @@
+{
+  "actions": [
+    "CreateFlowLog",
+    "ModifyNetworkInterfaceAttributes",
+    "ModifyIpam",
+    "DescribeIpamResourceCidrs",
+    "ModifySecurityGroupIngressBatch",
+    "RevokeSecurityGroupEgressBatch",
+    "RevokeSecurityGroupIngressBatch",
+    "ModifySecurityGroupEgressBatch",
+    "CreateNetworkInterface",
+    "DescribeNetworkInterfaces",
+    "ModifyFlowLogAttribute",
+    "ModifyIpamResourceDiscovery",
+    "CreateIpam",
+    "AuthorizeSecurityGroupEgressBatch",
+    "AuthorizeSecurityGroupIngressBatch",
+    "DescribeSecurityGroupAttributes",
+    "DescribeNetworkInterfaceAttributes"
+  ],
+  "description": "VPC: 新增 ModifySecurityGroupIngressBatch, RevokeSecurityGroupEgressBatch, RevokeSecurityGroupIngressBatch, AuthorizeSecurityGroupEgressBatch, AuthorizeSecurityGroupIngressBatch, ModifySecurityGroupEgressBatch；修改 ModifyNetworkInterfaceAttributes, DescribeNetworkInterfaces, DescribeSecurityGroupAttributes, ModifyIpam, DescribeIpamResourceCidrs, DescribeNetworkInterfaceAttributes, ModifyFlowLogAttribute, ModifyIpamResourceDiscovery, CreateFlowLog, CreateIpam, CreateNetworkInterface",
+  "modules": "service/vpc",
+  "type": "feature"
+}
