@@ -39,6 +39,9 @@ public class CreateFlowLogResponse extends com.volcengine.model.AbstractResponse
   @SerializedName("RequestId")
   private String requestId = null;
 
+  @SerializedName("Version")
+  private Integer version = null;
+
   public CreateFlowLogResponse asyncTaskId(String asyncTaskId) {
     this.asyncTaskId = asyncTaskId;
     return this;
@@ -93,6 +96,24 @@ public class CreateFlowLogResponse extends com.volcengine.model.AbstractResponse
     this.requestId = requestId;
   }
 
+  public CreateFlowLogResponse version(Integer version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @Schema(description = "")
+  public Integer getVersion() {
+    return version;
+  }
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +126,13 @@ public class CreateFlowLogResponse extends com.volcengine.model.AbstractResponse
     CreateFlowLogResponse createFlowLogResponse = (CreateFlowLogResponse) o;
     return Objects.equals(this.asyncTaskId, createFlowLogResponse.asyncTaskId) &&
         Objects.equals(this.flowLogId, createFlowLogResponse.flowLogId) &&
-        Objects.equals(this.requestId, createFlowLogResponse.requestId);
+        Objects.equals(this.requestId, createFlowLogResponse.requestId) &&
+        Objects.equals(this.version, createFlowLogResponse.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskId, flowLogId, requestId);
+    return Objects.hash(asyncTaskId, flowLogId, requestId, version);
   }
 
 
@@ -122,6 +144,7 @@ public class CreateFlowLogResponse extends com.volcengine.model.AbstractResponse
     sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    flowLogId: ").append(toIndentedString(flowLogId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

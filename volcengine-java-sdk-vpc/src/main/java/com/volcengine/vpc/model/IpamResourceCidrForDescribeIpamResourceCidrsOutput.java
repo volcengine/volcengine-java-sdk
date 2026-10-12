@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.OverlapDetailForDescribeIpamResourceCidrsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -51,6 +54,9 @@ public class IpamResourceCidrForDescribeIpamResourceCidrsOutput {
   @SerializedName("ManagementStatus")
   private String managementStatus = null;
 
+  @SerializedName("OverlapDetails")
+  private List<OverlapDetailForDescribeIpamResourceCidrsOutput> overlapDetails = null;
+
   @SerializedName("OverlapStatus")
   private String overlapStatus = null;
 
@@ -62,6 +68,9 @@ public class IpamResourceCidrForDescribeIpamResourceCidrsOutput {
 
   @SerializedName("ResourceName")
   private String resourceName = null;
+
+  @SerializedName("ResourceRegionId")
+  private String resourceRegionId = null;
 
   @SerializedName("ResourceType")
   private String resourceType = null;
@@ -195,6 +204,33 @@ public class IpamResourceCidrForDescribeIpamResourceCidrsOutput {
     this.managementStatus = managementStatus;
   }
 
+  public IpamResourceCidrForDescribeIpamResourceCidrsOutput overlapDetails(List<OverlapDetailForDescribeIpamResourceCidrsOutput> overlapDetails) {
+    this.overlapDetails = overlapDetails;
+    return this;
+  }
+
+  public IpamResourceCidrForDescribeIpamResourceCidrsOutput addOverlapDetailsItem(OverlapDetailForDescribeIpamResourceCidrsOutput overlapDetailsItem) {
+    if (this.overlapDetails == null) {
+      this.overlapDetails = new ArrayList<OverlapDetailForDescribeIpamResourceCidrsOutput>();
+    }
+    this.overlapDetails.add(overlapDetailsItem);
+    return this;
+  }
+
+   /**
+   * Get overlapDetails
+   * @return overlapDetails
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<OverlapDetailForDescribeIpamResourceCidrsOutput> getOverlapDetails() {
+    return overlapDetails;
+  }
+
+  public void setOverlapDetails(List<OverlapDetailForDescribeIpamResourceCidrsOutput> overlapDetails) {
+    this.overlapDetails = overlapDetails;
+  }
+
   public IpamResourceCidrForDescribeIpamResourceCidrsOutput overlapStatus(String overlapStatus) {
     this.overlapStatus = overlapStatus;
     return this;
@@ -267,6 +303,24 @@ public class IpamResourceCidrForDescribeIpamResourceCidrsOutput {
     this.resourceName = resourceName;
   }
 
+  public IpamResourceCidrForDescribeIpamResourceCidrsOutput resourceRegionId(String resourceRegionId) {
+    this.resourceRegionId = resourceRegionId;
+    return this;
+  }
+
+   /**
+   * Get resourceRegionId
+   * @return resourceRegionId
+  **/
+  @Schema(description = "")
+  public String getResourceRegionId() {
+    return resourceRegionId;
+  }
+
+  public void setResourceRegionId(String resourceRegionId) {
+    this.resourceRegionId = resourceRegionId;
+  }
+
   public IpamResourceCidrForDescribeIpamResourceCidrsOutput resourceType(String resourceType) {
     this.resourceType = resourceType;
     return this;
@@ -320,17 +374,19 @@ public class IpamResourceCidrForDescribeIpamResourceCidrsOutput {
         Objects.equals(this.ipamPoolId, ipamResourceCidrForDescribeIpamResourceCidrsOutput.ipamPoolId) &&
         Objects.equals(this.ipamScopeId, ipamResourceCidrForDescribeIpamResourceCidrsOutput.ipamScopeId) &&
         Objects.equals(this.managementStatus, ipamResourceCidrForDescribeIpamResourceCidrsOutput.managementStatus) &&
+        Objects.equals(this.overlapDetails, ipamResourceCidrForDescribeIpamResourceCidrsOutput.overlapDetails) &&
         Objects.equals(this.overlapStatus, ipamResourceCidrForDescribeIpamResourceCidrsOutput.overlapStatus) &&
         Objects.equals(this.resourceCidr, ipamResourceCidrForDescribeIpamResourceCidrsOutput.resourceCidr) &&
         Objects.equals(this.resourceId, ipamResourceCidrForDescribeIpamResourceCidrsOutput.resourceId) &&
         Objects.equals(this.resourceName, ipamResourceCidrForDescribeIpamResourceCidrsOutput.resourceName) &&
+        Objects.equals(this.resourceRegionId, ipamResourceCidrForDescribeIpamResourceCidrsOutput.resourceRegionId) &&
         Objects.equals(this.resourceType, ipamResourceCidrForDescribeIpamResourceCidrsOutput.resourceType) &&
         Objects.equals(this.vpcId, ipamResourceCidrForDescribeIpamResourceCidrsOutput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(complianceStatus, ipUsage, ipamId, ipamPoolAllocationId, ipamPoolId, ipamScopeId, managementStatus, overlapStatus, resourceCidr, resourceId, resourceName, resourceType, vpcId);
+    return Objects.hash(complianceStatus, ipUsage, ipamId, ipamPoolAllocationId, ipamPoolId, ipamScopeId, managementStatus, overlapDetails, overlapStatus, resourceCidr, resourceId, resourceName, resourceRegionId, resourceType, vpcId);
   }
 
 
@@ -346,10 +402,12 @@ public class IpamResourceCidrForDescribeIpamResourceCidrsOutput {
     sb.append("    ipamPoolId: ").append(toIndentedString(ipamPoolId)).append("\n");
     sb.append("    ipamScopeId: ").append(toIndentedString(ipamScopeId)).append("\n");
     sb.append("    managementStatus: ").append(toIndentedString(managementStatus)).append("\n");
+    sb.append("    overlapDetails: ").append(toIndentedString(overlapDetails)).append("\n");
     sb.append("    overlapStatus: ").append(toIndentedString(overlapStatus)).append("\n");
     sb.append("    resourceCidr: ").append(toIndentedString(resourceCidr)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
+    sb.append("    resourceRegionId: ").append(toIndentedString(resourceRegionId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

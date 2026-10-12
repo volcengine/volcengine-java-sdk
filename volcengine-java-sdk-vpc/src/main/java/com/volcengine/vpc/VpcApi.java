@@ -59,8 +59,12 @@ import com.volcengine.vpc.model.AttachIpv4GatewayRequest;
 import com.volcengine.vpc.model.AttachIpv4GatewayResponse;
 import com.volcengine.vpc.model.AttachNetworkInterfaceRequest;
 import com.volcengine.vpc.model.AttachNetworkInterfaceResponse;
+import com.volcengine.vpc.model.AuthorizeSecurityGroupEgressBatchRequest;
+import com.volcengine.vpc.model.AuthorizeSecurityGroupEgressBatchResponse;
 import com.volcengine.vpc.model.AuthorizeSecurityGroupEgressRequest;
 import com.volcengine.vpc.model.AuthorizeSecurityGroupEgressResponse;
+import com.volcengine.vpc.model.AuthorizeSecurityGroupIngressBatchRequest;
+import com.volcengine.vpc.model.AuthorizeSecurityGroupIngressBatchResponse;
 import com.volcengine.vpc.model.AuthorizeSecurityGroupIngressRequest;
 import com.volcengine.vpc.model.AuthorizeSecurityGroupIngressResponse;
 import com.volcengine.vpc.model.CancelBandwidthPackageEipBandwidthRequest;
@@ -351,6 +355,10 @@ import com.volcengine.vpc.model.ModifyRouteTableAttributesRequest;
 import com.volcengine.vpc.model.ModifyRouteTableAttributesResponse;
 import com.volcengine.vpc.model.ModifySecurityGroupAttributesRequest;
 import com.volcengine.vpc.model.ModifySecurityGroupAttributesResponse;
+import com.volcengine.vpc.model.ModifySecurityGroupEgressBatchRequest;
+import com.volcengine.vpc.model.ModifySecurityGroupEgressBatchResponse;
+import com.volcengine.vpc.model.ModifySecurityGroupIngressBatchRequest;
+import com.volcengine.vpc.model.ModifySecurityGroupIngressBatchResponse;
 import com.volcengine.vpc.model.ModifySecurityGroupRuleDescriptionsEgressRequest;
 import com.volcengine.vpc.model.ModifySecurityGroupRuleDescriptionsEgressResponse;
 import com.volcengine.vpc.model.ModifySecurityGroupRuleDescriptionsIngressRequest;
@@ -377,8 +385,12 @@ import com.volcengine.vpc.model.ReleaseIpv6AddressBandwidthRequest;
 import com.volcengine.vpc.model.ReleaseIpv6AddressBandwidthResponse;
 import com.volcengine.vpc.model.RemoveBandwidthPackageIpRequest;
 import com.volcengine.vpc.model.RemoveBandwidthPackageIpResponse;
+import com.volcengine.vpc.model.RevokeSecurityGroupEgressBatchRequest;
+import com.volcengine.vpc.model.RevokeSecurityGroupEgressBatchResponse;
 import com.volcengine.vpc.model.RevokeSecurityGroupEgressRequest;
 import com.volcengine.vpc.model.RevokeSecurityGroupEgressResponse;
+import com.volcengine.vpc.model.RevokeSecurityGroupIngressBatchRequest;
+import com.volcengine.vpc.model.RevokeSecurityGroupIngressBatchResponse;
 import com.volcengine.vpc.model.RevokeSecurityGroupIngressRequest;
 import com.volcengine.vpc.model.RevokeSecurityGroupIngressResponse;
 import com.volcengine.vpc.model.TagIpamResourcesRequest;
@@ -2532,6 +2544,130 @@ public class VpcApi {
         return call;
     }
     /**
+     * Build call for authorizeSecurityGroupEgressBatch
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call authorizeSecurityGroupEgressBatchCall(AuthorizeSecurityGroupEgressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/AuthorizeSecurityGroupEgressBatch/2020-04-01/vpc/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call authorizeSecurityGroupEgressBatchValidateBeforeCall(AuthorizeSecurityGroupEgressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling authorizeSecurityGroupEgressBatch(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = authorizeSecurityGroupEgressBatchCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return AuthorizeSecurityGroupEgressBatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AuthorizeSecurityGroupEgressBatchResponse authorizeSecurityGroupEgressBatch(AuthorizeSecurityGroupEgressBatchRequest body) throws ApiException {
+        ApiResponse<AuthorizeSecurityGroupEgressBatchResponse> resp = authorizeSecurityGroupEgressBatchWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;AuthorizeSecurityGroupEgressBatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AuthorizeSecurityGroupEgressBatchResponse> authorizeSecurityGroupEgressBatchWithHttpInfo( @NotNull AuthorizeSecurityGroupEgressBatchRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = authorizeSecurityGroupEgressBatchValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AuthorizeSecurityGroupEgressBatchResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call authorizeSecurityGroupEgressBatchAsync(AuthorizeSecurityGroupEgressBatchRequest body, final ApiCallback<AuthorizeSecurityGroupEgressBatchResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = authorizeSecurityGroupEgressBatchValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AuthorizeSecurityGroupEgressBatchResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for authorizeSecurityGroupIngress
      * @param body  (required)
      * @param progressListener Progress listener
@@ -2652,6 +2788,130 @@ public class VpcApi {
 
         com.squareup.okhttp.Call call = authorizeSecurityGroupIngressValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AuthorizeSecurityGroupIngressResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for authorizeSecurityGroupIngressBatch
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call authorizeSecurityGroupIngressBatchCall(AuthorizeSecurityGroupIngressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/AuthorizeSecurityGroupIngressBatch/2020-04-01/vpc/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call authorizeSecurityGroupIngressBatchValidateBeforeCall(AuthorizeSecurityGroupIngressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling authorizeSecurityGroupIngressBatch(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = authorizeSecurityGroupIngressBatchCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return AuthorizeSecurityGroupIngressBatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AuthorizeSecurityGroupIngressBatchResponse authorizeSecurityGroupIngressBatch(AuthorizeSecurityGroupIngressBatchRequest body) throws ApiException {
+        ApiResponse<AuthorizeSecurityGroupIngressBatchResponse> resp = authorizeSecurityGroupIngressBatchWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;AuthorizeSecurityGroupIngressBatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AuthorizeSecurityGroupIngressBatchResponse> authorizeSecurityGroupIngressBatchWithHttpInfo( @NotNull AuthorizeSecurityGroupIngressBatchRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = authorizeSecurityGroupIngressBatchValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AuthorizeSecurityGroupIngressBatchResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call authorizeSecurityGroupIngressBatchAsync(AuthorizeSecurityGroupIngressBatchRequest body, final ApiCallback<AuthorizeSecurityGroupIngressBatchResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = authorizeSecurityGroupIngressBatchValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AuthorizeSecurityGroupIngressBatchResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -20512,6 +20772,254 @@ public class VpcApi {
         return call;
     }
     /**
+     * Build call for modifySecurityGroupEgressBatch
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifySecurityGroupEgressBatchCall(ModifySecurityGroupEgressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifySecurityGroupEgressBatch/2020-04-01/vpc/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifySecurityGroupEgressBatchValidateBeforeCall(ModifySecurityGroupEgressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifySecurityGroupEgressBatch(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifySecurityGroupEgressBatchCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifySecurityGroupEgressBatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifySecurityGroupEgressBatchResponse modifySecurityGroupEgressBatch(ModifySecurityGroupEgressBatchRequest body) throws ApiException {
+        ApiResponse<ModifySecurityGroupEgressBatchResponse> resp = modifySecurityGroupEgressBatchWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifySecurityGroupEgressBatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifySecurityGroupEgressBatchResponse> modifySecurityGroupEgressBatchWithHttpInfo( @NotNull ModifySecurityGroupEgressBatchRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifySecurityGroupEgressBatchValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifySecurityGroupEgressBatchResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifySecurityGroupEgressBatchAsync(ModifySecurityGroupEgressBatchRequest body, final ApiCallback<ModifySecurityGroupEgressBatchResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifySecurityGroupEgressBatchValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifySecurityGroupEgressBatchResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifySecurityGroupIngressBatch
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifySecurityGroupIngressBatchCall(ModifySecurityGroupIngressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifySecurityGroupIngressBatch/2020-04-01/vpc/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifySecurityGroupIngressBatchValidateBeforeCall(ModifySecurityGroupIngressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifySecurityGroupIngressBatch(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifySecurityGroupIngressBatchCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifySecurityGroupIngressBatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifySecurityGroupIngressBatchResponse modifySecurityGroupIngressBatch(ModifySecurityGroupIngressBatchRequest body) throws ApiException {
+        ApiResponse<ModifySecurityGroupIngressBatchResponse> resp = modifySecurityGroupIngressBatchWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifySecurityGroupIngressBatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifySecurityGroupIngressBatchResponse> modifySecurityGroupIngressBatchWithHttpInfo( @NotNull ModifySecurityGroupIngressBatchRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifySecurityGroupIngressBatchValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifySecurityGroupIngressBatchResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifySecurityGroupIngressBatchAsync(ModifySecurityGroupIngressBatchRequest body, final ApiCallback<ModifySecurityGroupIngressBatchResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifySecurityGroupIngressBatchValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifySecurityGroupIngressBatchResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for modifySecurityGroupRuleDescriptionsEgress
      * @param body  (required)
      * @param progressListener Progress listener
@@ -22248,6 +22756,130 @@ public class VpcApi {
         return call;
     }
     /**
+     * Build call for revokeSecurityGroupEgressBatch
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call revokeSecurityGroupEgressBatchCall(RevokeSecurityGroupEgressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/RevokeSecurityGroupEgressBatch/2020-04-01/vpc/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call revokeSecurityGroupEgressBatchValidateBeforeCall(RevokeSecurityGroupEgressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling revokeSecurityGroupEgressBatch(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = revokeSecurityGroupEgressBatchCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return RevokeSecurityGroupEgressBatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RevokeSecurityGroupEgressBatchResponse revokeSecurityGroupEgressBatch(RevokeSecurityGroupEgressBatchRequest body) throws ApiException {
+        ApiResponse<RevokeSecurityGroupEgressBatchResponse> resp = revokeSecurityGroupEgressBatchWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;RevokeSecurityGroupEgressBatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RevokeSecurityGroupEgressBatchResponse> revokeSecurityGroupEgressBatchWithHttpInfo( @NotNull RevokeSecurityGroupEgressBatchRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = revokeSecurityGroupEgressBatchValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<RevokeSecurityGroupEgressBatchResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call revokeSecurityGroupEgressBatchAsync(RevokeSecurityGroupEgressBatchRequest body, final ApiCallback<RevokeSecurityGroupEgressBatchResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = revokeSecurityGroupEgressBatchValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RevokeSecurityGroupEgressBatchResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for revokeSecurityGroupIngress
      * @param body  (required)
      * @param progressListener Progress listener
@@ -22368,6 +23000,130 @@ public class VpcApi {
 
         com.squareup.okhttp.Call call = revokeSecurityGroupIngressValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RevokeSecurityGroupIngressResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for revokeSecurityGroupIngressBatch
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call revokeSecurityGroupIngressBatchCall(RevokeSecurityGroupIngressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/RevokeSecurityGroupIngressBatch/2020-04-01/vpc/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call revokeSecurityGroupIngressBatchValidateBeforeCall(RevokeSecurityGroupIngressBatchRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling revokeSecurityGroupIngressBatch(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = revokeSecurityGroupIngressBatchCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return RevokeSecurityGroupIngressBatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RevokeSecurityGroupIngressBatchResponse revokeSecurityGroupIngressBatch(RevokeSecurityGroupIngressBatchRequest body) throws ApiException {
+        ApiResponse<RevokeSecurityGroupIngressBatchResponse> resp = revokeSecurityGroupIngressBatchWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;RevokeSecurityGroupIngressBatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RevokeSecurityGroupIngressBatchResponse> revokeSecurityGroupIngressBatchWithHttpInfo( @NotNull RevokeSecurityGroupIngressBatchRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = revokeSecurityGroupIngressBatchValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<RevokeSecurityGroupIngressBatchResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call revokeSecurityGroupIngressBatchAsync(RevokeSecurityGroupIngressBatchRequest body, final ApiCallback<RevokeSecurityGroupIngressBatchResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = revokeSecurityGroupIngressBatchValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RevokeSecurityGroupIngressBatchResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

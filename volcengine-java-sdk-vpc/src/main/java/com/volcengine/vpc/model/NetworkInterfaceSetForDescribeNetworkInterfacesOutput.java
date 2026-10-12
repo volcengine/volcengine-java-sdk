@@ -93,8 +93,17 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
   @SerializedName("Tags")
   private List<TagForDescribeNetworkInterfacesOutput> tags = null;
 
+  @SerializedName("TcpClosedAndTimeWaitTimeout")
+  private Integer tcpClosedAndTimeWaitTimeout = null;
+
+  @SerializedName("TcpEstablishedTimeout")
+  private Integer tcpEstablishedTimeout = null;
+
   @SerializedName("Type")
   private String type = null;
+
+  @SerializedName("UdpTimeout")
+  private Integer udpTimeout = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -478,6 +487,42 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
     this.tags = tags;
   }
 
+  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput tcpClosedAndTimeWaitTimeout(Integer tcpClosedAndTimeWaitTimeout) {
+    this.tcpClosedAndTimeWaitTimeout = tcpClosedAndTimeWaitTimeout;
+    return this;
+  }
+
+   /**
+   * Get tcpClosedAndTimeWaitTimeout
+   * @return tcpClosedAndTimeWaitTimeout
+  **/
+  @Schema(description = "")
+  public Integer getTcpClosedAndTimeWaitTimeout() {
+    return tcpClosedAndTimeWaitTimeout;
+  }
+
+  public void setTcpClosedAndTimeWaitTimeout(Integer tcpClosedAndTimeWaitTimeout) {
+    this.tcpClosedAndTimeWaitTimeout = tcpClosedAndTimeWaitTimeout;
+  }
+
+  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput tcpEstablishedTimeout(Integer tcpEstablishedTimeout) {
+    this.tcpEstablishedTimeout = tcpEstablishedTimeout;
+    return this;
+  }
+
+   /**
+   * Get tcpEstablishedTimeout
+   * @return tcpEstablishedTimeout
+  **/
+  @Schema(description = "")
+  public Integer getTcpEstablishedTimeout() {
+    return tcpEstablishedTimeout;
+  }
+
+  public void setTcpEstablishedTimeout(Integer tcpEstablishedTimeout) {
+    this.tcpEstablishedTimeout = tcpEstablishedTimeout;
+  }
+
   public NetworkInterfaceSetForDescribeNetworkInterfacesOutput type(String type) {
     this.type = type;
     return this;
@@ -494,6 +539,24 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   public void setType(String type) {
     this.type = type;
+  }
+
+  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput udpTimeout(Integer udpTimeout) {
+    this.udpTimeout = udpTimeout;
+    return this;
+  }
+
+   /**
+   * Get udpTimeout
+   * @return udpTimeout
+  **/
+  @Schema(description = "")
+  public Integer getUdpTimeout() {
+    return udpTimeout;
+  }
+
+  public void setUdpTimeout(Integer udpTimeout) {
+    this.udpTimeout = udpTimeout;
   }
 
   public NetworkInterfaceSetForDescribeNetworkInterfacesOutput updatedAt(String updatedAt) {
@@ -597,7 +660,10 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
         Objects.equals(this.status, networkInterfaceSetForDescribeNetworkInterfacesOutput.status) &&
         Objects.equals(this.subnetId, networkInterfaceSetForDescribeNetworkInterfacesOutput.subnetId) &&
         Objects.equals(this.tags, networkInterfaceSetForDescribeNetworkInterfacesOutput.tags) &&
+        Objects.equals(this.tcpClosedAndTimeWaitTimeout, networkInterfaceSetForDescribeNetworkInterfacesOutput.tcpClosedAndTimeWaitTimeout) &&
+        Objects.equals(this.tcpEstablishedTimeout, networkInterfaceSetForDescribeNetworkInterfacesOutput.tcpEstablishedTimeout) &&
         Objects.equals(this.type, networkInterfaceSetForDescribeNetworkInterfacesOutput.type) &&
+        Objects.equals(this.udpTimeout, networkInterfaceSetForDescribeNetworkInterfacesOutput.udpTimeout) &&
         Objects.equals(this.updatedAt, networkInterfaceSetForDescribeNetworkInterfacesOutput.updatedAt) &&
         Objects.equals(this.vpcId, networkInterfaceSetForDescribeNetworkInterfacesOutput.vpcId) &&
         Objects.equals(this.vpcName, networkInterfaceSetForDescribeNetworkInterfacesOutput.vpcName) &&
@@ -606,7 +672,7 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associatedElasticIp, attachment, createdAt, description, deviceId, ipv6Sets, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, projectName, securityGroupIds, serviceManaged, status, subnetId, tags, type, updatedAt, vpcId, vpcName, zoneId);
+    return Objects.hash(accountId, associatedElasticIp, attachment, createdAt, description, deviceId, ipv6Sets, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, projectName, securityGroupIds, serviceManaged, status, subnetId, tags, tcpClosedAndTimeWaitTimeout, tcpEstablishedTimeout, type, udpTimeout, updatedAt, vpcId, vpcName, zoneId);
   }
 
 
@@ -634,7 +700,10 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    tcpClosedAndTimeWaitTimeout: ").append(toIndentedString(tcpClosedAndTimeWaitTimeout)).append("\n");
+    sb.append("    tcpEstablishedTimeout: ").append(toIndentedString(tcpEstablishedTimeout)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    udpTimeout: ").append(toIndentedString(udpTimeout)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");

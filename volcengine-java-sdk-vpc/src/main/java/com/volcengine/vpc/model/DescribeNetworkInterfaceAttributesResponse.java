@@ -96,8 +96,17 @@ public class DescribeNetworkInterfaceAttributesResponse extends com.volcengine.m
   @SerializedName("Tags")
   private List<TagForDescribeNetworkInterfaceAttributesOutput> tags = null;
 
+  @SerializedName("TcpClosedAndTimeWaitTimeout")
+  private Integer tcpClosedAndTimeWaitTimeout = null;
+
+  @SerializedName("TcpEstablishedTimeout")
+  private Integer tcpEstablishedTimeout = null;
+
   @SerializedName("Type")
   private String type = null;
+
+  @SerializedName("UdpTimeout")
+  private Integer udpTimeout = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -499,6 +508,42 @@ public class DescribeNetworkInterfaceAttributesResponse extends com.volcengine.m
     this.tags = tags;
   }
 
+  public DescribeNetworkInterfaceAttributesResponse tcpClosedAndTimeWaitTimeout(Integer tcpClosedAndTimeWaitTimeout) {
+    this.tcpClosedAndTimeWaitTimeout = tcpClosedAndTimeWaitTimeout;
+    return this;
+  }
+
+   /**
+   * Get tcpClosedAndTimeWaitTimeout
+   * @return tcpClosedAndTimeWaitTimeout
+  **/
+  @Schema(description = "")
+  public Integer getTcpClosedAndTimeWaitTimeout() {
+    return tcpClosedAndTimeWaitTimeout;
+  }
+
+  public void setTcpClosedAndTimeWaitTimeout(Integer tcpClosedAndTimeWaitTimeout) {
+    this.tcpClosedAndTimeWaitTimeout = tcpClosedAndTimeWaitTimeout;
+  }
+
+  public DescribeNetworkInterfaceAttributesResponse tcpEstablishedTimeout(Integer tcpEstablishedTimeout) {
+    this.tcpEstablishedTimeout = tcpEstablishedTimeout;
+    return this;
+  }
+
+   /**
+   * Get tcpEstablishedTimeout
+   * @return tcpEstablishedTimeout
+  **/
+  @Schema(description = "")
+  public Integer getTcpEstablishedTimeout() {
+    return tcpEstablishedTimeout;
+  }
+
+  public void setTcpEstablishedTimeout(Integer tcpEstablishedTimeout) {
+    this.tcpEstablishedTimeout = tcpEstablishedTimeout;
+  }
+
   public DescribeNetworkInterfaceAttributesResponse type(String type) {
     this.type = type;
     return this;
@@ -515,6 +560,24 @@ public class DescribeNetworkInterfaceAttributesResponse extends com.volcengine.m
 
   public void setType(String type) {
     this.type = type;
+  }
+
+  public DescribeNetworkInterfaceAttributesResponse udpTimeout(Integer udpTimeout) {
+    this.udpTimeout = udpTimeout;
+    return this;
+  }
+
+   /**
+   * Get udpTimeout
+   * @return udpTimeout
+  **/
+  @Schema(description = "")
+  public Integer getUdpTimeout() {
+    return udpTimeout;
+  }
+
+  public void setUdpTimeout(Integer udpTimeout) {
+    this.udpTimeout = udpTimeout;
   }
 
   public DescribeNetworkInterfaceAttributesResponse updatedAt(String updatedAt) {
@@ -619,7 +682,10 @@ public class DescribeNetworkInterfaceAttributesResponse extends com.volcengine.m
         Objects.equals(this.status, describeNetworkInterfaceAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeNetworkInterfaceAttributesResponse.subnetId) &&
         Objects.equals(this.tags, describeNetworkInterfaceAttributesResponse.tags) &&
+        Objects.equals(this.tcpClosedAndTimeWaitTimeout, describeNetworkInterfaceAttributesResponse.tcpClosedAndTimeWaitTimeout) &&
+        Objects.equals(this.tcpEstablishedTimeout, describeNetworkInterfaceAttributesResponse.tcpEstablishedTimeout) &&
         Objects.equals(this.type, describeNetworkInterfaceAttributesResponse.type) &&
+        Objects.equals(this.udpTimeout, describeNetworkInterfaceAttributesResponse.udpTimeout) &&
         Objects.equals(this.updatedAt, describeNetworkInterfaceAttributesResponse.updatedAt) &&
         Objects.equals(this.vpcId, describeNetworkInterfaceAttributesResponse.vpcId) &&
         Objects.equals(this.vpcName, describeNetworkInterfaceAttributesResponse.vpcName) &&
@@ -628,7 +694,7 @@ public class DescribeNetworkInterfaceAttributesResponse extends com.volcengine.m
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associatedElasticIp, attachment, createdAt, description, deviceId, ipv6Sets, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, projectName, requestId, securityGroupIds, serviceManaged, status, subnetId, tags, type, updatedAt, vpcId, vpcName, zoneId);
+    return Objects.hash(accountId, associatedElasticIp, attachment, createdAt, description, deviceId, ipv6Sets, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, projectName, requestId, securityGroupIds, serviceManaged, status, subnetId, tags, tcpClosedAndTimeWaitTimeout, tcpEstablishedTimeout, type, udpTimeout, updatedAt, vpcId, vpcName, zoneId);
   }
 
 
@@ -657,7 +723,10 @@ public class DescribeNetworkInterfaceAttributesResponse extends com.volcengine.m
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    tcpClosedAndTimeWaitTimeout: ").append(toIndentedString(tcpClosedAndTimeWaitTimeout)).append("\n");
+    sb.append("    tcpEstablishedTimeout: ").append(toIndentedString(tcpEstablishedTimeout)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    udpTimeout: ").append(toIndentedString(udpTimeout)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");

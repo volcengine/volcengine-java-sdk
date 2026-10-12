@@ -47,6 +47,9 @@ public class ModifyFlowLogAttributeRequest {
   @SerializedName("FlowLogName")
   private String flowLogName = null;
 
+  @SerializedName("FlowLogVersion")
+  private Integer flowLogVersion = null;
+
   @SerializedName("TrafficPath")
   private List<String> trafficPath = null;
 
@@ -141,6 +144,24 @@ public class ModifyFlowLogAttributeRequest {
     this.flowLogName = flowLogName;
   }
 
+  public ModifyFlowLogAttributeRequest flowLogVersion(Integer flowLogVersion) {
+    this.flowLogVersion = flowLogVersion;
+    return this;
+  }
+
+   /**
+   * Get flowLogVersion
+   * @return flowLogVersion
+  **/
+  @Schema(description = "")
+  public Integer getFlowLogVersion() {
+    return flowLogVersion;
+  }
+
+  public void setFlowLogVersion(Integer flowLogVersion) {
+    this.flowLogVersion = flowLogVersion;
+  }
+
   public ModifyFlowLogAttributeRequest trafficPath(List<String> trafficPath) {
     this.trafficPath = trafficPath;
     return this;
@@ -182,12 +203,13 @@ public class ModifyFlowLogAttributeRequest {
         Objects.equals(this.description, modifyFlowLogAttributeRequest.description) &&
         Objects.equals(this.flowLogId, modifyFlowLogAttributeRequest.flowLogId) &&
         Objects.equals(this.flowLogName, modifyFlowLogAttributeRequest.flowLogName) &&
+        Objects.equals(this.flowLogVersion, modifyFlowLogAttributeRequest.flowLogVersion) &&
         Objects.equals(this.trafficPath, modifyFlowLogAttributeRequest.trafficPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregationInterval, clientToken, description, flowLogId, flowLogName, trafficPath);
+    return Objects.hash(aggregationInterval, clientToken, description, flowLogId, flowLogName, flowLogVersion, trafficPath);
   }
 
 
@@ -201,6 +223,7 @@ public class ModifyFlowLogAttributeRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    flowLogId: ").append(toIndentedString(flowLogId)).append("\n");
     sb.append("    flowLogName: ").append(toIndentedString(flowLogName)).append("\n");
+    sb.append("    flowLogVersion: ").append(toIndentedString(flowLogVersion)).append("\n");
     sb.append("    trafficPath: ").append(toIndentedString(trafficPath)).append("\n");
     sb.append("}");
     return sb.toString();
