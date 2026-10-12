@@ -101,9 +101,8 @@ class StsFormRequest {
 
     private static String doPost(String requestUrl, String formBody, String providerName, String action, StsHttpConfig httpConfig) throws ApiException {
         if (requestUrl.startsWith("https://") && httpConfig != null
-                && !isNullOrEmpty(httpConfig.getProxyUrl())
-                && proxyAuthorizationHeader(httpConfig.getProxyUrl()) != null) {
-            return doAuthenticatedPost(requestUrl, formBody, providerName, action, httpConfig);
+                && !isNullOrEmpty(httpConfig.getProxyUrl())) {
+            return doProxiedHttpsPost(requestUrl, formBody, providerName, action, httpConfig);
         }
         HttpURLConnection connection = null;
         try {
@@ -231,8 +230,8 @@ class StsFormRequest {
         };
     }
 
-    private static String doAuthenticatedPost(String requestUrl, String formBody, String providerName,
-                                             String action, StsHttpConfig config) throws ApiException {
+    private static String doProxiedHttpsPost(String requestUrl, String formBody, String providerName,
+                                            String action, StsHttpConfig config) throws ApiException {
         OkHttpClient client = new OkHttpClient();
         client.setConnectTimeout(DEFAULT_CONNECT_TIMEOUT_MS, TimeUnit.MILLISECONDS);
         client.setReadTimeout(DEFAULT_READ_TIMEOUT_MS, TimeUnit.MILLISECONDS);

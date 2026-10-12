@@ -136,7 +136,6 @@ public class ApiClient extends BaseClient implements Cloneable {
 
     private CredentialProvider credentialProvider;
     private CredentialProvider boundCredentialProvider;
-    private ProxySelector managedProxySelector;
 
     private Integer maxIdleConns = 5;
 
@@ -247,7 +246,7 @@ public class ApiClient extends BaseClient implements Cloneable {
      */
     public synchronized ApiClient setDisableSSL(boolean disableSSL) {
         this.disableSSL = disableSSL;
-        if (httpClient.getProxySelector() == managedProxySelector) {
+        if (httpClient.getProxySelector() instanceof ManagedProxySelector) {
             updateClientProxy();
         }
         return this;
@@ -656,29 +655,34 @@ public class ApiClient extends BaseClient implements Cloneable {
     }
 
     private void updateClientProxy() {
-        final boolean plain = disableSSL;
-        final String http = httpProxy;
-        final String https = httpsProxy;
-        managedProxySelector = new ProxySelector() {
-            @Override
-            public List<Proxy> select(URI uri) {
+        httpClient.setProxySelector(new ManagedProxySelector(disableSSL, httpProxy, httpsProxy));
+    }
 
-                List<Proxy> proxies = new ArrayList<>();
+    private static final class ManagedProxySelector extends ProxySelector {
+        private final boolean plain;
+        private final String httpProxy;
+        private final String httpsProxy;
 
-                if (plain) {
-                    addProxy(proxies, http, "HTTP_PROXY");
-                } else {
-                    addProxy(proxies, https, "HTTPS_PROXY");
-                }
+        private ManagedProxySelector(boolean plain, String httpProxy, String httpsProxy) {
+            this.plain = plain;
+            this.httpProxy = httpProxy;
+            this.httpsProxy = httpsProxy;
+        }
 
-                return proxies;
+        @Override
+        public List<Proxy> select(URI uri) {
+            List<Proxy> proxies = new ArrayList<Proxy>();
+            if (plain) {
+                addProxy(proxies, httpProxy, "HTTP_PROXY");
+            } else {
+                addProxy(proxies, httpsProxy, "HTTPS_PROXY");
             }
+            return proxies;
+        }
 
-            @Override
-            public void connectFailed(URI uri, SocketAddress sa, IOException ioe) {
-            }
-        };
-        httpClient.setProxySelector(managedProxySelector);
+        @Override
+        public void connectFailed(URI uri, SocketAddress sa, IOException ioe) {
+        }
     }
 
     private static void addProxy(List<Proxy> proxies, String proxy, String env) {
@@ -1981,7 +1985,7 @@ public class ApiClient extends BaseClient implements Cloneable {
             }
             copy.boundCredentialProvider = null;
             copy.sdkConfigLog = null;
-            if (httpClient.getProxySelector() == managedProxySelector) {
+            if (httpClient.getProxySelector() instanceof ManagedProxySelector) {
                 copy.updateClientProxy();
             }
             return copy;

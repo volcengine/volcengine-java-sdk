@@ -5,6 +5,8 @@ import com.volcengine.ApiResponse;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public abstract class RetryCondition implements Cloneable {
     protected Set<String> retryErrorCodes = new HashSet<>();
@@ -18,7 +20,16 @@ public abstract class RetryCondition implements Cloneable {
     public RetryCondition copy() {
         try {
             RetryCondition copy = (RetryCondition) super.clone();
-            copy.retryErrorCodes = retryErrorCodes == null ? null : new HashSet<String>(retryErrorCodes);
+            if (retryErrorCodes == null) {
+                copy.retryErrorCodes = null;
+            } else if (retryErrorCodes instanceof SortedSet) {
+                SortedSet<String> sortedCodes = (SortedSet<String>) retryErrorCodes;
+                TreeSet<String> copiedCodes = new TreeSet<String>(sortedCodes.comparator());
+                copiedCodes.addAll(sortedCodes);
+                copy.retryErrorCodes = copiedCodes;
+            } else {
+                copy.retryErrorCodes = new HashSet<String>(retryErrorCodes);
+            }
             return copy;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError(e);
