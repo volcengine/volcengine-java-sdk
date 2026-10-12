@@ -1,0 +1,13 @@
+{
+  "actions": [
+    "UpdateVikingdbCollection",
+    "CreateVikingdbCollection",
+    "GetVikingdbCollection",
+    "GetVikingdbTask",
+    "ListVikingdbCollection",
+    "ListVikingdbTask"
+  ],
+  "description": "VIKINGDB: 修改 UpdateVikingdbCollection, CreateVikingdbCollection, GetVikingdbCollection, GetVikingdbTask, ListVikingdbCollection, ListVikingdbTask",
+  "modules": "service/vikingdb",
+  "type": "feature"
+}
