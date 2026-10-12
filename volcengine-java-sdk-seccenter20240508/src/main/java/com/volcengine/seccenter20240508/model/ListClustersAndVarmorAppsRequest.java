@@ -35,9 +35,6 @@ public class ListClustersAndVarmorAppsRequest {
   @SerializedName("ClusterID")
   private String clusterID = null;
 
-  @SerializedName("ClusterIDs")
-  private String clusterIDs = null;
-
   @SerializedName("ClusterName")
   private String clusterName = null;
 
@@ -58,12 +55,6 @@ public class ListClustersAndVarmorAppsRequest {
 
   @SerializedName("VarmorInstallStatus")
   private List<String> varmorInstallStatus = null;
-
-  @SerializedName("VarmorInstalled")
-  private List<String> varmorInstalled = null;
-
-  @SerializedName("VarmorStatus")
-  private List<String> varmorStatus = null;
 
   @SerializedName("VarmorVersion")
   private String varmorVersion = null;
@@ -87,24 +78,6 @@ public class ListClustersAndVarmorAppsRequest {
 
   public void setClusterID(String clusterID) {
     this.clusterID = clusterID;
-  }
-
-  public ListClustersAndVarmorAppsRequest clusterIDs(String clusterIDs) {
-    this.clusterIDs = clusterIDs;
-    return this;
-  }
-
-   /**
-   * Get clusterIDs
-   * @return clusterIDs
-  **/
-  @Schema(description = "")
-  public String getClusterIDs() {
-    return clusterIDs;
-  }
-
-  public void setClusterIDs(String clusterIDs) {
-    this.clusterIDs = clusterIDs;
   }
 
   public ListClustersAndVarmorAppsRequest clusterName(String clusterName) {
@@ -243,58 +216,6 @@ public class ListClustersAndVarmorAppsRequest {
     this.varmorInstallStatus = varmorInstallStatus;
   }
 
-  public ListClustersAndVarmorAppsRequest varmorInstalled(List<String> varmorInstalled) {
-    this.varmorInstalled = varmorInstalled;
-    return this;
-  }
-
-  public ListClustersAndVarmorAppsRequest addVarmorInstalledItem(String varmorInstalledItem) {
-    if (this.varmorInstalled == null) {
-      this.varmorInstalled = new ArrayList<String>();
-    }
-    this.varmorInstalled.add(varmorInstalledItem);
-    return this;
-  }
-
-   /**
-   * Get varmorInstalled
-   * @return varmorInstalled
-  **/
-  @Schema(description = "")
-  public List<String> getVarmorInstalled() {
-    return varmorInstalled;
-  }
-
-  public void setVarmorInstalled(List<String> varmorInstalled) {
-    this.varmorInstalled = varmorInstalled;
-  }
-
-  public ListClustersAndVarmorAppsRequest varmorStatus(List<String> varmorStatus) {
-    this.varmorStatus = varmorStatus;
-    return this;
-  }
-
-  public ListClustersAndVarmorAppsRequest addVarmorStatusItem(String varmorStatusItem) {
-    if (this.varmorStatus == null) {
-      this.varmorStatus = new ArrayList<String>();
-    }
-    this.varmorStatus.add(varmorStatusItem);
-    return this;
-  }
-
-   /**
-   * Get varmorStatus
-   * @return varmorStatus
-  **/
-  @Schema(description = "")
-  public List<String> getVarmorStatus() {
-    return varmorStatus;
-  }
-
-  public void setVarmorStatus(List<String> varmorStatus) {
-    this.varmorStatus = varmorStatus;
-  }
-
   public ListClustersAndVarmorAppsRequest varmorVersion(String varmorVersion) {
     this.varmorVersion = varmorVersion;
     return this;
@@ -350,7 +271,6 @@ public class ListClustersAndVarmorAppsRequest {
     }
     ListClustersAndVarmorAppsRequest listClustersAndVarmorAppsRequest = (ListClustersAndVarmorAppsRequest) o;
     return Objects.equals(this.clusterID, listClustersAndVarmorAppsRequest.clusterID) &&
-        Objects.equals(this.clusterIDs, listClustersAndVarmorAppsRequest.clusterIDs) &&
         Objects.equals(this.clusterName, listClustersAndVarmorAppsRequest.clusterName) &&
         Objects.equals(this.pageNumber, listClustersAndVarmorAppsRequest.pageNumber) &&
         Objects.equals(this.pageSize, listClustersAndVarmorAppsRequest.pageSize) &&
@@ -358,15 +278,13 @@ public class ListClustersAndVarmorAppsRequest {
         Objects.equals(this.sortBy, listClustersAndVarmorAppsRequest.sortBy) &&
         Objects.equals(this.sortOrder, listClustersAndVarmorAppsRequest.sortOrder) &&
         Objects.equals(this.varmorInstallStatus, listClustersAndVarmorAppsRequest.varmorInstallStatus) &&
-        Objects.equals(this.varmorInstalled, listClustersAndVarmorAppsRequest.varmorInstalled) &&
-        Objects.equals(this.varmorStatus, listClustersAndVarmorAppsRequest.varmorStatus) &&
         Objects.equals(this.varmorVersion, listClustersAndVarmorAppsRequest.varmorVersion) &&
         Objects.equals(this.varmorVersionStatus, listClustersAndVarmorAppsRequest.varmorVersionStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterID, clusterIDs, clusterName, pageNumber, pageSize, region, sortBy, sortOrder, varmorInstallStatus, varmorInstalled, varmorStatus, varmorVersion, varmorVersionStatus);
+    return Objects.hash(clusterID, clusterName, pageNumber, pageSize, region, sortBy, sortOrder, varmorInstallStatus, varmorVersion, varmorVersionStatus);
   }
 
 
@@ -376,7 +294,6 @@ public class ListClustersAndVarmorAppsRequest {
     sb.append("class ListClustersAndVarmorAppsRequest {\n");
     
     sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
-    sb.append("    clusterIDs: ").append(toIndentedString(clusterIDs)).append("\n");
     sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
@@ -384,8 +301,6 @@ public class ListClustersAndVarmorAppsRequest {
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    varmorInstallStatus: ").append(toIndentedString(varmorInstallStatus)).append("\n");
-    sb.append("    varmorInstalled: ").append(toIndentedString(varmorInstalled)).append("\n");
-    sb.append("    varmorStatus: ").append(toIndentedString(varmorStatus)).append("\n");
     sb.append("    varmorVersion: ").append(toIndentedString(varmorVersion)).append("\n");
     sb.append("    varmorVersionStatus: ").append(toIndentedString(varmorVersionStatus)).append("\n");
     sb.append("}");
