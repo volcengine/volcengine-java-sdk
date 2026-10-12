@@ -1,6 +1,8 @@
 package com.volcengine.auth;
 
 import com.volcengine.ApiException;
+import com.volcengine.endpoint.EndpointValidation;
+import com.volcengine.endpoint.EndpointValidationException;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
@@ -37,7 +39,17 @@ class SsoPortalClient {
     private final Gson gson = new Gson();
 
     SsoPortalClient(String region) {
-        this.region = (region == null || region.trim().isEmpty()) ? "cn-beijing" : region.trim();
+        // 缺失值（null、空串或纯空白）沿用原有逻辑回落到默认 region；其余值按原样参与拼接，请求前校验。
+        this.region = (region == null || region.trim().isEmpty()) ? "cn-beijing" : region;
+    }
+
+    private String resolveEndpoint(String template) throws ApiException {
+        try {
+            EndpointValidation.validateRegion(region);
+        } catch (EndpointValidationException e) {
+            throw e.toApiException();
+        }
+        return String.format(template, region);
     }
 
     // ---- OAuth token refresh ------------------------------------------------
@@ -47,7 +59,7 @@ class SsoPortalClient {
      */
     OAuthTokenResponse refreshToken(String clientId, String clientSecret, String refreshToken)
             throws ApiException {
-        String url = String.format(OAUTH_BASE_URL_TEMPLATE, region) + "/token";
+        String url = resolveEndpoint(OAUTH_BASE_URL_TEMPLATE) + "/token";
         OAuthTokenRequest req = new OAuthTokenRequest();
         req.grantType = "refresh_token";
         req.clientId = clientId;
@@ -80,7 +92,7 @@ class SsoPortalClient {
      */
     RoleCredentialsResult getRoleCredentials(String accessToken, String accountId, String roleName)
             throws ApiException {
-        String baseUrl = String.format(PORTAL_BASE_URL_TEMPLATE, region) + PORTAL_CREDENTIALS_PATH;
+        String baseUrl = resolveEndpoint(PORTAL_BASE_URL_TEMPLATE) + PORTAL_CREDENTIALS_PATH;
         String url = baseUrl
                 + "?account_id=" + urlEncode(accountId)
                 + "&role_name=" + urlEncode(roleName);

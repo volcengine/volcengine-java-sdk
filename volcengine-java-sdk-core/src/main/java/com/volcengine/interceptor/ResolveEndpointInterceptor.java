@@ -2,6 +2,8 @@ package com.volcengine.interceptor;
 
 import com.volcengine.ApiException;
 import com.volcengine.endpoint.EndpointResolver;
+import com.volcengine.endpoint.EndpointValidation;
+import com.volcengine.endpoint.EndpointValidationException;
 import com.volcengine.endpoint.ResolveEndpointOption;
 import com.volcengine.endpoint.ResolvedEndpoint;
 import org.apache.commons.lang.StringUtils;
@@ -45,7 +47,18 @@ public class ResolveEndpointInterceptor implements RequestInterceptor {
             option.setRegion(context.getApiClient().getRegion());
             option.setCustomBootstrapRegion(context.getApiClient().getCustomBootstrapRegion());
             option.setUseDualStack(context.getApiClient().getUseDualStack());
-            ResolvedEndpoint resolvedEndpoint = endpointResolver.endpointFor(option);
+            ResolvedEndpoint resolvedEndpoint;
+            try {
+                // 自定义 resolver 同样只能接收安全的主机名组成部分。
+                EndpointValidation.validateServiceAndRegion(option.getService(), option.getRegion());
+                resolvedEndpoint = endpointResolver.endpointFor(option);
+            } catch (EndpointValidationException e) {
+                // 保留错误码，状态码为 400。
+                throw e.toApiException();
+            } catch (IllegalArgumentException e) {
+                // 同步调用返回 ApiException，异步调用走 onFailure，均在签名和发送前终止。
+                throw new ApiException(e);
+            }
             SDK_CORE_LOGGER.debugEndpoint("Using endpoint: {}", resolvedEndpoint.getEndpoint());
             context.getRequestContext().setHost(resolvedEndpoint.getEndpoint());
         }

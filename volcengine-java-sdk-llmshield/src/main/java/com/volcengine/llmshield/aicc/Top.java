@@ -29,6 +29,9 @@ import org.threeten.bp.format.DateTimeFormatter;
 import org.threeten.bp.format.DateTimeFormatterBuilder;
 import org.threeten.bp.format.DateTimeParseException;
 
+import com.volcengine.llmshield.EndpointValidation;
+import com.volcengine.llmshield.EndpointValidationException;
+
 enum Top {
     ;
 
@@ -67,6 +70,15 @@ enum Top {
     static JsonObject requestTop(
             TopInfo topInfo, String action, Map<String, String> extraHeaders, byte[] body)
             throws IOException {
+        // region and service come from the configuration and are written into
+        // the credential scope of both the STS and the TOP requests, validate
+        // them before anything is signed or sent. Callers only handle
+        // IOException, the validation error is kept as the cause.
+        try {
+            EndpointValidation.validateServiceAndRegion(topInfo.service, topInfo.region);
+        } catch (EndpointValidationException e) {
+            throw new IOException(e.getMessage(), e);
+        }
         extraHeaders = (extraHeaders == null) ? new HashMap<>() : extraHeaders;
         // 如果配置了aicc_saas_trn，先通过STS获取临时凭证
         if (topInfo.aiccSaasTrn != null && !topInfo.aiccSaasTrn.isEmpty()) {

@@ -332,18 +332,14 @@ public class StandardEndpointProvider implements EndpointResolver {
         Boolean useDualStack = option.getUseDualStack();
         checkParamNonBlank("region", region);
         checkParamNonBlank("service", service);
+        // 非空检查之后再校验，空白值保持原有报错；region 和 service 会渲染进 host 模板（含自定义服务分支），
+        // 渲染前拒绝任何可能改变 host 结构的值。
+        EndpointValidation.validateServiceAndRegion(service, region);
         if (!REGION_MATCHER.validate(region)) {
             throw new IllegalArgumentException(String.format(
                     "InvalidRegion: invalid region [%s] for standard endpoint resolver, please upgrade the sdk endpoint resolver to the latest version",
                     region));
         }
-
-        if (StringUtils.isEmpty(this.format)) {
-            this.format = DEFAULT_FORMAT;
-        }
-
-        // 1) 归一化放入变量
-        this.variables.Service = standardizeDomainServiceCode(service);
 
         // 2) 获取服务信息
         ServiceInfo info = SERVICE_INFOS.get(service);
@@ -356,22 +352,28 @@ public class StandardEndpointProvider implements EndpointResolver {
             }
         }
 
+        // 每次解析独立构造变量，避免失败请求或共享 resolver 的并发请求污染配置。
+        Variables resolvedVariables = new Variables();
+        resolvedVariables.setExtension(this.variables.extension);
+        resolvedVariables.Service = standardizeDomainServiceCode(service);
+
         // 3) region 处理（非 Global 才带 .region）
         if (!info.isGlobal) {
-            this.variables.Region = "." + region;
+            resolvedVariables.Region = "." + region;
         } else {
-            this.variables.Region = "";
+            resolvedVariables.Region = "";
         }
 
         // 4) IP 版本选择 SiteStack（与 Go 逻辑一致：仅在匹配时覆盖）
         if (useDualStack != null && useDualStack) {
-            this.variables.SiteStack = SiteStackVolcDualStack;
+            resolvedVariables.SiteStack = SiteStackVolcDualStack;
         } else {
-            this.variables.SiteStack = SiteStackVolcIPv4;
+            resolvedVariables.SiteStack = SiteStackVolcIPv4;
         }
 
         // 5) 渲染模板
-        String url = renderTemplate(this.format, this.variables);
+        String url = renderTemplate(StringUtils.isEmpty(this.format) ? DEFAULT_FORMAT : this.format,
+                resolvedVariables);
         ResolvedEndpoint resolved = new ResolvedEndpoint();
         resolved.setEndpoint(url);
 

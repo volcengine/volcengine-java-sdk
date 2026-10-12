@@ -1,6 +1,9 @@
 package com.volcengine;
 
 import com.google.gson.reflect.TypeToken;
+import com.volcengine.endpoint.EndpointValidation;
+import com.volcengine.endpoint.EndpointValidationException;
+import org.apache.commons.lang.StringUtils;
 
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
@@ -75,6 +78,15 @@ public class UniversalApi {
     }
 
     private com.squareup.okhttp.Call doCall(UniversalRequest info, Map<String, Object> input, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+
+        if (StringUtils.isBlank(apiClient.getEndpoint())) {
+            try {
+                // 在 service 写入路径前校验，防止斜杠导致后续 split 丢失原始输入。
+                EndpointValidation.validateServiceAndRegion(info.getServiceName(), apiClient.getRegion());
+            } catch (EndpointValidationException e) {
+                throw e.toApiException();
+            }
+        }
 
         // create path and map variables
         String localVarPath = String.format("/%s/%s/%s/%s/",info.getAction(),info.getVersion(),info.getServiceName(),info.getHttpMethod().GetMethod().toLowerCase());
