@@ -24,54 +24,54 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateMigrateTaskStatusRequest
+ * ModifyInstanceReadWriteRatioRequest
  */
 
 
 
-public class UpdateMigrateTaskStatusRequest {
-  @SerializedName("Status")
-  private String status = null;
+public class ModifyInstanceReadWriteRatioRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  @SerializedName("TaskId")
-  private String taskId = null;
+  @SerializedName("ReadWriteRatio")
+  private String readWriteRatio = null;
 
-  public UpdateMigrateTaskStatusRequest status(String status) {
-    this.status = status;
+  public ModifyInstanceReadWriteRatioRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get status
-   * @return status
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getStatus() {
-    return status;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setStatus(String status) {
-    this.status = status;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
-  public UpdateMigrateTaskStatusRequest taskId(String taskId) {
-    this.taskId = taskId;
+  public ModifyInstanceReadWriteRatioRequest readWriteRatio(String readWriteRatio) {
+    this.readWriteRatio = readWriteRatio;
     return this;
   }
 
    /**
-   * Get taskId
-   * @return taskId
+   * Get readWriteRatio
+   * @return readWriteRatio
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getTaskId() {
-    return taskId;
+  public String getReadWriteRatio() {
+    return readWriteRatio;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setReadWriteRatio(String readWriteRatio) {
+    this.readWriteRatio = readWriteRatio;
   }
 
 
@@ -83,24 +83,24 @@ public class UpdateMigrateTaskStatusRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateMigrateTaskStatusRequest updateMigrateTaskStatusRequest = (UpdateMigrateTaskStatusRequest) o;
-    return Objects.equals(this.status, updateMigrateTaskStatusRequest.status) &&
-        Objects.equals(this.taskId, updateMigrateTaskStatusRequest.taskId);
+    ModifyInstanceReadWriteRatioRequest modifyInstanceReadWriteRatioRequest = (ModifyInstanceReadWriteRatioRequest) o;
+    return Objects.equals(this.instanceId, modifyInstanceReadWriteRatioRequest.instanceId) &&
+        Objects.equals(this.readWriteRatio, modifyInstanceReadWriteRatioRequest.readWriteRatio);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, taskId);
+    return Objects.hash(instanceId, readWriteRatio);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateMigrateTaskStatusRequest {\n");
+    sb.append("class ModifyInstanceReadWriteRatioRequest {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    readWriteRatio: ").append(toIndentedString(readWriteRatio)).append("\n");
     sb.append("}");
     return sb.toString();
   }

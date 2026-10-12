@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateMigrateSubTasksResponse
+ * ImportGroupsResponse
  */
 
 
 
-public class CreateMigrateSubTasksResponse extends com.volcengine.model.AbstractResponse {
+public class ImportGroupsResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class CreateMigrateSubTasksResponse extends com.volcengine.model.Abstract
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateMigrateSubTasksResponse {\n");
+    sb.append("class ImportGroupsResponse {\n");
     
     sb.append("}");
     return sb.toString();

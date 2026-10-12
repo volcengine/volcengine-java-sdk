@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyTopicAccessPoliciesResponse
+ * AllowAutoUseTopicResponse
  */
 
 
 
-public class ModifyTopicAccessPoliciesResponse extends com.volcengine.model.AbstractResponse {
+public class AllowAutoUseTopicResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class ModifyTopicAccessPoliciesResponse extends com.volcengine.model.Abst
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyTopicAccessPoliciesResponse {\n");
+    sb.append("class AllowAutoUseTopicResponse {\n");
     
     sb.append("}");
     return sb.toString();

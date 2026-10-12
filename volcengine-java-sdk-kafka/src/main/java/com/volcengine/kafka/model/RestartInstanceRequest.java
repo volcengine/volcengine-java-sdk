@@ -24,52 +24,53 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AccessPolicyForModifyTopicAccessPoliciesInput
+ * RestartInstanceRequest
  */
 
 
 
-public class AccessPolicyForModifyTopicAccessPoliciesInput {
-  @SerializedName("AccessPolicy")
-  private String accessPolicy = null;
+public class RestartInstanceRequest {
+  @SerializedName("BrokerId")
+  private Integer brokerId = null;
 
-  @SerializedName("UserName")
-  private String userName = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  public AccessPolicyForModifyTopicAccessPoliciesInput accessPolicy(String accessPolicy) {
-    this.accessPolicy = accessPolicy;
+  public RestartInstanceRequest brokerId(Integer brokerId) {
+    this.brokerId = brokerId;
     return this;
   }
 
    /**
-   * Get accessPolicy
-   * @return accessPolicy
+   * Get brokerId
+   * @return brokerId
   **/
   @Schema(description = "")
-  public String getAccessPolicy() {
-    return accessPolicy;
+  public Integer getBrokerId() {
+    return brokerId;
   }
 
-  public void setAccessPolicy(String accessPolicy) {
-    this.accessPolicy = accessPolicy;
+  public void setBrokerId(Integer brokerId) {
+    this.brokerId = brokerId;
   }
 
-  public AccessPolicyForModifyTopicAccessPoliciesInput userName(String userName) {
-    this.userName = userName;
+  public RestartInstanceRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get userName
-   * @return userName
+   * Get instanceId
+   * @return instanceId
   **/
-  @Schema(description = "")
-  public String getUserName() {
-    return userName;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -81,24 +82,24 @@ public class AccessPolicyForModifyTopicAccessPoliciesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AccessPolicyForModifyTopicAccessPoliciesInput accessPolicyForModifyTopicAccessPoliciesInput = (AccessPolicyForModifyTopicAccessPoliciesInput) o;
-    return Objects.equals(this.accessPolicy, accessPolicyForModifyTopicAccessPoliciesInput.accessPolicy) &&
-        Objects.equals(this.userName, accessPolicyForModifyTopicAccessPoliciesInput.userName);
+    RestartInstanceRequest restartInstanceRequest = (RestartInstanceRequest) o;
+    return Objects.equals(this.brokerId, restartInstanceRequest.brokerId) &&
+        Objects.equals(this.instanceId, restartInstanceRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPolicy, userName);
+    return Objects.hash(brokerId, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AccessPolicyForModifyTopicAccessPoliciesInput {\n");
+    sb.append("class RestartInstanceRequest {\n");
     
-    sb.append("    accessPolicy: ").append(toIndentedString(accessPolicy)).append("\n");
-    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
+    sb.append("    brokerId: ").append(toIndentedString(brokerId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

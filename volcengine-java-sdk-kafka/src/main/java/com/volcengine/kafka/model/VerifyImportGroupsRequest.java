@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.kafka.model.ItemForCreateMigrateSubTasksInput;
+import com.volcengine.kafka.model.GroupForVerifyImportGroupsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,62 +27,62 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateMigrateSubTasksRequest
+ * VerifyImportGroupsRequest
  */
 
 
 
-public class CreateMigrateSubTasksRequest {
-  @SerializedName("Items")
-  private List<ItemForCreateMigrateSubTasksInput> items = null;
+public class VerifyImportGroupsRequest {
+  @SerializedName("Groups")
+  private List<GroupForVerifyImportGroupsInput> groups = null;
 
-  @SerializedName("TaskId")
-  private String taskId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  public CreateMigrateSubTasksRequest items(List<ItemForCreateMigrateSubTasksInput> items) {
-    this.items = items;
+  public VerifyImportGroupsRequest groups(List<GroupForVerifyImportGroupsInput> groups) {
+    this.groups = groups;
     return this;
   }
 
-  public CreateMigrateSubTasksRequest addItemsItem(ItemForCreateMigrateSubTasksInput itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<ItemForCreateMigrateSubTasksInput>();
+  public VerifyImportGroupsRequest addGroupsItem(GroupForVerifyImportGroupsInput groupsItem) {
+    if (this.groups == null) {
+      this.groups = new ArrayList<GroupForVerifyImportGroupsInput>();
     }
-    this.items.add(itemsItem);
+    this.groups.add(groupsItem);
     return this;
   }
 
    /**
-   * Get items
-   * @return items
+   * Get groups
+   * @return groups
   **/
   @Valid
   @Schema(description = "")
-  public List<ItemForCreateMigrateSubTasksInput> getItems() {
-    return items;
+  public List<GroupForVerifyImportGroupsInput> getGroups() {
+    return groups;
   }
 
-  public void setItems(List<ItemForCreateMigrateSubTasksInput> items) {
-    this.items = items;
+  public void setGroups(List<GroupForVerifyImportGroupsInput> groups) {
+    this.groups = groups;
   }
 
-  public CreateMigrateSubTasksRequest taskId(String taskId) {
-    this.taskId = taskId;
+  public VerifyImportGroupsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get taskId
-   * @return taskId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getTaskId() {
-    return taskId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -94,24 +94,24 @@ public class CreateMigrateSubTasksRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateMigrateSubTasksRequest createMigrateSubTasksRequest = (CreateMigrateSubTasksRequest) o;
-    return Objects.equals(this.items, createMigrateSubTasksRequest.items) &&
-        Objects.equals(this.taskId, createMigrateSubTasksRequest.taskId);
+    VerifyImportGroupsRequest verifyImportGroupsRequest = (VerifyImportGroupsRequest) o;
+    return Objects.equals(this.groups, verifyImportGroupsRequest.groups) &&
+        Objects.equals(this.instanceId, verifyImportGroupsRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, taskId);
+    return Objects.hash(groups, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateMigrateSubTasksRequest {\n");
+    sb.append("class VerifyImportGroupsRequest {\n");
     
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

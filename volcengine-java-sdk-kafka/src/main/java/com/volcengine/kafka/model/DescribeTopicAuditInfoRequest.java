@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * QueryMessageByOffsetsRequest
+ * DescribeTopicAuditInfoRequest
  */
 
 
 
-public class QueryMessageByOffsetsRequest {
+public class DescribeTopicAuditInfoRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -39,19 +39,22 @@ public class QueryMessageByOffsetsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  @SerializedName("PartitionId")
-  private Integer partitionId = null;
-
   @SerializedName("SortOrder")
   private String sortOrder = null;
 
-  @SerializedName("StartOffset")
-  private Long startOffset = null;
+  @SerializedName("SourceIp")
+  private String sourceIp = null;
 
-  @SerializedName("TopicName")
-  private String topicName = null;
+  @SerializedName("SourcePort")
+  private String sourcePort = null;
 
-  public QueryMessageByOffsetsRequest instanceId(String instanceId) {
+  @SerializedName("Topic")
+  private String topic = null;
+
+  @SerializedName("Type")
+  private String type = null;
+
+  public DescribeTopicAuditInfoRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -70,7 +73,7 @@ public class QueryMessageByOffsetsRequest {
     this.instanceId = instanceId;
   }
 
-  public QueryMessageByOffsetsRequest pageNumber(Integer pageNumber) {
+  public DescribeTopicAuditInfoRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -89,7 +92,7 @@ public class QueryMessageByOffsetsRequest {
     this.pageNumber = pageNumber;
   }
 
-  public QueryMessageByOffsetsRequest pageSize(Integer pageSize) {
+  public DescribeTopicAuditInfoRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -108,26 +111,7 @@ public class QueryMessageByOffsetsRequest {
     this.pageSize = pageSize;
   }
 
-  public QueryMessageByOffsetsRequest partitionId(Integer partitionId) {
-    this.partitionId = partitionId;
-    return this;
-  }
-
-   /**
-   * Get partitionId
-   * @return partitionId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getPartitionId() {
-    return partitionId;
-  }
-
-  public void setPartitionId(Integer partitionId) {
-    this.partitionId = partitionId;
-  }
-
-  public QueryMessageByOffsetsRequest sortOrder(String sortOrder) {
+  public DescribeTopicAuditInfoRequest sortOrder(String sortOrder) {
     this.sortOrder = sortOrder;
     return this;
   }
@@ -145,42 +129,78 @@ public class QueryMessageByOffsetsRequest {
     this.sortOrder = sortOrder;
   }
 
-  public QueryMessageByOffsetsRequest startOffset(Long startOffset) {
-    this.startOffset = startOffset;
+  public DescribeTopicAuditInfoRequest sourceIp(String sourceIp) {
+    this.sourceIp = sourceIp;
     return this;
   }
 
    /**
-   * Get startOffset
-   * @return startOffset
+   * Get sourceIp
+   * @return sourceIp
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Long getStartOffset() {
-    return startOffset;
+  @Schema(description = "")
+  public String getSourceIp() {
+    return sourceIp;
   }
 
-  public void setStartOffset(Long startOffset) {
-    this.startOffset = startOffset;
+  public void setSourceIp(String sourceIp) {
+    this.sourceIp = sourceIp;
   }
 
-  public QueryMessageByOffsetsRequest topicName(String topicName) {
-    this.topicName = topicName;
+  public DescribeTopicAuditInfoRequest sourcePort(String sourcePort) {
+    this.sourcePort = sourcePort;
     return this;
   }
 
    /**
-   * Get topicName
-   * @return topicName
+   * Get sourcePort
+   * @return sourcePort
+  **/
+  @Schema(description = "")
+  public String getSourcePort() {
+    return sourcePort;
+  }
+
+  public void setSourcePort(String sourcePort) {
+    this.sourcePort = sourcePort;
+  }
+
+  public DescribeTopicAuditInfoRequest topic(String topic) {
+    this.topic = topic;
+    return this;
+  }
+
+   /**
+   * Get topic
+   * @return topic
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getTopicName() {
-    return topicName;
+  public String getTopic() {
+    return topic;
   }
 
-  public void setTopicName(String topicName) {
-    this.topicName = topicName;
+  public void setTopic(String topic) {
+    this.topic = topic;
+  }
+
+  public DescribeTopicAuditInfoRequest type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -192,34 +212,36 @@ public class QueryMessageByOffsetsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    QueryMessageByOffsetsRequest queryMessageByOffsetsRequest = (QueryMessageByOffsetsRequest) o;
-    return Objects.equals(this.instanceId, queryMessageByOffsetsRequest.instanceId) &&
-        Objects.equals(this.pageNumber, queryMessageByOffsetsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, queryMessageByOffsetsRequest.pageSize) &&
-        Objects.equals(this.partitionId, queryMessageByOffsetsRequest.partitionId) &&
-        Objects.equals(this.sortOrder, queryMessageByOffsetsRequest.sortOrder) &&
-        Objects.equals(this.startOffset, queryMessageByOffsetsRequest.startOffset) &&
-        Objects.equals(this.topicName, queryMessageByOffsetsRequest.topicName);
+    DescribeTopicAuditInfoRequest describeTopicAuditInfoRequest = (DescribeTopicAuditInfoRequest) o;
+    return Objects.equals(this.instanceId, describeTopicAuditInfoRequest.instanceId) &&
+        Objects.equals(this.pageNumber, describeTopicAuditInfoRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeTopicAuditInfoRequest.pageSize) &&
+        Objects.equals(this.sortOrder, describeTopicAuditInfoRequest.sortOrder) &&
+        Objects.equals(this.sourceIp, describeTopicAuditInfoRequest.sourceIp) &&
+        Objects.equals(this.sourcePort, describeTopicAuditInfoRequest.sourcePort) &&
+        Objects.equals(this.topic, describeTopicAuditInfoRequest.topic) &&
+        Objects.equals(this.type, describeTopicAuditInfoRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, pageNumber, pageSize, partitionId, sortOrder, startOffset, topicName);
+    return Objects.hash(instanceId, pageNumber, pageSize, sortOrder, sourceIp, sourcePort, topic, type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class QueryMessageByOffsetsRequest {\n");
+    sb.append("class DescribeTopicAuditInfoRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    partitionId: ").append(toIndentedString(partitionId)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
-    sb.append("    startOffset: ").append(toIndentedString(startOffset)).append("\n");
-    sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
+    sb.append("    sourceIp: ").append(toIndentedString(sourceIp)).append("\n");
+    sb.append("    sourcePort: ").append(toIndentedString(sourcePort)).append("\n");
+    sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

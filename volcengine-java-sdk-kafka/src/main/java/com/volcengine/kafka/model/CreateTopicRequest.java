@@ -40,51 +40,8 @@ public class CreateTopicRequest {
   @SerializedName("AllAuthority")
   private Boolean allAuthority = null;
 
-  /**
-   * Gets or Sets cleanupPolicy
-   */
-  @JsonAdapter(CleanupPolicyEnum.Adapter.class)
-  public enum CleanupPolicyEnum {
-    @SerializedName("delete")
-    DELETE("delete"),
-    @SerializedName("compact")
-    COMPACT("compact");
-
-    private String value;
-
-    CleanupPolicyEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static CleanupPolicyEnum fromValue(String input) {
-      for (CleanupPolicyEnum b : CleanupPolicyEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<CleanupPolicyEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CleanupPolicyEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public CleanupPolicyEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return CleanupPolicyEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("CleanupPolicy")
-  private List<CleanupPolicyEnum> cleanupPolicy = null;
+  @SerializedName("CleanupPolicy")
+  private List<String> cleanupPolicy = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -152,14 +109,14 @@ public class CreateTopicRequest {
     this.allAuthority = allAuthority;
   }
 
-  public CreateTopicRequest cleanupPolicy(List<CleanupPolicyEnum> cleanupPolicy) {
+  public CreateTopicRequest cleanupPolicy(List<String> cleanupPolicy) {
     this.cleanupPolicy = cleanupPolicy;
     return this;
   }
 
-  public CreateTopicRequest addCleanupPolicyItem(CleanupPolicyEnum cleanupPolicyItem) {
+  public CreateTopicRequest addCleanupPolicyItem(String cleanupPolicyItem) {
     if (this.cleanupPolicy == null) {
-      this.cleanupPolicy = new ArrayList<CleanupPolicyEnum>();
+      this.cleanupPolicy = new ArrayList<String>();
     }
     this.cleanupPolicy.add(cleanupPolicyItem);
     return this;
@@ -170,11 +127,11 @@ public class CreateTopicRequest {
    * @return cleanupPolicy
   **/
   @Schema(description = "")
-  public List<CleanupPolicyEnum> getCleanupPolicy() {
+  public List<String> getCleanupPolicy() {
     return cleanupPolicy;
   }
 
-  public void setCleanupPolicy(List<CleanupPolicyEnum> cleanupPolicy) {
+  public void setCleanupPolicy(List<String> cleanupPolicy) {
     this.cleanupPolicy = cleanupPolicy;
   }
 
@@ -261,7 +218,8 @@ public class CreateTopicRequest {
    * Get replicaNumber
    * @return replicaNumber
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getReplicaNumber() {
     return replicaNumber;
   }
