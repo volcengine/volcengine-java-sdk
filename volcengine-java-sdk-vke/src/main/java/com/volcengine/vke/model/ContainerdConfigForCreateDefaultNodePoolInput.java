@@ -19,11 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vke.model.RegistryProxyConfigForCreateDefaultNodePoolInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,63 +30,88 @@ import javax.validation.Valid;
 
 
 public class ContainerdConfigForCreateDefaultNodePoolInput {
-  @SerializedName("InsecureRegistries")
-  private List<String> insecureRegistries = null;
+  @SerializedName("ConcurrentLayerFetchBuffer")
+  private Integer concurrentLayerFetchBuffer = null;
 
-  @SerializedName("RegistryProxyConfigs")
-  private List<RegistryProxyConfigForCreateDefaultNodePoolInput> registryProxyConfigs = null;
+  @SerializedName("MaxConcurrentDownloads")
+  private Integer maxConcurrentDownloads = null;
 
-  public ContainerdConfigForCreateDefaultNodePoolInput insecureRegistries(List<String> insecureRegistries) {
-    this.insecureRegistries = insecureRegistries;
-    return this;
-  }
+  @SerializedName("MaxConcurrentUnpacks")
+  private Integer maxConcurrentUnpacks = null;
 
-  public ContainerdConfigForCreateDefaultNodePoolInput addInsecureRegistriesItem(String insecureRegistriesItem) {
-    if (this.insecureRegistries == null) {
-      this.insecureRegistries = new ArrayList<String>();
-    }
-    this.insecureRegistries.add(insecureRegistriesItem);
-    return this;
-  }
+  @SerializedName("UseLocalImagePull")
+  private Boolean useLocalImagePull = null;
 
-   /**
-   * Get insecureRegistries
-   * @return insecureRegistries
-  **/
-  @Schema(description = "")
-  public List<String> getInsecureRegistries() {
-    return insecureRegistries;
-  }
-
-  public void setInsecureRegistries(List<String> insecureRegistries) {
-    this.insecureRegistries = insecureRegistries;
-  }
-
-  public ContainerdConfigForCreateDefaultNodePoolInput registryProxyConfigs(List<RegistryProxyConfigForCreateDefaultNodePoolInput> registryProxyConfigs) {
-    this.registryProxyConfigs = registryProxyConfigs;
-    return this;
-  }
-
-  public ContainerdConfigForCreateDefaultNodePoolInput addRegistryProxyConfigsItem(RegistryProxyConfigForCreateDefaultNodePoolInput registryProxyConfigsItem) {
-    if (this.registryProxyConfigs == null) {
-      this.registryProxyConfigs = new ArrayList<RegistryProxyConfigForCreateDefaultNodePoolInput>();
-    }
-    this.registryProxyConfigs.add(registryProxyConfigsItem);
+  public ContainerdConfigForCreateDefaultNodePoolInput concurrentLayerFetchBuffer(Integer concurrentLayerFetchBuffer) {
+    this.concurrentLayerFetchBuffer = concurrentLayerFetchBuffer;
     return this;
   }
 
    /**
-   * Get registryProxyConfigs
-   * @return registryProxyConfigs
+   * Get concurrentLayerFetchBuffer
+   * @return concurrentLayerFetchBuffer
   **/
-  @Valid
   @Schema(description = "")
-  public List<RegistryProxyConfigForCreateDefaultNodePoolInput> getRegistryProxyConfigs() {
-    return registryProxyConfigs;
+  public Integer getConcurrentLayerFetchBuffer() {
+    return concurrentLayerFetchBuffer;
   }
 
-  public void setRegistryProxyConfigs(List<RegistryProxyConfigForCreateDefaultNodePoolInput> registryProxyConfigs) {
-    this.registryProxyConfigs = registryProxyConfigs;
+  public void setConcurrentLayerFetchBuffer(Integer concurrentLayerFetchBuffer) {
+    this.concurrentLayerFetchBuffer = concurrentLayerFetchBuffer;
+  }
+
+  public ContainerdConfigForCreateDefaultNodePoolInput maxConcurrentDownloads(Integer maxConcurrentDownloads) {
+    this.maxConcurrentDownloads = maxConcurrentDownloads;
+    return this;
+  }
+
+   /**
+   * Get maxConcurrentDownloads
+   * @return maxConcurrentDownloads
+  **/
+  @Schema(description = "")
+  public Integer getMaxConcurrentDownloads() {
+    return maxConcurrentDownloads;
+  }
+
+  public void setMaxConcurrentDownloads(Integer maxConcurrentDownloads) {
+    this.maxConcurrentDownloads = maxConcurrentDownloads;
+  }
+
+  public ContainerdConfigForCreateDefaultNodePoolInput maxConcurrentUnpacks(Integer maxConcurrentUnpacks) {
+    this.maxConcurrentUnpacks = maxConcurrentUnpacks;
+    return this;
+  }
+
+   /**
+   * Get maxConcurrentUnpacks
+   * @return maxConcurrentUnpacks
+  **/
+  @Schema(description = "")
+  public Integer getMaxConcurrentUnpacks() {
+    return maxConcurrentUnpacks;
+  }
+
+  public void setMaxConcurrentUnpacks(Integer maxConcurrentUnpacks) {
+    this.maxConcurrentUnpacks = maxConcurrentUnpacks;
+  }
+
+  public ContainerdConfigForCreateDefaultNodePoolInput useLocalImagePull(Boolean useLocalImagePull) {
+    this.useLocalImagePull = useLocalImagePull;
+    return this;
+  }
+
+   /**
+   * Get useLocalImagePull
+   * @return useLocalImagePull
+  **/
+  @Schema(description = "")
+  public Boolean isUseLocalImagePull() {
+    return useLocalImagePull;
+  }
+
+  public void setUseLocalImagePull(Boolean useLocalImagePull) {
+    this.useLocalImagePull = useLocalImagePull;
   }
 
 
@@ -102,13 +124,15 @@ public class ContainerdConfigForCreateDefaultNodePoolInput {
       return false;
     }
     ContainerdConfigForCreateDefaultNodePoolInput containerdConfigForCreateDefaultNodePoolInput = (ContainerdConfigForCreateDefaultNodePoolInput) o;
-    return Objects.equals(this.insecureRegistries, containerdConfigForCreateDefaultNodePoolInput.insecureRegistries) &&
-        Objects.equals(this.registryProxyConfigs, containerdConfigForCreateDefaultNodePoolInput.registryProxyConfigs);
+    return Objects.equals(this.concurrentLayerFetchBuffer, containerdConfigForCreateDefaultNodePoolInput.concurrentLayerFetchBuffer) &&
+        Objects.equals(this.maxConcurrentDownloads, containerdConfigForCreateDefaultNodePoolInput.maxConcurrentDownloads) &&
+        Objects.equals(this.maxConcurrentUnpacks, containerdConfigForCreateDefaultNodePoolInput.maxConcurrentUnpacks) &&
+        Objects.equals(this.useLocalImagePull, containerdConfigForCreateDefaultNodePoolInput.useLocalImagePull);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(insecureRegistries, registryProxyConfigs);
+    return Objects.hash(concurrentLayerFetchBuffer, maxConcurrentDownloads, maxConcurrentUnpacks, useLocalImagePull);
   }
 
 
@@ -117,8 +141,10 @@ public class ContainerdConfigForCreateDefaultNodePoolInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ContainerdConfigForCreateDefaultNodePoolInput {\n");
     
-    sb.append("    insecureRegistries: ").append(toIndentedString(insecureRegistries)).append("\n");
-    sb.append("    registryProxyConfigs: ").append(toIndentedString(registryProxyConfigs)).append("\n");
+    sb.append("    concurrentLayerFetchBuffer: ").append(toIndentedString(concurrentLayerFetchBuffer)).append("\n");
+    sb.append("    maxConcurrentDownloads: ").append(toIndentedString(maxConcurrentDownloads)).append("\n");
+    sb.append("    maxConcurrentUnpacks: ").append(toIndentedString(maxConcurrentUnpacks)).append("\n");
+    sb.append("    useLocalImagePull: ").append(toIndentedString(useLocalImagePull)).append("\n");
     sb.append("}");
     return sb.toString();
   }

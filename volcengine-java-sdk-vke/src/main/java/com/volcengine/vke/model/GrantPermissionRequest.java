@@ -44,9 +44,7 @@ public class GrantPermissionRequest {
     @SerializedName("User")
     USER("User"),
     @SerializedName("Role")
-    ROLE("Role"),
-    @SerializedName("Account")
-    ACCOUNT("Account");
+    ROLE("Role");
 
     private String value;
 
