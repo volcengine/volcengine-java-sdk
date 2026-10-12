@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class ModifyIpamResourceDiscoveryResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsyncTaskId")
+  private String asyncTaskId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public ModifyIpamResourceDiscoveryResponse asyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+    return this;
+  }
+
+   /**
+   * Get asyncTaskId
+   * @return asyncTaskId
+  **/
+  @Schema(description = "")
+  public String getAsyncTaskId() {
+    return asyncTaskId;
+  }
+
+  public void setAsyncTaskId(String asyncTaskId) {
+    this.asyncTaskId = asyncTaskId;
+  }
 
   public ModifyIpamResourceDiscoveryResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class ModifyIpamResourceDiscoveryResponse extends com.volcengine.model.Ab
       return false;
     }
     ModifyIpamResourceDiscoveryResponse modifyIpamResourceDiscoveryResponse = (ModifyIpamResourceDiscoveryResponse) o;
-    return Objects.equals(this.requestId, modifyIpamResourceDiscoveryResponse.requestId);
+    return Objects.equals(this.asyncTaskId, modifyIpamResourceDiscoveryResponse.asyncTaskId) &&
+        Objects.equals(this.requestId, modifyIpamResourceDiscoveryResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(asyncTaskId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class ModifyIpamResourceDiscoveryResponse extends com.volcengine.model.Ab
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyIpamResourceDiscoveryResponse {\n");
     
+    sb.append("    asyncTaskId: ").append(toIndentedString(asyncTaskId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

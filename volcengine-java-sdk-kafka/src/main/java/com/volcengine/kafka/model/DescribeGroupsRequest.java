@@ -45,6 +45,15 @@ public class DescribeGroupsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("SortBy")
+  private String sortBy = null;
+
+  @SerializedName("SortOrder")
+  private String sortOrder = null;
+
+  @SerializedName("State")
+  private String state = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeGroupsInput> tagFilters = null;
 
@@ -126,6 +135,60 @@ public class DescribeGroupsRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeGroupsRequest sortBy(String sortBy) {
+    this.sortBy = sortBy;
+    return this;
+  }
+
+   /**
+   * Get sortBy
+   * @return sortBy
+  **/
+  @Schema(description = "")
+  public String getSortBy() {
+    return sortBy;
+  }
+
+  public void setSortBy(String sortBy) {
+    this.sortBy = sortBy;
+  }
+
+  public DescribeGroupsRequest sortOrder(String sortOrder) {
+    this.sortOrder = sortOrder;
+    return this;
+  }
+
+   /**
+   * Get sortOrder
+   * @return sortOrder
+  **/
+  @Schema(description = "")
+  public String getSortOrder() {
+    return sortOrder;
+  }
+
+  public void setSortOrder(String sortOrder) {
+    this.sortOrder = sortOrder;
+  }
+
+  public DescribeGroupsRequest state(String state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @Schema(description = "")
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
   public DescribeGroupsRequest tagFilters(List<TagFilterForDescribeGroupsInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -185,13 +248,16 @@ public class DescribeGroupsRequest {
         Objects.equals(this.instanceId, describeGroupsRequest.instanceId) &&
         Objects.equals(this.pageNumber, describeGroupsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeGroupsRequest.pageSize) &&
+        Objects.equals(this.sortBy, describeGroupsRequest.sortBy) &&
+        Objects.equals(this.sortOrder, describeGroupsRequest.sortOrder) &&
+        Objects.equals(this.state, describeGroupsRequest.state) &&
         Objects.equals(this.tagFilters, describeGroupsRequest.tagFilters) &&
         Objects.equals(this.topic, describeGroupsRequest.topic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupId, instanceId, pageNumber, pageSize, tagFilters, topic);
+    return Objects.hash(groupId, instanceId, pageNumber, pageSize, sortBy, sortOrder, state, tagFilters, topic);
   }
 
 
@@ -204,6 +270,9 @@ public class DescribeGroupsRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
+    sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
     sb.append("}");

@@ -65,6 +65,9 @@ public class PermissionForDescribeSecurityGroupAttributesOutput {
   @SerializedName("Protocol")
   private String protocol = null;
 
+  @SerializedName("SecurityGroupRuleId")
+  private String securityGroupRuleId = null;
+
   @SerializedName("SourceGroupId")
   private String sourceGroupId = null;
 
@@ -277,6 +280,24 @@ public class PermissionForDescribeSecurityGroupAttributesOutput {
     this.protocol = protocol;
   }
 
+  public PermissionForDescribeSecurityGroupAttributesOutput securityGroupRuleId(String securityGroupRuleId) {
+    this.securityGroupRuleId = securityGroupRuleId;
+    return this;
+  }
+
+   /**
+   * Get securityGroupRuleId
+   * @return securityGroupRuleId
+  **/
+  @Schema(description = "")
+  public String getSecurityGroupRuleId() {
+    return securityGroupRuleId;
+  }
+
+  public void setSecurityGroupRuleId(String securityGroupRuleId) {
+    this.securityGroupRuleId = securityGroupRuleId;
+  }
+
   public PermissionForDescribeSecurityGroupAttributesOutput sourceGroupId(String sourceGroupId) {
     this.sourceGroupId = sourceGroupId;
     return this;
@@ -334,13 +355,14 @@ public class PermissionForDescribeSecurityGroupAttributesOutput {
         Objects.equals(this.prefixListId, permissionForDescribeSecurityGroupAttributesOutput.prefixListId) &&
         Objects.equals(this.priority, permissionForDescribeSecurityGroupAttributesOutput.priority) &&
         Objects.equals(this.protocol, permissionForDescribeSecurityGroupAttributesOutput.protocol) &&
+        Objects.equals(this.securityGroupRuleId, permissionForDescribeSecurityGroupAttributesOutput.securityGroupRuleId) &&
         Objects.equals(this.sourceGroupId, permissionForDescribeSecurityGroupAttributesOutput.sourceGroupId) &&
         Objects.equals(this.updateTime, permissionForDescribeSecurityGroupAttributesOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrIp, creationTime, description, direction, policy, portEnd, portStart, prefixListCidrs, prefixListId, priority, protocol, sourceGroupId, updateTime);
+    return Objects.hash(cidrIp, creationTime, description, direction, policy, portEnd, portStart, prefixListCidrs, prefixListId, priority, protocol, securityGroupRuleId, sourceGroupId, updateTime);
   }
 
 
@@ -360,6 +382,7 @@ public class PermissionForDescribeSecurityGroupAttributesOutput {
     sb.append("    prefixListId: ").append(toIndentedString(prefixListId)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    securityGroupRuleId: ").append(toIndentedString(securityGroupRuleId)).append("\n");
     sb.append("    sourceGroupId: ").append(toIndentedString(sourceGroupId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

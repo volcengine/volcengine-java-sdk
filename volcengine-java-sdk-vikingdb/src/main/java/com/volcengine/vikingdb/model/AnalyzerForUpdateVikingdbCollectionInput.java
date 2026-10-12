@@ -41,6 +41,9 @@ public class AnalyzerForUpdateVikingdbCollectionInput {
   @SerializedName("Tokenizer")
   private String tokenizer = null;
 
+  @SerializedName("Tokenizers")
+  private List<String> tokenizers = null;
+
   public AnalyzerForUpdateVikingdbCollectionInput characterConverters(List<String> characterConverters) {
     this.characterConverters = characterConverters;
     return this;
@@ -111,6 +114,32 @@ public class AnalyzerForUpdateVikingdbCollectionInput {
     this.tokenizer = tokenizer;
   }
 
+  public AnalyzerForUpdateVikingdbCollectionInput tokenizers(List<String> tokenizers) {
+    this.tokenizers = tokenizers;
+    return this;
+  }
+
+  public AnalyzerForUpdateVikingdbCollectionInput addTokenizersItem(String tokenizersItem) {
+    if (this.tokenizers == null) {
+      this.tokenizers = new ArrayList<String>();
+    }
+    this.tokenizers.add(tokenizersItem);
+    return this;
+  }
+
+   /**
+   * Get tokenizers
+   * @return tokenizers
+  **/
+  @Schema(description = "")
+  public List<String> getTokenizers() {
+    return tokenizers;
+  }
+
+  public void setTokenizers(List<String> tokenizers) {
+    this.tokenizers = tokenizers;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,12 +152,13 @@ public class AnalyzerForUpdateVikingdbCollectionInput {
     AnalyzerForUpdateVikingdbCollectionInput analyzerForUpdateVikingdbCollectionInput = (AnalyzerForUpdateVikingdbCollectionInput) o;
     return Objects.equals(this.characterConverters, analyzerForUpdateVikingdbCollectionInput.characterConverters) &&
         Objects.equals(this.stopWordsFilters, analyzerForUpdateVikingdbCollectionInput.stopWordsFilters) &&
-        Objects.equals(this.tokenizer, analyzerForUpdateVikingdbCollectionInput.tokenizer);
+        Objects.equals(this.tokenizer, analyzerForUpdateVikingdbCollectionInput.tokenizer) &&
+        Objects.equals(this.tokenizers, analyzerForUpdateVikingdbCollectionInput.tokenizers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(characterConverters, stopWordsFilters, tokenizer);
+    return Objects.hash(characterConverters, stopWordsFilters, tokenizer, tokenizers);
   }
 
 
@@ -140,6 +170,7 @@ public class AnalyzerForUpdateVikingdbCollectionInput {
     sb.append("    characterConverters: ").append(toIndentedString(characterConverters)).append("\n");
     sb.append("    stopWordsFilters: ").append(toIndentedString(stopWordsFilters)).append("\n");
     sb.append("    tokenizer: ").append(toIndentedString(tokenizer)).append("\n");
+    sb.append("    tokenizers: ").append(toIndentedString(tokenizers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

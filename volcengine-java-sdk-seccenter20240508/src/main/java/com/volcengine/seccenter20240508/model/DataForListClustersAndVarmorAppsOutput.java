@@ -54,6 +54,9 @@ public class DataForListClustersAndVarmorAppsOutput {
   @SerializedName("NodeCount")
   private Long nodeCount = null;
 
+  @SerializedName("Phase")
+  private String phase = null;
+
   @SerializedName("Region")
   private String region = null;
 
@@ -63,8 +66,57 @@ public class DataForListClustersAndVarmorAppsOutput {
   @SerializedName("VarmorConfig")
   private VarmorConfigForListClustersAndVarmorAppsOutput varmorConfig = null;
 
-  @SerializedName("VarmorInstallStatus")
-  private String varmorInstallStatus = null;
+  /**
+   * Gets or Sets varmorInstallStatus
+   */
+  @JsonAdapter(VarmorInstallStatusEnum.Adapter.class)
+  public enum VarmorInstallStatusEnum {
+    @SerializedName("NotInstalled")
+    NOTINSTALLED("NotInstalled"),
+    @SerializedName("Installed")
+    INSTALLED("Installed"),
+    @SerializedName("Changing")
+    CHANGING("Changing"),
+    @SerializedName("InstallFailed")
+    INSTALLFAILED("InstallFailed"),
+    @SerializedName("UninstallFailed")
+    UNINSTALLFAILED("UninstallFailed");
+
+    private String value;
+
+    VarmorInstallStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static VarmorInstallStatusEnum fromValue(String input) {
+      for (VarmorInstallStatusEnum b : VarmorInstallStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<VarmorInstallStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VarmorInstallStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public VarmorInstallStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return VarmorInstallStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("VarmorInstallStatus")
+  private VarmorInstallStatusEnum varmorInstallStatus = null;
 
   @SerializedName("VarmorNamespace")
   private String varmorNamespace = null;
@@ -72,8 +124,55 @@ public class DataForListClustersAndVarmorAppsOutput {
   @SerializedName("VarmorVersion")
   private String varmorVersion = null;
 
-  @SerializedName("VarmorVersionStatus")
-  private String varmorVersionStatus = null;
+  /**
+   * Gets or Sets varmorVersionStatus
+   */
+  @JsonAdapter(VarmorVersionStatusEnum.Adapter.class)
+  public enum VarmorVersionStatusEnum {
+    @SerializedName("NotInstalled")
+    NOTINSTALLED("NotInstalled"),
+    @SerializedName("Upgradable")
+    UPGRADABLE("Upgradable"),
+    @SerializedName("UpgradeFailed")
+    UPGRADEFAILED("UpgradeFailed"),
+    @SerializedName("Latest")
+    LATEST("Latest");
+
+    private String value;
+
+    VarmorVersionStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static VarmorVersionStatusEnum fromValue(String input) {
+      for (VarmorVersionStatusEnum b : VarmorVersionStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<VarmorVersionStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VarmorVersionStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public VarmorVersionStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return VarmorVersionStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("VarmorVersionStatus")
+  private VarmorVersionStatusEnum varmorVersionStatus = null;
 
   public DataForListClustersAndVarmorAppsOutput clusterID(String clusterID) {
     this.clusterID = clusterID;
@@ -201,6 +300,24 @@ public class DataForListClustersAndVarmorAppsOutput {
     this.nodeCount = nodeCount;
   }
 
+  public DataForListClustersAndVarmorAppsOutput phase(String phase) {
+    this.phase = phase;
+    return this;
+  }
+
+   /**
+   * Get phase
+   * @return phase
+  **/
+  @Schema(description = "")
+  public String getPhase() {
+    return phase;
+  }
+
+  public void setPhase(String phase) {
+    this.phase = phase;
+  }
+
   public DataForListClustersAndVarmorAppsOutput region(String region) {
     this.region = region;
     return this;
@@ -264,7 +381,7 @@ public class DataForListClustersAndVarmorAppsOutput {
     this.varmorConfig = varmorConfig;
   }
 
-  public DataForListClustersAndVarmorAppsOutput varmorInstallStatus(String varmorInstallStatus) {
+  public DataForListClustersAndVarmorAppsOutput varmorInstallStatus(VarmorInstallStatusEnum varmorInstallStatus) {
     this.varmorInstallStatus = varmorInstallStatus;
     return this;
   }
@@ -274,11 +391,11 @@ public class DataForListClustersAndVarmorAppsOutput {
    * @return varmorInstallStatus
   **/
   @Schema(description = "")
-  public String getVarmorInstallStatus() {
+  public VarmorInstallStatusEnum getVarmorInstallStatus() {
     return varmorInstallStatus;
   }
 
-  public void setVarmorInstallStatus(String varmorInstallStatus) {
+  public void setVarmorInstallStatus(VarmorInstallStatusEnum varmorInstallStatus) {
     this.varmorInstallStatus = varmorInstallStatus;
   }
 
@@ -318,7 +435,7 @@ public class DataForListClustersAndVarmorAppsOutput {
     this.varmorVersion = varmorVersion;
   }
 
-  public DataForListClustersAndVarmorAppsOutput varmorVersionStatus(String varmorVersionStatus) {
+  public DataForListClustersAndVarmorAppsOutput varmorVersionStatus(VarmorVersionStatusEnum varmorVersionStatus) {
     this.varmorVersionStatus = varmorVersionStatus;
     return this;
   }
@@ -328,11 +445,11 @@ public class DataForListClustersAndVarmorAppsOutput {
    * @return varmorVersionStatus
   **/
   @Schema(description = "")
-  public String getVarmorVersionStatus() {
+  public VarmorVersionStatusEnum getVarmorVersionStatus() {
     return varmorVersionStatus;
   }
 
-  public void setVarmorVersionStatus(String varmorVersionStatus) {
+  public void setVarmorVersionStatus(VarmorVersionStatusEnum varmorVersionStatus) {
     this.varmorVersionStatus = varmorVersionStatus;
   }
 
@@ -353,6 +470,7 @@ public class DataForListClustersAndVarmorAppsOutput {
         Objects.equals(this.errorMessage, dataForListClustersAndVarmorAppsOutput.errorMessage) &&
         Objects.equals(this.latestVersion, dataForListClustersAndVarmorAppsOutput.latestVersion) &&
         Objects.equals(this.nodeCount, dataForListClustersAndVarmorAppsOutput.nodeCount) &&
+        Objects.equals(this.phase, dataForListClustersAndVarmorAppsOutput.phase) &&
         Objects.equals(this.region, dataForListClustersAndVarmorAppsOutput.region) &&
         Objects.equals(this.upgradableVersionList, dataForListClustersAndVarmorAppsOutput.upgradableVersionList) &&
         Objects.equals(this.varmorConfig, dataForListClustersAndVarmorAppsOutput.varmorConfig) &&
@@ -364,7 +482,7 @@ public class DataForListClustersAndVarmorAppsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterID, clusterName, clusterType, enhancedNodeCount, errorMessage, latestVersion, nodeCount, region, upgradableVersionList, varmorConfig, varmorInstallStatus, varmorNamespace, varmorVersion, varmorVersionStatus);
+    return Objects.hash(clusterID, clusterName, clusterType, enhancedNodeCount, errorMessage, latestVersion, nodeCount, phase, region, upgradableVersionList, varmorConfig, varmorInstallStatus, varmorNamespace, varmorVersion, varmorVersionStatus);
   }
 
 
@@ -380,6 +498,7 @@ public class DataForListClustersAndVarmorAppsOutput {
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    latestVersion: ").append(toIndentedString(latestVersion)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
+    sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    upgradableVersionList: ").append(toIndentedString(upgradableVersionList)).append("\n");
     sb.append("    varmorConfig: ").append(toIndentedString(varmorConfig)).append("\n");

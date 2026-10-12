@@ -72,6 +72,15 @@ public class CreateNetworkInterfaceRequest {
   @SerializedName("Tags")
   private List<TagForCreateNetworkInterfaceInput> tags = null;
 
+  @SerializedName("TcpClosedAndTimeWaitTimeout")
+  private Integer tcpClosedAndTimeWaitTimeout = null;
+
+  @SerializedName("TcpEstablishedTimeout")
+  private Integer tcpEstablishedTimeout = null;
+
+  @SerializedName("UdpTimeout")
+  private Integer udpTimeout = null;
+
   public CreateNetworkInterfaceRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
     return this;
@@ -340,6 +349,60 @@ public class CreateNetworkInterfaceRequest {
     this.tags = tags;
   }
 
+  public CreateNetworkInterfaceRequest tcpClosedAndTimeWaitTimeout(Integer tcpClosedAndTimeWaitTimeout) {
+    this.tcpClosedAndTimeWaitTimeout = tcpClosedAndTimeWaitTimeout;
+    return this;
+  }
+
+   /**
+   * Get tcpClosedAndTimeWaitTimeout
+   * @return tcpClosedAndTimeWaitTimeout
+  **/
+  @Schema(description = "")
+  public Integer getTcpClosedAndTimeWaitTimeout() {
+    return tcpClosedAndTimeWaitTimeout;
+  }
+
+  public void setTcpClosedAndTimeWaitTimeout(Integer tcpClosedAndTimeWaitTimeout) {
+    this.tcpClosedAndTimeWaitTimeout = tcpClosedAndTimeWaitTimeout;
+  }
+
+  public CreateNetworkInterfaceRequest tcpEstablishedTimeout(Integer tcpEstablishedTimeout) {
+    this.tcpEstablishedTimeout = tcpEstablishedTimeout;
+    return this;
+  }
+
+   /**
+   * Get tcpEstablishedTimeout
+   * @return tcpEstablishedTimeout
+  **/
+  @Schema(description = "")
+  public Integer getTcpEstablishedTimeout() {
+    return tcpEstablishedTimeout;
+  }
+
+  public void setTcpEstablishedTimeout(Integer tcpEstablishedTimeout) {
+    this.tcpEstablishedTimeout = tcpEstablishedTimeout;
+  }
+
+  public CreateNetworkInterfaceRequest udpTimeout(Integer udpTimeout) {
+    this.udpTimeout = udpTimeout;
+    return this;
+  }
+
+   /**
+   * Get udpTimeout
+   * @return udpTimeout
+  **/
+  @Schema(description = "")
+  public Integer getUdpTimeout() {
+    return udpTimeout;
+  }
+
+  public void setUdpTimeout(Integer udpTimeout) {
+    this.udpTimeout = udpTimeout;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -362,12 +425,15 @@ public class CreateNetworkInterfaceRequest {
         Objects.equals(this.secondaryPrivateIpAddressCount, createNetworkInterfaceRequest.secondaryPrivateIpAddressCount) &&
         Objects.equals(this.securityGroupIds, createNetworkInterfaceRequest.securityGroupIds) &&
         Objects.equals(this.subnetId, createNetworkInterfaceRequest.subnetId) &&
-        Objects.equals(this.tags, createNetworkInterfaceRequest.tags);
+        Objects.equals(this.tags, createNetworkInterfaceRequest.tags) &&
+        Objects.equals(this.tcpClosedAndTimeWaitTimeout, createNetworkInterfaceRequest.tcpClosedAndTimeWaitTimeout) &&
+        Objects.equals(this.tcpEstablishedTimeout, createNetworkInterfaceRequest.tcpEstablishedTimeout) &&
+        Objects.equals(this.udpTimeout, createNetworkInterfaceRequest.udpTimeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, ipv6Address, ipv6AddressCount, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpAddress, projectName, secondaryPrivateIpAddressCount, securityGroupIds, subnetId, tags);
+    return Objects.hash(clientToken, description, ipv6Address, ipv6AddressCount, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpAddress, projectName, secondaryPrivateIpAddressCount, securityGroupIds, subnetId, tags, tcpClosedAndTimeWaitTimeout, tcpEstablishedTimeout, udpTimeout);
   }
 
 
@@ -389,6 +455,9 @@ public class CreateNetworkInterfaceRequest {
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    tcpClosedAndTimeWaitTimeout: ").append(toIndentedString(tcpClosedAndTimeWaitTimeout)).append("\n");
+    sb.append("    tcpEstablishedTimeout: ").append(toIndentedString(tcpEstablishedTimeout)).append("\n");
+    sb.append("    udpTimeout: ").append(toIndentedString(udpTimeout)).append("\n");
     sb.append("}");
     return sb.toString();
   }
