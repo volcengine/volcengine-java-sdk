@@ -2,6 +2,7 @@ package com.volcengine.auth;
 
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.Authenticator;
+import com.squareup.okhttp.internal.Util;
 import com.squareup.okhttp.internal.http.Http1xStream;
 import com.volcengine.ApiException;
 import okio.BufferedSink;
@@ -27,11 +28,28 @@ final class StsProxySupport {
         }
     }
 
+    // Translate only after OkHttp has released the failed tunnel allocation.
+    // The normal response path preserves 407 for both SDK retry policies and callbacks.
+    static final Interceptor PROXY_AUTH_RESPONSE = chain -> {
+        try {
+            return chain.proceed(chain.request());
+        } catch (AuthenticationException e) {
+            return new Response.Builder().request(chain.request()).protocol(Protocol.HTTP_1_1)
+                    .code(407).message(e.getMessage())
+                    .body(ResponseBody.create(null, "")).build();
+        }
+    };
+
     static void configure(OkHttpClient client, String proxyUrl, String endpoint) throws ApiException {
         final Proxy proxy = StsFormRequest.parseProxy(proxyUrl);
-        final Authenticator authenticator = StsFormRequest.proxyAuthenticator(proxyUrl);
+        final boolean hasCredentials = StsFormRequest.proxyAuthorizationHeader(proxyUrl) != null;
+        // Preserve caller authentication when the proxy URL has no credentials.
+        final Authenticator authenticator = hasCredentials
+                ? StsFormRequest.proxyAuthenticator(proxyUrl) : null;
         client.setProxy(proxy);
-        client.setAuthenticator(authenticator);
+        if (hasCredentials) {
+            client.setAuthenticator(authenticator);
+        }
         final HttpUrl target = HttpUrl.parse(endpoint);
         if (target == null || !target.isHttps()) {
             return;
@@ -107,7 +125,21 @@ final class StsProxySupport {
                 boolean established = false;
                 try {
                     socket.setSoTimeout(readTimeout);
-                    socket.connect(proxy.address(), timeout);
+                    try {
+                        socket.connect(proxy.address(), timeout);
+                    } catch (ConnectException e) {
+                        // Avoid OkHttp rewriting the address to the synthetic origin.
+                        // SocketException preserves SDK network retries; other failures,
+                        // especially interrupted I/O, must retain their original type.
+                        InetSocketAddress address = (InetSocketAddress) proxy.address();
+                        String host = address.getHostString();
+                        SocketException failure = new SocketException(
+                                "Failed to connect to STS proxy at "
+                                        + (host.contains(":") ? "[" + host + "]" : host)
+                                        + ":" + address.getPort() + ": " + e.getMessage());
+                        failure.initCause(e);
+                        throw failure;
+                    }
                     BufferedSource source = Okio.buffer(Okio.source(socket));
                     BufferedSink sink = Okio.buffer(Okio.sink(socket));
                     source.timeout().timeout(readTimeout, TimeUnit.MILLISECONDS);
@@ -126,14 +158,15 @@ final class StsProxySupport {
                     if (response.code() != 407) {
                         throw new IOException("STS proxy CONNECT failed with status " + response.code());
                     }
-                    Request authenticated = authenticator.authenticateProxy(proxy, response);
+                    Request authenticated = authenticator == null
+                            ? null : authenticator.authenticateProxy(proxy, response);
                     if (authenticated == null || attempt != 0) {
                         throw new AuthenticationException();
                     }
                     request = authenticated;
                 } finally {
                     if (!established) {
-                        socket.close();
+                        Util.closeQuietly(socket);
                     }
                 }
             }

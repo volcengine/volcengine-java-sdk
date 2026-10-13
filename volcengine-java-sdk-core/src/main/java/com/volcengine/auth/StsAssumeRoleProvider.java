@@ -287,23 +287,27 @@ public class StsAssumeRoleProvider implements Provider {
             apiClient.setHttpProxy(resolvedProxy);
             apiClient.setHttpsProxy(resolvedProxy);
             restoreProxyTransport();
-            apiClient.getHttpClient().setProxy(StsFormRequest.parseProxy(resolvedProxy));
-            if (StsFormRequest.proxyAuthorizationHeader(resolvedProxy) != null) {
-                StsProxySupport.configure(apiClient.getHttpClient(), resolvedProxy,
-                        StsFormRequest.normalizeEndpoint(apiClient.getEndpoint(),
-                                apiClient.getDisableSSL() ? "http" : "https"));
-            }
+            // Use controlled CONNECT for every explicit HTTPS proxy, including
+            // URLs without credentials, and retain 407 as an HTTP status.
+            StsProxySupport.configure(apiClient.getHttpClient(), resolvedProxy,
+                    StsFormRequest.normalizeEndpoint(apiClient.getEndpoint(),
+                            apiClient.getDisableSSL() ? "http" : "https"));
+            apiClient.getHttpClient().interceptors().add(StsProxySupport.PROXY_AUTH_RESPONSE);
         } else if (baselineProxy != null) {
             apiClient.setHttpProxy(baselineHttpProxy);
             apiClient.setHttpsProxy(baselineHttpsProxy);
             apiClient.getHttpClient().setProxy(baselineProxy.getProxy());
             apiClient.getHttpClient().setProxySelector(baselineProxy.getProxySelector());
+            // Refresh an SDK-managed snapshot for the current scheme; caller
+            // selectors are preserved by setDisableSSL.
+            apiClient.setDisableSSL(apiClient.getDisableSSL());
             restoreProxyTransport();
             baselineProxy = null;
         }
     }
 
     private void restoreProxyTransport() {
+        apiClient.getHttpClient().interceptors().remove(StsProxySupport.PROXY_AUTH_RESPONSE);
         apiClient.getHttpClient().setAuthenticator(baselineProxy.getAuthenticator());
         apiClient.getHttpClient().setSocketFactory(baselineProxy.getSocketFactory());
         apiClient.getHttpClient().setDns(baselineProxy.getDns());

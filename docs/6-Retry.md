@@ -52,7 +52,7 @@ The default retry condition `DefaultRetryCondition` includes the following:
 
 1. Retry on network errors.
 2. Retry on server throttling errors.
-3. Retry on user-specified error codes (`retryErrorCodes`).
+3. Retry on user-specified error codes (`retryErrorCodes`). Missing error codes are not matched against the set; a null set disables custom-code matching without disabling status-code or network retries.
 
 #### Custom Retry Conditions
 
@@ -89,6 +89,12 @@ Users can customize retry conditions based on their business needs.
 
     }
     ```
+
+### Copying Retry Error Code Sets
+
+`RetryCondition.copy()`, including copies made when binding an AssumeRole provider, isolates `retryErrorCodes`. `SortedSet` copies retain their comparator, including case-insensitive matching; ordinary `HashSet` and `LinkedHashSet` copies retain their types and iteration behavior. Other serializable sets are copied through Java serialization with their backing state, such as `Collections.newSetFromMap(new TreeMap<>(String.CASE_INSENSITIVE_ORDER))` and unmodifiable wrappers.
+
+For nonserializable sets or sets with nonserializable backing state, copying throws `IllegalStateException` with an actionable message instead of silently converting to `HashSet`. Override `protected Set<String> copyRetryErrorCodes()` in your retry condition to return an independent set with equivalent matching behavior. Also use this hook if a custom set's serialization does not preserve its semantics. Additional mutable fields in the condition still require overriding `copy()`, calling `super.copy()`, and copying those fields.
 
 ### Backoff Strategy
 

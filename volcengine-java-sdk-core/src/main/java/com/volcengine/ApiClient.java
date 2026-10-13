@@ -19,6 +19,7 @@ import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.ConnectionPool;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.Headers;
+import com.squareup.okhttp.HttpUrl;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.MultipartBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -150,6 +151,7 @@ public class ApiClient extends BaseClient implements Cloneable {
 
     private String httpProxy;
     private String httpsProxy;
+    private String noProxy;
     private SdkConfigLog sdkConfigLog;
 
     /*
@@ -654,23 +656,58 @@ public class ApiClient extends BaseClient implements Cloneable {
         return this;
     }
 
+    /**
+     * Get the no proxy.
+     *
+     * @return no proxy
+     */
+    public String getNoProxy() {
+        return this.noProxy;
+    }
+
+    /**
+     * Set comma-separated proxy bypass hosts, domains, IP literals or {@code *}.
+     * Domains include subdomains; a leading dot or {@code *.} matches only
+     * subdomains. Entries may specify a port (bracket IPv6 when using a port).
+     * Null uses NO_PROXY/no_proxy; an empty string disables environment bypass.
+     * Applies to the SDK-managed proxy selector, not explicit transport proxies.
+     *
+     * @return Api client
+     */
+    public synchronized ApiClient setNoProxy(String noProxy) {
+        this.noProxy = noProxy;
+        updateClientProxy();
+        return this;
+    }
+
     private void updateClientProxy() {
-        httpClient.setProxySelector(new ManagedProxySelector(disableSSL, httpProxy, httpsProxy));
+        httpClient.setProxySelector(new ManagedProxySelector(disableSSL, httpProxy, httpsProxy, noProxy));
     }
 
     private static final class ManagedProxySelector extends ProxySelector {
         private final boolean plain;
         private final String httpProxy;
         private final String httpsProxy;
+        private final String noProxy;
 
-        private ManagedProxySelector(boolean plain, String httpProxy, String httpsProxy) {
+        private ManagedProxySelector(boolean plain, String httpProxy, String httpsProxy, String noProxy) {
             this.plain = plain;
             this.httpProxy = httpProxy;
             this.httpsProxy = httpsProxy;
+            if (noProxy == null) {
+                noProxy = System.getenv("NO_PROXY");
+                if (StringUtils.isEmpty(noProxy)) {
+                    noProxy = System.getenv("no_proxy");
+                }
+            }
+            this.noProxy = noProxy;
         }
 
         @Override
         public List<Proxy> select(URI uri) {
+            if (bypassesProxy(uri)) {
+                return Collections.singletonList(Proxy.NO_PROXY);
+            }
             List<Proxy> proxies = new ArrayList<Proxy>();
             if (plain) {
                 addProxy(proxies, httpProxy, "HTTP_PROXY");
@@ -678,6 +715,66 @@ public class ApiClient extends BaseClient implements Cloneable {
                 addProxy(proxies, httpsProxy, "HTTPS_PROXY");
             }
             return proxies;
+        }
+
+        private boolean bypassesProxy(URI uri) {
+            if (StringUtils.isEmpty(noProxy) || uri == null) {
+                return false;
+            }
+            HttpUrl target = HttpUrl.parse(uri.toString());
+            if (target == null) {
+                return false;
+            }
+            String host = trimTrailingDot(target.host());
+            for (String entry : noProxy.split(",")) {
+                String rule = entry.trim();
+                if ("*".equals(rule)) {
+                    return true;
+                }
+                boolean subdomainsOnly = rule.startsWith(".");
+                if (rule.startsWith("*.")) {
+                    rule = rule.substring(1);
+                    subdomainsOnly = true;
+                }
+                if (subdomainsOnly) {
+                    rule = rule.substring(1);
+                }
+                // Bypass entries are host names, not URLs, paths or CIDR ranges.
+                if (rule.isEmpty() || rule.matches(".*[\\s/@?#\\\\*].*")) {
+                    continue;
+                }
+                boolean hasPort;
+                String authority = rule;
+                if (rule.startsWith("[")) {
+                    int end = rule.indexOf(']');
+                    hasPort = end >= 0 && rule.length() > end + 1;
+                } else if (rule.indexOf(':') != rule.lastIndexOf(':')) {
+                    authority = "[" + rule + "]";
+                    hasPort = false;
+                } else {
+                    hasPort = rule.indexOf(':') >= 0;
+                }
+                if (hasPort && rule.endsWith(":")) {
+                    continue;
+                }
+                HttpUrl match = HttpUrl.parse("http://" + authority);
+                if (match == null || (hasPort && match.port() != target.port())) {
+                    continue;
+                }
+                String matchHost = trimTrailingDot(match.host());
+                if (!subdomainsOnly && host.equals(matchHost)) {
+                    return true;
+                }
+                boolean ipLiteral = matchHost.indexOf(':') >= 0 || matchHost.matches("[0-9.]+");
+                if (!ipLiteral && host.endsWith("." + matchHost)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static String trimTrailingDot(String host) {
+            return host.endsWith(".") ? host.substring(0, host.length() - 1) : host;
         }
 
         @Override
@@ -1497,6 +1594,7 @@ public class ApiClient extends BaseClient implements Cloneable {
             } catch (Exception e) {
                 throw new ApiException(e);
             }
+            return;
         }
 
         if (!clazz.getName().startsWith("com.volcengine")) {

@@ -75,7 +75,7 @@ public class DefaultRetryCondition extends RetryCondition{
             return true;
         }
 
-        if (retryErrorCodes.contains(errorCode)) {
+        if (errorCode != null && retryErrorCodes != null && retryErrorCodes.contains(errorCode)) {
             SDK_CORE_LOGGER.debugRetry("Retry triggered by error code: {}", errorCode);
             return true;
         }

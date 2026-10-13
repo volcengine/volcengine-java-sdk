@@ -58,7 +58,7 @@ public class SampleCode {
 
 1. 网络错误会进行重试。
 2. 服务端限流错误会进行重试。
-3. 包含客户自定义的错误码 `retryErrorCodes`。
+3. 包含客户自定义的错误码 `retryErrorCodes`。响应没有错误码时不查询该集合；集合为 null 时仅禁用自定义错误码匹配，不影响状态码和网络异常重试。
 
 #### 自定义重试条件
 
@@ -95,6 +95,12 @@ public class SampleCode {
 
     }
     ```
+
+### 重试错误码集合的复制
+
+`RetryCondition.copy()`（包括 AssumeRole Provider 绑定时的复制）会隔离 `retryErrorCodes`。`SortedSet` 保留比较器及大小写不敏感等匹配规则；普通 `HashSet`、`LinkedHashSet` 保留类型和遍历行为。其他可序列化集合通过 Java 序列化连同底层状态一起复制，例如 `Collections.newSetFromMap(new TreeMap<>(String.CASE_INSENSITIVE_ORDER))` 和不可修改包装集合。
+
+集合或其底层状态不可序列化时，复制会抛出带解决提示的 `IllegalStateException`，避免静默转换成 `HashSet`。请在重试条件中重写 `protected Set<String> copyRetryErrorCodes()`，返回匹配行为等价且相互独立的集合。自定义集合的序列化无法保留自身语义时，也应重写此方法。条件中其他可变字段仍需重写 `copy()`、调用 `super.copy()` 并复制相应字段。
 
 ### 退避策略
 
