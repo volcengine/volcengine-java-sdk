@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.billing.model.ConfigurationCodeForUpdateBudgetInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,6 +36,9 @@ public class BudgetRangeForUpdateBudgetInput {
   @SerializedName("BillingMode")
   private List<String> billingMode = null;
 
+  @SerializedName("ConfigurationCode")
+  private List<ConfigurationCodeForUpdateBudgetInput> configurationCode = null;
+
   @SerializedName("OwnerID")
   private List<Long> ownerID = null;
 
@@ -49,6 +53,12 @@ public class BudgetRangeForUpdateBudgetInput {
 
   @SerializedName("Region")
   private List<String> region = null;
+
+  @SerializedName("SplitItemID")
+  private List<String> splitItemID = null;
+
+  @SerializedName("SplitItemName")
+  private List<String> splitItemName = null;
 
   @SerializedName("SubjectNo")
   private List<String> subjectNo = null;
@@ -83,6 +93,33 @@ public class BudgetRangeForUpdateBudgetInput {
 
   public void setBillingMode(List<String> billingMode) {
     this.billingMode = billingMode;
+  }
+
+  public BudgetRangeForUpdateBudgetInput configurationCode(List<ConfigurationCodeForUpdateBudgetInput> configurationCode) {
+    this.configurationCode = configurationCode;
+    return this;
+  }
+
+  public BudgetRangeForUpdateBudgetInput addConfigurationCodeItem(ConfigurationCodeForUpdateBudgetInput configurationCodeItem) {
+    if (this.configurationCode == null) {
+      this.configurationCode = new ArrayList<ConfigurationCodeForUpdateBudgetInput>();
+    }
+    this.configurationCode.add(configurationCodeItem);
+    return this;
+  }
+
+   /**
+   * Get configurationCode
+   * @return configurationCode
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ConfigurationCodeForUpdateBudgetInput> getConfigurationCode() {
+    return configurationCode;
+  }
+
+  public void setConfigurationCode(List<ConfigurationCodeForUpdateBudgetInput> configurationCode) {
+    this.configurationCode = configurationCode;
   }
 
   public BudgetRangeForUpdateBudgetInput ownerID(List<Long> ownerID) {
@@ -215,6 +252,58 @@ public class BudgetRangeForUpdateBudgetInput {
     this.region = region;
   }
 
+  public BudgetRangeForUpdateBudgetInput splitItemID(List<String> splitItemID) {
+    this.splitItemID = splitItemID;
+    return this;
+  }
+
+  public BudgetRangeForUpdateBudgetInput addSplitItemIDItem(String splitItemIDItem) {
+    if (this.splitItemID == null) {
+      this.splitItemID = new ArrayList<String>();
+    }
+    this.splitItemID.add(splitItemIDItem);
+    return this;
+  }
+
+   /**
+   * Get splitItemID
+   * @return splitItemID
+  **/
+  @Schema(description = "")
+  public List<String> getSplitItemID() {
+    return splitItemID;
+  }
+
+  public void setSplitItemID(List<String> splitItemID) {
+    this.splitItemID = splitItemID;
+  }
+
+  public BudgetRangeForUpdateBudgetInput splitItemName(List<String> splitItemName) {
+    this.splitItemName = splitItemName;
+    return this;
+  }
+
+  public BudgetRangeForUpdateBudgetInput addSplitItemNameItem(String splitItemNameItem) {
+    if (this.splitItemName == null) {
+      this.splitItemName = new ArrayList<String>();
+    }
+    this.splitItemName.add(splitItemNameItem);
+    return this;
+  }
+
+   /**
+   * Get splitItemName
+   * @return splitItemName
+  **/
+  @Schema(description = "")
+  public List<String> getSplitItemName() {
+    return splitItemName;
+  }
+
+  public void setSplitItemName(List<String> splitItemName) {
+    this.splitItemName = splitItemName;
+  }
+
   public BudgetRangeForUpdateBudgetInput subjectNo(List<String> subjectNo) {
     this.subjectNo = subjectNo;
     return this;
@@ -304,11 +393,14 @@ public class BudgetRangeForUpdateBudgetInput {
     }
     BudgetRangeForUpdateBudgetInput budgetRangeForUpdateBudgetInput = (BudgetRangeForUpdateBudgetInput) o;
     return Objects.equals(this.billingMode, budgetRangeForUpdateBudgetInput.billingMode) &&
+        Objects.equals(this.configurationCode, budgetRangeForUpdateBudgetInput.configurationCode) &&
         Objects.equals(this.ownerID, budgetRangeForUpdateBudgetInput.ownerID) &&
         Objects.equals(this.payerID, budgetRangeForUpdateBudgetInput.payerID) &&
         Objects.equals(this.product, budgetRangeForUpdateBudgetInput.product) &&
         Objects.equals(this.project, budgetRangeForUpdateBudgetInput.project) &&
         Objects.equals(this.region, budgetRangeForUpdateBudgetInput.region) &&
+        Objects.equals(this.splitItemID, budgetRangeForUpdateBudgetInput.splitItemID) &&
+        Objects.equals(this.splitItemName, budgetRangeForUpdateBudgetInput.splitItemName) &&
         Objects.equals(this.subjectNo, budgetRangeForUpdateBudgetInput.subjectNo) &&
         Objects.equals(this.tag, budgetRangeForUpdateBudgetInput.tag) &&
         Objects.equals(this.zone, budgetRangeForUpdateBudgetInput.zone);
@@ -316,7 +408,7 @@ public class BudgetRangeForUpdateBudgetInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingMode, ownerID, payerID, product, project, region, subjectNo, tag, zone);
+    return Objects.hash(billingMode, configurationCode, ownerID, payerID, product, project, region, splitItemID, splitItemName, subjectNo, tag, zone);
   }
 
 
@@ -326,11 +418,14 @@ public class BudgetRangeForUpdateBudgetInput {
     sb.append("class BudgetRangeForUpdateBudgetInput {\n");
     
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
+    sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    splitItemID: ").append(toIndentedString(splitItemID)).append("\n");
+    sb.append("    splitItemName: ").append(toIndentedString(splitItemName)).append("\n");
     sb.append("    subjectNo: ").append(toIndentedString(subjectNo)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    zone: ").append(toIndentedString(zone)).append("\n");

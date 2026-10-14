@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class BudgetForQueryBudgetDetailOutput {
+  @SerializedName("AmountType")
+  private String amountType = null;
+
   @SerializedName("BudgetEndTime")
   private String budgetEndTime = null;
 
@@ -45,8 +48,29 @@ public class BudgetForQueryBudgetDetailOutput {
   @SerializedName("BudgetType")
   private String budgetType = null;
 
+  @SerializedName("CurrencySettlement")
+  private String currencySettlement = null;
+
   @SerializedName("Period")
   private String period = null;
+
+  public BudgetForQueryBudgetDetailOutput amountType(String amountType) {
+    this.amountType = amountType;
+    return this;
+  }
+
+   /**
+   * Get amountType
+   * @return amountType
+  **/
+  @Schema(description = "")
+  public String getAmountType() {
+    return amountType;
+  }
+
+  public void setAmountType(String amountType) {
+    this.amountType = amountType;
+  }
 
   public BudgetForQueryBudgetDetailOutput budgetEndTime(String budgetEndTime) {
     this.budgetEndTime = budgetEndTime;
@@ -138,6 +162,24 @@ public class BudgetForQueryBudgetDetailOutput {
     this.budgetType = budgetType;
   }
 
+  public BudgetForQueryBudgetDetailOutput currencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
+    return this;
+  }
+
+   /**
+   * Get currencySettlement
+   * @return currencySettlement
+  **/
+  @Schema(description = "")
+  public String getCurrencySettlement() {
+    return currencySettlement;
+  }
+
+  public void setCurrencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
+  }
+
   public BudgetForQueryBudgetDetailOutput period(String period) {
     this.period = period;
     return this;
@@ -166,17 +208,19 @@ public class BudgetForQueryBudgetDetailOutput {
       return false;
     }
     BudgetForQueryBudgetDetailOutput budgetForQueryBudgetDetailOutput = (BudgetForQueryBudgetDetailOutput) o;
-    return Objects.equals(this.budgetEndTime, budgetForQueryBudgetDetailOutput.budgetEndTime) &&
+    return Objects.equals(this.amountType, budgetForQueryBudgetDetailOutput.amountType) &&
+        Objects.equals(this.budgetEndTime, budgetForQueryBudgetDetailOutput.budgetEndTime) &&
         Objects.equals(this.budgetName, budgetForQueryBudgetDetailOutput.budgetName) &&
         Objects.equals(this.budgetPlanType, budgetForQueryBudgetDetailOutput.budgetPlanType) &&
         Objects.equals(this.budgetStartTime, budgetForQueryBudgetDetailOutput.budgetStartTime) &&
         Objects.equals(this.budgetType, budgetForQueryBudgetDetailOutput.budgetType) &&
+        Objects.equals(this.currencySettlement, budgetForQueryBudgetDetailOutput.currencySettlement) &&
         Objects.equals(this.period, budgetForQueryBudgetDetailOutput.period);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(budgetEndTime, budgetName, budgetPlanType, budgetStartTime, budgetType, period);
+    return Objects.hash(amountType, budgetEndTime, budgetName, budgetPlanType, budgetStartTime, budgetType, currencySettlement, period);
   }
 
 
@@ -185,11 +229,13 @@ public class BudgetForQueryBudgetDetailOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class BudgetForQueryBudgetDetailOutput {\n");
     
+    sb.append("    amountType: ").append(toIndentedString(amountType)).append("\n");
     sb.append("    budgetEndTime: ").append(toIndentedString(budgetEndTime)).append("\n");
     sb.append("    budgetName: ").append(toIndentedString(budgetName)).append("\n");
     sb.append("    budgetPlanType: ").append(toIndentedString(budgetPlanType)).append("\n");
     sb.append("    budgetStartTime: ").append(toIndentedString(budgetStartTime)).append("\n");
     sb.append("    budgetType: ").append(toIndentedString(budgetType)).append("\n");
+    sb.append("    currencySettlement: ").append(toIndentedString(currencySettlement)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("}");
     return sb.toString();
