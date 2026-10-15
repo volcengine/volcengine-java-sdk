@@ -50,14 +50,19 @@ public class SignRequestInterceptor implements RequestInterceptor {
         if (context.getApiClient().getCredentials() != null) {
             volcengineSign.setCredentials(context.getApiClient().getCredentials());
         } else {
-            CredentialProvider credentialProvider = context.getApiClient().getCredentialProvider();
+            CredentialProvider credentialProvider = context.getRequestContext().getCredentialProvider();
+            if (credentialProvider == null) {
+                credentialProvider = context.getApiClient().getCredentialProvider();
+            }
             if (credentialProvider == null) {
                 // No explicit credentials or provider set — use default credential chain
                 credentialProvider = new com.volcengine.auth.CredentialProvider(
                     com.volcengine.auth.DefaultCredentialProvider.create()
                 );
                 context.getApiClient().setCredentialProvider(credentialProvider);
+                credentialProvider = context.getApiClient().getCredentialProvider();
             }
+            context.getRequestContext().setCredentialProvider(credentialProvider);
             CredentialValue credentialValue = credentialProvider.get();
             if (credentialValue == null) {
                 throw new ApiException("credentialProvider return null");

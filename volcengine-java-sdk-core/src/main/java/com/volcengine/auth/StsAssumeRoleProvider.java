@@ -1,13 +1,28 @@
 package com.volcengine.auth;
 
+import com.squareup.okhttp.OkHttpClient;
 import com.volcengine.*;
 import com.volcengine.sign.Credentials;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 
+/**
+ * Provider that obtains temporary credentials via STS AssumeRole.
+ *
+ * <p>When this exact built-in type is wrapped in {@link CredentialProvider},
+ * ApiClient snapshots its configuration on first credential access. Source role,
+ * credentials, proxy, TLS, expiry, and retry changes require calling
+ * {@link ApiClient#setCredentialProvider(CredentialProvider)} again on each
+ * affected client. Source cache or expiration changes do not update an existing
+ * binding. Separate client caches may increase STS calls. Subclasses retain
+ * their existing identity and are not snapshotted by this binding mechanism.
+ */
 public class StsAssumeRoleProvider implements Provider {
     private String accessKey;
     private String securityKey;
@@ -23,6 +38,17 @@ public class StsAssumeRoleProvider implements Provider {
     private int durationSeconds = 3600;
 
     private int expireBufferSeconds = 60;
+
+    // Without provider or client fallback overrides, retain the original
+    // ApiClient transport, including its supported proxy environment variables.
+    private String proxyUrl;
+    private String fallbackProxyUrl;
+    private String caFile;
+    private boolean insecureSkipVerify;
+    private ApiClient.TlsSettings baselineTls;
+    private OkHttpClient baselineProxy;
+    private String baselineHttpProxy;
+    private String baselineHttpsProxy;
 
     private CredentialValue credentialValue;
 
@@ -46,6 +72,33 @@ public class StsAssumeRoleProvider implements Provider {
                 .setEndpoint(this.host)
                 .setCredentials(Credentials.getCredentials(accessKey, securityKey, sessionToken))
                 .setRegion(this.region);
+    }
+
+    private StsAssumeRoleProvider(StsAssumeRoleProvider source, String fallbackProxyUrl) {
+        accessKey = source.accessKey;
+        securityKey = source.securityKey;
+        sessionToken = source.sessionToken;
+        roleName = source.roleName;
+        accountId = source.accountId;
+        host = source.host;
+        region = source.region;
+        schema = source.schema;
+        timeout = source.timeout;
+        durationSeconds = source.durationSeconds;
+        expireBufferSeconds = source.expireBufferSeconds;
+        proxyUrl = source.proxyUrl;
+        caFile = source.caFile;
+        insecureSkipVerify = source.insecureSkipVerify;
+        this.fallbackProxyUrl = fallbackProxyUrl;
+        apiClient = source.apiClient.copyForCredentialProvider();
+        baselineTls = source.baselineTls;
+        baselineProxy = source.baselineProxy;
+        baselineHttpProxy = source.baselineHttpProxy;
+        baselineHttpsProxy = source.baselineHttpsProxy;
+    }
+
+    synchronized StsAssumeRoleProvider bind(String httpProxy, String httpsProxy) {
+        return new StsAssumeRoleProvider(this, apiClient.getDisableSSL() ? httpProxy : httpsProxy);
     }
 
     public String getAccessKey() {
@@ -143,6 +196,134 @@ public class StsAssumeRoleProvider implements Provider {
         this.expireBufferSeconds = expireBufferSeconds;
     }
 
+    public String getProxyUrl() {
+        return proxyUrl;
+    }
+
+    /**
+     * Set the HTTP forward proxy for reaching the STS endpoint, format
+     * {@code http://[user:password@]host:port}, with an explicit port in
+     * {@code 1..65535}. TLS-to-proxy and SOCKS are unsupported.
+     * When empty, the bound client's explicit STS-scheme proxy applies, then
+     * the original ApiClient proxy selection, including supported proxy
+     * environment variables.
+     */
+    public synchronized void setProxyUrl(String proxyUrl) {
+        this.proxyUrl = proxyUrl;
+    }
+
+    public String getCaFile() {
+        return caFile;
+    }
+
+    /**
+     * Set a custom PEM CA bundle used to verify the STS server certificate.
+     * When empty and {@code insecureSkipVerify == false}, the next STS refresh
+     * removes provider TLS overrides and restores the original ApiClient TLS
+     * settings, including any custom factory. JVM default trust applies only
+     * if the original settings were not customized.
+     */
+    public synchronized void setCaFile(String caFile) {
+        this.caFile = caFile;
+    }
+
+    public boolean isInsecureSkipVerify() {
+        return insecureSkipVerify;
+    }
+
+    /**
+     * When {@code true}, skip STS TLS certificate and hostname verification.
+     * Takes precedence over {@code caFile}. When {@code false}, a configured CA
+     * still applies; only an empty CA also removes all provider TLS overrides.
+     * For debugging only; never enable in production.
+     */
+    public synchronized void setInsecureSkipVerify(boolean insecureSkipVerify) {
+        this.insecureSkipVerify = insecureSkipVerify;
+    }
+
+    /**
+     * Apply the proxy/TLS options to the underlying {@link ApiClient} before a
+     * request. Only touches the settings the caller explicitly configured, so
+     * host / region / credentials / timeout set elsewhere are preserved.
+     */
+    synchronized void applyHttpConfig() throws ApiException {
+        String resolvedProxy = isNullOrEmpty(proxyUrl) ? fallbackProxyUrl : proxyUrl;
+        boolean tlsOverride = insecureSkipVerify || !isNullOrEmpty(caFile);
+        byte[] caBytes = null;
+        if (!insecureSkipVerify && !isNullOrEmpty(caFile)) {
+            try {
+                caBytes = Files.readAllBytes(Paths.get(caFile));
+            } catch (IOException e) {
+                throw new ApiException("StsAssumeRoleProvider: unable to read CAFile \"" + caFile + "\"");
+            }
+        }
+        if (!isNullOrEmpty(resolvedProxy)) {
+            StsFormRequest.parseProxy(resolvedProxy);
+        }
+        // Detach before overriding any caller-owned transport settings.
+        if (tlsOverride || baselineTls != null || !isNullOrEmpty(resolvedProxy) || baselineProxy != null) {
+            apiClient.setHttpClient(apiClient.getHttpClient().clone());
+        }
+        if (tlsOverride) {
+            ApiClient.TlsSettings previous = apiClient.snapshotTlsSettings();
+            try {
+                apiClient.applyStsTlsSettings(insecureSkipVerify, caBytes);
+            } catch (RuntimeException e) {
+                throw new ApiException("StsAssumeRoleProvider: invalid TLS configuration", e, 0, null);
+            }
+            if (baselineTls == null) {
+                baselineTls = previous;
+            }
+        } else if (baselineTls != null) {
+            apiClient.restoreTlsSettings(baselineTls);
+            baselineTls = null;
+        }
+        if (!isNullOrEmpty(resolvedProxy)) {
+            if (baselineProxy == null) {
+                baselineProxy = apiClient.getHttpClient().clone();
+                baselineHttpProxy = apiClient.getHttpProxy();
+                baselineHttpsProxy = apiClient.getHttpsProxy();
+            }
+            apiClient.setHttpProxy(resolvedProxy);
+            apiClient.setHttpsProxy(resolvedProxy);
+            restoreProxyTransport();
+            // Use controlled CONNECT for every explicit HTTPS proxy, including
+            // URLs without credentials, and retain 407 as an HTTP status.
+            StsProxySupport.configure(apiClient.getHttpClient(), resolvedProxy,
+                    StsFormRequest.normalizeEndpoint(apiClient.getEndpoint(),
+                            apiClient.getDisableSSL() ? "http" : "https"));
+            apiClient.getHttpClient().interceptors().add(StsProxySupport.PROXY_AUTH_RESPONSE);
+        } else if (baselineProxy != null) {
+            apiClient.setHttpProxy(baselineHttpProxy);
+            apiClient.setHttpsProxy(baselineHttpsProxy);
+            apiClient.getHttpClient().setProxy(baselineProxy.getProxy());
+            apiClient.getHttpClient().setProxySelector(baselineProxy.getProxySelector());
+            // Refresh an SDK-managed snapshot for the current scheme; caller
+            // selectors are preserved by setDisableSSL.
+            apiClient.setDisableSSL(apiClient.getDisableSSL());
+            restoreProxyTransport();
+            baselineProxy = null;
+        }
+    }
+
+    private void restoreProxyTransport() {
+        apiClient.getHttpClient().interceptors().remove(StsProxySupport.PROXY_AUTH_RESPONSE);
+        apiClient.getHttpClient().setAuthenticator(baselineProxy.getAuthenticator());
+        apiClient.getHttpClient().setSocketFactory(baselineProxy.getSocketFactory());
+        apiClient.getHttpClient().setDns(baselineProxy.getDns());
+        apiClient.getHttpClient().setFollowRedirects(baselineProxy.getFollowRedirects());
+        apiClient.getHttpClient().setFollowSslRedirects(baselineProxy.getFollowSslRedirects());
+    }
+
+    private static boolean isNullOrEmpty(String s) {
+        return s == null || s.isEmpty();
+    }
+
+    // Package-private accessor used by tests to assert proxy/TLS propagation.
+    ApiClient getApiClient() {
+        return apiClient;
+    }
+
     public CredentialValue getCredentialValue() {
         return credentialValue;
     }
@@ -171,7 +352,8 @@ public class StsAssumeRoleProvider implements Provider {
         return System.currentTimeMillis() / 1000 > expirationTime;
     }
 
-    public void refresh() throws ApiException {
+    public synchronized void refresh() throws ApiException {
+        applyHttpConfig();
         UniversalApi api = new UniversalApi(apiClient);
         UniversalRequest request = new UniversalRequest("sts", "AssumeRole", "2018-01-01", HttpMethod.GET, ContentType.Default);
         Map<String, Object> requestMap = new HashMap<>();

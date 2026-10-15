@@ -16,6 +16,33 @@ public class CredentialProvider {
         readWriteLock = new ReentrantReadWriteLock();
     }
 
+    public Provider getProvider() {
+        return provider;
+    }
+
+    /**
+     * Bind only SDK-owned implementations. Custom providers keep their original
+     * identity and synchronization contract.
+     */
+    public CredentialProvider bind(String httpProxy, String httpsProxy) {
+        readWriteLock.writeLock().lock();
+        try {
+            Provider copy;
+            if (provider.getClass() == StsAssumeRoleProvider.class) {
+                copy = ((StsAssumeRoleProvider) provider).bind(httpProxy, httpsProxy);
+            } else if (provider.getClass() == OidcCredentialProvider.class) {
+                copy = ((OidcCredentialProvider) provider).bind(httpProxy, httpsProxy);
+            } else if (provider.getClass() == SamlCredentialProvider.class) {
+                copy = ((SamlCredentialProvider) provider).bind(httpProxy, httpsProxy);
+            } else {
+                return this;
+            }
+            return new CredentialProvider(copy);
+        } finally {
+            readWriteLock.writeLock().unlock();
+        }
+    }
+
     public CredentialValue get() throws ApiException {
         try {
             readWriteLock.readLock().lock();

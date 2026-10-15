@@ -13,6 +13,13 @@ public class Retryer {
         this.retryCondition = retryCondition;
     }
 
+    /** Copy retry configuration using each strategy's copy contract. */
+    public Retryer copy() {
+        return new Retryer(numMaxRetries,
+                backoffStrategy == null ? null : backoffStrategy.copy(),
+                retryCondition == null ? null : retryCondition.copy());
+    }
+
     public boolean shouldRetry(ApiResponse response, int retryCount, ApiException apiException) {
         return retryCount < numMaxRetries && retryCondition.shouldRetry(response, apiException);
     }
