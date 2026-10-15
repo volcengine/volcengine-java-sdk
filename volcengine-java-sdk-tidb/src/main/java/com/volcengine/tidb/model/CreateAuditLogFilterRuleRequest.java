@@ -36,8 +36,8 @@ public class CreateAuditLogFilterRuleRequest {
   @SerializedName("ClusterId")
   private String clusterId = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
+  @SerializedName("FilterRuleName")
+  private String filterRuleName = null;
 
   @SerializedName("Filters")
   private List<FilterForCreateAuditLogFilterRuleInput> filters = null;
@@ -67,23 +67,23 @@ public class CreateAuditLogFilterRuleRequest {
     this.clusterId = clusterId;
   }
 
-  public CreateAuditLogFilterRuleRequest displayName(String displayName) {
-    this.displayName = displayName;
+  public CreateAuditLogFilterRuleRequest filterRuleName(String filterRuleName) {
+    this.filterRuleName = filterRuleName;
     return this;
   }
 
    /**
-   * Get displayName
-   * @return displayName
+   * Get filterRuleName
+   * @return filterRuleName
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getDisplayName() {
-    return displayName;
+  public String getFilterRuleName() {
+    return filterRuleName;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setFilterRuleName(String filterRuleName) {
+    this.filterRuleName = filterRuleName;
   }
 
   public CreateAuditLogFilterRuleRequest filters(List<FilterForCreateAuditLogFilterRuleInput> filters) {
@@ -168,7 +168,7 @@ public class CreateAuditLogFilterRuleRequest {
     }
     CreateAuditLogFilterRuleRequest createAuditLogFilterRuleRequest = (CreateAuditLogFilterRuleRequest) o;
     return Objects.equals(this.clusterId, createAuditLogFilterRuleRequest.clusterId) &&
-        Objects.equals(this.displayName, createAuditLogFilterRuleRequest.displayName) &&
+        Objects.equals(this.filterRuleName, createAuditLogFilterRuleRequest.filterRuleName) &&
         Objects.equals(this.filters, createAuditLogFilterRuleRequest.filters) &&
         Objects.equals(this.projectName, createAuditLogFilterRuleRequest.projectName) &&
         Objects.equals(this.users, createAuditLogFilterRuleRequest.users);
@@ -176,7 +176,7 @@ public class CreateAuditLogFilterRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, displayName, filters, projectName, users);
+    return Objects.hash(clusterId, filterRuleName, filters, projectName, users);
   }
 
 
@@ -186,7 +186,7 @@ public class CreateAuditLogFilterRuleRequest {
     sb.append("class CreateAuditLogFilterRuleRequest {\n");
     
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    filterRuleName: ").append(toIndentedString(filterRuleName)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");

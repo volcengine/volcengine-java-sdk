@@ -30,17 +30,35 @@ import javax.validation.Valid;
 
 
 public class CreatePrivateEndpointAllowlistRuleRequest {
+  @SerializedName("AuthorizedNetworkName")
+  private String authorizedNetworkName = null;
+
   @SerializedName("ClusterId")
   private String clusterId = null;
-
-  @SerializedName("DisplayName")
-  private String displayName = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("VpcEndpointId")
   private String vpcEndpointId = null;
+
+  public CreatePrivateEndpointAllowlistRuleRequest authorizedNetworkName(String authorizedNetworkName) {
+    this.authorizedNetworkName = authorizedNetworkName;
+    return this;
+  }
+
+   /**
+   * Get authorizedNetworkName
+   * @return authorizedNetworkName
+  **/
+  @Schema(description = "")
+  public String getAuthorizedNetworkName() {
+    return authorizedNetworkName;
+  }
+
+  public void setAuthorizedNetworkName(String authorizedNetworkName) {
+    this.authorizedNetworkName = authorizedNetworkName;
+  }
 
   public CreatePrivateEndpointAllowlistRuleRequest clusterId(String clusterId) {
     this.clusterId = clusterId;
@@ -59,24 +77,6 @@ public class CreatePrivateEndpointAllowlistRuleRequest {
 
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
-  }
-
-  public CreatePrivateEndpointAllowlistRuleRequest displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
   }
 
   public CreatePrivateEndpointAllowlistRuleRequest projectName(String projectName) {
@@ -126,15 +126,15 @@ public class CreatePrivateEndpointAllowlistRuleRequest {
       return false;
     }
     CreatePrivateEndpointAllowlistRuleRequest createPrivateEndpointAllowlistRuleRequest = (CreatePrivateEndpointAllowlistRuleRequest) o;
-    return Objects.equals(this.clusterId, createPrivateEndpointAllowlistRuleRequest.clusterId) &&
-        Objects.equals(this.displayName, createPrivateEndpointAllowlistRuleRequest.displayName) &&
+    return Objects.equals(this.authorizedNetworkName, createPrivateEndpointAllowlistRuleRequest.authorizedNetworkName) &&
+        Objects.equals(this.clusterId, createPrivateEndpointAllowlistRuleRequest.clusterId) &&
         Objects.equals(this.projectName, createPrivateEndpointAllowlistRuleRequest.projectName) &&
         Objects.equals(this.vpcEndpointId, createPrivateEndpointAllowlistRuleRequest.vpcEndpointId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, displayName, projectName, vpcEndpointId);
+    return Objects.hash(authorizedNetworkName, clusterId, projectName, vpcEndpointId);
   }
 
 
@@ -143,8 +143,8 @@ public class CreatePrivateEndpointAllowlistRuleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePrivateEndpointAllowlistRuleRequest {\n");
     
+    sb.append("    authorizedNetworkName: ").append(toIndentedString(authorizedNetworkName)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vpcEndpointId: ").append(toIndentedString(vpcEndpointId)).append("\n");
     sb.append("}");

@@ -39,11 +39,11 @@ public class UpdateAuditLogFilterRuleRequest {
   @SerializedName("Disabled")
   private Boolean disabled = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
-
   @SerializedName("FilterRuleId")
   private String filterRuleId = null;
+
+  @SerializedName("FilterRuleName")
+  private String filterRuleName = null;
 
   @SerializedName("Filters")
   private List<FilterForUpdateAuditLogFilterRuleInput> filters = null;
@@ -91,24 +91,6 @@ public class UpdateAuditLogFilterRuleRequest {
     this.disabled = disabled;
   }
 
-  public UpdateAuditLogFilterRuleRequest displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
   public UpdateAuditLogFilterRuleRequest filterRuleId(String filterRuleId) {
     this.filterRuleId = filterRuleId;
     return this;
@@ -126,6 +108,24 @@ public class UpdateAuditLogFilterRuleRequest {
 
   public void setFilterRuleId(String filterRuleId) {
     this.filterRuleId = filterRuleId;
+  }
+
+  public UpdateAuditLogFilterRuleRequest filterRuleName(String filterRuleName) {
+    this.filterRuleName = filterRuleName;
+    return this;
+  }
+
+   /**
+   * Get filterRuleName
+   * @return filterRuleName
+  **/
+  @Schema(description = "")
+  public String getFilterRuleName() {
+    return filterRuleName;
+  }
+
+  public void setFilterRuleName(String filterRuleName) {
+    this.filterRuleName = filterRuleName;
   }
 
   public UpdateAuditLogFilterRuleRequest filters(List<FilterForUpdateAuditLogFilterRuleInput> filters) {
@@ -211,8 +211,8 @@ public class UpdateAuditLogFilterRuleRequest {
     UpdateAuditLogFilterRuleRequest updateAuditLogFilterRuleRequest = (UpdateAuditLogFilterRuleRequest) o;
     return Objects.equals(this.clusterId, updateAuditLogFilterRuleRequest.clusterId) &&
         Objects.equals(this.disabled, updateAuditLogFilterRuleRequest.disabled) &&
-        Objects.equals(this.displayName, updateAuditLogFilterRuleRequest.displayName) &&
         Objects.equals(this.filterRuleId, updateAuditLogFilterRuleRequest.filterRuleId) &&
+        Objects.equals(this.filterRuleName, updateAuditLogFilterRuleRequest.filterRuleName) &&
         Objects.equals(this.filters, updateAuditLogFilterRuleRequest.filters) &&
         Objects.equals(this.projectName, updateAuditLogFilterRuleRequest.projectName) &&
         Objects.equals(this.users, updateAuditLogFilterRuleRequest.users);
@@ -220,7 +220,7 @@ public class UpdateAuditLogFilterRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, disabled, displayName, filterRuleId, filters, projectName, users);
+    return Objects.hash(clusterId, disabled, filterRuleId, filterRuleName, filters, projectName, users);
   }
 
 
@@ -231,8 +231,8 @@ public class UpdateAuditLogFilterRuleRequest {
     
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    filterRuleId: ").append(toIndentedString(filterRuleId)).append("\n");
+    sb.append("    filterRuleName: ").append(toIndentedString(filterRuleName)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");

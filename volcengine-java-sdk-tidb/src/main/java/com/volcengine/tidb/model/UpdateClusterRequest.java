@@ -49,8 +49,8 @@ public class UpdateClusterRequest {
     AUTOSCALING("autoScaling"),
     @SerializedName("automatedBackupPolicy")
     AUTOMATEDBACKUPPOLICY("automatedBackupPolicy"),
-    @SerializedName("displayName")
-    DISPLAYNAME("displayName");
+    @SerializedName("clusterName")
+    CLUSTERNAME("clusterName");
 
     private String value;
 

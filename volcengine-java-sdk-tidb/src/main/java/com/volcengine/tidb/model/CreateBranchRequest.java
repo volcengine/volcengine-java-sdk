@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.BranchForCreateBranchInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,32 +30,38 @@ import javax.validation.Valid;
 
 
 public class CreateBranchRequest {
-  @SerializedName("Branch")
-  private BranchForCreateBranchInput branch = null;
+  @SerializedName("BranchName")
+  private String branchName = null;
 
   @SerializedName("ClusterId")
   private String clusterId = null;
 
+  @SerializedName("ParentId")
+  private String parentId = null;
+
+  @SerializedName("ParentTimestamp")
+  private String parentTimestamp = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public CreateBranchRequest branch(BranchForCreateBranchInput branch) {
-    this.branch = branch;
+  public CreateBranchRequest branchName(String branchName) {
+    this.branchName = branchName;
     return this;
   }
 
    /**
-   * Get branch
-   * @return branch
+   * Get branchName
+   * @return branchName
   **/
-  @Valid
-  @Schema(description = "")
-  public BranchForCreateBranchInput getBranch() {
-    return branch;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getBranchName() {
+    return branchName;
   }
 
-  public void setBranch(BranchForCreateBranchInput branch) {
-    this.branch = branch;
+  public void setBranchName(String branchName) {
+    this.branchName = branchName;
   }
 
   public CreateBranchRequest clusterId(String clusterId) {
@@ -76,6 +81,42 @@ public class CreateBranchRequest {
 
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
+  }
+
+  public CreateBranchRequest parentId(String parentId) {
+    this.parentId = parentId;
+    return this;
+  }
+
+   /**
+   * Get parentId
+   * @return parentId
+  **/
+  @Schema(description = "")
+  public String getParentId() {
+    return parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public CreateBranchRequest parentTimestamp(String parentTimestamp) {
+    this.parentTimestamp = parentTimestamp;
+    return this;
+  }
+
+   /**
+   * Get parentTimestamp
+   * @return parentTimestamp
+  **/
+  @Schema(description = "")
+  public String getParentTimestamp() {
+    return parentTimestamp;
+  }
+
+  public void setParentTimestamp(String parentTimestamp) {
+    this.parentTimestamp = parentTimestamp;
   }
 
   public CreateBranchRequest projectName(String projectName) {
@@ -106,14 +147,16 @@ public class CreateBranchRequest {
       return false;
     }
     CreateBranchRequest createBranchRequest = (CreateBranchRequest) o;
-    return Objects.equals(this.branch, createBranchRequest.branch) &&
+    return Objects.equals(this.branchName, createBranchRequest.branchName) &&
         Objects.equals(this.clusterId, createBranchRequest.clusterId) &&
+        Objects.equals(this.parentId, createBranchRequest.parentId) &&
+        Objects.equals(this.parentTimestamp, createBranchRequest.parentTimestamp) &&
         Objects.equals(this.projectName, createBranchRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(branch, clusterId, projectName);
+    return Objects.hash(branchName, clusterId, parentId, parentTimestamp, projectName);
   }
 
 
@@ -122,8 +165,10 @@ public class CreateBranchRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBranchRequest {\n");
     
-    sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
+    sb.append("    branchName: ").append(toIndentedString(branchName)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    parentTimestamp: ").append(toIndentedString(parentTimestamp)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

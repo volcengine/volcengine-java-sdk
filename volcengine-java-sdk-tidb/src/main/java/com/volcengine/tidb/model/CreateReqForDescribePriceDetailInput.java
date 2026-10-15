@@ -39,8 +39,8 @@ public class CreateReqForDescribePriceDetailInput {
   @SerializedName("AutoScaling")
   private AutoScalingForDescribePriceDetailInput autoScaling = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
+  @SerializedName("ClusterName")
+  private String clusterName = null;
 
   @SerializedName("EncryptionConfig")
   private EncryptionConfigForDescribePriceDetailInput encryptionConfig = null;
@@ -177,22 +177,22 @@ public class CreateReqForDescribePriceDetailInput {
     this.autoScaling = autoScaling;
   }
 
-  public CreateReqForDescribePriceDetailInput displayName(String displayName) {
-    this.displayName = displayName;
+  public CreateReqForDescribePriceDetailInput clusterName(String clusterName) {
+    this.clusterName = clusterName;
     return this;
   }
 
    /**
-   * Get displayName
-   * @return displayName
+   * Get clusterName
+   * @return clusterName
   **/
   @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
+  public String getClusterName() {
+    return clusterName;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setClusterName(String clusterName) {
+    this.clusterName = clusterName;
   }
 
   public CreateReqForDescribePriceDetailInput encryptionConfig(EncryptionConfigForDescribePriceDetailInput encryptionConfig) {
@@ -369,7 +369,7 @@ public class CreateReqForDescribePriceDetailInput {
     }
     CreateReqForDescribePriceDetailInput createReqForDescribePriceDetailInput = (CreateReqForDescribePriceDetailInput) o;
     return Objects.equals(this.autoScaling, createReqForDescribePriceDetailInput.autoScaling) &&
-        Objects.equals(this.displayName, createReqForDescribePriceDetailInput.displayName) &&
+        Objects.equals(this.clusterName, createReqForDescribePriceDetailInput.clusterName) &&
         Objects.equals(this.encryptionConfig, createReqForDescribePriceDetailInput.encryptionConfig) &&
         Objects.equals(this.highAvailabilityType, createReqForDescribePriceDetailInput.highAvailabilityType) &&
         Objects.equals(this.projectName, createReqForDescribePriceDetailInput.projectName) &&
@@ -382,7 +382,7 @@ public class CreateReqForDescribePriceDetailInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, displayName, encryptionConfig, highAvailabilityType, projectName, regionId, servicePlan, tags, vpcId, zones);
+    return Objects.hash(autoScaling, clusterName, encryptionConfig, highAvailabilityType, projectName, regionId, servicePlan, tags, vpcId, zones);
   }
 
 
@@ -392,7 +392,7 @@ public class CreateReqForDescribePriceDetailInput {
     sb.append("class CreateReqForDescribePriceDetailInput {\n");
     
     sb.append("    autoScaling: ").append(toIndentedString(autoScaling)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    encryptionConfig: ").append(toIndentedString(encryptionConfig)).append("\n");
     sb.append("    highAvailabilityType: ").append(toIndentedString(highAvailabilityType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

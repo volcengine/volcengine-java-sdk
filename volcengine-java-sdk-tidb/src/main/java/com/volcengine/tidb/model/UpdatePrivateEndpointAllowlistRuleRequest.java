@@ -30,20 +30,38 @@ import javax.validation.Valid;
 
 
 public class UpdatePrivateEndpointAllowlistRuleRequest {
+  @SerializedName("AuthorizedNetworkName")
+  private String authorizedNetworkName = null;
+
   @SerializedName("ClusterId")
   private String clusterId = null;
 
   @SerializedName("CurrentVpcEndpointId")
   private String currentVpcEndpointId = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
-
   @SerializedName("NewVpcEndpointId")
   private String newVpcEndpointId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  public UpdatePrivateEndpointAllowlistRuleRequest authorizedNetworkName(String authorizedNetworkName) {
+    this.authorizedNetworkName = authorizedNetworkName;
+    return this;
+  }
+
+   /**
+   * Get authorizedNetworkName
+   * @return authorizedNetworkName
+  **/
+  @Schema(description = "")
+  public String getAuthorizedNetworkName() {
+    return authorizedNetworkName;
+  }
+
+  public void setAuthorizedNetworkName(String authorizedNetworkName) {
+    this.authorizedNetworkName = authorizedNetworkName;
+  }
 
   public UpdatePrivateEndpointAllowlistRuleRequest clusterId(String clusterId) {
     this.clusterId = clusterId;
@@ -81,24 +99,6 @@ public class UpdatePrivateEndpointAllowlistRuleRequest {
 
   public void setCurrentVpcEndpointId(String currentVpcEndpointId) {
     this.currentVpcEndpointId = currentVpcEndpointId;
-  }
-
-  public UpdatePrivateEndpointAllowlistRuleRequest displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
   }
 
   public UpdatePrivateEndpointAllowlistRuleRequest newVpcEndpointId(String newVpcEndpointId) {
@@ -147,16 +147,16 @@ public class UpdatePrivateEndpointAllowlistRuleRequest {
       return false;
     }
     UpdatePrivateEndpointAllowlistRuleRequest updatePrivateEndpointAllowlistRuleRequest = (UpdatePrivateEndpointAllowlistRuleRequest) o;
-    return Objects.equals(this.clusterId, updatePrivateEndpointAllowlistRuleRequest.clusterId) &&
+    return Objects.equals(this.authorizedNetworkName, updatePrivateEndpointAllowlistRuleRequest.authorizedNetworkName) &&
+        Objects.equals(this.clusterId, updatePrivateEndpointAllowlistRuleRequest.clusterId) &&
         Objects.equals(this.currentVpcEndpointId, updatePrivateEndpointAllowlistRuleRequest.currentVpcEndpointId) &&
-        Objects.equals(this.displayName, updatePrivateEndpointAllowlistRuleRequest.displayName) &&
         Objects.equals(this.newVpcEndpointId, updatePrivateEndpointAllowlistRuleRequest.newVpcEndpointId) &&
         Objects.equals(this.projectName, updatePrivateEndpointAllowlistRuleRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, currentVpcEndpointId, displayName, newVpcEndpointId, projectName);
+    return Objects.hash(authorizedNetworkName, clusterId, currentVpcEndpointId, newVpcEndpointId, projectName);
   }
 
 
@@ -165,9 +165,9 @@ public class UpdatePrivateEndpointAllowlistRuleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdatePrivateEndpointAllowlistRuleRequest {\n");
     
+    sb.append("    authorizedNetworkName: ").append(toIndentedString(authorizedNetworkName)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    currentVpcEndpointId: ").append(toIndentedString(currentVpcEndpointId)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    newVpcEndpointId: ").append(toIndentedString(newVpcEndpointId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");

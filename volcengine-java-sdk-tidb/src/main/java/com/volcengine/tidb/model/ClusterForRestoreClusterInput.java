@@ -35,8 +35,8 @@ public class ClusterForRestoreClusterInput {
   @SerializedName("AutoScaling")
   private AutoScalingForRestoreClusterInput autoScaling = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
+  @SerializedName("ClusterName")
+  private String clusterName = null;
 
   /**
    * Gets or Sets highAvailabilityType
@@ -106,22 +106,22 @@ public class ClusterForRestoreClusterInput {
     this.autoScaling = autoScaling;
   }
 
-  public ClusterForRestoreClusterInput displayName(String displayName) {
-    this.displayName = displayName;
+  public ClusterForRestoreClusterInput clusterName(String clusterName) {
+    this.clusterName = clusterName;
     return this;
   }
 
    /**
-   * Get displayName
-   * @return displayName
+   * Get clusterName
+   * @return clusterName
   **/
   @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
+  public String getClusterName() {
+    return clusterName;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setClusterName(String clusterName) {
+    this.clusterName = clusterName;
   }
 
   public ClusterForRestoreClusterInput highAvailabilityType(HighAvailabilityTypeEnum highAvailabilityType) {
@@ -172,14 +172,14 @@ public class ClusterForRestoreClusterInput {
     }
     ClusterForRestoreClusterInput clusterForRestoreClusterInput = (ClusterForRestoreClusterInput) o;
     return Objects.equals(this.autoScaling, clusterForRestoreClusterInput.autoScaling) &&
-        Objects.equals(this.displayName, clusterForRestoreClusterInput.displayName) &&
+        Objects.equals(this.clusterName, clusterForRestoreClusterInput.clusterName) &&
         Objects.equals(this.highAvailabilityType, clusterForRestoreClusterInput.highAvailabilityType) &&
         Objects.equals(this.spendingLimit, clusterForRestoreClusterInput.spendingLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, displayName, highAvailabilityType, spendingLimit);
+    return Objects.hash(autoScaling, clusterName, highAvailabilityType, spendingLimit);
   }
 
 
@@ -189,7 +189,7 @@ public class ClusterForRestoreClusterInput {
     sb.append("class ClusterForRestoreClusterInput {\n");
     
     sb.append("    autoScaling: ").append(toIndentedString(autoScaling)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    highAvailabilityType: ").append(toIndentedString(highAvailabilityType)).append("\n");
     sb.append("    spendingLimit: ").append(toIndentedString(spendingLimit)).append("\n");
     sb.append("}");
