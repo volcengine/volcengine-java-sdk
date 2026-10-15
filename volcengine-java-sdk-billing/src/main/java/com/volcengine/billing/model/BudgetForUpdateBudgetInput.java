@@ -30,6 +30,52 @@ import javax.validation.Valid;
 
 
 public class BudgetForUpdateBudgetInput {
+  /**
+   * Gets or Sets amountType
+   */
+  @JsonAdapter(AmountTypeEnum.Adapter.class)
+  public enum AmountTypeEnum {
+    @SerializedName("pre_tax_payable")
+    PRE_TAX_PAYABLE("pre_tax_payable"),
+    @SerializedName("post_tax_payable")
+    POST_TAX_PAYABLE("post_tax_payable");
+
+    private String value;
+
+    AmountTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AmountTypeEnum fromValue(String input) {
+      for (AmountTypeEnum b : AmountTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AmountTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AmountTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AmountTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AmountTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AmountType")
+  private AmountTypeEnum amountType = null;
+
   @SerializedName("BudgetEndTime")
   private String budgetEndTime = null;
 
@@ -129,6 +175,9 @@ public class BudgetForUpdateBudgetInput {
   }  @SerializedName("BudgetType")
   private BudgetTypeEnum budgetType = null;
 
+  @SerializedName("CurrencySettlement")
+  private String currencySettlement = null;
+
   /**
    * Gets or Sets period
    */
@@ -176,6 +225,24 @@ public class BudgetForUpdateBudgetInput {
     }
   }  @SerializedName("Period")
   private PeriodEnum period = null;
+
+  public BudgetForUpdateBudgetInput amountType(AmountTypeEnum amountType) {
+    this.amountType = amountType;
+    return this;
+  }
+
+   /**
+   * Get amountType
+   * @return amountType
+  **/
+  @Schema(description = "")
+  public AmountTypeEnum getAmountType() {
+    return amountType;
+  }
+
+  public void setAmountType(AmountTypeEnum amountType) {
+    this.amountType = amountType;
+  }
 
   public BudgetForUpdateBudgetInput budgetEndTime(String budgetEndTime) {
     this.budgetEndTime = budgetEndTime;
@@ -267,6 +334,24 @@ public class BudgetForUpdateBudgetInput {
     this.budgetType = budgetType;
   }
 
+  public BudgetForUpdateBudgetInput currencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
+    return this;
+  }
+
+   /**
+   * Get currencySettlement
+   * @return currencySettlement
+  **/
+  @Schema(description = "")
+  public String getCurrencySettlement() {
+    return currencySettlement;
+  }
+
+  public void setCurrencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
+  }
+
   public BudgetForUpdateBudgetInput period(PeriodEnum period) {
     this.period = period;
     return this;
@@ -295,17 +380,19 @@ public class BudgetForUpdateBudgetInput {
       return false;
     }
     BudgetForUpdateBudgetInput budgetForUpdateBudgetInput = (BudgetForUpdateBudgetInput) o;
-    return Objects.equals(this.budgetEndTime, budgetForUpdateBudgetInput.budgetEndTime) &&
+    return Objects.equals(this.amountType, budgetForUpdateBudgetInput.amountType) &&
+        Objects.equals(this.budgetEndTime, budgetForUpdateBudgetInput.budgetEndTime) &&
         Objects.equals(this.budgetName, budgetForUpdateBudgetInput.budgetName) &&
         Objects.equals(this.budgetPlanType, budgetForUpdateBudgetInput.budgetPlanType) &&
         Objects.equals(this.budgetStartTime, budgetForUpdateBudgetInput.budgetStartTime) &&
         Objects.equals(this.budgetType, budgetForUpdateBudgetInput.budgetType) &&
+        Objects.equals(this.currencySettlement, budgetForUpdateBudgetInput.currencySettlement) &&
         Objects.equals(this.period, budgetForUpdateBudgetInput.period);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(budgetEndTime, budgetName, budgetPlanType, budgetStartTime, budgetType, period);
+    return Objects.hash(amountType, budgetEndTime, budgetName, budgetPlanType, budgetStartTime, budgetType, currencySettlement, period);
   }
 
 
@@ -314,11 +401,13 @@ public class BudgetForUpdateBudgetInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class BudgetForUpdateBudgetInput {\n");
     
+    sb.append("    amountType: ").append(toIndentedString(amountType)).append("\n");
     sb.append("    budgetEndTime: ").append(toIndentedString(budgetEndTime)).append("\n");
     sb.append("    budgetName: ").append(toIndentedString(budgetName)).append("\n");
     sb.append("    budgetPlanType: ").append(toIndentedString(budgetPlanType)).append("\n");
     sb.append("    budgetStartTime: ").append(toIndentedString(budgetStartTime)).append("\n");
     sb.append("    budgetType: ").append(toIndentedString(budgetType)).append("\n");
+    sb.append("    currencySettlement: ").append(toIndentedString(currencySettlement)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("}");
     return sb.toString();

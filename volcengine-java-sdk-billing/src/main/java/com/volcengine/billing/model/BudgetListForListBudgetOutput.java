@@ -33,6 +33,9 @@ public class BudgetListForListBudgetOutput {
   @SerializedName("ActualAmount")
   private String actualAmount = null;
 
+  @SerializedName("AmountType")
+  private String amountType = null;
+
   @SerializedName("BudgetAmount")
   private String budgetAmount = null;
 
@@ -50,6 +53,9 @@ public class BudgetListForListBudgetOutput {
 
   @SerializedName("BudgetType")
   private String budgetType = null;
+
+  @SerializedName("CurrencySettlement")
+  private String currencySettlement = null;
 
   @SerializedName("Period")
   private String period = null;
@@ -76,6 +82,24 @@ public class BudgetListForListBudgetOutput {
 
   public void setActualAmount(String actualAmount) {
     this.actualAmount = actualAmount;
+  }
+
+  public BudgetListForListBudgetOutput amountType(String amountType) {
+    this.amountType = amountType;
+    return this;
+  }
+
+   /**
+   * Get amountType
+   * @return amountType
+  **/
+  @Schema(description = "")
+  public String getAmountType() {
+    return amountType;
+  }
+
+  public void setAmountType(String amountType) {
+    this.amountType = amountType;
   }
 
   public BudgetListForListBudgetOutput budgetAmount(String budgetAmount) {
@@ -186,6 +210,24 @@ public class BudgetListForListBudgetOutput {
     this.budgetType = budgetType;
   }
 
+  public BudgetListForListBudgetOutput currencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
+    return this;
+  }
+
+   /**
+   * Get currencySettlement
+   * @return currencySettlement
+  **/
+  @Schema(description = "")
+  public String getCurrencySettlement() {
+    return currencySettlement;
+  }
+
+  public void setCurrencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
+  }
+
   public BudgetListForListBudgetOutput period(String period) {
     this.period = period;
     return this;
@@ -251,12 +293,14 @@ public class BudgetListForListBudgetOutput {
     }
     BudgetListForListBudgetOutput budgetListForListBudgetOutput = (BudgetListForListBudgetOutput) o;
     return Objects.equals(this.actualAmount, budgetListForListBudgetOutput.actualAmount) &&
+        Objects.equals(this.amountType, budgetListForListBudgetOutput.amountType) &&
         Objects.equals(this.budgetAmount, budgetListForListBudgetOutput.budgetAmount) &&
         Objects.equals(this.budgetEndTime, budgetListForListBudgetOutput.budgetEndTime) &&
         Objects.equals(this.budgetID, budgetListForListBudgetOutput.budgetID) &&
         Objects.equals(this.budgetName, budgetListForListBudgetOutput.budgetName) &&
         Objects.equals(this.budgetStartTime, budgetListForListBudgetOutput.budgetStartTime) &&
         Objects.equals(this.budgetType, budgetListForListBudgetOutput.budgetType) &&
+        Objects.equals(this.currencySettlement, budgetListForListBudgetOutput.currencySettlement) &&
         Objects.equals(this.period, budgetListForListBudgetOutput.period) &&
         Objects.equals(this.ratio, budgetListForListBudgetOutput.ratio) &&
         Objects.equals(this.status, budgetListForListBudgetOutput.status);
@@ -264,7 +308,7 @@ public class BudgetListForListBudgetOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actualAmount, budgetAmount, budgetEndTime, budgetID, budgetName, budgetStartTime, budgetType, period, ratio, status);
+    return Objects.hash(actualAmount, amountType, budgetAmount, budgetEndTime, budgetID, budgetName, budgetStartTime, budgetType, currencySettlement, period, ratio, status);
   }
 
 
@@ -274,12 +318,14 @@ public class BudgetListForListBudgetOutput {
     sb.append("class BudgetListForListBudgetOutput {\n");
     
     sb.append("    actualAmount: ").append(toIndentedString(actualAmount)).append("\n");
+    sb.append("    amountType: ").append(toIndentedString(amountType)).append("\n");
     sb.append("    budgetAmount: ").append(toIndentedString(budgetAmount)).append("\n");
     sb.append("    budgetEndTime: ").append(toIndentedString(budgetEndTime)).append("\n");
     sb.append("    budgetID: ").append(toIndentedString(budgetID)).append("\n");
     sb.append("    budgetName: ").append(toIndentedString(budgetName)).append("\n");
     sb.append("    budgetStartTime: ").append(toIndentedString(budgetStartTime)).append("\n");
     sb.append("    budgetType: ").append(toIndentedString(budgetType)).append("\n");
+    sb.append("    currencySettlement: ").append(toIndentedString(currencySettlement)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    ratio: ").append(toIndentedString(ratio)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

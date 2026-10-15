@@ -39,8 +39,8 @@ public class CreateClusterRequest {
   @SerializedName("AutoScaling")
   private AutoScalingForCreateClusterInput autoScaling = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
+  @SerializedName("ClusterName")
+  private String clusterName = null;
 
   @SerializedName("EncryptionConfig")
   private EncryptionConfigForCreateClusterInput encryptionConfig = null;
@@ -177,22 +177,22 @@ public class CreateClusterRequest {
     this.autoScaling = autoScaling;
   }
 
-  public CreateClusterRequest displayName(String displayName) {
-    this.displayName = displayName;
+  public CreateClusterRequest clusterName(String clusterName) {
+    this.clusterName = clusterName;
     return this;
   }
 
    /**
-   * Get displayName
-   * @return displayName
+   * Get clusterName
+   * @return clusterName
   **/
   @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
+  public String getClusterName() {
+    return clusterName;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setClusterName(String clusterName) {
+    this.clusterName = clusterName;
   }
 
   public CreateClusterRequest encryptionConfig(EncryptionConfigForCreateClusterInput encryptionConfig) {
@@ -370,7 +370,7 @@ public class CreateClusterRequest {
     }
     CreateClusterRequest createClusterRequest = (CreateClusterRequest) o;
     return Objects.equals(this.autoScaling, createClusterRequest.autoScaling) &&
-        Objects.equals(this.displayName, createClusterRequest.displayName) &&
+        Objects.equals(this.clusterName, createClusterRequest.clusterName) &&
         Objects.equals(this.encryptionConfig, createClusterRequest.encryptionConfig) &&
         Objects.equals(this.highAvailabilityType, createClusterRequest.highAvailabilityType) &&
         Objects.equals(this.projectName, createClusterRequest.projectName) &&
@@ -383,7 +383,7 @@ public class CreateClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, displayName, encryptionConfig, highAvailabilityType, projectName, regionId, servicePlan, tags, vpcId, zones);
+    return Objects.hash(autoScaling, clusterName, encryptionConfig, highAvailabilityType, projectName, regionId, servicePlan, tags, vpcId, zones);
   }
 
 
@@ -393,7 +393,7 @@ public class CreateClusterRequest {
     sb.append("class CreateClusterRequest {\n");
     
     sb.append("    autoScaling: ").append(toIndentedString(autoScaling)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    encryptionConfig: ").append(toIndentedString(encryptionConfig)).append("\n");
     sb.append("    highAvailabilityType: ").append(toIndentedString(highAvailabilityType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

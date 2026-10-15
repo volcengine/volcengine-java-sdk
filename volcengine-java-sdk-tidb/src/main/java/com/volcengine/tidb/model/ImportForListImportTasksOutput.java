@@ -64,9 +64,6 @@ public class ImportForListImportTasksOutput {
   @SerializedName("Message")
   private String message = null;
 
-  @SerializedName("Name")
-  private String name = null;
-
   @SerializedName("PostImportCompletedPercent")
   private Integer postImportCompletedPercent = null;
 
@@ -323,24 +320,6 @@ public class ImportForListImportTasksOutput {
     this.message = message;
   }
 
-  public ImportForListImportTasksOutput name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public ImportForListImportTasksOutput postImportCompletedPercent(Integer postImportCompletedPercent) {
     this.postImportCompletedPercent = postImportCompletedPercent;
     return this;
@@ -451,7 +430,6 @@ public class ImportForListImportTasksOutput {
         Objects.equals(this.id, importForListImportTasksOutput.id) &&
         Objects.equals(this.importId, importForListImportTasksOutput.importId) &&
         Objects.equals(this.message, importForListImportTasksOutput.message) &&
-        Objects.equals(this.name, importForListImportTasksOutput.name) &&
         Objects.equals(this.postImportCompletedPercent, importForListImportTasksOutput.postImportCompletedPercent) &&
         Objects.equals(this.startTime, importForListImportTasksOutput.startTime) &&
         Objects.equals(this.state, importForListImportTasksOutput.state) &&
@@ -461,7 +439,7 @@ public class ImportForListImportTasksOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allCompletedTables, clusterId, compatibleId, completePercent, completeTime, createTime, creationDetails, id, importId, message, name, postImportCompletedPercent, startTime, state, totalSize, totalTablesCount);
+    return Objects.hash(allCompletedTables, clusterId, compatibleId, completePercent, completeTime, createTime, creationDetails, id, importId, message, postImportCompletedPercent, startTime, state, totalSize, totalTablesCount);
   }
 
 
@@ -480,7 +458,6 @@ public class ImportForListImportTasksOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    importId: ").append(toIndentedString(importId)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    postImportCompletedPercent: ").append(toIndentedString(postImportCompletedPercent)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");

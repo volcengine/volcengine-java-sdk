@@ -41,9 +41,6 @@ public class ExportForCreateExportTaskOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
-
   @SerializedName("ExpireTime")
   private String expireTime = null;
 
@@ -53,8 +50,8 @@ public class ExportForCreateExportTaskOutput {
   @SerializedName("ExportOptions")
   private ExportOptionsForCreateExportTaskOutput exportOptions = null;
 
-  @SerializedName("Name")
-  private String name = null;
+  @SerializedName("ExportTaskName")
+  private String exportTaskName = null;
 
   @SerializedName("Reason")
   private String reason = null;
@@ -176,24 +173,6 @@ public class ExportForCreateExportTaskOutput {
     this.createTime = createTime;
   }
 
-  public ExportForCreateExportTaskOutput displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
   public ExportForCreateExportTaskOutput expireTime(String expireTime) {
     this.expireTime = expireTime;
     return this;
@@ -249,22 +228,22 @@ public class ExportForCreateExportTaskOutput {
     this.exportOptions = exportOptions;
   }
 
-  public ExportForCreateExportTaskOutput name(String name) {
-    this.name = name;
+  public ExportForCreateExportTaskOutput exportTaskName(String exportTaskName) {
+    this.exportTaskName = exportTaskName;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get exportTaskName
+   * @return exportTaskName
   **/
   @Schema(description = "")
-  public String getName() {
-    return name;
+  public String getExportTaskName() {
+    return exportTaskName;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setExportTaskName(String exportTaskName) {
+    this.exportTaskName = exportTaskName;
   }
 
   public ExportForCreateExportTaskOutput reason(String reason) {
@@ -371,11 +350,10 @@ public class ExportForCreateExportTaskOutput {
     return Objects.equals(this.clusterId, exportForCreateExportTaskOutput.clusterId) &&
         Objects.equals(this.completeTime, exportForCreateExportTaskOutput.completeTime) &&
         Objects.equals(this.createTime, exportForCreateExportTaskOutput.createTime) &&
-        Objects.equals(this.displayName, exportForCreateExportTaskOutput.displayName) &&
         Objects.equals(this.expireTime, exportForCreateExportTaskOutput.expireTime) &&
         Objects.equals(this.exportId, exportForCreateExportTaskOutput.exportId) &&
         Objects.equals(this.exportOptions, exportForCreateExportTaskOutput.exportOptions) &&
-        Objects.equals(this.name, exportForCreateExportTaskOutput.name) &&
+        Objects.equals(this.exportTaskName, exportForCreateExportTaskOutput.exportTaskName) &&
         Objects.equals(this.reason, exportForCreateExportTaskOutput.reason) &&
         Objects.equals(this.snapshotTime, exportForCreateExportTaskOutput.snapshotTime) &&
         Objects.equals(this.state, exportForCreateExportTaskOutput.state) &&
@@ -385,7 +363,7 @@ public class ExportForCreateExportTaskOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, completeTime, createTime, displayName, expireTime, exportId, exportOptions, name, reason, snapshotTime, state, target, updateTime);
+    return Objects.hash(clusterId, completeTime, createTime, expireTime, exportId, exportOptions, exportTaskName, reason, snapshotTime, state, target, updateTime);
   }
 
 
@@ -397,11 +375,10 @@ public class ExportForCreateExportTaskOutput {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    completeTime: ").append(toIndentedString(completeTime)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    exportId: ").append(toIndentedString(exportId)).append("\n");
     sb.append("    exportOptions: ").append(toIndentedString(exportOptions)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    exportTaskName: ").append(toIndentedString(exportTaskName)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    snapshotTime: ").append(toIndentedString(snapshotTime)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");

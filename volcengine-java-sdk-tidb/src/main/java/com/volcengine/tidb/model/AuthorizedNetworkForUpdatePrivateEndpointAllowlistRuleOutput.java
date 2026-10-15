@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput {
-  @SerializedName("DisplayName")
-  private String displayName = null;
+  @SerializedName("AuthorizedNetworkName")
+  private String authorizedNetworkName = null;
 
   @SerializedName("SecurityGroupCount")
   private Integer securityGroupCount = null;
@@ -42,22 +42,22 @@ public class AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput {
   @SerializedName("VpcEndpointName")
   private String vpcEndpointName = null;
 
-  public AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput displayName(String displayName) {
-    this.displayName = displayName;
+  public AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput authorizedNetworkName(String authorizedNetworkName) {
+    this.authorizedNetworkName = authorizedNetworkName;
     return this;
   }
 
    /**
-   * Get displayName
-   * @return displayName
+   * Get authorizedNetworkName
+   * @return authorizedNetworkName
   **/
   @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
+  public String getAuthorizedNetworkName() {
+    return authorizedNetworkName;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setAuthorizedNetworkName(String authorizedNetworkName) {
+    this.authorizedNetworkName = authorizedNetworkName;
   }
 
   public AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput securityGroupCount(Integer securityGroupCount) {
@@ -124,7 +124,7 @@ public class AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput {
       return false;
     }
     AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput authorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput = (AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput) o;
-    return Objects.equals(this.displayName, authorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput.displayName) &&
+    return Objects.equals(this.authorizedNetworkName, authorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput.authorizedNetworkName) &&
         Objects.equals(this.securityGroupCount, authorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput.securityGroupCount) &&
         Objects.equals(this.vpcEndpointId, authorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput.vpcEndpointId) &&
         Objects.equals(this.vpcEndpointName, authorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput.vpcEndpointName);
@@ -132,7 +132,7 @@ public class AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, securityGroupCount, vpcEndpointId, vpcEndpointName);
+    return Objects.hash(authorizedNetworkName, securityGroupCount, vpcEndpointId, vpcEndpointName);
   }
 
 
@@ -141,7 +141,7 @@ public class AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthorizedNetworkForUpdatePrivateEndpointAllowlistRuleOutput {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    authorizedNetworkName: ").append(toIndentedString(authorizedNetworkName)).append("\n");
     sb.append("    securityGroupCount: ").append(toIndentedString(securityGroupCount)).append("\n");
     sb.append("    vpcEndpointId: ").append(toIndentedString(vpcEndpointId)).append("\n");
     sb.append("    vpcEndpointName: ").append(toIndentedString(vpcEndpointName)).append("\n");

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.billing.model.BudgetRangeBillingModeForQueryBudgetDetailOutput;
+import com.volcengine.billing.model.BudgetRangeConfigurationCodeForQueryBudgetDetailOutput;
 import com.volcengine.billing.model.BudgetRangeOwnerForQueryBudgetDetailOutput;
 import com.volcengine.billing.model.BudgetRangePayerForQueryBudgetDetailOutput;
 import com.volcengine.billing.model.BudgetRangeProductForQueryBudgetDetailOutput;
@@ -42,6 +43,9 @@ public class BudgetRangeInfoForQueryBudgetDetailOutput {
   @SerializedName("BudgetRangeBillingMode")
   private List<BudgetRangeBillingModeForQueryBudgetDetailOutput> budgetRangeBillingMode = null;
 
+  @SerializedName("BudgetRangeConfigurationCode")
+  private List<BudgetRangeConfigurationCodeForQueryBudgetDetailOutput> budgetRangeConfigurationCode = null;
+
   @SerializedName("BudgetRangeOwner")
   private List<BudgetRangeOwnerForQueryBudgetDetailOutput> budgetRangeOwner = null;
 
@@ -56,6 +60,12 @@ public class BudgetRangeInfoForQueryBudgetDetailOutput {
 
   @SerializedName("BudgetRangeRegion")
   private List<BudgetRangeRegionForQueryBudgetDetailOutput> budgetRangeRegion = null;
+
+  @SerializedName("BudgetRangeSplitItemID")
+  private List<String> budgetRangeSplitItemID = null;
+
+  @SerializedName("BudgetRangeSplitItemName")
+  private List<String> budgetRangeSplitItemName = null;
 
   @SerializedName("BudgetRangeSubject")
   private List<BudgetRangeSubjectForQueryBudgetDetailOutput> budgetRangeSubject = null;
@@ -91,6 +101,33 @@ public class BudgetRangeInfoForQueryBudgetDetailOutput {
 
   public void setBudgetRangeBillingMode(List<BudgetRangeBillingModeForQueryBudgetDetailOutput> budgetRangeBillingMode) {
     this.budgetRangeBillingMode = budgetRangeBillingMode;
+  }
+
+  public BudgetRangeInfoForQueryBudgetDetailOutput budgetRangeConfigurationCode(List<BudgetRangeConfigurationCodeForQueryBudgetDetailOutput> budgetRangeConfigurationCode) {
+    this.budgetRangeConfigurationCode = budgetRangeConfigurationCode;
+    return this;
+  }
+
+  public BudgetRangeInfoForQueryBudgetDetailOutput addBudgetRangeConfigurationCodeItem(BudgetRangeConfigurationCodeForQueryBudgetDetailOutput budgetRangeConfigurationCodeItem) {
+    if (this.budgetRangeConfigurationCode == null) {
+      this.budgetRangeConfigurationCode = new ArrayList<BudgetRangeConfigurationCodeForQueryBudgetDetailOutput>();
+    }
+    this.budgetRangeConfigurationCode.add(budgetRangeConfigurationCodeItem);
+    return this;
+  }
+
+   /**
+   * Get budgetRangeConfigurationCode
+   * @return budgetRangeConfigurationCode
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<BudgetRangeConfigurationCodeForQueryBudgetDetailOutput> getBudgetRangeConfigurationCode() {
+    return budgetRangeConfigurationCode;
+  }
+
+  public void setBudgetRangeConfigurationCode(List<BudgetRangeConfigurationCodeForQueryBudgetDetailOutput> budgetRangeConfigurationCode) {
+    this.budgetRangeConfigurationCode = budgetRangeConfigurationCode;
   }
 
   public BudgetRangeInfoForQueryBudgetDetailOutput budgetRangeOwner(List<BudgetRangeOwnerForQueryBudgetDetailOutput> budgetRangeOwner) {
@@ -227,6 +264,58 @@ public class BudgetRangeInfoForQueryBudgetDetailOutput {
     this.budgetRangeRegion = budgetRangeRegion;
   }
 
+  public BudgetRangeInfoForQueryBudgetDetailOutput budgetRangeSplitItemID(List<String> budgetRangeSplitItemID) {
+    this.budgetRangeSplitItemID = budgetRangeSplitItemID;
+    return this;
+  }
+
+  public BudgetRangeInfoForQueryBudgetDetailOutput addBudgetRangeSplitItemIDItem(String budgetRangeSplitItemIDItem) {
+    if (this.budgetRangeSplitItemID == null) {
+      this.budgetRangeSplitItemID = new ArrayList<String>();
+    }
+    this.budgetRangeSplitItemID.add(budgetRangeSplitItemIDItem);
+    return this;
+  }
+
+   /**
+   * Get budgetRangeSplitItemID
+   * @return budgetRangeSplitItemID
+  **/
+  @Schema(description = "")
+  public List<String> getBudgetRangeSplitItemID() {
+    return budgetRangeSplitItemID;
+  }
+
+  public void setBudgetRangeSplitItemID(List<String> budgetRangeSplitItemID) {
+    this.budgetRangeSplitItemID = budgetRangeSplitItemID;
+  }
+
+  public BudgetRangeInfoForQueryBudgetDetailOutput budgetRangeSplitItemName(List<String> budgetRangeSplitItemName) {
+    this.budgetRangeSplitItemName = budgetRangeSplitItemName;
+    return this;
+  }
+
+  public BudgetRangeInfoForQueryBudgetDetailOutput addBudgetRangeSplitItemNameItem(String budgetRangeSplitItemNameItem) {
+    if (this.budgetRangeSplitItemName == null) {
+      this.budgetRangeSplitItemName = new ArrayList<String>();
+    }
+    this.budgetRangeSplitItemName.add(budgetRangeSplitItemNameItem);
+    return this;
+  }
+
+   /**
+   * Get budgetRangeSplitItemName
+   * @return budgetRangeSplitItemName
+  **/
+  @Schema(description = "")
+  public List<String> getBudgetRangeSplitItemName() {
+    return budgetRangeSplitItemName;
+  }
+
+  public void setBudgetRangeSplitItemName(List<String> budgetRangeSplitItemName) {
+    this.budgetRangeSplitItemName = budgetRangeSplitItemName;
+  }
+
   public BudgetRangeInfoForQueryBudgetDetailOutput budgetRangeSubject(List<BudgetRangeSubjectForQueryBudgetDetailOutput> budgetRangeSubject) {
     this.budgetRangeSubject = budgetRangeSubject;
     return this;
@@ -318,11 +407,14 @@ public class BudgetRangeInfoForQueryBudgetDetailOutput {
     }
     BudgetRangeInfoForQueryBudgetDetailOutput budgetRangeInfoForQueryBudgetDetailOutput = (BudgetRangeInfoForQueryBudgetDetailOutput) o;
     return Objects.equals(this.budgetRangeBillingMode, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeBillingMode) &&
+        Objects.equals(this.budgetRangeConfigurationCode, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeConfigurationCode) &&
         Objects.equals(this.budgetRangeOwner, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeOwner) &&
         Objects.equals(this.budgetRangePayer, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangePayer) &&
         Objects.equals(this.budgetRangeProduct, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeProduct) &&
         Objects.equals(this.budgetRangeProject, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeProject) &&
         Objects.equals(this.budgetRangeRegion, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeRegion) &&
+        Objects.equals(this.budgetRangeSplitItemID, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeSplitItemID) &&
+        Objects.equals(this.budgetRangeSplitItemName, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeSplitItemName) &&
         Objects.equals(this.budgetRangeSubject, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeSubject) &&
         Objects.equals(this.budgetRangeTag, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeTag) &&
         Objects.equals(this.budgetRangeZone, budgetRangeInfoForQueryBudgetDetailOutput.budgetRangeZone);
@@ -330,7 +422,7 @@ public class BudgetRangeInfoForQueryBudgetDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(budgetRangeBillingMode, budgetRangeOwner, budgetRangePayer, budgetRangeProduct, budgetRangeProject, budgetRangeRegion, budgetRangeSubject, budgetRangeTag, budgetRangeZone);
+    return Objects.hash(budgetRangeBillingMode, budgetRangeConfigurationCode, budgetRangeOwner, budgetRangePayer, budgetRangeProduct, budgetRangeProject, budgetRangeRegion, budgetRangeSplitItemID, budgetRangeSplitItemName, budgetRangeSubject, budgetRangeTag, budgetRangeZone);
   }
 
 
@@ -340,11 +432,14 @@ public class BudgetRangeInfoForQueryBudgetDetailOutput {
     sb.append("class BudgetRangeInfoForQueryBudgetDetailOutput {\n");
     
     sb.append("    budgetRangeBillingMode: ").append(toIndentedString(budgetRangeBillingMode)).append("\n");
+    sb.append("    budgetRangeConfigurationCode: ").append(toIndentedString(budgetRangeConfigurationCode)).append("\n");
     sb.append("    budgetRangeOwner: ").append(toIndentedString(budgetRangeOwner)).append("\n");
     sb.append("    budgetRangePayer: ").append(toIndentedString(budgetRangePayer)).append("\n");
     sb.append("    budgetRangeProduct: ").append(toIndentedString(budgetRangeProduct)).append("\n");
     sb.append("    budgetRangeProject: ").append(toIndentedString(budgetRangeProject)).append("\n");
     sb.append("    budgetRangeRegion: ").append(toIndentedString(budgetRangeRegion)).append("\n");
+    sb.append("    budgetRangeSplitItemID: ").append(toIndentedString(budgetRangeSplitItemID)).append("\n");
+    sb.append("    budgetRangeSplitItemName: ").append(toIndentedString(budgetRangeSplitItemName)).append("\n");
     sb.append("    budgetRangeSubject: ").append(toIndentedString(budgetRangeSubject)).append("\n");
     sb.append("    budgetRangeTag: ").append(toIndentedString(budgetRangeTag)).append("\n");
     sb.append("    budgetRangeZone: ").append(toIndentedString(budgetRangeZone)).append("\n");

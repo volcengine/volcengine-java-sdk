@@ -39,6 +39,9 @@ public class CreateDropShippingOrderRequest {
   @SerializedName("BizNo")
   private String bizNo = null;
 
+  @SerializedName("BizOrderBeginTime")
+  private String bizOrderBeginTime = null;
+
   @SerializedName("ConfigItems")
   private List<ConfigItemForCreateDropShippingOrderInput> configItems = null;
 
@@ -82,6 +85,24 @@ public class CreateDropShippingOrderRequest {
 
   public void setBizNo(String bizNo) {
     this.bizNo = bizNo;
+  }
+
+  public CreateDropShippingOrderRequest bizOrderBeginTime(String bizOrderBeginTime) {
+    this.bizOrderBeginTime = bizOrderBeginTime;
+    return this;
+  }
+
+   /**
+   * Get bizOrderBeginTime
+   * @return bizOrderBeginTime
+  **/
+  @Schema(description = "")
+  public String getBizOrderBeginTime() {
+    return bizOrderBeginTime;
+  }
+
+  public void setBizOrderBeginTime(String bizOrderBeginTime) {
+    this.bizOrderBeginTime = bizOrderBeginTime;
   }
 
   public CreateDropShippingOrderRequest configItems(List<ConfigItemForCreateDropShippingOrderInput> configItems) {
@@ -159,6 +180,7 @@ public class CreateDropShippingOrderRequest {
     CreateDropShippingOrderRequest createDropShippingOrderRequest = (CreateDropShippingOrderRequest) o;
     return Objects.equals(this.accountID, createDropShippingOrderRequest.accountID) &&
         Objects.equals(this.bizNo, createDropShippingOrderRequest.bizNo) &&
+        Objects.equals(this.bizOrderBeginTime, createDropShippingOrderRequest.bizOrderBeginTime) &&
         Objects.equals(this.configItems, createDropShippingOrderRequest.configItems) &&
         Objects.equals(this.securityTel, createDropShippingOrderRequest.securityTel) &&
         Objects.equals(this.source, createDropShippingOrderRequest.source);
@@ -166,7 +188,7 @@ public class CreateDropShippingOrderRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, bizNo, configItems, securityTel, source);
+    return Objects.hash(accountID, bizNo, bizOrderBeginTime, configItems, securityTel, source);
   }
 
 
@@ -177,6 +199,7 @@ public class CreateDropShippingOrderRequest {
     
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    bizNo: ").append(toIndentedString(bizNo)).append("\n");
+    sb.append("    bizOrderBeginTime: ").append(toIndentedString(bizOrderBeginTime)).append("\n");
     sb.append("    configItems: ").append(toIndentedString(configItems)).append("\n");
     sb.append("    securityTel: ").append(toIndentedString(securityTel)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");

@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class ConvertAuthorizedNetworkForDeleteClusterOutput {
-  @SerializedName("DisplayName")
-  private String displayName = null;
+  @SerializedName("AuthorizedNetworkName")
+  private String authorizedNetworkName = null;
 
   @SerializedName("EndIpAddress")
   private String endIpAddress = null;
@@ -39,22 +39,22 @@ public class ConvertAuthorizedNetworkForDeleteClusterOutput {
   @SerializedName("StartIpAddress")
   private String startIpAddress = null;
 
-  public ConvertAuthorizedNetworkForDeleteClusterOutput displayName(String displayName) {
-    this.displayName = displayName;
+  public ConvertAuthorizedNetworkForDeleteClusterOutput authorizedNetworkName(String authorizedNetworkName) {
+    this.authorizedNetworkName = authorizedNetworkName;
     return this;
   }
 
    /**
-   * Get displayName
-   * @return displayName
+   * Get authorizedNetworkName
+   * @return authorizedNetworkName
   **/
   @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
+  public String getAuthorizedNetworkName() {
+    return authorizedNetworkName;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setAuthorizedNetworkName(String authorizedNetworkName) {
+    this.authorizedNetworkName = authorizedNetworkName;
   }
 
   public ConvertAuthorizedNetworkForDeleteClusterOutput endIpAddress(String endIpAddress) {
@@ -103,14 +103,14 @@ public class ConvertAuthorizedNetworkForDeleteClusterOutput {
       return false;
     }
     ConvertAuthorizedNetworkForDeleteClusterOutput convertAuthorizedNetworkForDeleteClusterOutput = (ConvertAuthorizedNetworkForDeleteClusterOutput) o;
-    return Objects.equals(this.displayName, convertAuthorizedNetworkForDeleteClusterOutput.displayName) &&
+    return Objects.equals(this.authorizedNetworkName, convertAuthorizedNetworkForDeleteClusterOutput.authorizedNetworkName) &&
         Objects.equals(this.endIpAddress, convertAuthorizedNetworkForDeleteClusterOutput.endIpAddress) &&
         Objects.equals(this.startIpAddress, convertAuthorizedNetworkForDeleteClusterOutput.startIpAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, endIpAddress, startIpAddress);
+    return Objects.hash(authorizedNetworkName, endIpAddress, startIpAddress);
   }
 
 
@@ -119,7 +119,7 @@ public class ConvertAuthorizedNetworkForDeleteClusterOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertAuthorizedNetworkForDeleteClusterOutput {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    authorizedNetworkName: ").append(toIndentedString(authorizedNetworkName)).append("\n");
     sb.append("    endIpAddress: ").append(toIndentedString(endIpAddress)).append("\n");
     sb.append("    startIpAddress: ").append(toIndentedString(startIpAddress)).append("\n");
     sb.append("}");

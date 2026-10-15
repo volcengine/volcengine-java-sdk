@@ -33,6 +33,60 @@ public class SystemVolumeForListNodePoolsOutput {
   @SerializedName("BurstEnabled")
   private Boolean burstEnabled = null;
 
+  @SerializedName("ExtraPerformanceIops")
+  private Integer extraPerformanceIops = null;
+
+  @SerializedName("ExtraPerformanceThroughputMb")
+  private Integer extraPerformanceThroughputMb = null;
+
+  /**
+   * Gets or Sets extraPerformanceTypeId
+   */
+  @JsonAdapter(ExtraPerformanceTypeIdEnum.Adapter.class)
+  public enum ExtraPerformanceTypeIdEnum {
+    @SerializedName("Balance")
+    BALANCE("Balance"),
+    @SerializedName("IOPS")
+    IOPS("IOPS"),
+    @SerializedName("Throughput")
+    THROUGHPUT("Throughput");
+
+    private String value;
+
+    ExtraPerformanceTypeIdEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ExtraPerformanceTypeIdEnum fromValue(String input) {
+      for (ExtraPerformanceTypeIdEnum b : ExtraPerformanceTypeIdEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ExtraPerformanceTypeIdEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ExtraPerformanceTypeIdEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ExtraPerformanceTypeIdEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ExtraPerformanceTypeIdEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ExtraPerformanceTypeId")
+  private ExtraPerformanceTypeIdEnum extraPerformanceTypeId = null;
+
   @SerializedName("PlacementGroupId")
   private String placementGroupId = null;
 
@@ -122,6 +176,60 @@ public class SystemVolumeForListNodePoolsOutput {
     this.burstEnabled = burstEnabled;
   }
 
+  public SystemVolumeForListNodePoolsOutput extraPerformanceIops(Integer extraPerformanceIops) {
+    this.extraPerformanceIops = extraPerformanceIops;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceIops
+   * @return extraPerformanceIops
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceIops() {
+    return extraPerformanceIops;
+  }
+
+  public void setExtraPerformanceIops(Integer extraPerformanceIops) {
+    this.extraPerformanceIops = extraPerformanceIops;
+  }
+
+  public SystemVolumeForListNodePoolsOutput extraPerformanceThroughputMb(Integer extraPerformanceThroughputMb) {
+    this.extraPerformanceThroughputMb = extraPerformanceThroughputMb;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceThroughputMb
+   * @return extraPerformanceThroughputMb
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceThroughputMb() {
+    return extraPerformanceThroughputMb;
+  }
+
+  public void setExtraPerformanceThroughputMb(Integer extraPerformanceThroughputMb) {
+    this.extraPerformanceThroughputMb = extraPerformanceThroughputMb;
+  }
+
+  public SystemVolumeForListNodePoolsOutput extraPerformanceTypeId(ExtraPerformanceTypeIdEnum extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceTypeId
+   * @return extraPerformanceTypeId
+  **/
+  @Schema(description = "")
+  public ExtraPerformanceTypeIdEnum getExtraPerformanceTypeId() {
+    return extraPerformanceTypeId;
+  }
+
+  public void setExtraPerformanceTypeId(ExtraPerformanceTypeIdEnum extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
+  }
+
   public SystemVolumeForListNodePoolsOutput placementGroupId(String placementGroupId) {
     this.placementGroupId = placementGroupId;
     return this;
@@ -205,6 +313,9 @@ public class SystemVolumeForListNodePoolsOutput {
     }
     SystemVolumeForListNodePoolsOutput systemVolumeForListNodePoolsOutput = (SystemVolumeForListNodePoolsOutput) o;
     return Objects.equals(this.burstEnabled, systemVolumeForListNodePoolsOutput.burstEnabled) &&
+        Objects.equals(this.extraPerformanceIops, systemVolumeForListNodePoolsOutput.extraPerformanceIops) &&
+        Objects.equals(this.extraPerformanceThroughputMb, systemVolumeForListNodePoolsOutput.extraPerformanceThroughputMb) &&
+        Objects.equals(this.extraPerformanceTypeId, systemVolumeForListNodePoolsOutput.extraPerformanceTypeId) &&
         Objects.equals(this.placementGroupId, systemVolumeForListNodePoolsOutput.placementGroupId) &&
         Objects.equals(this.size, systemVolumeForListNodePoolsOutput.size) &&
         Objects.equals(this.subgroupNumber, systemVolumeForListNodePoolsOutput.subgroupNumber) &&
@@ -213,7 +324,7 @@ public class SystemVolumeForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(burstEnabled, placementGroupId, size, subgroupNumber, type);
+    return Objects.hash(burstEnabled, extraPerformanceIops, extraPerformanceThroughputMb, extraPerformanceTypeId, placementGroupId, size, subgroupNumber, type);
   }
 
 
@@ -223,6 +334,9 @@ public class SystemVolumeForListNodePoolsOutput {
     sb.append("class SystemVolumeForListNodePoolsOutput {\n");
     
     sb.append("    burstEnabled: ").append(toIndentedString(burstEnabled)).append("\n");
+    sb.append("    extraPerformanceIops: ").append(toIndentedString(extraPerformanceIops)).append("\n");
+    sb.append("    extraPerformanceThroughputMb: ").append(toIndentedString(extraPerformanceThroughputMb)).append("\n");
+    sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");
     sb.append("    placementGroupId: ").append(toIndentedString(placementGroupId)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    subgroupNumber: ").append(toIndentedString(subgroupNumber)).append("\n");

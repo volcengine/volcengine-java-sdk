@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.tidb.model.PrivateEndpointForListBranchesOutput;
-import com.volcengine.tidb.model.PublicEndpointForListBranchesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -34,9 +33,6 @@ import javax.validation.Valid;
 public class EndpointsForListBranchesOutput {
   @SerializedName("PrivateEndpoint")
   private PrivateEndpointForListBranchesOutput privateEndpoint = null;
-
-  @SerializedName("PublicEndpoint")
-  private PublicEndpointForListBranchesOutput publicEndpoint = null;
 
   public EndpointsForListBranchesOutput privateEndpoint(PrivateEndpointForListBranchesOutput privateEndpoint) {
     this.privateEndpoint = privateEndpoint;
@@ -57,25 +53,6 @@ public class EndpointsForListBranchesOutput {
     this.privateEndpoint = privateEndpoint;
   }
 
-  public EndpointsForListBranchesOutput publicEndpoint(PublicEndpointForListBranchesOutput publicEndpoint) {
-    this.publicEndpoint = publicEndpoint;
-    return this;
-  }
-
-   /**
-   * Get publicEndpoint
-   * @return publicEndpoint
-  **/
-  @Valid
-  @Schema(description = "")
-  public PublicEndpointForListBranchesOutput getPublicEndpoint() {
-    return publicEndpoint;
-  }
-
-  public void setPublicEndpoint(PublicEndpointForListBranchesOutput publicEndpoint) {
-    this.publicEndpoint = publicEndpoint;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -86,13 +63,12 @@ public class EndpointsForListBranchesOutput {
       return false;
     }
     EndpointsForListBranchesOutput endpointsForListBranchesOutput = (EndpointsForListBranchesOutput) o;
-    return Objects.equals(this.privateEndpoint, endpointsForListBranchesOutput.privateEndpoint) &&
-        Objects.equals(this.publicEndpoint, endpointsForListBranchesOutput.publicEndpoint);
+    return Objects.equals(this.privateEndpoint, endpointsForListBranchesOutput.privateEndpoint);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(privateEndpoint, publicEndpoint);
+    return Objects.hash(privateEndpoint);
   }
 
 
@@ -102,7 +78,6 @@ public class EndpointsForListBranchesOutput {
     sb.append("class EndpointsForListBranchesOutput {\n");
     
     sb.append("    privateEndpoint: ").append(toIndentedString(privateEndpoint)).append("\n");
-    sb.append("    publicEndpoint: ").append(toIndentedString(publicEndpoint)).append("\n");
     sb.append("}");
     return sb.toString();
   }
