@@ -45,9 +45,6 @@ public class BackupForListBackupsOutput {
   @SerializedName("ExpireTime")
   private String expireTime = null;
 
-  @SerializedName("Name")
-  private String name = null;
-
   /**
    * Gets or Sets state
    */
@@ -187,24 +184,6 @@ public class BackupForListBackupsOutput {
     this.expireTime = expireTime;
   }
 
-  public BackupForListBackupsOutput name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public BackupForListBackupsOutput state(StateEnum state) {
     this.state = state;
     return this;
@@ -256,14 +235,13 @@ public class BackupForListBackupsOutput {
         Objects.equals(this.clusterId, backupForListBackupsOutput.clusterId) &&
         Objects.equals(this.createTime, backupForListBackupsOutput.createTime) &&
         Objects.equals(this.expireTime, backupForListBackupsOutput.expireTime) &&
-        Objects.equals(this.name, backupForListBackupsOutput.name) &&
         Objects.equals(this.state, backupForListBackupsOutput.state) &&
         Objects.equals(this.type, backupForListBackupsOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, backupTime, clusterId, createTime, expireTime, name, state, type);
+    return Objects.hash(backupId, backupTime, clusterId, createTime, expireTime, state, type);
   }
 
 
@@ -277,7 +255,6 @@ public class BackupForListBackupsOutput {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

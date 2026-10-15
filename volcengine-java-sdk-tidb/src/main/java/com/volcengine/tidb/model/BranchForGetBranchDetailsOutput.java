@@ -59,9 +59,6 @@ public class BranchForGetBranchDetailsOutput {
   @SerializedName("HasSetPwd")
   private Boolean hasSetPwd = null;
 
-  @SerializedName("Name")
-  private String name = null;
-
   @SerializedName("ParentDisplayName")
   private String parentDisplayName = null;
 
@@ -240,24 +237,6 @@ public class BranchForGetBranchDetailsOutput {
     this.hasSetPwd = hasSetPwd;
   }
 
-  public BranchForGetBranchDetailsOutput name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public BranchForGetBranchDetailsOutput parentDisplayName(String parentDisplayName) {
     this.parentDisplayName = parentDisplayName;
     return this;
@@ -421,7 +400,6 @@ public class BranchForGetBranchDetailsOutput {
         Objects.equals(this.displayName, branchForGetBranchDetailsOutput.displayName) &&
         Objects.equals(this.endpoints, branchForGetBranchDetailsOutput.endpoints) &&
         Objects.equals(this.hasSetPwd, branchForGetBranchDetailsOutput.hasSetPwd) &&
-        Objects.equals(this.name, branchForGetBranchDetailsOutput.name) &&
         Objects.equals(this.parentDisplayName, branchForGetBranchDetailsOutput.parentDisplayName) &&
         Objects.equals(this.parentId, branchForGetBranchDetailsOutput.parentId) &&
         Objects.equals(this.parentTimestamp, branchForGetBranchDetailsOutput.parentTimestamp) &&
@@ -434,7 +412,7 @@ public class BranchForGetBranchDetailsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, branchId, clusterId, createTime, createdBy, displayName, endpoints, hasSetPwd, name, parentDisplayName, parentId, parentTimestamp, projectName, state, updateTime, usages, userPrefix);
+    return Objects.hash(annotations, branchId, clusterId, createTime, createdBy, displayName, endpoints, hasSetPwd, parentDisplayName, parentId, parentTimestamp, projectName, state, updateTime, usages, userPrefix);
   }
 
 
@@ -451,7 +429,6 @@ public class BranchForGetBranchDetailsOutput {
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    hasSetPwd: ").append(toIndentedString(hasSetPwd)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parentDisplayName: ").append(toIndentedString(parentDisplayName)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    parentTimestamp: ").append(toIndentedString(parentTimestamp)).append("\n");

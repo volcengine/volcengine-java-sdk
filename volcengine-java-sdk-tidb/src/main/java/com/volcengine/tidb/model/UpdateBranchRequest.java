@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.tidb.model.BranchForUpdateBranchInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,36 +30,17 @@ import javax.validation.Valid;
 
 
 public class UpdateBranchRequest {
-  @SerializedName("Branch")
-  private BranchForUpdateBranchInput branch = null;
-
   @SerializedName("BranchId")
   private String branchId = null;
+
+  @SerializedName("BranchName")
+  private String branchName = null;
 
   @SerializedName("ClusterId")
   private String clusterId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
-
-  public UpdateBranchRequest branch(BranchForUpdateBranchInput branch) {
-    this.branch = branch;
-    return this;
-  }
-
-   /**
-   * Get branch
-   * @return branch
-  **/
-  @Valid
-  @Schema(description = "")
-  public BranchForUpdateBranchInput getBranch() {
-    return branch;
-  }
-
-  public void setBranch(BranchForUpdateBranchInput branch) {
-    this.branch = branch;
-  }
 
   public UpdateBranchRequest branchId(String branchId) {
     this.branchId = branchId;
@@ -79,6 +59,25 @@ public class UpdateBranchRequest {
 
   public void setBranchId(String branchId) {
     this.branchId = branchId;
+  }
+
+  public UpdateBranchRequest branchName(String branchName) {
+    this.branchName = branchName;
+    return this;
+  }
+
+   /**
+   * Get branchName
+   * @return branchName
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getBranchName() {
+    return branchName;
+  }
+
+  public void setBranchName(String branchName) {
+    this.branchName = branchName;
   }
 
   public UpdateBranchRequest clusterId(String clusterId) {
@@ -128,15 +127,15 @@ public class UpdateBranchRequest {
       return false;
     }
     UpdateBranchRequest updateBranchRequest = (UpdateBranchRequest) o;
-    return Objects.equals(this.branch, updateBranchRequest.branch) &&
-        Objects.equals(this.branchId, updateBranchRequest.branchId) &&
+    return Objects.equals(this.branchId, updateBranchRequest.branchId) &&
+        Objects.equals(this.branchName, updateBranchRequest.branchName) &&
         Objects.equals(this.clusterId, updateBranchRequest.clusterId) &&
         Objects.equals(this.projectName, updateBranchRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(branch, branchId, clusterId, projectName);
+    return Objects.hash(branchId, branchName, clusterId, projectName);
   }
 
 
@@ -145,8 +144,8 @@ public class UpdateBranchRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateBranchRequest {\n");
     
-    sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
     sb.append("    branchId: ").append(toIndentedString(branchId)).append("\n");
+    sb.append("    branchName: ").append(toIndentedString(branchName)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");

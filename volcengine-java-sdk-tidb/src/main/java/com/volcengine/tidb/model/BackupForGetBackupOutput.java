@@ -45,9 +45,6 @@ public class BackupForGetBackupOutput {
   @SerializedName("ExpireTime")
   private String expireTime = null;
 
-  @SerializedName("Name")
-  private String name = null;
-
   /**
    * Gets or Sets state
    */
@@ -187,24 +184,6 @@ public class BackupForGetBackupOutput {
     this.expireTime = expireTime;
   }
 
-  public BackupForGetBackupOutput name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public BackupForGetBackupOutput state(StateEnum state) {
     this.state = state;
     return this;
@@ -256,14 +235,13 @@ public class BackupForGetBackupOutput {
         Objects.equals(this.clusterId, backupForGetBackupOutput.clusterId) &&
         Objects.equals(this.createTime, backupForGetBackupOutput.createTime) &&
         Objects.equals(this.expireTime, backupForGetBackupOutput.expireTime) &&
-        Objects.equals(this.name, backupForGetBackupOutput.name) &&
         Objects.equals(this.state, backupForGetBackupOutput.state) &&
         Objects.equals(this.type, backupForGetBackupOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, backupTime, clusterId, createTime, expireTime, name, state, type);
+    return Objects.hash(backupId, backupTime, clusterId, createTime, expireTime, state, type);
   }
 
 
@@ -277,7 +255,6 @@ public class BackupForGetBackupOutput {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

@@ -42,6 +42,9 @@ import javax.validation.Valid;
 
 
 public class ClusterForListClustersOutput {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("Annotations")
   private List<AnnotationForListClustersOutput> annotations = null;
 
@@ -57,11 +60,11 @@ public class ClusterForListClustersOutput {
   @SerializedName("ClusterId")
   private String clusterId = null;
 
+  @SerializedName("ClusterName")
+  private String clusterName = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
-
-  @SerializedName("DisplayName")
-  private String displayName = null;
 
   @SerializedName("EncryptionConfig")
   private EncryptionConfigForListClustersOutput encryptionConfig = null;
@@ -117,9 +120,6 @@ public class ClusterForListClustersOutput {
 
   @SerializedName("Labels")
   private List<LabelForListClustersOutput> labels = null;
-
-  @SerializedName("Name")
-  private String name = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -268,6 +268,24 @@ public class ClusterForListClustersOutput {
   @SerializedName("Zones")
   private List<ZoneForListClustersOutput> zones = null;
 
+  public ClusterForListClustersOutput accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
   public ClusterForListClustersOutput annotations(List<AnnotationForListClustersOutput> annotations) {
     this.annotations = annotations;
     return this;
@@ -370,6 +388,24 @@ public class ClusterForListClustersOutput {
     this.clusterId = clusterId;
   }
 
+  public ClusterForListClustersOutput clusterName(String clusterName) {
+    this.clusterName = clusterName;
+    return this;
+  }
+
+   /**
+   * Get clusterName
+   * @return clusterName
+  **/
+  @Schema(description = "")
+  public String getClusterName() {
+    return clusterName;
+  }
+
+  public void setClusterName(String clusterName) {
+    this.clusterName = clusterName;
+  }
+
   public ClusterForListClustersOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
@@ -386,24 +422,6 @@ public class ClusterForListClustersOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
-  }
-
-  public ClusterForListClustersOutput displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
   }
 
   public ClusterForListClustersOutput encryptionConfig(EncryptionConfigForListClustersOutput encryptionConfig) {
@@ -487,24 +505,6 @@ public class ClusterForListClustersOutput {
 
   public void setLabels(List<LabelForListClustersOutput> labels) {
     this.labels = labels;
-  }
-
-  public ClusterForListClustersOutput name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public ClusterForListClustersOutput projectName(String projectName) {
@@ -734,18 +734,18 @@ public class ClusterForListClustersOutput {
       return false;
     }
     ClusterForListClustersOutput clusterForListClustersOutput = (ClusterForListClustersOutput) o;
-    return Objects.equals(this.annotations, clusterForListClustersOutput.annotations) &&
+    return Objects.equals(this.accountId, clusterForListClustersOutput.accountId) &&
+        Objects.equals(this.annotations, clusterForListClustersOutput.annotations) &&
         Objects.equals(this.auditLogConfig, clusterForListClustersOutput.auditLogConfig) &&
         Objects.equals(this.autoScaling, clusterForListClustersOutput.autoScaling) &&
         Objects.equals(this.automatedBackupPolicy, clusterForListClustersOutput.automatedBackupPolicy) &&
         Objects.equals(this.clusterId, clusterForListClustersOutput.clusterId) &&
+        Objects.equals(this.clusterName, clusterForListClustersOutput.clusterName) &&
         Objects.equals(this.createTime, clusterForListClustersOutput.createTime) &&
-        Objects.equals(this.displayName, clusterForListClustersOutput.displayName) &&
         Objects.equals(this.encryptionConfig, clusterForListClustersOutput.encryptionConfig) &&
         Objects.equals(this.endpoints, clusterForListClustersOutput.endpoints) &&
         Objects.equals(this.highAvailabilityType, clusterForListClustersOutput.highAvailabilityType) &&
         Objects.equals(this.labels, clusterForListClustersOutput.labels) &&
-        Objects.equals(this.name, clusterForListClustersOutput.name) &&
         Objects.equals(this.projectName, clusterForListClustersOutput.projectName) &&
         Objects.equals(this.regionId, clusterForListClustersOutput.regionId) &&
         Objects.equals(this.servicePlan, clusterForListClustersOutput.servicePlan) &&
@@ -761,7 +761,7 @@ public class ClusterForListClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, auditLogConfig, autoScaling, automatedBackupPolicy, clusterId, createTime, displayName, encryptionConfig, endpoints, highAvailabilityType, labels, name, projectName, regionId, servicePlan, spendingLimit, state, tags, updateTime, userPrefix, version, vpcId, zones);
+    return Objects.hash(accountId, annotations, auditLogConfig, autoScaling, automatedBackupPolicy, clusterId, clusterName, createTime, encryptionConfig, endpoints, highAvailabilityType, labels, projectName, regionId, servicePlan, spendingLimit, state, tags, updateTime, userPrefix, version, vpcId, zones);
   }
 
 
@@ -770,18 +770,18 @@ public class ClusterForListClustersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClusterForListClustersOutput {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
     sb.append("    auditLogConfig: ").append(toIndentedString(auditLogConfig)).append("\n");
     sb.append("    autoScaling: ").append(toIndentedString(autoScaling)).append("\n");
     sb.append("    automatedBackupPolicy: ").append(toIndentedString(automatedBackupPolicy)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    encryptionConfig: ").append(toIndentedString(encryptionConfig)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    highAvailabilityType: ").append(toIndentedString(highAvailabilityType)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    servicePlan: ").append(toIndentedString(servicePlan)).append("\n");

@@ -45,9 +45,6 @@ public class BackupForListRecycledInstanceBackupsOutput {
   @SerializedName("ExpireTime")
   private String expireTime = null;
 
-  @SerializedName("Name")
-  private String name = null;
-
   /**
    * Gets or Sets state
    */
@@ -187,24 +184,6 @@ public class BackupForListRecycledInstanceBackupsOutput {
     this.expireTime = expireTime;
   }
 
-  public BackupForListRecycledInstanceBackupsOutput name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public BackupForListRecycledInstanceBackupsOutput state(StateEnum state) {
     this.state = state;
     return this;
@@ -256,14 +235,13 @@ public class BackupForListRecycledInstanceBackupsOutput {
         Objects.equals(this.clusterId, backupForListRecycledInstanceBackupsOutput.clusterId) &&
         Objects.equals(this.createTime, backupForListRecycledInstanceBackupsOutput.createTime) &&
         Objects.equals(this.expireTime, backupForListRecycledInstanceBackupsOutput.expireTime) &&
-        Objects.equals(this.name, backupForListRecycledInstanceBackupsOutput.name) &&
         Objects.equals(this.state, backupForListRecycledInstanceBackupsOutput.state) &&
         Objects.equals(this.type, backupForListRecycledInstanceBackupsOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, backupTime, clusterId, createTime, expireTime, name, state, type);
+    return Objects.hash(backupId, backupTime, clusterId, createTime, expireTime, state, type);
   }
 
 
@@ -277,7 +255,6 @@ public class BackupForListRecycledInstanceBackupsOutput {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

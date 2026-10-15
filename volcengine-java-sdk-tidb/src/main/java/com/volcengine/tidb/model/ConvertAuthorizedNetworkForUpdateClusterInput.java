@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class ConvertAuthorizedNetworkForUpdateClusterInput {
-  @SerializedName("DisplayName")
-  private String displayName = null;
+  @SerializedName("AuthorizedNetworkName")
+  private String authorizedNetworkName = null;
 
   @SerializedName("EndIpAddress")
   private String endIpAddress = null;
@@ -39,22 +39,22 @@ public class ConvertAuthorizedNetworkForUpdateClusterInput {
   @SerializedName("StartIpAddress")
   private String startIpAddress = null;
 
-  public ConvertAuthorizedNetworkForUpdateClusterInput displayName(String displayName) {
-    this.displayName = displayName;
+  public ConvertAuthorizedNetworkForUpdateClusterInput authorizedNetworkName(String authorizedNetworkName) {
+    this.authorizedNetworkName = authorizedNetworkName;
     return this;
   }
 
    /**
-   * Get displayName
-   * @return displayName
+   * Get authorizedNetworkName
+   * @return authorizedNetworkName
   **/
   @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
+  public String getAuthorizedNetworkName() {
+    return authorizedNetworkName;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setAuthorizedNetworkName(String authorizedNetworkName) {
+    this.authorizedNetworkName = authorizedNetworkName;
   }
 
   public ConvertAuthorizedNetworkForUpdateClusterInput endIpAddress(String endIpAddress) {
@@ -103,14 +103,14 @@ public class ConvertAuthorizedNetworkForUpdateClusterInput {
       return false;
     }
     ConvertAuthorizedNetworkForUpdateClusterInput convertAuthorizedNetworkForUpdateClusterInput = (ConvertAuthorizedNetworkForUpdateClusterInput) o;
-    return Objects.equals(this.displayName, convertAuthorizedNetworkForUpdateClusterInput.displayName) &&
+    return Objects.equals(this.authorizedNetworkName, convertAuthorizedNetworkForUpdateClusterInput.authorizedNetworkName) &&
         Objects.equals(this.endIpAddress, convertAuthorizedNetworkForUpdateClusterInput.endIpAddress) &&
         Objects.equals(this.startIpAddress, convertAuthorizedNetworkForUpdateClusterInput.startIpAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, endIpAddress, startIpAddress);
+    return Objects.hash(authorizedNetworkName, endIpAddress, startIpAddress);
   }
 
 
@@ -119,7 +119,7 @@ public class ConvertAuthorizedNetworkForUpdateClusterInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConvertAuthorizedNetworkForUpdateClusterInput {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    authorizedNetworkName: ").append(toIndentedString(authorizedNetworkName)).append("\n");
     sb.append("    endIpAddress: ").append(toIndentedString(endIpAddress)).append("\n");
     sb.append("    startIpAddress: ").append(toIndentedString(startIpAddress)).append("\n");
     sb.append("}");

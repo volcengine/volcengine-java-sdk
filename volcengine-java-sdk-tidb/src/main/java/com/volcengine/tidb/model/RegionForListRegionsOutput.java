@@ -32,14 +32,11 @@ import javax.validation.Valid;
 
 
 public class RegionForListRegionsOutput {
-  @SerializedName("DisplayName")
-  private String displayName = null;
-
-  @SerializedName("Name")
-  private String name = null;
-
   @SerializedName("RegionId")
   private String regionId = null;
+
+  @SerializedName("RegionName")
+  private String regionName = null;
 
   /**
    * Gets or Sets servicePlans
@@ -96,42 +93,6 @@ public class RegionForListRegionsOutput {
   @SerializedName("ZoneId")
   private List<String> zoneId = null;
 
-  public RegionForListRegionsOutput displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public RegionForListRegionsOutput name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public RegionForListRegionsOutput regionId(String regionId) {
     this.regionId = regionId;
     return this;
@@ -148,6 +109,24 @@ public class RegionForListRegionsOutput {
 
   public void setRegionId(String regionId) {
     this.regionId = regionId;
+  }
+
+  public RegionForListRegionsOutput regionName(String regionName) {
+    this.regionName = regionName;
+    return this;
+  }
+
+   /**
+   * Get regionName
+   * @return regionName
+  **/
+  @Schema(description = "")
+  public String getRegionName() {
+    return regionName;
+  }
+
+  public void setRegionName(String regionName) {
+    this.regionName = regionName;
   }
 
   public RegionForListRegionsOutput servicePlans(List<ServicePlansEnum> servicePlans) {
@@ -212,16 +191,15 @@ public class RegionForListRegionsOutput {
       return false;
     }
     RegionForListRegionsOutput regionForListRegionsOutput = (RegionForListRegionsOutput) o;
-    return Objects.equals(this.displayName, regionForListRegionsOutput.displayName) &&
-        Objects.equals(this.name, regionForListRegionsOutput.name) &&
-        Objects.equals(this.regionId, regionForListRegionsOutput.regionId) &&
+    return Objects.equals(this.regionId, regionForListRegionsOutput.regionId) &&
+        Objects.equals(this.regionName, regionForListRegionsOutput.regionName) &&
         Objects.equals(this.servicePlans, regionForListRegionsOutput.servicePlans) &&
         Objects.equals(this.zoneId, regionForListRegionsOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, name, regionId, servicePlans, zoneId);
+    return Objects.hash(regionId, regionName, servicePlans, zoneId);
   }
 
 
@@ -230,9 +208,8 @@ public class RegionForListRegionsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RegionForListRegionsOutput {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    regionName: ").append(toIndentedString(regionName)).append("\n");
     sb.append("    servicePlans: ").append(toIndentedString(servicePlans)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
