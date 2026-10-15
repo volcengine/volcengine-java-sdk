@@ -1,0 +1,14 @@
+{
+  "actions": [
+    "ListBudget",
+    "ListBudgetFilterConfigurationInfo",
+    "QueryBudgetSplitItemID",
+    "QueryBudgetSplitItemName",
+    "QueryBudgetDetail",
+    "UpdateBudget",
+    "CreateBudget"
+  ],
+  "description": "BILLING: 新增 ListBudgetFilterConfigurationInfo, QueryBudgetSplitItemID, QueryBudgetSplitItemName；修改 QueryBudgetDetail, UpdateBudget, CreateBudget, ListBudget",
+  "modules": "service/billing",
+  "type": "feature"
+}
