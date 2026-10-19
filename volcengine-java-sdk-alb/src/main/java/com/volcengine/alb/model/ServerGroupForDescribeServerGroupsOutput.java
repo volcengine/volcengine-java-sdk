@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForDescribeServerGroupsOutput;
+import com.volcengine.alb.model.SlowStartConfigForDescribeServerGroupsOutput;
 import com.volcengine.alb.model.StickySessionConfigForDescribeServerGroupsOutput;
 import com.volcengine.alb.model.TagForDescribeServerGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -73,6 +74,9 @@ public class ServerGroupForDescribeServerGroupsOutput {
 
   @SerializedName("ServerGroupType")
   private String serverGroupType = null;
+
+  @SerializedName("SlowStartConfig")
+  private SlowStartConfigForDescribeServerGroupsOutput slowStartConfig = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -332,6 +336,25 @@ public class ServerGroupForDescribeServerGroupsOutput {
     this.serverGroupType = serverGroupType;
   }
 
+  public ServerGroupForDescribeServerGroupsOutput slowStartConfig(SlowStartConfigForDescribeServerGroupsOutput slowStartConfig) {
+    this.slowStartConfig = slowStartConfig;
+    return this;
+  }
+
+   /**
+   * Get slowStartConfig
+   * @return slowStartConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public SlowStartConfigForDescribeServerGroupsOutput getSlowStartConfig() {
+    return slowStartConfig;
+  }
+
+  public void setSlowStartConfig(SlowStartConfigForDescribeServerGroupsOutput slowStartConfig) {
+    this.slowStartConfig = slowStartConfig;
+  }
+
   public ServerGroupForDescribeServerGroupsOutput status(String status) {
     this.status = status;
     return this;
@@ -455,6 +478,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
         Objects.equals(this.serverGroupId, serverGroupForDescribeServerGroupsOutput.serverGroupId) &&
         Objects.equals(this.serverGroupName, serverGroupForDescribeServerGroupsOutput.serverGroupName) &&
         Objects.equals(this.serverGroupType, serverGroupForDescribeServerGroupsOutput.serverGroupType) &&
+        Objects.equals(this.slowStartConfig, serverGroupForDescribeServerGroupsOutput.slowStartConfig) &&
         Objects.equals(this.status, serverGroupForDescribeServerGroupsOutput.status) &&
         Objects.equals(this.stickySessionConfig, serverGroupForDescribeServerGroupsOutput.stickySessionConfig) &&
         Objects.equals(this.tags, serverGroupForDescribeServerGroupsOutput.tags) &&
@@ -464,7 +488,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, crossZoneEnabled, description, healthCheck, ipAddressType, listeners, projectName, protocol, scheduler, serverCount, serverGroupId, serverGroupName, serverGroupType, status, stickySessionConfig, tags, updateTime, vpcId);
+    return Objects.hash(createTime, crossZoneEnabled, description, healthCheck, ipAddressType, listeners, projectName, protocol, scheduler, serverCount, serverGroupId, serverGroupName, serverGroupType, slowStartConfig, status, stickySessionConfig, tags, updateTime, vpcId);
   }
 
 
@@ -486,6 +510,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
     sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
+    sb.append("    slowStartConfig: ").append(toIndentedString(slowStartConfig)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

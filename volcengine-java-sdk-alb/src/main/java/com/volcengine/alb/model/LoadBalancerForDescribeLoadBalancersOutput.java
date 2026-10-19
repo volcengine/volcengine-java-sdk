@@ -37,6 +37,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
 
+  @SerializedName("ArkClawEnabled")
+  private String arkClawEnabled = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
@@ -106,6 +109,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("SniAutoMatch")
   private String sniAutoMatch = null;
 
+  @SerializedName("SpaceNetworkId")
+  private String spaceNetworkId = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -149,6 +155,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setAddressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput arkClawEnabled(String arkClawEnabled) {
+    this.arkClawEnabled = arkClawEnabled;
+    return this;
+  }
+
+   /**
+   * Get arkClawEnabled
+   * @return arkClawEnabled
+  **/
+  @Schema(description = "")
+  public String getArkClawEnabled() {
+    return arkClawEnabled;
+  }
+
+  public void setArkClawEnabled(String arkClawEnabled) {
+    this.arkClawEnabled = arkClawEnabled;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput businessStatus(String businessStatus) {
@@ -581,6 +605,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.sniAutoMatch = sniAutoMatch;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput spaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+    return this;
+  }
+
+   /**
+   * Get spaceNetworkId
+   * @return spaceNetworkId
+  **/
+  @Schema(description = "")
+  public String getSpaceNetworkId() {
+    return spaceNetworkId;
+  }
+
+  public void setSpaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+  }
+
   public LoadBalancerForDescribeLoadBalancersOutput status(String status) {
     this.status = status;
     return this;
@@ -772,6 +814,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     }
     LoadBalancerForDescribeLoadBalancersOutput loadBalancerForDescribeLoadBalancersOutput = (LoadBalancerForDescribeLoadBalancersOutput) o;
     return Objects.equals(this.addressIpVersion, loadBalancerForDescribeLoadBalancersOutput.addressIpVersion) &&
+        Objects.equals(this.arkClawEnabled, loadBalancerForDescribeLoadBalancersOutput.arkClawEnabled) &&
         Objects.equals(this.businessStatus, loadBalancerForDescribeLoadBalancersOutput.businessStatus) &&
         Objects.equals(this.createTime, loadBalancerForDescribeLoadBalancersOutput.createTime) &&
         Objects.equals(this.dnSName, loadBalancerForDescribeLoadBalancersOutput.dnSName) &&
@@ -795,6 +838,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.proxyProtocolEnabled, loadBalancerForDescribeLoadBalancersOutput.proxyProtocolEnabled) &&
         Objects.equals(this.securityGroupIds, loadBalancerForDescribeLoadBalancersOutput.securityGroupIds) &&
         Objects.equals(this.sniAutoMatch, loadBalancerForDescribeLoadBalancersOutput.sniAutoMatch) &&
+        Objects.equals(this.spaceNetworkId, loadBalancerForDescribeLoadBalancersOutput.spaceNetworkId) &&
         Objects.equals(this.status, loadBalancerForDescribeLoadBalancersOutput.status) &&
         Objects.equals(this.subnetId, loadBalancerForDescribeLoadBalancersOutput.subnetId) &&
         Objects.equals(this.tags, loadBalancerForDescribeLoadBalancersOutput.tags) &&
@@ -808,7 +852,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerEdition, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, proxyProtocolEnabled, securityGroupIds, sniAutoMatch, status, subnetId, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
+    return Objects.hash(addressIpVersion, arkClawEnabled, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerEdition, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, proxyProtocolEnabled, securityGroupIds, sniAutoMatch, spaceNetworkId, status, subnetId, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
   }
 
 
@@ -818,6 +862,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("class LoadBalancerForDescribeLoadBalancersOutput {\n");
     
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
+    sb.append("    arkClawEnabled: ").append(toIndentedString(arkClawEnabled)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dnSName: ").append(toIndentedString(dnSName)).append("\n");
@@ -841,6 +886,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    proxyProtocolEnabled: ").append(toIndentedString(proxyProtocolEnabled)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    sniAutoMatch: ").append(toIndentedString(sniAutoMatch)).append("\n");
+    sb.append("    spaceNetworkId: ").append(toIndentedString(spaceNetworkId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

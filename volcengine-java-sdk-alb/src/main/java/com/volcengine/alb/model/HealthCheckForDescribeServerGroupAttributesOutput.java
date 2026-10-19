@@ -199,11 +199,9 @@ public class HealthCheckForDescribeServerGroupAttributesOutput {
 
    /**
    * Get port
-   * minimum: 0
-   * maximum: 65535
    * @return port
   **/
- @Min(0) @Max(65535)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getPort() {
     return port;
   }

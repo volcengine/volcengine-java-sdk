@@ -45,6 +45,9 @@ public class ConvertRedirectConfigForDescribeRulesOutput {
   @SerializedName("Protocol")
   private String protocol = null;
 
+  @SerializedName("Query")
+  private String query = null;
+
   public ConvertRedirectConfigForDescribeRulesOutput host(String host) {
     this.host = host;
     return this;
@@ -135,6 +138,24 @@ public class ConvertRedirectConfigForDescribeRulesOutput {
     this.protocol = protocol;
   }
 
+  public ConvertRedirectConfigForDescribeRulesOutput query(String query) {
+    this.query = query;
+    return this;
+  }
+
+   /**
+   * Get query
+   * @return query
+  **/
+  @Schema(description = "")
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,12 +170,13 @@ public class ConvertRedirectConfigForDescribeRulesOutput {
         Objects.equals(this.httpCode, convertRedirectConfigForDescribeRulesOutput.httpCode) &&
         Objects.equals(this.path, convertRedirectConfigForDescribeRulesOutput.path) &&
         Objects.equals(this.port, convertRedirectConfigForDescribeRulesOutput.port) &&
-        Objects.equals(this.protocol, convertRedirectConfigForDescribeRulesOutput.protocol);
+        Objects.equals(this.protocol, convertRedirectConfigForDescribeRulesOutput.protocol) &&
+        Objects.equals(this.query, convertRedirectConfigForDescribeRulesOutput.query);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, httpCode, path, port, protocol);
+    return Objects.hash(host, httpCode, path, port, protocol, query);
   }
 
 
@@ -168,6 +190,7 @@ public class ConvertRedirectConfigForDescribeRulesOutput {
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("}");
     return sb.toString();
   }
