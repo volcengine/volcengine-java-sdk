@@ -107,6 +107,17 @@ public class ApiClientTest {
         }
     }
 
+    /** resolver 自身抛出的 IllegalArgumentException 不做包装，与 master 行为一致（标签合法但 resolver 不支持的值）。 */
+    @Test public void testExecute_resolverIllegalArgumentExceptionPropagatesUnwrapped() throws Exception {
+        try (EndpointTestSupport.Fixture f = new EndpointTestSupport.Fixture("cn-beijing", false)) {
+            f.client.setEndpointResolver(new StandardEndpointProvider());
+            IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
+                    () -> f.client.execute(f.call("not_a_service"), Map.class));
+            assertTrue(e.getMessage().startsWith("ServiceNotFound:"));
+            f.assertUntouched();
+        }
+    }
+
     @Test public void testExecute_rejectsEvenWithAutomaticRetriesEnabled() throws Exception {
         try (EndpointTestSupport.Fixture f = new EndpointTestSupport.Fixture("cn-beijing@example.invalid", true)) {
             f.client.setAutoRetry(true).setNumMaxRetries(3);

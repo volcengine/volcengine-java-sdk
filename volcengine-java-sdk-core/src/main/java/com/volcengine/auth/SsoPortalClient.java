@@ -39,8 +39,9 @@ class SsoPortalClient {
     private final Gson gson = new Gson();
 
     SsoPortalClient(String region) {
-        // 缺失值（null、空串或纯空白）沿用原有逻辑回落到默认 region；其余值按原样参与拼接，请求前校验。
-        this.region = (region == null || region.trim().isEmpty()) ? "cn-beijing" : region;
+        // 缺失值（null、空串或纯空白）沿用原有逻辑回落到默认 region；其余值沿用原有逻辑先 trim，
+        // 请求前对 trim 后（即实际拼进域名）的值做校验。
+        this.region = (region == null || region.trim().isEmpty()) ? "cn-beijing" : region.trim();
     }
 
     private String resolveEndpoint(String template) throws ApiException {

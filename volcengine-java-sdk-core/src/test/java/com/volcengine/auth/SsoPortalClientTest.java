@@ -72,6 +72,8 @@ public class SsoPortalClientTest {
     /** 规范用例：错误码 InvalidRegion、完整错误信息、状态码 400，且不建立任何连接。 */
     @Test public void testRequests_specCasesExactCodeAndMessage() {
         for (String payload : EndpointTestSupport.invalidValues()) {
+            // 首尾空白会先被 trim（沿用原有逻辑，如 "cn-beijing\n"），trim 后合法，见 testRequests_validAndMissingRegionPreserveHosts。
+            if (!payload.equals(payload.trim())) continue;
             SsoPortalClient client = new SsoPortalClient(payload);
             EndpointTestSupport.assertApiValidationError("region", payload, assertThrows(ApiException.class,
                     () -> client.refreshToken("<TEST_CLIENT_ID>", "<TEST_CLIENT_SECRET>", "<TEST_REFRESH_TOKEN>")));
@@ -82,10 +84,12 @@ public class SsoPortalClientTest {
     }
 
     @Test public void testRequests_validAndMissingRegionPreserveHosts() throws Exception {
-        for (String region : new String[]{null, "", " ", "\t", "\r\n", "cn-beijing", "cn-shanghai", "region_1", "Region-09"}) {
+        for (String region : new String[]{null, "", " ", "\t", "\r\n", "cn-beijing", "cn-shanghai", "region_1", "Region-09",
+                " cn-beijing ", "cn-shanghai\n", "\tregion_1\r\n"}) {
             resetCounters();
             SsoPortalClient client = new SsoPortalClient(region);
-            String effective = region == null || region.trim().isEmpty() ? "cn-beijing" : region;
+            // 首尾空白沿用原有逻辑先 trim，trim 后的值参与校验和拼接。
+            String effective = region == null || region.trim().isEmpty() ? "cn-beijing" : region.trim();
             SsoPortalClient.OAuthTokenResponse token = client.refreshToken("<TEST_CLIENT_ID>", "<TEST_CLIENT_SECRET>", "<TEST_REFRESH_TOKEN>");
             SsoPortalClient.RoleCredentialsResult credentials = client.getRoleCredentials("<TEST_ACCESS_TOKEN>", "test-account", "test-role");
             assertEquals("<TEST_ACCESS_TOKEN>", token.accessToken);
@@ -125,7 +129,7 @@ public class SsoPortalClientTest {
     }
 
     @Test public void testProvider_failureDoesNotPolluteNextValidProvider() throws Exception {
-        CredentialProvider bad = new CredentialProvider(new SsoRefreshProvider(cache(true), "test-account", "test-role", " cn-beijing ", null));
+        CredentialProvider bad = new CredentialProvider(new SsoRefreshProvider(cache(true), "test-account", "test-role", "cn/beijing", null));
         assertThrows(ApiException.class, bad::get);
         assertEquals(0, connections.get());
         CredentialProvider good = new CredentialProvider(new SsoRefreshProvider(cache(true), "test-account", "test-role", null, null));
