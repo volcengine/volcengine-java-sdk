@@ -51,7 +51,7 @@ public class UpdateQueryRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(max=256)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -69,7 +69,7 @@ public class UpdateQueryRequest {
    * Get expression
    * @return expression
   **/
-  @Schema(description = "")
+ @Size(max=2048)  @Schema(description = "")
   public String getExpression() {
     return expression;
   }
@@ -106,7 +106,7 @@ public class UpdateQueryRequest {
    * Get queryName
    * @return queryName
   **/
-  @Schema(description = "")
+ @Size(max=64)  @Schema(description = "")
   public String getQueryName() {
     return queryName;
   }

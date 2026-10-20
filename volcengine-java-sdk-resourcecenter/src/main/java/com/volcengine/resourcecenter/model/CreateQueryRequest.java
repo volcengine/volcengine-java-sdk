@@ -48,8 +48,7 @@ public class CreateQueryRequest {
    * Get description
    * @return description
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+ @Size(max=128)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -68,7 +67,7 @@ public class CreateQueryRequest {
    * @return expression
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(max=2048)  @Schema(required = true, description = "")
   public String getExpression() {
     return expression;
   }
@@ -87,7 +86,7 @@ public class CreateQueryRequest {
    * @return queryName
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(max=64)  @Schema(required = true, description = "")
   public String getQueryName() {
     return queryName;
   }

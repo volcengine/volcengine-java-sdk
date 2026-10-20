@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.resourcecenter.model.RelatedTypeNameForListResourceTypesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class ResourceTypeForListResourceTypesOutput {
+  @SerializedName("RelatedTypeNames")
+  private List<RelatedTypeNameForListResourceTypesOutput> relatedTypeNames = null;
+
   @SerializedName("ResourceType")
   private String resourceType = null;
 
@@ -41,6 +47,36 @@ public class ResourceTypeForListResourceTypesOutput {
 
   @SerializedName("ServiceName")
   private String serviceName = null;
+
+  @SerializedName("TypeName")
+  private String typeName = null;
+
+  public ResourceTypeForListResourceTypesOutput relatedTypeNames(List<RelatedTypeNameForListResourceTypesOutput> relatedTypeNames) {
+    this.relatedTypeNames = relatedTypeNames;
+    return this;
+  }
+
+  public ResourceTypeForListResourceTypesOutput addRelatedTypeNamesItem(RelatedTypeNameForListResourceTypesOutput relatedTypeNamesItem) {
+    if (this.relatedTypeNames == null) {
+      this.relatedTypeNames = new ArrayList<RelatedTypeNameForListResourceTypesOutput>();
+    }
+    this.relatedTypeNames.add(relatedTypeNamesItem);
+    return this;
+  }
+
+   /**
+   * Get relatedTypeNames
+   * @return relatedTypeNames
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RelatedTypeNameForListResourceTypesOutput> getRelatedTypeNames() {
+    return relatedTypeNames;
+  }
+
+  public void setRelatedTypeNames(List<RelatedTypeNameForListResourceTypesOutput> relatedTypeNames) {
+    this.relatedTypeNames = relatedTypeNames;
+  }
 
   public ResourceTypeForListResourceTypesOutput resourceType(String resourceType) {
     this.resourceType = resourceType;
@@ -114,6 +150,24 @@ public class ResourceTypeForListResourceTypesOutput {
     this.serviceName = serviceName;
   }
 
+  public ResourceTypeForListResourceTypesOutput typeName(String typeName) {
+    this.typeName = typeName;
+    return this;
+  }
+
+   /**
+   * Get typeName
+   * @return typeName
+  **/
+  @Schema(description = "")
+  public String getTypeName() {
+    return typeName;
+  }
+
+  public void setTypeName(String typeName) {
+    this.typeName = typeName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -124,15 +178,17 @@ public class ResourceTypeForListResourceTypesOutput {
       return false;
     }
     ResourceTypeForListResourceTypesOutput resourceTypeForListResourceTypesOutput = (ResourceTypeForListResourceTypesOutput) o;
-    return Objects.equals(this.resourceType, resourceTypeForListResourceTypesOutput.resourceType) &&
+    return Objects.equals(this.relatedTypeNames, resourceTypeForListResourceTypesOutput.relatedTypeNames) &&
+        Objects.equals(this.resourceType, resourceTypeForListResourceTypesOutput.resourceType) &&
         Objects.equals(this.resourceTypeName, resourceTypeForListResourceTypesOutput.resourceTypeName) &&
         Objects.equals(this.service, resourceTypeForListResourceTypesOutput.service) &&
-        Objects.equals(this.serviceName, resourceTypeForListResourceTypesOutput.serviceName);
+        Objects.equals(this.serviceName, resourceTypeForListResourceTypesOutput.serviceName) &&
+        Objects.equals(this.typeName, resourceTypeForListResourceTypesOutput.typeName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourceType, resourceTypeName, service, serviceName);
+    return Objects.hash(relatedTypeNames, resourceType, resourceTypeName, service, serviceName, typeName);
   }
 
 
@@ -141,10 +197,12 @@ public class ResourceTypeForListResourceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResourceTypeForListResourceTypesOutput {\n");
     
+    sb.append("    relatedTypeNames: ").append(toIndentedString(relatedTypeNames)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    resourceTypeName: ").append(toIndentedString(resourceTypeName)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

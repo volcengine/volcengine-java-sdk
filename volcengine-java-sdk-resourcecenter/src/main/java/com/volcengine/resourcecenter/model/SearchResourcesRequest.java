@@ -166,9 +166,11 @@ public class SearchResourcesRequest {
 
    /**
    * Get maxResults
+   * minimum: 1
+   * maximum: 100
    * @return maxResults
   **/
-  @Schema(description = "")
+ @Min(1) @Max(100)  @Schema(description = "")
   public Integer getMaxResults() {
     return maxResults;
   }
