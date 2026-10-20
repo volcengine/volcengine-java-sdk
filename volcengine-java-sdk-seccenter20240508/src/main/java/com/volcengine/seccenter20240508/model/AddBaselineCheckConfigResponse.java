@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class AddBaselineCheckConfigResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ConfigID")
+  private String configID = null;
+
   @SerializedName("Status")
   private String status = null;
+
+  public AddBaselineCheckConfigResponse configID(String configID) {
+    this.configID = configID;
+    return this;
+  }
+
+   /**
+   * Get configID
+   * @return configID
+  **/
+  @Schema(description = "")
+  public String getConfigID() {
+    return configID;
+  }
+
+  public void setConfigID(String configID) {
+    this.configID = configID;
+  }
 
   public AddBaselineCheckConfigResponse status(String status) {
     this.status = status;
@@ -61,12 +82,13 @@ public class AddBaselineCheckConfigResponse extends com.volcengine.model.Abstrac
       return false;
     }
     AddBaselineCheckConfigResponse addBaselineCheckConfigResponse = (AddBaselineCheckConfigResponse) o;
-    return Objects.equals(this.status, addBaselineCheckConfigResponse.status);
+    return Objects.equals(this.configID, addBaselineCheckConfigResponse.configID) &&
+        Objects.equals(this.status, addBaselineCheckConfigResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status);
+    return Objects.hash(configID, status);
   }
 
 
@@ -75,6 +97,7 @@ public class AddBaselineCheckConfigResponse extends com.volcengine.model.Abstrac
     StringBuilder sb = new StringBuilder();
     sb.append("class AddBaselineCheckConfigResponse {\n");
     
+    sb.append("    configID: ").append(toIndentedString(configID)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
