@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.efs.model.LastAccessTimeIntervalForCreateDataFlowPolicyInput;
+import com.volcengine.efs.model.ExportIntervalForCreateDataFlowPolicyInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -81,7 +81,7 @@ public class PeriodExportForCreateDataFlowPolicyInput {
   private List<String> excludePaths = null;
 
   @SerializedName("ExportInterval")
-  private LastAccessTimeIntervalForCreateDataFlowPolicyInput exportInterval = null;
+  private ExportIntervalForCreateDataFlowPolicyInput exportInterval = null;
 
   @SerializedName("IncludePaths")
   private List<String> includePaths = null;
@@ -133,7 +133,7 @@ public class PeriodExportForCreateDataFlowPolicyInput {
     this.excludePaths = excludePaths;
   }
 
-  public PeriodExportForCreateDataFlowPolicyInput exportInterval(LastAccessTimeIntervalForCreateDataFlowPolicyInput exportInterval) {
+  public PeriodExportForCreateDataFlowPolicyInput exportInterval(ExportIntervalForCreateDataFlowPolicyInput exportInterval) {
     this.exportInterval = exportInterval;
     return this;
   }
@@ -144,11 +144,11 @@ public class PeriodExportForCreateDataFlowPolicyInput {
   **/
   @Valid
   @Schema(description = "")
-  public LastAccessTimeIntervalForCreateDataFlowPolicyInput getExportInterval() {
+  public ExportIntervalForCreateDataFlowPolicyInput getExportInterval() {
     return exportInterval;
   }
 
-  public void setExportInterval(LastAccessTimeIntervalForCreateDataFlowPolicyInput exportInterval) {
+  public void setExportInterval(ExportIntervalForCreateDataFlowPolicyInput exportInterval) {
     this.exportInterval = exportInterval;
   }
 
