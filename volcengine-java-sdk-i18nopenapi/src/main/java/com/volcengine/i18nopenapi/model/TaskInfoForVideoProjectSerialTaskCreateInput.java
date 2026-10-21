@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.SourceStyleMapForVideoProjectSerialTaskCreateInput;
 import com.volcengine.i18nopenapi.model.SuppressionParamsForVideoProjectSerialTaskCreateInput;
 import com.volcengine.i18nopenapi.model.TargetStyleMapForVideoProjectSerialTaskCreateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -99,6 +100,9 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
 
   @SerializedName("sourceLang")
   private String sourceLang = null;
+
+  @SerializedName("sourceStyleMap")
+  private SourceStyleMapForVideoProjectSerialTaskCreateInput sourceStyleMap = null;
 
   @SerializedName("suppressionParams")
   private SuppressionParamsForVideoProjectSerialTaskCreateInput suppressionParams = null;
@@ -511,6 +515,25 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     this.sourceLang = sourceLang;
   }
 
+  public TaskInfoForVideoProjectSerialTaskCreateInput sourceStyleMap(SourceStyleMapForVideoProjectSerialTaskCreateInput sourceStyleMap) {
+    this.sourceStyleMap = sourceStyleMap;
+    return this;
+  }
+
+   /**
+   * Get sourceStyleMap
+   * @return sourceStyleMap
+  **/
+  @Valid
+  @Schema(description = "")
+  public SourceStyleMapForVideoProjectSerialTaskCreateInput getSourceStyleMap() {
+    return sourceStyleMap;
+  }
+
+  public void setSourceStyleMap(SourceStyleMapForVideoProjectSerialTaskCreateInput sourceStyleMap) {
+    this.sourceStyleMap = sourceStyleMap;
+  }
+
   public TaskInfoForVideoProjectSerialTaskCreateInput suppressionParams(SuppressionParamsForVideoProjectSerialTaskCreateInput suppressionParams) {
     this.suppressionParams = suppressionParams;
     return this;
@@ -643,6 +666,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
         Objects.equals(this.needVideoSpeed, taskInfoForVideoProjectSerialTaskCreateInput.needVideoSpeed) &&
         Objects.equals(this.serialNumber, taskInfoForVideoProjectSerialTaskCreateInput.serialNumber) &&
         Objects.equals(this.sourceLang, taskInfoForVideoProjectSerialTaskCreateInput.sourceLang) &&
+        Objects.equals(this.sourceStyleMap, taskInfoForVideoProjectSerialTaskCreateInput.sourceStyleMap) &&
         Objects.equals(this.suppressionParams, taskInfoForVideoProjectSerialTaskCreateInput.suppressionParams) &&
         Objects.equals(this.targetLangs, taskInfoForVideoProjectSerialTaskCreateInput.targetLangs) &&
         Objects.equals(this.targetStyleMap, taskInfoForVideoProjectSerialTaskCreateInput.targetStyleMap) &&
@@ -652,7 +676,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveType, asrModel, auditFailPolicy, bgmPolicy, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, dubVoiceMode, isDub, llmVideoUnderstandingType, maxTargetSubtitleLines, needTermValidation, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, serialNumber, sourceLang, suppressionParams, targetLangs, targetStyleMap, taskName, useMT);
+    return Objects.hash(aiRemoveType, asrModel, auditFailPolicy, bgmPolicy, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, dubVoiceMode, isDub, llmVideoUnderstandingType, maxTargetSubtitleLines, needTermValidation, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, serialNumber, sourceLang, sourceStyleMap, suppressionParams, targetLangs, targetStyleMap, taskName, useMT);
   }
 
 
@@ -683,6 +707,7 @@ public class TaskInfoForVideoProjectSerialTaskCreateInput {
     sb.append("    needVideoSpeed: ").append(toIndentedString(needVideoSpeed)).append("\n");
     sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
     sb.append("    sourceLang: ").append(toIndentedString(sourceLang)).append("\n");
+    sb.append("    sourceStyleMap: ").append(toIndentedString(sourceStyleMap)).append("\n");
     sb.append("    suppressionParams: ").append(toIndentedString(suppressionParams)).append("\n");
     sb.append("    targetLangs: ").append(toIndentedString(targetLangs)).append("\n");
     sb.append("    targetStyleMap: ").append(toIndentedString(targetStyleMap)).append("\n");
