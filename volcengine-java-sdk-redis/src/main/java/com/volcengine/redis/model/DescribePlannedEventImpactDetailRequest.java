@@ -24,31 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConfigureNodeForCreateEnterpriseDBInstanceInput
+ * DescribePlannedEventImpactDetailRequest
  */
 
 
 
-public class ConfigureNodeForCreateEnterpriseDBInstanceInput {
-  @SerializedName("AZ")
-  private String AZ = null;
+public class DescribePlannedEventImpactDetailRequest {
+  @SerializedName("EventId")
+  private String eventId = null;
 
-  public ConfigureNodeForCreateEnterpriseDBInstanceInput AZ(String AZ) {
-    this.AZ = AZ;
+  public DescribePlannedEventImpactDetailRequest eventId(String eventId) {
+    this.eventId = eventId;
     return this;
   }
 
    /**
-   * Get AZ
-   * @return AZ
+   * Get eventId
+   * @return eventId
   **/
-  @Schema(description = "")
-  public String getAZ() {
-    return AZ;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getEventId() {
+    return eventId;
   }
 
-  public void setAZ(String AZ) {
-    this.AZ = AZ;
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
   }
 
 
@@ -60,22 +61,22 @@ public class ConfigureNodeForCreateEnterpriseDBInstanceInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConfigureNodeForCreateEnterpriseDBInstanceInput configureNodeForCreateEnterpriseDBInstanceInput = (ConfigureNodeForCreateEnterpriseDBInstanceInput) o;
-    return Objects.equals(this.AZ, configureNodeForCreateEnterpriseDBInstanceInput.AZ);
+    DescribePlannedEventImpactDetailRequest describePlannedEventImpactDetailRequest = (DescribePlannedEventImpactDetailRequest) o;
+    return Objects.equals(this.eventId, describePlannedEventImpactDetailRequest.eventId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(AZ);
+    return Objects.hash(eventId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConfigureNodeForCreateEnterpriseDBInstanceInput {\n");
+    sb.append("class DescribePlannedEventImpactDetailRequest {\n");
     
-    sb.append("    AZ: ").append(toIndentedString(AZ)).append("\n");
+    sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

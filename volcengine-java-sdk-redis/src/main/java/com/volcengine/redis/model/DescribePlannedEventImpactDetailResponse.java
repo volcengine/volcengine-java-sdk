@@ -19,57 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.redis.model.ImpactForDescribePlannedEventImpactDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateEnterpriseDBInstanceResponse
+ * DescribePlannedEventImpactDetailResponse
  */
 
 
 
-public class CreateEnterpriseDBInstanceResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class DescribePlannedEventImpactDetailResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Impact")
+  private ImpactForDescribePlannedEventImpactDetailOutput impact = null;
 
-  @SerializedName("OrderNO")
-  private String orderNO = null;
-
-  public CreateEnterpriseDBInstanceResponse instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public DescribePlannedEventImpactDetailResponse impact(ImpactForDescribePlannedEventImpactDetailOutput impact) {
+    this.impact = impact;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get impact
+   * @return impact
   **/
+  @Valid
   @Schema(description = "")
-  public String getInstanceId() {
-    return instanceId;
+  public ImpactForDescribePlannedEventImpactDetailOutput getImpact() {
+    return impact;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public CreateEnterpriseDBInstanceResponse orderNO(String orderNO) {
-    this.orderNO = orderNO;
-    return this;
-  }
-
-   /**
-   * Get orderNO
-   * @return orderNO
-  **/
-  @Schema(description = "")
-  public String getOrderNO() {
-    return orderNO;
-  }
-
-  public void setOrderNO(String orderNO) {
-    this.orderNO = orderNO;
+  public void setImpact(ImpactForDescribePlannedEventImpactDetailOutput impact) {
+    this.impact = impact;
   }
 
 
@@ -81,24 +62,22 @@ public class CreateEnterpriseDBInstanceResponse extends com.volcengine.model.Abs
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateEnterpriseDBInstanceResponse createEnterpriseDBInstanceResponse = (CreateEnterpriseDBInstanceResponse) o;
-    return Objects.equals(this.instanceId, createEnterpriseDBInstanceResponse.instanceId) &&
-        Objects.equals(this.orderNO, createEnterpriseDBInstanceResponse.orderNO);
+    DescribePlannedEventImpactDetailResponse describePlannedEventImpactDetailResponse = (DescribePlannedEventImpactDetailResponse) o;
+    return Objects.equals(this.impact, describePlannedEventImpactDetailResponse.impact);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, orderNO);
+    return Objects.hash(impact);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateEnterpriseDBInstanceResponse {\n");
+    sb.append("class DescribePlannedEventImpactDetailResponse {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    orderNO: ").append(toIndentedString(orderNO)).append("\n");
+    sb.append("    impact: ").append(toIndentedString(impact)).append("\n");
     sb.append("}");
     return sb.toString();
   }

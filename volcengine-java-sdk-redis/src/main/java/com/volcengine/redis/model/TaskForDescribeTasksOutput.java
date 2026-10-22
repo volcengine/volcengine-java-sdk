@@ -74,57 +74,8 @@ public class TaskForDescribeTasksOutput {
   @SerializedName("TaskParams")
   private String taskParams = null;
 
-  /**
-   * Gets or Sets taskStatus
-   */
-  @JsonAdapter(TaskStatusEnum.Adapter.class)
-  public enum TaskStatusEnum {
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Success")
-    SUCCESS("Success"),
-    @SerializedName("Failed")
-    FAILED("Failed"),
-    @SerializedName("Waiting")
-    WAITING("Waiting"),
-    @SerializedName("Canceled")
-    CANCELED("Canceled");
-
-    private String value;
-
-    TaskStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TaskStatusEnum fromValue(String input) {
-      for (TaskStatusEnum b : TaskStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TaskStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TaskStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TaskStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TaskStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("TaskStatus")
-  private TaskStatusEnum taskStatus = null;
+  @SerializedName("TaskStatus")
+  private String taskStatus = null;
 
   @SerializedName("TaskStepInfo")
   private List<TaskStepInfoForDescribeTasksOutput> taskStepInfo = null;
@@ -365,7 +316,7 @@ public class TaskForDescribeTasksOutput {
     this.taskParams = taskParams;
   }
 
-  public TaskForDescribeTasksOutput taskStatus(TaskStatusEnum taskStatus) {
+  public TaskForDescribeTasksOutput taskStatus(String taskStatus) {
     this.taskStatus = taskStatus;
     return this;
   }
@@ -375,11 +326,11 @@ public class TaskForDescribeTasksOutput {
    * @return taskStatus
   **/
   @Schema(description = "")
-  public TaskStatusEnum getTaskStatus() {
+  public String getTaskStatus() {
     return taskStatus;
   }
 
-  public void setTaskStatus(TaskStatusEnum taskStatus) {
+  public void setTaskStatus(String taskStatus) {
     this.taskStatus = taskStatus;
   }
 

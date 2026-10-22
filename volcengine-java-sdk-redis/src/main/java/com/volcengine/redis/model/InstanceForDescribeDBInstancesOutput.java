@@ -34,51 +34,8 @@ import javax.validation.Valid;
 
 
 public class InstanceForDescribeDBInstancesOutput {
-  /**
-   * Gets or Sets blueGreenRole
-   */
-  @JsonAdapter(BlueGreenRoleEnum.Adapter.class)
-  public enum BlueGreenRoleEnum {
-    @SerializedName("Blue")
-    BLUE("Blue"),
-    @SerializedName("Green")
-    GREEN("Green");
-
-    private String value;
-
-    BlueGreenRoleEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BlueGreenRoleEnum fromValue(String input) {
-      for (BlueGreenRoleEnum b : BlueGreenRoleEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BlueGreenRoleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BlueGreenRoleEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BlueGreenRoleEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BlueGreenRoleEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BlueGreenRole")
-  private BlueGreenRoleEnum blueGreenRole = null;
+  @SerializedName("BlueGreenRole")
+  private String blueGreenRole = null;
 
   @SerializedName("Capacity")
   private CapacityForDescribeDBInstancesOutput capacity = null;
@@ -158,7 +115,7 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
 
-  public InstanceForDescribeDBInstancesOutput blueGreenRole(BlueGreenRoleEnum blueGreenRole) {
+  public InstanceForDescribeDBInstancesOutput blueGreenRole(String blueGreenRole) {
     this.blueGreenRole = blueGreenRole;
     return this;
   }
@@ -168,11 +125,11 @@ public class InstanceForDescribeDBInstancesOutput {
    * @return blueGreenRole
   **/
   @Schema(description = "")
-  public BlueGreenRoleEnum getBlueGreenRole() {
+  public String getBlueGreenRole() {
     return blueGreenRole;
   }
 
-  public void setBlueGreenRole(BlueGreenRoleEnum blueGreenRole) {
+  public void setBlueGreenRole(String blueGreenRole) {
     this.blueGreenRole = blueGreenRole;
   }
 

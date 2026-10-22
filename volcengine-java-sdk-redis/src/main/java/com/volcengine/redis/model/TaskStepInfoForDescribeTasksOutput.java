@@ -39,55 +39,8 @@ public class TaskStepInfoForDescribeTasksOutput {
   @SerializedName("StepProgress")
   private Integer stepProgress = null;
 
-  /**
-   * Gets or Sets stepStatus
-   */
-  @JsonAdapter(StepStatusEnum.Adapter.class)
-  public enum StepStatusEnum {
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Success")
-    SUCCESS("Success"),
-    @SerializedName("Failed")
-    FAILED("Failed"),
-    @SerializedName("Waiting")
-    WAITING("Waiting");
-
-    private String value;
-
-    StepStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StepStatusEnum fromValue(String input) {
-      for (StepStatusEnum b : StepStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StepStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StepStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StepStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StepStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("StepStatus")
-  private StepStatusEnum stepStatus = null;
+  @SerializedName("StepStatus")
+  private String stepStatus = null;
 
   public TaskStepInfoForDescribeTasksOutput name(String name) {
     this.name = name;
@@ -143,7 +96,7 @@ public class TaskStepInfoForDescribeTasksOutput {
     this.stepProgress = stepProgress;
   }
 
-  public TaskStepInfoForDescribeTasksOutput stepStatus(StepStatusEnum stepStatus) {
+  public TaskStepInfoForDescribeTasksOutput stepStatus(String stepStatus) {
     this.stepStatus = stepStatus;
     return this;
   }
@@ -153,11 +106,11 @@ public class TaskStepInfoForDescribeTasksOutput {
    * @return stepStatus
   **/
   @Schema(description = "")
-  public StepStatusEnum getStepStatus() {
+  public String getStepStatus() {
     return stepStatus;
   }
 
-  public void setStepStatus(StepStatusEnum stepStatus) {
+  public void setStepStatus(String stepStatus) {
     this.stepStatus = stepStatus;
   }
 
