@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class SourceForVideoEditorAddSubtitleOutput {
+  @SerializedName("style")
+  private String style = null;
+
   @SerializedName("text")
   private String text = null;
+
+  public SourceForVideoEditorAddSubtitleOutput style(String style) {
+    this.style = style;
+    return this;
+  }
+
+   /**
+   * Get style
+   * @return style
+  **/
+  @Schema(description = "")
+  public String getStyle() {
+    return style;
+  }
+
+  public void setStyle(String style) {
+    this.style = style;
+  }
 
   public SourceForVideoEditorAddSubtitleOutput text(String text) {
     this.text = text;
@@ -61,12 +82,13 @@ public class SourceForVideoEditorAddSubtitleOutput {
       return false;
     }
     SourceForVideoEditorAddSubtitleOutput sourceForVideoEditorAddSubtitleOutput = (SourceForVideoEditorAddSubtitleOutput) o;
-    return Objects.equals(this.text, sourceForVideoEditorAddSubtitleOutput.text);
+    return Objects.equals(this.style, sourceForVideoEditorAddSubtitleOutput.style) &&
+        Objects.equals(this.text, sourceForVideoEditorAddSubtitleOutput.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text);
+    return Objects.hash(style, text);
   }
 
 
@@ -75,6 +97,7 @@ public class SourceForVideoEditorAddSubtitleOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceForVideoEditorAddSubtitleOutput {\n");
     
+    sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();

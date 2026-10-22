@@ -1,0 +1,17 @@
+{
+  "actions": [
+    "VideoProjectSuppressionStart",
+    "VideoProjectAddTargetLangsToExistingDrama",
+    "VideoProjectSerialDubTaskCreateFromTranslation",
+    "VideoProjectSerialTaskCreate",
+    "ProjectNamespaceTextDownload",
+    "ProjectTaskTargetDownload",
+    "VideoProjectSerialDubTaskCreate",
+    "ProjectTermSourceAdd",
+    "ImportGetBytedUploaderToken",
+    "ProjectDownloadTaskQuery"
+  ],
+  "description": "I18N_OPENAPI: 新增 ProjectTermSourceAdd, ImportGetBytedUploaderToken, ProjectDownloadTaskQuery, ProjectNamespaceTextDownload, ProjectTaskTargetDownload；修改 VideoProjectAddTargetLangsToExistingDrama, VideoProjectSerialDubTaskCreate, VideoProjectSerialDubTaskCreateFromTranslation, VideoProjectSerialTaskCreate, VideoProjectSuppressionStart",
+  "modules": "service/i18n_openapi",
+  "type": "feature"
+}
