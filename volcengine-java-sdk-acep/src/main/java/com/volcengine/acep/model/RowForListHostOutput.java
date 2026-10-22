@@ -62,6 +62,9 @@ public class RowForListHostOutput {
   @SerializedName("HostId")
   private String hostId = null;
 
+  @SerializedName("InitAutoCreatePod")
+  private Boolean initAutoCreatePod = null;
+
   @SerializedName("LastRebootTime")
   private String lastRebootTime = null;
 
@@ -276,6 +279,24 @@ public class RowForListHostOutput {
 
   public void setHostId(String hostId) {
     this.hostId = hostId;
+  }
+
+  public RowForListHostOutput initAutoCreatePod(Boolean initAutoCreatePod) {
+    this.initAutoCreatePod = initAutoCreatePod;
+    return this;
+  }
+
+   /**
+   * Get initAutoCreatePod
+   * @return initAutoCreatePod
+  **/
+  @Schema(description = "")
+  public Boolean isInitAutoCreatePod() {
+    return initAutoCreatePod;
+  }
+
+  public void setInitAutoCreatePod(Boolean initAutoCreatePod) {
+    this.initAutoCreatePod = initAutoCreatePod;
   }
 
   public RowForListHostOutput lastRebootTime(String lastRebootTime) {
@@ -522,6 +543,7 @@ public class RowForListHostOutput {
         Objects.equals(this.dc, rowForListHostOutput.dc) &&
         Objects.equals(this.expireAt, rowForListHostOutput.expireAt) &&
         Objects.equals(this.hostId, rowForListHostOutput.hostId) &&
+        Objects.equals(this.initAutoCreatePod, rowForListHostOutput.initAutoCreatePod) &&
         Objects.equals(this.lastRebootTime, rowForListHostOutput.lastRebootTime) &&
         Objects.equals(this.podIdList, rowForListHostOutput.podIdList) &&
         Objects.equals(this.podNumAvailable, rowForListHostOutput.podNumAvailable) &&
@@ -538,7 +560,7 @@ public class RowForListHostOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, authorityExpireTime, authorityStatus, chargeType, configurationCode, configurationName, createAt, dc, expireAt, hostId, lastRebootTime, podIdList, podNumAvailable, podNumOnHost, productId, region, renewType, resourceSetId, serverTypeCode, status, volcRegion, zoneId);
+    return Objects.hash(accountId, authorityExpireTime, authorityStatus, chargeType, configurationCode, configurationName, createAt, dc, expireAt, hostId, initAutoCreatePod, lastRebootTime, podIdList, podNumAvailable, podNumOnHost, productId, region, renewType, resourceSetId, serverTypeCode, status, volcRegion, zoneId);
   }
 
 
@@ -557,6 +579,7 @@ public class RowForListHostOutput {
     sb.append("    dc: ").append(toIndentedString(dc)).append("\n");
     sb.append("    expireAt: ").append(toIndentedString(expireAt)).append("\n");
     sb.append("    hostId: ").append(toIndentedString(hostId)).append("\n");
+    sb.append("    initAutoCreatePod: ").append(toIndentedString(initAutoCreatePod)).append("\n");
     sb.append("    lastRebootTime: ").append(toIndentedString(lastRebootTime)).append("\n");
     sb.append("    podIdList: ").append(toIndentedString(podIdList)).append("\n");
     sb.append("    podNumAvailable: ").append(toIndentedString(podNumAvailable)).append("\n");

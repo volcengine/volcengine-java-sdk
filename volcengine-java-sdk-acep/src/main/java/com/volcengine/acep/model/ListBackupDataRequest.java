@@ -50,6 +50,9 @@ public class ListBackupDataRequest {
   @SerializedName("Status")
   private String status = null;
 
+  @SerializedName("VolcRegion")
+  private String volcRegion = null;
+
   public ListBackupDataRequest backupDataIdList(List<String> backupDataIdList) {
     this.backupDataIdList = backupDataIdList;
     return this;
@@ -167,6 +170,24 @@ public class ListBackupDataRequest {
     this.status = status;
   }
 
+  public ListBackupDataRequest volcRegion(String volcRegion) {
+    this.volcRegion = volcRegion;
+    return this;
+  }
+
+   /**
+   * Get volcRegion
+   * @return volcRegion
+  **/
+  @Schema(description = "")
+  public String getVolcRegion() {
+    return volcRegion;
+  }
+
+  public void setVolcRegion(String volcRegion) {
+    this.volcRegion = volcRegion;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -182,12 +203,13 @@ public class ListBackupDataRequest {
         Objects.equals(this.nextToken, listBackupDataRequest.nextToken) &&
         Objects.equals(this.productId, listBackupDataRequest.productId) &&
         Objects.equals(this.sourcePodId, listBackupDataRequest.sourcePodId) &&
-        Objects.equals(this.status, listBackupDataRequest.status);
+        Objects.equals(this.status, listBackupDataRequest.status) &&
+        Objects.equals(this.volcRegion, listBackupDataRequest.volcRegion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupDataIdList, maxResults, nextToken, productId, sourcePodId, status);
+    return Objects.hash(backupDataIdList, maxResults, nextToken, productId, sourcePodId, status, volcRegion);
   }
 
 
@@ -202,6 +224,7 @@ public class ListBackupDataRequest {
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    sourcePodId: ").append(toIndentedString(sourcePodId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    volcRegion: ").append(toIndentedString(volcRegion)).append("\n");
     sb.append("}");
     return sb.toString();
   }
