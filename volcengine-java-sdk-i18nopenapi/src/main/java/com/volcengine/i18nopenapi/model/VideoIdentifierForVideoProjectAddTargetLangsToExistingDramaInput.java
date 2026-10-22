@@ -39,12 +39,6 @@ public class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
   @SerializedName("targetLang2Subtitle")
   private List<TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput> targetLang2Subtitle = null;
 
-  @SerializedName("videoId")
-  private String videoId = null;
-
-  @SerializedName("videoName")
-  private String videoName = null;
-
   public VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput episodeNum(Integer episodeNum) {
     this.episodeNum = episodeNum;
     return this;
@@ -90,42 +84,6 @@ public class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
     this.targetLang2Subtitle = targetLang2Subtitle;
   }
 
-  public VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput videoId(String videoId) {
-    this.videoId = videoId;
-    return this;
-  }
-
-   /**
-   * Get videoId
-   * @return videoId
-  **/
-  @Schema(description = "")
-  public String getVideoId() {
-    return videoId;
-  }
-
-  public void setVideoId(String videoId) {
-    this.videoId = videoId;
-  }
-
-  public VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput videoName(String videoName) {
-    this.videoName = videoName;
-    return this;
-  }
-
-   /**
-   * Get videoName
-   * @return videoName
-  **/
-  @Schema(description = "")
-  public String getVideoName() {
-    return videoName;
-  }
-
-  public void setVideoName(String videoName) {
-    this.videoName = videoName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -137,14 +95,12 @@ public class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
     }
     VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput = (VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput) o;
     return Objects.equals(this.episodeNum, videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.episodeNum) &&
-        Objects.equals(this.targetLang2Subtitle, videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.targetLang2Subtitle) &&
-        Objects.equals(this.videoId, videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.videoId) &&
-        Objects.equals(this.videoName, videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.videoName);
+        Objects.equals(this.targetLang2Subtitle, videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.targetLang2Subtitle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(episodeNum, targetLang2Subtitle, videoId, videoName);
+    return Objects.hash(episodeNum, targetLang2Subtitle);
   }
 
 
@@ -155,8 +111,6 @@ public class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
     
     sb.append("    episodeNum: ").append(toIndentedString(episodeNum)).append("\n");
     sb.append("    targetLang2Subtitle: ").append(toIndentedString(targetLang2Subtitle)).append("\n");
-    sb.append("    videoId: ").append(toIndentedString(videoId)).append("\n");
-    sb.append("    videoName: ").append(toIndentedString(videoName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

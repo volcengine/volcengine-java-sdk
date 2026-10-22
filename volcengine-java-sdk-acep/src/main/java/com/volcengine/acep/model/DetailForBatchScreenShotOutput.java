@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.acep.model.TosInfoForBatchScreenShotOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -41,6 +42,9 @@ public class DetailForBatchScreenShotOutput {
 
   @SerializedName("PodId")
   private String podId = null;
+
+  @SerializedName("TosInfo")
+  private TosInfoForBatchScreenShotOutput tosInfo = null;
 
   public DetailForBatchScreenShotOutput downloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
@@ -114,6 +118,25 @@ public class DetailForBatchScreenShotOutput {
     this.podId = podId;
   }
 
+  public DetailForBatchScreenShotOutput tosInfo(TosInfoForBatchScreenShotOutput tosInfo) {
+    this.tosInfo = tosInfo;
+    return this;
+  }
+
+   /**
+   * Get tosInfo
+   * @return tosInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public TosInfoForBatchScreenShotOutput getTosInfo() {
+    return tosInfo;
+  }
+
+  public void setTosInfo(TosInfoForBatchScreenShotOutput tosInfo) {
+    this.tosInfo = tosInfo;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +150,13 @@ public class DetailForBatchScreenShotOutput {
     return Objects.equals(this.downloadUrl, detailForBatchScreenShotOutput.downloadUrl) &&
         Objects.equals(this.errorCode, detailForBatchScreenShotOutput.errorCode) &&
         Objects.equals(this.errorMsg, detailForBatchScreenShotOutput.errorMsg) &&
-        Objects.equals(this.podId, detailForBatchScreenShotOutput.podId);
+        Objects.equals(this.podId, detailForBatchScreenShotOutput.podId) &&
+        Objects.equals(this.tosInfo, detailForBatchScreenShotOutput.tosInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(downloadUrl, errorCode, errorMsg, podId);
+    return Objects.hash(downloadUrl, errorCode, errorMsg, podId, tosInfo);
   }
 
 
@@ -145,6 +169,7 @@ public class DetailForBatchScreenShotOutput {
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    errorMsg: ").append(toIndentedString(errorMsg)).append("\n");
     sb.append("    podId: ").append(toIndentedString(podId)).append("\n");
+    sb.append("    tosInfo: ").append(toIndentedString(tosInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

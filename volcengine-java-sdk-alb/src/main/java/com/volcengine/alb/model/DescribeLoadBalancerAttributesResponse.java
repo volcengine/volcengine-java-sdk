@@ -46,6 +46,9 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
 
+  @SerializedName("ArkClawEnabled")
+  private String arkClawEnabled = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
@@ -130,6 +133,9 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   @SerializedName("SniAutoMatch")
   private String sniAutoMatch = null;
 
+  @SerializedName("SpaceNetworkId")
+  private String spaceNetworkId = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -195,6 +201,24 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   public void setAddressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
+  }
+
+  public DescribeLoadBalancerAttributesResponse arkClawEnabled(String arkClawEnabled) {
+    this.arkClawEnabled = arkClawEnabled;
+    return this;
+  }
+
+   /**
+   * Get arkClawEnabled
+   * @return arkClawEnabled
+  **/
+  @Schema(description = "")
+  public String getArkClawEnabled() {
+    return arkClawEnabled;
+  }
+
+  public void setArkClawEnabled(String arkClawEnabled) {
+    this.arkClawEnabled = arkClawEnabled;
   }
 
   public DescribeLoadBalancerAttributesResponse businessStatus(String businessStatus) {
@@ -737,6 +761,24 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     this.sniAutoMatch = sniAutoMatch;
   }
 
+  public DescribeLoadBalancerAttributesResponse spaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+    return this;
+  }
+
+   /**
+   * Get spaceNetworkId
+   * @return spaceNetworkId
+  **/
+  @Schema(description = "")
+  public String getSpaceNetworkId() {
+    return spaceNetworkId;
+  }
+
+  public void setSpaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+  }
+
   public DescribeLoadBalancerAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -948,6 +990,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     DescribeLoadBalancerAttributesResponse describeLoadBalancerAttributesResponse = (DescribeLoadBalancerAttributesResponse) o;
     return Objects.equals(this.accessLog, describeLoadBalancerAttributesResponse.accessLog) &&
         Objects.equals(this.addressIpVersion, describeLoadBalancerAttributesResponse.addressIpVersion) &&
+        Objects.equals(this.arkClawEnabled, describeLoadBalancerAttributesResponse.arkClawEnabled) &&
         Objects.equals(this.businessStatus, describeLoadBalancerAttributesResponse.businessStatus) &&
         Objects.equals(this.createTime, describeLoadBalancerAttributesResponse.createTime) &&
         Objects.equals(this.dnSName, describeLoadBalancerAttributesResponse.dnSName) &&
@@ -976,6 +1019,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
         Objects.equals(this.requestId, describeLoadBalancerAttributesResponse.requestId) &&
         Objects.equals(this.securityGroupIds, describeLoadBalancerAttributesResponse.securityGroupIds) &&
         Objects.equals(this.sniAutoMatch, describeLoadBalancerAttributesResponse.sniAutoMatch) &&
+        Objects.equals(this.spaceNetworkId, describeLoadBalancerAttributesResponse.spaceNetworkId) &&
         Objects.equals(this.status, describeLoadBalancerAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeLoadBalancerAttributesResponse.subnetId) &&
         Objects.equals(this.tlSAccessLog, describeLoadBalancerAttributesResponse.tlSAccessLog) &&
@@ -990,7 +1034,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, globalAccelerators, healthLog, listeners, loadBalancerBillingType, loadBalancerEdition, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, securityGroupIds, sniAutoMatch, status, subnetId, tlSAccessLog, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
+    return Objects.hash(accessLog, addressIpVersion, arkClawEnabled, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, globalAccelerators, healthLog, listeners, loadBalancerBillingType, loadBalancerEdition, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, securityGroupIds, sniAutoMatch, spaceNetworkId, status, subnetId, tlSAccessLog, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
   }
 
 
@@ -1001,6 +1045,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     
     sb.append("    accessLog: ").append(toIndentedString(accessLog)).append("\n");
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
+    sb.append("    arkClawEnabled: ").append(toIndentedString(arkClawEnabled)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dnSName: ").append(toIndentedString(dnSName)).append("\n");
@@ -1029,6 +1074,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    sniAutoMatch: ").append(toIndentedString(sniAutoMatch)).append("\n");
+    sb.append("    spaceNetworkId: ").append(toIndentedString(spaceNetworkId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tlSAccessLog: ").append(toIndentedString(tlSAccessLog)).append("\n");

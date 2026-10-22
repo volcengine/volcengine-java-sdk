@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForCreateServerGroupInput;
+import com.volcengine.alb.model.SlowStartConfigForCreateServerGroupInput;
 import com.volcengine.alb.model.StickySessionConfigForCreateServerGroupInput;
 import com.volcengine.alb.model.TagForCreateServerGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -61,6 +62,12 @@ public class CreateServerGroupRequest {
 
   @SerializedName("ServerGroupType")
   private String serverGroupType = null;
+
+  @SerializedName("SlowStartConfig")
+  private SlowStartConfigForCreateServerGroupInput slowStartConfig = null;
+
+  @SerializedName("SpaceNetworkId")
+  private String spaceNetworkId = null;
 
   @SerializedName("StickySessionConfig")
   private StickySessionConfigForCreateServerGroupInput stickySessionConfig = null;
@@ -234,6 +241,43 @@ public class CreateServerGroupRequest {
     this.serverGroupType = serverGroupType;
   }
 
+  public CreateServerGroupRequest slowStartConfig(SlowStartConfigForCreateServerGroupInput slowStartConfig) {
+    this.slowStartConfig = slowStartConfig;
+    return this;
+  }
+
+   /**
+   * Get slowStartConfig
+   * @return slowStartConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public SlowStartConfigForCreateServerGroupInput getSlowStartConfig() {
+    return slowStartConfig;
+  }
+
+  public void setSlowStartConfig(SlowStartConfigForCreateServerGroupInput slowStartConfig) {
+    this.slowStartConfig = slowStartConfig;
+  }
+
+  public CreateServerGroupRequest spaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+    return this;
+  }
+
+   /**
+   * Get spaceNetworkId
+   * @return spaceNetworkId
+  **/
+  @Schema(description = "")
+  public String getSpaceNetworkId() {
+    return spaceNetworkId;
+  }
+
+  public void setSpaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+  }
+
   public CreateServerGroupRequest stickySessionConfig(StickySessionConfigForCreateServerGroupInput stickySessionConfig) {
     this.stickySessionConfig = stickySessionConfig;
     return this;
@@ -289,8 +333,7 @@ public class CreateServerGroupRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getVpcId() {
     return vpcId;
   }
@@ -318,6 +361,8 @@ public class CreateServerGroupRequest {
         Objects.equals(this.scheduler, createServerGroupRequest.scheduler) &&
         Objects.equals(this.serverGroupName, createServerGroupRequest.serverGroupName) &&
         Objects.equals(this.serverGroupType, createServerGroupRequest.serverGroupType) &&
+        Objects.equals(this.slowStartConfig, createServerGroupRequest.slowStartConfig) &&
+        Objects.equals(this.spaceNetworkId, createServerGroupRequest.spaceNetworkId) &&
         Objects.equals(this.stickySessionConfig, createServerGroupRequest.stickySessionConfig) &&
         Objects.equals(this.tags, createServerGroupRequest.tags) &&
         Objects.equals(this.vpcId, createServerGroupRequest.vpcId);
@@ -325,7 +370,7 @@ public class CreateServerGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crossZoneEnabled, description, healthCheck, ipAddressType, projectName, protocol, scheduler, serverGroupName, serverGroupType, stickySessionConfig, tags, vpcId);
+    return Objects.hash(crossZoneEnabled, description, healthCheck, ipAddressType, projectName, protocol, scheduler, serverGroupName, serverGroupType, slowStartConfig, spaceNetworkId, stickySessionConfig, tags, vpcId);
   }
 
 
@@ -343,6 +388,8 @@ public class CreateServerGroupRequest {
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
     sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
+    sb.append("    slowStartConfig: ").append(toIndentedString(slowStartConfig)).append("\n");
+    sb.append("    spaceNetworkId: ").append(toIndentedString(spaceNetworkId)).append("\n");
     sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

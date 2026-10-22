@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput;
 import com.volcengine.i18nopenapi.model.TargetStyleMapForVideoProjectAddTargetLangsToExistingDramaInput;
 import com.volcengine.i18nopenapi.model.VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -57,6 +58,9 @@ public class VideoProjectAddTargetLangsToExistingDramaRequest {
 
   @SerializedName("projectId")
   private String projectId = null;
+
+  @SerializedName("sourceStyleMap")
+  private SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput sourceStyleMap = null;
 
   @SerializedName("targetLanguages")
   private List<String> targetLanguages = null;
@@ -217,6 +221,25 @@ public class VideoProjectAddTargetLangsToExistingDramaRequest {
     this.projectId = projectId;
   }
 
+  public VideoProjectAddTargetLangsToExistingDramaRequest sourceStyleMap(SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput sourceStyleMap) {
+    this.sourceStyleMap = sourceStyleMap;
+    return this;
+  }
+
+   /**
+   * Get sourceStyleMap
+   * @return sourceStyleMap
+  **/
+  @Valid
+  @Schema(description = "")
+  public SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput getSourceStyleMap() {
+    return sourceStyleMap;
+  }
+
+  public void setSourceStyleMap(SourceStyleMapForVideoProjectAddTargetLangsToExistingDramaInput sourceStyleMap) {
+    this.sourceStyleMap = sourceStyleMap;
+  }
+
   public VideoProjectAddTargetLangsToExistingDramaRequest targetLanguages(List<String> targetLanguages) {
     this.targetLanguages = targetLanguages;
     return this;
@@ -325,6 +348,7 @@ public class VideoProjectAddTargetLangsToExistingDramaRequest {
         Objects.equals(this.isDub, videoProjectAddTargetLangsToExistingDramaRequest.isDub) &&
         Objects.equals(this.needTermValidation, videoProjectAddTargetLangsToExistingDramaRequest.needTermValidation) &&
         Objects.equals(this.projectId, videoProjectAddTargetLangsToExistingDramaRequest.projectId) &&
+        Objects.equals(this.sourceStyleMap, videoProjectAddTargetLangsToExistingDramaRequest.sourceStyleMap) &&
         Objects.equals(this.targetLanguages, videoProjectAddTargetLangsToExistingDramaRequest.targetLanguages) &&
         Objects.equals(this.targetStyleMap, videoProjectAddTargetLangsToExistingDramaRequest.targetStyleMap) &&
         Objects.equals(this.videoIdentifiers, videoProjectAddTargetLangsToExistingDramaRequest.videoIdentifiers) &&
@@ -333,7 +357,7 @@ public class VideoProjectAddTargetLangsToExistingDramaRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bgmPolicy, deadline, dramaId, dubVoiceMode, fromTaskType, isDub, needTermValidation, projectId, targetLanguages, targetStyleMap, videoIdentifiers, videoSpeedPolicy);
+    return Objects.hash(bgmPolicy, deadline, dramaId, dubVoiceMode, fromTaskType, isDub, needTermValidation, projectId, sourceStyleMap, targetLanguages, targetStyleMap, videoIdentifiers, videoSpeedPolicy);
   }
 
 
@@ -350,6 +374,7 @@ public class VideoProjectAddTargetLangsToExistingDramaRequest {
     sb.append("    isDub: ").append(toIndentedString(isDub)).append("\n");
     sb.append("    needTermValidation: ").append(toIndentedString(needTermValidation)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    sourceStyleMap: ").append(toIndentedString(sourceStyleMap)).append("\n");
     sb.append("    targetLanguages: ").append(toIndentedString(targetLanguages)).append("\n");
     sb.append("    targetStyleMap: ").append(toIndentedString(targetStyleMap)).append("\n");
     sb.append("    videoIdentifiers: ").append(toIndentedString(videoIdentifiers)).append("\n");

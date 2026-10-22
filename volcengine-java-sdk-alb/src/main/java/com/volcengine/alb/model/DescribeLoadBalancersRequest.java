@@ -54,6 +54,9 @@ public class DescribeLoadBalancersRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("SpaceNetworkId")
+  private String spaceNetworkId = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeLoadBalancersInput> tagFilters = null;
 
@@ -197,6 +200,24 @@ public class DescribeLoadBalancersRequest {
     this.projectName = projectName;
   }
 
+  public DescribeLoadBalancersRequest spaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+    return this;
+  }
+
+   /**
+   * Get spaceNetworkId
+   * @return spaceNetworkId
+  **/
+  @Schema(description = "")
+  public String getSpaceNetworkId() {
+    return spaceNetworkId;
+  }
+
+  public void setSpaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+  }
+
   public DescribeLoadBalancersRequest tagFilters(List<TagFilterForDescribeLoadBalancersInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -277,6 +298,7 @@ public class DescribeLoadBalancersRequest {
         Objects.equals(this.pageNumber, describeLoadBalancersRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeLoadBalancersRequest.pageSize) &&
         Objects.equals(this.projectName, describeLoadBalancersRequest.projectName) &&
+        Objects.equals(this.spaceNetworkId, describeLoadBalancersRequest.spaceNetworkId) &&
         Objects.equals(this.tagFilters, describeLoadBalancersRequest.tagFilters) &&
         Objects.equals(this.type, describeLoadBalancersRequest.type) &&
         Objects.equals(this.vpcId, describeLoadBalancersRequest.vpcId);
@@ -284,7 +306,7 @@ public class DescribeLoadBalancersRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipAddress, eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, projectName, tagFilters, type, vpcId);
+    return Objects.hash(eipAddress, eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, projectName, spaceNetworkId, tagFilters, type, vpcId);
   }
 
 
@@ -300,6 +322,7 @@ public class DescribeLoadBalancersRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    spaceNetworkId: ").append(toIndentedString(spaceNetworkId)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

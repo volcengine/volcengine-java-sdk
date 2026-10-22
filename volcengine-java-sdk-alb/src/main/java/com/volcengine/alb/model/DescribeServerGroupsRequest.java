@@ -51,6 +51,9 @@ public class DescribeServerGroupsRequest {
   @SerializedName("ServerGroupType")
   private String serverGroupType = null;
 
+  @SerializedName("SpaceNetworkId")
+  private String spaceNetworkId = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeServerGroupsInput> tagFilters = null;
 
@@ -181,6 +184,24 @@ public class DescribeServerGroupsRequest {
     this.serverGroupType = serverGroupType;
   }
 
+  public DescribeServerGroupsRequest spaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+    return this;
+  }
+
+   /**
+   * Get spaceNetworkId
+   * @return spaceNetworkId
+  **/
+  @Schema(description = "")
+  public String getSpaceNetworkId() {
+    return spaceNetworkId;
+  }
+
+  public void setSpaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+  }
+
   public DescribeServerGroupsRequest tagFilters(List<TagFilterForDescribeServerGroupsInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -242,13 +263,14 @@ public class DescribeServerGroupsRequest {
         Objects.equals(this.serverGroupIds, describeServerGroupsRequest.serverGroupIds) &&
         Objects.equals(this.serverGroupNames, describeServerGroupsRequest.serverGroupNames) &&
         Objects.equals(this.serverGroupType, describeServerGroupsRequest.serverGroupType) &&
+        Objects.equals(this.spaceNetworkId, describeServerGroupsRequest.spaceNetworkId) &&
         Objects.equals(this.tagFilters, describeServerGroupsRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeServerGroupsRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, projectName, serverGroupIds, serverGroupNames, serverGroupType, tagFilters, vpcId);
+    return Objects.hash(pageNumber, pageSize, projectName, serverGroupIds, serverGroupNames, serverGroupType, spaceNetworkId, tagFilters, vpcId);
   }
 
 
@@ -263,6 +285,7 @@ public class DescribeServerGroupsRequest {
     sb.append("    serverGroupIds: ").append(toIndentedString(serverGroupIds)).append("\n");
     sb.append("    serverGroupNames: ").append(toIndentedString(serverGroupNames)).append("\n");
     sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
+    sb.append("    spaceNetworkId: ").append(toIndentedString(spaceNetworkId)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

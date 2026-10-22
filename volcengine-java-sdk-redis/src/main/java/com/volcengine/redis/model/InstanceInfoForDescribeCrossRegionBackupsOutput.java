@@ -38,51 +38,8 @@ public class InstanceInfoForDescribeCrossRegionBackupsOutput {
   @SerializedName("ArchType")
   private String archType = null;
 
-  /**
-   * Gets or Sets blueGreenRole
-   */
-  @JsonAdapter(BlueGreenRoleEnum.Adapter.class)
-  public enum BlueGreenRoleEnum {
-    @SerializedName("Blue")
-    BLUE("Blue"),
-    @SerializedName("Green")
-    GREEN("Green");
-
-    private String value;
-
-    BlueGreenRoleEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BlueGreenRoleEnum fromValue(String input) {
-      for (BlueGreenRoleEnum b : BlueGreenRoleEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BlueGreenRoleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BlueGreenRoleEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BlueGreenRoleEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BlueGreenRoleEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BlueGreenRole")
-  private BlueGreenRoleEnum blueGreenRole = null;
+  @SerializedName("BlueGreenRole")
+  private String blueGreenRole = null;
 
   @SerializedName("ChargeType")
   private String chargeType = null;
@@ -165,7 +122,7 @@ public class InstanceInfoForDescribeCrossRegionBackupsOutput {
     this.archType = archType;
   }
 
-  public InstanceInfoForDescribeCrossRegionBackupsOutput blueGreenRole(BlueGreenRoleEnum blueGreenRole) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput blueGreenRole(String blueGreenRole) {
     this.blueGreenRole = blueGreenRole;
     return this;
   }
@@ -175,11 +132,11 @@ public class InstanceInfoForDescribeCrossRegionBackupsOutput {
    * @return blueGreenRole
   **/
   @Schema(description = "")
-  public BlueGreenRoleEnum getBlueGreenRole() {
+  public String getBlueGreenRole() {
     return blueGreenRole;
   }
 
-  public void setBlueGreenRole(BlueGreenRoleEnum blueGreenRole) {
+  public void setBlueGreenRole(String blueGreenRole) {
     this.blueGreenRole = blueGreenRole;
   }
 

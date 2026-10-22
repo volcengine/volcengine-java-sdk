@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,9 @@ import javax.validation.Valid;
 public class ExecuteSQLQueryResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NextToken")
   private String nextToken = null;
+
+  @SerializedName("Rows")
+  private List<Object> rows = null;
 
   public ExecuteSQLQueryResponse nextToken(String nextToken) {
     this.nextToken = nextToken;
@@ -51,6 +56,32 @@ public class ExecuteSQLQueryResponse extends com.volcengine.model.AbstractRespon
     this.nextToken = nextToken;
   }
 
+  public ExecuteSQLQueryResponse rows(List<Object> rows) {
+    this.rows = rows;
+    return this;
+  }
+
+  public ExecuteSQLQueryResponse addRowsItem(Object rowsItem) {
+    if (this.rows == null) {
+      this.rows = new ArrayList<Object>();
+    }
+    this.rows.add(rowsItem);
+    return this;
+  }
+
+   /**
+   * Get rows
+   * @return rows
+  **/
+  @Schema(description = "")
+  public List<Object> getRows() {
+    return rows;
+  }
+
+  public void setRows(List<Object> rows) {
+    this.rows = rows;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +92,13 @@ public class ExecuteSQLQueryResponse extends com.volcengine.model.AbstractRespon
       return false;
     }
     ExecuteSQLQueryResponse executeSQLQueryResponse = (ExecuteSQLQueryResponse) o;
-    return Objects.equals(this.nextToken, executeSQLQueryResponse.nextToken);
+    return Objects.equals(this.nextToken, executeSQLQueryResponse.nextToken) &&
+        Objects.equals(this.rows, executeSQLQueryResponse.rows);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nextToken);
+    return Objects.hash(nextToken, rows);
   }
 
 
@@ -76,6 +108,7 @@ public class ExecuteSQLQueryResponse extends com.volcengine.model.AbstractRespon
     sb.append("class ExecuteSQLQueryResponse {\n");
     
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    rows: ").append(toIndentedString(rows)).append("\n");
     sb.append("}");
     return sb.toString();
   }

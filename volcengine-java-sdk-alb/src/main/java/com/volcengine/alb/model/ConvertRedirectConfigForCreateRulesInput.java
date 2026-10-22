@@ -45,6 +45,9 @@ public class ConvertRedirectConfigForCreateRulesInput {
   @SerializedName("Protocol")
   private String protocol = null;
 
+  @SerializedName("Query")
+  private String query = null;
+
   public ConvertRedirectConfigForCreateRulesInput host(String host) {
     this.host = host;
     return this;
@@ -135,6 +138,24 @@ public class ConvertRedirectConfigForCreateRulesInput {
     this.protocol = protocol;
   }
 
+  public ConvertRedirectConfigForCreateRulesInput query(String query) {
+    this.query = query;
+    return this;
+  }
+
+   /**
+   * Get query
+   * @return query
+  **/
+  @Schema(description = "")
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,12 +170,13 @@ public class ConvertRedirectConfigForCreateRulesInput {
         Objects.equals(this.httpCode, convertRedirectConfigForCreateRulesInput.httpCode) &&
         Objects.equals(this.path, convertRedirectConfigForCreateRulesInput.path) &&
         Objects.equals(this.port, convertRedirectConfigForCreateRulesInput.port) &&
-        Objects.equals(this.protocol, convertRedirectConfigForCreateRulesInput.protocol);
+        Objects.equals(this.protocol, convertRedirectConfigForCreateRulesInput.protocol) &&
+        Objects.equals(this.query, convertRedirectConfigForCreateRulesInput.query);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, httpCode, path, port, protocol);
+    return Objects.hash(host, httpCode, path, port, protocol, query);
   }
 
 
@@ -168,6 +190,7 @@ public class ConvertRedirectConfigForCreateRulesInput {
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("}");
     return sb.toString();
   }

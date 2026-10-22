@@ -46,11 +46,95 @@ public class SearchMultiAccountResourcesRequest {
   @SerializedName("Scope")
   private ScopeForSearchMultiAccountResourcesInput scope = null;
 
-  @SerializedName("SortBy")
-  private String sortBy = null;
+  /**
+   * Gets or Sets sortBy
+   */
+  @JsonAdapter(SortByEnum.Adapter.class)
+  public enum SortByEnum {
+    @SerializedName("CreateTime")
+    CREATETIME("CreateTime");
 
-  @SerializedName("SortOrder")
-  private String sortOrder = null;
+    private String value;
+
+    SortByEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SortByEnum fromValue(String input) {
+      for (SortByEnum b : SortByEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SortByEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SortByEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SortByEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SortByEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SortBy")
+  private SortByEnum sortBy = null;
+
+  /**
+   * Gets or Sets sortOrder
+   */
+  @JsonAdapter(SortOrderEnum.Adapter.class)
+  public enum SortOrderEnum {
+    @SerializedName("Asc")
+    ASC("Asc"),
+    @SerializedName("Desc")
+    DESC("Desc");
+
+    private String value;
+
+    SortOrderEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SortOrderEnum fromValue(String input) {
+      for (SortOrderEnum b : SortOrderEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SortOrderEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SortOrderEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SortOrderEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SortOrderEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SortOrder")
+  private SortOrderEnum sortOrder = null;
 
   public SearchMultiAccountResourcesRequest filter(List<FilterForSearchMultiAccountResourcesInput> filter) {
     this.filter = filter;
@@ -86,9 +170,11 @@ public class SearchMultiAccountResourcesRequest {
 
    /**
    * Get maxResults
+   * minimum: 1
+   * maximum: 100
    * @return maxResults
   **/
-  @Schema(description = "")
+ @Min(1) @Max(100)  @Schema(description = "")
   public Integer getMaxResults() {
     return maxResults;
   }
@@ -134,7 +220,7 @@ public class SearchMultiAccountResourcesRequest {
     this.scope = scope;
   }
 
-  public SearchMultiAccountResourcesRequest sortBy(String sortBy) {
+  public SearchMultiAccountResourcesRequest sortBy(SortByEnum sortBy) {
     this.sortBy = sortBy;
     return this;
   }
@@ -144,15 +230,15 @@ public class SearchMultiAccountResourcesRequest {
    * @return sortBy
   **/
   @Schema(description = "")
-  public String getSortBy() {
+  public SortByEnum getSortBy() {
     return sortBy;
   }
 
-  public void setSortBy(String sortBy) {
+  public void setSortBy(SortByEnum sortBy) {
     this.sortBy = sortBy;
   }
 
-  public SearchMultiAccountResourcesRequest sortOrder(String sortOrder) {
+  public SearchMultiAccountResourcesRequest sortOrder(SortOrderEnum sortOrder) {
     this.sortOrder = sortOrder;
     return this;
   }
@@ -162,11 +248,11 @@ public class SearchMultiAccountResourcesRequest {
    * @return sortOrder
   **/
   @Schema(description = "")
-  public String getSortOrder() {
+  public SortOrderEnum getSortOrder() {
     return sortOrder;
   }
 
-  public void setSortOrder(String sortOrder) {
+  public void setSortOrder(SortOrderEnum sortOrder) {
     this.sortOrder = sortOrder;
   }
 

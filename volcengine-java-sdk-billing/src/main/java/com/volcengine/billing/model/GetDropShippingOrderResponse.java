@@ -57,6 +57,9 @@ public class GetDropShippingOrderResponse extends com.volcengine.model.AbstractR
   @SerializedName("ErrorMessage")
   private String errorMessage = null;
 
+  @SerializedName("OrderIDList")
+  private List<String> orderIDList = null;
+
   @SerializedName("Result")
   private Boolean result = null;
 
@@ -213,6 +216,32 @@ public class GetDropShippingOrderResponse extends com.volcengine.model.AbstractR
     this.errorMessage = errorMessage;
   }
 
+  public GetDropShippingOrderResponse orderIDList(List<String> orderIDList) {
+    this.orderIDList = orderIDList;
+    return this;
+  }
+
+  public GetDropShippingOrderResponse addOrderIDListItem(String orderIDListItem) {
+    if (this.orderIDList == null) {
+      this.orderIDList = new ArrayList<String>();
+    }
+    this.orderIDList.add(orderIDListItem);
+    return this;
+  }
+
+   /**
+   * Get orderIDList
+   * @return orderIDList
+  **/
+  @Schema(description = "")
+  public List<String> getOrderIDList() {
+    return orderIDList;
+  }
+
+  public void setOrderIDList(List<String> orderIDList) {
+    this.orderIDList = orderIDList;
+  }
+
   public GetDropShippingOrderResponse result(Boolean result) {
     this.result = result;
     return this;
@@ -249,12 +278,13 @@ public class GetDropShippingOrderResponse extends com.volcengine.model.AbstractR
         Objects.equals(this.dropShippingOrderStatus, getDropShippingOrderResponse.dropShippingOrderStatus) &&
         Objects.equals(this.errorCode, getDropShippingOrderResponse.errorCode) &&
         Objects.equals(this.errorMessage, getDropShippingOrderResponse.errorMessage) &&
+        Objects.equals(this.orderIDList, getDropShippingOrderResponse.orderIDList) &&
         Objects.equals(this.result, getDropShippingOrderResponse.result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, bizNo, configItems, dropShippingOrderFailReason, dropShippingOrderID, dropShippingOrderStatus, errorCode, errorMessage, result);
+    return Objects.hash(accountID, bizNo, configItems, dropShippingOrderFailReason, dropShippingOrderID, dropShippingOrderStatus, errorCode, errorMessage, orderIDList, result);
   }
 
 
@@ -271,6 +301,7 @@ public class GetDropShippingOrderResponse extends com.volcengine.model.AbstractR
     sb.append("    dropShippingOrderStatus: ").append(toIndentedString(dropShippingOrderStatus)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    orderIDList: ").append(toIndentedString(orderIDList)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();

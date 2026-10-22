@@ -33,51 +33,8 @@ import javax.validation.Valid;
 
 
 public class AllowListForDescribeAllowListsOutput {
-  /**
-   * Gets or Sets allowListCategory
-   */
-  @JsonAdapter(AllowListCategoryEnum.Adapter.class)
-  public enum AllowListCategoryEnum {
-    @SerializedName("Ordinary")
-    ORDINARY("Ordinary"),
-    @SerializedName("Default")
-    DEFAULT("Default");
-
-    private String value;
-
-    AllowListCategoryEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AllowListCategoryEnum fromValue(String input) {
-      for (AllowListCategoryEnum b : AllowListCategoryEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AllowListCategoryEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AllowListCategoryEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AllowListCategoryEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AllowListCategoryEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AllowListCategory")
-  private AllowListCategoryEnum allowListCategory = null;
+  @SerializedName("AllowListCategory")
+  private String allowListCategory = null;
 
   @SerializedName("AllowListDesc")
   private String allowListDesc = null;
@@ -103,7 +60,7 @@ public class AllowListForDescribeAllowListsOutput {
   @SerializedName("SecurityGroupBindInfos")
   private List<SecurityGroupBindInfoForDescribeAllowListsOutput> securityGroupBindInfos = null;
 
-  public AllowListForDescribeAllowListsOutput allowListCategory(AllowListCategoryEnum allowListCategory) {
+  public AllowListForDescribeAllowListsOutput allowListCategory(String allowListCategory) {
     this.allowListCategory = allowListCategory;
     return this;
   }
@@ -113,11 +70,11 @@ public class AllowListForDescribeAllowListsOutput {
    * @return allowListCategory
   **/
   @Schema(description = "")
-  public AllowListCategoryEnum getAllowListCategory() {
+  public String getAllowListCategory() {
     return allowListCategory;
   }
 
-  public void setAllowListCategory(AllowListCategoryEnum allowListCategory) {
+  public void setAllowListCategory(String allowListCategory) {
     this.allowListCategory = allowListCategory;
   }
 

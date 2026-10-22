@@ -32,51 +32,8 @@ import javax.validation.Valid;
 
 
 public class SecurityGroupBindInfoForDescribeAllowListDetailOutput {
-  /**
-   * Gets or Sets bindMode
-   */
-  @JsonAdapter(BindModeEnum.Adapter.class)
-  public enum BindModeEnum {
-    @SerializedName("AssociateEcsIp")
-    ASSOCIATEECSIP("AssociateEcsIp"),
-    @SerializedName("IngressDirectionIp")
-    INGRESSDIRECTIONIP("IngressDirectionIp");
-
-    private String value;
-
-    BindModeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BindModeEnum fromValue(String input) {
-      for (BindModeEnum b : BindModeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BindModeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BindModeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BindModeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BindModeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BindMode")
-  private BindModeEnum bindMode = null;
+  @SerializedName("BindMode")
+  private String bindMode = null;
 
   @SerializedName("IpList")
   private List<String> ipList = null;
@@ -87,7 +44,7 @@ public class SecurityGroupBindInfoForDescribeAllowListDetailOutput {
   @SerializedName("SecurityGroupName")
   private String securityGroupName = null;
 
-  public SecurityGroupBindInfoForDescribeAllowListDetailOutput bindMode(BindModeEnum bindMode) {
+  public SecurityGroupBindInfoForDescribeAllowListDetailOutput bindMode(String bindMode) {
     this.bindMode = bindMode;
     return this;
   }
@@ -97,11 +54,11 @@ public class SecurityGroupBindInfoForDescribeAllowListDetailOutput {
    * @return bindMode
   **/
   @Schema(description = "")
-  public BindModeEnum getBindMode() {
+  public String getBindMode() {
     return bindMode;
   }
 
-  public void setBindMode(BindModeEnum bindMode) {
+  public void setBindMode(String bindMode) {
     this.bindMode = bindMode;
   }
 

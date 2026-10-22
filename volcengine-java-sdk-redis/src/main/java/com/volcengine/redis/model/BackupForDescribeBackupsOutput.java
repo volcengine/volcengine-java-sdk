@@ -40,105 +40,11 @@ public class BackupForDescribeBackupsOutput {
   @SerializedName("BackupProgress")
   private Integer backupProgress = null;
 
-  /**
-   * Gets or Sets backupStrategy
-   */
-  @JsonAdapter(BackupStrategyEnum.Adapter.class)
-  public enum BackupStrategyEnum {
-    @SerializedName("ManualBackup")
-    MANUALBACKUP("ManualBackup"),
-    @SerializedName("AutomatedBackup")
-    AUTOMATEDBACKUP("AutomatedBackup"),
-    @SerializedName("DataFlashBack")
-    DATAFLASHBACK("DataFlashBack"),
-    @SerializedName("AllStrategy")
-    ALLSTRATEGY("AllStrategy");
+  @SerializedName("BackupStrategy")
+  private String backupStrategy = null;
 
-    private String value;
-
-    BackupStrategyEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BackupStrategyEnum fromValue(String input) {
-      for (BackupStrategyEnum b : BackupStrategyEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BackupStrategyEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BackupStrategyEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BackupStrategyEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BackupStrategyEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BackupStrategy")
-  private BackupStrategyEnum backupStrategy = null;
-
-  /**
-   * Gets or Sets backupType
-   */
-  @JsonAdapter(BackupTypeEnum.Adapter.class)
-  public enum BackupTypeEnum {
-    @SerializedName("Invalid")
-    INVALID("Invalid"),
-    @SerializedName("Full")
-    FULL("Full"),
-    @SerializedName("Inc")
-    INC("Inc"),
-    @SerializedName("All")
-    ALL("All");
-
-    private String value;
-
-    BackupTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static BackupTypeEnum fromValue(String input) {
-      for (BackupTypeEnum b : BackupTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<BackupTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BackupTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public BackupTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return BackupTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("BackupType")
-  private BackupTypeEnum backupType = null;
+  @SerializedName("BackupType")
+  private String backupType = null;
 
   @SerializedName("EndTime")
   private String endTime = null;
@@ -158,55 +64,8 @@ public class BackupForDescribeBackupsOutput {
   @SerializedName("StartTime")
   private String startTime = null;
 
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    @SerializedName("Creating")
-    CREATING("Creating"),
-    @SerializedName("Available")
-    AVAILABLE("Available"),
-    @SerializedName("Unavailable")
-    UNAVAILABLE("Unavailable"),
-    @SerializedName("Deleting")
-    DELETING("Deleting");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String input) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Status")
-  private StatusEnum status = null;
+  @SerializedName("Status")
+  private String status = null;
 
   @SerializedName("TTL")
   private Integer TTL = null;
@@ -265,7 +124,7 @@ public class BackupForDescribeBackupsOutput {
     this.backupProgress = backupProgress;
   }
 
-  public BackupForDescribeBackupsOutput backupStrategy(BackupStrategyEnum backupStrategy) {
+  public BackupForDescribeBackupsOutput backupStrategy(String backupStrategy) {
     this.backupStrategy = backupStrategy;
     return this;
   }
@@ -275,15 +134,15 @@ public class BackupForDescribeBackupsOutput {
    * @return backupStrategy
   **/
   @Schema(description = "")
-  public BackupStrategyEnum getBackupStrategy() {
+  public String getBackupStrategy() {
     return backupStrategy;
   }
 
-  public void setBackupStrategy(BackupStrategyEnum backupStrategy) {
+  public void setBackupStrategy(String backupStrategy) {
     this.backupStrategy = backupStrategy;
   }
 
-  public BackupForDescribeBackupsOutput backupType(BackupTypeEnum backupType) {
+  public BackupForDescribeBackupsOutput backupType(String backupType) {
     this.backupType = backupType;
     return this;
   }
@@ -293,11 +152,11 @@ public class BackupForDescribeBackupsOutput {
    * @return backupType
   **/
   @Schema(description = "")
-  public BackupTypeEnum getBackupType() {
+  public String getBackupType() {
     return backupType;
   }
 
-  public void setBackupType(BackupTypeEnum backupType) {
+  public void setBackupType(String backupType) {
     this.backupType = backupType;
   }
 
@@ -410,7 +269,7 @@ public class BackupForDescribeBackupsOutput {
     this.startTime = startTime;
   }
 
-  public BackupForDescribeBackupsOutput status(StatusEnum status) {
+  public BackupForDescribeBackupsOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -420,11 +279,11 @@ public class BackupForDescribeBackupsOutput {
    * @return status
   **/
   @Schema(description = "")
-  public StatusEnum getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(StatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 

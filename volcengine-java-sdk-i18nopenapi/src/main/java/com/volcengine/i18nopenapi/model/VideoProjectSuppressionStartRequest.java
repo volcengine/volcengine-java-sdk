@@ -53,6 +53,9 @@ public class VideoProjectSuppressionStartRequest {
   @SerializedName("projectId")
   private String projectId = null;
 
+  @SerializedName("sourceManualStyle")
+  private String sourceManualStyle = null;
+
   @SerializedName("startTime")
   private Integer startTime = null;
 
@@ -190,6 +193,24 @@ public class VideoProjectSuppressionStartRequest {
     this.projectId = projectId;
   }
 
+  public VideoProjectSuppressionStartRequest sourceManualStyle(String sourceManualStyle) {
+    this.sourceManualStyle = sourceManualStyle;
+    return this;
+  }
+
+   /**
+   * Get sourceManualStyle
+   * @return sourceManualStyle
+  **/
+  @Schema(description = "")
+  public String getSourceManualStyle() {
+    return sourceManualStyle;
+  }
+
+  public void setSourceManualStyle(String sourceManualStyle) {
+    this.sourceManualStyle = sourceManualStyle;
+  }
+
   public VideoProjectSuppressionStartRequest startTime(Integer startTime) {
     this.startTime = startTime;
     return this;
@@ -251,13 +272,14 @@ public class VideoProjectSuppressionStartRequest {
         Objects.equals(this.lang, videoProjectSuppressionStartRequest.lang) &&
         Objects.equals(this.manualStyle, videoProjectSuppressionStartRequest.manualStyle) &&
         Objects.equals(this.projectId, videoProjectSuppressionStartRequest.projectId) &&
+        Objects.equals(this.sourceManualStyle, videoProjectSuppressionStartRequest.sourceManualStyle) &&
         Objects.equals(this.startTime, videoProjectSuppressionStartRequest.startTime) &&
         Objects.equals(this.subtaskIds, videoProjectSuppressionStartRequest.subtaskIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(arrangeMent, encode, endTime, format, lang, manualStyle, projectId, startTime, subtaskIds);
+    return Objects.hash(arrangeMent, encode, endTime, format, lang, manualStyle, projectId, sourceManualStyle, startTime, subtaskIds);
   }
 
 
@@ -273,6 +295,7 @@ public class VideoProjectSuppressionStartRequest {
     sb.append("    lang: ").append(toIndentedString(lang)).append("\n");
     sb.append("    manualStyle: ").append(toIndentedString(manualStyle)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    sourceManualStyle: ").append(toIndentedString(sourceManualStyle)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    subtaskIds: ").append(toIndentedString(subtaskIds)).append("\n");
     sb.append("}");
