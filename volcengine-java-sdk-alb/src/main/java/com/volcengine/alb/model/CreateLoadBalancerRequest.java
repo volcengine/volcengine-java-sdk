@@ -39,6 +39,9 @@ public class CreateLoadBalancerRequest {
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
 
+  @SerializedName("ArkClawEnabled")
+  private String arkClawEnabled = null;
+
   @SerializedName("BandwidthPackageId")
   private String bandwidthPackageId = null;
 
@@ -81,6 +84,9 @@ public class CreateLoadBalancerRequest {
   @SerializedName("RegionId")
   private String regionId = null;
 
+  @SerializedName("SpaceNetworkId")
+  private String spaceNetworkId = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -112,6 +118,24 @@ public class CreateLoadBalancerRequest {
 
   public void setAddressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
+  }
+
+  public CreateLoadBalancerRequest arkClawEnabled(String arkClawEnabled) {
+    this.arkClawEnabled = arkClawEnabled;
+    return this;
+  }
+
+   /**
+   * Get arkClawEnabled
+   * @return arkClawEnabled
+  **/
+  @Schema(description = "")
+  public String getArkClawEnabled() {
+    return arkClawEnabled;
+  }
+
+  public void setArkClawEnabled(String arkClawEnabled) {
+    this.arkClawEnabled = arkClawEnabled;
   }
 
   public CreateLoadBalancerRequest bandwidthPackageId(String bandwidthPackageId) {
@@ -369,6 +393,24 @@ public class CreateLoadBalancerRequest {
     this.regionId = regionId;
   }
 
+  public CreateLoadBalancerRequest spaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+    return this;
+  }
+
+   /**
+   * Get spaceNetworkId
+   * @return spaceNetworkId
+  **/
+  @Schema(description = "")
+  public String getSpaceNetworkId() {
+    return spaceNetworkId;
+  }
+
+  public void setSpaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+  }
+
   public CreateLoadBalancerRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -489,6 +531,7 @@ public class CreateLoadBalancerRequest {
     }
     CreateLoadBalancerRequest createLoadBalancerRequest = (CreateLoadBalancerRequest) o;
     return Objects.equals(this.addressIpVersion, createLoadBalancerRequest.addressIpVersion) &&
+        Objects.equals(this.arkClawEnabled, createLoadBalancerRequest.arkClawEnabled) &&
         Objects.equals(this.bandwidthPackageId, createLoadBalancerRequest.bandwidthPackageId) &&
         Objects.equals(this.clientToken, createLoadBalancerRequest.clientToken) &&
         Objects.equals(this.deleteProtection, createLoadBalancerRequest.deleteProtection) &&
@@ -503,6 +546,7 @@ public class CreateLoadBalancerRequest {
         Objects.equals(this.modificationProtectionStatus, createLoadBalancerRequest.modificationProtectionStatus) &&
         Objects.equals(this.projectName, createLoadBalancerRequest.projectName) &&
         Objects.equals(this.regionId, createLoadBalancerRequest.regionId) &&
+        Objects.equals(this.spaceNetworkId, createLoadBalancerRequest.spaceNetworkId) &&
         Objects.equals(this.subnetId, createLoadBalancerRequest.subnetId) &&
         Objects.equals(this.tags, createLoadBalancerRequest.tags) &&
         Objects.equals(this.type, createLoadBalancerRequest.type) &&
@@ -512,7 +556,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, bandwidthPackageId, clientToken, deleteProtection, description, eipBillingConfig, ipv6BandwidthPackageId, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerEdition, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, projectName, regionId, subnetId, tags, type, vpcId, zoneMappings);
+    return Objects.hash(addressIpVersion, arkClawEnabled, bandwidthPackageId, clientToken, deleteProtection, description, eipBillingConfig, ipv6BandwidthPackageId, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerEdition, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, projectName, regionId, spaceNetworkId, subnetId, tags, type, vpcId, zoneMappings);
   }
 
 
@@ -522,6 +566,7 @@ public class CreateLoadBalancerRequest {
     sb.append("class CreateLoadBalancerRequest {\n");
     
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
+    sb.append("    arkClawEnabled: ").append(toIndentedString(arkClawEnabled)).append("\n");
     sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
@@ -536,6 +581,7 @@ public class CreateLoadBalancerRequest {
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    spaceNetworkId: ").append(toIndentedString(spaceNetworkId)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

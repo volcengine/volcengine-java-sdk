@@ -24,6 +24,7 @@ import com.volcengine.alb.model.ConvertRedirectConfigForCreateRulesInput;
 import com.volcengine.alb.model.ConvertRewriteConfigForCreateRulesInput;
 import com.volcengine.alb.model.CorsConfigForCreateRulesInput;
 import com.volcengine.alb.model.FixedResponseConfigForCreateRulesInput;
+import com.volcengine.alb.model.InsertHeaderConfigForCreateRulesInput;
 import com.volcengine.alb.model.TrafficLimitConfigForCreateRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -44,6 +45,9 @@ public class RulesRuleActionForCreateRulesInput {
 
   @SerializedName("ForwardGroupConfig")
   private ConvertForwardGroupConfigForCreateRulesInput forwardGroupConfig = null;
+
+  @SerializedName("InsertHeaderConfig")
+  private InsertHeaderConfigForCreateRulesInput insertHeaderConfig = null;
 
   @SerializedName("RedirectConfig")
   private ConvertRedirectConfigForCreateRulesInput redirectConfig = null;
@@ -112,6 +116,25 @@ public class RulesRuleActionForCreateRulesInput {
 
   public void setForwardGroupConfig(ConvertForwardGroupConfigForCreateRulesInput forwardGroupConfig) {
     this.forwardGroupConfig = forwardGroupConfig;
+  }
+
+  public RulesRuleActionForCreateRulesInput insertHeaderConfig(InsertHeaderConfigForCreateRulesInput insertHeaderConfig) {
+    this.insertHeaderConfig = insertHeaderConfig;
+    return this;
+  }
+
+   /**
+   * Get insertHeaderConfig
+   * @return insertHeaderConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public InsertHeaderConfigForCreateRulesInput getInsertHeaderConfig() {
+    return insertHeaderConfig;
+  }
+
+  public void setInsertHeaderConfig(InsertHeaderConfigForCreateRulesInput insertHeaderConfig) {
+    this.insertHeaderConfig = insertHeaderConfig;
   }
 
   public RulesRuleActionForCreateRulesInput redirectConfig(ConvertRedirectConfigForCreateRulesInput redirectConfig) {
@@ -202,6 +225,7 @@ public class RulesRuleActionForCreateRulesInput {
     return Objects.equals(this.corsConfig, rulesRuleActionForCreateRulesInput.corsConfig) &&
         Objects.equals(this.fixedResponseConfig, rulesRuleActionForCreateRulesInput.fixedResponseConfig) &&
         Objects.equals(this.forwardGroupConfig, rulesRuleActionForCreateRulesInput.forwardGroupConfig) &&
+        Objects.equals(this.insertHeaderConfig, rulesRuleActionForCreateRulesInput.insertHeaderConfig) &&
         Objects.equals(this.redirectConfig, rulesRuleActionForCreateRulesInput.redirectConfig) &&
         Objects.equals(this.rewriteConfig, rulesRuleActionForCreateRulesInput.rewriteConfig) &&
         Objects.equals(this.trafficLimitConfig, rulesRuleActionForCreateRulesInput.trafficLimitConfig) &&
@@ -210,7 +234,7 @@ public class RulesRuleActionForCreateRulesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(corsConfig, fixedResponseConfig, forwardGroupConfig, redirectConfig, rewriteConfig, trafficLimitConfig, type);
+    return Objects.hash(corsConfig, fixedResponseConfig, forwardGroupConfig, insertHeaderConfig, redirectConfig, rewriteConfig, trafficLimitConfig, type);
   }
 
 
@@ -222,6 +246,7 @@ public class RulesRuleActionForCreateRulesInput {
     sb.append("    corsConfig: ").append(toIndentedString(corsConfig)).append("\n");
     sb.append("    fixedResponseConfig: ").append(toIndentedString(fixedResponseConfig)).append("\n");
     sb.append("    forwardGroupConfig: ").append(toIndentedString(forwardGroupConfig)).append("\n");
+    sb.append("    insertHeaderConfig: ").append(toIndentedString(insertHeaderConfig)).append("\n");
     sb.append("    redirectConfig: ").append(toIndentedString(redirectConfig)).append("\n");
     sb.append("    rewriteConfig: ").append(toIndentedString(rewriteConfig)).append("\n");
     sb.append("    trafficLimitConfig: ").append(toIndentedString(trafficLimitConfig)).append("\n");

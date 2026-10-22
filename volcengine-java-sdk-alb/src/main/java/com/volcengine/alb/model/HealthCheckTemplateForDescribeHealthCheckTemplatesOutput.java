@@ -220,11 +220,9 @@ public class HealthCheckTemplateForDescribeHealthCheckTemplatesOutput {
 
    /**
    * Get healthCheckPort
-   * minimum: 0
-   * maximum: 65535
    * @return healthCheckPort
   **/
- @Min(0) @Max(65535)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getHealthCheckPort() {
     return healthCheckPort;
   }

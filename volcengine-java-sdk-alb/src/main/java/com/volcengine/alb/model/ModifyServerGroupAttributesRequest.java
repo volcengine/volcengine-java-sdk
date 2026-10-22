@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForModifyServerGroupAttributesInput;
+import com.volcengine.alb.model.SlowStartConfigForModifyServerGroupAttributesInput;
 import com.volcengine.alb.model.StickySessionConfigForModifyServerGroupAttributesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -49,6 +50,9 @@ public class ModifyServerGroupAttributesRequest {
 
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
+
+  @SerializedName("SlowStartConfig")
+  private SlowStartConfigForModifyServerGroupAttributesInput slowStartConfig = null;
 
   @SerializedName("StickySessionConfig")
   private StickySessionConfigForModifyServerGroupAttributesInput stickySessionConfig = null;
@@ -163,6 +167,25 @@ public class ModifyServerGroupAttributesRequest {
     this.serverGroupName = serverGroupName;
   }
 
+  public ModifyServerGroupAttributesRequest slowStartConfig(SlowStartConfigForModifyServerGroupAttributesInput slowStartConfig) {
+    this.slowStartConfig = slowStartConfig;
+    return this;
+  }
+
+   /**
+   * Get slowStartConfig
+   * @return slowStartConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public SlowStartConfigForModifyServerGroupAttributesInput getSlowStartConfig() {
+    return slowStartConfig;
+  }
+
+  public void setSlowStartConfig(SlowStartConfigForModifyServerGroupAttributesInput slowStartConfig) {
+    this.slowStartConfig = slowStartConfig;
+  }
+
   public ModifyServerGroupAttributesRequest stickySessionConfig(StickySessionConfigForModifyServerGroupAttributesInput stickySessionConfig) {
     this.stickySessionConfig = stickySessionConfig;
     return this;
@@ -198,12 +221,13 @@ public class ModifyServerGroupAttributesRequest {
         Objects.equals(this.scheduler, modifyServerGroupAttributesRequest.scheduler) &&
         Objects.equals(this.serverGroupId, modifyServerGroupAttributesRequest.serverGroupId) &&
         Objects.equals(this.serverGroupName, modifyServerGroupAttributesRequest.serverGroupName) &&
+        Objects.equals(this.slowStartConfig, modifyServerGroupAttributesRequest.slowStartConfig) &&
         Objects.equals(this.stickySessionConfig, modifyServerGroupAttributesRequest.stickySessionConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crossZoneEnabled, description, healthCheck, scheduler, serverGroupId, serverGroupName, stickySessionConfig);
+    return Objects.hash(crossZoneEnabled, description, healthCheck, scheduler, serverGroupId, serverGroupName, slowStartConfig, stickySessionConfig);
   }
 
 
@@ -218,6 +242,7 @@ public class ModifyServerGroupAttributesRequest {
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    slowStartConfig: ").append(toIndentedString(slowStartConfig)).append("\n");
     sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
     sb.append("}");
     return sb.toString();

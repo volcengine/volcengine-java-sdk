@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForDescribeServerGroupAttributesOutput;
 import com.volcengine.alb.model.ServerForDescribeServerGroupAttributesOutput;
+import com.volcengine.alb.model.SlowStartConfigForDescribeServerGroupAttributesOutput;
 import com.volcengine.alb.model.StickySessionConfigForDescribeServerGroupAttributesOutput;
 import com.volcengine.alb.model.TagForDescribeServerGroupAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -74,6 +75,12 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   @SerializedName("Servers")
   private List<ServerForDescribeServerGroupAttributesOutput> servers = null;
+
+  @SerializedName("SlowStartConfig")
+  private SlowStartConfigForDescribeServerGroupAttributesOutput slowStartConfig = null;
+
+  @SerializedName("SpaceNetworkId")
+  private String spaceNetworkId = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -339,6 +346,43 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     this.servers = servers;
   }
 
+  public DescribeServerGroupAttributesResponse slowStartConfig(SlowStartConfigForDescribeServerGroupAttributesOutput slowStartConfig) {
+    this.slowStartConfig = slowStartConfig;
+    return this;
+  }
+
+   /**
+   * Get slowStartConfig
+   * @return slowStartConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public SlowStartConfigForDescribeServerGroupAttributesOutput getSlowStartConfig() {
+    return slowStartConfig;
+  }
+
+  public void setSlowStartConfig(SlowStartConfigForDescribeServerGroupAttributesOutput slowStartConfig) {
+    this.slowStartConfig = slowStartConfig;
+  }
+
+  public DescribeServerGroupAttributesResponse spaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+    return this;
+  }
+
+   /**
+   * Get spaceNetworkId
+   * @return spaceNetworkId
+  **/
+  @Schema(description = "")
+  public String getSpaceNetworkId() {
+    return spaceNetworkId;
+  }
+
+  public void setSpaceNetworkId(String spaceNetworkId) {
+    this.spaceNetworkId = spaceNetworkId;
+  }
+
   public DescribeServerGroupAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -444,6 +488,8 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
         Objects.equals(this.serverGroupName, describeServerGroupAttributesResponse.serverGroupName) &&
         Objects.equals(this.serverGroupType, describeServerGroupAttributesResponse.serverGroupType) &&
         Objects.equals(this.servers, describeServerGroupAttributesResponse.servers) &&
+        Objects.equals(this.slowStartConfig, describeServerGroupAttributesResponse.slowStartConfig) &&
+        Objects.equals(this.spaceNetworkId, describeServerGroupAttributesResponse.spaceNetworkId) &&
         Objects.equals(this.status, describeServerGroupAttributesResponse.status) &&
         Objects.equals(this.stickySessionConfig, describeServerGroupAttributesResponse.stickySessionConfig) &&
         Objects.equals(this.tags, describeServerGroupAttributesResponse.tags) &&
@@ -452,7 +498,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   @Override
   public int hashCode() {
-    return Objects.hash(crossZoneEnabled, description, healthCheck, ipAddressType, listeners, projectName, protocol, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, status, stickySessionConfig, tags, vpcId);
+    return Objects.hash(crossZoneEnabled, description, healthCheck, ipAddressType, listeners, projectName, protocol, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, slowStartConfig, spaceNetworkId, status, stickySessionConfig, tags, vpcId);
   }
 
 
@@ -474,6 +520,8 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
     sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
     sb.append("    servers: ").append(toIndentedString(servers)).append("\n");
+    sb.append("    slowStartConfig: ").append(toIndentedString(slowStartConfig)).append("\n");
+    sb.append("    spaceNetworkId: ").append(toIndentedString(spaceNetworkId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
