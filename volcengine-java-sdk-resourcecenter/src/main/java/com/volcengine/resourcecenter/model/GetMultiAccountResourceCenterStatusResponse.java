@@ -30,28 +30,28 @@ import javax.validation.Valid;
 
 
 public class GetMultiAccountResourceCenterStatusResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("InitialStatus")
-  private String initialStatus = null;
+  @SerializedName("InitStatus")
+  private String initStatus = null;
 
   @SerializedName("ServiceStatus")
   private String serviceStatus = null;
 
-  public GetMultiAccountResourceCenterStatusResponse initialStatus(String initialStatus) {
-    this.initialStatus = initialStatus;
+  public GetMultiAccountResourceCenterStatusResponse initStatus(String initStatus) {
+    this.initStatus = initStatus;
     return this;
   }
 
    /**
-   * Get initialStatus
-   * @return initialStatus
+   * Get initStatus
+   * @return initStatus
   **/
   @Schema(description = "")
-  public String getInitialStatus() {
-    return initialStatus;
+  public String getInitStatus() {
+    return initStatus;
   }
 
-  public void setInitialStatus(String initialStatus) {
-    this.initialStatus = initialStatus;
+  public void setInitStatus(String initStatus) {
+    this.initStatus = initStatus;
   }
 
   public GetMultiAccountResourceCenterStatusResponse serviceStatus(String serviceStatus) {
@@ -82,13 +82,13 @@ public class GetMultiAccountResourceCenterStatusResponse extends com.volcengine.
       return false;
     }
     GetMultiAccountResourceCenterStatusResponse getMultiAccountResourceCenterStatusResponse = (GetMultiAccountResourceCenterStatusResponse) o;
-    return Objects.equals(this.initialStatus, getMultiAccountResourceCenterStatusResponse.initialStatus) &&
+    return Objects.equals(this.initStatus, getMultiAccountResourceCenterStatusResponse.initStatus) &&
         Objects.equals(this.serviceStatus, getMultiAccountResourceCenterStatusResponse.serviceStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(initialStatus, serviceStatus);
+    return Objects.hash(initStatus, serviceStatus);
   }
 
 
@@ -97,7 +97,7 @@ public class GetMultiAccountResourceCenterStatusResponse extends com.volcengine.
     StringBuilder sb = new StringBuilder();
     sb.append("class GetMultiAccountResourceCenterStatusResponse {\n");
     
-    sb.append("    initialStatus: ").append(toIndentedString(initialStatus)).append("\n");
+    sb.append("    initStatus: ").append(toIndentedString(initStatus)).append("\n");
     sb.append("    serviceStatus: ").append(toIndentedString(serviceStatus)).append("\n");
     sb.append("}");
     return sb.toString();

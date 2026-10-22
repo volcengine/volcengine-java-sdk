@@ -49,7 +49,7 @@ public class ExecuteSQLQueryRequest {
    * @return expression
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(max=2048)  @Schema(required = true, description = "")
   public String getExpression() {
     return expression;
   }
@@ -65,10 +65,12 @@ public class ExecuteSQLQueryRequest {
 
    /**
    * Get maxResults
+   * minimum: 1
+   * maximum: 500
    * @return maxResults
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Min(1) @Max(500)  @Schema(required = true, description = "")
   public Integer getMaxResults() {
     return maxResults;
   }
