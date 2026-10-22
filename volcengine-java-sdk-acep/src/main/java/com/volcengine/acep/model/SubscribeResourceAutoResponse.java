@@ -14,6 +14,15 @@ package com.volcengine.acep.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +32,56 @@ import javax.validation.Valid;
 
 
 public class SubscribeResourceAutoResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("HostIdList")
+  private List<String> hostIdList = null;
+
+  @SerializedName("OrderId")
+  private String orderId = null;
+
+  public SubscribeResourceAutoResponse hostIdList(List<String> hostIdList) {
+    this.hostIdList = hostIdList;
+    return this;
+  }
+
+  public SubscribeResourceAutoResponse addHostIdListItem(String hostIdListItem) {
+    if (this.hostIdList == null) {
+      this.hostIdList = new ArrayList<String>();
+    }
+    this.hostIdList.add(hostIdListItem);
+    return this;
+  }
+
+   /**
+   * Get hostIdList
+   * @return hostIdList
+  **/
+  @Schema(description = "")
+  public List<String> getHostIdList() {
+    return hostIdList;
+  }
+
+  public void setHostIdList(List<String> hostIdList) {
+    this.hostIdList = hostIdList;
+  }
+
+  public SubscribeResourceAutoResponse orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * Get orderId
+   * @return orderId
+  **/
+  @Schema(description = "")
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +91,14 @@ public class SubscribeResourceAutoResponse extends com.volcengine.model.Abstract
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    SubscribeResourceAutoResponse subscribeResourceAutoResponse = (SubscribeResourceAutoResponse) o;
+    return Objects.equals(this.hostIdList, subscribeResourceAutoResponse.hostIdList) &&
+        Objects.equals(this.orderId, subscribeResourceAutoResponse.orderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(hostIdList, orderId);
   }
 
 
@@ -46,6 +107,8 @@ public class SubscribeResourceAutoResponse extends com.volcengine.model.Abstract
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscribeResourceAutoResponse {\n");
     
+    sb.append("    hostIdList: ").append(toIndentedString(hostIdList)).append("\n");
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

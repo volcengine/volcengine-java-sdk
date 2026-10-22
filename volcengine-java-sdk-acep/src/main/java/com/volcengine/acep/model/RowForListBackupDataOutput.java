@@ -119,6 +119,12 @@ public class RowForListBackupDataOutput {
   @SerializedName("UpdatedTime")
   private Long updatedTime = null;
 
+  @SerializedName("VolcRegion")
+  private String volcRegion = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
   public RowForListBackupDataOutput aoSPVersion(String aoSPVersion) {
     this.aoSPVersion = aoSPVersion;
     return this;
@@ -657,6 +663,42 @@ public class RowForListBackupDataOutput {
     this.updatedTime = updatedTime;
   }
 
+  public RowForListBackupDataOutput volcRegion(String volcRegion) {
+    this.volcRegion = volcRegion;
+    return this;
+  }
+
+   /**
+   * Get volcRegion
+   * @return volcRegion
+  **/
+  @Schema(description = "")
+  public String getVolcRegion() {
+    return volcRegion;
+  }
+
+  public void setVolcRegion(String volcRegion) {
+    this.volcRegion = volcRegion;
+  }
+
+  public RowForListBackupDataOutput zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -695,12 +737,14 @@ public class RowForListBackupDataOutput {
         Objects.equals(this.status, rowForListBackupDataOutput.status) &&
         Objects.equals(this.storageResource, rowForListBackupDataOutput.storageResource) &&
         Objects.equals(this.storageType, rowForListBackupDataOutput.storageType) &&
-        Objects.equals(this.updatedTime, rowForListBackupDataOutput.updatedTime);
+        Objects.equals(this.updatedTime, rowForListBackupDataOutput.updatedTime) &&
+        Objects.equals(this.volcRegion, rowForListBackupDataOutput.volcRegion) &&
+        Objects.equals(this.zoneId, rowForListBackupDataOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aoSPVersion, accountId, backupDataId, backupDataName, backupJobId, backupSize, backupTaskId, backupType, completedTime, compressionType, createdTime, dataSize, description, detail, excludePathList, expireTime, finishedTime, inUseCount, includePathList, md5Sum, productId, restoreCount, size, sourcePodId, startedTime, status, storageResource, storageType, updatedTime);
+    return Objects.hash(aoSPVersion, accountId, backupDataId, backupDataName, backupJobId, backupSize, backupTaskId, backupType, completedTime, compressionType, createdTime, dataSize, description, detail, excludePathList, expireTime, finishedTime, inUseCount, includePathList, md5Sum, productId, restoreCount, size, sourcePodId, startedTime, status, storageResource, storageType, updatedTime, volcRegion, zoneId);
   }
 
 
@@ -738,6 +782,8 @@ public class RowForListBackupDataOutput {
     sb.append("    storageResource: ").append(toIndentedString(storageResource)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    updatedTime: ").append(toIndentedString(updatedTime)).append("\n");
+    sb.append("    volcRegion: ").append(toIndentedString(volcRegion)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
