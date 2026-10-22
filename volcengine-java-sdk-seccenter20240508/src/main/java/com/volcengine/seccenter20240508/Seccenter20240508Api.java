@@ -271,6 +271,8 @@ import com.volcengine.seccenter20240508.model.GetAutoIsolateAgentListRequest;
 import com.volcengine.seccenter20240508.model.GetAutoIsolateAgentListResponse;
 import com.volcengine.seccenter20240508.model.GetAutoProtectConfigRequest;
 import com.volcengine.seccenter20240508.model.GetAutoProtectConfigResponse;
+import com.volcengine.seccenter20240508.model.GetBaselineCheckConfigRequest;
+import com.volcengine.seccenter20240508.model.GetBaselineCheckConfigResponse;
 import com.volcengine.seccenter20240508.model.GetBaselineDetectProgressDetailRequest;
 import com.volcengine.seccenter20240508.model.GetBaselineDetectProgressDetailResponse;
 import com.volcengine.seccenter20240508.model.GetBaselineGroupStatisticsRequest;
@@ -15968,6 +15970,130 @@ public class Seccenter20240508Api {
 
         com.squareup.okhttp.Call call = getAutoProtectConfigValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetAutoProtectConfigResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getBaselineCheckConfig
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getBaselineCheckConfigCall(GetBaselineCheckConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetBaselineCheckConfig/2024-05-08/seccenter/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getBaselineCheckConfigValidateBeforeCall(GetBaselineCheckConfigRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getBaselineCheckConfig(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getBaselineCheckConfigCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetBaselineCheckConfigResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetBaselineCheckConfigResponse getBaselineCheckConfig(GetBaselineCheckConfigRequest body) throws ApiException {
+        ApiResponse<GetBaselineCheckConfigResponse> resp = getBaselineCheckConfigWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetBaselineCheckConfigResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetBaselineCheckConfigResponse> getBaselineCheckConfigWithHttpInfo( @NotNull GetBaselineCheckConfigRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getBaselineCheckConfigValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetBaselineCheckConfigResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getBaselineCheckConfigAsync(GetBaselineCheckConfigRequest body, final ApiCallback<GetBaselineCheckConfigResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getBaselineCheckConfigValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetBaselineCheckConfigResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
