@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.redis.model.ImpactSummaryForDescribePlannedEventsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -45,6 +46,15 @@ public class PlannedEventForDescribePlannedEventsOutput {
   @SerializedName("EventId")
   private String eventId = null;
 
+  @SerializedName("ExeEndTime")
+  private String exeEndTime = null;
+
+  @SerializedName("ExeStartTime")
+  private String exeStartTime = null;
+
+  @SerializedName("ImpactSummary")
+  private ImpactSummaryForDescribePlannedEventsOutput impactSummary = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -60,61 +70,8 @@ public class PlannedEventForDescribePlannedEventsOutput {
   @SerializedName("PlanStartTime")
   private String planStartTime = null;
 
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    @SerializedName("Initiated")
-    INITIATED("Initiated"),
-    @SerializedName("Waiting")
-    WAITING("Waiting"),
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Success")
-    SUCCESS("Success"),
-    @SerializedName("Failed")
-    FAILED("Failed"),
-    @SerializedName("Canceled")
-    CANCELED("Canceled"),
-    @SerializedName("Abandoned")
-    ABANDONED("Abandoned");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String input) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Status")
-  private StatusEnum status = null;
+  @SerializedName("Status")
+  private String status = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -209,6 +166,61 @@ public class PlannedEventForDescribePlannedEventsOutput {
     this.eventId = eventId;
   }
 
+  public PlannedEventForDescribePlannedEventsOutput exeEndTime(String exeEndTime) {
+    this.exeEndTime = exeEndTime;
+    return this;
+  }
+
+   /**
+   * Get exeEndTime
+   * @return exeEndTime
+  **/
+  @Schema(description = "")
+  public String getExeEndTime() {
+    return exeEndTime;
+  }
+
+  public void setExeEndTime(String exeEndTime) {
+    this.exeEndTime = exeEndTime;
+  }
+
+  public PlannedEventForDescribePlannedEventsOutput exeStartTime(String exeStartTime) {
+    this.exeStartTime = exeStartTime;
+    return this;
+  }
+
+   /**
+   * Get exeStartTime
+   * @return exeStartTime
+  **/
+  @Schema(description = "")
+  public String getExeStartTime() {
+    return exeStartTime;
+  }
+
+  public void setExeStartTime(String exeStartTime) {
+    this.exeStartTime = exeStartTime;
+  }
+
+  public PlannedEventForDescribePlannedEventsOutput impactSummary(ImpactSummaryForDescribePlannedEventsOutput impactSummary) {
+    this.impactSummary = impactSummary;
+    return this;
+  }
+
+   /**
+   * Get impactSummary
+   * @return impactSummary
+  **/
+  @Valid
+  @Schema(description = "")
+  public ImpactSummaryForDescribePlannedEventsOutput getImpactSummary() {
+    return impactSummary;
+  }
+
+  public void setImpactSummary(ImpactSummaryForDescribePlannedEventsOutput impactSummary) {
+    this.impactSummary = impactSummary;
+  }
+
   public PlannedEventForDescribePlannedEventsOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -299,7 +311,7 @@ public class PlannedEventForDescribePlannedEventsOutput {
     this.planStartTime = planStartTime;
   }
 
-  public PlannedEventForDescribePlannedEventsOutput status(StatusEnum status) {
+  public PlannedEventForDescribePlannedEventsOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -309,11 +321,11 @@ public class PlannedEventForDescribePlannedEventsOutput {
    * @return status
   **/
   @Schema(description = "")
-  public StatusEnum getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(StatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
@@ -350,6 +362,9 @@ public class PlannedEventForDescribePlannedEventsOutput {
         Objects.equals(this.canCancel, plannedEventForDescribePlannedEventsOutput.canCancel) &&
         Objects.equals(this.canModifyTime, plannedEventForDescribePlannedEventsOutput.canModifyTime) &&
         Objects.equals(this.eventId, plannedEventForDescribePlannedEventsOutput.eventId) &&
+        Objects.equals(this.exeEndTime, plannedEventForDescribePlannedEventsOutput.exeEndTime) &&
+        Objects.equals(this.exeStartTime, plannedEventForDescribePlannedEventsOutput.exeStartTime) &&
+        Objects.equals(this.impactSummary, plannedEventForDescribePlannedEventsOutput.impactSummary) &&
         Objects.equals(this.instanceId, plannedEventForDescribePlannedEventsOutput.instanceId) &&
         Objects.equals(this.instanceName, plannedEventForDescribePlannedEventsOutput.instanceName) &&
         Objects.equals(this.maxEndTime, plannedEventForDescribePlannedEventsOutput.maxEndTime) &&
@@ -361,7 +376,7 @@ public class PlannedEventForDescribePlannedEventsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, actionName, canCancel, canModifyTime, eventId, instanceId, instanceName, maxEndTime, planEndTime, planStartTime, status, type);
+    return Objects.hash(action, actionName, canCancel, canModifyTime, eventId, exeEndTime, exeStartTime, impactSummary, instanceId, instanceName, maxEndTime, planEndTime, planStartTime, status, type);
   }
 
 
@@ -375,6 +390,9 @@ public class PlannedEventForDescribePlannedEventsOutput {
     sb.append("    canCancel: ").append(toIndentedString(canCancel)).append("\n");
     sb.append("    canModifyTime: ").append(toIndentedString(canModifyTime)).append("\n");
     sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
+    sb.append("    exeEndTime: ").append(toIndentedString(exeEndTime)).append("\n");
+    sb.append("    exeStartTime: ").append(toIndentedString(exeStartTime)).append("\n");
+    sb.append("    impactSummary: ").append(toIndentedString(impactSummary)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    maxEndTime: ").append(toIndentedString(maxEndTime)).append("\n");

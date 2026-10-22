@@ -54,51 +54,8 @@ public class ParameterGroupInfoForDescribeParameterGroupDetailOutput {
   @SerializedName("Parameters")
   private List<ParameterForDescribeParameterGroupDetailOutput> parameters = null;
 
-  /**
-   * Gets or Sets source
-   */
-  @JsonAdapter(SourceEnum.Adapter.class)
-  public enum SourceEnum {
-    @SerializedName("System")
-    SYSTEM("System"),
-    @SerializedName("User")
-    USER("User");
-
-    private String value;
-
-    SourceEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static SourceEnum fromValue(String input) {
-      for (SourceEnum b : SourceEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<SourceEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final SourceEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public SourceEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return SourceEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Source")
-  private SourceEnum source = null;
+  @SerializedName("Source")
+  private String source = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -238,7 +195,7 @@ public class ParameterGroupInfoForDescribeParameterGroupDetailOutput {
     this.parameters = parameters;
   }
 
-  public ParameterGroupInfoForDescribeParameterGroupDetailOutput source(SourceEnum source) {
+  public ParameterGroupInfoForDescribeParameterGroupDetailOutput source(String source) {
     this.source = source;
     return this;
   }
@@ -248,11 +205,11 @@ public class ParameterGroupInfoForDescribeParameterGroupDetailOutput {
    * @return source
   **/
   @Schema(description = "")
-  public SourceEnum getSource() {
+  public String getSource() {
     return source;
   }
 
-  public void setSource(SourceEnum source) {
+  public void setSource(String source) {
     this.source = source;
   }
 
