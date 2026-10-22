@@ -354,5 +354,6 @@
         <module>volcengine-java-sdk-volcsms</module>
         <module>volcengine-java-sdk-tidb</module>
         <module>volcengine-java-sdk-origindefence</module>
+        <module>volcengine-java-sdk-inframanager</module>
     </modules>
 </project>

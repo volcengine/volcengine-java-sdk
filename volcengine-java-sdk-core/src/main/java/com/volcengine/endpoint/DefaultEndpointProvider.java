@@ -932,6 +932,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- inframanager ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("inframanager", new ServiceEndpointInfo(
+                "inframanager",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法
