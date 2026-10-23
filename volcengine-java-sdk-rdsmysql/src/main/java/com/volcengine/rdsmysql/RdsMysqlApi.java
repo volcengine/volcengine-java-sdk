@@ -127,8 +127,13 @@ import java.util.Map;
 /**
  * RDS MySQL API 2018-01-01 客户端。
  *
- * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
- *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}。
+ * @deprecated 请迁移至 Maven 模块 {@code volcengine-java-sdk-rdsmysqlv2}
+ *             （API 2022-01-01），使用新版客户端
+ *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}：
+ *             <pre>{@code
+ * RdsMysqlV2Api api = new RdsMysqlV2Api(); // 或 new RdsMysqlV2Api(apiClient)
+ *             }</pre>
+ *             并按新版定义调整请求和返回模型。
  */
 @Deprecated
 public class RdsMysqlApi {
