@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.dbw.model.ConvertadviceForListSlowQueryAdviceApiOutput;
+import com.volcengine.dbw.model.AdviceForListSlowQueryAdviceApiOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,8 +36,8 @@ public class AdvicesByGroupForListSlowQueryAdviceApiOutput {
   @SerializedName("Advice")
   private String advice = null;
 
-  @SerializedName("advices")
-  private List<ConvertadviceForListSlowQueryAdviceApiOutput> advices = null;
+  @SerializedName("Advices")
+  private List<AdviceForListSlowQueryAdviceApiOutput> advices = null;
 
   public AdvicesByGroupForListSlowQueryAdviceApiOutput advice(String advice) {
     this.advice = advice;
@@ -57,14 +57,14 @@ public class AdvicesByGroupForListSlowQueryAdviceApiOutput {
     this.advice = advice;
   }
 
-  public AdvicesByGroupForListSlowQueryAdviceApiOutput advices(List<ConvertadviceForListSlowQueryAdviceApiOutput> advices) {
+  public AdvicesByGroupForListSlowQueryAdviceApiOutput advices(List<AdviceForListSlowQueryAdviceApiOutput> advices) {
     this.advices = advices;
     return this;
   }
 
-  public AdvicesByGroupForListSlowQueryAdviceApiOutput addAdvicesItem(ConvertadviceForListSlowQueryAdviceApiOutput advicesItem) {
+  public AdvicesByGroupForListSlowQueryAdviceApiOutput addAdvicesItem(AdviceForListSlowQueryAdviceApiOutput advicesItem) {
     if (this.advices == null) {
-      this.advices = new ArrayList<ConvertadviceForListSlowQueryAdviceApiOutput>();
+      this.advices = new ArrayList<AdviceForListSlowQueryAdviceApiOutput>();
     }
     this.advices.add(advicesItem);
     return this;
@@ -76,11 +76,11 @@ public class AdvicesByGroupForListSlowQueryAdviceApiOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<ConvertadviceForListSlowQueryAdviceApiOutput> getAdvices() {
+  public List<AdviceForListSlowQueryAdviceApiOutput> getAdvices() {
     return advices;
   }
 
-  public void setAdvices(List<ConvertadviceForListSlowQueryAdviceApiOutput> advices) {
+  public void setAdvices(List<AdviceForListSlowQueryAdviceApiOutput> advices) {
     this.advices = advices;
   }
 

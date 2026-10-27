@@ -44,6 +44,9 @@ public class DescribeTicketDetailResponse extends com.volcengine.model.AbstractR
   @SerializedName("DbName")
   private String dbName = null;
 
+  @SerializedName("Description")
+  private String description = null;
+
   @SerializedName("ExecEndTime")
   private Long execEndTime = null;
 
@@ -152,6 +155,24 @@ public class DescribeTicketDetailResponse extends com.volcengine.model.AbstractR
 
   public void setDbName(String dbName) {
     this.dbName = dbName;
+  }
+
+  public DescribeTicketDetailResponse description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public DescribeTicketDetailResponse execEndTime(Long execEndTime) {
@@ -384,6 +405,7 @@ public class DescribeTicketDetailResponse extends com.volcengine.model.AbstractR
         Objects.equals(this.createUser, describeTicketDetailResponse.createUser) &&
         Objects.equals(this.currentUser, describeTicketDetailResponse.currentUser) &&
         Objects.equals(this.dbName, describeTicketDetailResponse.dbName) &&
+        Objects.equals(this.description, describeTicketDetailResponse.description) &&
         Objects.equals(this.execEndTime, describeTicketDetailResponse.execEndTime) &&
         Objects.equals(this.execStartTime, describeTicketDetailResponse.execStartTime) &&
         Objects.equals(this.instanceId, describeTicketDetailResponse.instanceId) &&
@@ -400,7 +422,7 @@ public class DescribeTicketDetailResponse extends com.volcengine.model.AbstractR
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, createUser, currentUser, dbName, execEndTime, execStartTime, instanceId, instanceType, memo, sqlText, ticketExecuteType, ticketId, ticketStatus, ticketType, title, updateTime);
+    return Objects.hash(createTime, createUser, currentUser, dbName, description, execEndTime, execStartTime, instanceId, instanceType, memo, sqlText, ticketExecuteType, ticketId, ticketStatus, ticketType, title, updateTime);
   }
 
 
@@ -413,6 +435,7 @@ public class DescribeTicketDetailResponse extends com.volcengine.model.AbstractR
     sb.append("    createUser: ").append(toIndentedString(createUser)).append("\n");
     sb.append("    currentUser: ").append(toIndentedString(currentUser)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    execEndTime: ").append(toIndentedString(execEndTime)).append("\n");
     sb.append("    execStartTime: ").append(toIndentedString(execStartTime)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

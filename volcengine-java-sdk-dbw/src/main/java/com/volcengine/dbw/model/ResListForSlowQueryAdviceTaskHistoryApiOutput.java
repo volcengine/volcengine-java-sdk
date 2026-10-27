@@ -51,53 +51,8 @@ public class ResListForSlowQueryAdviceTaskHistoryApiOutput {
   @SerializedName("SlowQueryNum")
   private Integer slowQueryNum = null;
 
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    @SerializedName("INIT")
-    INIT("INIT"),
-    @SerializedName("SUCCESS")
-    SUCCESS("SUCCESS"),
-    @SerializedName("EXCEPTION")
-    EXCEPTION("EXCEPTION");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String input) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Status")
-  private StatusEnum status = null;
+  @SerializedName("Status")
+  private String status = null;
 
   @SerializedName("SummaryId")
   private String summaryId = null;
@@ -228,7 +183,7 @@ public class ResListForSlowQueryAdviceTaskHistoryApiOutput {
     this.slowQueryNum = slowQueryNum;
   }
 
-  public ResListForSlowQueryAdviceTaskHistoryApiOutput status(StatusEnum status) {
+  public ResListForSlowQueryAdviceTaskHistoryApiOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -238,11 +193,11 @@ public class ResListForSlowQueryAdviceTaskHistoryApiOutput {
    * @return status
   **/
   @Schema(description = "")
-  public StatusEnum getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(StatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
