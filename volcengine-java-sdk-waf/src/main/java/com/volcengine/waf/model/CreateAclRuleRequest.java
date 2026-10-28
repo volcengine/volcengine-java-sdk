@@ -246,6 +246,9 @@ public class CreateAclRuleRequest {
   @SerializedName("Url")
   private String url = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public CreateAclRuleRequest accurateGroup(AccurateGroupForCreateAclRuleInput accurateGroup) {
     this.accurateGroup = accurateGroup;
     return this;
@@ -633,6 +636,24 @@ public class CreateAclRuleRequest {
     this.url = url;
   }
 
+  public CreateAclRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -660,12 +681,13 @@ public class CreateAclRuleRequest {
         Objects.equals(this.name, createAclRuleRequest.name) &&
         Objects.equals(this.permitFeature, createAclRuleRequest.permitFeature) &&
         Objects.equals(this.projectName, createAclRuleRequest.projectName) &&
-        Objects.equals(this.url, createAclRuleRequest.url);
+        Objects.equals(this.url, createAclRuleRequest.url) &&
+        Objects.equals(this.waFInstanceID, createAclRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, aclType, action, advanced, description, enable, hostAddType, hostGroupId, hostList, ipAddType, ipGroupId, ipList, ipLocationCountry, ipLocationSubregion, name, permitFeature, projectName, url);
+    return Objects.hash(accurateGroup, aclType, action, advanced, description, enable, hostAddType, hostGroupId, hostList, ipAddType, ipGroupId, ipList, ipLocationCountry, ipLocationSubregion, name, permitFeature, projectName, url, waFInstanceID);
   }
 
 
@@ -692,6 +714,7 @@ public class CreateAclRuleRequest {
     sb.append("    permitFeature: ").append(toIndentedString(permitFeature)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

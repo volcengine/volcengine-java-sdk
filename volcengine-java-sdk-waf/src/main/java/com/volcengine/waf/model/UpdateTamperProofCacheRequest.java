@@ -39,6 +39,9 @@ public class UpdateTamperProofCacheRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UpdateTamperProofCacheRequest host(String host) {
     this.host = host;
     return this;
@@ -95,6 +98,24 @@ public class UpdateTamperProofCacheRequest {
     this.projectName = projectName;
   }
 
+  public UpdateTamperProofCacheRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +128,13 @@ public class UpdateTamperProofCacheRequest {
     UpdateTamperProofCacheRequest updateTamperProofCacheRequest = (UpdateTamperProofCacheRequest) o;
     return Objects.equals(this.host, updateTamperProofCacheRequest.host) &&
         Objects.equals(this.ID, updateTamperProofCacheRequest.ID) &&
-        Objects.equals(this.projectName, updateTamperProofCacheRequest.projectName);
+        Objects.equals(this.projectName, updateTamperProofCacheRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, updateTamperProofCacheRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, ID, projectName);
+    return Objects.hash(host, ID, projectName, waFInstanceID);
   }
 
 
@@ -124,6 +146,7 @@ public class UpdateTamperProofCacheRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

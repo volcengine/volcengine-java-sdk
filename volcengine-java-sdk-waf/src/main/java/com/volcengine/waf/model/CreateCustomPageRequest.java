@@ -79,6 +79,9 @@ public class CreateCustomPageRequest {
   @SerializedName("Url")
   private String url = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public CreateCustomPageRequest accurate(AccurateForCreateCustomPageInput accurate) {
     this.accurate = accurate;
     return this;
@@ -375,6 +378,24 @@ public class CreateCustomPageRequest {
     this.url = url;
   }
 
+  public CreateCustomPageRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -400,12 +421,13 @@ public class CreateCustomPageRequest {
         Objects.equals(this.prefixSwitch, createCustomPageRequest.prefixSwitch) &&
         Objects.equals(this.projectName, createCustomPageRequest.projectName) &&
         Objects.equals(this.redirectUrl, createCustomPageRequest.redirectUrl) &&
-        Objects.equals(this.url, createCustomPageRequest.url);
+        Objects.equals(this.url, createCustomPageRequest.url) &&
+        Objects.equals(this.waFInstanceID, createCustomPageRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, advanced, body, clientIp, code, contentType, description, enable, host, name, pageMode, policy, prefixSwitch, projectName, redirectUrl, url);
+    return Objects.hash(accurate, advanced, body, clientIp, code, contentType, description, enable, host, name, pageMode, policy, prefixSwitch, projectName, redirectUrl, url, waFInstanceID);
   }
 
 
@@ -430,6 +452,7 @@ public class CreateCustomPageRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

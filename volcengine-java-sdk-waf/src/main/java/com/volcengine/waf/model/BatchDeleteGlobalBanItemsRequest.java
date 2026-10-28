@@ -38,6 +38,9 @@ public class BatchDeleteGlobalBanItemsRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public BatchDeleteGlobalBanItemsRequest ids(List<Integer> ids) {
     this.ids = ids;
     return this;
@@ -82,6 +85,24 @@ public class BatchDeleteGlobalBanItemsRequest {
     this.projectName = projectName;
   }
 
+  public BatchDeleteGlobalBanItemsRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -93,12 +114,13 @@ public class BatchDeleteGlobalBanItemsRequest {
     }
     BatchDeleteGlobalBanItemsRequest batchDeleteGlobalBanItemsRequest = (BatchDeleteGlobalBanItemsRequest) o;
     return Objects.equals(this.ids, batchDeleteGlobalBanItemsRequest.ids) &&
-        Objects.equals(this.projectName, batchDeleteGlobalBanItemsRequest.projectName);
+        Objects.equals(this.projectName, batchDeleteGlobalBanItemsRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, batchDeleteGlobalBanItemsRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, projectName);
+    return Objects.hash(ids, projectName, waFInstanceID);
   }
 
 
@@ -109,6 +131,7 @@ public class BatchDeleteGlobalBanItemsRequest {
     
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

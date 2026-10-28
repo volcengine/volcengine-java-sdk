@@ -57,6 +57,9 @@ public class ListHostGroupRequest {
   @SerializedName("TimeOrderBy")
   private String timeOrderBy = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListHostGroupRequest hostFix(String hostFix) {
     this.hostFix = hostFix;
     return this;
@@ -220,6 +223,24 @@ public class ListHostGroupRequest {
     this.timeOrderBy = timeOrderBy;
   }
 
+  public ListHostGroupRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -238,12 +259,13 @@ public class ListHostGroupRequest {
         Objects.equals(this.pageSize, listHostGroupRequest.pageSize) &&
         Objects.equals(this.projectName, listHostGroupRequest.projectName) &&
         Objects.equals(this.ruleTag, listHostGroupRequest.ruleTag) &&
-        Objects.equals(this.timeOrderBy, listHostGroupRequest.timeOrderBy);
+        Objects.equals(this.timeOrderBy, listHostGroupRequest.timeOrderBy) &&
+        Objects.equals(this.waFInstanceID, listHostGroupRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostFix, hostGroupID, listAll, nameFix, page, pageSize, projectName, ruleTag, timeOrderBy);
+    return Objects.hash(hostFix, hostGroupID, listAll, nameFix, page, pageSize, projectName, ruleTag, timeOrderBy, waFInstanceID);
   }
 
 
@@ -261,6 +283,7 @@ public class ListHostGroupRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    timeOrderBy: ").append(toIndentedString(timeOrderBy)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

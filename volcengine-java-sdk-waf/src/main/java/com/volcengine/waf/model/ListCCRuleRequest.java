@@ -102,6 +102,9 @@ public class ListCCRuleRequest {
   @SerializedName("Url")
   private String url = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListCCRuleRequest ccType(List<Integer> ccType) {
     this.ccType = ccType;
     return this;
@@ -273,6 +276,24 @@ public class ListCCRuleRequest {
     this.url = url;
   }
 
+  public ListCCRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -291,12 +312,13 @@ public class ListCCRuleRequest {
         Objects.equals(this.projectName, listCCRuleRequest.projectName) &&
         Objects.equals(this.ruleName, listCCRuleRequest.ruleName) &&
         Objects.equals(this.ruleTag, listCCRuleRequest.ruleTag) &&
-        Objects.equals(this.url, listCCRuleRequest.url);
+        Objects.equals(this.url, listCCRuleRequest.url) &&
+        Objects.equals(this.waFInstanceID, listCCRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ccType, host, page, pageSize, pathOrderBy, projectName, ruleName, ruleTag, url);
+    return Objects.hash(ccType, host, page, pageSize, pathOrderBy, projectName, ruleName, ruleTag, url, waFInstanceID);
   }
 
 
@@ -314,6 +336,7 @@ public class ListCCRuleRequest {
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

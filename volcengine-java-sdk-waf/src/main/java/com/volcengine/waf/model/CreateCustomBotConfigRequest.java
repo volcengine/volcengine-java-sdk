@@ -52,6 +52,12 @@ public class CreateCustomBotConfigRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("VerificationExemptionTime")
+  private Integer verificationExemptionTime = null;
+
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public CreateCustomBotConfigRequest accurate(AccurateForCreateCustomBotConfigInput accurate) {
     this.accurate = accurate;
     return this;
@@ -183,6 +189,42 @@ public class CreateCustomBotConfigRequest {
     this.projectName = projectName;
   }
 
+  public CreateCustomBotConfigRequest verificationExemptionTime(Integer verificationExemptionTime) {
+    this.verificationExemptionTime = verificationExemptionTime;
+    return this;
+  }
+
+   /**
+   * Get verificationExemptionTime
+   * @return verificationExemptionTime
+  **/
+  @Schema(description = "")
+  public Integer getVerificationExemptionTime() {
+    return verificationExemptionTime;
+  }
+
+  public void setVerificationExemptionTime(Integer verificationExemptionTime) {
+    this.verificationExemptionTime = verificationExemptionTime;
+  }
+
+  public CreateCustomBotConfigRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -199,12 +241,14 @@ public class CreateCustomBotConfigRequest {
         Objects.equals(this.description, createCustomBotConfigRequest.description) &&
         Objects.equals(this.enable, createCustomBotConfigRequest.enable) &&
         Objects.equals(this.host, createCustomBotConfigRequest.host) &&
-        Objects.equals(this.projectName, createCustomBotConfigRequest.projectName);
+        Objects.equals(this.projectName, createCustomBotConfigRequest.projectName) &&
+        Objects.equals(this.verificationExemptionTime, createCustomBotConfigRequest.verificationExemptionTime) &&
+        Objects.equals(this.waFInstanceID, createCustomBotConfigRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, action, botType, description, enable, host, projectName);
+    return Objects.hash(accurate, action, botType, description, enable, host, projectName, verificationExemptionTime, waFInstanceID);
   }
 
 
@@ -220,6 +264,8 @@ public class CreateCustomBotConfigRequest {
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    verificationExemptionTime: ").append(toIndentedString(verificationExemptionTime)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

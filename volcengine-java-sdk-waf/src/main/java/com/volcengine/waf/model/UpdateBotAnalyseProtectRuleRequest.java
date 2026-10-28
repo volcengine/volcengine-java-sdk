@@ -97,6 +97,9 @@ public class UpdateBotAnalyseProtectRuleRequest {
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UpdateBotAnalyseProtectRuleRequest accurateGroup(AccurateGroupForUpdateBotAnalyseProtectRuleInput accurateGroup) {
     this.accurateGroup = accurateGroup;
     return this;
@@ -495,6 +498,24 @@ public class UpdateBotAnalyseProtectRuleRequest {
     this.updateTime = updateTime;
   }
 
+  public UpdateBotAnalyseProtectRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -525,12 +546,13 @@ public class UpdateBotAnalyseProtectRuleRequest {
         Objects.equals(this.singleThreshold, updateBotAnalyseProtectRuleRequest.singleThreshold) &&
         Objects.equals(this.statisticalDuration, updateBotAnalyseProtectRuleRequest.statisticalDuration) &&
         Objects.equals(this.statisticalType, updateBotAnalyseProtectRuleRequest.statisticalType) &&
-        Objects.equals(this.updateTime, updateBotAnalyseProtectRuleRequest.updateTime);
+        Objects.equals(this.updateTime, updateBotAnalyseProtectRuleRequest.updateTime) &&
+        Objects.equals(this.waFInstanceID, updateBotAnalyseProtectRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, accurateGroupPriority, actionType, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, id, name, path, pathThreshold, projectName, rulePriority, singleProportion, singleThreshold, statisticalDuration, statisticalType, updateTime);
+    return Objects.hash(accurateGroup, accurateGroupPriority, actionType, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, id, name, path, pathThreshold, projectName, rulePriority, singleProportion, singleThreshold, statisticalDuration, statisticalType, updateTime, waFInstanceID);
   }
 
 
@@ -560,6 +582,7 @@ public class UpdateBotAnalyseProtectRuleRequest {
     sb.append("    statisticalDuration: ").append(toIndentedString(statisticalDuration)).append("\n");
     sb.append("    statisticalType: ").append(toIndentedString(statisticalType)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

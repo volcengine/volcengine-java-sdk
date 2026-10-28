@@ -54,6 +54,9 @@ public class UpdateTamperProofRequest {
   @SerializedName("Url")
   private String url = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UpdateTamperProofRequest clientIp(String clientIp) {
     this.clientIp = clientIp;
     return this;
@@ -202,6 +205,24 @@ public class UpdateTamperProofRequest {
     this.url = url;
   }
 
+  public UpdateTamperProofRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -219,12 +240,13 @@ public class UpdateTamperProofRequest {
         Objects.equals(this.id, updateTamperProofRequest.id) &&
         Objects.equals(this.name, updateTamperProofRequest.name) &&
         Objects.equals(this.projectName, updateTamperProofRequest.projectName) &&
-        Objects.equals(this.url, updateTamperProofRequest.url);
+        Objects.equals(this.url, updateTamperProofRequest.url) &&
+        Objects.equals(this.waFInstanceID, updateTamperProofRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientIp, description, enable, host, id, name, projectName, url);
+    return Objects.hash(clientIp, description, enable, host, id, name, projectName, url, waFInstanceID);
   }
 
 
@@ -241,6 +263,7 @@ public class UpdateTamperProofRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

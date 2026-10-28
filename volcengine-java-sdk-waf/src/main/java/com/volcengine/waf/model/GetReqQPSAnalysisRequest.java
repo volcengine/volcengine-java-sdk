@@ -39,6 +39,9 @@ public class GetReqQPSAnalysisRequest {
   @SerializedName("StartTime")
   private String startTime = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public GetReqQPSAnalysisRequest domain(String domain) {
     this.domain = domain;
     return this;
@@ -94,6 +97,24 @@ public class GetReqQPSAnalysisRequest {
     this.startTime = startTime;
   }
 
+  public GetReqQPSAnalysisRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +127,13 @@ public class GetReqQPSAnalysisRequest {
     GetReqQPSAnalysisRequest getReqQPSAnalysisRequest = (GetReqQPSAnalysisRequest) o;
     return Objects.equals(this.domain, getReqQPSAnalysisRequest.domain) &&
         Objects.equals(this.endTime, getReqQPSAnalysisRequest.endTime) &&
-        Objects.equals(this.startTime, getReqQPSAnalysisRequest.startTime);
+        Objects.equals(this.startTime, getReqQPSAnalysisRequest.startTime) &&
+        Objects.equals(this.waFInstanceID, getReqQPSAnalysisRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, endTime, startTime);
+    return Objects.hash(domain, endTime, startTime, waFInstanceID);
   }
 
 
@@ -123,6 +145,7 @@ public class GetReqQPSAnalysisRequest {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

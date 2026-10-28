@@ -48,6 +48,9 @@ public class UpdateCustomSystemVulRuleRequest {
   @SerializedName("SystemRuleSwitch")
   private List<SystemRuleSwitchForUpdateCustomSystemVulRuleInput> systemRuleSwitch = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UpdateCustomSystemVulRuleRequest host(String host) {
     this.host = host;
     return this;
@@ -155,6 +158,24 @@ public class UpdateCustomSystemVulRuleRequest {
     this.systemRuleSwitch = systemRuleSwitch;
   }
 
+  public UpdateCustomSystemVulRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -169,12 +190,13 @@ public class UpdateCustomSystemVulRuleRequest {
         Objects.equals(this.hostAddType, updateCustomSystemVulRuleRequest.hostAddType) &&
         Objects.equals(this.hostList, updateCustomSystemVulRuleRequest.hostList) &&
         Objects.equals(this.projectName, updateCustomSystemVulRuleRequest.projectName) &&
-        Objects.equals(this.systemRuleSwitch, updateCustomSystemVulRuleRequest.systemRuleSwitch);
+        Objects.equals(this.systemRuleSwitch, updateCustomSystemVulRuleRequest.systemRuleSwitch) &&
+        Objects.equals(this.waFInstanceID, updateCustomSystemVulRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, hostAddType, hostList, projectName, systemRuleSwitch);
+    return Objects.hash(host, hostAddType, hostList, projectName, systemRuleSwitch, waFInstanceID);
   }
 
 
@@ -188,6 +210,7 @@ public class UpdateCustomSystemVulRuleRequest {
     sb.append("    hostList: ").append(toIndentedString(hostList)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    systemRuleSwitch: ").append(toIndentedString(systemRuleSwitch)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

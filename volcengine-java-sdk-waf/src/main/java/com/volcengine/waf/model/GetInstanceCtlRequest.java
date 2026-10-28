@@ -36,6 +36,9 @@ public class GetInstanceCtlRequest {
   @SerializedName("Region")
   private String region = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public GetInstanceCtlRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -72,6 +75,24 @@ public class GetInstanceCtlRequest {
     this.region = region;
   }
 
+  public GetInstanceCtlRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class GetInstanceCtlRequest {
     }
     GetInstanceCtlRequest getInstanceCtlRequest = (GetInstanceCtlRequest) o;
     return Objects.equals(this.projectName, getInstanceCtlRequest.projectName) &&
-        Objects.equals(this.region, getInstanceCtlRequest.region);
+        Objects.equals(this.region, getInstanceCtlRequest.region) &&
+        Objects.equals(this.waFInstanceID, getInstanceCtlRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName, region);
+    return Objects.hash(projectName, region, waFInstanceID);
   }
 
 
@@ -99,6 +121,7 @@ public class GetInstanceCtlRequest {
     
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

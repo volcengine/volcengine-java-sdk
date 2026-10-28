@@ -42,6 +42,9 @@ public class UpdateInstanceCtlRequest {
   @SerializedName("Region")
   private String region = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UpdateInstanceCtlRequest allowEnable(Integer allowEnable) {
     this.allowEnable = allowEnable;
     return this;
@@ -115,6 +118,24 @@ public class UpdateInstanceCtlRequest {
     this.region = region;
   }
 
+  public UpdateInstanceCtlRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,12 +149,13 @@ public class UpdateInstanceCtlRequest {
     return Objects.equals(this.allowEnable, updateInstanceCtlRequest.allowEnable) &&
         Objects.equals(this.blockEnable, updateInstanceCtlRequest.blockEnable) &&
         Objects.equals(this.projectName, updateInstanceCtlRequest.projectName) &&
-        Objects.equals(this.region, updateInstanceCtlRequest.region);
+        Objects.equals(this.region, updateInstanceCtlRequest.region) &&
+        Objects.equals(this.waFInstanceID, updateInstanceCtlRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowEnable, blockEnable, projectName, region);
+    return Objects.hash(allowEnable, blockEnable, projectName, region, waFInstanceID);
   }
 
 
@@ -146,6 +168,7 @@ public class UpdateInstanceCtlRequest {
     sb.append("    blockEnable: ").append(toIndentedString(blockEnable)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

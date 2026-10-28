@@ -74,6 +74,9 @@ public class QueryAttackSecurityEventRequest {
   @SerializedName("StartTime")
   private Integer startTime = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public QueryAttackSecurityEventRequest allHost(Boolean allHost) {
     this.allHost = allHost;
     return this;
@@ -338,6 +341,24 @@ public class QueryAttackSecurityEventRequest {
     this.startTime = startTime;
   }
 
+  public QueryAttackSecurityEventRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -361,12 +382,13 @@ public class QueryAttackSecurityEventRequest {
         Objects.equals(this.projectName, queryAttackSecurityEventRequest.projectName) &&
         Objects.equals(this.securityLevel, queryAttackSecurityEventRequest.securityLevel) &&
         Objects.equals(this.sortFlag, queryAttackSecurityEventRequest.sortFlag) &&
-        Objects.equals(this.startTime, queryAttackSecurityEventRequest.startTime);
+        Objects.equals(this.startTime, queryAttackSecurityEventRequest.startTime) &&
+        Objects.equals(this.waFInstanceID, queryAttackSecurityEventRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allHost, allHostDetails, endTime, eventType, filterAll, host, ip, page, pageSize, path, projectName, securityLevel, sortFlag, startTime);
+    return Objects.hash(allHost, allHostDetails, endTime, eventType, filterAll, host, ip, page, pageSize, path, projectName, securityLevel, sortFlag, startTime, waFInstanceID);
   }
 
 
@@ -389,6 +411,7 @@ public class QueryAttackSecurityEventRequest {
     sb.append("    securityLevel: ").append(toIndentedString(securityLevel)).append("\n");
     sb.append("    sortFlag: ").append(toIndentedString(sortFlag)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

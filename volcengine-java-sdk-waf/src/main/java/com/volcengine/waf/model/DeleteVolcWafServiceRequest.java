@@ -39,6 +39,9 @@ public class DeleteVolcWafServiceRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public DeleteVolcWafServiceRequest accessMode(Integer accessMode) {
     this.accessMode = accessMode;
     return this;
@@ -94,6 +97,24 @@ public class DeleteVolcWafServiceRequest {
     this.projectName = projectName;
   }
 
+  public DeleteVolcWafServiceRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +127,13 @@ public class DeleteVolcWafServiceRequest {
     DeleteVolcWafServiceRequest deleteVolcWafServiceRequest = (DeleteVolcWafServiceRequest) o;
     return Objects.equals(this.accessMode, deleteVolcWafServiceRequest.accessMode) &&
         Objects.equals(this.host, deleteVolcWafServiceRequest.host) &&
-        Objects.equals(this.projectName, deleteVolcWafServiceRequest.projectName);
+        Objects.equals(this.projectName, deleteVolcWafServiceRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, deleteVolcWafServiceRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, host, projectName);
+    return Objects.hash(accessMode, host, projectName, waFInstanceID);
   }
 
 
@@ -123,6 +145,7 @@ public class DeleteVolcWafServiceRequest {
     sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -84,6 +84,9 @@ public class UpdateWafServiceControlRequest {
   @SerializedName("TamperProofEnable")
   private Integer tamperProofEnable = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   @SerializedName("WafEnable")
   private Integer wafEnable = null;
 
@@ -421,6 +424,24 @@ public class UpdateWafServiceControlRequest {
     this.tamperProofEnable = tamperProofEnable;
   }
 
+  public UpdateWafServiceControlRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
   public UpdateWafServiceControlRequest wafEnable(Integer wafEnable) {
     this.wafEnable = wafEnable;
     return this;
@@ -521,6 +542,7 @@ public class UpdateWafServiceControlRequest {
         Objects.equals(this.systemBotEnable, updateWafServiceControlRequest.systemBotEnable) &&
         Objects.equals(this.tlSEnable, updateWafServiceControlRequest.tlSEnable) &&
         Objects.equals(this.tamperProofEnable, updateWafServiceControlRequest.tamperProofEnable) &&
+        Objects.equals(this.waFInstanceID, updateWafServiceControlRequest.waFInstanceID) &&
         Objects.equals(this.wafEnable, updateWafServiceControlRequest.wafEnable) &&
         Objects.equals(this.wafWhiteReqEnable, updateWafServiceControlRequest.wafWhiteReqEnable) &&
         Objects.equals(this.whiteEnable, updateWafServiceControlRequest.whiteEnable) &&
@@ -529,7 +551,7 @@ public class UpdateWafServiceControlRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiEnable, autoCCEnable, blackIpEnable, blackLctEnable, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, ccEnable, customBotEnable, customRspEnable, dlpEnable, host, projectName, systemBotEnable, tlSEnable, tamperProofEnable, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
+    return Objects.hash(apiEnable, autoCCEnable, blackIpEnable, blackLctEnable, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, ccEnable, customBotEnable, customRspEnable, dlpEnable, host, projectName, systemBotEnable, tlSEnable, tamperProofEnable, waFInstanceID, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
   }
 
 
@@ -556,6 +578,7 @@ public class UpdateWafServiceControlRequest {
     sb.append("    systemBotEnable: ").append(toIndentedString(systemBotEnable)).append("\n");
     sb.append("    tlSEnable: ").append(toIndentedString(tlSEnable)).append("\n");
     sb.append("    tamperProofEnable: ").append(toIndentedString(tamperProofEnable)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("    wafEnable: ").append(toIndentedString(wafEnable)).append("\n");
     sb.append("    wafWhiteReqEnable: ").append(toIndentedString(wafWhiteReqEnable)).append("\n");
     sb.append("    whiteEnable: ").append(toIndentedString(whiteEnable)).append("\n");

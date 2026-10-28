@@ -58,6 +58,9 @@ public class ModifyTLSConfigRequest {
   @SerializedName("TLSStorageTime")
   private Integer tlSStorageTime = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   @SerializedName("WafActionList")
   private WafActionListForModifyTLSConfigInput wafActionList = null;
 
@@ -217,6 +220,24 @@ public class ModifyTLSConfigRequest {
     this.tlSStorageTime = tlSStorageTime;
   }
 
+  public ModifyTLSConfigRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
   public ModifyTLSConfigRequest wafActionList(WafActionListForModifyTLSConfigInput wafActionList) {
     this.wafActionList = wafActionList;
     return this;
@@ -272,13 +293,14 @@ public class ModifyTLSConfigRequest {
         Objects.equals(this.fieldSelectAll, modifyTLSConfigRequest.fieldSelectAll) &&
         Objects.equals(this.projectName, modifyTLSConfigRequest.projectName) &&
         Objects.equals(this.tlSStorageTime, modifyTLSConfigRequest.tlSStorageTime) &&
+        Objects.equals(this.waFInstanceID, modifyTLSConfigRequest.waFInstanceID) &&
         Objects.equals(this.wafActionList, modifyTLSConfigRequest.wafActionList) &&
         Objects.equals(this.wafActionSelectAll, modifyTLSConfigRequest.wafActionSelectAll);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmThreshold, capacityAlert, capacityAlertInterval, domainList, fieldList, fieldSelectAll, projectName, tlSStorageTime, wafActionList, wafActionSelectAll);
+    return Objects.hash(alarmThreshold, capacityAlert, capacityAlertInterval, domainList, fieldList, fieldSelectAll, projectName, tlSStorageTime, waFInstanceID, wafActionList, wafActionSelectAll);
   }
 
 
@@ -295,6 +317,7 @@ public class ModifyTLSConfigRequest {
     sb.append("    fieldSelectAll: ").append(toIndentedString(fieldSelectAll)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tlSStorageTime: ").append(toIndentedString(tlSStorageTime)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("    wafActionList: ").append(toIndentedString(wafActionList)).append("\n");
     sb.append("    wafActionSelectAll: ").append(toIndentedString(wafActionSelectAll)).append("\n");
     sb.append("}");

@@ -45,6 +45,9 @@ public class BatchCopySystemBotConfigRequest {
   @SerializedName("SrcHost")
   private String srcHost = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public BatchCopySystemBotConfigRequest dstHost(DstHostForBatchCopySystemBotConfigInput dstHost) {
     this.dstHost = dstHost;
     return this;
@@ -127,6 +130,24 @@ public class BatchCopySystemBotConfigRequest {
     this.srcHost = srcHost;
   }
 
+  public BatchCopySystemBotConfigRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -140,12 +161,13 @@ public class BatchCopySystemBotConfigRequest {
     return Objects.equals(this.dstHost, batchCopySystemBotConfigRequest.dstHost) &&
         Objects.equals(this.projectName, batchCopySystemBotConfigRequest.projectName) &&
         Objects.equals(this.ruleTagList, batchCopySystemBotConfigRequest.ruleTagList) &&
-        Objects.equals(this.srcHost, batchCopySystemBotConfigRequest.srcHost);
+        Objects.equals(this.srcHost, batchCopySystemBotConfigRequest.srcHost) &&
+        Objects.equals(this.waFInstanceID, batchCopySystemBotConfigRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dstHost, projectName, ruleTagList, srcHost);
+    return Objects.hash(dstHost, projectName, ruleTagList, srcHost, waFInstanceID);
   }
 
 
@@ -158,6 +180,7 @@ public class BatchCopySystemBotConfigRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    ruleTagList: ").append(toIndentedString(ruleTagList)).append("\n");
     sb.append("    srcHost: ").append(toIndentedString(srcHost)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

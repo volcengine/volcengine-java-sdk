@@ -45,6 +45,9 @@ public class ListCustomBotConfigRequest {
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListCustomBotConfigRequest host(String host) {
     this.host = host;
     return this;
@@ -136,6 +139,24 @@ public class ListCustomBotConfigRequest {
     this.ruleTag = ruleTag;
   }
 
+  public ListCustomBotConfigRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +171,13 @@ public class ListCustomBotConfigRequest {
         Objects.equals(this.page, listCustomBotConfigRequest.page) &&
         Objects.equals(this.pageSize, listCustomBotConfigRequest.pageSize) &&
         Objects.equals(this.projectName, listCustomBotConfigRequest.projectName) &&
-        Objects.equals(this.ruleTag, listCustomBotConfigRequest.ruleTag);
+        Objects.equals(this.ruleTag, listCustomBotConfigRequest.ruleTag) &&
+        Objects.equals(this.waFInstanceID, listCustomBotConfigRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, page, pageSize, projectName, ruleTag);
+    return Objects.hash(host, page, pageSize, projectName, ruleTag, waFInstanceID);
   }
 
 
@@ -169,6 +191,7 @@ public class ListCustomBotConfigRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

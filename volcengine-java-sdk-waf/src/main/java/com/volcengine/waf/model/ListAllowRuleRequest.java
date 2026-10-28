@@ -45,6 +45,9 @@ public class ListAllowRuleRequest {
   @SerializedName("Url")
   private String url = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListAllowRuleRequest clientIP(String clientIP) {
     this.clientIP = clientIP;
     return this;
@@ -136,6 +139,24 @@ public class ListAllowRuleRequest {
     this.url = url;
   }
 
+  public ListAllowRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +171,13 @@ public class ListAllowRuleRequest {
         Objects.equals(this.groupID, listAllowRuleRequest.groupID) &&
         Objects.equals(this.host, listAllowRuleRequest.host) &&
         Objects.equals(this.projectName, listAllowRuleRequest.projectName) &&
-        Objects.equals(this.url, listAllowRuleRequest.url);
+        Objects.equals(this.url, listAllowRuleRequest.url) &&
+        Objects.equals(this.waFInstanceID, listAllowRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientIP, groupID, host, projectName, url);
+    return Objects.hash(clientIP, groupID, host, projectName, url, waFInstanceID);
   }
 
 
@@ -169,6 +191,7 @@ public class ListAllowRuleRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

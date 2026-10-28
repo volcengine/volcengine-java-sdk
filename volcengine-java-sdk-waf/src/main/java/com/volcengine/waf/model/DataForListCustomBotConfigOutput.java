@@ -22,8 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.waf.model.AccurateForListCustomBotConfigOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,7 +32,7 @@ import javax.validation.Valid;
 
 public class DataForListCustomBotConfigOutput {
   @SerializedName("Accurate")
-  private List<AccurateForListCustomBotConfigOutput> accurate = null;
+  private AccurateForListCustomBotConfigOutput accurate = null;
 
   @SerializedName("Action")
   private String action = null;
@@ -60,16 +58,11 @@ public class DataForListCustomBotConfigOutput {
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
-  public DataForListCustomBotConfigOutput accurate(List<AccurateForListCustomBotConfigOutput> accurate) {
-    this.accurate = accurate;
-    return this;
-  }
+  @SerializedName("VerificationExemptionTime")
+  private Integer verificationExemptionTime = null;
 
-  public DataForListCustomBotConfigOutput addAccurateItem(AccurateForListCustomBotConfigOutput accurateItem) {
-    if (this.accurate == null) {
-      this.accurate = new ArrayList<AccurateForListCustomBotConfigOutput>();
-    }
-    this.accurate.add(accurateItem);
+  public DataForListCustomBotConfigOutput accurate(AccurateForListCustomBotConfigOutput accurate) {
+    this.accurate = accurate;
     return this;
   }
 
@@ -79,11 +72,11 @@ public class DataForListCustomBotConfigOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<AccurateForListCustomBotConfigOutput> getAccurate() {
+  public AccurateForListCustomBotConfigOutput getAccurate() {
     return accurate;
   }
 
-  public void setAccurate(List<AccurateForListCustomBotConfigOutput> accurate) {
+  public void setAccurate(AccurateForListCustomBotConfigOutput accurate) {
     this.accurate = accurate;
   }
 
@@ -231,6 +224,24 @@ public class DataForListCustomBotConfigOutput {
     this.updateTime = updateTime;
   }
 
+  public DataForListCustomBotConfigOutput verificationExemptionTime(Integer verificationExemptionTime) {
+    this.verificationExemptionTime = verificationExemptionTime;
+    return this;
+  }
+
+   /**
+   * Get verificationExemptionTime
+   * @return verificationExemptionTime
+  **/
+  @Schema(description = "")
+  public Integer getVerificationExemptionTime() {
+    return verificationExemptionTime;
+  }
+
+  public void setVerificationExemptionTime(Integer verificationExemptionTime) {
+    this.verificationExemptionTime = verificationExemptionTime;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -249,12 +260,13 @@ public class DataForListCustomBotConfigOutput {
         Objects.equals(this.enable, dataForListCustomBotConfigOutput.enable) &&
         Objects.equals(this.id, dataForListCustomBotConfigOutput.id) &&
         Objects.equals(this.ruleTag, dataForListCustomBotConfigOutput.ruleTag) &&
-        Objects.equals(this.updateTime, dataForListCustomBotConfigOutput.updateTime);
+        Objects.equals(this.updateTime, dataForListCustomBotConfigOutput.updateTime) &&
+        Objects.equals(this.verificationExemptionTime, dataForListCustomBotConfigOutput.verificationExemptionTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, action, advanced, botType, description, enable, id, ruleTag, updateTime);
+    return Objects.hash(accurate, action, advanced, botType, description, enable, id, ruleTag, updateTime, verificationExemptionTime);
   }
 
 
@@ -272,6 +284,7 @@ public class DataForListCustomBotConfigOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    verificationExemptionTime: ").append(toIndentedString(verificationExemptionTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

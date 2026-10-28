@@ -59,6 +59,9 @@ public class UpdateVulWhiteFieldRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UpdateVulWhiteFieldRequest enable(Integer enable) {
     this.enable = enable;
     return this;
@@ -233,6 +236,24 @@ public class UpdateVulWhiteFieldRequest {
     this.projectName = projectName;
   }
 
+  public UpdateVulWhiteFieldRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -251,12 +272,13 @@ public class UpdateVulWhiteFieldRequest {
         Objects.equals(this.hostList, updateVulWhiteFieldRequest.hostList) &&
         Objects.equals(this.ID, updateVulWhiteFieldRequest.ID) &&
         Objects.equals(this.name, updateVulWhiteFieldRequest.name) &&
-        Objects.equals(this.projectName, updateVulWhiteFieldRequest.projectName);
+        Objects.equals(this.projectName, updateVulWhiteFieldRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, updateVulWhiteFieldRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, fieldArea, fieldList, host, hostAddType, hostList, ID, name, projectName);
+    return Objects.hash(enable, fieldArea, fieldList, host, hostAddType, hostList, ID, name, projectName, waFInstanceID);
   }
 
 
@@ -274,6 +296,7 @@ public class UpdateVulWhiteFieldRequest {
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -45,6 +45,9 @@ public class UploadWafServiceCertificateRequest {
   @SerializedName("PublicKey")
   private String publicKey = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UploadWafServiceCertificateRequest description(String description) {
     this.description = description;
     return this;
@@ -139,6 +142,24 @@ public class UploadWafServiceCertificateRequest {
     this.publicKey = publicKey;
   }
 
+  public UploadWafServiceCertificateRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -153,12 +174,13 @@ public class UploadWafServiceCertificateRequest {
         Objects.equals(this.name, uploadWafServiceCertificateRequest.name) &&
         Objects.equals(this.privateKey, uploadWafServiceCertificateRequest.privateKey) &&
         Objects.equals(this.projectName, uploadWafServiceCertificateRequest.projectName) &&
-        Objects.equals(this.publicKey, uploadWafServiceCertificateRequest.publicKey);
+        Objects.equals(this.publicKey, uploadWafServiceCertificateRequest.publicKey) &&
+        Objects.equals(this.waFInstanceID, uploadWafServiceCertificateRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, privateKey, projectName, publicKey);
+    return Objects.hash(description, name, privateKey, projectName, publicKey, waFInstanceID);
   }
 
 
@@ -172,6 +194,7 @@ public class UploadWafServiceCertificateRequest {
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

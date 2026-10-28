@@ -39,6 +39,9 @@ public class ListLoadBalancerRequest {
   @SerializedName("Type")
   private String type = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListLoadBalancerRequest host(String host) {
     this.host = host;
     return this;
@@ -93,6 +96,24 @@ public class ListLoadBalancerRequest {
     this.type = type;
   }
 
+  public ListLoadBalancerRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +126,13 @@ public class ListLoadBalancerRequest {
     ListLoadBalancerRequest listLoadBalancerRequest = (ListLoadBalancerRequest) o;
     return Objects.equals(this.host, listLoadBalancerRequest.host) &&
         Objects.equals(this.projectName, listLoadBalancerRequest.projectName) &&
-        Objects.equals(this.type, listLoadBalancerRequest.type);
+        Objects.equals(this.type, listLoadBalancerRequest.type) &&
+        Objects.equals(this.waFInstanceID, listLoadBalancerRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, projectName, type);
+    return Objects.hash(host, projectName, type, waFInstanceID);
   }
 
 
@@ -122,6 +144,7 @@ public class ListLoadBalancerRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

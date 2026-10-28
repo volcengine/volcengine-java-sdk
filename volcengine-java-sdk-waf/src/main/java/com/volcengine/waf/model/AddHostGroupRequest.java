@@ -44,6 +44,9 @@ public class AddHostGroupRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public AddHostGroupRequest description(String description) {
     this.description = description;
     return this;
@@ -125,6 +128,24 @@ public class AddHostGroupRequest {
     this.projectName = projectName;
   }
 
+  public AddHostGroupRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -138,12 +159,13 @@ public class AddHostGroupRequest {
     return Objects.equals(this.description, addHostGroupRequest.description) &&
         Objects.equals(this.hostList, addHostGroupRequest.hostList) &&
         Objects.equals(this.name, addHostGroupRequest.name) &&
-        Objects.equals(this.projectName, addHostGroupRequest.projectName);
+        Objects.equals(this.projectName, addHostGroupRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, addHostGroupRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, hostList, name, projectName);
+    return Objects.hash(description, hostList, name, projectName, waFInstanceID);
   }
 
 
@@ -156,6 +178,7 @@ public class AddHostGroupRequest {
     sb.append("    hostList: ").append(toIndentedString(hostList)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

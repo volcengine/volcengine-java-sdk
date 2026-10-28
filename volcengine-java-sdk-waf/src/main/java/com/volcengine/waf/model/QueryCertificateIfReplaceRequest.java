@@ -42,6 +42,9 @@ public class QueryCertificateIfReplaceRequest {
   @SerializedName("PublicRealServer")
   private Integer publicRealServer = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public QueryCertificateIfReplaceRequest certificateID(Integer certificateID) {
     this.certificateID = certificateID;
     return this;
@@ -116,6 +119,24 @@ public class QueryCertificateIfReplaceRequest {
     this.publicRealServer = publicRealServer;
   }
 
+  public QueryCertificateIfReplaceRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,12 +150,13 @@ public class QueryCertificateIfReplaceRequest {
     return Objects.equals(this.certificateID, queryCertificateIfReplaceRequest.certificateID) &&
         Objects.equals(this.domain, queryCertificateIfReplaceRequest.domain) &&
         Objects.equals(this.projectName, queryCertificateIfReplaceRequest.projectName) &&
-        Objects.equals(this.publicRealServer, queryCertificateIfReplaceRequest.publicRealServer);
+        Objects.equals(this.publicRealServer, queryCertificateIfReplaceRequest.publicRealServer) &&
+        Objects.equals(this.waFInstanceID, queryCertificateIfReplaceRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateID, domain, projectName, publicRealServer);
+    return Objects.hash(certificateID, domain, projectName, publicRealServer, waFInstanceID);
   }
 
 
@@ -147,6 +169,7 @@ public class QueryCertificateIfReplaceRequest {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicRealServer: ").append(toIndentedString(publicRealServer)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

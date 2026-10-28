@@ -93,6 +93,9 @@ public class UpdateAreaBlockRuleRequest {
   @SerializedName("SubRegion")
   private List<String> subRegion = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UpdateAreaBlockRuleRequest action(ActionEnum action) {
     this.action = action;
     return this;
@@ -227,6 +230,24 @@ public class UpdateAreaBlockRuleRequest {
     this.subRegion = subRegion;
   }
 
+  public UpdateAreaBlockRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -242,12 +263,13 @@ public class UpdateAreaBlockRuleRequest {
         Objects.equals(this.host, updateAreaBlockRuleRequest.host) &&
         Objects.equals(this.location, updateAreaBlockRuleRequest.location) &&
         Objects.equals(this.projectName, updateAreaBlockRuleRequest.projectName) &&
-        Objects.equals(this.subRegion, updateAreaBlockRuleRequest.subRegion);
+        Objects.equals(this.subRegion, updateAreaBlockRuleRequest.subRegion) &&
+        Objects.equals(this.waFInstanceID, updateAreaBlockRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, country, host, location, projectName, subRegion);
+    return Objects.hash(action, country, host, location, projectName, subRegion, waFInstanceID);
   }
 
 
@@ -262,6 +284,7 @@ public class UpdateAreaBlockRuleRequest {
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    subRegion: ").append(toIndentedString(subRegion)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

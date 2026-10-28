@@ -82,6 +82,9 @@ public class DeleteAclRuleRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public DeleteAclRuleRequest aclType(AclTypeEnum aclType) {
     this.aclType = aclType;
     return this;
@@ -138,6 +141,24 @@ public class DeleteAclRuleRequest {
     this.projectName = projectName;
   }
 
+  public DeleteAclRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +171,13 @@ public class DeleteAclRuleRequest {
     DeleteAclRuleRequest deleteAclRuleRequest = (DeleteAclRuleRequest) o;
     return Objects.equals(this.aclType, deleteAclRuleRequest.aclType) &&
         Objects.equals(this.ID, deleteAclRuleRequest.ID) &&
-        Objects.equals(this.projectName, deleteAclRuleRequest.projectName);
+        Objects.equals(this.projectName, deleteAclRuleRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, deleteAclRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclType, ID, projectName);
+    return Objects.hash(aclType, ID, projectName, waFInstanceID);
   }
 
 
@@ -167,6 +189,7 @@ public class DeleteAclRuleRequest {
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

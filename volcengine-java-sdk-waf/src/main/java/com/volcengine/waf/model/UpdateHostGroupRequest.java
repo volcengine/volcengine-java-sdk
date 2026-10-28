@@ -50,6 +50,9 @@ public class UpdateHostGroupRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UpdateHostGroupRequest action(String action) {
     this.action = action;
     return this;
@@ -167,6 +170,24 @@ public class UpdateHostGroupRequest {
     this.projectName = projectName;
   }
 
+  public UpdateHostGroupRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -182,12 +203,13 @@ public class UpdateHostGroupRequest {
         Objects.equals(this.hostGroupID, updateHostGroupRequest.hostGroupID) &&
         Objects.equals(this.hostList, updateHostGroupRequest.hostList) &&
         Objects.equals(this.name, updateHostGroupRequest.name) &&
-        Objects.equals(this.projectName, updateHostGroupRequest.projectName);
+        Objects.equals(this.projectName, updateHostGroupRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, updateHostGroupRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, description, hostGroupID, hostList, name, projectName);
+    return Objects.hash(action, description, hostGroupID, hostList, name, projectName, waFInstanceID);
   }
 
 
@@ -202,6 +224,7 @@ public class UpdateHostGroupRequest {
     sb.append("    hostList: ").append(toIndentedString(hostList)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
