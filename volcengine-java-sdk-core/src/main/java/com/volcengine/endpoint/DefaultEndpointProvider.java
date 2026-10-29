@@ -940,6 +940,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- aidap ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("aidap", new ServiceEndpointInfo(
+                "aidap",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法
