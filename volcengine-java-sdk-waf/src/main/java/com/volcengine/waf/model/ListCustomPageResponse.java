@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.waf.model.DataForListCustomPageOutput;
 import com.volcengine.waf.model.PageInfoForListCustomPageOutput;
-import com.volcengine.waf.model.ResponseMetadataForListCustomPageOutput;
 import com.volcengine.waf.model.ResultForListCustomPageOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -50,9 +49,6 @@ public class ListCustomPageResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  @SerializedName("ResponseMetadata")
-  private ResponseMetadataForListCustomPageOutput responseMetadata = null;
 
   @SerializedName("Result")
   private List<ResultForListCustomPageOutput> result = null;
@@ -157,25 +153,6 @@ public class ListCustomPageResponse extends com.volcengine.model.AbstractRespons
     this.pageSize = pageSize;
   }
 
-  public ListCustomPageResponse responseMetadata(ResponseMetadataForListCustomPageOutput responseMetadata) {
-    this.responseMetadata = responseMetadata;
-    return this;
-  }
-
-   /**
-   * Get responseMetadata
-   * @return responseMetadata
-  **/
-  @Valid
-  @Schema(description = "")
-  public ResponseMetadataForListCustomPageOutput getResponseMetadata() {
-    return responseMetadata;
-  }
-
-  public void setResponseMetadata(ResponseMetadataForListCustomPageOutput responseMetadata) {
-    this.responseMetadata = responseMetadata;
-  }
-
   public ListCustomPageResponse result(List<ResultForListCustomPageOutput> result) {
     this.result = result;
     return this;
@@ -218,13 +195,12 @@ public class ListCustomPageResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.pageInfo, listCustomPageResponse.pageInfo) &&
         Objects.equals(this.pageNumber, listCustomPageResponse.pageNumber) &&
         Objects.equals(this.pageSize, listCustomPageResponse.pageSize) &&
-        Objects.equals(this.responseMetadata, listCustomPageResponse.responseMetadata) &&
         Objects.equals(this.result, listCustomPageResponse.result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentPage, data, pageInfo, pageNumber, pageSize, responseMetadata, result);
+    return Objects.hash(currentPage, data, pageInfo, pageNumber, pageSize, result);
   }
 
 
@@ -238,7 +214,6 @@ public class ListCustomPageResponse extends com.volcengine.model.AbstractRespons
     sb.append("    pageInfo: ").append(toIndentedString(pageInfo)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    responseMetadata: ").append(toIndentedString(responseMetadata)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();

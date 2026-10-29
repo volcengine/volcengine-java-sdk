@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.waf.model.ConvertRuleForListAclRuleOutput;
 import com.volcengine.waf.model.PageInfoForListAclRuleOutput;
-import com.volcengine.waf.model.ResponseMetadataForListAclRuleOutput;
 import com.volcengine.waf.model.ResultForListAclRuleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -47,9 +46,6 @@ public class ListAclRuleResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  @SerializedName("ResponseMetadata")
-  private ResponseMetadataForListAclRuleOutput responseMetadata = null;
 
   @SerializedName("Result")
   private ResultForListAclRuleOutput result = null;
@@ -133,25 +129,6 @@ public class ListAclRuleResponse extends com.volcengine.model.AbstractResponse {
     this.pageSize = pageSize;
   }
 
-  public ListAclRuleResponse responseMetadata(ResponseMetadataForListAclRuleOutput responseMetadata) {
-    this.responseMetadata = responseMetadata;
-    return this;
-  }
-
-   /**
-   * Get responseMetadata
-   * @return responseMetadata
-  **/
-  @Valid
-  @Schema(description = "")
-  public ResponseMetadataForListAclRuleOutput getResponseMetadata() {
-    return responseMetadata;
-  }
-
-  public void setResponseMetadata(ResponseMetadataForListAclRuleOutput responseMetadata) {
-    this.responseMetadata = responseMetadata;
-  }
-
   public ListAclRuleResponse result(ResultForListAclRuleOutput result) {
     this.result = result;
     return this;
@@ -230,7 +207,6 @@ public class ListAclRuleResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.currentPage, listAclRuleResponse.currentPage) &&
         Objects.equals(this.pageInfo, listAclRuleResponse.pageInfo) &&
         Objects.equals(this.pageSize, listAclRuleResponse.pageSize) &&
-        Objects.equals(this.responseMetadata, listAclRuleResponse.responseMetadata) &&
         Objects.equals(this.result, listAclRuleResponse.result) &&
         Objects.equals(this.rules, listAclRuleResponse.rules) &&
         Objects.equals(this.totalCount, listAclRuleResponse.totalCount);
@@ -238,7 +214,7 @@ public class ListAclRuleResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, currentPage, pageInfo, pageSize, responseMetadata, result, rules, totalCount);
+    return Objects.hash(count, currentPage, pageInfo, pageSize, result, rules, totalCount);
   }
 
 
@@ -251,7 +227,6 @@ public class ListAclRuleResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    pageInfo: ").append(toIndentedString(pageInfo)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    responseMetadata: ").append(toIndentedString(responseMetadata)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");

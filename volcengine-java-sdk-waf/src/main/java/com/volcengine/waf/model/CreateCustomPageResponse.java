@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.waf.model.ResponseMetadataForCreateCustomPageOutput;
 import com.volcengine.waf.model.ResultForCreateCustomPageOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -34,9 +33,6 @@ import javax.validation.Valid;
 public class CreateCustomPageResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Id")
   private Integer id = null;
-
-  @SerializedName("ResponseMetadata")
-  private ResponseMetadataForCreateCustomPageOutput responseMetadata = null;
 
   @SerializedName("Result")
   private ResultForCreateCustomPageOutput result = null;
@@ -57,25 +53,6 @@ public class CreateCustomPageResponse extends com.volcengine.model.AbstractRespo
 
   public void setId(Integer id) {
     this.id = id;
-  }
-
-  public CreateCustomPageResponse responseMetadata(ResponseMetadataForCreateCustomPageOutput responseMetadata) {
-    this.responseMetadata = responseMetadata;
-    return this;
-  }
-
-   /**
-   * Get responseMetadata
-   * @return responseMetadata
-  **/
-  @Valid
-  @Schema(description = "")
-  public ResponseMetadataForCreateCustomPageOutput getResponseMetadata() {
-    return responseMetadata;
-  }
-
-  public void setResponseMetadata(ResponseMetadataForCreateCustomPageOutput responseMetadata) {
-    this.responseMetadata = responseMetadata;
   }
 
   public CreateCustomPageResponse result(ResultForCreateCustomPageOutput result) {
@@ -108,13 +85,12 @@ public class CreateCustomPageResponse extends com.volcengine.model.AbstractRespo
     }
     CreateCustomPageResponse createCustomPageResponse = (CreateCustomPageResponse) o;
     return Objects.equals(this.id, createCustomPageResponse.id) &&
-        Objects.equals(this.responseMetadata, createCustomPageResponse.responseMetadata) &&
         Objects.equals(this.result, createCustomPageResponse.result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, responseMetadata, result);
+    return Objects.hash(id, result);
   }
 
 
@@ -124,7 +100,6 @@ public class CreateCustomPageResponse extends com.volcengine.model.AbstractRespo
     sb.append("class CreateCustomPageResponse {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    responseMetadata: ").append(toIndentedString(responseMetadata)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();
