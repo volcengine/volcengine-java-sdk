@@ -25,11 +25,13 @@ import com.volcengine.cdn.model.BrowserCacheForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.CacheForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.CacheHostForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.CacheKeyForBatchUpdateCdnConfigInput;
+import com.volcengine.cdn.model.CdnImageStudioForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.CompressionForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.ConditionalOriginForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.CustomErrorPageForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.CustomizeAccessRuleForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.DownloadSpeedLimitForBatchUpdateCdnConfigInput;
+import com.volcengine.cdn.model.HTMLToMarkdownForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.HTTPSForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.HttpForcedRedirectForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.IPv6ForBatchUpdateCdnConfigInput;
@@ -43,11 +45,13 @@ import com.volcengine.cdn.model.OriginAccessRuleForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.OriginArgForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.OriginCertCheckForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.OriginForBatchUpdateCdnConfigInput;
+import com.volcengine.cdn.model.OriginResponseHeaderForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.OriginRetryForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.OriginRewriteForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.OriginSniForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.PageOptimizationForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.QuicForBatchUpdateCdnConfigInput;
+import com.volcengine.cdn.model.RangeForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.RedirectionRewriteForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.RefererAccessRuleForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.RemoteAuthForBatchUpdateCdnConfigInput;
@@ -95,6 +99,9 @@ public class BatchUpdateCdnConfigRequest {
   @SerializedName("CacheKey")
   private List<CacheKeyForBatchUpdateCdnConfigInput> cacheKey = null;
 
+  @SerializedName("CdnImageStudio")
+  private CdnImageStudioForBatchUpdateCdnConfigInput cdnImageStudio = null;
+
   @SerializedName("Compression")
   private CompressionForBatchUpdateCdnConfigInput compression = null;
 
@@ -115,6 +122,9 @@ public class BatchUpdateCdnConfigRequest {
 
   @SerializedName("FollowRedirect")
   private Boolean followRedirect = null;
+
+  @SerializedName("HTMLToMarkdown")
+  private HTMLToMarkdownForBatchUpdateCdnConfigInput htMLToMarkdown = null;
 
   @SerializedName("HTTPS")
   private HTTPSForBatchUpdateCdnConfigInput HTTPS = null;
@@ -167,6 +177,9 @@ public class BatchUpdateCdnConfigRequest {
   @SerializedName("OriginRange")
   private Boolean originRange = null;
 
+  @SerializedName("OriginResponseHeader")
+  private List<OriginResponseHeaderForBatchUpdateCdnConfigInput> originResponseHeader = null;
+
   @SerializedName("OriginRetry")
   private OriginRetryForBatchUpdateCdnConfigInput originRetry = null;
 
@@ -181,6 +194,9 @@ public class BatchUpdateCdnConfigRequest {
 
   @SerializedName("Quic")
   private QuicForBatchUpdateCdnConfigInput quic = null;
+
+  @SerializedName("Range")
+  private RangeForBatchUpdateCdnConfigInput range = null;
 
   @SerializedName("RedirectionRewrite")
   private RedirectionRewriteForBatchUpdateCdnConfigInput redirectionRewrite = null;
@@ -380,6 +396,25 @@ public class BatchUpdateCdnConfigRequest {
     this.cacheKey = cacheKey;
   }
 
+  public BatchUpdateCdnConfigRequest cdnImageStudio(CdnImageStudioForBatchUpdateCdnConfigInput cdnImageStudio) {
+    this.cdnImageStudio = cdnImageStudio;
+    return this;
+  }
+
+   /**
+   * Get cdnImageStudio
+   * @return cdnImageStudio
+  **/
+  @Valid
+  @Schema(description = "")
+  public CdnImageStudioForBatchUpdateCdnConfigInput getCdnImageStudio() {
+    return cdnImageStudio;
+  }
+
+  public void setCdnImageStudio(CdnImageStudioForBatchUpdateCdnConfigInput cdnImageStudio) {
+    this.cdnImageStudio = cdnImageStudio;
+  }
+
   public BatchUpdateCdnConfigRequest compression(CompressionForBatchUpdateCdnConfigInput compression) {
     this.compression = compression;
     return this;
@@ -517,6 +552,25 @@ public class BatchUpdateCdnConfigRequest {
 
   public void setFollowRedirect(Boolean followRedirect) {
     this.followRedirect = followRedirect;
+  }
+
+  public BatchUpdateCdnConfigRequest htMLToMarkdown(HTMLToMarkdownForBatchUpdateCdnConfigInput htMLToMarkdown) {
+    this.htMLToMarkdown = htMLToMarkdown;
+    return this;
+  }
+
+   /**
+   * Get htMLToMarkdown
+   * @return htMLToMarkdown
+  **/
+  @Valid
+  @Schema(description = "")
+  public HTMLToMarkdownForBatchUpdateCdnConfigInput getHtMLToMarkdown() {
+    return htMLToMarkdown;
+  }
+
+  public void setHtMLToMarkdown(HTMLToMarkdownForBatchUpdateCdnConfigInput htMLToMarkdown) {
+    this.htMLToMarkdown = htMLToMarkdown;
   }
 
   public BatchUpdateCdnConfigRequest HTTPS(HTTPSForBatchUpdateCdnConfigInput HTTPS) {
@@ -862,6 +916,33 @@ public class BatchUpdateCdnConfigRequest {
     this.originRange = originRange;
   }
 
+  public BatchUpdateCdnConfigRequest originResponseHeader(List<OriginResponseHeaderForBatchUpdateCdnConfigInput> originResponseHeader) {
+    this.originResponseHeader = originResponseHeader;
+    return this;
+  }
+
+  public BatchUpdateCdnConfigRequest addOriginResponseHeaderItem(OriginResponseHeaderForBatchUpdateCdnConfigInput originResponseHeaderItem) {
+    if (this.originResponseHeader == null) {
+      this.originResponseHeader = new ArrayList<OriginResponseHeaderForBatchUpdateCdnConfigInput>();
+    }
+    this.originResponseHeader.add(originResponseHeaderItem);
+    return this;
+  }
+
+   /**
+   * Get originResponseHeader
+   * @return originResponseHeader
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<OriginResponseHeaderForBatchUpdateCdnConfigInput> getOriginResponseHeader() {
+    return originResponseHeader;
+  }
+
+  public void setOriginResponseHeader(List<OriginResponseHeaderForBatchUpdateCdnConfigInput> originResponseHeader) {
+    this.originResponseHeader = originResponseHeader;
+  }
+
   public BatchUpdateCdnConfigRequest originRetry(OriginRetryForBatchUpdateCdnConfigInput originRetry) {
     this.originRetry = originRetry;
     return this;
@@ -955,6 +1036,25 @@ public class BatchUpdateCdnConfigRequest {
 
   public void setQuic(QuicForBatchUpdateCdnConfigInput quic) {
     this.quic = quic;
+  }
+
+  public BatchUpdateCdnConfigRequest range(RangeForBatchUpdateCdnConfigInput range) {
+    this.range = range;
+    return this;
+  }
+
+   /**
+   * Get range
+   * @return range
+  **/
+  @Valid
+  @Schema(description = "")
+  public RangeForBatchUpdateCdnConfigInput getRange() {
+    return range;
+  }
+
+  public void setRange(RangeForBatchUpdateCdnConfigInput range) {
+    this.range = range;
   }
 
   public BatchUpdateCdnConfigRequest redirectionRewrite(RedirectionRewriteForBatchUpdateCdnConfigInput redirectionRewrite) {
@@ -1255,6 +1355,7 @@ public class BatchUpdateCdnConfigRequest {
         Objects.equals(this.cache, batchUpdateCdnConfigRequest.cache) &&
         Objects.equals(this.cacheHost, batchUpdateCdnConfigRequest.cacheHost) &&
         Objects.equals(this.cacheKey, batchUpdateCdnConfigRequest.cacheKey) &&
+        Objects.equals(this.cdnImageStudio, batchUpdateCdnConfigRequest.cdnImageStudio) &&
         Objects.equals(this.compression, batchUpdateCdnConfigRequest.compression) &&
         Objects.equals(this.conditionalOrigin, batchUpdateCdnConfigRequest.conditionalOrigin) &&
         Objects.equals(this.customErrorPage, batchUpdateCdnConfigRequest.customErrorPage) &&
@@ -1262,6 +1363,7 @@ public class BatchUpdateCdnConfigRequest {
         Objects.equals(this.domains, batchUpdateCdnConfigRequest.domains) &&
         Objects.equals(this.downloadSpeedLimit, batchUpdateCdnConfigRequest.downloadSpeedLimit) &&
         Objects.equals(this.followRedirect, batchUpdateCdnConfigRequest.followRedirect) &&
+        Objects.equals(this.htMLToMarkdown, batchUpdateCdnConfigRequest.htMLToMarkdown) &&
         Objects.equals(this.HTTPS, batchUpdateCdnConfigRequest.HTTPS) &&
         Objects.equals(this.httpForcedRedirect, batchUpdateCdnConfigRequest.httpForcedRedirect) &&
         Objects.equals(this.ipv6, batchUpdateCdnConfigRequest.ipv6) &&
@@ -1279,11 +1381,13 @@ public class BatchUpdateCdnConfigRequest {
         Objects.equals(this.originIPv6, batchUpdateCdnConfigRequest.originIPv6) &&
         Objects.equals(this.originProtocol, batchUpdateCdnConfigRequest.originProtocol) &&
         Objects.equals(this.originRange, batchUpdateCdnConfigRequest.originRange) &&
+        Objects.equals(this.originResponseHeader, batchUpdateCdnConfigRequest.originResponseHeader) &&
         Objects.equals(this.originRetry, batchUpdateCdnConfigRequest.originRetry) &&
         Objects.equals(this.originRewrite, batchUpdateCdnConfigRequest.originRewrite) &&
         Objects.equals(this.originSni, batchUpdateCdnConfigRequest.originSni) &&
         Objects.equals(this.pageOptimization, batchUpdateCdnConfigRequest.pageOptimization) &&
         Objects.equals(this.quic, batchUpdateCdnConfigRequest.quic) &&
+        Objects.equals(this.range, batchUpdateCdnConfigRequest.range) &&
         Objects.equals(this.redirectionRewrite, batchUpdateCdnConfigRequest.redirectionRewrite) &&
         Objects.equals(this.refererAccessRule, batchUpdateCdnConfigRequest.refererAccessRule) &&
         Objects.equals(this.remoteAuth, batchUpdateCdnConfigRequest.remoteAuth) &&
@@ -1302,7 +1406,7 @@ public class BatchUpdateCdnConfigRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregate, areaAccessRule, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, compression, conditionalOrigin, customErrorPage, customizeAccessRule, domains, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, responseHeader, rewriteHLS, ruleEngine, serviceRegion, signedUrlAuth, timeout, uaAccessRule, urlNormalize, videoDrag);
+    return Objects.hash(aggregate, areaAccessRule, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, cdnImageStudio, compression, conditionalOrigin, customErrorPage, customizeAccessRule, domains, downloadSpeedLimit, followRedirect, htMLToMarkdown, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originResponseHeader, originRetry, originRewrite, originSni, pageOptimization, quic, range, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, responseHeader, rewriteHLS, ruleEngine, serviceRegion, signedUrlAuth, timeout, uaAccessRule, urlNormalize, videoDrag);
   }
 
 
@@ -1318,6 +1422,7 @@ public class BatchUpdateCdnConfigRequest {
     sb.append("    cache: ").append(toIndentedString(cache)).append("\n");
     sb.append("    cacheHost: ").append(toIndentedString(cacheHost)).append("\n");
     sb.append("    cacheKey: ").append(toIndentedString(cacheKey)).append("\n");
+    sb.append("    cdnImageStudio: ").append(toIndentedString(cdnImageStudio)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    conditionalOrigin: ").append(toIndentedString(conditionalOrigin)).append("\n");
     sb.append("    customErrorPage: ").append(toIndentedString(customErrorPage)).append("\n");
@@ -1325,6 +1430,7 @@ public class BatchUpdateCdnConfigRequest {
     sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
     sb.append("    downloadSpeedLimit: ").append(toIndentedString(downloadSpeedLimit)).append("\n");
     sb.append("    followRedirect: ").append(toIndentedString(followRedirect)).append("\n");
+    sb.append("    htMLToMarkdown: ").append(toIndentedString(htMLToMarkdown)).append("\n");
     sb.append("    HTTPS: ").append(toIndentedString(HTTPS)).append("\n");
     sb.append("    httpForcedRedirect: ").append(toIndentedString(httpForcedRedirect)).append("\n");
     sb.append("    ipv6: ").append(toIndentedString(ipv6)).append("\n");
@@ -1342,11 +1448,13 @@ public class BatchUpdateCdnConfigRequest {
     sb.append("    originIPv6: ").append(toIndentedString(originIPv6)).append("\n");
     sb.append("    originProtocol: ").append(toIndentedString(originProtocol)).append("\n");
     sb.append("    originRange: ").append(toIndentedString(originRange)).append("\n");
+    sb.append("    originResponseHeader: ").append(toIndentedString(originResponseHeader)).append("\n");
     sb.append("    originRetry: ").append(toIndentedString(originRetry)).append("\n");
     sb.append("    originRewrite: ").append(toIndentedString(originRewrite)).append("\n");
     sb.append("    originSni: ").append(toIndentedString(originSni)).append("\n");
     sb.append("    pageOptimization: ").append(toIndentedString(pageOptimization)).append("\n");
     sb.append("    quic: ").append(toIndentedString(quic)).append("\n");
+    sb.append("    range: ").append(toIndentedString(range)).append("\n");
     sb.append("    redirectionRewrite: ").append(toIndentedString(redirectionRewrite)).append("\n");
     sb.append("    refererAccessRule: ").append(toIndentedString(refererAccessRule)).append("\n");
     sb.append("    remoteAuth: ").append(toIndentedString(remoteAuth)).append("\n");
