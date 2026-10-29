@@ -21,12 +21,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EBSVolumeForListSandboxesOutput;
 import com.volcengine.vefaas.model.InstanceEfsMountConfigForListSandboxesOutput;
-import com.volcengine.vefaas.model.MetadataForListSandboxesOutput;
 import com.volcengine.vefaas.model.SidecarForListSandboxesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -79,7 +80,7 @@ public class SandboxForListSandboxesOutput {
   private Integer memoryMB = null;
 
   @SerializedName("Metadata")
-  private MetadataForListSandboxesOutput metadata = null;
+  private Map<String, String> metadata = null;
 
   @SerializedName("PausedAt")
   private String pausedAt = null;
@@ -367,8 +368,16 @@ public class SandboxForListSandboxesOutput {
     this.memoryMB = memoryMB;
   }
 
-  public SandboxForListSandboxesOutput metadata(MetadataForListSandboxesOutput metadata) {
+  public SandboxForListSandboxesOutput metadata(Map<String, String> metadata) {
     this.metadata = metadata;
+    return this;
+  }
+
+  public SandboxForListSandboxesOutput putMetadataItem(String key, String metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<String, String>();
+    }
+    this.metadata.put(key, metadataItem);
     return this;
   }
 
@@ -376,13 +385,12 @@ public class SandboxForListSandboxesOutput {
    * Get metadata
    * @return metadata
   **/
-  @Valid
   @Schema(description = "")
-  public MetadataForListSandboxesOutput getMetadata() {
+  public Map<String, String> getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(MetadataForListSandboxesOutput metadata) {
+  public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
 
