@@ -53,6 +53,9 @@ public class ListVulWhiteFieldRequest {
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListVulWhiteFieldRequest host(String host) {
     this.host = host;
     return this;
@@ -187,6 +190,24 @@ public class ListVulWhiteFieldRequest {
     this.ruleTag = ruleTag;
   }
 
+  public ListVulWhiteFieldRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -203,12 +224,13 @@ public class ListVulWhiteFieldRequest {
         Objects.equals(this.page, listVulWhiteFieldRequest.page) &&
         Objects.equals(this.pageSize, listVulWhiteFieldRequest.pageSize) &&
         Objects.equals(this.projectName, listVulWhiteFieldRequest.projectName) &&
-        Objects.equals(this.ruleTag, listVulWhiteFieldRequest.ruleTag);
+        Objects.equals(this.ruleTag, listVulWhiteFieldRequest.ruleTag) &&
+        Objects.equals(this.waFInstanceID, listVulWhiteFieldRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, hostAddType, hostList, page, pageSize, projectName, ruleTag);
+    return Objects.hash(host, hostAddType, hostList, page, pageSize, projectName, ruleTag, waFInstanceID);
   }
 
 
@@ -224,6 +246,7 @@ public class ListVulWhiteFieldRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

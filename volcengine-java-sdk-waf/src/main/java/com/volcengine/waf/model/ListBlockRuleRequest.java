@@ -42,6 +42,9 @@ public class ListBlockRuleRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListBlockRuleRequest host(String host) {
     this.host = host;
     return this;
@@ -115,6 +118,24 @@ public class ListBlockRuleRequest {
     this.projectName = projectName;
   }
 
+  public ListBlockRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,12 +149,13 @@ public class ListBlockRuleRequest {
     return Objects.equals(this.host, listBlockRuleRequest.host) &&
         Objects.equals(this.page, listBlockRuleRequest.page) &&
         Objects.equals(this.pageSize, listBlockRuleRequest.pageSize) &&
-        Objects.equals(this.projectName, listBlockRuleRequest.projectName);
+        Objects.equals(this.projectName, listBlockRuleRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, listBlockRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, page, pageSize, projectName);
+    return Objects.hash(host, page, pageSize, projectName, waFInstanceID);
   }
 
 
@@ -146,6 +168,7 @@ public class ListBlockRuleRequest {
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

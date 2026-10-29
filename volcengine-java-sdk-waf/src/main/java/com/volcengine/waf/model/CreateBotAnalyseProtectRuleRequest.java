@@ -91,6 +91,9 @@ public class CreateBotAnalyseProtectRuleRequest {
   @SerializedName("StatisticalType")
   private Integer statisticalType = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public CreateBotAnalyseProtectRuleRequest accurateGroup(AccurateGroupForCreateBotAnalyseProtectRuleInput accurateGroup) {
     this.accurateGroup = accurateGroup;
     return this;
@@ -452,6 +455,24 @@ public class CreateBotAnalyseProtectRuleRequest {
     this.statisticalType = statisticalType;
   }
 
+  public CreateBotAnalyseProtectRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -480,12 +501,13 @@ public class CreateBotAnalyseProtectRuleRequest {
         Objects.equals(this.singleProportion, createBotAnalyseProtectRuleRequest.singleProportion) &&
         Objects.equals(this.singleThreshold, createBotAnalyseProtectRuleRequest.singleThreshold) &&
         Objects.equals(this.statisticalDuration, createBotAnalyseProtectRuleRequest.statisticalDuration) &&
-        Objects.equals(this.statisticalType, createBotAnalyseProtectRuleRequest.statisticalType);
+        Objects.equals(this.statisticalType, createBotAnalyseProtectRuleRequest.statisticalType) &&
+        Objects.equals(this.waFInstanceID, createBotAnalyseProtectRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, accurateGroupPriority, actionType, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, name, path, pathThreshold, projectName, rulePriority, singleProportion, singleThreshold, statisticalDuration, statisticalType);
+    return Objects.hash(accurateGroup, accurateGroupPriority, actionType, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, name, path, pathThreshold, projectName, rulePriority, singleProportion, singleThreshold, statisticalDuration, statisticalType, waFInstanceID);
   }
 
 
@@ -513,6 +535,7 @@ public class CreateBotAnalyseProtectRuleRequest {
     sb.append("    singleThreshold: ").append(toIndentedString(singleThreshold)).append("\n");
     sb.append("    statisticalDuration: ").append(toIndentedString(statisticalDuration)).append("\n");
     sb.append("    statisticalType: ").append(toIndentedString(statisticalType)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

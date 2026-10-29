@@ -38,6 +38,9 @@ public class DeleteHostGroupRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public DeleteHostGroupRequest hostGroupIds(List<Integer> hostGroupIds) {
     this.hostGroupIds = hostGroupIds;
     return this;
@@ -82,6 +85,24 @@ public class DeleteHostGroupRequest {
     this.projectName = projectName;
   }
 
+  public DeleteHostGroupRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -93,12 +114,13 @@ public class DeleteHostGroupRequest {
     }
     DeleteHostGroupRequest deleteHostGroupRequest = (DeleteHostGroupRequest) o;
     return Objects.equals(this.hostGroupIds, deleteHostGroupRequest.hostGroupIds) &&
-        Objects.equals(this.projectName, deleteHostGroupRequest.projectName);
+        Objects.equals(this.projectName, deleteHostGroupRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, deleteHostGroupRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostGroupIds, projectName);
+    return Objects.hash(hostGroupIds, projectName, waFInstanceID);
   }
 
 
@@ -109,6 +131,7 @@ public class DeleteHostGroupRequest {
     
     sb.append("    hostGroupIds: ").append(toIndentedString(hostGroupIds)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

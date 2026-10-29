@@ -41,6 +41,9 @@ public class DeleteProhibitionBlackRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public DeleteProhibitionBlackRequest host(String host) {
     this.host = host;
     return this;
@@ -104,6 +107,24 @@ public class DeleteProhibitionBlackRequest {
     this.projectName = projectName;
   }
 
+  public DeleteProhibitionBlackRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -116,12 +137,13 @@ public class DeleteProhibitionBlackRequest {
     DeleteProhibitionBlackRequest deleteProhibitionBlackRequest = (DeleteProhibitionBlackRequest) o;
     return Objects.equals(this.host, deleteProhibitionBlackRequest.host) &&
         Objects.equals(this.ipList, deleteProhibitionBlackRequest.ipList) &&
-        Objects.equals(this.projectName, deleteProhibitionBlackRequest.projectName);
+        Objects.equals(this.projectName, deleteProhibitionBlackRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, deleteProhibitionBlackRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, ipList, projectName);
+    return Objects.hash(host, ipList, projectName, waFInstanceID);
   }
 
 
@@ -133,6 +155,7 @@ public class DeleteProhibitionBlackRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    ipList: ").append(toIndentedString(ipList)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

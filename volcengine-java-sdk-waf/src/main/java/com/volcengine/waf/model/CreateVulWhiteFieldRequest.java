@@ -56,6 +56,9 @@ public class CreateVulWhiteFieldRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public CreateVulWhiteFieldRequest enable(Integer enable) {
     this.enable = enable;
     return this;
@@ -210,6 +213,24 @@ public class CreateVulWhiteFieldRequest {
     this.projectName = projectName;
   }
 
+  public CreateVulWhiteFieldRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -227,12 +248,13 @@ public class CreateVulWhiteFieldRequest {
         Objects.equals(this.hostAddType, createVulWhiteFieldRequest.hostAddType) &&
         Objects.equals(this.hostList, createVulWhiteFieldRequest.hostList) &&
         Objects.equals(this.name, createVulWhiteFieldRequest.name) &&
-        Objects.equals(this.projectName, createVulWhiteFieldRequest.projectName);
+        Objects.equals(this.projectName, createVulWhiteFieldRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, createVulWhiteFieldRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, fieldArea, fieldList, host, hostAddType, hostList, name, projectName);
+    return Objects.hash(enable, fieldArea, fieldList, host, hostAddType, hostList, name, projectName, waFInstanceID);
   }
 
 
@@ -249,6 +271,7 @@ public class CreateVulWhiteFieldRequest {
     sb.append("    hostList: ").append(toIndentedString(hostList)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

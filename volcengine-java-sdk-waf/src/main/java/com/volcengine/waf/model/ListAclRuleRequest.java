@@ -191,6 +191,9 @@ public class ListAclRuleRequest {
   }  @SerializedName("TimeOrderBy")
   private TimeOrderByEnum timeOrderBy = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListAclRuleRequest aclType(AclTypeEnum aclType) {
     this.aclType = aclType;
     return this;
@@ -396,6 +399,24 @@ public class ListAclRuleRequest {
     this.timeOrderBy = timeOrderBy;
   }
 
+  public ListAclRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -415,12 +436,13 @@ public class ListAclRuleRequest {
         Objects.equals(this.projectName, listAclRuleRequest.projectName) &&
         Objects.equals(this.ruleName, listAclRuleRequest.ruleName) &&
         Objects.equals(this.ruleTag, listAclRuleRequest.ruleTag) &&
-        Objects.equals(this.timeOrderBy, listAclRuleRequest.timeOrderBy);
+        Objects.equals(this.timeOrderBy, listAclRuleRequest.timeOrderBy) &&
+        Objects.equals(this.waFInstanceID, listAclRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclType, action, defenceHost, enable, page, pageSize, projectName, ruleName, ruleTag, timeOrderBy);
+    return Objects.hash(aclType, action, defenceHost, enable, page, pageSize, projectName, ruleName, ruleTag, timeOrderBy, waFInstanceID);
   }
 
 
@@ -439,6 +461,7 @@ public class ListAclRuleRequest {
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    timeOrderBy: ").append(toIndentedString(timeOrderBy)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

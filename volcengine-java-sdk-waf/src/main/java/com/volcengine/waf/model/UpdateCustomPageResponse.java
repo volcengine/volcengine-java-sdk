@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.ResponseMetadataForUpdateCustomPageOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,6 +31,28 @@ import javax.validation.Valid;
 
 
 public class UpdateCustomPageResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ResponseMetadata")
+  private ResponseMetadataForUpdateCustomPageOutput responseMetadata = null;
+
+  public UpdateCustomPageResponse responseMetadata(ResponseMetadataForUpdateCustomPageOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+    return this;
+  }
+
+   /**
+   * Get responseMetadata
+   * @return responseMetadata
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResponseMetadataForUpdateCustomPageOutput getResponseMetadata() {
+    return responseMetadata;
+  }
+
+  public void setResponseMetadata(ResponseMetadataForUpdateCustomPageOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -39,12 +62,13 @@ public class UpdateCustomPageResponse extends com.volcengine.model.AbstractRespo
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    UpdateCustomPageResponse updateCustomPageResponse = (UpdateCustomPageResponse) o;
+    return Objects.equals(this.responseMetadata, updateCustomPageResponse.responseMetadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(responseMetadata);
   }
 
 
@@ -52,7 +76,8 @@ public class UpdateCustomPageResponse extends com.volcengine.model.AbstractRespo
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateCustomPageResponse {\n");
-
+    
+    sb.append("    responseMetadata: ").append(toIndentedString(responseMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

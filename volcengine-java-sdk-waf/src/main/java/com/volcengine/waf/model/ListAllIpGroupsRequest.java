@@ -56,6 +56,9 @@ public class ListAllIpGroupsRequest {
   @SerializedName("TimeOrderBy")
   private String timeOrderBy = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListAllIpGroupsRequest ip(String ip) {
     this.ip = ip;
     return this;
@@ -209,6 +212,24 @@ public class ListAllIpGroupsRequest {
     this.timeOrderBy = timeOrderBy;
   }
 
+  public ListAllIpGroupsRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -226,12 +247,13 @@ public class ListAllIpGroupsRequest {
         Objects.equals(this.pageSize, listAllIpGroupsRequest.pageSize) &&
         Objects.equals(this.projectName, listAllIpGroupsRequest.projectName) &&
         Objects.equals(this.ruleTag, listAllIpGroupsRequest.ruleTag) &&
-        Objects.equals(this.timeOrderBy, listAllIpGroupsRequest.timeOrderBy);
+        Objects.equals(this.timeOrderBy, listAllIpGroupsRequest.timeOrderBy) &&
+        Objects.equals(this.waFInstanceID, listAllIpGroupsRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ip, ipGroupId, ipGroupIds, page, pageSize, projectName, ruleTag, timeOrderBy);
+    return Objects.hash(ip, ipGroupId, ipGroupIds, page, pageSize, projectName, ruleTag, timeOrderBy, waFInstanceID);
   }
 
 
@@ -248,6 +270,7 @@ public class ListAllIpGroupsRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    timeOrderBy: ").append(toIndentedString(timeOrderBy)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

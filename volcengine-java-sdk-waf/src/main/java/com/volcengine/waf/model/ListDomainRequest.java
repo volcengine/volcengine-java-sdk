@@ -99,6 +99,9 @@ public class ListDomainRequest {
   @SerializedName("VpcOwnerName")
   private String vpcOwnerName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListDomainRequest accessMode(List<Integer> accessMode) {
     this.accessMode = accessMode;
     return this;
@@ -555,6 +558,24 @@ public class ListDomainRequest {
     this.vpcOwnerName = vpcOwnerName;
   }
 
+  public ListDomainRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -586,12 +607,13 @@ public class ListDomainRequest {
         Objects.equals(this.vpcId, listDomainRequest.vpcId) &&
         Objects.equals(this.vpcName, listDomainRequest.vpcName) &&
         Objects.equals(this.vpcOwnerId, listDomainRequest.vpcOwnerId) &&
-        Objects.equals(this.vpcOwnerName, listDomainRequest.vpcOwnerName);
+        Objects.equals(this.vpcOwnerName, listDomainRequest.vpcOwnerName) &&
+        Objects.equals(this.waFInstanceID, listDomainRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, accurateQuery, attackStatus, clientIp, defenceMode, domain, domainOrPath, lbInfo, page, pageSize, projectName, publicRealServer, region, sortByCreateTime, sortByDomainName, sortByUpdateTime, status, tlSEnable, vpcId, vpcName, vpcOwnerId, vpcOwnerName);
+    return Objects.hash(accessMode, accurateQuery, attackStatus, clientIp, defenceMode, domain, domainOrPath, lbInfo, page, pageSize, projectName, publicRealServer, region, sortByCreateTime, sortByDomainName, sortByUpdateTime, status, tlSEnable, vpcId, vpcName, vpcOwnerId, vpcOwnerName, waFInstanceID);
   }
 
 
@@ -622,6 +644,7 @@ public class ListDomainRequest {
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
     sb.append("    vpcOwnerId: ").append(toIndentedString(vpcOwnerId)).append("\n");
     sb.append("    vpcOwnerName: ").append(toIndentedString(vpcOwnerName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

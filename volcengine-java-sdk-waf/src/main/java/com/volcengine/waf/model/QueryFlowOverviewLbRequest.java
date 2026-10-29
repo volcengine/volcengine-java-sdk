@@ -39,6 +39,9 @@ public class QueryFlowOverviewLbRequest {
   @SerializedName("StartTime")
   private Integer startTime = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public QueryFlowOverviewLbRequest endTime(Integer endTime) {
     this.endTime = endTime;
     return this;
@@ -95,6 +98,24 @@ public class QueryFlowOverviewLbRequest {
     this.startTime = startTime;
   }
 
+  public QueryFlowOverviewLbRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +128,13 @@ public class QueryFlowOverviewLbRequest {
     QueryFlowOverviewLbRequest queryFlowOverviewLbRequest = (QueryFlowOverviewLbRequest) o;
     return Objects.equals(this.endTime, queryFlowOverviewLbRequest.endTime) &&
         Objects.equals(this.host, queryFlowOverviewLbRequest.host) &&
-        Objects.equals(this.startTime, queryFlowOverviewLbRequest.startTime);
+        Objects.equals(this.startTime, queryFlowOverviewLbRequest.startTime) &&
+        Objects.equals(this.waFInstanceID, queryFlowOverviewLbRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, host, startTime);
+    return Objects.hash(endTime, host, startTime, waFInstanceID);
   }
 
 
@@ -124,6 +146,7 @@ public class QueryFlowOverviewLbRequest {
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

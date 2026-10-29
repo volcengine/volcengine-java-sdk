@@ -72,6 +72,9 @@ public class UpdateBlockRuleRequest {
   @SerializedName("Url")
   private String url = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UpdateBlockRuleRequest accurate(AccurateForUpdateBlockRuleInput accurate) {
     this.accurate = accurate;
     return this;
@@ -321,6 +324,24 @@ public class UpdateBlockRuleRequest {
     this.url = url;
   }
 
+  public UpdateBlockRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -343,12 +364,13 @@ public class UpdateBlockRuleRequest {
         Objects.equals(this.ipGroupId, updateBlockRuleRequest.ipGroupId) &&
         Objects.equals(this.name, updateBlockRuleRequest.name) &&
         Objects.equals(this.projectName, updateBlockRuleRequest.projectName) &&
-        Objects.equals(this.url, updateBlockRuleRequest.url);
+        Objects.equals(this.url, updateBlockRuleRequest.url) &&
+        Objects.equals(this.waFInstanceID, updateBlockRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, action, advanced, clientIp, description, enable, host, id, ipAddType, ipGroupId, name, projectName, url);
+    return Objects.hash(accurate, action, advanced, clientIp, description, enable, host, id, ipAddType, ipGroupId, name, projectName, url, waFInstanceID);
   }
 
 
@@ -370,6 +392,7 @@ public class UpdateBlockRuleRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

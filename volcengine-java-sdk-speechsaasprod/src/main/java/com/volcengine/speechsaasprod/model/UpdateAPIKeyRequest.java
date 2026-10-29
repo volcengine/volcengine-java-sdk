@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class UpdateAPIKeyRequest {
   @SerializedName("Disable")
-  private String disable = null;
+  private Boolean disable = null;
 
   @SerializedName("ID")
   private Integer ID = null;
@@ -42,7 +42,7 @@ public class UpdateAPIKeyRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public UpdateAPIKeyRequest disable(String disable) {
+  public UpdateAPIKeyRequest disable(Boolean disable) {
     this.disable = disable;
     return this;
   }
@@ -52,11 +52,11 @@ public class UpdateAPIKeyRequest {
    * @return disable
   **/
   @Schema(description = "")
-  public String getDisable() {
+  public Boolean isDisable() {
     return disable;
   }
 
-  public void setDisable(String disable) {
+  public void setDisable(Boolean disable) {
     this.disable = disable;
   }
 

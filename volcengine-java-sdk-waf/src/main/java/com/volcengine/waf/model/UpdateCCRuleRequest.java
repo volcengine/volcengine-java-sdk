@@ -97,6 +97,9 @@ public class UpdateCCRuleRequest {
   @SerializedName("Url")
   private String url = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   @SerializedName("WSCdnByteThreshold")
   private Integer wsCdnByteThreshold = null;
 
@@ -550,6 +553,24 @@ public class UpdateCCRuleRequest {
     this.url = url;
   }
 
+  public UpdateCCRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
   public UpdateCCRuleRequest wsCdnByteThreshold(Integer wsCdnByteThreshold) {
     this.wsCdnByteThreshold = wsCdnByteThreshold;
     return this;
@@ -653,6 +674,7 @@ public class UpdateCCRuleRequest {
         Objects.equals(this.singleThreshold, updateCCRuleRequest.singleThreshold) &&
         Objects.equals(this.updateTime, updateCCRuleRequest.updateTime) &&
         Objects.equals(this.url, updateCCRuleRequest.url) &&
+        Objects.equals(this.waFInstanceID, updateCCRuleRequest.waFInstanceID) &&
         Objects.equals(this.wsCdnByteThreshold, updateCCRuleRequest.wsCdnByteThreshold) &&
         Objects.equals(this.wsCdnEnable, updateCCRuleRequest.wsCdnEnable) &&
         Objects.equals(this.wsCdnFrameThreshold, updateCCRuleRequest.wsCdnFrameThreshold) &&
@@ -661,7 +683,7 @@ public class UpdateCCRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, accurateGroupPriority, ccType, countTime, cronConfs, cronEnable, customResponsePageID, effectTime, enable, exemptionTime, field, host, id, name, pathThreshold, projectName, rulePriority, ruleTag, singleThreshold, updateTime, url, wsCdnByteThreshold, wsCdnEnable, wsCdnFrameThreshold, wsCdnUnit);
+    return Objects.hash(accurateGroup, accurateGroupPriority, ccType, countTime, cronConfs, cronEnable, customResponsePageID, effectTime, enable, exemptionTime, field, host, id, name, pathThreshold, projectName, rulePriority, ruleTag, singleThreshold, updateTime, url, waFInstanceID, wsCdnByteThreshold, wsCdnEnable, wsCdnFrameThreshold, wsCdnUnit);
   }
 
 
@@ -691,6 +713,7 @@ public class UpdateCCRuleRequest {
     sb.append("    singleThreshold: ").append(toIndentedString(singleThreshold)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("    wsCdnByteThreshold: ").append(toIndentedString(wsCdnByteThreshold)).append("\n");
     sb.append("    wsCdnEnable: ").append(toIndentedString(wsCdnEnable)).append("\n");
     sb.append("    wsCdnFrameThreshold: ").append(toIndentedString(wsCdnFrameThreshold)).append("\n");

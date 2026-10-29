@@ -25,11 +25,13 @@ import com.volcengine.cdn.model.BrowserCacheForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.CacheForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.CacheHostForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.CacheKeyForDescribeCdnConfigOutput;
+import com.volcengine.cdn.model.CdnImageStudioForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.CompressionForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.ConditionalOriginForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.CustomErrorPageForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.CustomizeAccessRuleForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.DownloadSpeedLimitForDescribeCdnConfigOutput;
+import com.volcengine.cdn.model.HTMLToMarkdownForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.HTTPSForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.HttpForcedRedirectForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.IPv6ForDescribeCdnConfigOutput;
@@ -44,11 +46,13 @@ import com.volcengine.cdn.model.OriginAccessRuleForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.OriginArgForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.OriginCertCheckForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.OriginForDescribeCdnConfigOutput;
+import com.volcengine.cdn.model.OriginResponseHeaderForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.OriginRetryForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.OriginRewriteForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.OriginSniForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.PageOptimizationForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.QuicForDescribeCdnConfigOutput;
+import com.volcengine.cdn.model.RangeForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.RedirectionRewriteForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.RefererAccessRuleForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.RemoteAuthForDescribeCdnConfigOutput;
@@ -96,6 +100,9 @@ public class DomainConfigForDescribeCdnConfigOutput {
   @SerializedName("CacheKey")
   private List<CacheKeyForDescribeCdnConfigOutput> cacheKey = null;
 
+  @SerializedName("CdnImageStudio")
+  private CdnImageStudioForDescribeCdnConfigOutput cdnImageStudio = null;
+
   @SerializedName("Cname")
   private String cname = null;
 
@@ -122,6 +129,9 @@ public class DomainConfigForDescribeCdnConfigOutput {
 
   @SerializedName("FollowRedirect")
   private Boolean followRedirect = null;
+
+  @SerializedName("HTMLToMarkdown")
+  private HTMLToMarkdownForDescribeCdnConfigOutput htMLToMarkdown = null;
 
   @SerializedName("HTTPS")
   private HTTPSForDescribeCdnConfigOutput HTTPS = null;
@@ -180,6 +190,9 @@ public class DomainConfigForDescribeCdnConfigOutput {
   @SerializedName("OriginRange")
   private Boolean originRange = null;
 
+  @SerializedName("OriginResponseHeader")
+  private List<OriginResponseHeaderForDescribeCdnConfigOutput> originResponseHeader = null;
+
   @SerializedName("OriginRetry")
   private OriginRetryForDescribeCdnConfigOutput originRetry = null;
 
@@ -197,6 +210,9 @@ public class DomainConfigForDescribeCdnConfigOutput {
 
   @SerializedName("Quic")
   private QuicForDescribeCdnConfigOutput quic = null;
+
+  @SerializedName("Range")
+  private RangeForDescribeCdnConfigOutput range = null;
 
   @SerializedName("RedirectionRewrite")
   private RedirectionRewriteForDescribeCdnConfigOutput redirectionRewrite = null;
@@ -405,6 +421,25 @@ public class DomainConfigForDescribeCdnConfigOutput {
     this.cacheKey = cacheKey;
   }
 
+  public DomainConfigForDescribeCdnConfigOutput cdnImageStudio(CdnImageStudioForDescribeCdnConfigOutput cdnImageStudio) {
+    this.cdnImageStudio = cdnImageStudio;
+    return this;
+  }
+
+   /**
+   * Get cdnImageStudio
+   * @return cdnImageStudio
+  **/
+  @Valid
+  @Schema(description = "")
+  public CdnImageStudioForDescribeCdnConfigOutput getCdnImageStudio() {
+    return cdnImageStudio;
+  }
+
+  public void setCdnImageStudio(CdnImageStudioForDescribeCdnConfigOutput cdnImageStudio) {
+    this.cdnImageStudio = cdnImageStudio;
+  }
+
   public DomainConfigForDescribeCdnConfigOutput cname(String cname) {
     this.cname = cname;
     return this;
@@ -570,6 +605,25 @@ public class DomainConfigForDescribeCdnConfigOutput {
 
   public void setFollowRedirect(Boolean followRedirect) {
     this.followRedirect = followRedirect;
+  }
+
+  public DomainConfigForDescribeCdnConfigOutput htMLToMarkdown(HTMLToMarkdownForDescribeCdnConfigOutput htMLToMarkdown) {
+    this.htMLToMarkdown = htMLToMarkdown;
+    return this;
+  }
+
+   /**
+   * Get htMLToMarkdown
+   * @return htMLToMarkdown
+  **/
+  @Valid
+  @Schema(description = "")
+  public HTMLToMarkdownForDescribeCdnConfigOutput getHtMLToMarkdown() {
+    return htMLToMarkdown;
+  }
+
+  public void setHtMLToMarkdown(HTMLToMarkdownForDescribeCdnConfigOutput htMLToMarkdown) {
+    this.htMLToMarkdown = htMLToMarkdown;
   }
 
   public DomainConfigForDescribeCdnConfigOutput HTTPS(HTTPSForDescribeCdnConfigOutput HTTPS) {
@@ -952,6 +1006,33 @@ public class DomainConfigForDescribeCdnConfigOutput {
     this.originRange = originRange;
   }
 
+  public DomainConfigForDescribeCdnConfigOutput originResponseHeader(List<OriginResponseHeaderForDescribeCdnConfigOutput> originResponseHeader) {
+    this.originResponseHeader = originResponseHeader;
+    return this;
+  }
+
+  public DomainConfigForDescribeCdnConfigOutput addOriginResponseHeaderItem(OriginResponseHeaderForDescribeCdnConfigOutput originResponseHeaderItem) {
+    if (this.originResponseHeader == null) {
+      this.originResponseHeader = new ArrayList<OriginResponseHeaderForDescribeCdnConfigOutput>();
+    }
+    this.originResponseHeader.add(originResponseHeaderItem);
+    return this;
+  }
+
+   /**
+   * Get originResponseHeader
+   * @return originResponseHeader
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<OriginResponseHeaderForDescribeCdnConfigOutput> getOriginResponseHeader() {
+    return originResponseHeader;
+  }
+
+  public void setOriginResponseHeader(List<OriginResponseHeaderForDescribeCdnConfigOutput> originResponseHeader) {
+    this.originResponseHeader = originResponseHeader;
+  }
+
   public DomainConfigForDescribeCdnConfigOutput originRetry(OriginRetryForDescribeCdnConfigOutput originRetry) {
     this.originRetry = originRetry;
     return this;
@@ -1063,6 +1144,25 @@ public class DomainConfigForDescribeCdnConfigOutput {
 
   public void setQuic(QuicForDescribeCdnConfigOutput quic) {
     this.quic = quic;
+  }
+
+  public DomainConfigForDescribeCdnConfigOutput range(RangeForDescribeCdnConfigOutput range) {
+    this.range = range;
+    return this;
+  }
+
+   /**
+   * Get range
+   * @return range
+  **/
+  @Valid
+  @Schema(description = "")
+  public RangeForDescribeCdnConfigOutput getRange() {
+    return range;
+  }
+
+  public void setRange(RangeForDescribeCdnConfigOutput range) {
+    this.range = range;
   }
 
   public DomainConfigForDescribeCdnConfigOutput redirectionRewrite(RedirectionRewriteForDescribeCdnConfigOutput redirectionRewrite) {
@@ -1417,6 +1517,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
         Objects.equals(this.cache, domainConfigForDescribeCdnConfigOutput.cache) &&
         Objects.equals(this.cacheHost, domainConfigForDescribeCdnConfigOutput.cacheHost) &&
         Objects.equals(this.cacheKey, domainConfigForDescribeCdnConfigOutput.cacheKey) &&
+        Objects.equals(this.cdnImageStudio, domainConfigForDescribeCdnConfigOutput.cdnImageStudio) &&
         Objects.equals(this.cname, domainConfigForDescribeCdnConfigOutput.cname) &&
         Objects.equals(this.compression, domainConfigForDescribeCdnConfigOutput.compression) &&
         Objects.equals(this.conditionalOrigin, domainConfigForDescribeCdnConfigOutput.conditionalOrigin) &&
@@ -1426,6 +1527,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
         Objects.equals(this.domain, domainConfigForDescribeCdnConfigOutput.domain) &&
         Objects.equals(this.downloadSpeedLimit, domainConfigForDescribeCdnConfigOutput.downloadSpeedLimit) &&
         Objects.equals(this.followRedirect, domainConfigForDescribeCdnConfigOutput.followRedirect) &&
+        Objects.equals(this.htMLToMarkdown, domainConfigForDescribeCdnConfigOutput.htMLToMarkdown) &&
         Objects.equals(this.HTTPS, domainConfigForDescribeCdnConfigOutput.HTTPS) &&
         Objects.equals(this.httpForcedRedirect, domainConfigForDescribeCdnConfigOutput.httpForcedRedirect) &&
         Objects.equals(this.ipv6, domainConfigForDescribeCdnConfigOutput.ipv6) &&
@@ -1445,12 +1547,14 @@ public class DomainConfigForDescribeCdnConfigOutput {
         Objects.equals(this.originIPv6, domainConfigForDescribeCdnConfigOutput.originIPv6) &&
         Objects.equals(this.originProtocol, domainConfigForDescribeCdnConfigOutput.originProtocol) &&
         Objects.equals(this.originRange, domainConfigForDescribeCdnConfigOutput.originRange) &&
+        Objects.equals(this.originResponseHeader, domainConfigForDescribeCdnConfigOutput.originResponseHeader) &&
         Objects.equals(this.originRetry, domainConfigForDescribeCdnConfigOutput.originRetry) &&
         Objects.equals(this.originRewrite, domainConfigForDescribeCdnConfigOutput.originRewrite) &&
         Objects.equals(this.originSni, domainConfigForDescribeCdnConfigOutput.originSni) &&
         Objects.equals(this.pageOptimization, domainConfigForDescribeCdnConfigOutput.pageOptimization) &&
         Objects.equals(this.project, domainConfigForDescribeCdnConfigOutput.project) &&
         Objects.equals(this.quic, domainConfigForDescribeCdnConfigOutput.quic) &&
+        Objects.equals(this.range, domainConfigForDescribeCdnConfigOutput.range) &&
         Objects.equals(this.redirectionRewrite, domainConfigForDescribeCdnConfigOutput.redirectionRewrite) &&
         Objects.equals(this.refererAccessRule, domainConfigForDescribeCdnConfigOutput.refererAccessRule) &&
         Objects.equals(this.remoteAuth, domainConfigForDescribeCdnConfigOutput.remoteAuth) &&
@@ -1472,7 +1576,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(areaAccessRule, backupCname, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, cname, compression, conditionalOrigin, createTime, customErrorPage, customizeAccessRule, domain, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, ipSpeedLimit, lockStatus, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, project, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, responseHeader, rewriteHLS, ruleEngine, serviceRegion, serviceType, signedUrlAuth, status, timeout, uaAccessRule, updateTime, urlNormalize, videoDrag);
+    return Objects.hash(areaAccessRule, backupCname, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, cdnImageStudio, cname, compression, conditionalOrigin, createTime, customErrorPage, customizeAccessRule, domain, downloadSpeedLimit, followRedirect, htMLToMarkdown, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, ipSpeedLimit, lockStatus, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originResponseHeader, originRetry, originRewrite, originSni, pageOptimization, project, quic, range, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, responseHeader, rewriteHLS, ruleEngine, serviceRegion, serviceType, signedUrlAuth, status, timeout, uaAccessRule, updateTime, urlNormalize, videoDrag);
   }
 
 
@@ -1488,6 +1592,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
     sb.append("    cache: ").append(toIndentedString(cache)).append("\n");
     sb.append("    cacheHost: ").append(toIndentedString(cacheHost)).append("\n");
     sb.append("    cacheKey: ").append(toIndentedString(cacheKey)).append("\n");
+    sb.append("    cdnImageStudio: ").append(toIndentedString(cdnImageStudio)).append("\n");
     sb.append("    cname: ").append(toIndentedString(cname)).append("\n");
     sb.append("    compression: ").append(toIndentedString(compression)).append("\n");
     sb.append("    conditionalOrigin: ").append(toIndentedString(conditionalOrigin)).append("\n");
@@ -1497,6 +1602,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    downloadSpeedLimit: ").append(toIndentedString(downloadSpeedLimit)).append("\n");
     sb.append("    followRedirect: ").append(toIndentedString(followRedirect)).append("\n");
+    sb.append("    htMLToMarkdown: ").append(toIndentedString(htMLToMarkdown)).append("\n");
     sb.append("    HTTPS: ").append(toIndentedString(HTTPS)).append("\n");
     sb.append("    httpForcedRedirect: ").append(toIndentedString(httpForcedRedirect)).append("\n");
     sb.append("    ipv6: ").append(toIndentedString(ipv6)).append("\n");
@@ -1516,12 +1622,14 @@ public class DomainConfigForDescribeCdnConfigOutput {
     sb.append("    originIPv6: ").append(toIndentedString(originIPv6)).append("\n");
     sb.append("    originProtocol: ").append(toIndentedString(originProtocol)).append("\n");
     sb.append("    originRange: ").append(toIndentedString(originRange)).append("\n");
+    sb.append("    originResponseHeader: ").append(toIndentedString(originResponseHeader)).append("\n");
     sb.append("    originRetry: ").append(toIndentedString(originRetry)).append("\n");
     sb.append("    originRewrite: ").append(toIndentedString(originRewrite)).append("\n");
     sb.append("    originSni: ").append(toIndentedString(originSni)).append("\n");
     sb.append("    pageOptimization: ").append(toIndentedString(pageOptimization)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    quic: ").append(toIndentedString(quic)).append("\n");
+    sb.append("    range: ").append(toIndentedString(range)).append("\n");
     sb.append("    redirectionRewrite: ").append(toIndentedString(redirectionRewrite)).append("\n");
     sb.append("    refererAccessRule: ").append(toIndentedString(refererAccessRule)).append("\n");
     sb.append("    remoteAuth: ").append(toIndentedString(remoteAuth)).append("\n");

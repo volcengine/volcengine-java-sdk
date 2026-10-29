@@ -101,6 +101,9 @@ public class UpdateSystemBotConfigRequest {
   @SerializedName("VerificationExemptionTime")
   private Integer verificationExemptionTime = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public UpdateSystemBotConfigRequest action(ActionEnum action) {
     this.action = action;
     return this;
@@ -218,6 +221,24 @@ public class UpdateSystemBotConfigRequest {
     this.verificationExemptionTime = verificationExemptionTime;
   }
 
+  public UpdateSystemBotConfigRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -233,12 +254,13 @@ public class UpdateSystemBotConfigRequest {
         Objects.equals(this.host, updateSystemBotConfigRequest.host) &&
         Objects.equals(this.projectName, updateSystemBotConfigRequest.projectName) &&
         Objects.equals(this.ruleTagList, updateSystemBotConfigRequest.ruleTagList) &&
-        Objects.equals(this.verificationExemptionTime, updateSystemBotConfigRequest.verificationExemptionTime);
+        Objects.equals(this.verificationExemptionTime, updateSystemBotConfigRequest.verificationExemptionTime) &&
+        Objects.equals(this.waFInstanceID, updateSystemBotConfigRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, enable, host, projectName, ruleTagList, verificationExemptionTime);
+    return Objects.hash(action, enable, host, projectName, ruleTagList, verificationExemptionTime, waFInstanceID);
   }
 
 
@@ -253,6 +275,7 @@ public class UpdateSystemBotConfigRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    ruleTagList: ").append(toIndentedString(ruleTagList)).append("\n");
     sb.append("    verificationExemptionTime: ").append(toIndentedString(verificationExemptionTime)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
