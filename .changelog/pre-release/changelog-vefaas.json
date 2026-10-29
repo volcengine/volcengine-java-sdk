@@ -1,0 +1,15 @@
+{
+  "actions": [
+    "UpdateFunction",
+    "CreateFunction",
+    "CreateSandbox",
+    "DescribeSandbox",
+    "GetFunction",
+    "GetRevision",
+    "ListFunctions",
+    "ListRevisions"
+  ],
+  "description": "VEFAAS: 修改 ListFunctions, ListRevisions, UpdateFunction, CreateFunction, CreateSandbox, DescribeSandbox, GetFunction, GetRevision",
+  "modules": "service/vefaas",
+  "type": "breaking-change"
+}

@@ -28,6 +28,7 @@ import com.volcengine.vefaas.model.InstanceEfsMountConfigForCreateSandboxInput;
 import com.volcengine.vefaas.model.InstanceImageInfoForCreateSandboxInput;
 import com.volcengine.vefaas.model.InstanceNasMountConfigForCreateSandboxInput;
 import com.volcengine.vefaas.model.InstanceTosMountConfigForCreateSandboxInput;
+import com.volcengine.vefaas.model.NetworkRulesForCreateSandboxInput;
 import com.volcengine.vefaas.model.SidecarForCreateSandboxInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -88,6 +89,9 @@ public class CreateSandboxRequest {
 
   @SerializedName("Metadata")
   private Map<String, String> metadata = null;
+
+  @SerializedName("NetworkRules")
+  private NetworkRulesForCreateSandboxInput networkRules = null;
 
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
@@ -425,6 +429,25 @@ public class CreateSandboxRequest {
     this.metadata = metadata;
   }
 
+  public CreateSandboxRequest networkRules(NetworkRulesForCreateSandboxInput networkRules) {
+    this.networkRules = networkRules;
+    return this;
+  }
+
+   /**
+   * Get networkRules
+   * @return networkRules
+  **/
+  @Valid
+  @Schema(description = "")
+  public NetworkRulesForCreateSandboxInput getNetworkRules() {
+    return networkRules;
+  }
+
+  public void setNetworkRules(NetworkRulesForCreateSandboxInput networkRules) {
+    this.networkRules = networkRules;
+  }
+
   public CreateSandboxRequest requestTimeout(Integer requestTimeout) {
     this.requestTimeout = requestTimeout;
     return this;
@@ -611,6 +634,7 @@ public class CreateSandboxRequest {
         Objects.equals(this.maxConcurrency, createSandboxRequest.maxConcurrency) &&
         Objects.equals(this.memoryMB, createSandboxRequest.memoryMB) &&
         Objects.equals(this.metadata, createSandboxRequest.metadata) &&
+        Objects.equals(this.networkRules, createSandboxRequest.networkRules) &&
         Objects.equals(this.requestTimeout, createSandboxRequest.requestTimeout) &&
         Objects.equals(this.roleChainTrn, createSandboxRequest.roleChainTrn) &&
         Objects.equals(this.roleTrn, createSandboxRequest.roleTrn) &&
@@ -623,7 +647,7 @@ public class CreateSandboxRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(async, autoPauseConfig, autoSnapshotConfig, cpuMilli, ebSVolumes, emptyDirVolume, envs, functionId, instanceEfsMountConfig, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, requestTimeout, roleChainTrn, roleTrn, sessionId, sidecars, snapshotId, timeout, timeoutUnit);
+    return Objects.hash(async, autoPauseConfig, autoSnapshotConfig, cpuMilli, ebSVolumes, emptyDirVolume, envs, functionId, instanceEfsMountConfig, instanceImageInfo, instanceNasMountConfig, instanceTosMountConfig, maxConcurrency, memoryMB, metadata, networkRules, requestTimeout, roleChainTrn, roleTrn, sessionId, sidecars, snapshotId, timeout, timeoutUnit);
   }
 
 
@@ -647,6 +671,7 @@ public class CreateSandboxRequest {
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    networkRules: ").append(toIndentedString(networkRules)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    roleChainTrn: ").append(toIndentedString(roleChainTrn)).append("\n");
     sb.append("    roleTrn: ").append(toIndentedString(roleTrn)).append("\n");
