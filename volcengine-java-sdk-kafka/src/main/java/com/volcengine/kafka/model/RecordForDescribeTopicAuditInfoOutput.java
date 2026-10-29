@@ -30,11 +30,11 @@ import javax.validation.Valid;
 
 
 public class RecordForDescribeTopicAuditInfoOutput {
+  @SerializedName("CloseTime")
+  private String closeTime = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
-
-  @SerializedName("DeleteTime")
-  private String deleteTime = null;
 
   @SerializedName("LastUpdateTime")
   private String lastUpdateTime = null;
@@ -47,6 +47,24 @@ public class RecordForDescribeTopicAuditInfoOutput {
 
   @SerializedName("Topic")
   private String topic = null;
+
+  public RecordForDescribeTopicAuditInfoOutput closeTime(String closeTime) {
+    this.closeTime = closeTime;
+    return this;
+  }
+
+   /**
+   * Get closeTime
+   * @return closeTime
+  **/
+  @Schema(description = "")
+  public String getCloseTime() {
+    return closeTime;
+  }
+
+  public void setCloseTime(String closeTime) {
+    this.closeTime = closeTime;
+  }
 
   public RecordForDescribeTopicAuditInfoOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -64,24 +82,6 @@ public class RecordForDescribeTopicAuditInfoOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
-  }
-
-  public RecordForDescribeTopicAuditInfoOutput deleteTime(String deleteTime) {
-    this.deleteTime = deleteTime;
-    return this;
-  }
-
-   /**
-   * Get deleteTime
-   * @return deleteTime
-  **/
-  @Schema(description = "")
-  public String getDeleteTime() {
-    return deleteTime;
-  }
-
-  public void setDeleteTime(String deleteTime) {
-    this.deleteTime = deleteTime;
   }
 
   public RecordForDescribeTopicAuditInfoOutput lastUpdateTime(String lastUpdateTime) {
@@ -166,8 +166,8 @@ public class RecordForDescribeTopicAuditInfoOutput {
       return false;
     }
     RecordForDescribeTopicAuditInfoOutput recordForDescribeTopicAuditInfoOutput = (RecordForDescribeTopicAuditInfoOutput) o;
-    return Objects.equals(this.createTime, recordForDescribeTopicAuditInfoOutput.createTime) &&
-        Objects.equals(this.deleteTime, recordForDescribeTopicAuditInfoOutput.deleteTime) &&
+    return Objects.equals(this.closeTime, recordForDescribeTopicAuditInfoOutput.closeTime) &&
+        Objects.equals(this.createTime, recordForDescribeTopicAuditInfoOutput.createTime) &&
         Objects.equals(this.lastUpdateTime, recordForDescribeTopicAuditInfoOutput.lastUpdateTime) &&
         Objects.equals(this.sourceIp, recordForDescribeTopicAuditInfoOutput.sourceIp) &&
         Objects.equals(this.sourcePort, recordForDescribeTopicAuditInfoOutput.sourcePort) &&
@@ -176,7 +176,7 @@ public class RecordForDescribeTopicAuditInfoOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, deleteTime, lastUpdateTime, sourceIp, sourcePort, topic);
+    return Objects.hash(closeTime, createTime, lastUpdateTime, sourceIp, sourcePort, topic);
   }
 
 
@@ -185,8 +185,8 @@ public class RecordForDescribeTopicAuditInfoOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecordForDescribeTopicAuditInfoOutput {\n");
     
+    sb.append("    closeTime: ").append(toIndentedString(closeTime)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-    sb.append("    deleteTime: ").append(toIndentedString(deleteTime)).append("\n");
     sb.append("    lastUpdateTime: ").append(toIndentedString(lastUpdateTime)).append("\n");
     sb.append("    sourceIp: ").append(toIndentedString(sourceIp)).append("\n");
     sb.append("    sourcePort: ").append(toIndentedString(sourcePort)).append("\n");

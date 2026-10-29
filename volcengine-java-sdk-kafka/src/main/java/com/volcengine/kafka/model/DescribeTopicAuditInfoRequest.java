@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class DescribeTopicAuditInfoRequest {
+  @SerializedName("AggregateBySourceIp")
+  private Boolean aggregateBySourceIp = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -53,6 +56,24 @@ public class DescribeTopicAuditInfoRequest {
 
   @SerializedName("Type")
   private String type = null;
+
+  public DescribeTopicAuditInfoRequest aggregateBySourceIp(Boolean aggregateBySourceIp) {
+    this.aggregateBySourceIp = aggregateBySourceIp;
+    return this;
+  }
+
+   /**
+   * Get aggregateBySourceIp
+   * @return aggregateBySourceIp
+  **/
+  @Schema(description = "")
+  public Boolean isAggregateBySourceIp() {
+    return aggregateBySourceIp;
+  }
+
+  public void setAggregateBySourceIp(Boolean aggregateBySourceIp) {
+    this.aggregateBySourceIp = aggregateBySourceIp;
+  }
 
   public DescribeTopicAuditInfoRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -213,7 +234,8 @@ public class DescribeTopicAuditInfoRequest {
       return false;
     }
     DescribeTopicAuditInfoRequest describeTopicAuditInfoRequest = (DescribeTopicAuditInfoRequest) o;
-    return Objects.equals(this.instanceId, describeTopicAuditInfoRequest.instanceId) &&
+    return Objects.equals(this.aggregateBySourceIp, describeTopicAuditInfoRequest.aggregateBySourceIp) &&
+        Objects.equals(this.instanceId, describeTopicAuditInfoRequest.instanceId) &&
         Objects.equals(this.pageNumber, describeTopicAuditInfoRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeTopicAuditInfoRequest.pageSize) &&
         Objects.equals(this.sortOrder, describeTopicAuditInfoRequest.sortOrder) &&
@@ -225,7 +247,7 @@ public class DescribeTopicAuditInfoRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, pageNumber, pageSize, sortOrder, sourceIp, sourcePort, topic, type);
+    return Objects.hash(aggregateBySourceIp, instanceId, pageNumber, pageSize, sortOrder, sourceIp, sourcePort, topic, type);
   }
 
 
@@ -234,6 +256,7 @@ public class DescribeTopicAuditInfoRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeTopicAuditInfoRequest {\n");
     
+    sb.append("    aggregateBySourceIp: ").append(toIndentedString(aggregateBySourceIp)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
