@@ -30,33 +30,11 @@ import javax.validation.Valid;
 
 
 public class ServiceStatusRequest {
-  @SerializedName("BlueprintID")
-  private Integer blueprintID = null;
-
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("ResourceID")
   private String resourceID = null;
-
-  public ServiceStatusRequest blueprintID(Integer blueprintID) {
-    this.blueprintID = blueprintID;
-    return this;
-  }
-
-   /**
-   * Get blueprintID
-   * @return blueprintID
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getBlueprintID() {
-    return blueprintID;
-  }
-
-  public void setBlueprintID(Integer blueprintID) {
-    this.blueprintID = blueprintID;
-  }
 
   public ServiceStatusRequest projectName(String projectName) {
     this.projectName = projectName;
@@ -106,14 +84,13 @@ public class ServiceStatusRequest {
       return false;
     }
     ServiceStatusRequest serviceStatusRequest = (ServiceStatusRequest) o;
-    return Objects.equals(this.blueprintID, serviceStatusRequest.blueprintID) &&
-        Objects.equals(this.projectName, serviceStatusRequest.projectName) &&
+    return Objects.equals(this.projectName, serviceStatusRequest.projectName) &&
         Objects.equals(this.resourceID, serviceStatusRequest.resourceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(blueprintID, projectName, resourceID);
+    return Objects.hash(projectName, resourceID);
   }
 
 
@@ -122,7 +99,6 @@ public class ServiceStatusRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceStatusRequest {\n");
     
-    sb.append("    blueprintID: ").append(toIndentedString(blueprintID)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceID: ").append(toIndentedString(resourceID)).append("\n");
     sb.append("}");

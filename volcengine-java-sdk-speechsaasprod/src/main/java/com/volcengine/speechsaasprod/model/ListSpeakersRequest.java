@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 public class ListSpeakersRequest {
   @SerializedName("Limit")
-  private String limit = null;
+  private Integer limit = null;
 
   @SerializedName("Page")
   private Integer page = null;
@@ -44,7 +44,7 @@ public class ListSpeakersRequest {
   @SerializedName("VoiceTypes")
   private List<String> voiceTypes = null;
 
-  public ListSpeakersRequest limit(String limit) {
+  public ListSpeakersRequest limit(Integer limit) {
     this.limit = limit;
     return this;
   }
@@ -54,11 +54,11 @@ public class ListSpeakersRequest {
    * @return limit
   **/
   @Schema(description = "")
-  public String getLimit() {
+  public Integer getLimit() {
     return limit;
   }
 
-  public void setLimit(String limit) {
+  public void setLimit(Integer limit) {
     this.limit = limit;
   }
 
