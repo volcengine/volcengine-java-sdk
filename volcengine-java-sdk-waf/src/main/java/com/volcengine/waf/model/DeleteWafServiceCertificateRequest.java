@@ -36,6 +36,9 @@ public class DeleteWafServiceCertificateRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public DeleteWafServiceCertificateRequest id(String id) {
     this.id = id;
     return this;
@@ -73,6 +76,24 @@ public class DeleteWafServiceCertificateRequest {
     this.projectName = projectName;
   }
 
+  public DeleteWafServiceCertificateRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,12 +105,13 @@ public class DeleteWafServiceCertificateRequest {
     }
     DeleteWafServiceCertificateRequest deleteWafServiceCertificateRequest = (DeleteWafServiceCertificateRequest) o;
     return Objects.equals(this.id, deleteWafServiceCertificateRequest.id) &&
-        Objects.equals(this.projectName, deleteWafServiceCertificateRequest.projectName);
+        Objects.equals(this.projectName, deleteWafServiceCertificateRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, deleteWafServiceCertificateRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, projectName);
+    return Objects.hash(id, projectName, waFInstanceID);
   }
 
 
@@ -100,6 +122,7 @@ public class DeleteWafServiceCertificateRequest {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

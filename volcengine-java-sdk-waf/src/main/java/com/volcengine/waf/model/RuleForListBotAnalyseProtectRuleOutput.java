@@ -19,9 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.CronConfForListBotAnalyseProtectRuleOutput;
 import com.volcengine.waf.model.GroupForListBotAnalyseProtectRuleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -42,6 +45,12 @@ public class RuleForListBotAnalyseProtectRuleOutput {
 
   @SerializedName("ActionType")
   private Integer actionType = null;
+
+  @SerializedName("CronConfs")
+  private List<CronConfForListBotAnalyseProtectRuleOutput> cronConfs = null;
+
+  @SerializedName("CronEnable")
+  private Integer cronEnable = null;
 
   @SerializedName("EffectTime")
   private Integer effectTime = null;
@@ -165,6 +174,51 @@ public class RuleForListBotAnalyseProtectRuleOutput {
 
   public void setActionType(Integer actionType) {
     this.actionType = actionType;
+  }
+
+  public RuleForListBotAnalyseProtectRuleOutput cronConfs(List<CronConfForListBotAnalyseProtectRuleOutput> cronConfs) {
+    this.cronConfs = cronConfs;
+    return this;
+  }
+
+  public RuleForListBotAnalyseProtectRuleOutput addCronConfsItem(CronConfForListBotAnalyseProtectRuleOutput cronConfsItem) {
+    if (this.cronConfs == null) {
+      this.cronConfs = new ArrayList<CronConfForListBotAnalyseProtectRuleOutput>();
+    }
+    this.cronConfs.add(cronConfsItem);
+    return this;
+  }
+
+   /**
+   * Get cronConfs
+   * @return cronConfs
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CronConfForListBotAnalyseProtectRuleOutput> getCronConfs() {
+    return cronConfs;
+  }
+
+  public void setCronConfs(List<CronConfForListBotAnalyseProtectRuleOutput> cronConfs) {
+    this.cronConfs = cronConfs;
+  }
+
+  public RuleForListBotAnalyseProtectRuleOutput cronEnable(Integer cronEnable) {
+    this.cronEnable = cronEnable;
+    return this;
+  }
+
+   /**
+   * Get cronEnable
+   * @return cronEnable
+  **/
+  @Schema(description = "")
+  public Integer getCronEnable() {
+    return cronEnable;
+  }
+
+  public void setCronEnable(Integer cronEnable) {
+    this.cronEnable = cronEnable;
   }
 
   public RuleForListBotAnalyseProtectRuleOutput effectTime(Integer effectTime) {
@@ -487,6 +541,8 @@ public class RuleForListBotAnalyseProtectRuleOutput {
         Objects.equals(this.accurateGroupPriority, ruleForListBotAnalyseProtectRuleOutput.accurateGroupPriority) &&
         Objects.equals(this.actionAfterVerification, ruleForListBotAnalyseProtectRuleOutput.actionAfterVerification) &&
         Objects.equals(this.actionType, ruleForListBotAnalyseProtectRuleOutput.actionType) &&
+        Objects.equals(this.cronConfs, ruleForListBotAnalyseProtectRuleOutput.cronConfs) &&
+        Objects.equals(this.cronEnable, ruleForListBotAnalyseProtectRuleOutput.cronEnable) &&
         Objects.equals(this.effectTime, ruleForListBotAnalyseProtectRuleOutput.effectTime) &&
         Objects.equals(this.enable, ruleForListBotAnalyseProtectRuleOutput.enable) &&
         Objects.equals(this.exemptionTime, ruleForListBotAnalyseProtectRuleOutput.exemptionTime) &&
@@ -508,7 +564,7 @@ public class RuleForListBotAnalyseProtectRuleOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, accurateGroupPriority, actionAfterVerification, actionType, effectTime, enable, exemptionTime, field, host, id, name, passRatio, path, pathThreshold, rulePriority, ruleTag, singleProportion, singleThreshold, statisticalDuration, statisticalType, updateTime);
+    return Objects.hash(accurateGroup, accurateGroupPriority, actionAfterVerification, actionType, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, id, name, passRatio, path, pathThreshold, rulePriority, ruleTag, singleProportion, singleThreshold, statisticalDuration, statisticalType, updateTime);
   }
 
 
@@ -521,6 +577,8 @@ public class RuleForListBotAnalyseProtectRuleOutput {
     sb.append("    accurateGroupPriority: ").append(toIndentedString(accurateGroupPriority)).append("\n");
     sb.append("    actionAfterVerification: ").append(toIndentedString(actionAfterVerification)).append("\n");
     sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
+    sb.append("    cronConfs: ").append(toIndentedString(cronConfs)).append("\n");
+    sb.append("    cronEnable: ").append(toIndentedString(cronEnable)).append("\n");
     sb.append("    effectTime: ").append(toIndentedString(effectTime)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    exemptionTime: ").append(toIndentedString(exemptionTime)).append("\n");

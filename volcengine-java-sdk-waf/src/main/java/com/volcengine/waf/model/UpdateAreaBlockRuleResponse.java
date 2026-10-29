@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.waf.model.PageInfoForUpdateAreaBlockRuleOutput;
+import com.volcengine.waf.model.ResponseMetadataForUpdateAreaBlockRuleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 public class UpdateAreaBlockRuleResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PageInfo")
   private PageInfoForUpdateAreaBlockRuleOutput pageInfo = null;
+
+  @SerializedName("ResponseMetadata")
+  private ResponseMetadataForUpdateAreaBlockRuleOutput responseMetadata = null;
 
   public UpdateAreaBlockRuleResponse pageInfo(PageInfoForUpdateAreaBlockRuleOutput pageInfo) {
     this.pageInfo = pageInfo;
@@ -53,6 +57,25 @@ public class UpdateAreaBlockRuleResponse extends com.volcengine.model.AbstractRe
     this.pageInfo = pageInfo;
   }
 
+  public UpdateAreaBlockRuleResponse responseMetadata(ResponseMetadataForUpdateAreaBlockRuleOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+    return this;
+  }
+
+   /**
+   * Get responseMetadata
+   * @return responseMetadata
+  **/
+  @Valid
+  @Schema(description = "")
+  public ResponseMetadataForUpdateAreaBlockRuleOutput getResponseMetadata() {
+    return responseMetadata;
+  }
+
+  public void setResponseMetadata(ResponseMetadataForUpdateAreaBlockRuleOutput responseMetadata) {
+    this.responseMetadata = responseMetadata;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -63,12 +86,13 @@ public class UpdateAreaBlockRuleResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     UpdateAreaBlockRuleResponse updateAreaBlockRuleResponse = (UpdateAreaBlockRuleResponse) o;
-    return Objects.equals(this.pageInfo, updateAreaBlockRuleResponse.pageInfo);
+    return Objects.equals(this.pageInfo, updateAreaBlockRuleResponse.pageInfo) &&
+        Objects.equals(this.responseMetadata, updateAreaBlockRuleResponse.responseMetadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageInfo);
+    return Objects.hash(pageInfo, responseMetadata);
   }
 
 
@@ -78,6 +102,7 @@ public class UpdateAreaBlockRuleResponse extends com.volcengine.model.AbstractRe
     sb.append("class UpdateAreaBlockRuleResponse {\n");
     
     sb.append("    pageInfo: ").append(toIndentedString(pageInfo)).append("\n");
+    sb.append("    responseMetadata: ").append(toIndentedString(responseMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -39,6 +39,9 @@ public class DeleteCustomPageRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public DeleteCustomPageRequest host(String host) {
     this.host = host;
     return this;
@@ -95,6 +98,24 @@ public class DeleteCustomPageRequest {
     this.projectName = projectName;
   }
 
+  public DeleteCustomPageRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +128,13 @@ public class DeleteCustomPageRequest {
     DeleteCustomPageRequest deleteCustomPageRequest = (DeleteCustomPageRequest) o;
     return Objects.equals(this.host, deleteCustomPageRequest.host) &&
         Objects.equals(this.id, deleteCustomPageRequest.id) &&
-        Objects.equals(this.projectName, deleteCustomPageRequest.projectName);
+        Objects.equals(this.projectName, deleteCustomPageRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, deleteCustomPageRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, id, projectName);
+    return Objects.hash(host, id, projectName, waFInstanceID);
   }
 
 
@@ -124,6 +146,7 @@ public class DeleteCustomPageRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

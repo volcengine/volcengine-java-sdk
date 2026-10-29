@@ -62,6 +62,9 @@ public class ListGlobalBanItemsRequest {
   @SerializedName("Status")
   private String status = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListGlobalBanItemsRequest endTimeMs(Integer endTimeMs) {
     this.endTimeMs = endTimeMs;
     return this;
@@ -250,6 +253,24 @@ public class ListGlobalBanItemsRequest {
     this.status = status;
   }
 
+  public ListGlobalBanItemsRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -269,12 +290,13 @@ public class ListGlobalBanItemsRequest {
         Objects.equals(this.sourceModule, listGlobalBanItemsRequest.sourceModule) &&
         Objects.equals(this.sourceValueLike, listGlobalBanItemsRequest.sourceValueLike) &&
         Objects.equals(this.startTimeMs, listGlobalBanItemsRequest.startTimeMs) &&
-        Objects.equals(this.status, listGlobalBanItemsRequest.status);
+        Objects.equals(this.status, listGlobalBanItemsRequest.status) &&
+        Objects.equals(this.waFInstanceID, listGlobalBanItemsRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTimeMs, orderBy, page, pageSize, projectName, ruleTag, sourceModule, sourceValueLike, startTimeMs, status);
+    return Objects.hash(endTimeMs, orderBy, page, pageSize, projectName, ruleTag, sourceModule, sourceValueLike, startTimeMs, status, waFInstanceID);
   }
 
 
@@ -293,6 +315,7 @@ public class ListGlobalBanItemsRequest {
     sb.append("    sourceValueLike: ").append(toIndentedString(sourceValueLike)).append("\n");
     sb.append("    startTimeMs: ").append(toIndentedString(startTimeMs)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

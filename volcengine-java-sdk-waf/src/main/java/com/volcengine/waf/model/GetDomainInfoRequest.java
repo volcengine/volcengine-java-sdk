@@ -33,6 +33,9 @@ public class GetDomainInfoRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public GetDomainInfoRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -51,6 +54,24 @@ public class GetDomainInfoRequest {
     this.projectName = projectName;
   }
 
+  public GetDomainInfoRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class GetDomainInfoRequest {
       return false;
     }
     GetDomainInfoRequest getDomainInfoRequest = (GetDomainInfoRequest) o;
-    return Objects.equals(this.projectName, getDomainInfoRequest.projectName);
+    return Objects.equals(this.projectName, getDomainInfoRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, getDomainInfoRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName);
+    return Objects.hash(projectName, waFInstanceID);
   }
 
 
@@ -76,6 +98,7 @@ public class GetDomainInfoRequest {
     sb.append("class GetDomainInfoRequest {\n");
     
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

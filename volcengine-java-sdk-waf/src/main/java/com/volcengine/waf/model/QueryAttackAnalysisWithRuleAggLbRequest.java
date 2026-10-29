@@ -47,6 +47,9 @@ public class QueryAttackAnalysisWithRuleAggLbRequest {
   @SerializedName("StartTime")
   private Integer startTime = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public QueryAttackAnalysisWithRuleAggLbRequest analysisKey(String analysisKey) {
     this.analysisKey = analysisKey;
     return this;
@@ -147,6 +150,24 @@ public class QueryAttackAnalysisWithRuleAggLbRequest {
     this.startTime = startTime;
   }
 
+  public QueryAttackAnalysisWithRuleAggLbRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -161,12 +182,13 @@ public class QueryAttackAnalysisWithRuleAggLbRequest {
         Objects.equals(this.endTime, queryAttackAnalysisWithRuleAggLbRequest.endTime) &&
         Objects.equals(this.host, queryAttackAnalysisWithRuleAggLbRequest.host) &&
         Objects.equals(this.plugins, queryAttackAnalysisWithRuleAggLbRequest.plugins) &&
-        Objects.equals(this.startTime, queryAttackAnalysisWithRuleAggLbRequest.startTime);
+        Objects.equals(this.startTime, queryAttackAnalysisWithRuleAggLbRequest.startTime) &&
+        Objects.equals(this.waFInstanceID, queryAttackAnalysisWithRuleAggLbRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisKey, endTime, host, plugins, startTime);
+    return Objects.hash(analysisKey, endTime, host, plugins, startTime, waFInstanceID);
   }
 
 
@@ -180,6 +202,7 @@ public class QueryAttackAnalysisWithRuleAggLbRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    plugins: ").append(toIndentedString(plugins)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

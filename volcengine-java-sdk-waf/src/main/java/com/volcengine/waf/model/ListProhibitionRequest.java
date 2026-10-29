@@ -68,6 +68,9 @@ public class ListProhibitionRequest {
   @SerializedName("TimeOrderBy")
   private String timeOrderBy = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListProhibitionRequest endTime(Integer endTime) {
     this.endTime = endTime;
     return this;
@@ -303,6 +306,24 @@ public class ListProhibitionRequest {
     this.timeOrderBy = timeOrderBy;
   }
 
+  public ListProhibitionRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -324,12 +345,13 @@ public class ListProhibitionRequest {
         Objects.equals(this.reason, listProhibitionRequest.reason) &&
         Objects.equals(this.startTime, listProhibitionRequest.startTime) &&
         Objects.equals(this.status, listProhibitionRequest.status) &&
-        Objects.equals(this.timeOrderBy, listProhibitionRequest.timeOrderBy);
+        Objects.equals(this.timeOrderBy, listProhibitionRequest.timeOrderBy) &&
+        Objects.equals(this.waFInstanceID, listProhibitionRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, host, ip, letterOrderBy, page, pageSize, pathOrderBy, projectName, reason, startTime, status, timeOrderBy);
+    return Objects.hash(endTime, host, ip, letterOrderBy, page, pageSize, pathOrderBy, projectName, reason, startTime, status, timeOrderBy, waFInstanceID);
   }
 
 
@@ -350,6 +372,7 @@ public class ListProhibitionRequest {
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    timeOrderBy: ").append(toIndentedString(timeOrderBy)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

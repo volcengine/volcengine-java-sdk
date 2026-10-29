@@ -39,6 +39,9 @@ public class DeleteCCRuleRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public DeleteCCRuleRequest host(String host) {
     this.host = host;
     return this;
@@ -95,6 +98,24 @@ public class DeleteCCRuleRequest {
     this.projectName = projectName;
   }
 
+  public DeleteCCRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +128,13 @@ public class DeleteCCRuleRequest {
     DeleteCCRuleRequest deleteCCRuleRequest = (DeleteCCRuleRequest) o;
     return Objects.equals(this.host, deleteCCRuleRequest.host) &&
         Objects.equals(this.ID, deleteCCRuleRequest.ID) &&
-        Objects.equals(this.projectName, deleteCCRuleRequest.projectName);
+        Objects.equals(this.projectName, deleteCCRuleRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, deleteCCRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, ID, projectName);
+    return Objects.hash(host, ID, projectName, waFInstanceID);
   }
 
 
@@ -124,6 +146,7 @@ public class DeleteCCRuleRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

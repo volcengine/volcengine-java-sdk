@@ -48,6 +48,9 @@ public class CreateVolcWafServicesByBytePlusCDNRequest {
   @SerializedName("TLSFieldConfig")
   private TLSFieldConfigForCreateVolcWafServicesByBytePlusCDNInput tlSFieldConfig = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public CreateVolcWafServicesByBytePlusCDNRequest domains(List<String> domains) {
     this.domains = domains;
     return this;
@@ -147,6 +150,24 @@ public class CreateVolcWafServicesByBytePlusCDNRequest {
     this.tlSFieldConfig = tlSFieldConfig;
   }
 
+  public CreateVolcWafServicesByBytePlusCDNRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -161,12 +182,13 @@ public class CreateVolcWafServicesByBytePlusCDNRequest {
         Objects.equals(this.projectFollow, createVolcWafServicesByBytePlusCDNRequest.projectFollow) &&
         Objects.equals(this.projectName, createVolcWafServicesByBytePlusCDNRequest.projectName) &&
         Objects.equals(this.tlSEnable, createVolcWafServicesByBytePlusCDNRequest.tlSEnable) &&
-        Objects.equals(this.tlSFieldConfig, createVolcWafServicesByBytePlusCDNRequest.tlSFieldConfig);
+        Objects.equals(this.tlSFieldConfig, createVolcWafServicesByBytePlusCDNRequest.tlSFieldConfig) &&
+        Objects.equals(this.waFInstanceID, createVolcWafServicesByBytePlusCDNRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domains, projectFollow, projectName, tlSEnable, tlSFieldConfig);
+    return Objects.hash(domains, projectFollow, projectName, tlSEnable, tlSFieldConfig, waFInstanceID);
   }
 
 
@@ -180,6 +202,7 @@ public class CreateVolcWafServicesByBytePlusCDNRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tlSEnable: ").append(toIndentedString(tlSEnable)).append("\n");
     sb.append("    tlSFieldConfig: ").append(toIndentedString(tlSFieldConfig)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

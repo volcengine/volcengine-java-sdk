@@ -41,6 +41,9 @@ public class AddProhibitionWhiteRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public AddProhibitionWhiteRequest host(String host) {
     this.host = host;
     return this;
@@ -104,6 +107,24 @@ public class AddProhibitionWhiteRequest {
     this.projectName = projectName;
   }
 
+  public AddProhibitionWhiteRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -116,12 +137,13 @@ public class AddProhibitionWhiteRequest {
     AddProhibitionWhiteRequest addProhibitionWhiteRequest = (AddProhibitionWhiteRequest) o;
     return Objects.equals(this.host, addProhibitionWhiteRequest.host) &&
         Objects.equals(this.ipList, addProhibitionWhiteRequest.ipList) &&
-        Objects.equals(this.projectName, addProhibitionWhiteRequest.projectName);
+        Objects.equals(this.projectName, addProhibitionWhiteRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, addProhibitionWhiteRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, ipList, projectName);
+    return Objects.hash(host, ipList, projectName, waFInstanceID);
   }
 
 
@@ -133,6 +155,7 @@ public class AddProhibitionWhiteRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    ipList: ").append(toIndentedString(ipList)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

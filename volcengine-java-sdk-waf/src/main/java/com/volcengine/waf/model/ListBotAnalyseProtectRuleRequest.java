@@ -105,6 +105,9 @@ public class ListBotAnalyseProtectRuleRequest {
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListBotAnalyseProtectRuleRequest actionTypeKey(List<Integer> actionTypeKey) {
     this.actionTypeKey = actionTypeKey;
     return this;
@@ -295,6 +298,24 @@ public class ListBotAnalyseProtectRuleRequest {
     this.ruleTag = ruleTag;
   }
 
+  public ListBotAnalyseProtectRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -314,12 +335,13 @@ public class ListBotAnalyseProtectRuleRequest {
         Objects.equals(this.path, listBotAnalyseProtectRuleRequest.path) &&
         Objects.equals(this.projectName, listBotAnalyseProtectRuleRequest.projectName) &&
         Objects.equals(this.region, listBotAnalyseProtectRuleRequest.region) &&
-        Objects.equals(this.ruleTag, listBotAnalyseProtectRuleRequest.ruleTag);
+        Objects.equals(this.ruleTag, listBotAnalyseProtectRuleRequest.ruleTag) &&
+        Objects.equals(this.waFInstanceID, listBotAnalyseProtectRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionTypeKey, botSpace, host, name, page, pageSize, path, projectName, region, ruleTag);
+    return Objects.hash(actionTypeKey, botSpace, host, name, page, pageSize, path, projectName, region, ruleTag, waFInstanceID);
   }
 
 
@@ -338,6 +360,7 @@ public class ListBotAnalyseProtectRuleRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

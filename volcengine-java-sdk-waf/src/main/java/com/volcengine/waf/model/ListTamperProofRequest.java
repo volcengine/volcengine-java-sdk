@@ -42,6 +42,9 @@ public class ListTamperProofRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListTamperProofRequest host(String host) {
     this.host = host;
     return this;
@@ -114,6 +117,24 @@ public class ListTamperProofRequest {
     this.projectName = projectName;
   }
 
+  public ListTamperProofRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +148,13 @@ public class ListTamperProofRequest {
     return Objects.equals(this.host, listTamperProofRequest.host) &&
         Objects.equals(this.page, listTamperProofRequest.page) &&
         Objects.equals(this.pageSize, listTamperProofRequest.pageSize) &&
-        Objects.equals(this.projectName, listTamperProofRequest.projectName);
+        Objects.equals(this.projectName, listTamperProofRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, listTamperProofRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, page, pageSize, projectName);
+    return Objects.hash(host, page, pageSize, projectName, waFInstanceID);
   }
 
 
@@ -145,6 +167,7 @@ public class ListTamperProofRequest {
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

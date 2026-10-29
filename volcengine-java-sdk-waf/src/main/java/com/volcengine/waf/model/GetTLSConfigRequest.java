@@ -33,6 +33,9 @@ public class GetTLSConfigRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public GetTLSConfigRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -51,6 +54,24 @@ public class GetTLSConfigRequest {
     this.projectName = projectName;
   }
 
+  public GetTLSConfigRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class GetTLSConfigRequest {
       return false;
     }
     GetTLSConfigRequest getTLSConfigRequest = (GetTLSConfigRequest) o;
-    return Objects.equals(this.projectName, getTLSConfigRequest.projectName);
+    return Objects.equals(this.projectName, getTLSConfigRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, getTLSConfigRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName);
+    return Objects.hash(projectName, waFInstanceID);
   }
 
 
@@ -76,6 +98,7 @@ public class GetTLSConfigRequest {
     sb.append("class GetTLSConfigRequest {\n");
     
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

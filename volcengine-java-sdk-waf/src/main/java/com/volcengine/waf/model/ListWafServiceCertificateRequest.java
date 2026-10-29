@@ -33,6 +33,9 @@ public class ListWafServiceCertificateRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListWafServiceCertificateRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -51,6 +54,24 @@ public class ListWafServiceCertificateRequest {
     this.projectName = projectName;
   }
 
+  public ListWafServiceCertificateRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class ListWafServiceCertificateRequest {
       return false;
     }
     ListWafServiceCertificateRequest listWafServiceCertificateRequest = (ListWafServiceCertificateRequest) o;
-    return Objects.equals(this.projectName, listWafServiceCertificateRequest.projectName);
+    return Objects.equals(this.projectName, listWafServiceCertificateRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, listWafServiceCertificateRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName);
+    return Objects.hash(projectName, waFInstanceID);
   }
 
 
@@ -76,6 +98,7 @@ public class ListWafServiceCertificateRequest {
     sb.append("class ListWafServiceCertificateRequest {\n");
     
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

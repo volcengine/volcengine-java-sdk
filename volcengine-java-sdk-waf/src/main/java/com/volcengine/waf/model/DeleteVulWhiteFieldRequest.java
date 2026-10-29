@@ -36,6 +36,9 @@ public class DeleteVulWhiteFieldRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public DeleteVulWhiteFieldRequest ID(Integer ID) {
     this.ID = ID;
     return this;
@@ -73,6 +76,24 @@ public class DeleteVulWhiteFieldRequest {
     this.projectName = projectName;
   }
 
+  public DeleteVulWhiteFieldRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,12 +105,13 @@ public class DeleteVulWhiteFieldRequest {
     }
     DeleteVulWhiteFieldRequest deleteVulWhiteFieldRequest = (DeleteVulWhiteFieldRequest) o;
     return Objects.equals(this.ID, deleteVulWhiteFieldRequest.ID) &&
-        Objects.equals(this.projectName, deleteVulWhiteFieldRequest.projectName);
+        Objects.equals(this.projectName, deleteVulWhiteFieldRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, deleteVulWhiteFieldRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ID, projectName);
+    return Objects.hash(ID, projectName, waFInstanceID);
   }
 
 
@@ -100,6 +122,7 @@ public class DeleteVulWhiteFieldRequest {
     
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

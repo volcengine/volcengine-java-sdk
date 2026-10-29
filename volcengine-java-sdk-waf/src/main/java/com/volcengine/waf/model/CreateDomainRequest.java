@@ -147,6 +147,9 @@ public class CreateDomainRequest {
   @SerializedName("VpcID")
   private String vpcID = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public CreateDomainRequest accessMode(Integer accessMode) {
     this.accessMode = accessMode;
     return this;
@@ -868,6 +871,24 @@ public class CreateDomainRequest {
     this.vpcID = vpcID;
   }
 
+  public CreateDomainRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -914,12 +935,13 @@ public class CreateDomainRequest {
         Objects.equals(this.tlSEnable, createDomainRequest.tlSEnable) &&
         Objects.equals(this.tlSFieldsConfig, createDomainRequest.tlSFieldsConfig) &&
         Objects.equals(this.volcCertificateID, createDomainRequest.volcCertificateID) &&
-        Objects.equals(this.vpcID, createDomainRequest.vpcID);
+        Objects.equals(this.vpcID, createDomainRequest.vpcID) &&
+        Objects.equals(this.waFInstanceID, createDomainRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, backendGroups, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, customSNI, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, projectName, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, tlSFieldsConfig, volcCertificateID, vpcID);
+    return Objects.hash(accessMode, backendGroups, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, customSNI, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, projectName, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, tlSFieldsConfig, volcCertificateID, vpcID, waFInstanceID);
   }
 
 
@@ -965,6 +987,7 @@ public class CreateDomainRequest {
     sb.append("    tlSFieldsConfig: ").append(toIndentedString(tlSFieldsConfig)).append("\n");
     sb.append("    volcCertificateID: ").append(toIndentedString(volcCertificateID)).append("\n");
     sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

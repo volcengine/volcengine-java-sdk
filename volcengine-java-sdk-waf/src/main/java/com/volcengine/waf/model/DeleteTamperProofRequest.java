@@ -39,6 +39,9 @@ public class DeleteTamperProofRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public DeleteTamperProofRequest host(String host) {
     this.host = host;
     return this;
@@ -95,6 +98,24 @@ public class DeleteTamperProofRequest {
     this.projectName = projectName;
   }
 
+  public DeleteTamperProofRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +128,13 @@ public class DeleteTamperProofRequest {
     DeleteTamperProofRequest deleteTamperProofRequest = (DeleteTamperProofRequest) o;
     return Objects.equals(this.host, deleteTamperProofRequest.host) &&
         Objects.equals(this.ID, deleteTamperProofRequest.ID) &&
-        Objects.equals(this.projectName, deleteTamperProofRequest.projectName);
+        Objects.equals(this.projectName, deleteTamperProofRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, deleteTamperProofRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, ID, projectName);
+    return Objects.hash(host, ID, projectName, waFInstanceID);
   }
 
 
@@ -124,6 +146,7 @@ public class DeleteTamperProofRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

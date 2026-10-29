@@ -45,6 +45,9 @@ public class BatchUpdateTLSFieldsConfigRequest {
   @SerializedName("TLSFieldsConfig")
   private TLSFieldsConfigForBatchUpdateTLSFieldsConfigInput tlSFieldsConfig = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public BatchUpdateTLSFieldsConfigRequest domainList(List<String> domainList) {
     this.domainList = domainList;
     return this;
@@ -127,6 +130,24 @@ public class BatchUpdateTLSFieldsConfigRequest {
     this.tlSFieldsConfig = tlSFieldsConfig;
   }
 
+  public BatchUpdateTLSFieldsConfigRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -140,12 +161,13 @@ public class BatchUpdateTLSFieldsConfigRequest {
     return Objects.equals(this.domainList, batchUpdateTLSFieldsConfigRequest.domainList) &&
         Objects.equals(this.projectName, batchUpdateTLSFieldsConfigRequest.projectName) &&
         Objects.equals(this.region, batchUpdateTLSFieldsConfigRequest.region) &&
-        Objects.equals(this.tlSFieldsConfig, batchUpdateTLSFieldsConfigRequest.tlSFieldsConfig);
+        Objects.equals(this.tlSFieldsConfig, batchUpdateTLSFieldsConfigRequest.tlSFieldsConfig) &&
+        Objects.equals(this.waFInstanceID, batchUpdateTLSFieldsConfigRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domainList, projectName, region, tlSFieldsConfig);
+    return Objects.hash(domainList, projectName, region, tlSFieldsConfig, waFInstanceID);
   }
 
 
@@ -158,6 +180,7 @@ public class BatchUpdateTLSFieldsConfigRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    tlSFieldsConfig: ").append(toIndentedString(tlSFieldsConfig)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -36,6 +36,9 @@ public class ListAreaBlockRuleRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListAreaBlockRuleRequest host(String host) {
     this.host = host;
     return this;
@@ -72,6 +75,24 @@ public class ListAreaBlockRuleRequest {
     this.projectName = projectName;
   }
 
+  public ListAreaBlockRuleRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class ListAreaBlockRuleRequest {
     }
     ListAreaBlockRuleRequest listAreaBlockRuleRequest = (ListAreaBlockRuleRequest) o;
     return Objects.equals(this.host, listAreaBlockRuleRequest.host) &&
-        Objects.equals(this.projectName, listAreaBlockRuleRequest.projectName);
+        Objects.equals(this.projectName, listAreaBlockRuleRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, listAreaBlockRuleRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, projectName);
+    return Objects.hash(host, projectName, waFInstanceID);
   }
 
 
@@ -99,6 +121,7 @@ public class ListAreaBlockRuleRequest {
     
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

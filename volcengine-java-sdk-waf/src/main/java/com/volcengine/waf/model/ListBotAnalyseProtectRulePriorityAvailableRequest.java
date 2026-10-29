@@ -95,6 +95,9 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListBotAnalyseProtectRulePriorityAvailableRequest accurateGroup(AccurateGroupForListBotAnalyseProtectRulePriorityAvailableInput accurateGroup) {
     this.accurateGroup = accurateGroup;
     return this;
@@ -225,6 +228,24 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
     this.projectName = projectName;
   }
 
+  public ListBotAnalyseProtectRulePriorityAvailableRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -241,12 +262,13 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
         Objects.equals(this.page, listBotAnalyseProtectRulePriorityAvailableRequest.page) &&
         Objects.equals(this.pageSize, listBotAnalyseProtectRulePriorityAvailableRequest.pageSize) &&
         Objects.equals(this.path, listBotAnalyseProtectRulePriorityAvailableRequest.path) &&
-        Objects.equals(this.projectName, listBotAnalyseProtectRulePriorityAvailableRequest.projectName);
+        Objects.equals(this.projectName, listBotAnalyseProtectRulePriorityAvailableRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, listBotAnalyseProtectRulePriorityAvailableRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, botSpace, host, page, pageSize, path, projectName);
+    return Objects.hash(accurateGroup, botSpace, host, page, pageSize, path, projectName, waFInstanceID);
   }
 
 
@@ -262,6 +284,7 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

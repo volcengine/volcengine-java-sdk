@@ -45,6 +45,9 @@ public class ModifyServiceDefenceModeRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ModifyServiceDefenceModeRequest defenceMode(Integer defenceMode) {
     this.defenceMode = defenceMode;
     return this;
@@ -128,6 +131,24 @@ public class ModifyServiceDefenceModeRequest {
     this.projectName = projectName;
   }
 
+  public ModifyServiceDefenceModeRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -141,12 +162,13 @@ public class ModifyServiceDefenceModeRequest {
     return Objects.equals(this.defenceMode, modifyServiceDefenceModeRequest.defenceMode) &&
         Objects.equals(this.extraDefenceModeLBInstance, modifyServiceDefenceModeRequest.extraDefenceModeLBInstance) &&
         Objects.equals(this.host, modifyServiceDefenceModeRequest.host) &&
-        Objects.equals(this.projectName, modifyServiceDefenceModeRequest.projectName);
+        Objects.equals(this.projectName, modifyServiceDefenceModeRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, modifyServiceDefenceModeRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defenceMode, extraDefenceModeLBInstance, host, projectName);
+    return Objects.hash(defenceMode, extraDefenceModeLBInstance, host, projectName, waFInstanceID);
   }
 
 
@@ -159,6 +181,7 @@ public class ModifyServiceDefenceModeRequest {
     sb.append("    extraDefenceModeLBInstance: ").append(toIndentedString(extraDefenceModeLBInstance)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -39,6 +39,9 @@ public class ListCertificateServicesRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public ListCertificateServicesRequest clbCertificateId(String clbCertificateId) {
     this.clbCertificateId = clbCertificateId;
     return this;
@@ -94,6 +97,24 @@ public class ListCertificateServicesRequest {
     this.projectName = projectName;
   }
 
+  public ListCertificateServicesRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +127,13 @@ public class ListCertificateServicesRequest {
     ListCertificateServicesRequest listCertificateServicesRequest = (ListCertificateServicesRequest) o;
     return Objects.equals(this.clbCertificateId, listCertificateServicesRequest.clbCertificateId) &&
         Objects.equals(this.id, listCertificateServicesRequest.id) &&
-        Objects.equals(this.projectName, listCertificateServicesRequest.projectName);
+        Objects.equals(this.projectName, listCertificateServicesRequest.projectName) &&
+        Objects.equals(this.waFInstanceID, listCertificateServicesRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clbCertificateId, id, projectName);
+    return Objects.hash(clbCertificateId, id, projectName, waFInstanceID);
   }
 
 
@@ -123,6 +145,7 @@ public class ListCertificateServicesRequest {
     sb.append("    clbCertificateId: ").append(toIndentedString(clbCertificateId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

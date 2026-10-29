@@ -39,6 +39,9 @@ public class DeleteDomainRequest {
   @SerializedName("Region")
   private String region = null;
 
+  @SerializedName("WAFInstanceID")
+  private String waFInstanceID = null;
+
   public DeleteDomainRequest domain(String domain) {
     this.domain = domain;
     return this;
@@ -95,6 +98,24 @@ public class DeleteDomainRequest {
     this.region = region;
   }
 
+  public DeleteDomainRequest waFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+    return this;
+  }
+
+   /**
+   * Get waFInstanceID
+   * @return waFInstanceID
+  **/
+  @Schema(description = "")
+  public String getWaFInstanceID() {
+    return waFInstanceID;
+  }
+
+  public void setWaFInstanceID(String waFInstanceID) {
+    this.waFInstanceID = waFInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +128,13 @@ public class DeleteDomainRequest {
     DeleteDomainRequest deleteDomainRequest = (DeleteDomainRequest) o;
     return Objects.equals(this.domain, deleteDomainRequest.domain) &&
         Objects.equals(this.projectName, deleteDomainRequest.projectName) &&
-        Objects.equals(this.region, deleteDomainRequest.region);
+        Objects.equals(this.region, deleteDomainRequest.region) &&
+        Objects.equals(this.waFInstanceID, deleteDomainRequest.waFInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, projectName, region);
+    return Objects.hash(domain, projectName, region, waFInstanceID);
   }
 
 
@@ -124,6 +146,7 @@ public class DeleteDomainRequest {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    waFInstanceID: ").append(toIndentedString(waFInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
