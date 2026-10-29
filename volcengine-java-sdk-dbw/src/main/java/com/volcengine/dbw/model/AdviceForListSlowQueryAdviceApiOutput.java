@@ -39,55 +39,8 @@ public class AdviceForListSlowQueryAdviceApiOutput {
   @SerializedName("AdviceIndexSize")
   private Double adviceIndexSize = null;
 
-  /**
-   * Gets or Sets adviceLevel
-   */
-  @JsonAdapter(AdviceLevelEnum.Adapter.class)
-  public enum AdviceLevelEnum {
-    @SerializedName("Low")
-    LOW("Low"),
-    @SerializedName("Middle")
-    MIDDLE("Middle"),
-    @SerializedName("High")
-    HIGH("High"),
-    @SerializedName("VeryHigh")
-    VERYHIGH("VeryHigh");
-
-    private String value;
-
-    AdviceLevelEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AdviceLevelEnum fromValue(String input) {
-      for (AdviceLevelEnum b : AdviceLevelEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AdviceLevelEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AdviceLevelEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AdviceLevelEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AdviceLevelEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AdviceLevel")
-  private AdviceLevelEnum adviceLevel = null;
+  @SerializedName("AdviceLevel")
+  private String adviceLevel = null;
 
   @SerializedName("Benefit")
   private Double benefit = null;
@@ -155,7 +108,7 @@ public class AdviceForListSlowQueryAdviceApiOutput {
     this.adviceIndexSize = adviceIndexSize;
   }
 
-  public AdviceForListSlowQueryAdviceApiOutput adviceLevel(AdviceLevelEnum adviceLevel) {
+  public AdviceForListSlowQueryAdviceApiOutput adviceLevel(String adviceLevel) {
     this.adviceLevel = adviceLevel;
     return this;
   }
@@ -165,11 +118,11 @@ public class AdviceForListSlowQueryAdviceApiOutput {
    * @return adviceLevel
   **/
   @Schema(description = "")
-  public AdviceLevelEnum getAdviceLevel() {
+  public String getAdviceLevel() {
     return adviceLevel;
   }
 
-  public void setAdviceLevel(AdviceLevelEnum adviceLevel) {
+  public void setAdviceLevel(String adviceLevel) {
     this.adviceLevel = adviceLevel;
   }
 
