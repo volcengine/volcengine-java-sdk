@@ -36,6 +36,9 @@ public class CreateSandboxResponse extends com.volcengine.model.AbstractResponse
   @SerializedName("AssignStatus")
   private String assignStatus = null;
 
+  @SerializedName("LatencyMs")
+  private Long latencyMs = null;
+
   @SerializedName("SandboxId")
   private String sandboxId = null;
 
@@ -75,6 +78,24 @@ public class CreateSandboxResponse extends com.volcengine.model.AbstractResponse
     this.assignStatus = assignStatus;
   }
 
+  public CreateSandboxResponse latencyMs(Long latencyMs) {
+    this.latencyMs = latencyMs;
+    return this;
+  }
+
+   /**
+   * Get latencyMs
+   * @return latencyMs
+  **/
+  @Schema(description = "")
+  public Long getLatencyMs() {
+    return latencyMs;
+  }
+
+  public void setLatencyMs(Long latencyMs) {
+    this.latencyMs = latencyMs;
+  }
+
   public CreateSandboxResponse sandboxId(String sandboxId) {
     this.sandboxId = sandboxId;
     return this;
@@ -105,12 +126,13 @@ public class CreateSandboxResponse extends com.volcengine.model.AbstractResponse
     CreateSandboxResponse createSandboxResponse = (CreateSandboxResponse) o;
     return Objects.equals(this.assignMissedReason, createSandboxResponse.assignMissedReason) &&
         Objects.equals(this.assignStatus, createSandboxResponse.assignStatus) &&
+        Objects.equals(this.latencyMs, createSandboxResponse.latencyMs) &&
         Objects.equals(this.sandboxId, createSandboxResponse.sandboxId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignMissedReason, assignStatus, sandboxId);
+    return Objects.hash(assignMissedReason, assignStatus, latencyMs, sandboxId);
   }
 
 
@@ -121,6 +143,7 @@ public class CreateSandboxResponse extends com.volcengine.model.AbstractResponse
     
     sb.append("    assignMissedReason: ").append(toIndentedString(assignMissedReason)).append("\n");
     sb.append("    assignStatus: ").append(toIndentedString(assignStatus)).append("\n");
+    sb.append("    latencyMs: ").append(toIndentedString(latencyMs)).append("\n");
     sb.append("    sandboxId: ").append(toIndentedString(sandboxId)).append("\n");
     sb.append("}");
     return sb.toString();

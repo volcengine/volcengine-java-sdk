@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.BackendForCreateSandboxInput;
+import com.volcengine.vefaas.model.ConvertEncryptionConfigForCreateSandboxInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 public class MountPointForCreateSandboxInput {
   @SerializedName("Backend")
   private BackendForCreateSandboxInput backend = null;
+
+  @SerializedName("EncryptionConfig")
+  private ConvertEncryptionConfigForCreateSandboxInput encryptionConfig = null;
 
   @SerializedName("LocalMountPath")
   private String localMountPath = null;
@@ -57,6 +61,25 @@ public class MountPointForCreateSandboxInput {
 
   public void setBackend(BackendForCreateSandboxInput backend) {
     this.backend = backend;
+  }
+
+  public MountPointForCreateSandboxInput encryptionConfig(ConvertEncryptionConfigForCreateSandboxInput encryptionConfig) {
+    this.encryptionConfig = encryptionConfig;
+    return this;
+  }
+
+   /**
+   * Get encryptionConfig
+   * @return encryptionConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertEncryptionConfigForCreateSandboxInput getEncryptionConfig() {
+    return encryptionConfig;
+  }
+
+  public void setEncryptionConfig(ConvertEncryptionConfigForCreateSandboxInput encryptionConfig) {
+    this.encryptionConfig = encryptionConfig;
   }
 
   public MountPointForCreateSandboxInput localMountPath(String localMountPath) {
@@ -106,13 +129,14 @@ public class MountPointForCreateSandboxInput {
     }
     MountPointForCreateSandboxInput mountPointForCreateSandboxInput = (MountPointForCreateSandboxInput) o;
     return Objects.equals(this.backend, mountPointForCreateSandboxInput.backend) &&
+        Objects.equals(this.encryptionConfig, mountPointForCreateSandboxInput.encryptionConfig) &&
         Objects.equals(this.localMountPath, mountPointForCreateSandboxInput.localMountPath) &&
         Objects.equals(this.readOnly, mountPointForCreateSandboxInput.readOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backend, localMountPath, readOnly);
+    return Objects.hash(backend, encryptionConfig, localMountPath, readOnly);
   }
 
 
@@ -122,6 +146,7 @@ public class MountPointForCreateSandboxInput {
     sb.append("class MountPointForCreateSandboxInput {\n");
     
     sb.append("    backend: ").append(toIndentedString(backend)).append("\n");
+    sb.append("    encryptionConfig: ").append(toIndentedString(encryptionConfig)).append("\n");
     sb.append("    localMountPath: ").append(toIndentedString(localMountPath)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("}");
