@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.NetworkConfigForPrecacheSandboxImagesInput;
+import com.volcengine.vefaas.model.RegistryAuthConfigForPrecacheSandboxImagesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,11 +34,38 @@ import javax.validation.Valid;
 
 
 public class PrecacheSandboxImagesRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ImageUrls")
   private List<String> imageUrls = null;
 
-  @SerializedName("RegistryId")
-  private String registryId = null;
+  @SerializedName("NetworkConfig")
+  private NetworkConfigForPrecacheSandboxImagesInput networkConfig = null;
+
+  @SerializedName("RegistryAuthConfig")
+  private RegistryAuthConfigForPrecacheSandboxImagesInput registryAuthConfig = null;
+
+  @SerializedName("RegistryType")
+  private String registryType = null;
+
+  public PrecacheSandboxImagesRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public PrecacheSandboxImagesRequest imageUrls(List<String> imageUrls) {
     this.imageUrls = imageUrls;
@@ -64,22 +93,60 @@ public class PrecacheSandboxImagesRequest {
     this.imageUrls = imageUrls;
   }
 
-  public PrecacheSandboxImagesRequest registryId(String registryId) {
-    this.registryId = registryId;
+  public PrecacheSandboxImagesRequest networkConfig(NetworkConfigForPrecacheSandboxImagesInput networkConfig) {
+    this.networkConfig = networkConfig;
     return this;
   }
 
    /**
-   * Get registryId
-   * @return registryId
+   * Get networkConfig
+   * @return networkConfig
   **/
+  @Valid
   @Schema(description = "")
-  public String getRegistryId() {
-    return registryId;
+  public NetworkConfigForPrecacheSandboxImagesInput getNetworkConfig() {
+    return networkConfig;
   }
 
-  public void setRegistryId(String registryId) {
-    this.registryId = registryId;
+  public void setNetworkConfig(NetworkConfigForPrecacheSandboxImagesInput networkConfig) {
+    this.networkConfig = networkConfig;
+  }
+
+  public PrecacheSandboxImagesRequest registryAuthConfig(RegistryAuthConfigForPrecacheSandboxImagesInput registryAuthConfig) {
+    this.registryAuthConfig = registryAuthConfig;
+    return this;
+  }
+
+   /**
+   * Get registryAuthConfig
+   * @return registryAuthConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public RegistryAuthConfigForPrecacheSandboxImagesInput getRegistryAuthConfig() {
+    return registryAuthConfig;
+  }
+
+  public void setRegistryAuthConfig(RegistryAuthConfigForPrecacheSandboxImagesInput registryAuthConfig) {
+    this.registryAuthConfig = registryAuthConfig;
+  }
+
+  public PrecacheSandboxImagesRequest registryType(String registryType) {
+    this.registryType = registryType;
+    return this;
+  }
+
+   /**
+   * Get registryType
+   * @return registryType
+  **/
+  @Schema(description = "")
+  public String getRegistryType() {
+    return registryType;
+  }
+
+  public void setRegistryType(String registryType) {
+    this.registryType = registryType;
   }
 
 
@@ -92,13 +159,16 @@ public class PrecacheSandboxImagesRequest {
       return false;
     }
     PrecacheSandboxImagesRequest precacheSandboxImagesRequest = (PrecacheSandboxImagesRequest) o;
-    return Objects.equals(this.imageUrls, precacheSandboxImagesRequest.imageUrls) &&
-        Objects.equals(this.registryId, precacheSandboxImagesRequest.registryId);
+    return Objects.equals(this.clientToken, precacheSandboxImagesRequest.clientToken) &&
+        Objects.equals(this.imageUrls, precacheSandboxImagesRequest.imageUrls) &&
+        Objects.equals(this.networkConfig, precacheSandboxImagesRequest.networkConfig) &&
+        Objects.equals(this.registryAuthConfig, precacheSandboxImagesRequest.registryAuthConfig) &&
+        Objects.equals(this.registryType, precacheSandboxImagesRequest.registryType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageUrls, registryId);
+    return Objects.hash(clientToken, imageUrls, networkConfig, registryAuthConfig, registryType);
   }
 
 
@@ -107,8 +177,11 @@ public class PrecacheSandboxImagesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrecacheSandboxImagesRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    imageUrls: ").append(toIndentedString(imageUrls)).append("\n");
-    sb.append("    registryId: ").append(toIndentedString(registryId)).append("\n");
+    sb.append("    networkConfig: ").append(toIndentedString(networkConfig)).append("\n");
+    sb.append("    registryAuthConfig: ").append(toIndentedString(registryAuthConfig)).append("\n");
+    sb.append("    registryType: ").append(toIndentedString(registryType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
