@@ -123,6 +123,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * RDS MySQL API 2018-01-01 客户端。
@@ -134,17 +135,32 @@ import java.util.Map;
  * RdsMysqlV2Api api = new RdsMysqlV2Api(); // 或 new RdsMysqlV2Api(apiClient)
  *             }</pre>
  *             并按新版定义调整请求和返回模型。
+ *             <p>过渡期内构造本客户端会向 {@code System.err} 打印一次下线提示，
+ *             请求仍按 2018-01-01 原语义发出；该版本将在未来版本中删除。
  */
 @Deprecated
 public class RdsMysqlApi {
     private ApiClient apiClient;
 
+    // 下线过渡期：同一类加载器内最多提示一次。仅写 stderr，不改变任何请求行为。
+    private static final AtomicBoolean DEPRECATION_NOTICE_EMITTED = new AtomicBoolean(false);
+
+    private static void emitDeprecationNotice() {
+        if (DEPRECATION_NOTICE_EMITTED.compareAndSet(false, true)) {
+            System.err.println("Warning: RDS MySQL API 2018-01-01 is deprecated and will be removed in a future release.");
+            System.err.println("Please migrate to module volcengine-java-sdk-rdsmysqlv2 and com.volcengine.rdsmysqlv2.RdsMysqlV2Api.");
+            System.err.println("The current request continues unchanged using API 2018-01-01.");
+        }
+    }
+
     public RdsMysqlApi() {
         this(Configuration.getDefaultApiClient());
+        emitDeprecationNotice();
     }
 
     public RdsMysqlApi(ApiClient apiClient) {
         this.apiClient = apiClient;
+        emitDeprecationNotice();
     }
 
     public ApiClient getApiClient() {
