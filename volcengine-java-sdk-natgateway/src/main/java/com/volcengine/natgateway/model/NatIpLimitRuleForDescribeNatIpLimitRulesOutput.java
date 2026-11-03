@@ -30,11 +30,20 @@ import javax.validation.Valid;
 
 
 public class NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
+  @SerializedName("ConnectionLimit")
+  private Integer connectionLimit = null;
+
+  @SerializedName("CpsLimit")
+  private Integer cpsLimit = null;
+
   @SerializedName("InboundMbpsLimit")
   private String inboundMbpsLimit = null;
 
   @SerializedName("InternalIp")
   private String internalIp = null;
+
+  @SerializedName("IsDefault")
+  private Boolean isDefault = null;
 
   @SerializedName("LimitRuleId")
   private String limitRuleId = null;
@@ -44,6 +53,42 @@ public class NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
 
   @SerializedName("OutboundMbpsLimit")
   private String outboundMbpsLimit = null;
+
+  public NatIpLimitRuleForDescribeNatIpLimitRulesOutput connectionLimit(Integer connectionLimit) {
+    this.connectionLimit = connectionLimit;
+    return this;
+  }
+
+   /**
+   * Get connectionLimit
+   * @return connectionLimit
+  **/
+  @Schema(description = "")
+  public Integer getConnectionLimit() {
+    return connectionLimit;
+  }
+
+  public void setConnectionLimit(Integer connectionLimit) {
+    this.connectionLimit = connectionLimit;
+  }
+
+  public NatIpLimitRuleForDescribeNatIpLimitRulesOutput cpsLimit(Integer cpsLimit) {
+    this.cpsLimit = cpsLimit;
+    return this;
+  }
+
+   /**
+   * Get cpsLimit
+   * @return cpsLimit
+  **/
+  @Schema(description = "")
+  public Integer getCpsLimit() {
+    return cpsLimit;
+  }
+
+  public void setCpsLimit(Integer cpsLimit) {
+    this.cpsLimit = cpsLimit;
+  }
 
   public NatIpLimitRuleForDescribeNatIpLimitRulesOutput inboundMbpsLimit(String inboundMbpsLimit) {
     this.inboundMbpsLimit = inboundMbpsLimit;
@@ -79,6 +124,24 @@ public class NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
 
   public void setInternalIp(String internalIp) {
     this.internalIp = internalIp;
+  }
+
+  public NatIpLimitRuleForDescribeNatIpLimitRulesOutput isDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+    return this;
+  }
+
+   /**
+   * Get isDefault
+   * @return isDefault
+  **/
+  @Schema(description = "")
+  public Boolean isIsDefault() {
+    return isDefault;
+  }
+
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
   }
 
   public NatIpLimitRuleForDescribeNatIpLimitRulesOutput limitRuleId(String limitRuleId) {
@@ -145,8 +208,11 @@ public class NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
       return false;
     }
     NatIpLimitRuleForDescribeNatIpLimitRulesOutput natIpLimitRuleForDescribeNatIpLimitRulesOutput = (NatIpLimitRuleForDescribeNatIpLimitRulesOutput) o;
-    return Objects.equals(this.inboundMbpsLimit, natIpLimitRuleForDescribeNatIpLimitRulesOutput.inboundMbpsLimit) &&
+    return Objects.equals(this.connectionLimit, natIpLimitRuleForDescribeNatIpLimitRulesOutput.connectionLimit) &&
+        Objects.equals(this.cpsLimit, natIpLimitRuleForDescribeNatIpLimitRulesOutput.cpsLimit) &&
+        Objects.equals(this.inboundMbpsLimit, natIpLimitRuleForDescribeNatIpLimitRulesOutput.inboundMbpsLimit) &&
         Objects.equals(this.internalIp, natIpLimitRuleForDescribeNatIpLimitRulesOutput.internalIp) &&
+        Objects.equals(this.isDefault, natIpLimitRuleForDescribeNatIpLimitRulesOutput.isDefault) &&
         Objects.equals(this.limitRuleId, natIpLimitRuleForDescribeNatIpLimitRulesOutput.limitRuleId) &&
         Objects.equals(this.natGatewayId, natIpLimitRuleForDescribeNatIpLimitRulesOutput.natGatewayId) &&
         Objects.equals(this.outboundMbpsLimit, natIpLimitRuleForDescribeNatIpLimitRulesOutput.outboundMbpsLimit);
@@ -154,7 +220,7 @@ public class NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(inboundMbpsLimit, internalIp, limitRuleId, natGatewayId, outboundMbpsLimit);
+    return Objects.hash(connectionLimit, cpsLimit, inboundMbpsLimit, internalIp, isDefault, limitRuleId, natGatewayId, outboundMbpsLimit);
   }
 
 
@@ -163,8 +229,11 @@ public class NatIpLimitRuleForDescribeNatIpLimitRulesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NatIpLimitRuleForDescribeNatIpLimitRulesOutput {\n");
     
+    sb.append("    connectionLimit: ").append(toIndentedString(connectionLimit)).append("\n");
+    sb.append("    cpsLimit: ").append(toIndentedString(cpsLimit)).append("\n");
     sb.append("    inboundMbpsLimit: ").append(toIndentedString(inboundMbpsLimit)).append("\n");
     sb.append("    internalIp: ").append(toIndentedString(internalIp)).append("\n");
+    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    limitRuleId: ").append(toIndentedString(limitRuleId)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
     sb.append("    outboundMbpsLimit: ").append(toIndentedString(outboundMbpsLimit)).append("\n");

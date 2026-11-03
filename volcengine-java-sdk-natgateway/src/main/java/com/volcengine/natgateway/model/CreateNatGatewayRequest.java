@@ -60,6 +60,9 @@ public class CreateNatGatewayRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("RenewType")
+  private Integer renewType = null;
+
   @SerializedName("Spec")
   private String spec = null;
 
@@ -236,6 +239,24 @@ public class CreateNatGatewayRequest {
     this.projectName = projectName;
   }
 
+  public CreateNatGatewayRequest renewType(Integer renewType) {
+    this.renewType = renewType;
+    return this;
+  }
+
+   /**
+   * Get renewType
+   * @return renewType
+  **/
+  @Schema(description = "")
+  public Integer getRenewType() {
+    return renewType;
+  }
+
+  public void setRenewType(Integer renewType) {
+    this.renewType = renewType;
+  }
+
   public CreateNatGatewayRequest spec(String spec) {
     this.spec = spec;
     return this;
@@ -337,6 +358,7 @@ public class CreateNatGatewayRequest {
         Objects.equals(this.period, createNatGatewayRequest.period) &&
         Objects.equals(this.periodUnit, createNatGatewayRequest.periodUnit) &&
         Objects.equals(this.projectName, createNatGatewayRequest.projectName) &&
+        Objects.equals(this.renewType, createNatGatewayRequest.renewType) &&
         Objects.equals(this.spec, createNatGatewayRequest.spec) &&
         Objects.equals(this.subnetId, createNatGatewayRequest.subnetId) &&
         Objects.equals(this.tags, createNatGatewayRequest.tags) &&
@@ -345,7 +367,7 @@ public class CreateNatGatewayRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, clientToken, description, directMode, natGatewayName, networkType, period, periodUnit, projectName, spec, subnetId, tags, vpcId);
+    return Objects.hash(billingType, clientToken, description, directMode, natGatewayName, networkType, period, periodUnit, projectName, renewType, spec, subnetId, tags, vpcId);
   }
 
 
@@ -363,6 +385,7 @@ public class CreateNatGatewayRequest {
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
