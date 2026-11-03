@@ -1,0 +1,14 @@
+{
+  "actions": [
+    "GetContentBlockTasks",
+    "SubmitVodPreloadTask",
+    "SubmitVodRefreshTask",
+    "SubmitVodUrlBlockTask",
+    "SubmitVodUrlUnblockTask",
+    "DescribeVodContentQuota",
+    "DescribeVodContentTasks"
+  ],
+  "description": "VOD: 新增 DescribeVodContentTasks, GetContentBlockTasks, SubmitVodPreloadTask, SubmitVodRefreshTask, SubmitVodUrlBlockTask, SubmitVodUrlUnblockTask, DescribeVodContentQuota",
+  "modules": "service/vod",
+  "type": "feature"
+}
