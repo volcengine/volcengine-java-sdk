@@ -31,8 +31,8 @@ import javax.validation.Valid;
 
 
 public class CreatePrivateLinkConnectionRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PrivateLinkConnection")
   private PrivateLinkConnectionForCreatePrivateLinkConnectionInput privateLinkConnection = null;
@@ -40,23 +40,23 @@ public class CreatePrivateLinkConnectionRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public CreatePrivateLinkConnectionRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public CreatePrivateLinkConnectionRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public CreatePrivateLinkConnectionRequest privateLinkConnection(PrivateLinkConnectionForCreatePrivateLinkConnectionInput privateLinkConnection) {
@@ -106,14 +106,14 @@ public class CreatePrivateLinkConnectionRequest {
       return false;
     }
     CreatePrivateLinkConnectionRequest createPrivateLinkConnectionRequest = (CreatePrivateLinkConnectionRequest) o;
-    return Objects.equals(this.clusterId, createPrivateLinkConnectionRequest.clusterId) &&
+    return Objects.equals(this.instanceId, createPrivateLinkConnectionRequest.instanceId) &&
         Objects.equals(this.privateLinkConnection, createPrivateLinkConnectionRequest.privateLinkConnection) &&
         Objects.equals(this.projectName, createPrivateLinkConnectionRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, privateLinkConnection, projectName);
+    return Objects.hash(instanceId, privateLinkConnection, projectName);
   }
 
 
@@ -122,7 +122,7 @@ public class CreatePrivateLinkConnectionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePrivateLinkConnectionRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    privateLinkConnection: ").append(toIndentedString(privateLinkConnection)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");

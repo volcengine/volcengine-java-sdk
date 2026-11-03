@@ -33,8 +33,8 @@ public class ResetBranchRequest {
   @SerializedName("BranchId")
   private String branchId = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -58,23 +58,23 @@ public class ResetBranchRequest {
     this.branchId = branchId;
   }
 
-  public ResetBranchRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public ResetBranchRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ResetBranchRequest projectName(String projectName) {
@@ -106,13 +106,13 @@ public class ResetBranchRequest {
     }
     ResetBranchRequest resetBranchRequest = (ResetBranchRequest) o;
     return Objects.equals(this.branchId, resetBranchRequest.branchId) &&
-        Objects.equals(this.clusterId, resetBranchRequest.clusterId) &&
+        Objects.equals(this.instanceId, resetBranchRequest.instanceId) &&
         Objects.equals(this.projectName, resetBranchRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(branchId, clusterId, projectName);
+    return Objects.hash(branchId, instanceId, projectName);
   }
 
 
@@ -122,7 +122,7 @@ public class ResetBranchRequest {
     sb.append("class ResetBranchRequest {\n");
     
     sb.append("    branchId: ").append(toIndentedString(branchId)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

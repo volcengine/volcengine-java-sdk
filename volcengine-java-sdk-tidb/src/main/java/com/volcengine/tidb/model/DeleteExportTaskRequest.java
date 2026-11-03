@@ -30,33 +30,14 @@ import javax.validation.Valid;
 
 
 public class DeleteExportTaskRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("ExportId")
   private String exportId = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
-
-  public DeleteExportTaskRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public DeleteExportTaskRequest exportId(String exportId) {
     this.exportId = exportId;
@@ -75,6 +56,25 @@ public class DeleteExportTaskRequest {
 
   public void setExportId(String exportId) {
     this.exportId = exportId;
+  }
+
+  public DeleteExportTaskRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public DeleteExportTaskRequest projectName(String projectName) {
@@ -105,14 +105,14 @@ public class DeleteExportTaskRequest {
       return false;
     }
     DeleteExportTaskRequest deleteExportTaskRequest = (DeleteExportTaskRequest) o;
-    return Objects.equals(this.clusterId, deleteExportTaskRequest.clusterId) &&
-        Objects.equals(this.exportId, deleteExportTaskRequest.exportId) &&
+    return Objects.equals(this.exportId, deleteExportTaskRequest.exportId) &&
+        Objects.equals(this.instanceId, deleteExportTaskRequest.instanceId) &&
         Objects.equals(this.projectName, deleteExportTaskRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, exportId, projectName);
+    return Objects.hash(exportId, instanceId, projectName);
   }
 
 
@@ -121,8 +121,8 @@ public class DeleteExportTaskRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteExportTaskRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    exportId: ").append(toIndentedString(exportId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -89,9 +89,6 @@ public class ChangefeedForStopChangefeedOutput {
   @SerializedName("Checkpoint")
   private CheckpointForStopChangefeedOutput checkpoint = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -100,6 +97,9 @@ public class ChangefeedForStopChangefeedOutput {
 
   @SerializedName("Filter")
   private FilterForStopChangefeedOutput filter = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("Rcu")
   private Long rcu = null;
@@ -246,24 +246,6 @@ public class ChangefeedForStopChangefeedOutput {
     this.checkpoint = checkpoint;
   }
 
-  public ChangefeedForStopChangefeedOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
-
   public ChangefeedForStopChangefeedOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
@@ -317,6 +299,24 @@ public class ChangefeedForStopChangefeedOutput {
 
   public void setFilter(FilterForStopChangefeedOutput filter) {
     this.filter = filter;
+  }
+
+  public ChangefeedForStopChangefeedOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ChangefeedForStopChangefeedOutput rcu(Long rcu) {
@@ -425,10 +425,10 @@ public class ChangefeedForStopChangefeedOutput {
         Objects.equals(this.changefeedId, changefeedForStopChangefeedOutput.changefeedId) &&
         Objects.equals(this.changefeedName, changefeedForStopChangefeedOutput.changefeedName) &&
         Objects.equals(this.checkpoint, changefeedForStopChangefeedOutput.checkpoint) &&
-        Objects.equals(this.clusterId, changefeedForStopChangefeedOutput.clusterId) &&
         Objects.equals(this.createTime, changefeedForStopChangefeedOutput.createTime) &&
         Objects.equals(this.error, changefeedForStopChangefeedOutput.error) &&
         Objects.equals(this.filter, changefeedForStopChangefeedOutput.filter) &&
+        Objects.equals(this.instanceId, changefeedForStopChangefeedOutput.instanceId) &&
         Objects.equals(this.rcu, changefeedForStopChangefeedOutput.rcu) &&
         Objects.equals(this.sink, changefeedForStopChangefeedOutput.sink) &&
         Objects.equals(this.startPosition, changefeedForStopChangefeedOutput.startPosition) &&
@@ -438,7 +438,7 @@ public class ChangefeedForStopChangefeedOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arch, changefeedId, changefeedName, checkpoint, clusterId, createTime, error, filter, rcu, sink, startPosition, state, updateTime);
+    return Objects.hash(arch, changefeedId, changefeedName, checkpoint, createTime, error, filter, instanceId, rcu, sink, startPosition, state, updateTime);
   }
 
 
@@ -451,10 +451,10 @@ public class ChangefeedForStopChangefeedOutput {
     sb.append("    changefeedId: ").append(toIndentedString(changefeedId)).append("\n");
     sb.append("    changefeedName: ").append(toIndentedString(changefeedName)).append("\n");
     sb.append("    checkpoint: ").append(toIndentedString(checkpoint)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    rcu: ").append(toIndentedString(rcu)).append("\n");
     sb.append("    sink: ").append(toIndentedString(sink)).append("\n");
     sb.append("    startPosition: ").append(toIndentedString(startPosition)).append("\n");

@@ -33,17 +33,23 @@ public class BackupForListRecycledInstanceBackupsOutput {
   @SerializedName("BackupId")
   private String backupId = null;
 
+  @SerializedName("BackupName")
+  private String backupName = null;
+
   @SerializedName("BackupTime")
   private String backupTime = null;
-
-  @SerializedName("ClusterId")
-  private String clusterId = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
 
   @SerializedName("ExpireTime")
   private String expireTime = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  @SerializedName("SizeBytes")
+  private Long sizeBytes = null;
 
   /**
    * Gets or Sets state
@@ -53,7 +59,13 @@ public class BackupForListRecycledInstanceBackupsOutput {
     @SerializedName("SUCCEEDED")
     SUCCEEDED("SUCCEEDED"),
     @SerializedName("FAILED")
-    FAILED("FAILED");
+    FAILED("FAILED"),
+    @SerializedName("PENDING")
+    PENDING("PENDING"),
+    @SerializedName("RUNNING")
+    RUNNING("RUNNING"),
+    @SerializedName("CANCELLED")
+    CANCELLED("CANCELLED");
 
     private String value;
 
@@ -91,6 +103,9 @@ public class BackupForListRecycledInstanceBackupsOutput {
   }  @SerializedName("State")
   private StateEnum state = null;
 
+  @SerializedName("TriggerType")
+  private String triggerType = null;
+
   @SerializedName("Type")
   private String type = null;
 
@@ -112,6 +127,24 @@ public class BackupForListRecycledInstanceBackupsOutput {
     this.backupId = backupId;
   }
 
+  public BackupForListRecycledInstanceBackupsOutput backupName(String backupName) {
+    this.backupName = backupName;
+    return this;
+  }
+
+   /**
+   * Get backupName
+   * @return backupName
+  **/
+  @Schema(description = "")
+  public String getBackupName() {
+    return backupName;
+  }
+
+  public void setBackupName(String backupName) {
+    this.backupName = backupName;
+  }
+
   public BackupForListRecycledInstanceBackupsOutput backupTime(String backupTime) {
     this.backupTime = backupTime;
     return this;
@@ -128,24 +161,6 @@ public class BackupForListRecycledInstanceBackupsOutput {
 
   public void setBackupTime(String backupTime) {
     this.backupTime = backupTime;
-  }
-
-  public BackupForListRecycledInstanceBackupsOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public BackupForListRecycledInstanceBackupsOutput createTime(String createTime) {
@@ -184,6 +199,42 @@ public class BackupForListRecycledInstanceBackupsOutput {
     this.expireTime = expireTime;
   }
 
+  public BackupForListRecycledInstanceBackupsOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public BackupForListRecycledInstanceBackupsOutput sizeBytes(Long sizeBytes) {
+    this.sizeBytes = sizeBytes;
+    return this;
+  }
+
+   /**
+   * Get sizeBytes
+   * @return sizeBytes
+  **/
+  @Schema(description = "")
+  public Long getSizeBytes() {
+    return sizeBytes;
+  }
+
+  public void setSizeBytes(Long sizeBytes) {
+    this.sizeBytes = sizeBytes;
+  }
+
   public BackupForListRecycledInstanceBackupsOutput state(StateEnum state) {
     this.state = state;
     return this;
@@ -200,6 +251,24 @@ public class BackupForListRecycledInstanceBackupsOutput {
 
   public void setState(StateEnum state) {
     this.state = state;
+  }
+
+  public BackupForListRecycledInstanceBackupsOutput triggerType(String triggerType) {
+    this.triggerType = triggerType;
+    return this;
+  }
+
+   /**
+   * Get triggerType
+   * @return triggerType
+  **/
+  @Schema(description = "")
+  public String getTriggerType() {
+    return triggerType;
+  }
+
+  public void setTriggerType(String triggerType) {
+    this.triggerType = triggerType;
   }
 
   public BackupForListRecycledInstanceBackupsOutput type(String type) {
@@ -231,17 +300,20 @@ public class BackupForListRecycledInstanceBackupsOutput {
     }
     BackupForListRecycledInstanceBackupsOutput backupForListRecycledInstanceBackupsOutput = (BackupForListRecycledInstanceBackupsOutput) o;
     return Objects.equals(this.backupId, backupForListRecycledInstanceBackupsOutput.backupId) &&
+        Objects.equals(this.backupName, backupForListRecycledInstanceBackupsOutput.backupName) &&
         Objects.equals(this.backupTime, backupForListRecycledInstanceBackupsOutput.backupTime) &&
-        Objects.equals(this.clusterId, backupForListRecycledInstanceBackupsOutput.clusterId) &&
         Objects.equals(this.createTime, backupForListRecycledInstanceBackupsOutput.createTime) &&
         Objects.equals(this.expireTime, backupForListRecycledInstanceBackupsOutput.expireTime) &&
+        Objects.equals(this.instanceId, backupForListRecycledInstanceBackupsOutput.instanceId) &&
+        Objects.equals(this.sizeBytes, backupForListRecycledInstanceBackupsOutput.sizeBytes) &&
         Objects.equals(this.state, backupForListRecycledInstanceBackupsOutput.state) &&
+        Objects.equals(this.triggerType, backupForListRecycledInstanceBackupsOutput.triggerType) &&
         Objects.equals(this.type, backupForListRecycledInstanceBackupsOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, backupTime, clusterId, createTime, expireTime, state, type);
+    return Objects.hash(backupId, backupName, backupTime, createTime, expireTime, instanceId, sizeBytes, state, triggerType, type);
   }
 
 
@@ -251,11 +323,14 @@ public class BackupForListRecycledInstanceBackupsOutput {
     sb.append("class BackupForListRecycledInstanceBackupsOutput {\n");
     
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
+    sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    backupTime: ").append(toIndentedString(backupTime)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    sizeBytes: ").append(toIndentedString(sizeBytes)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    triggerType: ").append(toIndentedString(triggerType)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

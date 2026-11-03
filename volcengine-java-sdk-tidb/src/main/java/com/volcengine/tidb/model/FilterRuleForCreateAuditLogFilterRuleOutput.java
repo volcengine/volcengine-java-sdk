@@ -33,47 +33,29 @@ import javax.validation.Valid;
 
 
 public class FilterRuleForCreateAuditLogFilterRuleOutput {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("CreateTime")
   private String createTime = null;
 
   @SerializedName("Disabled")
   private Boolean disabled = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
-
   @SerializedName("FilterRuleId")
   private String filterRuleId = null;
 
+  @SerializedName("FilterRuleName")
+  private String filterRuleName = null;
+
   @SerializedName("Filters")
   private List<FilterForCreateAuditLogFilterRuleOutput> filters = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
   @SerializedName("Users")
   private List<String> users = null;
-
-  public FilterRuleForCreateAuditLogFilterRuleOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public FilterRuleForCreateAuditLogFilterRuleOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -111,24 +93,6 @@ public class FilterRuleForCreateAuditLogFilterRuleOutput {
     this.disabled = disabled;
   }
 
-  public FilterRuleForCreateAuditLogFilterRuleOutput displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
   public FilterRuleForCreateAuditLogFilterRuleOutput filterRuleId(String filterRuleId) {
     this.filterRuleId = filterRuleId;
     return this;
@@ -145,6 +109,24 @@ public class FilterRuleForCreateAuditLogFilterRuleOutput {
 
   public void setFilterRuleId(String filterRuleId) {
     this.filterRuleId = filterRuleId;
+  }
+
+  public FilterRuleForCreateAuditLogFilterRuleOutput filterRuleName(String filterRuleName) {
+    this.filterRuleName = filterRuleName;
+    return this;
+  }
+
+   /**
+   * Get filterRuleName
+   * @return filterRuleName
+  **/
+  @Schema(description = "")
+  public String getFilterRuleName() {
+    return filterRuleName;
+  }
+
+  public void setFilterRuleName(String filterRuleName) {
+    this.filterRuleName = filterRuleName;
   }
 
   public FilterRuleForCreateAuditLogFilterRuleOutput filters(List<FilterForCreateAuditLogFilterRuleOutput> filters) {
@@ -172,6 +154,24 @@ public class FilterRuleForCreateAuditLogFilterRuleOutput {
 
   public void setFilters(List<FilterForCreateAuditLogFilterRuleOutput> filters) {
     this.filters = filters;
+  }
+
+  public FilterRuleForCreateAuditLogFilterRuleOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public FilterRuleForCreateAuditLogFilterRuleOutput updateTime(String updateTime) {
@@ -228,19 +228,19 @@ public class FilterRuleForCreateAuditLogFilterRuleOutput {
       return false;
     }
     FilterRuleForCreateAuditLogFilterRuleOutput filterRuleForCreateAuditLogFilterRuleOutput = (FilterRuleForCreateAuditLogFilterRuleOutput) o;
-    return Objects.equals(this.clusterId, filterRuleForCreateAuditLogFilterRuleOutput.clusterId) &&
-        Objects.equals(this.createTime, filterRuleForCreateAuditLogFilterRuleOutput.createTime) &&
+    return Objects.equals(this.createTime, filterRuleForCreateAuditLogFilterRuleOutput.createTime) &&
         Objects.equals(this.disabled, filterRuleForCreateAuditLogFilterRuleOutput.disabled) &&
-        Objects.equals(this.displayName, filterRuleForCreateAuditLogFilterRuleOutput.displayName) &&
         Objects.equals(this.filterRuleId, filterRuleForCreateAuditLogFilterRuleOutput.filterRuleId) &&
+        Objects.equals(this.filterRuleName, filterRuleForCreateAuditLogFilterRuleOutput.filterRuleName) &&
         Objects.equals(this.filters, filterRuleForCreateAuditLogFilterRuleOutput.filters) &&
+        Objects.equals(this.instanceId, filterRuleForCreateAuditLogFilterRuleOutput.instanceId) &&
         Objects.equals(this.updateTime, filterRuleForCreateAuditLogFilterRuleOutput.updateTime) &&
         Objects.equals(this.users, filterRuleForCreateAuditLogFilterRuleOutput.users);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, createTime, disabled, displayName, filterRuleId, filters, updateTime, users);
+    return Objects.hash(createTime, disabled, filterRuleId, filterRuleName, filters, instanceId, updateTime, users);
   }
 
 
@@ -249,12 +249,12 @@ public class FilterRuleForCreateAuditLogFilterRuleOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilterRuleForCreateAuditLogFilterRuleOutput {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    filterRuleId: ").append(toIndentedString(filterRuleId)).append("\n");
+    sb.append("    filterRuleName: ").append(toIndentedString(filterRuleName)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("}");

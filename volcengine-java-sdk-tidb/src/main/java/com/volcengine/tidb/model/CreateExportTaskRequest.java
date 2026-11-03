@@ -32,39 +32,20 @@ import javax.validation.Valid;
 
 
 public class CreateExportTaskRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("ExportOptions")
   private ExportOptionsForCreateExportTaskInput exportOptions = null;
 
   @SerializedName("ExportTaskName")
   private String exportTaskName = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("Target")
   private TargetForCreateExportTaskInput target = null;
-
-  public CreateExportTaskRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public CreateExportTaskRequest exportOptions(ExportOptionsForCreateExportTaskInput exportOptions) {
     this.exportOptions = exportOptions;
@@ -101,6 +82,25 @@ public class CreateExportTaskRequest {
 
   public void setExportTaskName(String exportTaskName) {
     this.exportTaskName = exportTaskName;
+  }
+
+  public CreateExportTaskRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public CreateExportTaskRequest projectName(String projectName) {
@@ -150,16 +150,16 @@ public class CreateExportTaskRequest {
       return false;
     }
     CreateExportTaskRequest createExportTaskRequest = (CreateExportTaskRequest) o;
-    return Objects.equals(this.clusterId, createExportTaskRequest.clusterId) &&
-        Objects.equals(this.exportOptions, createExportTaskRequest.exportOptions) &&
+    return Objects.equals(this.exportOptions, createExportTaskRequest.exportOptions) &&
         Objects.equals(this.exportTaskName, createExportTaskRequest.exportTaskName) &&
+        Objects.equals(this.instanceId, createExportTaskRequest.instanceId) &&
         Objects.equals(this.projectName, createExportTaskRequest.projectName) &&
         Objects.equals(this.target, createExportTaskRequest.target);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, exportOptions, exportTaskName, projectName, target);
+    return Objects.hash(exportOptions, exportTaskName, instanceId, projectName, target);
   }
 
 
@@ -168,9 +168,9 @@ public class CreateExportTaskRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateExportTaskRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    exportOptions: ").append(toIndentedString(exportOptions)).append("\n");
     sb.append("    exportTaskName: ").append(toIndentedString(exportTaskName)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("}");

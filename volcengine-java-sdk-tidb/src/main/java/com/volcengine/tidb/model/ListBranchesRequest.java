@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class ListBranchesRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -42,23 +42,23 @@ public class ListBranchesRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public ListBranchesRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public ListBranchesRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListBranchesRequest pageSize(Integer pageSize) {
@@ -125,7 +125,7 @@ public class ListBranchesRequest {
       return false;
     }
     ListBranchesRequest listBranchesRequest = (ListBranchesRequest) o;
-    return Objects.equals(this.clusterId, listBranchesRequest.clusterId) &&
+    return Objects.equals(this.instanceId, listBranchesRequest.instanceId) &&
         Objects.equals(this.pageSize, listBranchesRequest.pageSize) &&
         Objects.equals(this.pageToken, listBranchesRequest.pageToken) &&
         Objects.equals(this.projectName, listBranchesRequest.projectName);
@@ -133,7 +133,7 @@ public class ListBranchesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, pageSize, pageToken, projectName);
+    return Objects.hash(instanceId, pageSize, pageToken, projectName);
   }
 
 
@@ -142,7 +142,7 @@ public class ListBranchesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListBranchesRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

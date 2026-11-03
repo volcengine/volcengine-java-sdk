@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class ListAuditLogFilterRulesRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -42,23 +42,23 @@ public class ListAuditLogFilterRulesRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public ListAuditLogFilterRulesRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public ListAuditLogFilterRulesRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListAuditLogFilterRulesRequest pageSize(Integer pageSize) {
@@ -125,7 +125,7 @@ public class ListAuditLogFilterRulesRequest {
       return false;
     }
     ListAuditLogFilterRulesRequest listAuditLogFilterRulesRequest = (ListAuditLogFilterRulesRequest) o;
-    return Objects.equals(this.clusterId, listAuditLogFilterRulesRequest.clusterId) &&
+    return Objects.equals(this.instanceId, listAuditLogFilterRulesRequest.instanceId) &&
         Objects.equals(this.pageSize, listAuditLogFilterRulesRequest.pageSize) &&
         Objects.equals(this.pageToken, listAuditLogFilterRulesRequest.pageToken) &&
         Objects.equals(this.projectName, listAuditLogFilterRulesRequest.projectName);
@@ -133,7 +133,7 @@ public class ListAuditLogFilterRulesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, pageSize, pageToken, projectName);
+    return Objects.hash(instanceId, pageSize, pageToken, projectName);
   }
 
 
@@ -142,7 +142,7 @@ public class ListAuditLogFilterRulesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListAuditLogFilterRulesRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

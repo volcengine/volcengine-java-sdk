@@ -35,14 +35,14 @@ public class ListStatementsRequest {
   @SerializedName("BeginTime")
   private String beginTime = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("EndTime")
   private String endTime = null;
 
   @SerializedName("Fields")
   private List<String> fields = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -69,25 +69,6 @@ public class ListStatementsRequest {
 
   public void setBeginTime(String beginTime) {
     this.beginTime = beginTime;
-  }
-
-  public ListStatementsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public ListStatementsRequest endTime(String endTime) {
@@ -132,6 +113,25 @@ public class ListStatementsRequest {
 
   public void setFields(List<String> fields) {
     this.fields = fields;
+  }
+
+  public ListStatementsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListStatementsRequest projectName(String projectName) {
@@ -207,9 +207,9 @@ public class ListStatementsRequest {
     }
     ListStatementsRequest listStatementsRequest = (ListStatementsRequest) o;
     return Objects.equals(this.beginTime, listStatementsRequest.beginTime) &&
-        Objects.equals(this.clusterId, listStatementsRequest.clusterId) &&
         Objects.equals(this.endTime, listStatementsRequest.endTime) &&
         Objects.equals(this.fields, listStatementsRequest.fields) &&
+        Objects.equals(this.instanceId, listStatementsRequest.instanceId) &&
         Objects.equals(this.projectName, listStatementsRequest.projectName) &&
         Objects.equals(this.search, listStatementsRequest.search) &&
         Objects.equals(this.stmtTypes, listStatementsRequest.stmtTypes);
@@ -217,7 +217,7 @@ public class ListStatementsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(beginTime, clusterId, endTime, fields, projectName, search, stmtTypes);
+    return Objects.hash(beginTime, endTime, fields, instanceId, projectName, search, stmtTypes);
   }
 
 
@@ -227,9 +227,9 @@ public class ListStatementsRequest {
     sb.append("class ListStatementsRequest {\n");
     
     sb.append("    beginTime: ").append(toIndentedString(beginTime)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    search: ").append(toIndentedString(search)).append("\n");
     sb.append("    stmtTypes: ").append(toIndentedString(stmtTypes)).append("\n");

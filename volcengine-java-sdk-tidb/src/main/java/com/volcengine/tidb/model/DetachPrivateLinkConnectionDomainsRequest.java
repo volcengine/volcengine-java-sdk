@@ -33,8 +33,8 @@ public class DetachPrivateLinkConnectionDomainsRequest {
   @SerializedName("AttachDomainId")
   private String attachDomainId = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PrivateLinkConnectionId")
   private String privateLinkConnectionId = null;
@@ -61,23 +61,23 @@ public class DetachPrivateLinkConnectionDomainsRequest {
     this.attachDomainId = attachDomainId;
   }
 
-  public DetachPrivateLinkConnectionDomainsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public DetachPrivateLinkConnectionDomainsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public DetachPrivateLinkConnectionDomainsRequest privateLinkConnectionId(String privateLinkConnectionId) {
@@ -128,14 +128,14 @@ public class DetachPrivateLinkConnectionDomainsRequest {
     }
     DetachPrivateLinkConnectionDomainsRequest detachPrivateLinkConnectionDomainsRequest = (DetachPrivateLinkConnectionDomainsRequest) o;
     return Objects.equals(this.attachDomainId, detachPrivateLinkConnectionDomainsRequest.attachDomainId) &&
-        Objects.equals(this.clusterId, detachPrivateLinkConnectionDomainsRequest.clusterId) &&
+        Objects.equals(this.instanceId, detachPrivateLinkConnectionDomainsRequest.instanceId) &&
         Objects.equals(this.privateLinkConnectionId, detachPrivateLinkConnectionDomainsRequest.privateLinkConnectionId) &&
         Objects.equals(this.projectName, detachPrivateLinkConnectionDomainsRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachDomainId, clusterId, privateLinkConnectionId, projectName);
+    return Objects.hash(attachDomainId, instanceId, privateLinkConnectionId, projectName);
   }
 
 
@@ -145,7 +145,7 @@ public class DetachPrivateLinkConnectionDomainsRequest {
     sb.append("class DetachPrivateLinkConnectionDomainsRequest {\n");
     
     sb.append("    attachDomainId: ").append(toIndentedString(attachDomainId)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    privateLinkConnectionId: ").append(toIndentedString(privateLinkConnectionId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");

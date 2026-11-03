@@ -33,8 +33,8 @@ public class CreateBranchResponse extends com.volcengine.model.AbstractResponse 
   @SerializedName("BranchId")
   private String branchId = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   public CreateBranchResponse branchId(String branchId) {
     this.branchId = branchId;
@@ -54,22 +54,22 @@ public class CreateBranchResponse extends com.volcengine.model.AbstractResponse 
     this.branchId = branchId;
   }
 
-  public CreateBranchResponse clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public CreateBranchResponse instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -83,12 +83,12 @@ public class CreateBranchResponse extends com.volcengine.model.AbstractResponse 
     }
     CreateBranchResponse createBranchResponse = (CreateBranchResponse) o;
     return Objects.equals(this.branchId, createBranchResponse.branchId) &&
-        Objects.equals(this.clusterId, createBranchResponse.clusterId);
+        Objects.equals(this.instanceId, createBranchResponse.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(branchId, clusterId);
+    return Objects.hash(branchId, instanceId);
   }
 
 
@@ -98,7 +98,7 @@ public class CreateBranchResponse extends com.volcengine.model.AbstractResponse 
     sb.append("class CreateBranchResponse {\n");
     
     sb.append("    branchId: ").append(toIndentedString(branchId)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

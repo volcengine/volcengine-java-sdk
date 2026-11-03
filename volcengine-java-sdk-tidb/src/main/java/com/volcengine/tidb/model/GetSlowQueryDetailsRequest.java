@@ -33,9 +33,6 @@ public class GetSlowQueryDetailsRequest {
   @SerializedName("BeginTime")
   private String beginTime = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("ConnectionId")
   private String connectionId = null;
 
@@ -44,6 +41,9 @@ public class GetSlowQueryDetailsRequest {
 
   @SerializedName("EndTime")
   private String endTime = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -70,25 +70,6 @@ public class GetSlowQueryDetailsRequest {
 
   public void setBeginTime(String beginTime) {
     this.beginTime = beginTime;
-  }
-
-  public GetSlowQueryDetailsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public GetSlowQueryDetailsRequest connectionId(String connectionId) {
@@ -143,6 +124,25 @@ public class GetSlowQueryDetailsRequest {
 
   public void setEndTime(String endTime) {
     this.endTime = endTime;
+  }
+
+  public GetSlowQueryDetailsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public GetSlowQueryDetailsRequest projectName(String projectName) {
@@ -210,10 +210,10 @@ public class GetSlowQueryDetailsRequest {
     }
     GetSlowQueryDetailsRequest getSlowQueryDetailsRequest = (GetSlowQueryDetailsRequest) o;
     return Objects.equals(this.beginTime, getSlowQueryDetailsRequest.beginTime) &&
-        Objects.equals(this.clusterId, getSlowQueryDetailsRequest.clusterId) &&
         Objects.equals(this.connectionId, getSlowQueryDetailsRequest.connectionId) &&
         Objects.equals(this.digest, getSlowQueryDetailsRequest.digest) &&
         Objects.equals(this.endTime, getSlowQueryDetailsRequest.endTime) &&
+        Objects.equals(this.instanceId, getSlowQueryDetailsRequest.instanceId) &&
         Objects.equals(this.projectName, getSlowQueryDetailsRequest.projectName) &&
         Objects.equals(this.query, getSlowQueryDetailsRequest.query) &&
         Objects.equals(this.timestamp, getSlowQueryDetailsRequest.timestamp);
@@ -221,7 +221,7 @@ public class GetSlowQueryDetailsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(beginTime, clusterId, connectionId, digest, endTime, projectName, query, timestamp);
+    return Objects.hash(beginTime, connectionId, digest, endTime, instanceId, projectName, query, timestamp);
   }
 
 
@@ -231,10 +231,10 @@ public class GetSlowQueryDetailsRequest {
     sb.append("class GetSlowQueryDetailsRequest {\n");
     
     sb.append("    beginTime: ").append(toIndentedString(beginTime)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
     sb.append("    digest: ").append(toIndentedString(digest)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");

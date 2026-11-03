@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class ListExportTasksRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("OrderBy")
   private String orderBy = null;
@@ -45,23 +45,23 @@ public class ListExportTasksRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public ListExportTasksRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public ListExportTasksRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListExportTasksRequest orderBy(String orderBy) {
@@ -146,7 +146,7 @@ public class ListExportTasksRequest {
       return false;
     }
     ListExportTasksRequest listExportTasksRequest = (ListExportTasksRequest) o;
-    return Objects.equals(this.clusterId, listExportTasksRequest.clusterId) &&
+    return Objects.equals(this.instanceId, listExportTasksRequest.instanceId) &&
         Objects.equals(this.orderBy, listExportTasksRequest.orderBy) &&
         Objects.equals(this.pageSize, listExportTasksRequest.pageSize) &&
         Objects.equals(this.pageToken, listExportTasksRequest.pageToken) &&
@@ -155,7 +155,7 @@ public class ListExportTasksRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, orderBy, pageSize, pageToken, projectName);
+    return Objects.hash(instanceId, orderBy, pageSize, pageToken, projectName);
   }
 
 
@@ -164,7 +164,7 @@ public class ListExportTasksRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListExportTasksRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");

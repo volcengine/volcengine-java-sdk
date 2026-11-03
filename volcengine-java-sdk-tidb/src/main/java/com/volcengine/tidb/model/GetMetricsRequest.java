@@ -30,11 +30,11 @@ import javax.validation.Valid;
 
 
 public class GetMetricsRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("End")
   private Long end = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -47,25 +47,6 @@ public class GetMetricsRequest {
 
   @SerializedName("Step")
   private Long step = null;
-
-  public GetMetricsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public GetMetricsRequest end(Long end) {
     this.end = end;
@@ -84,6 +65,25 @@ public class GetMetricsRequest {
 
   public void setEnd(Long end) {
     this.end = end;
+  }
+
+  public GetMetricsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public GetMetricsRequest projectName(String projectName) {
@@ -170,8 +170,8 @@ public class GetMetricsRequest {
       return false;
     }
     GetMetricsRequest getMetricsRequest = (GetMetricsRequest) o;
-    return Objects.equals(this.clusterId, getMetricsRequest.clusterId) &&
-        Objects.equals(this.end, getMetricsRequest.end) &&
+    return Objects.equals(this.end, getMetricsRequest.end) &&
+        Objects.equals(this.instanceId, getMetricsRequest.instanceId) &&
         Objects.equals(this.projectName, getMetricsRequest.projectName) &&
         Objects.equals(this.query, getMetricsRequest.query) &&
         Objects.equals(this.start, getMetricsRequest.start) &&
@@ -180,7 +180,7 @@ public class GetMetricsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, end, projectName, query, start, step);
+    return Objects.hash(end, instanceId, projectName, query, start, step);
   }
 
 
@@ -189,8 +189,8 @@ public class GetMetricsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetMetricsRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
