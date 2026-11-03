@@ -36,6 +36,9 @@ public class StartRecordingRequest {
   @SerializedName("IsSavedOnPod")
   private Boolean isSavedOnPod = null;
 
+  @SerializedName("ObjectKeyPrefix")
+  private String objectKeyPrefix = null;
+
   @SerializedName("PodId")
   private String podId = null;
 
@@ -80,6 +83,24 @@ public class StartRecordingRequest {
 
   public void setIsSavedOnPod(Boolean isSavedOnPod) {
     this.isSavedOnPod = isSavedOnPod;
+  }
+
+  public StartRecordingRequest objectKeyPrefix(String objectKeyPrefix) {
+    this.objectKeyPrefix = objectKeyPrefix;
+    return this;
+  }
+
+   /**
+   * Get objectKeyPrefix
+   * @return objectKeyPrefix
+  **/
+  @Schema(description = "")
+  public String getObjectKeyPrefix() {
+    return objectKeyPrefix;
+  }
+
+  public void setObjectKeyPrefix(String objectKeyPrefix) {
+    this.objectKeyPrefix = objectKeyPrefix;
   }
 
   public StartRecordingRequest podId(String podId) {
@@ -151,6 +172,7 @@ public class StartRecordingRequest {
     StartRecordingRequest startRecordingRequest = (StartRecordingRequest) o;
     return Objects.equals(this.durationLimit, startRecordingRequest.durationLimit) &&
         Objects.equals(this.isSavedOnPod, startRecordingRequest.isSavedOnPod) &&
+        Objects.equals(this.objectKeyPrefix, startRecordingRequest.objectKeyPrefix) &&
         Objects.equals(this.podId, startRecordingRequest.podId) &&
         Objects.equals(this.productId, startRecordingRequest.productId) &&
         Objects.equals(this.roundId, startRecordingRequest.roundId);
@@ -158,7 +180,7 @@ public class StartRecordingRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(durationLimit, isSavedOnPod, podId, productId, roundId);
+    return Objects.hash(durationLimit, isSavedOnPod, objectKeyPrefix, podId, productId, roundId);
   }
 
 
@@ -169,6 +191,7 @@ public class StartRecordingRequest {
     
     sb.append("    durationLimit: ").append(toIndentedString(durationLimit)).append("\n");
     sb.append("    isSavedOnPod: ").append(toIndentedString(isSavedOnPod)).append("\n");
+    sb.append("    objectKeyPrefix: ").append(toIndentedString(objectKeyPrefix)).append("\n");
     sb.append("    podId: ").append(toIndentedString(podId)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
     sb.append("    roundId: ").append(toIndentedString(roundId)).append("\n");
