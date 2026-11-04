@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.MaterialIssueForVideoProjectVideoUploadOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +35,12 @@ import javax.validation.Valid;
 public class DataForVideoProjectVideoUploadOutput {
   @SerializedName("batchId")
   private String batchId = null;
+
+  @SerializedName("hasMaterialIssues")
+  private Boolean hasMaterialIssues = null;
+
+  @SerializedName("materialIssues")
+  private List<MaterialIssueForVideoProjectVideoUploadOutput> materialIssues = null;
 
   public DataForVideoProjectVideoUploadOutput batchId(String batchId) {
     this.batchId = batchId;
@@ -51,6 +60,51 @@ public class DataForVideoProjectVideoUploadOutput {
     this.batchId = batchId;
   }
 
+  public DataForVideoProjectVideoUploadOutput hasMaterialIssues(Boolean hasMaterialIssues) {
+    this.hasMaterialIssues = hasMaterialIssues;
+    return this;
+  }
+
+   /**
+   * Get hasMaterialIssues
+   * @return hasMaterialIssues
+  **/
+  @Schema(description = "")
+  public Boolean isHasMaterialIssues() {
+    return hasMaterialIssues;
+  }
+
+  public void setHasMaterialIssues(Boolean hasMaterialIssues) {
+    this.hasMaterialIssues = hasMaterialIssues;
+  }
+
+  public DataForVideoProjectVideoUploadOutput materialIssues(List<MaterialIssueForVideoProjectVideoUploadOutput> materialIssues) {
+    this.materialIssues = materialIssues;
+    return this;
+  }
+
+  public DataForVideoProjectVideoUploadOutput addMaterialIssuesItem(MaterialIssueForVideoProjectVideoUploadOutput materialIssuesItem) {
+    if (this.materialIssues == null) {
+      this.materialIssues = new ArrayList<MaterialIssueForVideoProjectVideoUploadOutput>();
+    }
+    this.materialIssues.add(materialIssuesItem);
+    return this;
+  }
+
+   /**
+   * Get materialIssues
+   * @return materialIssues
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<MaterialIssueForVideoProjectVideoUploadOutput> getMaterialIssues() {
+    return materialIssues;
+  }
+
+  public void setMaterialIssues(List<MaterialIssueForVideoProjectVideoUploadOutput> materialIssues) {
+    this.materialIssues = materialIssues;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +115,14 @@ public class DataForVideoProjectVideoUploadOutput {
       return false;
     }
     DataForVideoProjectVideoUploadOutput dataForVideoProjectVideoUploadOutput = (DataForVideoProjectVideoUploadOutput) o;
-    return Objects.equals(this.batchId, dataForVideoProjectVideoUploadOutput.batchId);
+    return Objects.equals(this.batchId, dataForVideoProjectVideoUploadOutput.batchId) &&
+        Objects.equals(this.hasMaterialIssues, dataForVideoProjectVideoUploadOutput.hasMaterialIssues) &&
+        Objects.equals(this.materialIssues, dataForVideoProjectVideoUploadOutput.materialIssues);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(batchId);
+    return Objects.hash(batchId, hasMaterialIssues, materialIssues);
   }
 
 
@@ -76,6 +132,8 @@ public class DataForVideoProjectVideoUploadOutput {
     sb.append("class DataForVideoProjectVideoUploadOutput {\n");
     
     sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
+    sb.append("    hasMaterialIssues: ").append(toIndentedString(hasMaterialIssues)).append("\n");
+    sb.append("    materialIssues: ").append(toIndentedString(materialIssues)).append("\n");
     sb.append("}");
     return sb.toString();
   }

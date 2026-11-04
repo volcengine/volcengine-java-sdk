@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.BaseRespForVideoProjectSerialDubTaskCreateOutput;
 import com.volcengine.i18nopenapi.model.EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput;
+import com.volcengine.i18nopenapi.model.MaterialIssueForVideoProjectSerialDubTaskCreateOutput;
 import com.volcengine.i18nopenapi.model.SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -44,8 +45,20 @@ public class DataForVideoProjectSerialDubTaskCreateOutput {
   @SerializedName("EffectSubtitleFileCheckReports")
   private List<EffectSubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput> effectSubtitleFileCheckReports = null;
 
+  @SerializedName("FailedTargetLanguages")
+  private List<String> failedTargetLanguages = null;
+
+  @SerializedName("HasMaterialIssues")
+  private Boolean hasMaterialIssues = null;
+
+  @SerializedName("MaterialIssues")
+  private List<MaterialIssueForVideoProjectSerialDubTaskCreateOutput> materialIssues = null;
+
   @SerializedName("SubtitleFileCheckReports")
   private List<SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput> subtitleFileCheckReports = null;
+
+  @SerializedName("SuccessfulTargetLanguages")
+  private List<String> successfulTargetLanguages = null;
 
   @SerializedName("TaskIDs")
   private List<String> taskIDs = null;
@@ -122,6 +135,77 @@ public class DataForVideoProjectSerialDubTaskCreateOutput {
     this.effectSubtitleFileCheckReports = effectSubtitleFileCheckReports;
   }
 
+  public DataForVideoProjectSerialDubTaskCreateOutput failedTargetLanguages(List<String> failedTargetLanguages) {
+    this.failedTargetLanguages = failedTargetLanguages;
+    return this;
+  }
+
+  public DataForVideoProjectSerialDubTaskCreateOutput addFailedTargetLanguagesItem(String failedTargetLanguagesItem) {
+    if (this.failedTargetLanguages == null) {
+      this.failedTargetLanguages = new ArrayList<String>();
+    }
+    this.failedTargetLanguages.add(failedTargetLanguagesItem);
+    return this;
+  }
+
+   /**
+   * Get failedTargetLanguages
+   * @return failedTargetLanguages
+  **/
+  @Schema(description = "")
+  public List<String> getFailedTargetLanguages() {
+    return failedTargetLanguages;
+  }
+
+  public void setFailedTargetLanguages(List<String> failedTargetLanguages) {
+    this.failedTargetLanguages = failedTargetLanguages;
+  }
+
+  public DataForVideoProjectSerialDubTaskCreateOutput hasMaterialIssues(Boolean hasMaterialIssues) {
+    this.hasMaterialIssues = hasMaterialIssues;
+    return this;
+  }
+
+   /**
+   * Get hasMaterialIssues
+   * @return hasMaterialIssues
+  **/
+  @Schema(description = "")
+  public Boolean isHasMaterialIssues() {
+    return hasMaterialIssues;
+  }
+
+  public void setHasMaterialIssues(Boolean hasMaterialIssues) {
+    this.hasMaterialIssues = hasMaterialIssues;
+  }
+
+  public DataForVideoProjectSerialDubTaskCreateOutput materialIssues(List<MaterialIssueForVideoProjectSerialDubTaskCreateOutput> materialIssues) {
+    this.materialIssues = materialIssues;
+    return this;
+  }
+
+  public DataForVideoProjectSerialDubTaskCreateOutput addMaterialIssuesItem(MaterialIssueForVideoProjectSerialDubTaskCreateOutput materialIssuesItem) {
+    if (this.materialIssues == null) {
+      this.materialIssues = new ArrayList<MaterialIssueForVideoProjectSerialDubTaskCreateOutput>();
+    }
+    this.materialIssues.add(materialIssuesItem);
+    return this;
+  }
+
+   /**
+   * Get materialIssues
+   * @return materialIssues
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<MaterialIssueForVideoProjectSerialDubTaskCreateOutput> getMaterialIssues() {
+    return materialIssues;
+  }
+
+  public void setMaterialIssues(List<MaterialIssueForVideoProjectSerialDubTaskCreateOutput> materialIssues) {
+    this.materialIssues = materialIssues;
+  }
+
   public DataForVideoProjectSerialDubTaskCreateOutput subtitleFileCheckReports(List<SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput> subtitleFileCheckReports) {
     this.subtitleFileCheckReports = subtitleFileCheckReports;
     return this;
@@ -147,6 +231,32 @@ public class DataForVideoProjectSerialDubTaskCreateOutput {
 
   public void setSubtitleFileCheckReports(List<SubtitleFileCheckReportForVideoProjectSerialDubTaskCreateOutput> subtitleFileCheckReports) {
     this.subtitleFileCheckReports = subtitleFileCheckReports;
+  }
+
+  public DataForVideoProjectSerialDubTaskCreateOutput successfulTargetLanguages(List<String> successfulTargetLanguages) {
+    this.successfulTargetLanguages = successfulTargetLanguages;
+    return this;
+  }
+
+  public DataForVideoProjectSerialDubTaskCreateOutput addSuccessfulTargetLanguagesItem(String successfulTargetLanguagesItem) {
+    if (this.successfulTargetLanguages == null) {
+      this.successfulTargetLanguages = new ArrayList<String>();
+    }
+    this.successfulTargetLanguages.add(successfulTargetLanguagesItem);
+    return this;
+  }
+
+   /**
+   * Get successfulTargetLanguages
+   * @return successfulTargetLanguages
+  **/
+  @Schema(description = "")
+  public List<String> getSuccessfulTargetLanguages() {
+    return successfulTargetLanguages;
+  }
+
+  public void setSuccessfulTargetLanguages(List<String> successfulTargetLanguages) {
+    this.successfulTargetLanguages = successfulTargetLanguages;
   }
 
   public DataForVideoProjectSerialDubTaskCreateOutput taskIDs(List<String> taskIDs) {
@@ -188,13 +298,17 @@ public class DataForVideoProjectSerialDubTaskCreateOutput {
     return Objects.equals(this.baseResp, dataForVideoProjectSerialDubTaskCreateOutput.baseResp) &&
         Objects.equals(this.dubTaskIDs, dataForVideoProjectSerialDubTaskCreateOutput.dubTaskIDs) &&
         Objects.equals(this.effectSubtitleFileCheckReports, dataForVideoProjectSerialDubTaskCreateOutput.effectSubtitleFileCheckReports) &&
+        Objects.equals(this.failedTargetLanguages, dataForVideoProjectSerialDubTaskCreateOutput.failedTargetLanguages) &&
+        Objects.equals(this.hasMaterialIssues, dataForVideoProjectSerialDubTaskCreateOutput.hasMaterialIssues) &&
+        Objects.equals(this.materialIssues, dataForVideoProjectSerialDubTaskCreateOutput.materialIssues) &&
         Objects.equals(this.subtitleFileCheckReports, dataForVideoProjectSerialDubTaskCreateOutput.subtitleFileCheckReports) &&
+        Objects.equals(this.successfulTargetLanguages, dataForVideoProjectSerialDubTaskCreateOutput.successfulTargetLanguages) &&
         Objects.equals(this.taskIDs, dataForVideoProjectSerialDubTaskCreateOutput.taskIDs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseResp, dubTaskIDs, effectSubtitleFileCheckReports, subtitleFileCheckReports, taskIDs);
+    return Objects.hash(baseResp, dubTaskIDs, effectSubtitleFileCheckReports, failedTargetLanguages, hasMaterialIssues, materialIssues, subtitleFileCheckReports, successfulTargetLanguages, taskIDs);
   }
 
 
@@ -206,7 +320,11 @@ public class DataForVideoProjectSerialDubTaskCreateOutput {
     sb.append("    baseResp: ").append(toIndentedString(baseResp)).append("\n");
     sb.append("    dubTaskIDs: ").append(toIndentedString(dubTaskIDs)).append("\n");
     sb.append("    effectSubtitleFileCheckReports: ").append(toIndentedString(effectSubtitleFileCheckReports)).append("\n");
+    sb.append("    failedTargetLanguages: ").append(toIndentedString(failedTargetLanguages)).append("\n");
+    sb.append("    hasMaterialIssues: ").append(toIndentedString(hasMaterialIssues)).append("\n");
+    sb.append("    materialIssues: ").append(toIndentedString(materialIssues)).append("\n");
     sb.append("    subtitleFileCheckReports: ").append(toIndentedString(subtitleFileCheckReports)).append("\n");
+    sb.append("    successfulTargetLanguages: ").append(toIndentedString(successfulTargetLanguages)).append("\n");
     sb.append("    taskIDs: ").append(toIndentedString(taskIDs)).append("\n");
     sb.append("}");
     return sb.toString();
