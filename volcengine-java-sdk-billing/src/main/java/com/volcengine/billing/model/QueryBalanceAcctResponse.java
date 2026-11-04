@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class QueryBalanceAcctResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountID")
-  private Integer accountID = null;
+  private Long accountID = null;
 
   @SerializedName("ArrearsBalance")
   private String arrearsBalance = null;
@@ -51,7 +51,7 @@ public class QueryBalanceAcctResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("FreezeAmount")
   private String freezeAmount = null;
 
-  public QueryBalanceAcctResponse accountID(Integer accountID) {
+  public QueryBalanceAcctResponse accountID(Long accountID) {
     this.accountID = accountID;
     return this;
   }
@@ -61,11 +61,11 @@ public class QueryBalanceAcctResponse extends com.volcengine.model.AbstractRespo
    * @return accountID
   **/
   @Schema(description = "")
-  public Integer getAccountID() {
+  public Long getAccountID() {
     return accountID;
   }
 
-  public void setAccountID(Integer accountID) {
+  public void setAccountID(Long accountID) {
     this.accountID = accountID;
   }
 

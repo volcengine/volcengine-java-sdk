@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.billing.model.CostForListCostAnalysisOpenApiOutput;
+import com.volcengine.billing.model.DimensionForListCostAnalysisOpenApiOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,6 +42,9 @@ public class CostDataForListCostAnalysisOpenApiOutput {
 
   @SerializedName("Costs")
   private List<CostForListCostAnalysisOpenApiOutput> costs = null;
+
+  @SerializedName("Dimensions")
+  private List<DimensionForListCostAnalysisOpenApiOutput> dimensions = null;
 
   public CostDataForListCostAnalysisOpenApiOutput classifyDimension(Integer classifyDimension) {
     this.classifyDimension = classifyDimension;
@@ -105,6 +109,33 @@ public class CostDataForListCostAnalysisOpenApiOutput {
     this.costs = costs;
   }
 
+  public CostDataForListCostAnalysisOpenApiOutput dimensions(List<DimensionForListCostAnalysisOpenApiOutput> dimensions) {
+    this.dimensions = dimensions;
+    return this;
+  }
+
+  public CostDataForListCostAnalysisOpenApiOutput addDimensionsItem(DimensionForListCostAnalysisOpenApiOutput dimensionsItem) {
+    if (this.dimensions == null) {
+      this.dimensions = new ArrayList<DimensionForListCostAnalysisOpenApiOutput>();
+    }
+    this.dimensions.add(dimensionsItem);
+    return this;
+  }
+
+   /**
+   * Get dimensions
+   * @return dimensions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DimensionForListCostAnalysisOpenApiOutput> getDimensions() {
+    return dimensions;
+  }
+
+  public void setDimensions(List<DimensionForListCostAnalysisOpenApiOutput> dimensions) {
+    this.dimensions = dimensions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -117,12 +148,13 @@ public class CostDataForListCostAnalysisOpenApiOutput {
     CostDataForListCostAnalysisOpenApiOutput costDataForListCostAnalysisOpenApiOutput = (CostDataForListCostAnalysisOpenApiOutput) o;
     return Objects.equals(this.classifyDimension, costDataForListCostAnalysisOpenApiOutput.classifyDimension) &&
         Objects.equals(this.classifyItem, costDataForListCostAnalysisOpenApiOutput.classifyItem) &&
-        Objects.equals(this.costs, costDataForListCostAnalysisOpenApiOutput.costs);
+        Objects.equals(this.costs, costDataForListCostAnalysisOpenApiOutput.costs) &&
+        Objects.equals(this.dimensions, costDataForListCostAnalysisOpenApiOutput.dimensions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(classifyDimension, classifyItem, costs);
+    return Objects.hash(classifyDimension, classifyItem, costs, dimensions);
   }
 
 
@@ -134,6 +166,7 @@ public class CostDataForListCostAnalysisOpenApiOutput {
     sb.append("    classifyDimension: ").append(toIndentedString(classifyDimension)).append("\n");
     sb.append("    classifyItem: ").append(toIndentedString(classifyItem)).append("\n");
     sb.append("    costs: ").append(toIndentedString(costs)).append("\n");
+    sb.append("    dimensions: ").append(toIndentedString(dimensions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
