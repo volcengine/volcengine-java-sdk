@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -35,6 +37,9 @@ public class SetRenewalTypeRequest {
 
   @SerializedName("InstanceID")
   private String instanceID = null;
+
+  @SerializedName("InstanceIDs")
+  private List<String> instanceIDs = null;
 
   @SerializedName("Product")
   private String product = null;
@@ -81,14 +86,39 @@ public class SetRenewalTypeRequest {
    * Get instanceID
    * @return instanceID
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInstanceID() {
     return instanceID;
   }
 
   public void setInstanceID(String instanceID) {
     this.instanceID = instanceID;
+  }
+
+  public SetRenewalTypeRequest instanceIDs(List<String> instanceIDs) {
+    this.instanceIDs = instanceIDs;
+    return this;
+  }
+
+  public SetRenewalTypeRequest addInstanceIDsItem(String instanceIDsItem) {
+    if (this.instanceIDs == null) {
+      this.instanceIDs = new ArrayList<String>();
+    }
+    this.instanceIDs.add(instanceIDsItem);
+    return this;
+  }
+
+   /**
+   * Get instanceIDs
+   * @return instanceIDs
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceIDs() {
+    return instanceIDs;
+  }
+
+  public void setInstanceIDs(List<String> instanceIDs) {
+    this.instanceIDs = instanceIDs;
   }
 
   public SetRenewalTypeRequest product(String product) {
@@ -213,6 +243,7 @@ public class SetRenewalTypeRequest {
     SetRenewalTypeRequest setRenewalTypeRequest = (SetRenewalTypeRequest) o;
     return Objects.equals(this.clientToken, setRenewalTypeRequest.clientToken) &&
         Objects.equals(this.instanceID, setRenewalTypeRequest.instanceID) &&
+        Objects.equals(this.instanceIDs, setRenewalTypeRequest.instanceIDs) &&
         Objects.equals(this.product, setRenewalTypeRequest.product) &&
         Objects.equals(this.renewType, setRenewalTypeRequest.renewType) &&
         Objects.equals(this.renewalDuration, setRenewalTypeRequest.renewalDuration) &&
@@ -223,7 +254,7 @@ public class SetRenewalTypeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, instanceID, product, renewType, renewalDuration, renewalDurationUnit, renewalTimes, setRenewalRelatedInstance);
+    return Objects.hash(clientToken, instanceID, instanceIDs, product, renewType, renewalDuration, renewalDurationUnit, renewalTimes, setRenewalRelatedInstance);
   }
 
 
@@ -234,6 +265,7 @@ public class SetRenewalTypeRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
+    sb.append("    instanceIDs: ").append(toIndentedString(instanceIDs)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    renewalDuration: ").append(toIndentedString(renewalDuration)).append("\n");

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.billing.model.ClassifyDimensionForListCostAnalysisOpenApiInput;
 import com.volcengine.billing.model.FilterForListCostAnalysisOpenApiInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -41,6 +42,9 @@ public class ListCostAnalysisOpenApiRequest {
 
   @SerializedName("ClassifyDimensionValue")
   private String classifyDimensionValue = null;
+
+  @SerializedName("ClassifyDimensions")
+  private List<ClassifyDimensionForListCostAnalysisOpenApiInput> classifyDimensions = null;
 
   @SerializedName("CostType")
   private Integer costType = null;
@@ -88,8 +92,7 @@ public class ListCostAnalysisOpenApiRequest {
    * Get classifyDimension
    * @return classifyDimension
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getClassifyDimension() {
     return classifyDimension;
   }
@@ -114,6 +117,33 @@ public class ListCostAnalysisOpenApiRequest {
 
   public void setClassifyDimensionValue(String classifyDimensionValue) {
     this.classifyDimensionValue = classifyDimensionValue;
+  }
+
+  public ListCostAnalysisOpenApiRequest classifyDimensions(List<ClassifyDimensionForListCostAnalysisOpenApiInput> classifyDimensions) {
+    this.classifyDimensions = classifyDimensions;
+    return this;
+  }
+
+  public ListCostAnalysisOpenApiRequest addClassifyDimensionsItem(ClassifyDimensionForListCostAnalysisOpenApiInput classifyDimensionsItem) {
+    if (this.classifyDimensions == null) {
+      this.classifyDimensions = new ArrayList<ClassifyDimensionForListCostAnalysisOpenApiInput>();
+    }
+    this.classifyDimensions.add(classifyDimensionsItem);
+    return this;
+  }
+
+   /**
+   * Get classifyDimensions
+   * @return classifyDimensions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ClassifyDimensionForListCostAnalysisOpenApiInput> getClassifyDimensions() {
+    return classifyDimensions;
+  }
+
+  public void setClassifyDimensions(List<ClassifyDimensionForListCostAnalysisOpenApiInput> classifyDimensions) {
+    this.classifyDimensions = classifyDimensions;
   }
 
   public ListCostAnalysisOpenApiRequest costType(Integer costType) {
@@ -251,6 +281,7 @@ public class ListCostAnalysisOpenApiRequest {
     return Objects.equals(this.beginTimeStr, listCostAnalysisOpenApiRequest.beginTimeStr) &&
         Objects.equals(this.classifyDimension, listCostAnalysisOpenApiRequest.classifyDimension) &&
         Objects.equals(this.classifyDimensionValue, listCostAnalysisOpenApiRequest.classifyDimensionValue) &&
+        Objects.equals(this.classifyDimensions, listCostAnalysisOpenApiRequest.classifyDimensions) &&
         Objects.equals(this.costType, listCostAnalysisOpenApiRequest.costType) &&
         Objects.equals(this.endTimeStr, listCostAnalysisOpenApiRequest.endTimeStr) &&
         Objects.equals(this.filters, listCostAnalysisOpenApiRequest.filters) &&
@@ -261,7 +292,7 @@ public class ListCostAnalysisOpenApiRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(beginTimeStr, classifyDimension, classifyDimensionValue, costType, endTimeStr, filters, limit, offset, timeGranularity);
+    return Objects.hash(beginTimeStr, classifyDimension, classifyDimensionValue, classifyDimensions, costType, endTimeStr, filters, limit, offset, timeGranularity);
   }
 
 
@@ -273,6 +304,7 @@ public class ListCostAnalysisOpenApiRequest {
     sb.append("    beginTimeStr: ").append(toIndentedString(beginTimeStr)).append("\n");
     sb.append("    classifyDimension: ").append(toIndentedString(classifyDimension)).append("\n");
     sb.append("    classifyDimensionValue: ").append(toIndentedString(classifyDimensionValue)).append("\n");
+    sb.append("    classifyDimensions: ").append(toIndentedString(classifyDimensions)).append("\n");
     sb.append("    costType: ").append(toIndentedString(costType)).append("\n");
     sb.append("    endTimeStr: ").append(toIndentedString(endTimeStr)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
