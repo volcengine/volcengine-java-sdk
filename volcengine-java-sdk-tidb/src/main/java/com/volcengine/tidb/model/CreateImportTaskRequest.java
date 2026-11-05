@@ -19,10 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.tidb.model.DatabaseCredentialForCreateImportTaskInput;
 import com.volcengine.tidb.model.ImportOptionsForCreateImportTaskInput;
 import com.volcengine.tidb.model.SourceForCreateImportTaskInput;
+import com.volcengine.tidb.model.TableMetaForCreateImportTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,11 +36,14 @@ import javax.validation.Valid;
 
 
 public class CreateImportTaskRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("DatabaseCredential")
+  private DatabaseCredentialForCreateImportTaskInput databaseCredential = null;
 
   @SerializedName("ImportOptions")
   private ImportOptionsForCreateImportTaskInput importOptions = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -44,23 +51,26 @@ public class CreateImportTaskRequest {
   @SerializedName("Source")
   private SourceForCreateImportTaskInput source = null;
 
-  public CreateImportTaskRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  @SerializedName("TableMetas")
+  private List<TableMetaForCreateImportTaskInput> tableMetas = null;
+
+  public CreateImportTaskRequest databaseCredential(DatabaseCredentialForCreateImportTaskInput databaseCredential) {
+    this.databaseCredential = databaseCredential;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get databaseCredential
+   * @return databaseCredential
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  @Valid
+  @Schema(description = "")
+  public DatabaseCredentialForCreateImportTaskInput getDatabaseCredential() {
+    return databaseCredential;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setDatabaseCredential(DatabaseCredentialForCreateImportTaskInput databaseCredential) {
+    this.databaseCredential = databaseCredential;
   }
 
   public CreateImportTaskRequest importOptions(ImportOptionsForCreateImportTaskInput importOptions) {
@@ -80,6 +90,25 @@ public class CreateImportTaskRequest {
 
   public void setImportOptions(ImportOptionsForCreateImportTaskInput importOptions) {
     this.importOptions = importOptions;
+  }
+
+  public CreateImportTaskRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public CreateImportTaskRequest projectName(String projectName) {
@@ -119,6 +148,33 @@ public class CreateImportTaskRequest {
     this.source = source;
   }
 
+  public CreateImportTaskRequest tableMetas(List<TableMetaForCreateImportTaskInput> tableMetas) {
+    this.tableMetas = tableMetas;
+    return this;
+  }
+
+  public CreateImportTaskRequest addTableMetasItem(TableMetaForCreateImportTaskInput tableMetasItem) {
+    if (this.tableMetas == null) {
+      this.tableMetas = new ArrayList<TableMetaForCreateImportTaskInput>();
+    }
+    this.tableMetas.add(tableMetasItem);
+    return this;
+  }
+
+   /**
+   * Get tableMetas
+   * @return tableMetas
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TableMetaForCreateImportTaskInput> getTableMetas() {
+    return tableMetas;
+  }
+
+  public void setTableMetas(List<TableMetaForCreateImportTaskInput> tableMetas) {
+    this.tableMetas = tableMetas;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,15 +185,17 @@ public class CreateImportTaskRequest {
       return false;
     }
     CreateImportTaskRequest createImportTaskRequest = (CreateImportTaskRequest) o;
-    return Objects.equals(this.clusterId, createImportTaskRequest.clusterId) &&
+    return Objects.equals(this.databaseCredential, createImportTaskRequest.databaseCredential) &&
         Objects.equals(this.importOptions, createImportTaskRequest.importOptions) &&
+        Objects.equals(this.instanceId, createImportTaskRequest.instanceId) &&
         Objects.equals(this.projectName, createImportTaskRequest.projectName) &&
-        Objects.equals(this.source, createImportTaskRequest.source);
+        Objects.equals(this.source, createImportTaskRequest.source) &&
+        Objects.equals(this.tableMetas, createImportTaskRequest.tableMetas);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, importOptions, projectName, source);
+    return Objects.hash(databaseCredential, importOptions, instanceId, projectName, source, tableMetas);
   }
 
 
@@ -146,10 +204,12 @@ public class CreateImportTaskRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateImportTaskRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    databaseCredential: ").append(toIndentedString(databaseCredential)).append("\n");
     sb.append("    importOptions: ").append(toIndentedString(importOptions)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    tableMetas: ").append(toIndentedString(tableMetas)).append("\n");
     sb.append("}");
     return sb.toString();
   }

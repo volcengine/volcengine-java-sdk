@@ -31,8 +31,8 @@ import javax.validation.Valid;
 
 
 public class TestChangefeedRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -40,23 +40,23 @@ public class TestChangefeedRequest {
   @SerializedName("Sink")
   private SinkForTestChangefeedInput sink = null;
 
-  public TestChangefeedRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public TestChangefeedRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public TestChangefeedRequest projectName(String projectName) {
@@ -106,14 +106,14 @@ public class TestChangefeedRequest {
       return false;
     }
     TestChangefeedRequest testChangefeedRequest = (TestChangefeedRequest) o;
-    return Objects.equals(this.clusterId, testChangefeedRequest.clusterId) &&
+    return Objects.equals(this.instanceId, testChangefeedRequest.instanceId) &&
         Objects.equals(this.projectName, testChangefeedRequest.projectName) &&
         Objects.equals(this.sink, testChangefeedRequest.sink);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, projectName, sink);
+    return Objects.hash(instanceId, projectName, sink);
   }
 
 
@@ -122,7 +122,7 @@ public class TestChangefeedRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestChangefeedRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    sink: ").append(toIndentedString(sink)).append("\n");
     sb.append("}");

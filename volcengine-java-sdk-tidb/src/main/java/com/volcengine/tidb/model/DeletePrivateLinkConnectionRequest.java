@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class DeletePrivateLinkConnectionRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PrivateLinkConnectionId")
   private String privateLinkConnectionId = null;
@@ -39,23 +39,23 @@ public class DeletePrivateLinkConnectionRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public DeletePrivateLinkConnectionRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public DeletePrivateLinkConnectionRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public DeletePrivateLinkConnectionRequest privateLinkConnectionId(String privateLinkConnectionId) {
@@ -105,14 +105,14 @@ public class DeletePrivateLinkConnectionRequest {
       return false;
     }
     DeletePrivateLinkConnectionRequest deletePrivateLinkConnectionRequest = (DeletePrivateLinkConnectionRequest) o;
-    return Objects.equals(this.clusterId, deletePrivateLinkConnectionRequest.clusterId) &&
+    return Objects.equals(this.instanceId, deletePrivateLinkConnectionRequest.instanceId) &&
         Objects.equals(this.privateLinkConnectionId, deletePrivateLinkConnectionRequest.privateLinkConnectionId) &&
         Objects.equals(this.projectName, deletePrivateLinkConnectionRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, privateLinkConnectionId, projectName);
+    return Objects.hash(instanceId, privateLinkConnectionId, projectName);
   }
 
 
@@ -121,7 +121,7 @@ public class DeletePrivateLinkConnectionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeletePrivateLinkConnectionRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    privateLinkConnectionId: ").append(toIndentedString(privateLinkConnectionId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");

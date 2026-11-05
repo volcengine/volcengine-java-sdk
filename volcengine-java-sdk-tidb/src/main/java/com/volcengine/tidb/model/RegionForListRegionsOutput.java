@@ -90,9 +90,6 @@ public class RegionForListRegionsOutput {
   }  @SerializedName("ServicePlans")
   private List<ServicePlansEnum> servicePlans = null;
 
-  @SerializedName("ZoneId")
-  private List<String> zoneId = null;
-
   public RegionForListRegionsOutput regionId(String regionId) {
     this.regionId = regionId;
     return this;
@@ -155,32 +152,6 @@ public class RegionForListRegionsOutput {
     this.servicePlans = servicePlans;
   }
 
-  public RegionForListRegionsOutput zoneId(List<String> zoneId) {
-    this.zoneId = zoneId;
-    return this;
-  }
-
-  public RegionForListRegionsOutput addZoneIdItem(String zoneIdItem) {
-    if (this.zoneId == null) {
-      this.zoneId = new ArrayList<String>();
-    }
-    this.zoneId.add(zoneIdItem);
-    return this;
-  }
-
-   /**
-   * Get zoneId
-   * @return zoneId
-  **/
-  @Schema(description = "")
-  public List<String> getZoneId() {
-    return zoneId;
-  }
-
-  public void setZoneId(List<String> zoneId) {
-    this.zoneId = zoneId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -193,13 +164,12 @@ public class RegionForListRegionsOutput {
     RegionForListRegionsOutput regionForListRegionsOutput = (RegionForListRegionsOutput) o;
     return Objects.equals(this.regionId, regionForListRegionsOutput.regionId) &&
         Objects.equals(this.regionName, regionForListRegionsOutput.regionName) &&
-        Objects.equals(this.servicePlans, regionForListRegionsOutput.servicePlans) &&
-        Objects.equals(this.zoneId, regionForListRegionsOutput.zoneId);
+        Objects.equals(this.servicePlans, regionForListRegionsOutput.servicePlans);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(regionId, regionName, servicePlans, zoneId);
+    return Objects.hash(regionId, regionName, servicePlans);
   }
 
 
@@ -211,7 +181,6 @@ public class RegionForListRegionsOutput {
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    regionName: ").append(toIndentedString(regionName)).append("\n");
     sb.append("    servicePlans: ").append(toIndentedString(servicePlans)).append("\n");
-    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

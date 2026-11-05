@@ -41,14 +41,14 @@ import com.volcengine.tidb.model.CreateBranchRequest;
 import com.volcengine.tidb.model.CreateBranchResponse;
 import com.volcengine.tidb.model.CreateChangefeedRequest;
 import com.volcengine.tidb.model.CreateChangefeedResponse;
-import com.volcengine.tidb.model.CreateClusterRequest;
-import com.volcengine.tidb.model.CreateClusterResponse;
 import com.volcengine.tidb.model.CreateExportTaskRequest;
 import com.volcengine.tidb.model.CreateExportTaskResponse;
 import com.volcengine.tidb.model.CreateImportTaskRequest;
 import com.volcengine.tidb.model.CreateImportTaskResponse;
 import com.volcengine.tidb.model.CreateImportUploadUrlRequest;
 import com.volcengine.tidb.model.CreateImportUploadUrlResponse;
+import com.volcengine.tidb.model.CreateInstanceRequest;
+import com.volcengine.tidb.model.CreateInstanceResponse;
 import com.volcengine.tidb.model.CreatePrivateEndpointAllowlistRuleRequest;
 import com.volcengine.tidb.model.CreatePrivateEndpointAllowlistRuleResponse;
 import com.volcengine.tidb.model.CreatePrivateLinkConnectionRequest;
@@ -59,10 +59,10 @@ import com.volcengine.tidb.model.DeleteBranchRequest;
 import com.volcengine.tidb.model.DeleteBranchResponse;
 import com.volcengine.tidb.model.DeleteChangefeedRequest;
 import com.volcengine.tidb.model.DeleteChangefeedResponse;
-import com.volcengine.tidb.model.DeleteClusterRequest;
-import com.volcengine.tidb.model.DeleteClusterResponse;
 import com.volcengine.tidb.model.DeleteExportTaskRequest;
 import com.volcengine.tidb.model.DeleteExportTaskResponse;
+import com.volcengine.tidb.model.DeleteInstanceRequest;
+import com.volcengine.tidb.model.DeleteInstanceResponse;
 import com.volcengine.tidb.model.DeletePrivateEndpointAllowlistRuleRequest;
 import com.volcengine.tidb.model.DeletePrivateEndpointAllowlistRuleResponse;
 import com.volcengine.tidb.model.DeletePrivateLinkConnectionRequest;
@@ -91,14 +91,14 @@ import com.volcengine.tidb.model.GetBranchDetailsRequest;
 import com.volcengine.tidb.model.GetBranchDetailsResponse;
 import com.volcengine.tidb.model.GetChangefeedRequest;
 import com.volcengine.tidb.model.GetChangefeedResponse;
-import com.volcengine.tidb.model.GetClusterDetailsRequest;
-import com.volcengine.tidb.model.GetClusterDetailsResponse;
 import com.volcengine.tidb.model.GetExportTaskDetailsRequest;
 import com.volcengine.tidb.model.GetExportTaskDetailsResponse;
 import com.volcengine.tidb.model.GetImportTableColumnsRequest;
 import com.volcengine.tidb.model.GetImportTableColumnsResponse;
 import com.volcengine.tidb.model.GetImportTaskDetailsRequest;
 import com.volcengine.tidb.model.GetImportTaskDetailsResponse;
+import com.volcengine.tidb.model.GetInstanceDetailsRequest;
+import com.volcengine.tidb.model.GetInstanceDetailsResponse;
 import com.volcengine.tidb.model.GetMetricsRequest;
 import com.volcengine.tidb.model.GetMetricsResponse;
 import com.volcengine.tidb.model.GetPrivateEndpointAllowlistRuleRequest;
@@ -129,10 +129,6 @@ import com.volcengine.tidb.model.ListChangefeedSpecificationsRequest;
 import com.volcengine.tidb.model.ListChangefeedSpecificationsResponse;
 import com.volcengine.tidb.model.ListChangefeedsRequest;
 import com.volcengine.tidb.model.ListChangefeedsResponse;
-import com.volcengine.tidb.model.ListClusterDatabasesRequest;
-import com.volcengine.tidb.model.ListClusterDatabasesResponse;
-import com.volcengine.tidb.model.ListClustersRequest;
-import com.volcengine.tidb.model.ListClustersResponse;
 import com.volcengine.tidb.model.ListEventsRequest;
 import com.volcengine.tidb.model.ListEventsResponse;
 import com.volcengine.tidb.model.ListExportTasksRequest;
@@ -143,6 +139,10 @@ import com.volcengine.tidb.model.ListImportTargetTablesRequest;
 import com.volcengine.tidb.model.ListImportTargetTablesResponse;
 import com.volcengine.tidb.model.ListImportTasksRequest;
 import com.volcengine.tidb.model.ListImportTasksResponse;
+import com.volcengine.tidb.model.ListInstanceDatabasesRequest;
+import com.volcengine.tidb.model.ListInstanceDatabasesResponse;
+import com.volcengine.tidb.model.ListInstancesRequest;
+import com.volcengine.tidb.model.ListInstancesResponse;
 import com.volcengine.tidb.model.ListPrivateEndpointAllowlistRequest;
 import com.volcengine.tidb.model.ListPrivateEndpointAllowlistResponse;
 import com.volcengine.tidb.model.ListPrivateLinkConnectionsRequest;
@@ -167,18 +167,18 @@ import com.volcengine.tidb.model.ListTagsForResourcesRequest;
 import com.volcengine.tidb.model.ListTagsForResourcesResponse;
 import com.volcengine.tidb.model.ListZonesRequest;
 import com.volcengine.tidb.model.ListZonesResponse;
-import com.volcengine.tidb.model.OpsListClustersRequest;
-import com.volcengine.tidb.model.OpsListClustersResponse;
+import com.volcengine.tidb.model.OpsListInstancesRequest;
+import com.volcengine.tidb.model.OpsListInstancesResponse;
 import com.volcengine.tidb.model.PrecheckImportTaskRequest;
 import com.volcengine.tidb.model.PrecheckImportTaskResponse;
 import com.volcengine.tidb.model.PreviewLocalImportRequest;
 import com.volcengine.tidb.model.PreviewLocalImportResponse;
 import com.volcengine.tidb.model.ResetBranchRequest;
 import com.volcengine.tidb.model.ResetBranchResponse;
-import com.volcengine.tidb.model.ResetClusterPasswordRequest;
-import com.volcengine.tidb.model.ResetClusterPasswordResponse;
-import com.volcengine.tidb.model.RestoreClusterRequest;
-import com.volcengine.tidb.model.RestoreClusterResponse;
+import com.volcengine.tidb.model.ResetInstancePasswordRequest;
+import com.volcengine.tidb.model.ResetInstancePasswordResponse;
+import com.volcengine.tidb.model.RestoreInstanceRequest;
+import com.volcengine.tidb.model.RestoreInstanceResponse;
 import com.volcengine.tidb.model.ScaleChangefeedRequest;
 import com.volcengine.tidb.model.ScaleChangefeedResponse;
 import com.volcengine.tidb.model.StartChangefeedRequest;
@@ -197,8 +197,8 @@ import com.volcengine.tidb.model.UpdateAuditLogFilterRuleRequest;
 import com.volcengine.tidb.model.UpdateAuditLogFilterRuleResponse;
 import com.volcengine.tidb.model.UpdateBranchRequest;
 import com.volcengine.tidb.model.UpdateBranchResponse;
-import com.volcengine.tidb.model.UpdateClusterRequest;
-import com.volcengine.tidb.model.UpdateClusterResponse;
+import com.volcengine.tidb.model.UpdateInstanceRequest;
+import com.volcengine.tidb.model.UpdateInstanceResponse;
 import com.volcengine.tidb.model.UpdatePrivateEndpointAllowlistRuleRequest;
 import com.volcengine.tidb.model.UpdatePrivateEndpointAllowlistRuleResponse;
 import com.volcengine.tidb.model.ValidateImportTaskRequest;
@@ -1098,130 +1098,6 @@ public class TidbApi {
         return call;
     }
     /**
-     * Build call for createCluster
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call createClusterCall(CreateClusterRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/CreateCluster/2026-06-30/tidb/post/application_json/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createClusterValidateBeforeCall(CreateClusterRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createCluster(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = createClusterCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return CreateClusterResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public CreateClusterResponse createCluster(CreateClusterRequest body) throws ApiException {
-        ApiResponse<CreateClusterResponse> resp = createClusterWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;CreateClusterResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<CreateClusterResponse> createClusterWithHttpInfo( @NotNull CreateClusterRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = createClusterValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<CreateClusterResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call createClusterAsync(CreateClusterRequest body, final ApiCallback<CreateClusterResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = createClusterValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateClusterResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for createExportTask
      * @param body  (required)
      * @param progressListener Progress listener
@@ -1590,6 +1466,130 @@ public class TidbApi {
 
         com.squareup.okhttp.Call call = createImportUploadUrlValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateImportUploadUrlResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createInstance
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createInstanceCall(CreateInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateInstance/2026-06-30/tidb/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createInstanceValidateBeforeCall(CreateInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createInstance(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createInstanceCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateInstanceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateInstanceResponse createInstance(CreateInstanceRequest body) throws ApiException {
+        ApiResponse<CreateInstanceResponse> resp = createInstanceWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateInstanceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateInstanceResponse> createInstanceWithHttpInfo( @NotNull CreateInstanceRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createInstanceValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateInstanceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createInstanceAsync(CreateInstanceRequest body, final ApiCallback<CreateInstanceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createInstanceValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateInstanceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2214,130 +2214,6 @@ public class TidbApi {
         return call;
     }
     /**
-     * Build call for deleteCluster
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call deleteClusterCall(DeleteClusterRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/DeleteCluster/2026-06-30/tidb/post/application_json/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteClusterValidateBeforeCall(DeleteClusterRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling deleteCluster(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = deleteClusterCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return DeleteClusterResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DeleteClusterResponse deleteCluster(DeleteClusterRequest body) throws ApiException {
-        ApiResponse<DeleteClusterResponse> resp = deleteClusterWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;DeleteClusterResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DeleteClusterResponse> deleteClusterWithHttpInfo( @NotNull DeleteClusterRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = deleteClusterValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DeleteClusterResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call deleteClusterAsync(DeleteClusterRequest body, final ApiCallback<DeleteClusterResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = deleteClusterValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DeleteClusterResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for deleteExportTask
      * @param body  (required)
      * @param progressListener Progress listener
@@ -2458,6 +2334,130 @@ public class TidbApi {
 
         com.squareup.okhttp.Call call = deleteExportTaskValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DeleteExportTaskResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteInstance
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteInstanceCall(DeleteInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DeleteInstance/2026-06-30/tidb/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteInstanceValidateBeforeCall(DeleteInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling deleteInstance(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteInstanceCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DeleteInstanceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteInstanceResponse deleteInstance(DeleteInstanceRequest body) throws ApiException {
+        ApiResponse<DeleteInstanceResponse> resp = deleteInstanceWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DeleteInstanceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteInstanceResponse> deleteInstanceWithHttpInfo( @NotNull DeleteInstanceRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteInstanceValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteInstanceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteInstanceAsync(DeleteInstanceRequest body, final ApiCallback<DeleteInstanceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteInstanceValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteInstanceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4198,130 +4198,6 @@ public class TidbApi {
         return call;
     }
     /**
-     * Build call for getClusterDetails
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getClusterDetailsCall(GetClusterDetailsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/GetClusterDetails/2026-06-30/tidb/post/application_json/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getClusterDetailsValidateBeforeCall(GetClusterDetailsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling getClusterDetails(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = getClusterDetailsCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return GetClusterDetailsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public GetClusterDetailsResponse getClusterDetails(GetClusterDetailsRequest body) throws ApiException {
-        ApiResponse<GetClusterDetailsResponse> resp = getClusterDetailsWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;GetClusterDetailsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<GetClusterDetailsResponse> getClusterDetailsWithHttpInfo( @NotNull GetClusterDetailsRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = getClusterDetailsValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<GetClusterDetailsResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getClusterDetailsAsync(GetClusterDetailsRequest body, final ApiCallback<GetClusterDetailsResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getClusterDetailsValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<GetClusterDetailsResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for getExportTaskDetails
      * @param body  (required)
      * @param progressListener Progress listener
@@ -4690,6 +4566,130 @@ public class TidbApi {
 
         com.squareup.okhttp.Call call = getImportTaskDetailsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetImportTaskDetailsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getInstanceDetails
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getInstanceDetailsCall(GetInstanceDetailsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetInstanceDetails/2026-06-30/tidb/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getInstanceDetailsValidateBeforeCall(GetInstanceDetailsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getInstanceDetails(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getInstanceDetailsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetInstanceDetailsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetInstanceDetailsResponse getInstanceDetails(GetInstanceDetailsRequest body) throws ApiException {
+        ApiResponse<GetInstanceDetailsResponse> resp = getInstanceDetailsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetInstanceDetailsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetInstanceDetailsResponse> getInstanceDetailsWithHttpInfo( @NotNull GetInstanceDetailsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getInstanceDetailsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetInstanceDetailsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getInstanceDetailsAsync(GetInstanceDetailsRequest body, final ApiCallback<GetInstanceDetailsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getInstanceDetailsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetInstanceDetailsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -6554,254 +6554,6 @@ public class TidbApi {
         return call;
     }
     /**
-     * Build call for listClusterDatabases
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call listClusterDatabasesCall(ListClusterDatabasesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/ListClusterDatabases/2026-06-30/tidb/post/application_json/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listClusterDatabasesValidateBeforeCall(ListClusterDatabasesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling listClusterDatabases(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = listClusterDatabasesCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ListClusterDatabasesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ListClusterDatabasesResponse listClusterDatabases(ListClusterDatabasesRequest body) throws ApiException {
-        ApiResponse<ListClusterDatabasesResponse> resp = listClusterDatabasesWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;ListClusterDatabasesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ListClusterDatabasesResponse> listClusterDatabasesWithHttpInfo( @NotNull ListClusterDatabasesRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = listClusterDatabasesValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ListClusterDatabasesResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call listClusterDatabasesAsync(ListClusterDatabasesRequest body, final ApiCallback<ListClusterDatabasesResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = listClusterDatabasesValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListClusterDatabasesResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for listClusters
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call listClustersCall(ListClustersRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/ListClusters/2026-06-30/tidb/post/application_json/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listClustersValidateBeforeCall(ListClustersRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling listClusters(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = listClustersCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ListClustersResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ListClustersResponse listClusters(ListClustersRequest body) throws ApiException {
-        ApiResponse<ListClustersResponse> resp = listClustersWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;ListClustersResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ListClustersResponse> listClustersWithHttpInfo( @NotNull ListClustersRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = listClustersValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ListClustersResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call listClustersAsync(ListClustersRequest body, final ApiCallback<ListClustersResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = listClustersValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListClustersResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for listEvents
      * @param body  (required)
      * @param progressListener Progress listener
@@ -7418,6 +7170,254 @@ public class TidbApi {
 
         com.squareup.okhttp.Call call = listImportTasksValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ListImportTasksResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listInstanceDatabases
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listInstanceDatabasesCall(ListInstanceDatabasesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListInstanceDatabases/2026-06-30/tidb/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listInstanceDatabasesValidateBeforeCall(ListInstanceDatabasesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listInstanceDatabases(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listInstanceDatabasesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListInstanceDatabasesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListInstanceDatabasesResponse listInstanceDatabases(ListInstanceDatabasesRequest body) throws ApiException {
+        ApiResponse<ListInstanceDatabasesResponse> resp = listInstanceDatabasesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListInstanceDatabasesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListInstanceDatabasesResponse> listInstanceDatabasesWithHttpInfo( @NotNull ListInstanceDatabasesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listInstanceDatabasesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListInstanceDatabasesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listInstanceDatabasesAsync(ListInstanceDatabasesRequest body, final ApiCallback<ListInstanceDatabasesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listInstanceDatabasesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListInstanceDatabasesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listInstances
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listInstancesCall(ListInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ListInstances/2026-06-30/tidb/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listInstancesValidateBeforeCall(ListInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listInstances(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listInstancesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListInstancesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListInstancesResponse listInstances(ListInstancesRequest body) throws ApiException {
+        ApiResponse<ListInstancesResponse> resp = listInstancesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListInstancesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListInstancesResponse> listInstancesWithHttpInfo( @NotNull ListInstancesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listInstancesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListInstancesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listInstancesAsync(ListInstancesRequest body, final ApiCallback<ListInstancesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listInstancesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListInstancesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -8910,18 +8910,18 @@ public class TidbApi {
         return call;
     }
     /**
-     * Build call for opsListClusters
+     * Build call for opsListInstances
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call opsListClustersCall(OpsListClustersRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call opsListInstancesCall(OpsListInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/OpsListClusters/2026-06-30/tidb/post/application_json/";
+        String localVarPath = "/OpsListInstances/2026-06-30/tidb/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8959,13 +8959,13 @@ public class TidbApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call opsListClustersValidateBeforeCall(OpsListClustersRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call opsListInstancesValidateBeforeCall(OpsListInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling opsListClusters(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling opsListInstances(Async)");
         }
         
-        com.squareup.okhttp.Call call = opsListClustersCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = opsListInstancesCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -8978,11 +8978,11 @@ public class TidbApi {
      * 
      * 
      * @param body  (required)
-     * @return OpsListClustersResponse
+     * @return OpsListInstancesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OpsListClustersResponse opsListClusters(OpsListClustersRequest body) throws ApiException {
-        ApiResponse<OpsListClustersResponse> resp = opsListClustersWithHttpInfo(body);
+    public OpsListInstancesResponse opsListInstances(OpsListInstancesRequest body) throws ApiException {
+        ApiResponse<OpsListInstancesResponse> resp = opsListInstancesWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -8990,12 +8990,12 @@ public class TidbApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;OpsListClustersResponse&gt;
+     * @return ApiResponse&lt;OpsListInstancesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OpsListClustersResponse> opsListClustersWithHttpInfo( @NotNull OpsListClustersRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = opsListClustersValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<OpsListClustersResponse>(){}.getType();
+    public ApiResponse<OpsListInstancesResponse> opsListInstancesWithHttpInfo( @NotNull OpsListInstancesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = opsListInstancesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<OpsListInstancesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -9007,7 +9007,7 @@ public class TidbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call opsListClustersAsync(OpsListClustersRequest body, final ApiCallback<OpsListClustersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call opsListInstancesAsync(OpsListInstancesRequest body, final ApiCallback<OpsListInstancesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9028,8 +9028,8 @@ public class TidbApi {
             };
         }
 
-        com.squareup.okhttp.Call call = opsListClustersValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OpsListClustersResponse>(){}.getType();
+        com.squareup.okhttp.Call call = opsListInstancesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OpsListInstancesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -9406,18 +9406,18 @@ public class TidbApi {
         return call;
     }
     /**
-     * Build call for resetClusterPassword
+     * Build call for resetInstancePassword
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call resetClusterPasswordCall(ResetClusterPasswordRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call resetInstancePasswordCall(ResetInstancePasswordRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ResetClusterPassword/2026-06-30/tidb/post/application_json/";
+        String localVarPath = "/ResetInstancePassword/2026-06-30/tidb/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9455,13 +9455,13 @@ public class TidbApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call resetClusterPasswordValidateBeforeCall(ResetClusterPasswordRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call resetInstancePasswordValidateBeforeCall(ResetInstancePasswordRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling resetClusterPassword(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling resetInstancePassword(Async)");
         }
         
-        com.squareup.okhttp.Call call = resetClusterPasswordCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = resetInstancePasswordCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -9474,11 +9474,11 @@ public class TidbApi {
      * 
      * 
      * @param body  (required)
-     * @return ResetClusterPasswordResponse
+     * @return ResetInstancePasswordResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ResetClusterPasswordResponse resetClusterPassword(ResetClusterPasswordRequest body) throws ApiException {
-        ApiResponse<ResetClusterPasswordResponse> resp = resetClusterPasswordWithHttpInfo(body);
+    public ResetInstancePasswordResponse resetInstancePassword(ResetInstancePasswordRequest body) throws ApiException {
+        ApiResponse<ResetInstancePasswordResponse> resp = resetInstancePasswordWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -9486,12 +9486,12 @@ public class TidbApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;ResetClusterPasswordResponse&gt;
+     * @return ApiResponse&lt;ResetInstancePasswordResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ResetClusterPasswordResponse> resetClusterPasswordWithHttpInfo( @NotNull ResetClusterPasswordRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = resetClusterPasswordValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ResetClusterPasswordResponse>(){}.getType();
+    public ApiResponse<ResetInstancePasswordResponse> resetInstancePasswordWithHttpInfo( @NotNull ResetInstancePasswordRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = resetInstancePasswordValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ResetInstancePasswordResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -9503,7 +9503,7 @@ public class TidbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call resetClusterPasswordAsync(ResetClusterPasswordRequest body, final ApiCallback<ResetClusterPasswordResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call resetInstancePasswordAsync(ResetInstancePasswordRequest body, final ApiCallback<ResetInstancePasswordResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9524,24 +9524,24 @@ public class TidbApi {
             };
         }
 
-        com.squareup.okhttp.Call call = resetClusterPasswordValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ResetClusterPasswordResponse>(){}.getType();
+        com.squareup.okhttp.Call call = resetInstancePasswordValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ResetInstancePasswordResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for restoreCluster
+     * Build call for restoreInstance
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call restoreClusterCall(RestoreClusterRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call restoreInstanceCall(RestoreInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RestoreCluster/2026-06-30/tidb/post/application_json/";
+        String localVarPath = "/RestoreInstance/2026-06-30/tidb/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9579,13 +9579,13 @@ public class TidbApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call restoreClusterValidateBeforeCall(RestoreClusterRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call restoreInstanceValidateBeforeCall(RestoreInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling restoreCluster(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling restoreInstance(Async)");
         }
         
-        com.squareup.okhttp.Call call = restoreClusterCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = restoreInstanceCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -9598,11 +9598,11 @@ public class TidbApi {
      * 
      * 
      * @param body  (required)
-     * @return RestoreClusterResponse
+     * @return RestoreInstanceResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RestoreClusterResponse restoreCluster(RestoreClusterRequest body) throws ApiException {
-        ApiResponse<RestoreClusterResponse> resp = restoreClusterWithHttpInfo(body);
+    public RestoreInstanceResponse restoreInstance(RestoreInstanceRequest body) throws ApiException {
+        ApiResponse<RestoreInstanceResponse> resp = restoreInstanceWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -9610,12 +9610,12 @@ public class TidbApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;RestoreClusterResponse&gt;
+     * @return ApiResponse&lt;RestoreInstanceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RestoreClusterResponse> restoreClusterWithHttpInfo( @NotNull RestoreClusterRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = restoreClusterValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<RestoreClusterResponse>(){}.getType();
+    public ApiResponse<RestoreInstanceResponse> restoreInstanceWithHttpInfo( @NotNull RestoreInstanceRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = restoreInstanceValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<RestoreInstanceResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -9627,7 +9627,7 @@ public class TidbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call restoreClusterAsync(RestoreClusterRequest body, final ApiCallback<RestoreClusterResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call restoreInstanceAsync(RestoreInstanceRequest body, final ApiCallback<RestoreInstanceResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9648,8 +9648,8 @@ public class TidbApi {
             };
         }
 
-        com.squareup.okhttp.Call call = restoreClusterValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RestoreClusterResponse>(){}.getType();
+        com.squareup.okhttp.Call call = restoreInstanceValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RestoreInstanceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -10770,18 +10770,18 @@ public class TidbApi {
         return call;
     }
     /**
-     * Build call for updateCluster
+     * Build call for updateInstance
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateClusterCall(UpdateClusterRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateInstanceCall(UpdateInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateCluster/2026-06-30/tidb/post/application_json/";
+        String localVarPath = "/UpdateInstance/2026-06-30/tidb/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10819,13 +10819,13 @@ public class TidbApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateClusterValidateBeforeCall(UpdateClusterRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateInstanceValidateBeforeCall(UpdateInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling updateCluster(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling updateInstance(Async)");
         }
         
-        com.squareup.okhttp.Call call = updateClusterCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateInstanceCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -10838,11 +10838,11 @@ public class TidbApi {
      * 
      * 
      * @param body  (required)
-     * @return UpdateClusterResponse
+     * @return UpdateInstanceResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public UpdateClusterResponse updateCluster(UpdateClusterRequest body) throws ApiException {
-        ApiResponse<UpdateClusterResponse> resp = updateClusterWithHttpInfo(body);
+    public UpdateInstanceResponse updateInstance(UpdateInstanceRequest body) throws ApiException {
+        ApiResponse<UpdateInstanceResponse> resp = updateInstanceWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -10850,12 +10850,12 @@ public class TidbApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;UpdateClusterResponse&gt;
+     * @return ApiResponse&lt;UpdateInstanceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<UpdateClusterResponse> updateClusterWithHttpInfo( @NotNull UpdateClusterRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = updateClusterValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<UpdateClusterResponse>(){}.getType();
+    public ApiResponse<UpdateInstanceResponse> updateInstanceWithHttpInfo( @NotNull UpdateInstanceRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = updateInstanceValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<UpdateInstanceResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -10867,7 +10867,7 @@ public class TidbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateClusterAsync(UpdateClusterRequest body, final ApiCallback<UpdateClusterResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateInstanceAsync(UpdateInstanceRequest body, final ApiCallback<UpdateInstanceResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10888,8 +10888,8 @@ public class TidbApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateClusterValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<UpdateClusterResponse>(){}.getType();
+        com.squareup.okhttp.Call call = updateInstanceValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UpdateInstanceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

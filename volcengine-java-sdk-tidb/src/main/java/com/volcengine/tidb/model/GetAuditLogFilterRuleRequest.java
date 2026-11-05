@@ -30,33 +30,14 @@ import javax.validation.Valid;
 
 
 public class GetAuditLogFilterRuleRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("FilterRuleId")
   private String filterRuleId = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
-
-  public GetAuditLogFilterRuleRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public GetAuditLogFilterRuleRequest filterRuleId(String filterRuleId) {
     this.filterRuleId = filterRuleId;
@@ -75,6 +56,25 @@ public class GetAuditLogFilterRuleRequest {
 
   public void setFilterRuleId(String filterRuleId) {
     this.filterRuleId = filterRuleId;
+  }
+
+  public GetAuditLogFilterRuleRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public GetAuditLogFilterRuleRequest projectName(String projectName) {
@@ -105,14 +105,14 @@ public class GetAuditLogFilterRuleRequest {
       return false;
     }
     GetAuditLogFilterRuleRequest getAuditLogFilterRuleRequest = (GetAuditLogFilterRuleRequest) o;
-    return Objects.equals(this.clusterId, getAuditLogFilterRuleRequest.clusterId) &&
-        Objects.equals(this.filterRuleId, getAuditLogFilterRuleRequest.filterRuleId) &&
+    return Objects.equals(this.filterRuleId, getAuditLogFilterRuleRequest.filterRuleId) &&
+        Objects.equals(this.instanceId, getAuditLogFilterRuleRequest.instanceId) &&
         Objects.equals(this.projectName, getAuditLogFilterRuleRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, filterRuleId, projectName);
+    return Objects.hash(filterRuleId, instanceId, projectName);
   }
 
 
@@ -121,8 +121,8 @@ public class GetAuditLogFilterRuleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAuditLogFilterRuleRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    filterRuleId: ").append(toIndentedString(filterRuleId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

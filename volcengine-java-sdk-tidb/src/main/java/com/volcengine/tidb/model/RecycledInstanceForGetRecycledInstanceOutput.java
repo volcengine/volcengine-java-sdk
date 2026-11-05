@@ -38,9 +38,6 @@ public class RecycledInstanceForGetRecycledInstanceOutput {
   @SerializedName("AutoScaling")
   private AutoScalingForGetRecycledInstanceOutput autoScaling = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("DeleteTime")
   private String deleteTime = null;
 
@@ -49,6 +46,12 @@ public class RecycledInstanceForGetRecycledInstanceOutput {
 
   @SerializedName("EnhancedEncryptionEnabled")
   private Boolean enhancedEncryptionEnabled = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  @SerializedName("InstanceName")
+  private String instanceName = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
@@ -82,24 +85,6 @@ public class RecycledInstanceForGetRecycledInstanceOutput {
 
   public void setAutoScaling(AutoScalingForGetRecycledInstanceOutput autoScaling) {
     this.autoScaling = autoScaling;
-  }
-
-  public RecycledInstanceForGetRecycledInstanceOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public RecycledInstanceForGetRecycledInstanceOutput deleteTime(String deleteTime) {
@@ -154,6 +139,42 @@ public class RecycledInstanceForGetRecycledInstanceOutput {
 
   public void setEnhancedEncryptionEnabled(Boolean enhancedEncryptionEnabled) {
     this.enhancedEncryptionEnabled = enhancedEncryptionEnabled;
+  }
+
+  public RecycledInstanceForGetRecycledInstanceOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public RecycledInstanceForGetRecycledInstanceOutput instanceName(String instanceName) {
+    this.instanceName = instanceName;
+    return this;
+  }
+
+   /**
+   * Get instanceName
+   * @return instanceName
+  **/
+  @Schema(description = "")
+  public String getInstanceName() {
+    return instanceName;
+  }
+
+  public void setInstanceName(String instanceName) {
+    this.instanceName = instanceName;
   }
 
   public RecycledInstanceForGetRecycledInstanceOutput regionId(String regionId) {
@@ -275,10 +296,11 @@ public class RecycledInstanceForGetRecycledInstanceOutput {
     }
     RecycledInstanceForGetRecycledInstanceOutput recycledInstanceForGetRecycledInstanceOutput = (RecycledInstanceForGetRecycledInstanceOutput) o;
     return Objects.equals(this.autoScaling, recycledInstanceForGetRecycledInstanceOutput.autoScaling) &&
-        Objects.equals(this.clusterId, recycledInstanceForGetRecycledInstanceOutput.clusterId) &&
         Objects.equals(this.deleteTime, recycledInstanceForGetRecycledInstanceOutput.deleteTime) &&
         Objects.equals(this.displayName, recycledInstanceForGetRecycledInstanceOutput.displayName) &&
         Objects.equals(this.enhancedEncryptionEnabled, recycledInstanceForGetRecycledInstanceOutput.enhancedEncryptionEnabled) &&
+        Objects.equals(this.instanceId, recycledInstanceForGetRecycledInstanceOutput.instanceId) &&
+        Objects.equals(this.instanceName, recycledInstanceForGetRecycledInstanceOutput.instanceName) &&
         Objects.equals(this.regionId, recycledInstanceForGetRecycledInstanceOutput.regionId) &&
         Objects.equals(this.tags, recycledInstanceForGetRecycledInstanceOutput.tags) &&
         Objects.equals(this.vpcId, recycledInstanceForGetRecycledInstanceOutput.vpcId) &&
@@ -288,7 +310,7 @@ public class RecycledInstanceForGetRecycledInstanceOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, clusterId, deleteTime, displayName, enhancedEncryptionEnabled, regionId, tags, vpcId, zoneRedundantEnabled, zones);
+    return Objects.hash(autoScaling, deleteTime, displayName, enhancedEncryptionEnabled, instanceId, instanceName, regionId, tags, vpcId, zoneRedundantEnabled, zones);
   }
 
 
@@ -298,10 +320,11 @@ public class RecycledInstanceForGetRecycledInstanceOutput {
     sb.append("class RecycledInstanceForGetRecycledInstanceOutput {\n");
     
     sb.append("    autoScaling: ").append(toIndentedString(autoScaling)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    deleteTime: ").append(toIndentedString(deleteTime)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enhancedEncryptionEnabled: ").append(toIndentedString(enhancedEncryptionEnabled)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

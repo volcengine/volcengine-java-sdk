@@ -34,8 +34,8 @@ public class AttachPrivateLinkConnectionDomainsRequest {
   @SerializedName("AttachDomain")
   private AttachDomainForAttachPrivateLinkConnectionDomainsInput attachDomain = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PrivateLinkConnectionId")
   private String privateLinkConnectionId = null;
@@ -65,23 +65,23 @@ public class AttachPrivateLinkConnectionDomainsRequest {
     this.attachDomain = attachDomain;
   }
 
-  public AttachPrivateLinkConnectionDomainsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public AttachPrivateLinkConnectionDomainsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public AttachPrivateLinkConnectionDomainsRequest privateLinkConnectionId(String privateLinkConnectionId) {
@@ -150,7 +150,7 @@ public class AttachPrivateLinkConnectionDomainsRequest {
     }
     AttachPrivateLinkConnectionDomainsRequest attachPrivateLinkConnectionDomainsRequest = (AttachPrivateLinkConnectionDomainsRequest) o;
     return Objects.equals(this.attachDomain, attachPrivateLinkConnectionDomainsRequest.attachDomain) &&
-        Objects.equals(this.clusterId, attachPrivateLinkConnectionDomainsRequest.clusterId) &&
+        Objects.equals(this.instanceId, attachPrivateLinkConnectionDomainsRequest.instanceId) &&
         Objects.equals(this.privateLinkConnectionId, attachPrivateLinkConnectionDomainsRequest.privateLinkConnectionId) &&
         Objects.equals(this.projectName, attachPrivateLinkConnectionDomainsRequest.projectName) &&
         Objects.equals(this.validateOnly, attachPrivateLinkConnectionDomainsRequest.validateOnly);
@@ -158,7 +158,7 @@ public class AttachPrivateLinkConnectionDomainsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachDomain, clusterId, privateLinkConnectionId, projectName, validateOnly);
+    return Objects.hash(attachDomain, instanceId, privateLinkConnectionId, projectName, validateOnly);
   }
 
 
@@ -168,7 +168,7 @@ public class AttachPrivateLinkConnectionDomainsRequest {
     sb.append("class AttachPrivateLinkConnectionDomainsRequest {\n");
     
     sb.append("    attachDomain: ").append(toIndentedString(attachDomain)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    privateLinkConnectionId: ").append(toIndentedString(privateLinkConnectionId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    validateOnly: ").append(toIndentedString(validateOnly)).append("\n");

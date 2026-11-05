@@ -38,9 +38,6 @@ public class ItemForListRecycledInstancesOutput {
   @SerializedName("AutoScaling")
   private AutoScalingForListRecycledInstancesOutput autoScaling = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("DeleteTime")
   private String deleteTime = null;
 
@@ -49,6 +46,12 @@ public class ItemForListRecycledInstancesOutput {
 
   @SerializedName("EnhancedEncryptionEnabled")
   private Boolean enhancedEncryptionEnabled = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  @SerializedName("InstanceName")
+  private String instanceName = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
@@ -82,24 +85,6 @@ public class ItemForListRecycledInstancesOutput {
 
   public void setAutoScaling(AutoScalingForListRecycledInstancesOutput autoScaling) {
     this.autoScaling = autoScaling;
-  }
-
-  public ItemForListRecycledInstancesOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public ItemForListRecycledInstancesOutput deleteTime(String deleteTime) {
@@ -154,6 +139,42 @@ public class ItemForListRecycledInstancesOutput {
 
   public void setEnhancedEncryptionEnabled(Boolean enhancedEncryptionEnabled) {
     this.enhancedEncryptionEnabled = enhancedEncryptionEnabled;
+  }
+
+  public ItemForListRecycledInstancesOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public ItemForListRecycledInstancesOutput instanceName(String instanceName) {
+    this.instanceName = instanceName;
+    return this;
+  }
+
+   /**
+   * Get instanceName
+   * @return instanceName
+  **/
+  @Schema(description = "")
+  public String getInstanceName() {
+    return instanceName;
+  }
+
+  public void setInstanceName(String instanceName) {
+    this.instanceName = instanceName;
   }
 
   public ItemForListRecycledInstancesOutput regionId(String regionId) {
@@ -275,10 +296,11 @@ public class ItemForListRecycledInstancesOutput {
     }
     ItemForListRecycledInstancesOutput itemForListRecycledInstancesOutput = (ItemForListRecycledInstancesOutput) o;
     return Objects.equals(this.autoScaling, itemForListRecycledInstancesOutput.autoScaling) &&
-        Objects.equals(this.clusterId, itemForListRecycledInstancesOutput.clusterId) &&
         Objects.equals(this.deleteTime, itemForListRecycledInstancesOutput.deleteTime) &&
         Objects.equals(this.displayName, itemForListRecycledInstancesOutput.displayName) &&
         Objects.equals(this.enhancedEncryptionEnabled, itemForListRecycledInstancesOutput.enhancedEncryptionEnabled) &&
+        Objects.equals(this.instanceId, itemForListRecycledInstancesOutput.instanceId) &&
+        Objects.equals(this.instanceName, itemForListRecycledInstancesOutput.instanceName) &&
         Objects.equals(this.regionId, itemForListRecycledInstancesOutput.regionId) &&
         Objects.equals(this.tags, itemForListRecycledInstancesOutput.tags) &&
         Objects.equals(this.vpcId, itemForListRecycledInstancesOutput.vpcId) &&
@@ -288,7 +310,7 @@ public class ItemForListRecycledInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, clusterId, deleteTime, displayName, enhancedEncryptionEnabled, regionId, tags, vpcId, zoneRedundantEnabled, zones);
+    return Objects.hash(autoScaling, deleteTime, displayName, enhancedEncryptionEnabled, instanceId, instanceName, regionId, tags, vpcId, zoneRedundantEnabled, zones);
   }
 
 
@@ -298,10 +320,11 @@ public class ItemForListRecycledInstancesOutput {
     sb.append("class ItemForListRecycledInstancesOutput {\n");
     
     sb.append("    autoScaling: ").append(toIndentedString(autoScaling)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    deleteTime: ").append(toIndentedString(deleteTime)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    enhancedEncryptionEnabled: ").append(toIndentedString(enhancedEncryptionEnabled)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

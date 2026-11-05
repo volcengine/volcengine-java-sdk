@@ -14,6 +14,13 @@ package com.volcengine.tidb.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,70 @@ import javax.validation.Valid;
 
 
 public class ListRegionsRequest {
+  /**
+   * Gets or Sets servicePlan
+   */
+  @JsonAdapter(ServicePlanEnum.Adapter.class)
+  public enum ServicePlanEnum {
+    @SerializedName("Essential")
+    ESSENTIAL("Essential"),
+    @SerializedName("Premium")
+    PREMIUM("Premium");
+
+    private String value;
+
+    ServicePlanEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ServicePlanEnum fromValue(String input) {
+      for (ServicePlanEnum b : ServicePlanEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ServicePlanEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ServicePlanEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ServicePlanEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ServicePlanEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ServicePlan")
+  private ServicePlanEnum servicePlan = null;
+
+  public ListRegionsRequest servicePlan(ServicePlanEnum servicePlan) {
+    this.servicePlan = servicePlan;
+    return this;
+  }
+
+   /**
+   * Get servicePlan
+   * @return servicePlan
+  **/
+  @Schema(description = "")
+  public ServicePlanEnum getServicePlan() {
+    return servicePlan;
+  }
+
+  public void setServicePlan(ServicePlanEnum servicePlan) {
+    this.servicePlan = servicePlan;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +103,13 @@ public class ListRegionsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    ListRegionsRequest listRegionsRequest = (ListRegionsRequest) o;
+    return Objects.equals(this.servicePlan, listRegionsRequest.servicePlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(servicePlan);
   }
 
 
@@ -46,6 +118,7 @@ public class ListRegionsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListRegionsRequest {\n");
     
+    sb.append("    servicePlan: ").append(toIndentedString(servicePlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

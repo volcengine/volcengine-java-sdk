@@ -35,9 +35,6 @@ public class ListStatementSlowQueriesRequest {
   @SerializedName("BeginTime")
   private String beginTime = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("Desc")
   private Boolean desc = null;
 
@@ -49,6 +46,9 @@ public class ListStatementSlowQueriesRequest {
 
   @SerializedName("Fields")
   private List<String> fields = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("Limit")
   private Integer limit = null;
@@ -78,25 +78,6 @@ public class ListStatementSlowQueriesRequest {
 
   public void setBeginTime(String beginTime) {
     this.beginTime = beginTime;
-  }
-
-  public ListStatementSlowQueriesRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public ListStatementSlowQueriesRequest desc(Boolean desc) {
@@ -177,6 +158,25 @@ public class ListStatementSlowQueriesRequest {
 
   public void setFields(List<String> fields) {
     this.fields = fields;
+  }
+
+  public ListStatementSlowQueriesRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListStatementSlowQueriesRequest limit(Integer limit) {
@@ -270,11 +270,11 @@ public class ListStatementSlowQueriesRequest {
     }
     ListStatementSlowQueriesRequest listStatementSlowQueriesRequest = (ListStatementSlowQueriesRequest) o;
     return Objects.equals(this.beginTime, listStatementSlowQueriesRequest.beginTime) &&
-        Objects.equals(this.clusterId, listStatementSlowQueriesRequest.clusterId) &&
         Objects.equals(this.desc, listStatementSlowQueriesRequest.desc) &&
         Objects.equals(this.digest, listStatementSlowQueriesRequest.digest) &&
         Objects.equals(this.endTime, listStatementSlowQueriesRequest.endTime) &&
         Objects.equals(this.fields, listStatementSlowQueriesRequest.fields) &&
+        Objects.equals(this.instanceId, listStatementSlowQueriesRequest.instanceId) &&
         Objects.equals(this.limit, listStatementSlowQueriesRequest.limit) &&
         Objects.equals(this.orderBy, listStatementSlowQueriesRequest.orderBy) &&
         Objects.equals(this.plans, listStatementSlowQueriesRequest.plans) &&
@@ -283,7 +283,7 @@ public class ListStatementSlowQueriesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(beginTime, clusterId, desc, digest, endTime, fields, limit, orderBy, plans, projectName);
+    return Objects.hash(beginTime, desc, digest, endTime, fields, instanceId, limit, orderBy, plans, projectName);
   }
 
 
@@ -293,11 +293,11 @@ public class ListStatementSlowQueriesRequest {
     sb.append("class ListStatementSlowQueriesRequest {\n");
     
     sb.append("    beginTime: ").append(toIndentedString(beginTime)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    desc: ").append(toIndentedString(desc)).append("\n");
     sb.append("    digest: ").append(toIndentedString(digest)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    plans: ").append(toIndentedString(plans)).append("\n");

@@ -30,51 +30,51 @@ import javax.validation.Valid;
 
 
 public class GetImportTaskDetailsRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("ImportId")
+  private String importId = null;
 
-  @SerializedName("Id")
-  private String id = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public GetImportTaskDetailsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public GetImportTaskDetailsRequest importId(String importId) {
+    this.importId = importId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get importId
+   * @return importId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getImportId() {
+    return importId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setImportId(String importId) {
+    this.importId = importId;
   }
 
-  public GetImportTaskDetailsRequest id(String id) {
-    this.id = id;
+  public GetImportTaskDetailsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public GetImportTaskDetailsRequest projectName(String projectName) {
@@ -105,14 +105,14 @@ public class GetImportTaskDetailsRequest {
       return false;
     }
     GetImportTaskDetailsRequest getImportTaskDetailsRequest = (GetImportTaskDetailsRequest) o;
-    return Objects.equals(this.clusterId, getImportTaskDetailsRequest.clusterId) &&
-        Objects.equals(this.id, getImportTaskDetailsRequest.id) &&
+    return Objects.equals(this.importId, getImportTaskDetailsRequest.importId) &&
+        Objects.equals(this.instanceId, getImportTaskDetailsRequest.instanceId) &&
         Objects.equals(this.projectName, getImportTaskDetailsRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, id, projectName);
+    return Objects.hash(importId, instanceId, projectName);
   }
 
 
@@ -121,8 +121,8 @@ public class GetImportTaskDetailsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetImportTaskDetailsRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    importId: ").append(toIndentedString(importId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

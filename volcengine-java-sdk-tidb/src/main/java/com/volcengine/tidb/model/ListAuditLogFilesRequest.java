@@ -30,11 +30,11 @@ import javax.validation.Valid;
 
 
 public class ListAuditLogFilesRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("Date")
   private String date = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -44,25 +44,6 @@ public class ListAuditLogFilesRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
-
-  public ListAuditLogFilesRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public ListAuditLogFilesRequest date(String date) {
     this.date = date;
@@ -81,6 +62,25 @@ public class ListAuditLogFilesRequest {
 
   public void setDate(String date) {
     this.date = date;
+  }
+
+  public ListAuditLogFilesRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListAuditLogFilesRequest pageSize(Integer pageSize) {
@@ -147,8 +147,8 @@ public class ListAuditLogFilesRequest {
       return false;
     }
     ListAuditLogFilesRequest listAuditLogFilesRequest = (ListAuditLogFilesRequest) o;
-    return Objects.equals(this.clusterId, listAuditLogFilesRequest.clusterId) &&
-        Objects.equals(this.date, listAuditLogFilesRequest.date) &&
+    return Objects.equals(this.date, listAuditLogFilesRequest.date) &&
+        Objects.equals(this.instanceId, listAuditLogFilesRequest.instanceId) &&
         Objects.equals(this.pageSize, listAuditLogFilesRequest.pageSize) &&
         Objects.equals(this.pageToken, listAuditLogFilesRequest.pageToken) &&
         Objects.equals(this.projectName, listAuditLogFilesRequest.projectName);
@@ -156,7 +156,7 @@ public class ListAuditLogFilesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, date, pageSize, pageToken, projectName);
+    return Objects.hash(date, instanceId, pageSize, pageToken, projectName);
   }
 
 
@@ -165,8 +165,8 @@ public class ListAuditLogFilesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListAuditLogFilesRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

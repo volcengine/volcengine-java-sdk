@@ -30,17 +30,36 @@ import javax.validation.Valid;
 
 
 public class GetImportTableColumnsRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
-
-  @SerializedName("cluster_id")
-  private String clusterId = null;
 
   @SerializedName("database")
   private String database = null;
 
   @SerializedName("table")
   private String table = null;
+
+  public GetImportTableColumnsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
 
   public GetImportTableColumnsRequest projectName(String projectName) {
     this.projectName = projectName;
@@ -58,25 +77,6 @@ public class GetImportTableColumnsRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
-  }
-
-  public GetImportTableColumnsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public GetImportTableColumnsRequest database(String database) {
@@ -127,15 +127,15 @@ public class GetImportTableColumnsRequest {
       return false;
     }
     GetImportTableColumnsRequest getImportTableColumnsRequest = (GetImportTableColumnsRequest) o;
-    return Objects.equals(this.projectName, getImportTableColumnsRequest.projectName) &&
-        Objects.equals(this.clusterId, getImportTableColumnsRequest.clusterId) &&
+    return Objects.equals(this.instanceId, getImportTableColumnsRequest.instanceId) &&
+        Objects.equals(this.projectName, getImportTableColumnsRequest.projectName) &&
         Objects.equals(this.database, getImportTableColumnsRequest.database) &&
         Objects.equals(this.table, getImportTableColumnsRequest.table);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName, clusterId, database, table);
+    return Objects.hash(instanceId, projectName, database, table);
   }
 
 
@@ -144,8 +144,8 @@ public class GetImportTableColumnsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetImportTableColumnsRequest {\n");
     
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    database: ").append(toIndentedString(database)).append("\n");
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("}");

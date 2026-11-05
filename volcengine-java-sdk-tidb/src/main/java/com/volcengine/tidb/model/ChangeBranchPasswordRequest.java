@@ -33,8 +33,8 @@ public class ChangeBranchPasswordRequest {
   @SerializedName("BranchId")
   private String branchId = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("Password")
   private String password = null;
@@ -61,23 +61,23 @@ public class ChangeBranchPasswordRequest {
     this.branchId = branchId;
   }
 
-  public ChangeBranchPasswordRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public ChangeBranchPasswordRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ChangeBranchPasswordRequest password(String password) {
@@ -128,14 +128,14 @@ public class ChangeBranchPasswordRequest {
     }
     ChangeBranchPasswordRequest changeBranchPasswordRequest = (ChangeBranchPasswordRequest) o;
     return Objects.equals(this.branchId, changeBranchPasswordRequest.branchId) &&
-        Objects.equals(this.clusterId, changeBranchPasswordRequest.clusterId) &&
+        Objects.equals(this.instanceId, changeBranchPasswordRequest.instanceId) &&
         Objects.equals(this.password, changeBranchPasswordRequest.password) &&
         Objects.equals(this.projectName, changeBranchPasswordRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(branchId, clusterId, password, projectName);
+    return Objects.hash(branchId, instanceId, password, projectName);
   }
 
 
@@ -145,7 +145,7 @@ public class ChangeBranchPasswordRequest {
     sb.append("class ChangeBranchPasswordRequest {\n");
     
     sb.append("    branchId: ").append(toIndentedString(branchId)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");

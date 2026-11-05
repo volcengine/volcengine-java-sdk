@@ -21,8 +21,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.tidb.model.ImportOptionsForPrecheckImportTaskInput;
 import com.volcengine.tidb.model.SourceForPrecheckImportTaskInput;
+import com.volcengine.tidb.model.TableMetaForPrecheckImportTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,11 +35,11 @@ import javax.validation.Valid;
 
 
 public class PrecheckImportTaskRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("ImportOptions")
   private ImportOptionsForPrecheckImportTaskInput importOptions = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -44,24 +47,8 @@ public class PrecheckImportTaskRequest {
   @SerializedName("Source")
   private SourceForPrecheckImportTaskInput source = null;
 
-  public PrecheckImportTaskRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
+  @SerializedName("TableMetas")
+  private List<TableMetaForPrecheckImportTaskInput> tableMetas = null;
 
   public PrecheckImportTaskRequest importOptions(ImportOptionsForPrecheckImportTaskInput importOptions) {
     this.importOptions = importOptions;
@@ -80,6 +67,25 @@ public class PrecheckImportTaskRequest {
 
   public void setImportOptions(ImportOptionsForPrecheckImportTaskInput importOptions) {
     this.importOptions = importOptions;
+  }
+
+  public PrecheckImportTaskRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public PrecheckImportTaskRequest projectName(String projectName) {
@@ -119,6 +125,33 @@ public class PrecheckImportTaskRequest {
     this.source = source;
   }
 
+  public PrecheckImportTaskRequest tableMetas(List<TableMetaForPrecheckImportTaskInput> tableMetas) {
+    this.tableMetas = tableMetas;
+    return this;
+  }
+
+  public PrecheckImportTaskRequest addTableMetasItem(TableMetaForPrecheckImportTaskInput tableMetasItem) {
+    if (this.tableMetas == null) {
+      this.tableMetas = new ArrayList<TableMetaForPrecheckImportTaskInput>();
+    }
+    this.tableMetas.add(tableMetasItem);
+    return this;
+  }
+
+   /**
+   * Get tableMetas
+   * @return tableMetas
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TableMetaForPrecheckImportTaskInput> getTableMetas() {
+    return tableMetas;
+  }
+
+  public void setTableMetas(List<TableMetaForPrecheckImportTaskInput> tableMetas) {
+    this.tableMetas = tableMetas;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,15 +162,16 @@ public class PrecheckImportTaskRequest {
       return false;
     }
     PrecheckImportTaskRequest precheckImportTaskRequest = (PrecheckImportTaskRequest) o;
-    return Objects.equals(this.clusterId, precheckImportTaskRequest.clusterId) &&
-        Objects.equals(this.importOptions, precheckImportTaskRequest.importOptions) &&
+    return Objects.equals(this.importOptions, precheckImportTaskRequest.importOptions) &&
+        Objects.equals(this.instanceId, precheckImportTaskRequest.instanceId) &&
         Objects.equals(this.projectName, precheckImportTaskRequest.projectName) &&
-        Objects.equals(this.source, precheckImportTaskRequest.source);
+        Objects.equals(this.source, precheckImportTaskRequest.source) &&
+        Objects.equals(this.tableMetas, precheckImportTaskRequest.tableMetas);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, importOptions, projectName, source);
+    return Objects.hash(importOptions, instanceId, projectName, source, tableMetas);
   }
 
 
@@ -146,10 +180,11 @@ public class PrecheckImportTaskRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrecheckImportTaskRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    importOptions: ").append(toIndentedString(importOptions)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    tableMetas: ").append(toIndentedString(tableMetas)).append("\n");
     sb.append("}");
     return sb.toString();
   }

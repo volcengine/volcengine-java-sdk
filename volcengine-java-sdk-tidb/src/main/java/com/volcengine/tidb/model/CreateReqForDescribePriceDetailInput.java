@@ -39,9 +39,6 @@ public class CreateReqForDescribePriceDetailInput {
   @SerializedName("AutoScaling")
   private AutoScalingForDescribePriceDetailInput autoScaling = null;
 
-  @SerializedName("ClusterName")
-  private String clusterName = null;
-
   @SerializedName("EncryptionConfig")
   private EncryptionConfigForDescribePriceDetailInput encryptionConfig = null;
 
@@ -90,6 +87,9 @@ public class CreateReqForDescribePriceDetailInput {
     }
   }  @SerializedName("HighAvailabilityType")
   private HighAvailabilityTypeEnum highAvailabilityType = null;
+
+  @SerializedName("InstanceName")
+  private String instanceName = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -177,24 +177,6 @@ public class CreateReqForDescribePriceDetailInput {
     this.autoScaling = autoScaling;
   }
 
-  public CreateReqForDescribePriceDetailInput clusterName(String clusterName) {
-    this.clusterName = clusterName;
-    return this;
-  }
-
-   /**
-   * Get clusterName
-   * @return clusterName
-  **/
-  @Schema(description = "")
-  public String getClusterName() {
-    return clusterName;
-  }
-
-  public void setClusterName(String clusterName) {
-    this.clusterName = clusterName;
-  }
-
   public CreateReqForDescribePriceDetailInput encryptionConfig(EncryptionConfigForDescribePriceDetailInput encryptionConfig) {
     this.encryptionConfig = encryptionConfig;
     return this;
@@ -230,6 +212,24 @@ public class CreateReqForDescribePriceDetailInput {
 
   public void setHighAvailabilityType(HighAvailabilityTypeEnum highAvailabilityType) {
     this.highAvailabilityType = highAvailabilityType;
+  }
+
+  public CreateReqForDescribePriceDetailInput instanceName(String instanceName) {
+    this.instanceName = instanceName;
+    return this;
+  }
+
+   /**
+   * Get instanceName
+   * @return instanceName
+  **/
+  @Schema(description = "")
+  public String getInstanceName() {
+    return instanceName;
+  }
+
+  public void setInstanceName(String instanceName) {
+    this.instanceName = instanceName;
   }
 
   public CreateReqForDescribePriceDetailInput projectName(String projectName) {
@@ -369,9 +369,9 @@ public class CreateReqForDescribePriceDetailInput {
     }
     CreateReqForDescribePriceDetailInput createReqForDescribePriceDetailInput = (CreateReqForDescribePriceDetailInput) o;
     return Objects.equals(this.autoScaling, createReqForDescribePriceDetailInput.autoScaling) &&
-        Objects.equals(this.clusterName, createReqForDescribePriceDetailInput.clusterName) &&
         Objects.equals(this.encryptionConfig, createReqForDescribePriceDetailInput.encryptionConfig) &&
         Objects.equals(this.highAvailabilityType, createReqForDescribePriceDetailInput.highAvailabilityType) &&
+        Objects.equals(this.instanceName, createReqForDescribePriceDetailInput.instanceName) &&
         Objects.equals(this.projectName, createReqForDescribePriceDetailInput.projectName) &&
         Objects.equals(this.regionId, createReqForDescribePriceDetailInput.regionId) &&
         Objects.equals(this.servicePlan, createReqForDescribePriceDetailInput.servicePlan) &&
@@ -382,7 +382,7 @@ public class CreateReqForDescribePriceDetailInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, clusterName, encryptionConfig, highAvailabilityType, projectName, regionId, servicePlan, tags, vpcId, zones);
+    return Objects.hash(autoScaling, encryptionConfig, highAvailabilityType, instanceName, projectName, regionId, servicePlan, tags, vpcId, zones);
   }
 
 
@@ -392,9 +392,9 @@ public class CreateReqForDescribePriceDetailInput {
     sb.append("class CreateReqForDescribePriceDetailInput {\n");
     
     sb.append("    autoScaling: ").append(toIndentedString(autoScaling)).append("\n");
-    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    encryptionConfig: ").append(toIndentedString(encryptionConfig)).append("\n");
     sb.append("    highAvailabilityType: ").append(toIndentedString(highAvailabilityType)).append("\n");
+    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    servicePlan: ").append(toIndentedString(servicePlan)).append("\n");

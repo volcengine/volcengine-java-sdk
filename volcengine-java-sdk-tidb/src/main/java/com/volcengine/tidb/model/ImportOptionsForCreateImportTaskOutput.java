@@ -34,9 +34,6 @@ public class ImportOptionsForCreateImportTaskOutput {
   @SerializedName("CsvFormat")
   private CsvFormatForCreateImportTaskOutput csvFormat = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
-
   /**
    * Gets or Sets fileType
    */
@@ -87,6 +84,9 @@ public class ImportOptionsForCreateImportTaskOutput {
   }  @SerializedName("FileType")
   private FileTypeEnum fileType = null;
 
+  @SerializedName("ImportTaskName")
+  private String importTaskName = null;
+
   @SerializedName("NeedDropTable")
   private Boolean needDropTable = null;
 
@@ -109,24 +109,6 @@ public class ImportOptionsForCreateImportTaskOutput {
     this.csvFormat = csvFormat;
   }
 
-  public ImportOptionsForCreateImportTaskOutput displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
   public ImportOptionsForCreateImportTaskOutput fileType(FileTypeEnum fileType) {
     this.fileType = fileType;
     return this;
@@ -143,6 +125,24 @@ public class ImportOptionsForCreateImportTaskOutput {
 
   public void setFileType(FileTypeEnum fileType) {
     this.fileType = fileType;
+  }
+
+  public ImportOptionsForCreateImportTaskOutput importTaskName(String importTaskName) {
+    this.importTaskName = importTaskName;
+    return this;
+  }
+
+   /**
+   * Get importTaskName
+   * @return importTaskName
+  **/
+  @Schema(description = "")
+  public String getImportTaskName() {
+    return importTaskName;
+  }
+
+  public void setImportTaskName(String importTaskName) {
+    this.importTaskName = importTaskName;
   }
 
   public ImportOptionsForCreateImportTaskOutput needDropTable(Boolean needDropTable) {
@@ -174,14 +174,14 @@ public class ImportOptionsForCreateImportTaskOutput {
     }
     ImportOptionsForCreateImportTaskOutput importOptionsForCreateImportTaskOutput = (ImportOptionsForCreateImportTaskOutput) o;
     return Objects.equals(this.csvFormat, importOptionsForCreateImportTaskOutput.csvFormat) &&
-        Objects.equals(this.displayName, importOptionsForCreateImportTaskOutput.displayName) &&
         Objects.equals(this.fileType, importOptionsForCreateImportTaskOutput.fileType) &&
+        Objects.equals(this.importTaskName, importOptionsForCreateImportTaskOutput.importTaskName) &&
         Objects.equals(this.needDropTable, importOptionsForCreateImportTaskOutput.needDropTable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(csvFormat, displayName, fileType, needDropTable);
+    return Objects.hash(csvFormat, fileType, importTaskName, needDropTable);
   }
 
 
@@ -191,8 +191,8 @@ public class ImportOptionsForCreateImportTaskOutput {
     sb.append("class ImportOptionsForCreateImportTaskOutput {\n");
     
     sb.append("    csvFormat: ").append(toIndentedString(csvFormat)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
+    sb.append("    importTaskName: ").append(toIndentedString(importTaskName)).append("\n");
     sb.append("    needDropTable: ").append(toIndentedString(needDropTable)).append("\n");
     sb.append("}");
     return sb.toString();

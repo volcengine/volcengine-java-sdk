@@ -35,11 +35,11 @@ public class DescribeSchemaTableRequest {
   @SerializedName("CaseSensitive")
   private Boolean caseSensitive = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("FilterRules")
   private List<String> filterRules = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -60,25 +60,6 @@ public class DescribeSchemaTableRequest {
 
   public void setCaseSensitive(Boolean caseSensitive) {
     this.caseSensitive = caseSensitive;
-  }
-
-  public DescribeSchemaTableRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public DescribeSchemaTableRequest filterRules(List<String> filterRules) {
@@ -105,6 +86,25 @@ public class DescribeSchemaTableRequest {
 
   public void setFilterRules(List<String> filterRules) {
     this.filterRules = filterRules;
+  }
+
+  public DescribeSchemaTableRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public DescribeSchemaTableRequest projectName(String projectName) {
@@ -136,14 +136,14 @@ public class DescribeSchemaTableRequest {
     }
     DescribeSchemaTableRequest describeSchemaTableRequest = (DescribeSchemaTableRequest) o;
     return Objects.equals(this.caseSensitive, describeSchemaTableRequest.caseSensitive) &&
-        Objects.equals(this.clusterId, describeSchemaTableRequest.clusterId) &&
         Objects.equals(this.filterRules, describeSchemaTableRequest.filterRules) &&
+        Objects.equals(this.instanceId, describeSchemaTableRequest.instanceId) &&
         Objects.equals(this.projectName, describeSchemaTableRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caseSensitive, clusterId, filterRules, projectName);
+    return Objects.hash(caseSensitive, filterRules, instanceId, projectName);
   }
 
 
@@ -153,8 +153,8 @@ public class DescribeSchemaTableRequest {
     sb.append("class DescribeSchemaTableRequest {\n");
     
     sb.append("    caseSensitive: ").append(toIndentedString(caseSensitive)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    filterRules: ").append(toIndentedString(filterRules)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

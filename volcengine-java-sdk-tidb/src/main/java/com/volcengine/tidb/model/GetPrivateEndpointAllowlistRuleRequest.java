@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class GetPrivateEndpointAllowlistRuleRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -39,23 +39,23 @@ public class GetPrivateEndpointAllowlistRuleRequest {
   @SerializedName("VpcEndpointId")
   private String vpcEndpointId = null;
 
-  public GetPrivateEndpointAllowlistRuleRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public GetPrivateEndpointAllowlistRuleRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public GetPrivateEndpointAllowlistRuleRequest projectName(String projectName) {
@@ -105,14 +105,14 @@ public class GetPrivateEndpointAllowlistRuleRequest {
       return false;
     }
     GetPrivateEndpointAllowlistRuleRequest getPrivateEndpointAllowlistRuleRequest = (GetPrivateEndpointAllowlistRuleRequest) o;
-    return Objects.equals(this.clusterId, getPrivateEndpointAllowlistRuleRequest.clusterId) &&
+    return Objects.equals(this.instanceId, getPrivateEndpointAllowlistRuleRequest.instanceId) &&
         Objects.equals(this.projectName, getPrivateEndpointAllowlistRuleRequest.projectName) &&
         Objects.equals(this.vpcEndpointId, getPrivateEndpointAllowlistRuleRequest.vpcEndpointId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, projectName, vpcEndpointId);
+    return Objects.hash(instanceId, projectName, vpcEndpointId);
   }
 
 
@@ -121,7 +121,7 @@ public class GetPrivateEndpointAllowlistRuleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetPrivateEndpointAllowlistRuleRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vpcEndpointId: ").append(toIndentedString(vpcEndpointId)).append("\n");
     sb.append("}");

@@ -82,11 +82,11 @@ public class CreateChangefeedRequest {
   @SerializedName("ChangefeedName")
   private String changefeedName = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("Filter")
   private FilterForCreateChangefeedInput filter = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -136,25 +136,6 @@ public class CreateChangefeedRequest {
     this.changefeedName = changefeedName;
   }
 
-  public CreateChangefeedRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
-
   public CreateChangefeedRequest filter(FilterForCreateChangefeedInput filter) {
     this.filter = filter;
     return this;
@@ -172,6 +153,25 @@ public class CreateChangefeedRequest {
 
   public void setFilter(FilterForCreateChangefeedInput filter) {
     this.filter = filter;
+  }
+
+  public CreateChangefeedRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public CreateChangefeedRequest projectName(String projectName) {
@@ -260,8 +260,8 @@ public class CreateChangefeedRequest {
     CreateChangefeedRequest createChangefeedRequest = (CreateChangefeedRequest) o;
     return Objects.equals(this.arch, createChangefeedRequest.arch) &&
         Objects.equals(this.changefeedName, createChangefeedRequest.changefeedName) &&
-        Objects.equals(this.clusterId, createChangefeedRequest.clusterId) &&
         Objects.equals(this.filter, createChangefeedRequest.filter) &&
+        Objects.equals(this.instanceId, createChangefeedRequest.instanceId) &&
         Objects.equals(this.projectName, createChangefeedRequest.projectName) &&
         Objects.equals(this.rcu, createChangefeedRequest.rcu) &&
         Objects.equals(this.sink, createChangefeedRequest.sink) &&
@@ -270,7 +270,7 @@ public class CreateChangefeedRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arch, changefeedName, clusterId, filter, projectName, rcu, sink, startPosition);
+    return Objects.hash(arch, changefeedName, filter, instanceId, projectName, rcu, sink, startPosition);
   }
 
 
@@ -281,8 +281,8 @@ public class CreateChangefeedRequest {
     
     sb.append("    arch: ").append(toIndentedString(arch)).append("\n");
     sb.append("    changefeedName: ").append(toIndentedString(changefeedName)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    rcu: ").append(toIndentedString(rcu)).append("\n");
     sb.append("    sink: ").append(toIndentedString(sink)).append("\n");
