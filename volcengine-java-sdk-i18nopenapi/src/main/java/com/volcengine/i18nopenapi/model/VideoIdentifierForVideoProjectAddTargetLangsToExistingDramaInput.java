@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput;
 import com.volcengine.i18nopenapi.model.TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -35,6 +36,9 @@ import javax.validation.Valid;
 public class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
   @SerializedName("episodeNum")
   private Integer episodeNum = null;
+
+  @SerializedName("targetLang2EffectSubtitle")
+  private List<TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput> targetLang2EffectSubtitle = null;
 
   @SerializedName("targetLang2Subtitle")
   private List<TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput> targetLang2Subtitle = null;
@@ -55,6 +59,33 @@ public class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
 
   public void setEpisodeNum(Integer episodeNum) {
     this.episodeNum = episodeNum;
+  }
+
+  public VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput targetLang2EffectSubtitle(List<TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput> targetLang2EffectSubtitle) {
+    this.targetLang2EffectSubtitle = targetLang2EffectSubtitle;
+    return this;
+  }
+
+  public VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput addTargetLang2EffectSubtitleItem(TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput targetLang2EffectSubtitleItem) {
+    if (this.targetLang2EffectSubtitle == null) {
+      this.targetLang2EffectSubtitle = new ArrayList<TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput>();
+    }
+    this.targetLang2EffectSubtitle.add(targetLang2EffectSubtitleItem);
+    return this;
+  }
+
+   /**
+   * Get targetLang2EffectSubtitle
+   * @return targetLang2EffectSubtitle
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput> getTargetLang2EffectSubtitle() {
+    return targetLang2EffectSubtitle;
+  }
+
+  public void setTargetLang2EffectSubtitle(List<TargetLang2EffectSubtitleForVideoProjectAddTargetLangsToExistingDramaInput> targetLang2EffectSubtitle) {
+    this.targetLang2EffectSubtitle = targetLang2EffectSubtitle;
   }
 
   public VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput targetLang2Subtitle(List<TargetLang2SubtitleForVideoProjectAddTargetLangsToExistingDramaInput> targetLang2Subtitle) {
@@ -95,12 +126,13 @@ public class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
     }
     VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput = (VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput) o;
     return Objects.equals(this.episodeNum, videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.episodeNum) &&
+        Objects.equals(this.targetLang2EffectSubtitle, videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.targetLang2EffectSubtitle) &&
         Objects.equals(this.targetLang2Subtitle, videoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput.targetLang2Subtitle);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(episodeNum, targetLang2Subtitle);
+    return Objects.hash(episodeNum, targetLang2EffectSubtitle, targetLang2Subtitle);
   }
 
 
@@ -110,6 +142,7 @@ public class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {
     sb.append("class VideoIdentifierForVideoProjectAddTargetLangsToExistingDramaInput {\n");
     
     sb.append("    episodeNum: ").append(toIndentedString(episodeNum)).append("\n");
+    sb.append("    targetLang2EffectSubtitle: ").append(toIndentedString(targetLang2EffectSubtitle)).append("\n");
     sb.append("    targetLang2Subtitle: ").append(toIndentedString(targetLang2Subtitle)).append("\n");
     sb.append("}");
     return sb.toString();

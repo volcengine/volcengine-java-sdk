@@ -1,0 +1,16 @@
+{
+  "actions": [
+    "VideoProjectBatchMaterialQualityCheck",
+    "VideoProjectVideoUpload",
+    "VideoProjectAddTargetLangsToExistingDrama",
+    "VideoProjectSerialDubTaskCreate",
+    "VideoProjectSuppressionStart",
+    "VideoProjectMaterialQualityIssues",
+    "VideoProjectBatchUploadForSubtasksV2",
+    "VideoProjectSerialTaskCreate",
+    "VideoProjectSubtitleUpload"
+  ],
+  "description": "I18N_OPENAPI: 新增 VideoProjectMaterialQualityIssues, VideoProjectBatchMaterialQualityCheck, VideoProjectBatchUploadForSubtasksV2；修改 VideoProjectVideoUpload, VideoProjectAddTargetLangsToExistingDrama, VideoProjectSerialDubTaskCreate, VideoProjectSerialTaskCreate, VideoProjectSubtitleUpload, VideoProjectSuppressionStart",
+  "modules": "service/i18n_openapi",
+  "type": "feature"
+}
