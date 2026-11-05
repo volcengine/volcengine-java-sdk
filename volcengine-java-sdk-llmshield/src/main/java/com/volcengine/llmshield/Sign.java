@@ -107,6 +107,11 @@ public class Sign {
      */
     public Request DoSignRequest(Request request, URI uri, String action, String ak, String sk,
                               String region, String rewriteHost) throws Exception{
+        // region and service are written into the credential scope and the
+        // request headers, reject anything that could alter them before the
+        // request is signed (and therefore before it can be sent).
+        EndpointValidation.validateServiceAndRegion(SERVICE, region);
+
         String method = request.method();
         String path = uri.getPath();
         String host = (rewriteHost != null && !rewriteHost.isEmpty()) ? rewriteHost : uri.getHost();

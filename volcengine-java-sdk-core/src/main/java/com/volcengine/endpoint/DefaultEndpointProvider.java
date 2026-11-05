@@ -1064,6 +1064,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
 
     @Override
     public ResolvedEndpoint endpointFor(ResolveEndpointOption option) {
+        EndpointValidation.validateServiceAndRegion(option.getService(), option.getRegion());
         String endpoint = DefaultEndpointProvider.getDefaultEndpointByServiceInfo(option.getService(),
                 option.getRegion(), option.getCustomBootstrapRegion(), option.getUseDualStack());
         ResolvedEndpoint result = new ResolvedEndpoint();
