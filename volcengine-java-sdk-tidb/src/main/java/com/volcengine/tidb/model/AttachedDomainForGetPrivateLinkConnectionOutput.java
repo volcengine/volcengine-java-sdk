@@ -36,9 +36,6 @@ public class AttachedDomainForGetPrivateLinkConnectionOutput {
   @SerializedName("AttachDomainId")
   private String attachDomainId = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -47,6 +44,9 @@ public class AttachedDomainForGetPrivateLinkConnectionOutput {
 
   @SerializedName("Domains")
   private List<DomainForGetPrivateLinkConnectionOutput> domains = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PrivateLinkConnectionId")
   private String privateLinkConnectionId = null;
@@ -118,24 +118,6 @@ public class AttachedDomainForGetPrivateLinkConnectionOutput {
     this.attachDomainId = attachDomainId;
   }
 
-  public AttachedDomainForGetPrivateLinkConnectionOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
-
   public AttachedDomainForGetPrivateLinkConnectionOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
@@ -197,6 +179,24 @@ public class AttachedDomainForGetPrivateLinkConnectionOutput {
 
   public void setDomains(List<DomainForGetPrivateLinkConnectionOutput> domains) {
     this.domains = domains;
+  }
+
+  public AttachedDomainForGetPrivateLinkConnectionOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public AttachedDomainForGetPrivateLinkConnectionOutput privateLinkConnectionId(String privateLinkConnectionId) {
@@ -264,10 +264,10 @@ public class AttachedDomainForGetPrivateLinkConnectionOutput {
     }
     AttachedDomainForGetPrivateLinkConnectionOutput attachedDomainForGetPrivateLinkConnectionOutput = (AttachedDomainForGetPrivateLinkConnectionOutput) o;
     return Objects.equals(this.attachDomainId, attachedDomainForGetPrivateLinkConnectionOutput.attachDomainId) &&
-        Objects.equals(this.clusterId, attachedDomainForGetPrivateLinkConnectionOutput.clusterId) &&
         Objects.equals(this.createTime, attachedDomainForGetPrivateLinkConnectionOutput.createTime) &&
         Objects.equals(this.createdBy, attachedDomainForGetPrivateLinkConnectionOutput.createdBy) &&
         Objects.equals(this.domains, attachedDomainForGetPrivateLinkConnectionOutput.domains) &&
+        Objects.equals(this.instanceId, attachedDomainForGetPrivateLinkConnectionOutput.instanceId) &&
         Objects.equals(this.privateLinkConnectionId, attachedDomainForGetPrivateLinkConnectionOutput.privateLinkConnectionId) &&
         Objects.equals(this.type, attachedDomainForGetPrivateLinkConnectionOutput.type) &&
         Objects.equals(this.uniqueName, attachedDomainForGetPrivateLinkConnectionOutput.uniqueName);
@@ -275,7 +275,7 @@ public class AttachedDomainForGetPrivateLinkConnectionOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachDomainId, clusterId, createTime, createdBy, domains, privateLinkConnectionId, type, uniqueName);
+    return Objects.hash(attachDomainId, createTime, createdBy, domains, instanceId, privateLinkConnectionId, type, uniqueName);
   }
 
 
@@ -285,10 +285,10 @@ public class AttachedDomainForGetPrivateLinkConnectionOutput {
     sb.append("class AttachedDomainForGetPrivateLinkConnectionOutput {\n");
     
     sb.append("    attachDomainId: ").append(toIndentedString(attachDomainId)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    privateLinkConnectionId: ").append(toIndentedString(privateLinkConnectionId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uniqueName: ").append(toIndentedString(uniqueName)).append("\n");

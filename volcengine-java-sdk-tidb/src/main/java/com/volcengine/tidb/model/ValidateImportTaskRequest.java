@@ -31,8 +31,8 @@ import javax.validation.Valid;
 
 
 public class ValidateImportTaskRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -86,23 +86,23 @@ public class ValidateImportTaskRequest {
   }  @SerializedName("ValidationType")
   private ValidationTypeEnum validationType = null;
 
-  public ValidateImportTaskRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public ValidateImportTaskRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ValidateImportTaskRequest projectName(String projectName) {
@@ -171,7 +171,7 @@ public class ValidateImportTaskRequest {
       return false;
     }
     ValidateImportTaskRequest validateImportTaskRequest = (ValidateImportTaskRequest) o;
-    return Objects.equals(this.clusterId, validateImportTaskRequest.clusterId) &&
+    return Objects.equals(this.instanceId, validateImportTaskRequest.instanceId) &&
         Objects.equals(this.projectName, validateImportTaskRequest.projectName) &&
         Objects.equals(this.source, validateImportTaskRequest.source) &&
         Objects.equals(this.validationType, validateImportTaskRequest.validationType);
@@ -179,7 +179,7 @@ public class ValidateImportTaskRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, projectName, source, validationType);
+    return Objects.hash(instanceId, projectName, source, validationType);
   }
 
 
@@ -188,7 +188,7 @@ public class ValidateImportTaskRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidateImportTaskRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    validationType: ").append(toIndentedString(validationType)).append("\n");

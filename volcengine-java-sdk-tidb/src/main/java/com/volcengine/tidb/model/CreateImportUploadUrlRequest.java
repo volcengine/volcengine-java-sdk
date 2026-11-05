@@ -30,14 +30,33 @@ import javax.validation.Valid;
 
 
 public class CreateImportUploadUrlRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  @SerializedName("cluster_id")
-  private String clusterId = null;
-
   @SerializedName("file_name")
   private String fileName = null;
+
+  public CreateImportUploadUrlRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
 
   public CreateImportUploadUrlRequest projectName(String projectName) {
     this.projectName = projectName;
@@ -55,25 +74,6 @@ public class CreateImportUploadUrlRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
-  }
-
-  public CreateImportUploadUrlRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public CreateImportUploadUrlRequest fileName(String fileName) {
@@ -105,14 +105,14 @@ public class CreateImportUploadUrlRequest {
       return false;
     }
     CreateImportUploadUrlRequest createImportUploadUrlRequest = (CreateImportUploadUrlRequest) o;
-    return Objects.equals(this.projectName, createImportUploadUrlRequest.projectName) &&
-        Objects.equals(this.clusterId, createImportUploadUrlRequest.clusterId) &&
+    return Objects.equals(this.instanceId, createImportUploadUrlRequest.instanceId) &&
+        Objects.equals(this.projectName, createImportUploadUrlRequest.projectName) &&
         Objects.equals(this.fileName, createImportUploadUrlRequest.fileName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName, clusterId, fileName);
+    return Objects.hash(instanceId, projectName, fileName);
   }
 
 
@@ -121,8 +121,8 @@ public class CreateImportUploadUrlRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateImportUploadUrlRequest {\n");
     
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -30,29 +30,29 @@ import javax.validation.Valid;
 
 
 public class ListPrivateEndpointAllowlistRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public ListPrivateEndpointAllowlistRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public ListPrivateEndpointAllowlistRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListPrivateEndpointAllowlistRequest projectName(String projectName) {
@@ -83,13 +83,13 @@ public class ListPrivateEndpointAllowlistRequest {
       return false;
     }
     ListPrivateEndpointAllowlistRequest listPrivateEndpointAllowlistRequest = (ListPrivateEndpointAllowlistRequest) o;
-    return Objects.equals(this.clusterId, listPrivateEndpointAllowlistRequest.clusterId) &&
+    return Objects.equals(this.instanceId, listPrivateEndpointAllowlistRequest.instanceId) &&
         Objects.equals(this.projectName, listPrivateEndpointAllowlistRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, projectName);
+    return Objects.hash(instanceId, projectName);
   }
 
 
@@ -98,7 +98,7 @@ public class ListPrivateEndpointAllowlistRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListPrivateEndpointAllowlistRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

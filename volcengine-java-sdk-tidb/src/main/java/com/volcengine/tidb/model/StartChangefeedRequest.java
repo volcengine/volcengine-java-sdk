@@ -33,8 +33,8 @@ public class StartChangefeedRequest {
   @SerializedName("ChangefeedId")
   private String changefeedId = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -58,23 +58,23 @@ public class StartChangefeedRequest {
     this.changefeedId = changefeedId;
   }
 
-  public StartChangefeedRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public StartChangefeedRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public StartChangefeedRequest projectName(String projectName) {
@@ -106,13 +106,13 @@ public class StartChangefeedRequest {
     }
     StartChangefeedRequest startChangefeedRequest = (StartChangefeedRequest) o;
     return Objects.equals(this.changefeedId, startChangefeedRequest.changefeedId) &&
-        Objects.equals(this.clusterId, startChangefeedRequest.clusterId) &&
+        Objects.equals(this.instanceId, startChangefeedRequest.instanceId) &&
         Objects.equals(this.projectName, startChangefeedRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(changefeedId, clusterId, projectName);
+    return Objects.hash(changefeedId, instanceId, projectName);
   }
 
 
@@ -122,7 +122,7 @@ public class StartChangefeedRequest {
     sb.append("class StartChangefeedRequest {\n");
     
     sb.append("    changefeedId: ").append(toIndentedString(changefeedId)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

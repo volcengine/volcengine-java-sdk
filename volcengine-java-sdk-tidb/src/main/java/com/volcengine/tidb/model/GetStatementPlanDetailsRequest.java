@@ -35,14 +35,14 @@ public class GetStatementPlanDetailsRequest {
   @SerializedName("BeginTime")
   private String beginTime = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("Digest")
   private String digest = null;
 
   @SerializedName("EndTime")
   private String endTime = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("Plans")
   private List<String> plans = null;
@@ -69,25 +69,6 @@ public class GetStatementPlanDetailsRequest {
 
   public void setBeginTime(String beginTime) {
     this.beginTime = beginTime;
-  }
-
-  public GetStatementPlanDetailsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public GetStatementPlanDetailsRequest digest(String digest) {
@@ -124,6 +105,25 @@ public class GetStatementPlanDetailsRequest {
 
   public void setEndTime(String endTime) {
     this.endTime = endTime;
+  }
+
+  public GetStatementPlanDetailsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public GetStatementPlanDetailsRequest plans(List<String> plans) {
@@ -199,9 +199,9 @@ public class GetStatementPlanDetailsRequest {
     }
     GetStatementPlanDetailsRequest getStatementPlanDetailsRequest = (GetStatementPlanDetailsRequest) o;
     return Objects.equals(this.beginTime, getStatementPlanDetailsRequest.beginTime) &&
-        Objects.equals(this.clusterId, getStatementPlanDetailsRequest.clusterId) &&
         Objects.equals(this.digest, getStatementPlanDetailsRequest.digest) &&
         Objects.equals(this.endTime, getStatementPlanDetailsRequest.endTime) &&
+        Objects.equals(this.instanceId, getStatementPlanDetailsRequest.instanceId) &&
         Objects.equals(this.plans, getStatementPlanDetailsRequest.plans) &&
         Objects.equals(this.projectName, getStatementPlanDetailsRequest.projectName) &&
         Objects.equals(this.schemaName, getStatementPlanDetailsRequest.schemaName);
@@ -209,7 +209,7 @@ public class GetStatementPlanDetailsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(beginTime, clusterId, digest, endTime, plans, projectName, schemaName);
+    return Objects.hash(beginTime, digest, endTime, instanceId, plans, projectName, schemaName);
   }
 
 
@@ -219,9 +219,9 @@ public class GetStatementPlanDetailsRequest {
     sb.append("class GetStatementPlanDetailsRequest {\n");
     
     sb.append("    beginTime: ").append(toIndentedString(beginTime)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    digest: ").append(toIndentedString(digest)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    plans: ").append(toIndentedString(plans)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    schemaName: ").append(toIndentedString(schemaName)).append("\n");

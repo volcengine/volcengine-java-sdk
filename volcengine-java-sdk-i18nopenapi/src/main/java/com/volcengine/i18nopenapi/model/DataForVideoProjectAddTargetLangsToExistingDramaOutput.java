@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.i18nopenapi.model.MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +35,18 @@ import javax.validation.Valid;
 public class DataForVideoProjectAddTargetLangsToExistingDramaOutput {
   @SerializedName("dubTaskIDs")
   private List<String> dubTaskIDs = null;
+
+  @SerializedName("failedTargetLanguages")
+  private List<String> failedTargetLanguages = null;
+
+  @SerializedName("hasMaterialIssues")
+  private Boolean hasMaterialIssues = null;
+
+  @SerializedName("materialIssues")
+  private List<MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput> materialIssues = null;
+
+  @SerializedName("successfulTargetLanguages")
+  private List<String> successfulTargetLanguages = null;
 
   @SerializedName("taskIDs")
   private List<String> taskIDs = null;
@@ -62,6 +75,103 @@ public class DataForVideoProjectAddTargetLangsToExistingDramaOutput {
 
   public void setDubTaskIDs(List<String> dubTaskIDs) {
     this.dubTaskIDs = dubTaskIDs;
+  }
+
+  public DataForVideoProjectAddTargetLangsToExistingDramaOutput failedTargetLanguages(List<String> failedTargetLanguages) {
+    this.failedTargetLanguages = failedTargetLanguages;
+    return this;
+  }
+
+  public DataForVideoProjectAddTargetLangsToExistingDramaOutput addFailedTargetLanguagesItem(String failedTargetLanguagesItem) {
+    if (this.failedTargetLanguages == null) {
+      this.failedTargetLanguages = new ArrayList<String>();
+    }
+    this.failedTargetLanguages.add(failedTargetLanguagesItem);
+    return this;
+  }
+
+   /**
+   * Get failedTargetLanguages
+   * @return failedTargetLanguages
+  **/
+  @Schema(description = "")
+  public List<String> getFailedTargetLanguages() {
+    return failedTargetLanguages;
+  }
+
+  public void setFailedTargetLanguages(List<String> failedTargetLanguages) {
+    this.failedTargetLanguages = failedTargetLanguages;
+  }
+
+  public DataForVideoProjectAddTargetLangsToExistingDramaOutput hasMaterialIssues(Boolean hasMaterialIssues) {
+    this.hasMaterialIssues = hasMaterialIssues;
+    return this;
+  }
+
+   /**
+   * Get hasMaterialIssues
+   * @return hasMaterialIssues
+  **/
+  @Schema(description = "")
+  public Boolean isHasMaterialIssues() {
+    return hasMaterialIssues;
+  }
+
+  public void setHasMaterialIssues(Boolean hasMaterialIssues) {
+    this.hasMaterialIssues = hasMaterialIssues;
+  }
+
+  public DataForVideoProjectAddTargetLangsToExistingDramaOutput materialIssues(List<MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput> materialIssues) {
+    this.materialIssues = materialIssues;
+    return this;
+  }
+
+  public DataForVideoProjectAddTargetLangsToExistingDramaOutput addMaterialIssuesItem(MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput materialIssuesItem) {
+    if (this.materialIssues == null) {
+      this.materialIssues = new ArrayList<MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput>();
+    }
+    this.materialIssues.add(materialIssuesItem);
+    return this;
+  }
+
+   /**
+   * Get materialIssues
+   * @return materialIssues
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput> getMaterialIssues() {
+    return materialIssues;
+  }
+
+  public void setMaterialIssues(List<MaterialIssueForVideoProjectAddTargetLangsToExistingDramaOutput> materialIssues) {
+    this.materialIssues = materialIssues;
+  }
+
+  public DataForVideoProjectAddTargetLangsToExistingDramaOutput successfulTargetLanguages(List<String> successfulTargetLanguages) {
+    this.successfulTargetLanguages = successfulTargetLanguages;
+    return this;
+  }
+
+  public DataForVideoProjectAddTargetLangsToExistingDramaOutput addSuccessfulTargetLanguagesItem(String successfulTargetLanguagesItem) {
+    if (this.successfulTargetLanguages == null) {
+      this.successfulTargetLanguages = new ArrayList<String>();
+    }
+    this.successfulTargetLanguages.add(successfulTargetLanguagesItem);
+    return this;
+  }
+
+   /**
+   * Get successfulTargetLanguages
+   * @return successfulTargetLanguages
+  **/
+  @Schema(description = "")
+  public List<String> getSuccessfulTargetLanguages() {
+    return successfulTargetLanguages;
+  }
+
+  public void setSuccessfulTargetLanguages(List<String> successfulTargetLanguages) {
+    this.successfulTargetLanguages = successfulTargetLanguages;
   }
 
   public DataForVideoProjectAddTargetLangsToExistingDramaOutput taskIDs(List<String> taskIDs) {
@@ -101,12 +211,16 @@ public class DataForVideoProjectAddTargetLangsToExistingDramaOutput {
     }
     DataForVideoProjectAddTargetLangsToExistingDramaOutput dataForVideoProjectAddTargetLangsToExistingDramaOutput = (DataForVideoProjectAddTargetLangsToExistingDramaOutput) o;
     return Objects.equals(this.dubTaskIDs, dataForVideoProjectAddTargetLangsToExistingDramaOutput.dubTaskIDs) &&
+        Objects.equals(this.failedTargetLanguages, dataForVideoProjectAddTargetLangsToExistingDramaOutput.failedTargetLanguages) &&
+        Objects.equals(this.hasMaterialIssues, dataForVideoProjectAddTargetLangsToExistingDramaOutput.hasMaterialIssues) &&
+        Objects.equals(this.materialIssues, dataForVideoProjectAddTargetLangsToExistingDramaOutput.materialIssues) &&
+        Objects.equals(this.successfulTargetLanguages, dataForVideoProjectAddTargetLangsToExistingDramaOutput.successfulTargetLanguages) &&
         Objects.equals(this.taskIDs, dataForVideoProjectAddTargetLangsToExistingDramaOutput.taskIDs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dubTaskIDs, taskIDs);
+    return Objects.hash(dubTaskIDs, failedTargetLanguages, hasMaterialIssues, materialIssues, successfulTargetLanguages, taskIDs);
   }
 
 
@@ -116,6 +230,10 @@ public class DataForVideoProjectAddTargetLangsToExistingDramaOutput {
     sb.append("class DataForVideoProjectAddTargetLangsToExistingDramaOutput {\n");
     
     sb.append("    dubTaskIDs: ").append(toIndentedString(dubTaskIDs)).append("\n");
+    sb.append("    failedTargetLanguages: ").append(toIndentedString(failedTargetLanguages)).append("\n");
+    sb.append("    hasMaterialIssues: ").append(toIndentedString(hasMaterialIssues)).append("\n");
+    sb.append("    materialIssues: ").append(toIndentedString(materialIssues)).append("\n");
+    sb.append("    successfulTargetLanguages: ").append(toIndentedString(successfulTargetLanguages)).append("\n");
     sb.append("    taskIDs: ").append(toIndentedString(taskIDs)).append("\n");
     sb.append("}");
     return sb.toString();

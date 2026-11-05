@@ -34,11 +34,11 @@ public class AuditLogConfigForUpdateAuditLogConfigOutput {
   @SerializedName("CloudStorage")
   private CloudStorageForUpdateAuditLogConfigOutput cloudStorage = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("Enabled")
   private Boolean enabled = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("RotationIntervalMinutes")
   private Integer rotationIntervalMinutes = null;
@@ -68,24 +68,6 @@ public class AuditLogConfigForUpdateAuditLogConfigOutput {
     this.cloudStorage = cloudStorage;
   }
 
-  public AuditLogConfigForUpdateAuditLogConfigOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
-
   public AuditLogConfigForUpdateAuditLogConfigOutput enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -102,6 +84,24 @@ public class AuditLogConfigForUpdateAuditLogConfigOutput {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public AuditLogConfigForUpdateAuditLogConfigOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public AuditLogConfigForUpdateAuditLogConfigOutput rotationIntervalMinutes(Integer rotationIntervalMinutes) {
@@ -169,8 +169,8 @@ public class AuditLogConfigForUpdateAuditLogConfigOutput {
     }
     AuditLogConfigForUpdateAuditLogConfigOutput auditLogConfigForUpdateAuditLogConfigOutput = (AuditLogConfigForUpdateAuditLogConfigOutput) o;
     return Objects.equals(this.cloudStorage, auditLogConfigForUpdateAuditLogConfigOutput.cloudStorage) &&
-        Objects.equals(this.clusterId, auditLogConfigForUpdateAuditLogConfigOutput.clusterId) &&
         Objects.equals(this.enabled, auditLogConfigForUpdateAuditLogConfigOutput.enabled) &&
+        Objects.equals(this.instanceId, auditLogConfigForUpdateAuditLogConfigOutput.instanceId) &&
         Objects.equals(this.rotationIntervalMinutes, auditLogConfigForUpdateAuditLogConfigOutput.rotationIntervalMinutes) &&
         Objects.equals(this.rotationSizeMiB, auditLogConfigForUpdateAuditLogConfigOutput.rotationSizeMiB) &&
         Objects.equals(this.unredacted, auditLogConfigForUpdateAuditLogConfigOutput.unredacted);
@@ -178,7 +178,7 @@ public class AuditLogConfigForUpdateAuditLogConfigOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudStorage, clusterId, enabled, rotationIntervalMinutes, rotationSizeMiB, unredacted);
+    return Objects.hash(cloudStorage, enabled, instanceId, rotationIntervalMinutes, rotationSizeMiB, unredacted);
   }
 
 
@@ -188,8 +188,8 @@ public class AuditLogConfigForUpdateAuditLogConfigOutput {
     sb.append("class AuditLogConfigForUpdateAuditLogConfigOutput {\n");
     
     sb.append("    cloudStorage: ").append(toIndentedString(cloudStorage)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    rotationIntervalMinutes: ").append(toIndentedString(rotationIntervalMinutes)).append("\n");
     sb.append("    rotationSizeMiB: ").append(toIndentedString(rotationSizeMiB)).append("\n");
     sb.append("    unredacted: ").append(toIndentedString(unredacted)).append("\n");

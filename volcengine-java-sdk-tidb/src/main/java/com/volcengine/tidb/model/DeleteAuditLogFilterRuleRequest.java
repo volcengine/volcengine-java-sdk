@@ -30,33 +30,14 @@ import javax.validation.Valid;
 
 
 public class DeleteAuditLogFilterRuleRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("FilterRuleId")
   private String filterRuleId = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
-
-  public DeleteAuditLogFilterRuleRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public DeleteAuditLogFilterRuleRequest filterRuleId(String filterRuleId) {
     this.filterRuleId = filterRuleId;
@@ -75,6 +56,25 @@ public class DeleteAuditLogFilterRuleRequest {
 
   public void setFilterRuleId(String filterRuleId) {
     this.filterRuleId = filterRuleId;
+  }
+
+  public DeleteAuditLogFilterRuleRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public DeleteAuditLogFilterRuleRequest projectName(String projectName) {
@@ -105,14 +105,14 @@ public class DeleteAuditLogFilterRuleRequest {
       return false;
     }
     DeleteAuditLogFilterRuleRequest deleteAuditLogFilterRuleRequest = (DeleteAuditLogFilterRuleRequest) o;
-    return Objects.equals(this.clusterId, deleteAuditLogFilterRuleRequest.clusterId) &&
-        Objects.equals(this.filterRuleId, deleteAuditLogFilterRuleRequest.filterRuleId) &&
+    return Objects.equals(this.filterRuleId, deleteAuditLogFilterRuleRequest.filterRuleId) &&
+        Objects.equals(this.instanceId, deleteAuditLogFilterRuleRequest.instanceId) &&
         Objects.equals(this.projectName, deleteAuditLogFilterRuleRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, filterRuleId, projectName);
+    return Objects.hash(filterRuleId, instanceId, projectName);
   }
 
 
@@ -121,8 +121,8 @@ public class DeleteAuditLogFilterRuleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteAuditLogFilterRuleRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    filterRuleId: ").append(toIndentedString(filterRuleId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

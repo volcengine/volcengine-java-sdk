@@ -33,8 +33,8 @@ public class DeleteRecycledInstanceBackupRequest {
   @SerializedName("BackupId")
   private String backupId = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -58,23 +58,23 @@ public class DeleteRecycledInstanceBackupRequest {
     this.backupId = backupId;
   }
 
-  public DeleteRecycledInstanceBackupRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public DeleteRecycledInstanceBackupRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public DeleteRecycledInstanceBackupRequest projectName(String projectName) {
@@ -106,13 +106,13 @@ public class DeleteRecycledInstanceBackupRequest {
     }
     DeleteRecycledInstanceBackupRequest deleteRecycledInstanceBackupRequest = (DeleteRecycledInstanceBackupRequest) o;
     return Objects.equals(this.backupId, deleteRecycledInstanceBackupRequest.backupId) &&
-        Objects.equals(this.clusterId, deleteRecycledInstanceBackupRequest.clusterId) &&
+        Objects.equals(this.instanceId, deleteRecycledInstanceBackupRequest.instanceId) &&
         Objects.equals(this.projectName, deleteRecycledInstanceBackupRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, clusterId, projectName);
+    return Objects.hash(backupId, instanceId, projectName);
   }
 
 
@@ -122,7 +122,7 @@ public class DeleteRecycledInstanceBackupRequest {
     sb.append("class DeleteRecycledInstanceBackupRequest {\n");
     
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

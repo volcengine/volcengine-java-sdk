@@ -31,9 +31,6 @@ import javax.validation.Valid;
 
 
 public class PreviewLocalImportRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("CsvFormat")
   private CsvFormatForPreviewLocalImportInput csvFormat = null;
 
@@ -87,30 +84,14 @@ public class PreviewLocalImportRequest {
   }  @SerializedName("FileType")
   private FileTypeEnum fileType = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("UploadId")
   private String uploadId = null;
-
-  public PreviewLocalImportRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public PreviewLocalImportRequest csvFormat(CsvFormatForPreviewLocalImportInput csvFormat) {
     this.csvFormat = csvFormat;
@@ -148,6 +129,25 @@ public class PreviewLocalImportRequest {
 
   public void setFileType(FileTypeEnum fileType) {
     this.fileType = fileType;
+  }
+
+  public PreviewLocalImportRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public PreviewLocalImportRequest projectName(String projectName) {
@@ -197,16 +197,16 @@ public class PreviewLocalImportRequest {
       return false;
     }
     PreviewLocalImportRequest previewLocalImportRequest = (PreviewLocalImportRequest) o;
-    return Objects.equals(this.clusterId, previewLocalImportRequest.clusterId) &&
-        Objects.equals(this.csvFormat, previewLocalImportRequest.csvFormat) &&
+    return Objects.equals(this.csvFormat, previewLocalImportRequest.csvFormat) &&
         Objects.equals(this.fileType, previewLocalImportRequest.fileType) &&
+        Objects.equals(this.instanceId, previewLocalImportRequest.instanceId) &&
         Objects.equals(this.projectName, previewLocalImportRequest.projectName) &&
         Objects.equals(this.uploadId, previewLocalImportRequest.uploadId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, csvFormat, fileType, projectName, uploadId);
+    return Objects.hash(csvFormat, fileType, instanceId, projectName, uploadId);
   }
 
 
@@ -215,9 +215,9 @@ public class PreviewLocalImportRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class PreviewLocalImportRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    csvFormat: ").append(toIndentedString(csvFormat)).append("\n");
     sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    uploadId: ").append(toIndentedString(uploadId)).append("\n");
     sb.append("}");

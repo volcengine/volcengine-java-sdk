@@ -32,35 +32,17 @@ import javax.validation.Valid;
 
 
 public class DescribeSchemaTableResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("GcSafePoint")
   private String gcSafePoint = null;
 
   @SerializedName("HandleKeyTables")
   private List<String> handleKeyTables = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("NonHandleKeyTables")
   private List<String> nonHandleKeyTables = null;
-
-  public DescribeSchemaTableResponse clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public DescribeSchemaTableResponse gcSafePoint(String gcSafePoint) {
     this.gcSafePoint = gcSafePoint;
@@ -106,6 +88,24 @@ public class DescribeSchemaTableResponse extends com.volcengine.model.AbstractRe
     this.handleKeyTables = handleKeyTables;
   }
 
+  public DescribeSchemaTableResponse instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
   public DescribeSchemaTableResponse nonHandleKeyTables(List<String> nonHandleKeyTables) {
     this.nonHandleKeyTables = nonHandleKeyTables;
     return this;
@@ -142,15 +142,15 @@ public class DescribeSchemaTableResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     DescribeSchemaTableResponse describeSchemaTableResponse = (DescribeSchemaTableResponse) o;
-    return Objects.equals(this.clusterId, describeSchemaTableResponse.clusterId) &&
-        Objects.equals(this.gcSafePoint, describeSchemaTableResponse.gcSafePoint) &&
+    return Objects.equals(this.gcSafePoint, describeSchemaTableResponse.gcSafePoint) &&
         Objects.equals(this.handleKeyTables, describeSchemaTableResponse.handleKeyTables) &&
+        Objects.equals(this.instanceId, describeSchemaTableResponse.instanceId) &&
         Objects.equals(this.nonHandleKeyTables, describeSchemaTableResponse.nonHandleKeyTables);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, gcSafePoint, handleKeyTables, nonHandleKeyTables);
+    return Objects.hash(gcSafePoint, handleKeyTables, instanceId, nonHandleKeyTables);
   }
 
 
@@ -159,9 +159,9 @@ public class DescribeSchemaTableResponse extends com.volcengine.model.AbstractRe
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeSchemaTableResponse {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    gcSafePoint: ").append(toIndentedString(gcSafePoint)).append("\n");
     sb.append("    handleKeyTables: ").append(toIndentedString(handleKeyTables)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    nonHandleKeyTables: ").append(toIndentedString(nonHandleKeyTables)).append("\n");
     sb.append("}");
     return sb.toString();

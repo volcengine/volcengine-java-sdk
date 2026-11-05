@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.tidb.model.ConvertTargetTableForPrecheckImportTaskOutput;
+import com.volcengine.tidb.model.TableMetaForPrecheckImportTaskOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,11 +40,20 @@ public class PrecheckImportTaskResponse extends com.volcengine.model.AbstractRes
   @SerializedName("Status")
   private String status = null;
 
+  @SerializedName("Success")
+  private Boolean success = null;
+
+  @SerializedName("TableMetas")
+  private List<TableMetaForPrecheckImportTaskOutput> tableMetas = null;
+
   @SerializedName("TargetTables")
   private List<ConvertTargetTableForPrecheckImportTaskOutput> targetTables = null;
 
   @SerializedName("TotalDataFilesCount")
   private String totalDataFilesCount = null;
+
+  @SerializedName("TotalScannedObjects")
+  private Long totalScannedObjects = null;
 
   @SerializedName("TotalTablesCount")
   private String totalTablesCount = null;
@@ -82,6 +92,51 @@ public class PrecheckImportTaskResponse extends com.volcengine.model.AbstractRes
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public PrecheckImportTaskResponse success(Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+   /**
+   * Get success
+   * @return success
+  **/
+  @Schema(description = "")
+  public Boolean isSuccess() {
+    return success;
+  }
+
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+
+  public PrecheckImportTaskResponse tableMetas(List<TableMetaForPrecheckImportTaskOutput> tableMetas) {
+    this.tableMetas = tableMetas;
+    return this;
+  }
+
+  public PrecheckImportTaskResponse addTableMetasItem(TableMetaForPrecheckImportTaskOutput tableMetasItem) {
+    if (this.tableMetas == null) {
+      this.tableMetas = new ArrayList<TableMetaForPrecheckImportTaskOutput>();
+    }
+    this.tableMetas.add(tableMetasItem);
+    return this;
+  }
+
+   /**
+   * Get tableMetas
+   * @return tableMetas
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TableMetaForPrecheckImportTaskOutput> getTableMetas() {
+    return tableMetas;
+  }
+
+  public void setTableMetas(List<TableMetaForPrecheckImportTaskOutput> tableMetas) {
+    this.tableMetas = tableMetas;
   }
 
   public PrecheckImportTaskResponse targetTables(List<ConvertTargetTableForPrecheckImportTaskOutput> targetTables) {
@@ -129,6 +184,24 @@ public class PrecheckImportTaskResponse extends com.volcengine.model.AbstractRes
     this.totalDataFilesCount = totalDataFilesCount;
   }
 
+  public PrecheckImportTaskResponse totalScannedObjects(Long totalScannedObjects) {
+    this.totalScannedObjects = totalScannedObjects;
+    return this;
+  }
+
+   /**
+   * Get totalScannedObjects
+   * @return totalScannedObjects
+  **/
+  @Schema(description = "")
+  public Long getTotalScannedObjects() {
+    return totalScannedObjects;
+  }
+
+  public void setTotalScannedObjects(Long totalScannedObjects) {
+    this.totalScannedObjects = totalScannedObjects;
+  }
+
   public PrecheckImportTaskResponse totalTablesCount(String totalTablesCount) {
     this.totalTablesCount = totalTablesCount;
     return this;
@@ -159,14 +232,17 @@ public class PrecheckImportTaskResponse extends com.volcengine.model.AbstractRes
     PrecheckImportTaskResponse precheckImportTaskResponse = (PrecheckImportTaskResponse) o;
     return Objects.equals(this.errorMessage, precheckImportTaskResponse.errorMessage) &&
         Objects.equals(this.status, precheckImportTaskResponse.status) &&
+        Objects.equals(this.success, precheckImportTaskResponse.success) &&
+        Objects.equals(this.tableMetas, precheckImportTaskResponse.tableMetas) &&
         Objects.equals(this.targetTables, precheckImportTaskResponse.targetTables) &&
         Objects.equals(this.totalDataFilesCount, precheckImportTaskResponse.totalDataFilesCount) &&
+        Objects.equals(this.totalScannedObjects, precheckImportTaskResponse.totalScannedObjects) &&
         Objects.equals(this.totalTablesCount, precheckImportTaskResponse.totalTablesCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorMessage, status, targetTables, totalDataFilesCount, totalTablesCount);
+    return Objects.hash(errorMessage, status, success, tableMetas, targetTables, totalDataFilesCount, totalScannedObjects, totalTablesCount);
   }
 
 
@@ -177,8 +253,11 @@ public class PrecheckImportTaskResponse extends com.volcengine.model.AbstractRes
     
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    tableMetas: ").append(toIndentedString(tableMetas)).append("\n");
     sb.append("    targetTables: ").append(toIndentedString(targetTables)).append("\n");
     sb.append("    totalDataFilesCount: ").append(toIndentedString(totalDataFilesCount)).append("\n");
+    sb.append("    totalScannedObjects: ").append(toIndentedString(totalScannedObjects)).append("\n");
     sb.append("    totalTablesCount: ").append(toIndentedString(totalTablesCount)).append("\n");
     sb.append("}");
     return sb.toString();

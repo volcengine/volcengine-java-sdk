@@ -30,29 +30,29 @@ import javax.validation.Valid;
 
 
 public class GetRestoreProgressRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public GetRestoreProgressRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public GetRestoreProgressRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public GetRestoreProgressRequest projectName(String projectName) {
@@ -83,13 +83,13 @@ public class GetRestoreProgressRequest {
       return false;
     }
     GetRestoreProgressRequest getRestoreProgressRequest = (GetRestoreProgressRequest) o;
-    return Objects.equals(this.clusterId, getRestoreProgressRequest.clusterId) &&
+    return Objects.equals(this.instanceId, getRestoreProgressRequest.instanceId) &&
         Objects.equals(this.projectName, getRestoreProgressRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, projectName);
+    return Objects.hash(instanceId, projectName);
   }
 
 
@@ -98,7 +98,7 @@ public class GetRestoreProgressRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRestoreProgressRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

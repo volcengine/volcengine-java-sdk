@@ -71,8 +71,7 @@ public class VideoProjectSuppressionStartRequest {
    * Get arrangeMent
    * @return arrangeMent
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getArrangeMent() {
     return arrangeMent;
   }

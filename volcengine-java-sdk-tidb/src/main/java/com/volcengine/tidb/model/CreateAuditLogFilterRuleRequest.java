@@ -33,39 +33,20 @@ import javax.validation.Valid;
 
 
 public class CreateAuditLogFilterRuleRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("FilterRuleName")
   private String filterRuleName = null;
 
   @SerializedName("Filters")
   private List<FilterForCreateAuditLogFilterRuleInput> filters = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("Users")
   private List<String> users = null;
-
-  public CreateAuditLogFilterRuleRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public CreateAuditLogFilterRuleRequest filterRuleName(String filterRuleName) {
     this.filterRuleName = filterRuleName;
@@ -111,6 +92,25 @@ public class CreateAuditLogFilterRuleRequest {
 
   public void setFilters(List<FilterForCreateAuditLogFilterRuleInput> filters) {
     this.filters = filters;
+  }
+
+  public CreateAuditLogFilterRuleRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public CreateAuditLogFilterRuleRequest projectName(String projectName) {
@@ -167,16 +167,16 @@ public class CreateAuditLogFilterRuleRequest {
       return false;
     }
     CreateAuditLogFilterRuleRequest createAuditLogFilterRuleRequest = (CreateAuditLogFilterRuleRequest) o;
-    return Objects.equals(this.clusterId, createAuditLogFilterRuleRequest.clusterId) &&
-        Objects.equals(this.filterRuleName, createAuditLogFilterRuleRequest.filterRuleName) &&
+    return Objects.equals(this.filterRuleName, createAuditLogFilterRuleRequest.filterRuleName) &&
         Objects.equals(this.filters, createAuditLogFilterRuleRequest.filters) &&
+        Objects.equals(this.instanceId, createAuditLogFilterRuleRequest.instanceId) &&
         Objects.equals(this.projectName, createAuditLogFilterRuleRequest.projectName) &&
         Objects.equals(this.users, createAuditLogFilterRuleRequest.users);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, filterRuleName, filters, projectName, users);
+    return Objects.hash(filterRuleName, filters, instanceId, projectName, users);
   }
 
 
@@ -185,9 +185,9 @@ public class CreateAuditLogFilterRuleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAuditLogFilterRuleRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    filterRuleName: ").append(toIndentedString(filterRuleName)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("}");

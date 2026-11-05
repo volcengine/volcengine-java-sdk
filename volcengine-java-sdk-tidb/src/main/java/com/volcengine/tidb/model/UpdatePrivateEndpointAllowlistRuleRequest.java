@@ -33,11 +33,11 @@ public class UpdatePrivateEndpointAllowlistRuleRequest {
   @SerializedName("AuthorizedNetworkName")
   private String authorizedNetworkName = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("CurrentVpcEndpointId")
   private String currentVpcEndpointId = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("NewVpcEndpointId")
   private String newVpcEndpointId = null;
@@ -63,25 +63,6 @@ public class UpdatePrivateEndpointAllowlistRuleRequest {
     this.authorizedNetworkName = authorizedNetworkName;
   }
 
-  public UpdatePrivateEndpointAllowlistRuleRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
-
   public UpdatePrivateEndpointAllowlistRuleRequest currentVpcEndpointId(String currentVpcEndpointId) {
     this.currentVpcEndpointId = currentVpcEndpointId;
     return this;
@@ -99,6 +80,25 @@ public class UpdatePrivateEndpointAllowlistRuleRequest {
 
   public void setCurrentVpcEndpointId(String currentVpcEndpointId) {
     this.currentVpcEndpointId = currentVpcEndpointId;
+  }
+
+  public UpdatePrivateEndpointAllowlistRuleRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public UpdatePrivateEndpointAllowlistRuleRequest newVpcEndpointId(String newVpcEndpointId) {
@@ -148,15 +148,15 @@ public class UpdatePrivateEndpointAllowlistRuleRequest {
     }
     UpdatePrivateEndpointAllowlistRuleRequest updatePrivateEndpointAllowlistRuleRequest = (UpdatePrivateEndpointAllowlistRuleRequest) o;
     return Objects.equals(this.authorizedNetworkName, updatePrivateEndpointAllowlistRuleRequest.authorizedNetworkName) &&
-        Objects.equals(this.clusterId, updatePrivateEndpointAllowlistRuleRequest.clusterId) &&
         Objects.equals(this.currentVpcEndpointId, updatePrivateEndpointAllowlistRuleRequest.currentVpcEndpointId) &&
+        Objects.equals(this.instanceId, updatePrivateEndpointAllowlistRuleRequest.instanceId) &&
         Objects.equals(this.newVpcEndpointId, updatePrivateEndpointAllowlistRuleRequest.newVpcEndpointId) &&
         Objects.equals(this.projectName, updatePrivateEndpointAllowlistRuleRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorizedNetworkName, clusterId, currentVpcEndpointId, newVpcEndpointId, projectName);
+    return Objects.hash(authorizedNetworkName, currentVpcEndpointId, instanceId, newVpcEndpointId, projectName);
   }
 
 
@@ -166,8 +166,8 @@ public class UpdatePrivateEndpointAllowlistRuleRequest {
     sb.append("class UpdatePrivateEndpointAllowlistRuleRequest {\n");
     
     sb.append("    authorizedNetworkName: ").append(toIndentedString(authorizedNetworkName)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    currentVpcEndpointId: ").append(toIndentedString(currentVpcEndpointId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    newVpcEndpointId: ").append(toIndentedString(newVpcEndpointId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");

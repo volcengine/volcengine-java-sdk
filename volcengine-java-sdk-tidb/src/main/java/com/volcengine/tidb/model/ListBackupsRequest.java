@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class ListBackupsRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("OrderBy")
   private String orderBy = null;
@@ -45,23 +45,23 @@ public class ListBackupsRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public ListBackupsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public ListBackupsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListBackupsRequest orderBy(String orderBy) {
@@ -146,7 +146,7 @@ public class ListBackupsRequest {
       return false;
     }
     ListBackupsRequest listBackupsRequest = (ListBackupsRequest) o;
-    return Objects.equals(this.clusterId, listBackupsRequest.clusterId) &&
+    return Objects.equals(this.instanceId, listBackupsRequest.instanceId) &&
         Objects.equals(this.orderBy, listBackupsRequest.orderBy) &&
         Objects.equals(this.pageSize, listBackupsRequest.pageSize) &&
         Objects.equals(this.pageToken, listBackupsRequest.pageToken) &&
@@ -155,7 +155,7 @@ public class ListBackupsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, orderBy, pageSize, pageToken, projectName);
+    return Objects.hash(instanceId, orderBy, pageSize, pageToken, projectName);
   }
 
 
@@ -164,7 +164,7 @@ public class ListBackupsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListBackupsRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");

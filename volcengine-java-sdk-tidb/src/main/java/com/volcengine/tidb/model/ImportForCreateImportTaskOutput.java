@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.tidb.model.AllCompletedTableForCreateImportTaskOutput;
 import com.volcengine.tidb.model.CreationDetailsForCreateImportTaskOutput;
+import com.volcengine.tidb.model.SubtaskForCreateImportTaskOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,9 +38,6 @@ public class ImportForCreateImportTaskOutput {
   @SerializedName("AllCompletedTables")
   private List<AllCompletedTableForCreateImportTaskOutput> allCompletedTables = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("CompatibleId")
   private String compatibleId = null;
 
@@ -55,11 +53,14 @@ public class ImportForCreateImportTaskOutput {
   @SerializedName("CreationDetails")
   private CreationDetailsForCreateImportTaskOutput creationDetails = null;
 
-  @SerializedName("Id")
-  private String id = null;
-
   @SerializedName("ImportId")
   private String importId = null;
+
+  @SerializedName("ImportTaskName")
+  private String importTaskName = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("Message")
   private String message = null;
@@ -124,6 +125,9 @@ public class ImportForCreateImportTaskOutput {
   }  @SerializedName("State")
   private StateEnum state = null;
 
+  @SerializedName("Subtasks")
+  private List<SubtaskForCreateImportTaskOutput> subtasks = null;
+
   @SerializedName("TotalSize")
   private String totalSize = null;
 
@@ -155,24 +159,6 @@ public class ImportForCreateImportTaskOutput {
 
   public void setAllCompletedTables(List<AllCompletedTableForCreateImportTaskOutput> allCompletedTables) {
     this.allCompletedTables = allCompletedTables;
-  }
-
-  public ImportForCreateImportTaskOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
   }
 
   public ImportForCreateImportTaskOutput compatibleId(String compatibleId) {
@@ -266,24 +252,6 @@ public class ImportForCreateImportTaskOutput {
     this.creationDetails = creationDetails;
   }
 
-  public ImportForCreateImportTaskOutput id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
   public ImportForCreateImportTaskOutput importId(String importId) {
     this.importId = importId;
     return this;
@@ -300,6 +268,42 @@ public class ImportForCreateImportTaskOutput {
 
   public void setImportId(String importId) {
     this.importId = importId;
+  }
+
+  public ImportForCreateImportTaskOutput importTaskName(String importTaskName) {
+    this.importTaskName = importTaskName;
+    return this;
+  }
+
+   /**
+   * Get importTaskName
+   * @return importTaskName
+  **/
+  @Schema(description = "")
+  public String getImportTaskName() {
+    return importTaskName;
+  }
+
+  public void setImportTaskName(String importTaskName) {
+    this.importTaskName = importTaskName;
+  }
+
+  public ImportForCreateImportTaskOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ImportForCreateImportTaskOutput message(String message) {
@@ -374,6 +378,33 @@ public class ImportForCreateImportTaskOutput {
     this.state = state;
   }
 
+  public ImportForCreateImportTaskOutput subtasks(List<SubtaskForCreateImportTaskOutput> subtasks) {
+    this.subtasks = subtasks;
+    return this;
+  }
+
+  public ImportForCreateImportTaskOutput addSubtasksItem(SubtaskForCreateImportTaskOutput subtasksItem) {
+    if (this.subtasks == null) {
+      this.subtasks = new ArrayList<SubtaskForCreateImportTaskOutput>();
+    }
+    this.subtasks.add(subtasksItem);
+    return this;
+  }
+
+   /**
+   * Get subtasks
+   * @return subtasks
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SubtaskForCreateImportTaskOutput> getSubtasks() {
+    return subtasks;
+  }
+
+  public void setSubtasks(List<SubtaskForCreateImportTaskOutput> subtasks) {
+    this.subtasks = subtasks;
+  }
+
   public ImportForCreateImportTaskOutput totalSize(String totalSize) {
     this.totalSize = totalSize;
     return this;
@@ -421,25 +452,26 @@ public class ImportForCreateImportTaskOutput {
     }
     ImportForCreateImportTaskOutput importForCreateImportTaskOutput = (ImportForCreateImportTaskOutput) o;
     return Objects.equals(this.allCompletedTables, importForCreateImportTaskOutput.allCompletedTables) &&
-        Objects.equals(this.clusterId, importForCreateImportTaskOutput.clusterId) &&
         Objects.equals(this.compatibleId, importForCreateImportTaskOutput.compatibleId) &&
         Objects.equals(this.completePercent, importForCreateImportTaskOutput.completePercent) &&
         Objects.equals(this.completeTime, importForCreateImportTaskOutput.completeTime) &&
         Objects.equals(this.createTime, importForCreateImportTaskOutput.createTime) &&
         Objects.equals(this.creationDetails, importForCreateImportTaskOutput.creationDetails) &&
-        Objects.equals(this.id, importForCreateImportTaskOutput.id) &&
         Objects.equals(this.importId, importForCreateImportTaskOutput.importId) &&
+        Objects.equals(this.importTaskName, importForCreateImportTaskOutput.importTaskName) &&
+        Objects.equals(this.instanceId, importForCreateImportTaskOutput.instanceId) &&
         Objects.equals(this.message, importForCreateImportTaskOutput.message) &&
         Objects.equals(this.postImportCompletedPercent, importForCreateImportTaskOutput.postImportCompletedPercent) &&
         Objects.equals(this.startTime, importForCreateImportTaskOutput.startTime) &&
         Objects.equals(this.state, importForCreateImportTaskOutput.state) &&
+        Objects.equals(this.subtasks, importForCreateImportTaskOutput.subtasks) &&
         Objects.equals(this.totalSize, importForCreateImportTaskOutput.totalSize) &&
         Objects.equals(this.totalTablesCount, importForCreateImportTaskOutput.totalTablesCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allCompletedTables, clusterId, compatibleId, completePercent, completeTime, createTime, creationDetails, id, importId, message, postImportCompletedPercent, startTime, state, totalSize, totalTablesCount);
+    return Objects.hash(allCompletedTables, compatibleId, completePercent, completeTime, createTime, creationDetails, importId, importTaskName, instanceId, message, postImportCompletedPercent, startTime, state, subtasks, totalSize, totalTablesCount);
   }
 
 
@@ -449,18 +481,19 @@ public class ImportForCreateImportTaskOutput {
     sb.append("class ImportForCreateImportTaskOutput {\n");
     
     sb.append("    allCompletedTables: ").append(toIndentedString(allCompletedTables)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    compatibleId: ").append(toIndentedString(compatibleId)).append("\n");
     sb.append("    completePercent: ").append(toIndentedString(completePercent)).append("\n");
     sb.append("    completeTime: ").append(toIndentedString(completeTime)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    creationDetails: ").append(toIndentedString(creationDetails)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    importId: ").append(toIndentedString(importId)).append("\n");
+    sb.append("    importTaskName: ").append(toIndentedString(importTaskName)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    postImportCompletedPercent: ").append(toIndentedString(postImportCompletedPercent)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    subtasks: ").append(toIndentedString(subtasks)).append("\n");
     sb.append("    totalSize: ").append(toIndentedString(totalSize)).append("\n");
     sb.append("    totalTablesCount: ").append(toIndentedString(totalTablesCount)).append("\n");
     sb.append("}");

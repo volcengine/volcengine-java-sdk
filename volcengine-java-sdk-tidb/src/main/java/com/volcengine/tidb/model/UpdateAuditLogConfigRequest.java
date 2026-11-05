@@ -30,33 +30,14 @@ import javax.validation.Valid;
 
 
 public class UpdateAuditLogConfigRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("Enabled")
   private Boolean enabled = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
-
-  public UpdateAuditLogConfigRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public UpdateAuditLogConfigRequest enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -75,6 +56,25 @@ public class UpdateAuditLogConfigRequest {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public UpdateAuditLogConfigRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public UpdateAuditLogConfigRequest projectName(String projectName) {
@@ -105,14 +105,14 @@ public class UpdateAuditLogConfigRequest {
       return false;
     }
     UpdateAuditLogConfigRequest updateAuditLogConfigRequest = (UpdateAuditLogConfigRequest) o;
-    return Objects.equals(this.clusterId, updateAuditLogConfigRequest.clusterId) &&
-        Objects.equals(this.enabled, updateAuditLogConfigRequest.enabled) &&
+    return Objects.equals(this.enabled, updateAuditLogConfigRequest.enabled) &&
+        Objects.equals(this.instanceId, updateAuditLogConfigRequest.instanceId) &&
         Objects.equals(this.projectName, updateAuditLogConfigRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, enabled, projectName);
+    return Objects.hash(enabled, instanceId, projectName);
   }
 
 
@@ -121,8 +121,8 @@ public class UpdateAuditLogConfigRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAuditLogConfigRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

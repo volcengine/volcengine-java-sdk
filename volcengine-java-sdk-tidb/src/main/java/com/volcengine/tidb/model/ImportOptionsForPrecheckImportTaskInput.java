@@ -34,9 +34,6 @@ public class ImportOptionsForPrecheckImportTaskInput {
   @SerializedName("CsvFormat")
   private CsvFormatForPrecheckImportTaskInput csvFormat = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
-
   /**
    * Gets or Sets fileType
    */
@@ -87,6 +84,9 @@ public class ImportOptionsForPrecheckImportTaskInput {
   }  @SerializedName("FileType")
   private FileTypeEnum fileType = null;
 
+  @SerializedName("ImportTaskName")
+  private String importTaskName = null;
+
   @SerializedName("NeedDropTable")
   private Boolean needDropTable = null;
 
@@ -109,24 +109,6 @@ public class ImportOptionsForPrecheckImportTaskInput {
     this.csvFormat = csvFormat;
   }
 
-  public ImportOptionsForPrecheckImportTaskInput displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
   public ImportOptionsForPrecheckImportTaskInput fileType(FileTypeEnum fileType) {
     this.fileType = fileType;
     return this;
@@ -143,6 +125,24 @@ public class ImportOptionsForPrecheckImportTaskInput {
 
   public void setFileType(FileTypeEnum fileType) {
     this.fileType = fileType;
+  }
+
+  public ImportOptionsForPrecheckImportTaskInput importTaskName(String importTaskName) {
+    this.importTaskName = importTaskName;
+    return this;
+  }
+
+   /**
+   * Get importTaskName
+   * @return importTaskName
+  **/
+  @Schema(description = "")
+  public String getImportTaskName() {
+    return importTaskName;
+  }
+
+  public void setImportTaskName(String importTaskName) {
+    this.importTaskName = importTaskName;
   }
 
   public ImportOptionsForPrecheckImportTaskInput needDropTable(Boolean needDropTable) {
@@ -174,14 +174,14 @@ public class ImportOptionsForPrecheckImportTaskInput {
     }
     ImportOptionsForPrecheckImportTaskInput importOptionsForPrecheckImportTaskInput = (ImportOptionsForPrecheckImportTaskInput) o;
     return Objects.equals(this.csvFormat, importOptionsForPrecheckImportTaskInput.csvFormat) &&
-        Objects.equals(this.displayName, importOptionsForPrecheckImportTaskInput.displayName) &&
         Objects.equals(this.fileType, importOptionsForPrecheckImportTaskInput.fileType) &&
+        Objects.equals(this.importTaskName, importOptionsForPrecheckImportTaskInput.importTaskName) &&
         Objects.equals(this.needDropTable, importOptionsForPrecheckImportTaskInput.needDropTable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(csvFormat, displayName, fileType, needDropTable);
+    return Objects.hash(csvFormat, fileType, importTaskName, needDropTable);
   }
 
 
@@ -191,8 +191,8 @@ public class ImportOptionsForPrecheckImportTaskInput {
     sb.append("class ImportOptionsForPrecheckImportTaskInput {\n");
     
     sb.append("    csvFormat: ").append(toIndentedString(csvFormat)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
+    sb.append("    importTaskName: ").append(toIndentedString(importTaskName)).append("\n");
     sb.append("    needDropTable: ").append(toIndentedString(needDropTable)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -41,8 +41,8 @@ public class BranchForGetBranchDetailsOutput {
   @SerializedName("BranchId")
   private String branchId = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("BranchName")
+  private String branchName = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -50,17 +50,17 @@ public class BranchForGetBranchDetailsOutput {
   @SerializedName("CreatedBy")
   private String createdBy = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
-
   @SerializedName("Endpoints")
   private EndpointsForGetBranchDetailsOutput endpoints = null;
 
   @SerializedName("HasSetPwd")
   private Boolean hasSetPwd = null;
 
-  @SerializedName("ParentDisplayName")
-  private String parentDisplayName = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  @SerializedName("ParentBranchName")
+  private String parentBranchName = null;
 
   @SerializedName("ParentId")
   private String parentId = null;
@@ -128,22 +128,22 @@ public class BranchForGetBranchDetailsOutput {
     this.branchId = branchId;
   }
 
-  public BranchForGetBranchDetailsOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public BranchForGetBranchDetailsOutput branchName(String branchName) {
+    this.branchName = branchName;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get branchName
+   * @return branchName
   **/
   @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getBranchName() {
+    return branchName;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setBranchName(String branchName) {
+    this.branchName = branchName;
   }
 
   public BranchForGetBranchDetailsOutput createTime(String createTime) {
@@ -180,24 +180,6 @@ public class BranchForGetBranchDetailsOutput {
 
   public void setCreatedBy(String createdBy) {
     this.createdBy = createdBy;
-  }
-
-  public BranchForGetBranchDetailsOutput displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
   }
 
   public BranchForGetBranchDetailsOutput endpoints(EndpointsForGetBranchDetailsOutput endpoints) {
@@ -237,22 +219,40 @@ public class BranchForGetBranchDetailsOutput {
     this.hasSetPwd = hasSetPwd;
   }
 
-  public BranchForGetBranchDetailsOutput parentDisplayName(String parentDisplayName) {
-    this.parentDisplayName = parentDisplayName;
+  public BranchForGetBranchDetailsOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get parentDisplayName
-   * @return parentDisplayName
+   * Get instanceId
+   * @return instanceId
   **/
   @Schema(description = "")
-  public String getParentDisplayName() {
-    return parentDisplayName;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setParentDisplayName(String parentDisplayName) {
-    this.parentDisplayName = parentDisplayName;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public BranchForGetBranchDetailsOutput parentBranchName(String parentBranchName) {
+    this.parentBranchName = parentBranchName;
+    return this;
+  }
+
+   /**
+   * Get parentBranchName
+   * @return parentBranchName
+  **/
+  @Schema(description = "")
+  public String getParentBranchName() {
+    return parentBranchName;
+  }
+
+  public void setParentBranchName(String parentBranchName) {
+    this.parentBranchName = parentBranchName;
   }
 
   public BranchForGetBranchDetailsOutput parentId(String parentId) {
@@ -394,13 +394,13 @@ public class BranchForGetBranchDetailsOutput {
     BranchForGetBranchDetailsOutput branchForGetBranchDetailsOutput = (BranchForGetBranchDetailsOutput) o;
     return Objects.equals(this.annotations, branchForGetBranchDetailsOutput.annotations) &&
         Objects.equals(this.branchId, branchForGetBranchDetailsOutput.branchId) &&
-        Objects.equals(this.clusterId, branchForGetBranchDetailsOutput.clusterId) &&
+        Objects.equals(this.branchName, branchForGetBranchDetailsOutput.branchName) &&
         Objects.equals(this.createTime, branchForGetBranchDetailsOutput.createTime) &&
         Objects.equals(this.createdBy, branchForGetBranchDetailsOutput.createdBy) &&
-        Objects.equals(this.displayName, branchForGetBranchDetailsOutput.displayName) &&
         Objects.equals(this.endpoints, branchForGetBranchDetailsOutput.endpoints) &&
         Objects.equals(this.hasSetPwd, branchForGetBranchDetailsOutput.hasSetPwd) &&
-        Objects.equals(this.parentDisplayName, branchForGetBranchDetailsOutput.parentDisplayName) &&
+        Objects.equals(this.instanceId, branchForGetBranchDetailsOutput.instanceId) &&
+        Objects.equals(this.parentBranchName, branchForGetBranchDetailsOutput.parentBranchName) &&
         Objects.equals(this.parentId, branchForGetBranchDetailsOutput.parentId) &&
         Objects.equals(this.parentTimestamp, branchForGetBranchDetailsOutput.parentTimestamp) &&
         Objects.equals(this.projectName, branchForGetBranchDetailsOutput.projectName) &&
@@ -412,7 +412,7 @@ public class BranchForGetBranchDetailsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, branchId, clusterId, createTime, createdBy, displayName, endpoints, hasSetPwd, parentDisplayName, parentId, parentTimestamp, projectName, state, updateTime, usages, userPrefix);
+    return Objects.hash(annotations, branchId, branchName, createTime, createdBy, endpoints, hasSetPwd, instanceId, parentBranchName, parentId, parentTimestamp, projectName, state, updateTime, usages, userPrefix);
   }
 
 
@@ -423,13 +423,13 @@ public class BranchForGetBranchDetailsOutput {
     
     sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
     sb.append("    branchId: ").append(toIndentedString(branchId)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    branchName: ").append(toIndentedString(branchName)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    hasSetPwd: ").append(toIndentedString(hasSetPwd)).append("\n");
-    sb.append("    parentDisplayName: ").append(toIndentedString(parentDisplayName)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    parentBranchName: ").append(toIndentedString(parentBranchName)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    parentTimestamp: ").append(toIndentedString(parentTimestamp)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

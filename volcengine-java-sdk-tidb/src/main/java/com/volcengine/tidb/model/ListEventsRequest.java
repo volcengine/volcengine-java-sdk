@@ -81,11 +81,11 @@ public class ListEventsRequest {
   }  @SerializedName("ActionStatus")
   private ActionStatusEnum actionStatus = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("EndTime")
   private String endTime = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -135,24 +135,6 @@ public class ListEventsRequest {
     this.actionStatus = actionStatus;
   }
 
-  public ListEventsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
-
   public ListEventsRequest endTime(String endTime) {
     this.endTime = endTime;
     return this;
@@ -169,6 +151,24 @@ public class ListEventsRequest {
 
   public void setEndTime(String endTime) {
     this.endTime = endTime;
+  }
+
+  public ListEventsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListEventsRequest pageNumber(Integer pageNumber) {
@@ -255,8 +255,8 @@ public class ListEventsRequest {
     ListEventsRequest listEventsRequest = (ListEventsRequest) o;
     return Objects.equals(this.actionName, listEventsRequest.actionName) &&
         Objects.equals(this.actionStatus, listEventsRequest.actionStatus) &&
-        Objects.equals(this.clusterId, listEventsRequest.clusterId) &&
         Objects.equals(this.endTime, listEventsRequest.endTime) &&
+        Objects.equals(this.instanceId, listEventsRequest.instanceId) &&
         Objects.equals(this.pageNumber, listEventsRequest.pageNumber) &&
         Objects.equals(this.pageSize, listEventsRequest.pageSize) &&
         Objects.equals(this.projectName, listEventsRequest.projectName) &&
@@ -265,7 +265,7 @@ public class ListEventsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionName, actionStatus, clusterId, endTime, pageNumber, pageSize, projectName, startTime);
+    return Objects.hash(actionName, actionStatus, endTime, instanceId, pageNumber, pageSize, projectName, startTime);
   }
 
 
@@ -276,8 +276,8 @@ public class ListEventsRequest {
     
     sb.append("    actionName: ").append(toIndentedString(actionName)).append("\n");
     sb.append("    actionStatus: ").append(toIndentedString(actionStatus)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

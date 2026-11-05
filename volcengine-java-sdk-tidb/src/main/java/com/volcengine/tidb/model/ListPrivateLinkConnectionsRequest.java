@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class ListPrivateLinkConnectionsRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -94,23 +94,23 @@ public class ListPrivateLinkConnectionsRequest {
   }  @SerializedName("State")
   private StateEnum state = null;
 
-  public ListPrivateLinkConnectionsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public ListPrivateLinkConnectionsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListPrivateLinkConnectionsRequest pageSize(Integer pageSize) {
@@ -195,7 +195,7 @@ public class ListPrivateLinkConnectionsRequest {
       return false;
     }
     ListPrivateLinkConnectionsRequest listPrivateLinkConnectionsRequest = (ListPrivateLinkConnectionsRequest) o;
-    return Objects.equals(this.clusterId, listPrivateLinkConnectionsRequest.clusterId) &&
+    return Objects.equals(this.instanceId, listPrivateLinkConnectionsRequest.instanceId) &&
         Objects.equals(this.pageSize, listPrivateLinkConnectionsRequest.pageSize) &&
         Objects.equals(this.pageToken, listPrivateLinkConnectionsRequest.pageToken) &&
         Objects.equals(this.projectName, listPrivateLinkConnectionsRequest.projectName) &&
@@ -204,7 +204,7 @@ public class ListPrivateLinkConnectionsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, pageSize, pageToken, projectName, state);
+    return Objects.hash(instanceId, pageSize, pageToken, projectName, state);
   }
 
 
@@ -213,7 +213,7 @@ public class ListPrivateLinkConnectionsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListPrivateLinkConnectionsRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

@@ -30,29 +30,29 @@ import javax.validation.Valid;
 
 
 public class GetAuditLogConfigRequest {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public GetAuditLogConfigRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public GetAuditLogConfigRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public GetAuditLogConfigRequest projectName(String projectName) {
@@ -83,13 +83,13 @@ public class GetAuditLogConfigRequest {
       return false;
     }
     GetAuditLogConfigRequest getAuditLogConfigRequest = (GetAuditLogConfigRequest) o;
-    return Objects.equals(this.clusterId, getAuditLogConfigRequest.clusterId) &&
+    return Objects.equals(this.instanceId, getAuditLogConfigRequest.instanceId) &&
         Objects.equals(this.projectName, getAuditLogConfigRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, projectName);
+    return Objects.hash(instanceId, projectName);
   }
 
 
@@ -98,7 +98,7 @@ public class GetAuditLogConfigRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAuditLogConfigRequest {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();

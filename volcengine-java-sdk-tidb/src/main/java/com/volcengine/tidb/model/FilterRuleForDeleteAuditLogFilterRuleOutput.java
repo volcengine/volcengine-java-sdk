@@ -33,47 +33,29 @@ import javax.validation.Valid;
 
 
 public class FilterRuleForDeleteAuditLogFilterRuleOutput {
-  @SerializedName("ClusterId")
-  private String clusterId = null;
-
   @SerializedName("CreateTime")
   private String createTime = null;
 
   @SerializedName("Disabled")
   private Boolean disabled = null;
 
-  @SerializedName("DisplayName")
-  private String displayName = null;
-
   @SerializedName("FilterRuleId")
   private String filterRuleId = null;
 
+  @SerializedName("FilterRuleName")
+  private String filterRuleName = null;
+
   @SerializedName("Filters")
   private List<FilterForDeleteAuditLogFilterRuleOutput> filters = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
   @SerializedName("Users")
   private List<String> users = null;
-
-  public FilterRuleForDeleteAuditLogFilterRuleOutput clusterId(String clusterId) {
-    this.clusterId = clusterId;
-    return this;
-  }
-
-   /**
-   * Get clusterId
-   * @return clusterId
-  **/
-  @Schema(description = "")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
 
   public FilterRuleForDeleteAuditLogFilterRuleOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -111,24 +93,6 @@ public class FilterRuleForDeleteAuditLogFilterRuleOutput {
     this.disabled = disabled;
   }
 
-  public FilterRuleForDeleteAuditLogFilterRuleOutput displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
   public FilterRuleForDeleteAuditLogFilterRuleOutput filterRuleId(String filterRuleId) {
     this.filterRuleId = filterRuleId;
     return this;
@@ -145,6 +109,24 @@ public class FilterRuleForDeleteAuditLogFilterRuleOutput {
 
   public void setFilterRuleId(String filterRuleId) {
     this.filterRuleId = filterRuleId;
+  }
+
+  public FilterRuleForDeleteAuditLogFilterRuleOutput filterRuleName(String filterRuleName) {
+    this.filterRuleName = filterRuleName;
+    return this;
+  }
+
+   /**
+   * Get filterRuleName
+   * @return filterRuleName
+  **/
+  @Schema(description = "")
+  public String getFilterRuleName() {
+    return filterRuleName;
+  }
+
+  public void setFilterRuleName(String filterRuleName) {
+    this.filterRuleName = filterRuleName;
   }
 
   public FilterRuleForDeleteAuditLogFilterRuleOutput filters(List<FilterForDeleteAuditLogFilterRuleOutput> filters) {
@@ -172,6 +154,24 @@ public class FilterRuleForDeleteAuditLogFilterRuleOutput {
 
   public void setFilters(List<FilterForDeleteAuditLogFilterRuleOutput> filters) {
     this.filters = filters;
+  }
+
+  public FilterRuleForDeleteAuditLogFilterRuleOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public FilterRuleForDeleteAuditLogFilterRuleOutput updateTime(String updateTime) {
@@ -228,19 +228,19 @@ public class FilterRuleForDeleteAuditLogFilterRuleOutput {
       return false;
     }
     FilterRuleForDeleteAuditLogFilterRuleOutput filterRuleForDeleteAuditLogFilterRuleOutput = (FilterRuleForDeleteAuditLogFilterRuleOutput) o;
-    return Objects.equals(this.clusterId, filterRuleForDeleteAuditLogFilterRuleOutput.clusterId) &&
-        Objects.equals(this.createTime, filterRuleForDeleteAuditLogFilterRuleOutput.createTime) &&
+    return Objects.equals(this.createTime, filterRuleForDeleteAuditLogFilterRuleOutput.createTime) &&
         Objects.equals(this.disabled, filterRuleForDeleteAuditLogFilterRuleOutput.disabled) &&
-        Objects.equals(this.displayName, filterRuleForDeleteAuditLogFilterRuleOutput.displayName) &&
         Objects.equals(this.filterRuleId, filterRuleForDeleteAuditLogFilterRuleOutput.filterRuleId) &&
+        Objects.equals(this.filterRuleName, filterRuleForDeleteAuditLogFilterRuleOutput.filterRuleName) &&
         Objects.equals(this.filters, filterRuleForDeleteAuditLogFilterRuleOutput.filters) &&
+        Objects.equals(this.instanceId, filterRuleForDeleteAuditLogFilterRuleOutput.instanceId) &&
         Objects.equals(this.updateTime, filterRuleForDeleteAuditLogFilterRuleOutput.updateTime) &&
         Objects.equals(this.users, filterRuleForDeleteAuditLogFilterRuleOutput.users);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, createTime, disabled, displayName, filterRuleId, filters, updateTime, users);
+    return Objects.hash(createTime, disabled, filterRuleId, filterRuleName, filters, instanceId, updateTime, users);
   }
 
 
@@ -249,12 +249,12 @@ public class FilterRuleForDeleteAuditLogFilterRuleOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilterRuleForDeleteAuditLogFilterRuleOutput {\n");
     
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    filterRuleId: ").append(toIndentedString(filterRuleId)).append("\n");
+    sb.append("    filterRuleName: ").append(toIndentedString(filterRuleName)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("}");

@@ -33,8 +33,8 @@ public class CreateBranchRequest {
   @SerializedName("BranchName")
   private String branchName = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ParentId")
   private String parentId = null;
@@ -64,23 +64,23 @@ public class CreateBranchRequest {
     this.branchName = branchName;
   }
 
-  public CreateBranchRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public CreateBranchRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public CreateBranchRequest parentId(String parentId) {
@@ -148,7 +148,7 @@ public class CreateBranchRequest {
     }
     CreateBranchRequest createBranchRequest = (CreateBranchRequest) o;
     return Objects.equals(this.branchName, createBranchRequest.branchName) &&
-        Objects.equals(this.clusterId, createBranchRequest.clusterId) &&
+        Objects.equals(this.instanceId, createBranchRequest.instanceId) &&
         Objects.equals(this.parentId, createBranchRequest.parentId) &&
         Objects.equals(this.parentTimestamp, createBranchRequest.parentTimestamp) &&
         Objects.equals(this.projectName, createBranchRequest.projectName);
@@ -156,7 +156,7 @@ public class CreateBranchRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(branchName, clusterId, parentId, parentTimestamp, projectName);
+    return Objects.hash(branchName, instanceId, parentId, parentTimestamp, projectName);
   }
 
 
@@ -166,7 +166,7 @@ public class CreateBranchRequest {
     sb.append("class CreateBranchRequest {\n");
     
     sb.append("    branchName: ").append(toIndentedString(branchName)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    parentTimestamp: ").append(toIndentedString(parentTimestamp)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

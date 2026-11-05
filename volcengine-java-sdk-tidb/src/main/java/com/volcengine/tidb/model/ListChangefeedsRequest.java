@@ -78,8 +78,8 @@ public class ListChangefeedsRequest {
   }  @SerializedName("ChangefeedType")
   private ChangefeedTypeEnum changefeedType = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -108,23 +108,23 @@ public class ListChangefeedsRequest {
     this.changefeedType = changefeedType;
   }
 
-  public ListChangefeedsRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public ListChangefeedsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public ListChangefeedsRequest pageSize(Integer pageSize) {
@@ -192,7 +192,7 @@ public class ListChangefeedsRequest {
     }
     ListChangefeedsRequest listChangefeedsRequest = (ListChangefeedsRequest) o;
     return Objects.equals(this.changefeedType, listChangefeedsRequest.changefeedType) &&
-        Objects.equals(this.clusterId, listChangefeedsRequest.clusterId) &&
+        Objects.equals(this.instanceId, listChangefeedsRequest.instanceId) &&
         Objects.equals(this.pageSize, listChangefeedsRequest.pageSize) &&
         Objects.equals(this.pageToken, listChangefeedsRequest.pageToken) &&
         Objects.equals(this.projectName, listChangefeedsRequest.projectName);
@@ -200,7 +200,7 @@ public class ListChangefeedsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(changefeedType, clusterId, pageSize, pageToken, projectName);
+    return Objects.hash(changefeedType, instanceId, pageSize, pageToken, projectName);
   }
 
 
@@ -210,7 +210,7 @@ public class ListChangefeedsRequest {
     sb.append("class ListChangefeedsRequest {\n");
     
     sb.append("    changefeedType: ").append(toIndentedString(changefeedType)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

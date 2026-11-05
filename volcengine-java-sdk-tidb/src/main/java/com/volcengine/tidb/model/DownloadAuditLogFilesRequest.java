@@ -35,8 +35,8 @@ public class DownloadAuditLogFilesRequest {
   @SerializedName("AuditLogFileNames")
   private List<String> auditLogFileNames = null;
 
-  @SerializedName("ClusterId")
-  private String clusterId = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -67,23 +67,23 @@ public class DownloadAuditLogFilesRequest {
     this.auditLogFileNames = auditLogFileNames;
   }
 
-  public DownloadAuditLogFilesRequest clusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public DownloadAuditLogFilesRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get clusterId
-   * @return clusterId
+   * Get instanceId
+   * @return instanceId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getClusterId() {
-    return clusterId;
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public DownloadAuditLogFilesRequest projectName(String projectName) {
@@ -115,13 +115,13 @@ public class DownloadAuditLogFilesRequest {
     }
     DownloadAuditLogFilesRequest downloadAuditLogFilesRequest = (DownloadAuditLogFilesRequest) o;
     return Objects.equals(this.auditLogFileNames, downloadAuditLogFilesRequest.auditLogFileNames) &&
-        Objects.equals(this.clusterId, downloadAuditLogFilesRequest.clusterId) &&
+        Objects.equals(this.instanceId, downloadAuditLogFilesRequest.instanceId) &&
         Objects.equals(this.projectName, downloadAuditLogFilesRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(auditLogFileNames, clusterId, projectName);
+    return Objects.hash(auditLogFileNames, instanceId, projectName);
   }
 
 
@@ -131,7 +131,7 @@ public class DownloadAuditLogFilesRequest {
     sb.append("class DownloadAuditLogFilesRequest {\n");
     
     sb.append("    auditLogFileNames: ").append(toIndentedString(auditLogFileNames)).append("\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
