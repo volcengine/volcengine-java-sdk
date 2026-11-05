@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clawsentry.model.BaseForCreateClawInput;
+import com.volcengine.clawsentry.model.PersonalClawForCreateClawInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -56,7 +59,37 @@ public class CreateClawRequest {
     @SerializedName("coco")
     COCO("coco"),
     @SerializedName("trae")
-    TRAE("trae");
+    TRAE("trae"),
+    @SerializedName("work_buddy")
+    WORK_BUDDY("work_buddy"),
+    @SerializedName("dify")
+    DIFY("dify"),
+    @SerializedName("hiagent")
+    HIAGENT("hiagent"),
+    @SerializedName("arkclaw_desktop")
+    ARKCLAW_DESKTOP("arkclaw_desktop"),
+    @SerializedName("external")
+    EXTERNAL("external"),
+    @SerializedName("trae_work")
+    TRAE_WORK("trae_work"),
+    @SerializedName("claude_code")
+    CLAUDE_CODE("claude_code"),
+    @SerializedName("cursor")
+    CURSOR("cursor"),
+    @SerializedName("zcode")
+    ZCODE("zcode"),
+    @SerializedName("qwenpaw")
+    QWENPAW("qwenpaw"),
+    @SerializedName("model_route")
+    MODEL_ROUTE("model_route"),
+    @SerializedName("copilot")
+    COPILOT("copilot"),
+    @SerializedName("qoder")
+    QODER("qoder"),
+    @SerializedName("endpoint")
+    ENDPOINT("endpoint"),
+    @SerializedName("other")
+    OTHER("other");
 
     private String value;
 
@@ -100,6 +133,9 @@ public class CreateClawRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("PersonalClaw")
+  private PersonalClawForCreateClawInput personalClaw = null;
+
   /**
    * Gets or Sets source
    */
@@ -110,7 +146,17 @@ public class CreateClawRequest {
     @SerializedName("third_party")
     THIRD_PARTY("third_party"),
     @SerializedName("hibot")
-    HIBOT("hibot");
+    HIBOT("hibot"),
+    @SerializedName("dify")
+    DIFY("dify"),
+    @SerializedName("coze")
+    COZE("coze"),
+    @SerializedName("hiagent")
+    HIAGENT("hiagent"),
+    @SerializedName("pingan")
+    PINGAN("pingan"),
+    @SerializedName("system")
+    SYSTEM("system");
 
     private String value;
 
@@ -147,6 +193,9 @@ public class CreateClawRequest {
     }
   }  @SerializedName("Source")
   private SourceEnum source = null;
+
+  @SerializedName("Tags")
+  private List<String> tags = null;
 
   public CreateClawRequest base(BaseForCreateClawInput base) {
     this.base = base;
@@ -222,6 +271,25 @@ public class CreateClawRequest {
     this.name = name;
   }
 
+  public CreateClawRequest personalClaw(PersonalClawForCreateClawInput personalClaw) {
+    this.personalClaw = personalClaw;
+    return this;
+  }
+
+   /**
+   * Get personalClaw
+   * @return personalClaw
+  **/
+  @Valid
+  @Schema(description = "")
+  public PersonalClawForCreateClawInput getPersonalClaw() {
+    return personalClaw;
+  }
+
+  public void setPersonalClaw(PersonalClawForCreateClawInput personalClaw) {
+    this.personalClaw = personalClaw;
+  }
+
   public CreateClawRequest source(SourceEnum source) {
     this.source = source;
     return this;
@@ -240,6 +308,32 @@ public class CreateClawRequest {
     this.source = source;
   }
 
+  public CreateClawRequest tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateClawRequest addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Schema(description = "")
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -254,12 +348,14 @@ public class CreateClawRequest {
         Objects.equals(this.clawType, createClawRequest.clawType) &&
         Objects.equals(this.externalClawID, createClawRequest.externalClawID) &&
         Objects.equals(this.name, createClawRequest.name) &&
-        Objects.equals(this.source, createClawRequest.source);
+        Objects.equals(this.personalClaw, createClawRequest.personalClaw) &&
+        Objects.equals(this.source, createClawRequest.source) &&
+        Objects.equals(this.tags, createClawRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(base, clawType, externalClawID, name, source);
+    return Objects.hash(base, clawType, externalClawID, name, personalClaw, source, tags);
   }
 
 
@@ -272,7 +368,9 @@ public class CreateClawRequest {
     sb.append("    clawType: ").append(toIndentedString(clawType)).append("\n");
     sb.append("    externalClawID: ").append(toIndentedString(externalClawID)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    personalClaw: ").append(toIndentedString(personalClaw)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
