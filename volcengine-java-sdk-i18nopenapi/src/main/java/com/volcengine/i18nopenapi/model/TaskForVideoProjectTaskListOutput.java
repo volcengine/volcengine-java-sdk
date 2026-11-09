@@ -54,6 +54,9 @@ public class TaskForVideoProjectTaskListOutput {
   @SerializedName("isExpedited")
   private Boolean isExpedited = null;
 
+  @SerializedName("lipSyncEnabled")
+  private Boolean lipSyncEnabled = null;
+
   @SerializedName("name")
   private String name = null;
 
@@ -200,6 +203,24 @@ public class TaskForVideoProjectTaskListOutput {
 
   public void setIsExpedited(Boolean isExpedited) {
     this.isExpedited = isExpedited;
+  }
+
+  public TaskForVideoProjectTaskListOutput lipSyncEnabled(Boolean lipSyncEnabled) {
+    this.lipSyncEnabled = lipSyncEnabled;
+    return this;
+  }
+
+   /**
+   * Get lipSyncEnabled
+   * @return lipSyncEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isLipSyncEnabled() {
+    return lipSyncEnabled;
+  }
+
+  public void setLipSyncEnabled(Boolean lipSyncEnabled) {
+    this.lipSyncEnabled = lipSyncEnabled;
   }
 
   public TaskForVideoProjectTaskListOutput name(String name) {
@@ -353,6 +374,7 @@ public class TaskForVideoProjectTaskListOutput {
         Objects.equals(this.deadline, taskForVideoProjectTaskListOutput.deadline) &&
         Objects.equals(this.dramaTaskWorkflow, taskForVideoProjectTaskListOutput.dramaTaskWorkflow) &&
         Objects.equals(this.isExpedited, taskForVideoProjectTaskListOutput.isExpedited) &&
+        Objects.equals(this.lipSyncEnabled, taskForVideoProjectTaskListOutput.lipSyncEnabled) &&
         Objects.equals(this.name, taskForVideoProjectTaskListOutput.name) &&
         Objects.equals(this.projectName, taskForVideoProjectTaskListOutput.projectName) &&
         Objects.equals(this.sourceLanguage, taskForVideoProjectTaskListOutput.sourceLanguage) &&
@@ -364,7 +386,7 @@ public class TaskForVideoProjectTaskListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(canExpedite, comment, createdAt, creator, deadline, dramaTaskWorkflow, isExpedited, name, projectName, sourceLanguage, status, targetLanguages, taskType, workflowType);
+    return Objects.hash(canExpedite, comment, createdAt, creator, deadline, dramaTaskWorkflow, isExpedited, lipSyncEnabled, name, projectName, sourceLanguage, status, targetLanguages, taskType, workflowType);
   }
 
 
@@ -380,6 +402,7 @@ public class TaskForVideoProjectTaskListOutput {
     sb.append("    deadline: ").append(toIndentedString(deadline)).append("\n");
     sb.append("    dramaTaskWorkflow: ").append(toIndentedString(dramaTaskWorkflow)).append("\n");
     sb.append("    isExpedited: ").append(toIndentedString(isExpedited)).append("\n");
+    sb.append("    lipSyncEnabled: ").append(toIndentedString(lipSyncEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    sourceLanguage: ").append(toIndentedString(sourceLanguage)).append("\n");

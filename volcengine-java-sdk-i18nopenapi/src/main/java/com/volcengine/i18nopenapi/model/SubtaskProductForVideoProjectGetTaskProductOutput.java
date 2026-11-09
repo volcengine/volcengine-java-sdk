@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.i18nopenapi.model.AiRemoveVideoForVideoProjectGetTaskProductOutput;
 import com.volcengine.i18nopenapi.model.FinishedAudioForVideoProjectGetTaskProductOutput;
 import com.volcengine.i18nopenapi.model.FinishedVideoForVideoProjectGetTaskProductOutput;
+import com.volcengine.i18nopenapi.model.LipSyncFinishedVideoForVideoProjectGetTaskProductOutput;
 import com.volcengine.i18nopenapi.model.OriginVideoForVideoProjectGetTaskProductOutput;
 import com.volcengine.i18nopenapi.model.SourceSubtitleForVideoProjectGetTaskProductOutput;
 import com.volcengine.i18nopenapi.model.TargetSubtitleForVideoProjectGetTaskProductOutput;
@@ -47,6 +48,9 @@ public class SubtaskProductForVideoProjectGetTaskProductOutput {
 
   @SerializedName("finishedVideo")
   private FinishedVideoForVideoProjectGetTaskProductOutput finishedVideo = null;
+
+  @SerializedName("lipSyncFinishedVideo")
+  private LipSyncFinishedVideoForVideoProjectGetTaskProductOutput lipSyncFinishedVideo = null;
 
   @SerializedName("originVideo")
   private OriginVideoForVideoProjectGetTaskProductOutput originVideo = null;
@@ -136,6 +140,25 @@ public class SubtaskProductForVideoProjectGetTaskProductOutput {
 
   public void setFinishedVideo(FinishedVideoForVideoProjectGetTaskProductOutput finishedVideo) {
     this.finishedVideo = finishedVideo;
+  }
+
+  public SubtaskProductForVideoProjectGetTaskProductOutput lipSyncFinishedVideo(LipSyncFinishedVideoForVideoProjectGetTaskProductOutput lipSyncFinishedVideo) {
+    this.lipSyncFinishedVideo = lipSyncFinishedVideo;
+    return this;
+  }
+
+   /**
+   * Get lipSyncFinishedVideo
+   * @return lipSyncFinishedVideo
+  **/
+  @Valid
+  @Schema(description = "")
+  public LipSyncFinishedVideoForVideoProjectGetTaskProductOutput getLipSyncFinishedVideo() {
+    return lipSyncFinishedVideo;
+  }
+
+  public void setLipSyncFinishedVideo(LipSyncFinishedVideoForVideoProjectGetTaskProductOutput lipSyncFinishedVideo) {
+    this.lipSyncFinishedVideo = lipSyncFinishedVideo;
   }
 
   public SubtaskProductForVideoProjectGetTaskProductOutput originVideo(OriginVideoForVideoProjectGetTaskProductOutput originVideo) {
@@ -245,6 +268,7 @@ public class SubtaskProductForVideoProjectGetTaskProductOutput {
         Objects.equals(this.episodeNum, subtaskProductForVideoProjectGetTaskProductOutput.episodeNum) &&
         Objects.equals(this.finishedAudio, subtaskProductForVideoProjectGetTaskProductOutput.finishedAudio) &&
         Objects.equals(this.finishedVideo, subtaskProductForVideoProjectGetTaskProductOutput.finishedVideo) &&
+        Objects.equals(this.lipSyncFinishedVideo, subtaskProductForVideoProjectGetTaskProductOutput.lipSyncFinishedVideo) &&
         Objects.equals(this.originVideo, subtaskProductForVideoProjectGetTaskProductOutput.originVideo) &&
         Objects.equals(this.sourceSubtitle, subtaskProductForVideoProjectGetTaskProductOutput.sourceSubtitle) &&
         Objects.equals(this.subtaskId, subtaskProductForVideoProjectGetTaskProductOutput.subtaskId) &&
@@ -254,7 +278,7 @@ public class SubtaskProductForVideoProjectGetTaskProductOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveVideo, episodeNum, finishedAudio, finishedVideo, originVideo, sourceSubtitle, subtaskId, targetLang, targetSubtitle);
+    return Objects.hash(aiRemoveVideo, episodeNum, finishedAudio, finishedVideo, lipSyncFinishedVideo, originVideo, sourceSubtitle, subtaskId, targetLang, targetSubtitle);
   }
 
 
@@ -267,6 +291,7 @@ public class SubtaskProductForVideoProjectGetTaskProductOutput {
     sb.append("    episodeNum: ").append(toIndentedString(episodeNum)).append("\n");
     sb.append("    finishedAudio: ").append(toIndentedString(finishedAudio)).append("\n");
     sb.append("    finishedVideo: ").append(toIndentedString(finishedVideo)).append("\n");
+    sb.append("    lipSyncFinishedVideo: ").append(toIndentedString(lipSyncFinishedVideo)).append("\n");
     sb.append("    originVideo: ").append(toIndentedString(originVideo)).append("\n");
     sb.append("    sourceSubtitle: ").append(toIndentedString(sourceSubtitle)).append("\n");
     sb.append("    subtaskId: ").append(toIndentedString(subtaskId)).append("\n");

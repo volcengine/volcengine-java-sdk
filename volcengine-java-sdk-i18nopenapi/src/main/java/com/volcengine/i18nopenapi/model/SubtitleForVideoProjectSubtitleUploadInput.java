@@ -44,6 +44,9 @@ public class SubtitleForVideoProjectSubtitleUploadInput {
   @SerializedName("subtitleUrl")
   private String subtitleUrl = null;
 
+  @SerializedName("type")
+  private Integer type = null;
+
   @SerializedName("vid")
   private String vid = null;
 
@@ -127,6 +130,24 @@ public class SubtitleForVideoProjectSubtitleUploadInput {
     this.subtitleUrl = subtitleUrl;
   }
 
+  public SubtitleForVideoProjectSubtitleUploadInput type(Integer type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public Integer getType() {
+    return type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
   public SubtitleForVideoProjectSubtitleUploadInput vid(String vid) {
     this.vid = vid;
     return this;
@@ -159,12 +180,13 @@ public class SubtitleForVideoProjectSubtitleUploadInput {
         Objects.equals(this.subtitleLangs, subtitleForVideoProjectSubtitleUploadInput.subtitleLangs) &&
         Objects.equals(this.subtitleName, subtitleForVideoProjectSubtitleUploadInput.subtitleName) &&
         Objects.equals(this.subtitleUrl, subtitleForVideoProjectSubtitleUploadInput.subtitleUrl) &&
+        Objects.equals(this.type, subtitleForVideoProjectSubtitleUploadInput.type) &&
         Objects.equals(this.vid, subtitleForVideoProjectSubtitleUploadInput.vid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileType, subtitleLangs, subtitleName, subtitleUrl, vid);
+    return Objects.hash(fileType, subtitleLangs, subtitleName, subtitleUrl, type, vid);
   }
 
 
@@ -177,6 +199,7 @@ public class SubtitleForVideoProjectSubtitleUploadInput {
     sb.append("    subtitleLangs: ").append(toIndentedString(subtitleLangs)).append("\n");
     sb.append("    subtitleName: ").append(toIndentedString(subtitleName)).append("\n");
     sb.append("    subtitleUrl: ").append(toIndentedString(subtitleUrl)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vid: ").append(toIndentedString(vid)).append("\n");
     sb.append("}");
     return sb.toString();

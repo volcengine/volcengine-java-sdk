@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
+  @SerializedName("lipSyncVideoUrl")
+  private String lipSyncVideoUrl = null;
+
   @SerializedName("posterUrl")
   private String posterUrl = null;
 
@@ -65,6 +68,24 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
 
   @SerializedName("targetVideoUrl")
   private String targetVideoUrl = null;
+
+  public SuppressionVideoInfoForVideoProjectTaskDetailOutput lipSyncVideoUrl(String lipSyncVideoUrl) {
+    this.lipSyncVideoUrl = lipSyncVideoUrl;
+    return this;
+  }
+
+   /**
+   * Get lipSyncVideoUrl
+   * @return lipSyncVideoUrl
+  **/
+  @Schema(description = "")
+  public String getLipSyncVideoUrl() {
+    return lipSyncVideoUrl;
+  }
+
+  public void setLipSyncVideoUrl(String lipSyncVideoUrl) {
+    this.lipSyncVideoUrl = lipSyncVideoUrl;
+  }
 
   public SuppressionVideoInfoForVideoProjectTaskDetailOutput posterUrl(String posterUrl) {
     this.posterUrl = posterUrl;
@@ -292,7 +313,8 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
       return false;
     }
     SuppressionVideoInfoForVideoProjectTaskDetailOutput suppressionVideoInfoForVideoProjectTaskDetailOutput = (SuppressionVideoInfoForVideoProjectTaskDetailOutput) o;
-    return Objects.equals(this.posterUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.posterUrl) &&
+    return Objects.equals(this.lipSyncVideoUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.lipSyncVideoUrl) &&
+        Objects.equals(this.posterUrl, suppressionVideoInfoForVideoProjectTaskDetailOutput.posterUrl) &&
         Objects.equals(this.sourceLastTime, suppressionVideoInfoForVideoProjectTaskDetailOutput.sourceLastTime) &&
         Objects.equals(this.sourceName, suppressionVideoInfoForVideoProjectTaskDetailOutput.sourceName) &&
         Objects.equals(this.sourceVid, suppressionVideoInfoForVideoProjectTaskDetailOutput.sourceVid) &&
@@ -308,7 +330,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(posterUrl, sourceLastTime, sourceName, sourceVid, sourceVideoUrl, targetAudioDownloadUrl, targetAudioUrl, targetDownloadUrl, targetLastTime, targetName, targetVid, targetVideoUrl);
+    return Objects.hash(lipSyncVideoUrl, posterUrl, sourceLastTime, sourceName, sourceVid, sourceVideoUrl, targetAudioDownloadUrl, targetAudioUrl, targetDownloadUrl, targetLastTime, targetName, targetVid, targetVideoUrl);
   }
 
 
@@ -317,6 +339,7 @@ public class SuppressionVideoInfoForVideoProjectTaskDetailOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class SuppressionVideoInfoForVideoProjectTaskDetailOutput {\n");
     
+    sb.append("    lipSyncVideoUrl: ").append(toIndentedString(lipSyncVideoUrl)).append("\n");
     sb.append("    posterUrl: ").append(toIndentedString(posterUrl)).append("\n");
     sb.append("    sourceLastTime: ").append(toIndentedString(sourceLastTime)).append("\n");
     sb.append("    sourceName: ").append(toIndentedString(sourceName)).append("\n");
