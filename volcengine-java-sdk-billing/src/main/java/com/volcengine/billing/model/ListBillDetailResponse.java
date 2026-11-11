@@ -39,6 +39,9 @@ public class ListBillDetailResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("List")
   private List<ListForListBillDetailOutput> list = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("Offset")
   private Integer offset = null;
 
@@ -91,6 +94,24 @@ public class ListBillDetailResponse extends com.volcengine.model.AbstractRespons
 
   public void setList(List<ListForListBillDetailOutput> list) {
     this.list = list;
+  }
+
+  public ListBillDetailResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public ListBillDetailResponse offset(Integer offset) {
@@ -159,6 +180,7 @@ public class ListBillDetailResponse extends com.volcengine.model.AbstractRespons
     ListBillDetailResponse listBillDetailResponse = (ListBillDetailResponse) o;
     return Objects.equals(this.limit, listBillDetailResponse.limit) &&
         Objects.equals(this.list, listBillDetailResponse.list) &&
+        Objects.equals(this.nextToken, listBillDetailResponse.nextToken) &&
         Objects.equals(this.offset, listBillDetailResponse.offset) &&
         Objects.equals(this.total, listBillDetailResponse.total) &&
         Objects.equals(this.warning, listBillDetailResponse.warning);
@@ -166,7 +188,7 @@ public class ListBillDetailResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, list, offset, total, warning);
+    return Objects.hash(limit, list, nextToken, offset, total, warning);
   }
 
 
@@ -177,6 +199,7 @@ public class ListBillDetailResponse extends com.volcengine.model.AbstractRespons
     
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");

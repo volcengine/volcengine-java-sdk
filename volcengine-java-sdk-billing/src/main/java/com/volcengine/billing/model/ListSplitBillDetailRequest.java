@@ -42,6 +42,9 @@ public class ListSplitBillDetailRequest {
   @SerializedName("BillingMode")
   private List<String> billingMode = null;
 
+  @SerializedName("CostUnit")
+  private List<String> costUnit = null;
+
   @SerializedName("ExpenseDate")
   private String expenseDate = null;
 
@@ -57,8 +60,14 @@ public class ListSplitBillDetailRequest {
   @SerializedName("Limit")
   private Integer limit = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
   @SerializedName("NeedRecordNum")
   private Integer needRecordNum = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("Offset")
   private Integer offset = null;
@@ -161,6 +170,32 @@ public class ListSplitBillDetailRequest {
     this.billingMode = billingMode;
   }
 
+  public ListSplitBillDetailRequest costUnit(List<String> costUnit) {
+    this.costUnit = costUnit;
+    return this;
+  }
+
+  public ListSplitBillDetailRequest addCostUnitItem(String costUnitItem) {
+    if (this.costUnit == null) {
+      this.costUnit = new ArrayList<String>();
+    }
+    this.costUnit.add(costUnitItem);
+    return this;
+  }
+
+   /**
+   * Get costUnit
+   * @return costUnit
+  **/
+  @Schema(description = "")
+  public List<String> getCostUnit() {
+    return costUnit;
+  }
+
+  public void setCostUnit(List<String> costUnit) {
+    this.costUnit = costUnit;
+  }
+
   public ListSplitBillDetailRequest expenseDate(String expenseDate) {
     this.expenseDate = expenseDate;
     return this;
@@ -252,6 +287,24 @@ public class ListSplitBillDetailRequest {
     this.limit = limit;
   }
 
+  public ListSplitBillDetailRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * @return maxResults
+  **/
+  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
   public ListSplitBillDetailRequest needRecordNum(Integer needRecordNum) {
     this.needRecordNum = needRecordNum;
     return this;
@@ -268,6 +321,24 @@ public class ListSplitBillDetailRequest {
 
   public void setNeedRecordNum(Integer needRecordNum) {
     this.needRecordNum = needRecordNum;
+  }
+
+  public ListSplitBillDetailRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public ListSplitBillDetailRequest offset(Integer offset) {
@@ -512,12 +583,15 @@ public class ListSplitBillDetailRequest {
     return Objects.equals(this.billCategory, listSplitBillDetailRequest.billCategory) &&
         Objects.equals(this.billPeriod, listSplitBillDetailRequest.billPeriod) &&
         Objects.equals(this.billingMode, listSplitBillDetailRequest.billingMode) &&
+        Objects.equals(this.costUnit, listSplitBillDetailRequest.costUnit) &&
         Objects.equals(this.expenseDate, listSplitBillDetailRequest.expenseDate) &&
         Objects.equals(this.groupPeriod, listSplitBillDetailRequest.groupPeriod) &&
         Objects.equals(this.ignoreZero, listSplitBillDetailRequest.ignoreZero) &&
         Objects.equals(this.instanceNo, listSplitBillDetailRequest.instanceNo) &&
         Objects.equals(this.limit, listSplitBillDetailRequest.limit) &&
+        Objects.equals(this.maxResults, listSplitBillDetailRequest.maxResults) &&
         Objects.equals(this.needRecordNum, listSplitBillDetailRequest.needRecordNum) &&
+        Objects.equals(this.nextToken, listSplitBillDetailRequest.nextToken) &&
         Objects.equals(this.offset, listSplitBillDetailRequest.offset) &&
         Objects.equals(this.ownerID, listSplitBillDetailRequest.ownerID) &&
         Objects.equals(this.payerID, listSplitBillDetailRequest.payerID) &&
@@ -532,7 +606,7 @@ public class ListSplitBillDetailRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project, salesChannel, splitDimension, splitItemID, tagKV, tagKVFilterMode);
+    return Objects.hash(billCategory, billPeriod, billingMode, costUnit, expenseDate, groupPeriod, ignoreZero, instanceNo, limit, maxResults, needRecordNum, nextToken, offset, ownerID, payerID, product, project, salesChannel, splitDimension, splitItemID, tagKV, tagKVFilterMode);
   }
 
 
@@ -544,12 +618,15 @@ public class ListSplitBillDetailRequest {
     sb.append("    billCategory: ").append(toIndentedString(billCategory)).append("\n");
     sb.append("    billPeriod: ").append(toIndentedString(billPeriod)).append("\n");
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
+    sb.append("    costUnit: ").append(toIndentedString(costUnit)).append("\n");
     sb.append("    expenseDate: ").append(toIndentedString(expenseDate)).append("\n");
     sb.append("    groupPeriod: ").append(toIndentedString(groupPeriod)).append("\n");
     sb.append("    ignoreZero: ").append(toIndentedString(ignoreZero)).append("\n");
     sb.append("    instanceNo: ").append(toIndentedString(instanceNo)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    needRecordNum: ").append(toIndentedString(needRecordNum)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
