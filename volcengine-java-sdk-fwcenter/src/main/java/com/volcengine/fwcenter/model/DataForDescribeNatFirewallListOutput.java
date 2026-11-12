@@ -45,6 +45,12 @@ public class DataForDescribeNatFirewallListOutput {
   @SerializedName("FirewallStatus")
   private String firewallStatus = null;
 
+  @SerializedName("MemberAccountID")
+  private String memberAccountID = null;
+
+  @SerializedName("MemberAccountName")
+  private String memberAccountName = null;
+
   @SerializedName("NatFirewallId")
   private String natFirewallId = null;
 
@@ -169,6 +175,42 @@ public class DataForDescribeNatFirewallListOutput {
 
   public void setFirewallStatus(String firewallStatus) {
     this.firewallStatus = firewallStatus;
+  }
+
+  public DataForDescribeNatFirewallListOutput memberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
+    return this;
+  }
+
+   /**
+   * Get memberAccountID
+   * @return memberAccountID
+  **/
+  @Schema(description = "")
+  public String getMemberAccountID() {
+    return memberAccountID;
+  }
+
+  public void setMemberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
+  }
+
+  public DataForDescribeNatFirewallListOutput memberAccountName(String memberAccountName) {
+    this.memberAccountName = memberAccountName;
+    return this;
+  }
+
+   /**
+   * Get memberAccountName
+   * @return memberAccountName
+  **/
+  @Schema(description = "")
+  public String getMemberAccountName() {
+    return memberAccountName;
+  }
+
+  public void setMemberAccountName(String memberAccountName) {
+    this.memberAccountName = memberAccountName;
   }
 
   public DataForDescribeNatFirewallListOutput natFirewallId(String natFirewallId) {
@@ -402,6 +444,8 @@ public class DataForDescribeNatFirewallListOutput {
         Objects.equals(this.canCreate, dataForDescribeNatFirewallListOutput.canCreate) &&
         Objects.equals(this.errMessage, dataForDescribeNatFirewallListOutput.errMessage) &&
         Objects.equals(this.firewallStatus, dataForDescribeNatFirewallListOutput.firewallStatus) &&
+        Objects.equals(this.memberAccountID, dataForDescribeNatFirewallListOutput.memberAccountID) &&
+        Objects.equals(this.memberAccountName, dataForDescribeNatFirewallListOutput.memberAccountName) &&
         Objects.equals(this.natFirewallId, dataForDescribeNatFirewallListOutput.natFirewallId) &&
         Objects.equals(this.natFirewallName, dataForDescribeNatFirewallListOutput.natFirewallName) &&
         Objects.equals(this.natFirewallSubnetCidr, dataForDescribeNatFirewallListOutput.natFirewallSubnetCidr) &&
@@ -418,7 +462,7 @@ public class DataForDescribeNatFirewallListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, canCreate, errMessage, firewallStatus, natFirewallId, natFirewallName, natFirewallSubnetCidr, natGatewayId, natGatewayName, peakTrafficWithin7Day, projectNameForNatGate, region, vpcCidr, vpcId, vpcName, zoneId);
+    return Objects.hash(accountId, bandwidth, canCreate, errMessage, firewallStatus, memberAccountID, memberAccountName, natFirewallId, natFirewallName, natFirewallSubnetCidr, natGatewayId, natGatewayName, peakTrafficWithin7Day, projectNameForNatGate, region, vpcCidr, vpcId, vpcName, zoneId);
   }
 
 
@@ -432,6 +476,8 @@ public class DataForDescribeNatFirewallListOutput {
     sb.append("    canCreate: ").append(toIndentedString(canCreate)).append("\n");
     sb.append("    errMessage: ").append(toIndentedString(errMessage)).append("\n");
     sb.append("    firewallStatus: ").append(toIndentedString(firewallStatus)).append("\n");
+    sb.append("    memberAccountID: ").append(toIndentedString(memberAccountID)).append("\n");
+    sb.append("    memberAccountName: ").append(toIndentedString(memberAccountName)).append("\n");
     sb.append("    natFirewallId: ").append(toIndentedString(natFirewallId)).append("\n");
     sb.append("    natFirewallName: ").append(toIndentedString(natFirewallName)).append("\n");
     sb.append("    natFirewallSubnetCidr: ").append(toIndentedString(natFirewallSubnetCidr)).append("\n");

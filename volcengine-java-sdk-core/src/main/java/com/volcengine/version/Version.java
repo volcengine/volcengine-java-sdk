@@ -1,6 +1,6 @@
 package com.volcengine.version;
 
 public class Version {
-    public final static String SDK_VERSION = "2.0.34";
+    public final static String SDK_VERSION = "2.0.35";
     public final static String SDK_NAME = "volcengine-java-sdk";
 }
