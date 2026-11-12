@@ -956,6 +956,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+        // --------------------------- mse ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("mse", new ServiceEndpointInfo(
+                "mse",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
     // 创建区域端点映射的辅助方法

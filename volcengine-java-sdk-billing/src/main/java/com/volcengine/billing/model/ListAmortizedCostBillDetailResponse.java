@@ -39,6 +39,9 @@ public class ListAmortizedCostBillDetailResponse extends com.volcengine.model.Ab
   @SerializedName("List")
   private List<ListForListAmortizedCostBillDetailOutput> list = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("Offset")
   private Integer offset = null;
 
@@ -91,6 +94,24 @@ public class ListAmortizedCostBillDetailResponse extends com.volcengine.model.Ab
 
   public void setList(List<ListForListAmortizedCostBillDetailOutput> list) {
     this.list = list;
+  }
+
+  public ListAmortizedCostBillDetailResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public ListAmortizedCostBillDetailResponse offset(Integer offset) {
@@ -159,6 +180,7 @@ public class ListAmortizedCostBillDetailResponse extends com.volcengine.model.Ab
     ListAmortizedCostBillDetailResponse listAmortizedCostBillDetailResponse = (ListAmortizedCostBillDetailResponse) o;
     return Objects.equals(this.limit, listAmortizedCostBillDetailResponse.limit) &&
         Objects.equals(this.list, listAmortizedCostBillDetailResponse.list) &&
+        Objects.equals(this.nextToken, listAmortizedCostBillDetailResponse.nextToken) &&
         Objects.equals(this.offset, listAmortizedCostBillDetailResponse.offset) &&
         Objects.equals(this.total, listAmortizedCostBillDetailResponse.total) &&
         Objects.equals(this.warning, listAmortizedCostBillDetailResponse.warning);
@@ -166,7 +188,7 @@ public class ListAmortizedCostBillDetailResponse extends com.volcengine.model.Ab
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, list, offset, total, warning);
+    return Objects.hash(limit, list, nextToken, offset, total, warning);
   }
 
 
@@ -177,6 +199,7 @@ public class ListAmortizedCostBillDetailResponse extends com.volcengine.model.Ab
     
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");

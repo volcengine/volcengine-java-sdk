@@ -38,6 +38,9 @@ public class DescribeVpcFirewallListRequest {
   @SerializedName("FirewallStatus")
   private List<String> firewallStatus = null;
 
+  @SerializedName("MemberAccountID")
+  private String memberAccountID = null;
+
   /**
    * Gets or Sets orderDir
    */
@@ -156,6 +159,24 @@ public class DescribeVpcFirewallListRequest {
 
   public void setFirewallStatus(List<String> firewallStatus) {
     this.firewallStatus = firewallStatus;
+  }
+
+  public DescribeVpcFirewallListRequest memberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
+    return this;
+  }
+
+   /**
+   * Get memberAccountID
+   * @return memberAccountID
+  **/
+ @Size(max=128)  @Schema(description = "")
+  public String getMemberAccountID() {
+    return memberAccountID;
+  }
+
+  public void setMemberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
   }
 
   public DescribeVpcFirewallListRequest orderDir(OrderDirEnum orderDir) {
@@ -393,6 +414,7 @@ public class DescribeVpcFirewallListRequest {
     DescribeVpcFirewallListRequest describeVpcFirewallListRequest = (DescribeVpcFirewallListRequest) o;
     return Objects.equals(this.cloudFirewallId, describeVpcFirewallListRequest.cloudFirewallId) &&
         Objects.equals(this.firewallStatus, describeVpcFirewallListRequest.firewallStatus) &&
+        Objects.equals(this.memberAccountID, describeVpcFirewallListRequest.memberAccountID) &&
         Objects.equals(this.orderDir, describeVpcFirewallListRequest.orderDir) &&
         Objects.equals(this.pageNumber, describeVpcFirewallListRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcFirewallListRequest.pageSize) &&
@@ -408,7 +430,7 @@ public class DescribeVpcFirewallListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudFirewallId, firewallStatus, orderDir, pageNumber, pageSize, projectName, regionCode, routeMode, routePolicyStatus, transitRouterId, transitRouterName, vpcFirewallId, vpcFirewallName);
+    return Objects.hash(cloudFirewallId, firewallStatus, memberAccountID, orderDir, pageNumber, pageSize, projectName, regionCode, routeMode, routePolicyStatus, transitRouterId, transitRouterName, vpcFirewallId, vpcFirewallName);
   }
 
 
@@ -419,6 +441,7 @@ public class DescribeVpcFirewallListRequest {
     
     sb.append("    cloudFirewallId: ").append(toIndentedString(cloudFirewallId)).append("\n");
     sb.append("    firewallStatus: ").append(toIndentedString(firewallStatus)).append("\n");
+    sb.append("    memberAccountID: ").append(toIndentedString(memberAccountID)).append("\n");
     sb.append("    orderDir: ").append(toIndentedString(orderDir)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

@@ -38,6 +38,9 @@ public class DescribeNatFirewallListRequest {
   @SerializedName("FirewallStatus")
   private List<String> firewallStatus = null;
 
+  @SerializedName("MemberAccountID")
+  private String memberAccountID = null;
+
   @SerializedName("NatFirewallId")
   private String natFirewallId = null;
 
@@ -156,6 +159,24 @@ public class DescribeNatFirewallListRequest {
 
   public void setFirewallStatus(List<String> firewallStatus) {
     this.firewallStatus = firewallStatus;
+  }
+
+  public DescribeNatFirewallListRequest memberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
+    return this;
+  }
+
+   /**
+   * Get memberAccountID
+   * @return memberAccountID
+  **/
+ @Size(max=128)  @Schema(description = "")
+  public String getMemberAccountID() {
+    return memberAccountID;
+  }
+
+  public void setMemberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
   }
 
   public DescribeNatFirewallListRequest natFirewallId(String natFirewallId) {
@@ -377,6 +398,7 @@ public class DescribeNatFirewallListRequest {
     DescribeNatFirewallListRequest describeNatFirewallListRequest = (DescribeNatFirewallListRequest) o;
     return Objects.equals(this.cloudFirewallId, describeNatFirewallListRequest.cloudFirewallId) &&
         Objects.equals(this.firewallStatus, describeNatFirewallListRequest.firewallStatus) &&
+        Objects.equals(this.memberAccountID, describeNatFirewallListRequest.memberAccountID) &&
         Objects.equals(this.natFirewallId, describeNatFirewallListRequest.natFirewallId) &&
         Objects.equals(this.natFirewallName, describeNatFirewallListRequest.natFirewallName) &&
         Objects.equals(this.natGatewayId, describeNatFirewallListRequest.natGatewayId) &&
@@ -392,7 +414,7 @@ public class DescribeNatFirewallListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudFirewallId, firewallStatus, natFirewallId, natFirewallName, natGatewayId, natGatewayName, orderDir, pageNumber, pageSize, projectName, regionCode, vpcId, vpcName);
+    return Objects.hash(cloudFirewallId, firewallStatus, memberAccountID, natFirewallId, natFirewallName, natGatewayId, natGatewayName, orderDir, pageNumber, pageSize, projectName, regionCode, vpcId, vpcName);
   }
 
 
@@ -403,6 +425,7 @@ public class DescribeNatFirewallListRequest {
     
     sb.append("    cloudFirewallId: ").append(toIndentedString(cloudFirewallId)).append("\n");
     sb.append("    firewallStatus: ").append(toIndentedString(firewallStatus)).append("\n");
+    sb.append("    memberAccountID: ").append(toIndentedString(memberAccountID)).append("\n");
     sb.append("    natFirewallId: ").append(toIndentedString(natFirewallId)).append("\n");
     sb.append("    natFirewallName: ").append(toIndentedString(natFirewallName)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");

@@ -92,6 +92,9 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
   @SerializedName("IsEffected")
   private Boolean isEffected = null;
 
+  @SerializedName("LastHitTime")
+  private Long lastHitTime = null;
+
   @SerializedName("Prio")
   private Long prio = null;
 
@@ -530,6 +533,24 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     this.isEffected = isEffected;
   }
 
+  public DataForDescribeVpcFirewallAclRuleListOutput lastHitTime(Long lastHitTime) {
+    this.lastHitTime = lastHitTime;
+    return this;
+  }
+
+   /**
+   * Get lastHitTime
+   * @return lastHitTime
+  **/
+  @Schema(description = "")
+  public Long getLastHitTime() {
+    return lastHitTime;
+  }
+
+  public void setLastHitTime(Long lastHitTime) {
+    this.lastHitTime = lastHitTime;
+  }
+
   public DataForDescribeVpcFirewallAclRuleListOutput prio(Long prio) {
     this.prio = prio;
     return this;
@@ -908,6 +929,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
         Objects.equals(this.endTime, dataForDescribeVpcFirewallAclRuleListOutput.endTime) &&
         Objects.equals(this.hitCnt, dataForDescribeVpcFirewallAclRuleListOutput.hitCnt) &&
         Objects.equals(this.isEffected, dataForDescribeVpcFirewallAclRuleListOutput.isEffected) &&
+        Objects.equals(this.lastHitTime, dataForDescribeVpcFirewallAclRuleListOutput.lastHitTime) &&
         Objects.equals(this.prio, dataForDescribeVpcFirewallAclRuleListOutput.prio) &&
         Objects.equals(this.proto, dataForDescribeVpcFirewallAclRuleListOutput.proto) &&
         Objects.equals(this.repeatDays, dataForDescribeVpcFirewallAclRuleListOutput.repeatDays) &&
@@ -930,7 +952,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupType, destinationType, domainResolutionMode, effectStatus, endTime, hitCnt, isEffected, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupType, sourceType, startTime, status, updateTime, useCount, vpcFirewallId, vpcFirewallName);
+    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupType, destinationType, domainResolutionMode, effectStatus, endTime, hitCnt, isEffected, lastHitTime, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupType, sourceType, startTime, status, updateTime, useCount, vpcFirewallId, vpcFirewallName);
   }
 
 
@@ -958,6 +980,7 @@ public class DataForDescribeVpcFirewallAclRuleListOutput {
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    hitCnt: ").append(toIndentedString(hitCnt)).append("\n");
     sb.append("    isEffected: ").append(toIndentedString(isEffected)).append("\n");
+    sb.append("    lastHitTime: ").append(toIndentedString(lastHitTime)).append("\n");
     sb.append("    prio: ").append(toIndentedString(prio)).append("\n");
     sb.append("    proto: ").append(toIndentedString(proto)).append("\n");
     sb.append("    repeatDays: ").append(toIndentedString(repeatDays)).append("\n");

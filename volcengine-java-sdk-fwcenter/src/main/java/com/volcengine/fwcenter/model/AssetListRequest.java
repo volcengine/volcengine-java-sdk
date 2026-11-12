@@ -35,6 +35,9 @@ public class AssetListRequest {
   @SerializedName("InternetFirewallId")
   private String internetFirewallId = null;
 
+  @SerializedName("MemberAccountID")
+  private String memberAccountID = null;
+
   @SerializedName("asset")
   private String asset = null;
 
@@ -170,6 +173,24 @@ public class AssetListRequest {
 
   public void setInternetFirewallId(String internetFirewallId) {
     this.internetFirewallId = internetFirewallId;
+  }
+
+  public AssetListRequest memberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
+    return this;
+  }
+
+   /**
+   * Get memberAccountID
+   * @return memberAccountID
+  **/
+ @Size(max=128)  @Schema(description = "")
+  public String getMemberAccountID() {
+    return memberAccountID;
+  }
+
+  public void setMemberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
   }
 
   public AssetListRequest asset(String asset) {
@@ -422,6 +443,7 @@ public class AssetListRequest {
     }
     AssetListRequest assetListRequest = (AssetListRequest) o;
     return Objects.equals(this.internetFirewallId, assetListRequest.internetFirewallId) &&
+        Objects.equals(this.memberAccountID, assetListRequest.memberAccountID) &&
         Objects.equals(this.asset, assetListRequest.asset) &&
         Objects.equals(this.assetIp, assetListRequest.assetIp) &&
         Objects.equals(this.assetName, assetListRequest.assetName) &&
@@ -437,7 +459,7 @@ public class AssetListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(internetFirewallId, asset, assetIp, assetName, assetType, currentPage, instanceType, ipType, orderDir, pageSize, regionCode, stat);
+    return Objects.hash(internetFirewallId, memberAccountID, asset, assetIp, assetName, assetType, currentPage, instanceType, ipType, orderDir, pageSize, regionCode, stat);
   }
 
 
@@ -447,6 +469,7 @@ public class AssetListRequest {
     sb.append("class AssetListRequest {\n");
     
     sb.append("    internetFirewallId: ").append(toIndentedString(internetFirewallId)).append("\n");
+    sb.append("    memberAccountID: ").append(toIndentedString(memberAccountID)).append("\n");
     sb.append("    asset: ").append(toIndentedString(asset)).append("\n");
     sb.append("    assetIp: ").append(toIndentedString(assetIp)).append("\n");
     sb.append("    assetName: ").append(toIndentedString(assetName)).append("\n");
