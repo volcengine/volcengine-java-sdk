@@ -39,6 +39,9 @@ public class ListAmortizedCostBillMonthlyResponse extends com.volcengine.model.A
   @SerializedName("List")
   private List<ListForListAmortizedCostBillMonthlyOutput> list = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("Offset")
   private Integer offset = null;
 
@@ -91,6 +94,24 @@ public class ListAmortizedCostBillMonthlyResponse extends com.volcengine.model.A
 
   public void setList(List<ListForListAmortizedCostBillMonthlyOutput> list) {
     this.list = list;
+  }
+
+  public ListAmortizedCostBillMonthlyResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public ListAmortizedCostBillMonthlyResponse offset(Integer offset) {
@@ -159,6 +180,7 @@ public class ListAmortizedCostBillMonthlyResponse extends com.volcengine.model.A
     ListAmortizedCostBillMonthlyResponse listAmortizedCostBillMonthlyResponse = (ListAmortizedCostBillMonthlyResponse) o;
     return Objects.equals(this.limit, listAmortizedCostBillMonthlyResponse.limit) &&
         Objects.equals(this.list, listAmortizedCostBillMonthlyResponse.list) &&
+        Objects.equals(this.nextToken, listAmortizedCostBillMonthlyResponse.nextToken) &&
         Objects.equals(this.offset, listAmortizedCostBillMonthlyResponse.offset) &&
         Objects.equals(this.total, listAmortizedCostBillMonthlyResponse.total) &&
         Objects.equals(this.warning, listAmortizedCostBillMonthlyResponse.warning);
@@ -166,7 +188,7 @@ public class ListAmortizedCostBillMonthlyResponse extends com.volcengine.model.A
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, list, offset, total, warning);
+    return Objects.hash(limit, list, nextToken, offset, total, warning);
   }
 
 
@@ -177,6 +199,7 @@ public class ListAmortizedCostBillMonthlyResponse extends com.volcengine.model.A
     
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");

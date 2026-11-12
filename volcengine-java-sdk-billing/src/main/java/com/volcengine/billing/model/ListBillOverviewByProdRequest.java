@@ -47,8 +47,14 @@ public class ListBillOverviewByProdRequest {
   @SerializedName("Limit")
   private Integer limit = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
   @SerializedName("NeedRecordNum")
   private Integer needRecordNum = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("Offset")
   private Integer offset = null;
@@ -170,6 +176,24 @@ public class ListBillOverviewByProdRequest {
     this.limit = limit;
   }
 
+  public ListBillOverviewByProdRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * @return maxResults
+  **/
+  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
   public ListBillOverviewByProdRequest needRecordNum(Integer needRecordNum) {
     this.needRecordNum = needRecordNum;
     return this;
@@ -186,6 +210,24 @@ public class ListBillOverviewByProdRequest {
 
   public void setNeedRecordNum(Integer needRecordNum) {
     this.needRecordNum = needRecordNum;
+  }
+
+  public ListBillOverviewByProdRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public ListBillOverviewByProdRequest offset(Integer offset) {
@@ -299,7 +341,9 @@ public class ListBillOverviewByProdRequest {
         Objects.equals(this.billingMode, listBillOverviewByProdRequest.billingMode) &&
         Objects.equals(this.ignoreZero, listBillOverviewByProdRequest.ignoreZero) &&
         Objects.equals(this.limit, listBillOverviewByProdRequest.limit) &&
+        Objects.equals(this.maxResults, listBillOverviewByProdRequest.maxResults) &&
         Objects.equals(this.needRecordNum, listBillOverviewByProdRequest.needRecordNum) &&
+        Objects.equals(this.nextToken, listBillOverviewByProdRequest.nextToken) &&
         Objects.equals(this.offset, listBillOverviewByProdRequest.offset) &&
         Objects.equals(this.ownerID, listBillOverviewByProdRequest.ownerID) &&
         Objects.equals(this.payerID, listBillOverviewByProdRequest.payerID) &&
@@ -308,7 +352,7 @@ public class ListBillOverviewByProdRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategoryParent, billPeriod, billingMode, ignoreZero, limit, needRecordNum, offset, ownerID, payerID, product);
+    return Objects.hash(billCategoryParent, billPeriod, billingMode, ignoreZero, limit, maxResults, needRecordNum, nextToken, offset, ownerID, payerID, product);
   }
 
 
@@ -322,7 +366,9 @@ public class ListBillOverviewByProdRequest {
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
     sb.append("    ignoreZero: ").append(toIndentedString(ignoreZero)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    needRecordNum: ").append(toIndentedString(needRecordNum)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");

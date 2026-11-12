@@ -39,6 +39,9 @@ public class ListBillResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("List")
   private List<ListForListBillOutput> list = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("Offset")
   private Integer offset = null;
 
@@ -90,6 +93,24 @@ public class ListBillResponse extends com.volcengine.model.AbstractResponse {
     this.list = list;
   }
 
+  public ListBillResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
+
   public ListBillResponse offset(Integer offset) {
     this.offset = offset;
     return this;
@@ -138,13 +159,14 @@ public class ListBillResponse extends com.volcengine.model.AbstractResponse {
     ListBillResponse listBillResponse = (ListBillResponse) o;
     return Objects.equals(this.limit, listBillResponse.limit) &&
         Objects.equals(this.list, listBillResponse.list) &&
+        Objects.equals(this.nextToken, listBillResponse.nextToken) &&
         Objects.equals(this.offset, listBillResponse.offset) &&
         Objects.equals(this.total, listBillResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, list, offset, total);
+    return Objects.hash(limit, list, nextToken, offset, total);
   }
 
 
@@ -155,6 +177,7 @@ public class ListBillResponse extends com.volcengine.model.AbstractResponse {
     
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");

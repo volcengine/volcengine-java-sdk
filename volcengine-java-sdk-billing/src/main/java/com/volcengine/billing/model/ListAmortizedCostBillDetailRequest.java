@@ -60,8 +60,14 @@ public class ListAmortizedCostBillDetailRequest {
   @SerializedName("Limit")
   private Integer limit = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
   @SerializedName("NeedRecordNum")
   private Integer needRecordNum = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("Offset")
   private Integer offset = null;
@@ -272,6 +278,24 @@ public class ListAmortizedCostBillDetailRequest {
     this.limit = limit;
   }
 
+  public ListAmortizedCostBillDetailRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * @return maxResults
+  **/
+  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
   public ListAmortizedCostBillDetailRequest needRecordNum(Integer needRecordNum) {
     this.needRecordNum = needRecordNum;
     return this;
@@ -288,6 +312,24 @@ public class ListAmortizedCostBillDetailRequest {
 
   public void setNeedRecordNum(Integer needRecordNum) {
     this.needRecordNum = needRecordNum;
+  }
+
+  public ListAmortizedCostBillDetailRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public ListAmortizedCostBillDetailRequest offset(Integer offset) {
@@ -476,7 +518,9 @@ public class ListAmortizedCostBillDetailRequest {
         Objects.equals(this.ignoreZero, listAmortizedCostBillDetailRequest.ignoreZero) &&
         Objects.equals(this.instanceNo, listAmortizedCostBillDetailRequest.instanceNo) &&
         Objects.equals(this.limit, listAmortizedCostBillDetailRequest.limit) &&
+        Objects.equals(this.maxResults, listAmortizedCostBillDetailRequest.maxResults) &&
         Objects.equals(this.needRecordNum, listAmortizedCostBillDetailRequest.needRecordNum) &&
+        Objects.equals(this.nextToken, listAmortizedCostBillDetailRequest.nextToken) &&
         Objects.equals(this.offset, listAmortizedCostBillDetailRequest.offset) &&
         Objects.equals(this.ownerID, listAmortizedCostBillDetailRequest.ownerID) &&
         Objects.equals(this.payerID, listAmortizedCostBillDetailRequest.payerID) &&
@@ -488,7 +532,7 @@ public class ListAmortizedCostBillDetailRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedDay, amortizedMonth, amortizedType, billCategory, billPeriod, billingMode, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project, tagKV, tagKVFilterMode);
+    return Objects.hash(amortizedDay, amortizedMonth, amortizedType, billCategory, billPeriod, billingMode, ignoreZero, instanceNo, limit, maxResults, needRecordNum, nextToken, offset, ownerID, payerID, product, project, tagKV, tagKVFilterMode);
   }
 
 
@@ -506,7 +550,9 @@ public class ListAmortizedCostBillDetailRequest {
     sb.append("    ignoreZero: ").append(toIndentedString(ignoreZero)).append("\n");
     sb.append("    instanceNo: ").append(toIndentedString(instanceNo)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    needRecordNum: ").append(toIndentedString(needRecordNum)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");

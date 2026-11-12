@@ -60,8 +60,14 @@ public class ListBillDetailRequest {
   @SerializedName("Limit")
   private Integer limit = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
   @SerializedName("NeedRecordNum")
   private Integer needRecordNum = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("Offset")
   private Integer offset = null;
@@ -267,6 +273,24 @@ public class ListBillDetailRequest {
     this.limit = limit;
   }
 
+  public ListBillDetailRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * @return maxResults
+  **/
+  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
   public ListBillDetailRequest needRecordNum(Integer needRecordNum) {
     this.needRecordNum = needRecordNum;
     return this;
@@ -283,6 +307,24 @@ public class ListBillDetailRequest {
 
   public void setNeedRecordNum(Integer needRecordNum) {
     this.needRecordNum = needRecordNum;
+  }
+
+  public ListBillDetailRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public ListBillDetailRequest offset(Integer offset) {
@@ -497,7 +539,9 @@ public class ListBillDetailRequest {
         Objects.equals(this.ignoreZero, listBillDetailRequest.ignoreZero) &&
         Objects.equals(this.instanceNo, listBillDetailRequest.instanceNo) &&
         Objects.equals(this.limit, listBillDetailRequest.limit) &&
+        Objects.equals(this.maxResults, listBillDetailRequest.maxResults) &&
         Objects.equals(this.needRecordNum, listBillDetailRequest.needRecordNum) &&
+        Objects.equals(this.nextToken, listBillDetailRequest.nextToken) &&
         Objects.equals(this.offset, listBillDetailRequest.offset) &&
         Objects.equals(this.ownerID, listBillDetailRequest.ownerID) &&
         Objects.equals(this.payerID, listBillDetailRequest.payerID) &&
@@ -510,7 +554,7 @@ public class ListBillDetailRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, groupTerm, ignoreZero, instanceNo, limit, needRecordNum, offset, ownerID, payerID, product, project, salesChannel, tagKV, tagKVFilterMode);
+    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, groupTerm, ignoreZero, instanceNo, limit, maxResults, needRecordNum, nextToken, offset, ownerID, payerID, product, project, salesChannel, tagKV, tagKVFilterMode);
   }
 
 
@@ -528,7 +572,9 @@ public class ListBillDetailRequest {
     sb.append("    ignoreZero: ").append(toIndentedString(ignoreZero)).append("\n");
     sb.append("    instanceNo: ").append(toIndentedString(instanceNo)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    needRecordNum: ").append(toIndentedString(needRecordNum)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");

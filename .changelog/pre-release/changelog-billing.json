@@ -1,0 +1,14 @@
+{
+  "actions": [
+    "ListBillDetail",
+    "ListBillOverviewByProd",
+    "ListSplitBillDetail",
+    "ListAmortizedCostBillDaily",
+    "ListAmortizedCostBillDetail",
+    "ListAmortizedCostBillMonthly",
+    "ListBill"
+  ],
+  "description": "BILLING: 修改 ListAmortizedCostBillMonthly, ListBill, ListBillDetail, ListBillOverviewByProd, ListSplitBillDetail, ListAmortizedCostBillDaily, ListAmortizedCostBillDetail",
+  "modules": "service/billing",
+  "type": "feature"
+}
