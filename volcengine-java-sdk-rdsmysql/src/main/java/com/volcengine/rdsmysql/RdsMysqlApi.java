@@ -123,16 +123,44 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * RDS MySQL API 2018-01-01 客户端。
+ *
+ * @deprecated 请迁移至 Maven 模块 {@code volcengine-java-sdk-rdsmysqlv2}
+ *             （API 2022-01-01），使用新版客户端
+ *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}：
+ *             <pre>{@code
+ * RdsMysqlV2Api api = new RdsMysqlV2Api(); // 或 new RdsMysqlV2Api(apiClient)
+ *             }</pre>
+ *             并按新版定义调整请求和返回模型。
+ *             <p>过渡期内构造本客户端会向 {@code System.err} 打印一次下线提示，
+ *             请求仍按 2018-01-01 原语义发出；该版本将在未来版本中删除。
+ */
+@Deprecated
 public class RdsMysqlApi {
     private ApiClient apiClient;
 
+    // 下线过渡期：同一类加载器内最多提示一次。仅写 stderr，不改变任何请求行为。
+    private static final AtomicBoolean DEPRECATION_NOTICE_EMITTED = new AtomicBoolean(false);
+
+    private static void emitDeprecationNotice() {
+        if (DEPRECATION_NOTICE_EMITTED.compareAndSet(false, true)) {
+            System.err.println("Warning: RDS MySQL API 2018-01-01 is deprecated and will be removed in a future release.");
+            System.err.println("Please migrate to module volcengine-java-sdk-rdsmysqlv2 and com.volcengine.rdsmysqlv2.RdsMysqlV2Api.");
+            System.err.println("The current request continues unchanged using API 2018-01-01.");
+        }
+    }
+
     public RdsMysqlApi() {
         this(Configuration.getDefaultApiClient());
+        emitDeprecationNotice();
     }
 
     public RdsMysqlApi(ApiClient apiClient) {
         this.apiClient = apiClient;
+        emitDeprecationNotice();
     }
 
     public ApiClient getApiClient() {
@@ -150,7 +178,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call associateAllowListCall(AssociateAllowListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -214,7 +246,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return AssociateAllowListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public AssociateAllowListResponse associateAllowList(AssociateAllowListRequest body) throws ApiException {
         ApiResponse<AssociateAllowListResponse> resp = associateAllowListWithHttpInfo(body);
         return resp.getData();
@@ -226,7 +262,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;AssociateAllowListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<AssociateAllowListResponse> associateAllowListWithHttpInfo( @NotNull AssociateAllowListRequest body) throws ApiException {
         com.squareup.okhttp.Call call = associateAllowListValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<AssociateAllowListResponse>(){}.getType();
@@ -240,7 +280,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call associateAllowListAsync(AssociateAllowListRequest body, final ApiCallback<AssociateAllowListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -274,7 +318,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call copyParameterTemplateCall(CopyParameterTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -338,7 +386,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return CopyParameterTemplateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public CopyParameterTemplateResponse copyParameterTemplate(CopyParameterTemplateRequest body) throws ApiException {
         ApiResponse<CopyParameterTemplateResponse> resp = copyParameterTemplateWithHttpInfo(body);
         return resp.getData();
@@ -350,7 +402,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;CopyParameterTemplateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<CopyParameterTemplateResponse> copyParameterTemplateWithHttpInfo( @NotNull CopyParameterTemplateRequest body) throws ApiException {
         com.squareup.okhttp.Call call = copyParameterTemplateValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CopyParameterTemplateResponse>(){}.getType();
@@ -364,7 +420,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call copyParameterTemplateAsync(CopyParameterTemplateRequest body, final ApiCallback<CopyParameterTemplateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -398,7 +458,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createAccountCall(CreateAccountRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -462,7 +526,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return CreateAccountResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public CreateAccountResponse createAccount(CreateAccountRequest body) throws ApiException {
         ApiResponse<CreateAccountResponse> resp = createAccountWithHttpInfo(body);
         return resp.getData();
@@ -474,7 +542,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;CreateAccountResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<CreateAccountResponse> createAccountWithHttpInfo( @NotNull CreateAccountRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createAccountValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateAccountResponse>(){}.getType();
@@ -488,7 +560,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createAccountAsync(CreateAccountRequest body, final ApiCallback<CreateAccountResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -522,7 +598,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createAllowListCall(CreateAllowListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -586,7 +666,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return CreateAllowListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public CreateAllowListResponse createAllowList(CreateAllowListRequest body) throws ApiException {
         ApiResponse<CreateAllowListResponse> resp = createAllowListWithHttpInfo(body);
         return resp.getData();
@@ -598,7 +682,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;CreateAllowListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<CreateAllowListResponse> createAllowListWithHttpInfo( @NotNull CreateAllowListRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createAllowListValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateAllowListResponse>(){}.getType();
@@ -612,7 +700,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createAllowListAsync(CreateAllowListRequest body, final ApiCallback<CreateAllowListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -646,7 +738,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createBackupCall(CreateBackupRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -710,7 +806,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return CreateBackupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public CreateBackupResponse createBackup(CreateBackupRequest body) throws ApiException {
         ApiResponse<CreateBackupResponse> resp = createBackupWithHttpInfo(body);
         return resp.getData();
@@ -722,7 +822,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;CreateBackupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<CreateBackupResponse> createBackupWithHttpInfo( @NotNull CreateBackupRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createBackupValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateBackupResponse>(){}.getType();
@@ -736,7 +840,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createBackupAsync(CreateBackupRequest body, final ApiCallback<CreateBackupResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -770,7 +878,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createDBInstanceCall(CreateDBInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -834,7 +946,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return CreateDBInstanceResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public CreateDBInstanceResponse createDBInstance(CreateDBInstanceRequest body) throws ApiException {
         ApiResponse<CreateDBInstanceResponse> resp = createDBInstanceWithHttpInfo(body);
         return resp.getData();
@@ -846,7 +962,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;CreateDBInstanceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<CreateDBInstanceResponse> createDBInstanceWithHttpInfo( @NotNull CreateDBInstanceRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createDBInstanceValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateDBInstanceResponse>(){}.getType();
@@ -860,7 +980,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createDBInstanceAsync(CreateDBInstanceRequest body, final ApiCallback<CreateDBInstanceResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -894,7 +1018,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createDBInstanceIPListCall(CreateDBInstanceIPListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -958,7 +1086,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return CreateDBInstanceIPListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public CreateDBInstanceIPListResponse createDBInstanceIPList(CreateDBInstanceIPListRequest body) throws ApiException {
         ApiResponse<CreateDBInstanceIPListResponse> resp = createDBInstanceIPListWithHttpInfo(body);
         return resp.getData();
@@ -970,7 +1102,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;CreateDBInstanceIPListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<CreateDBInstanceIPListResponse> createDBInstanceIPListWithHttpInfo( @NotNull CreateDBInstanceIPListRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createDBInstanceIPListValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateDBInstanceIPListResponse>(){}.getType();
@@ -984,7 +1120,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createDBInstanceIPListAsync(CreateDBInstanceIPListRequest body, final ApiCallback<CreateDBInstanceIPListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1018,7 +1158,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createDatabaseCall(CreateDatabaseRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -1082,7 +1226,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return CreateDatabaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public CreateDatabaseResponse createDatabase(CreateDatabaseRequest body) throws ApiException {
         ApiResponse<CreateDatabaseResponse> resp = createDatabaseWithHttpInfo(body);
         return resp.getData();
@@ -1094,7 +1242,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;CreateDatabaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<CreateDatabaseResponse> createDatabaseWithHttpInfo( @NotNull CreateDatabaseRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createDatabaseValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateDatabaseResponse>(){}.getType();
@@ -1108,7 +1260,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createDatabaseAsync(CreateDatabaseRequest body, final ApiCallback<CreateDatabaseResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1142,7 +1298,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createParameterTemplateCall(CreateParameterTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -1206,7 +1366,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return CreateParameterTemplateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public CreateParameterTemplateResponse createParameterTemplate(CreateParameterTemplateRequest body) throws ApiException {
         ApiResponse<CreateParameterTemplateResponse> resp = createParameterTemplateWithHttpInfo(body);
         return resp.getData();
@@ -1218,7 +1382,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;CreateParameterTemplateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<CreateParameterTemplateResponse> createParameterTemplateWithHttpInfo( @NotNull CreateParameterTemplateRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createParameterTemplateValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateParameterTemplateResponse>(){}.getType();
@@ -1232,7 +1400,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call createParameterTemplateAsync(CreateParameterTemplateRequest body, final ApiCallback<CreateParameterTemplateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1266,7 +1438,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteAccountCall(DeleteAccountRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -1330,7 +1506,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DeleteAccountResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DeleteAccountResponse deleteAccount(DeleteAccountRequest body) throws ApiException {
         ApiResponse<DeleteAccountResponse> resp = deleteAccountWithHttpInfo(body);
         return resp.getData();
@@ -1342,7 +1522,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DeleteAccountResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DeleteAccountResponse> deleteAccountWithHttpInfo( @NotNull DeleteAccountRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteAccountValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteAccountResponse>(){}.getType();
@@ -1356,7 +1540,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteAccountAsync(DeleteAccountRequest body, final ApiCallback<DeleteAccountResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1390,7 +1578,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteAllowListCall(DeleteAllowListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -1454,7 +1646,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DeleteAllowListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DeleteAllowListResponse deleteAllowList(DeleteAllowListRequest body) throws ApiException {
         ApiResponse<DeleteAllowListResponse> resp = deleteAllowListWithHttpInfo(body);
         return resp.getData();
@@ -1466,7 +1662,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DeleteAllowListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DeleteAllowListResponse> deleteAllowListWithHttpInfo( @NotNull DeleteAllowListRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteAllowListValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteAllowListResponse>(){}.getType();
@@ -1480,7 +1680,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteAllowListAsync(DeleteAllowListRequest body, final ApiCallback<DeleteAllowListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1514,7 +1718,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteDBInstanceCall(DeleteDBInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -1578,7 +1786,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DeleteDBInstanceResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DeleteDBInstanceResponse deleteDBInstance(DeleteDBInstanceRequest body) throws ApiException {
         ApiResponse<DeleteDBInstanceResponse> resp = deleteDBInstanceWithHttpInfo(body);
         return resp.getData();
@@ -1590,7 +1802,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DeleteDBInstanceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DeleteDBInstanceResponse> deleteDBInstanceWithHttpInfo( @NotNull DeleteDBInstanceRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteDBInstanceValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteDBInstanceResponse>(){}.getType();
@@ -1604,7 +1820,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteDBInstanceAsync(DeleteDBInstanceRequest body, final ApiCallback<DeleteDBInstanceResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1638,7 +1858,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteDBInstanceIPListCall(DeleteDBInstanceIPListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -1702,7 +1926,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DeleteDBInstanceIPListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DeleteDBInstanceIPListResponse deleteDBInstanceIPList(DeleteDBInstanceIPListRequest body) throws ApiException {
         ApiResponse<DeleteDBInstanceIPListResponse> resp = deleteDBInstanceIPListWithHttpInfo(body);
         return resp.getData();
@@ -1714,7 +1942,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DeleteDBInstanceIPListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DeleteDBInstanceIPListResponse> deleteDBInstanceIPListWithHttpInfo( @NotNull DeleteDBInstanceIPListRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteDBInstanceIPListValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteDBInstanceIPListResponse>(){}.getType();
@@ -1728,7 +1960,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteDBInstanceIPListAsync(DeleteDBInstanceIPListRequest body, final ApiCallback<DeleteDBInstanceIPListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1762,7 +1998,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteDatabaseCall(DeleteDatabaseRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -1826,7 +2066,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DeleteDatabaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DeleteDatabaseResponse deleteDatabase(DeleteDatabaseRequest body) throws ApiException {
         ApiResponse<DeleteDatabaseResponse> resp = deleteDatabaseWithHttpInfo(body);
         return resp.getData();
@@ -1838,7 +2082,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DeleteDatabaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DeleteDatabaseResponse> deleteDatabaseWithHttpInfo( @NotNull DeleteDatabaseRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteDatabaseValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteDatabaseResponse>(){}.getType();
@@ -1852,7 +2100,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteDatabaseAsync(DeleteDatabaseRequest body, final ApiCallback<DeleteDatabaseResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1886,7 +2138,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteParameterTemplateCall(DeleteParameterTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -1950,7 +2206,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DeleteParameterTemplateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DeleteParameterTemplateResponse deleteParameterTemplate(DeleteParameterTemplateRequest body) throws ApiException {
         ApiResponse<DeleteParameterTemplateResponse> resp = deleteParameterTemplateWithHttpInfo(body);
         return resp.getData();
@@ -1962,7 +2222,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DeleteParameterTemplateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DeleteParameterTemplateResponse> deleteParameterTemplateWithHttpInfo( @NotNull DeleteParameterTemplateRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteParameterTemplateValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteParameterTemplateResponse>(){}.getType();
@@ -1976,7 +2240,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call deleteParameterTemplateAsync(DeleteParameterTemplateRequest body, final ApiCallback<DeleteParameterTemplateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2010,7 +2278,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeAllowListDetailCall(DescribeAllowListDetailRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -2074,7 +2346,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DescribeAllowListDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DescribeAllowListDetailResponse describeAllowListDetail(DescribeAllowListDetailRequest body) throws ApiException {
         ApiResponse<DescribeAllowListDetailResponse> resp = describeAllowListDetailWithHttpInfo(body);
         return resp.getData();
@@ -2086,7 +2362,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DescribeAllowListDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DescribeAllowListDetailResponse> describeAllowListDetailWithHttpInfo( @NotNull DescribeAllowListDetailRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeAllowListDetailValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeAllowListDetailResponse>(){}.getType();
@@ -2100,7 +2380,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeAllowListDetailAsync(DescribeAllowListDetailRequest body, final ApiCallback<DescribeAllowListDetailResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2134,7 +2418,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeAllowListsCall(DescribeAllowListsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -2198,7 +2486,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DescribeAllowListsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DescribeAllowListsResponse describeAllowLists(DescribeAllowListsRequest body) throws ApiException {
         ApiResponse<DescribeAllowListsResponse> resp = describeAllowListsWithHttpInfo(body);
         return resp.getData();
@@ -2210,7 +2502,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DescribeAllowListsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DescribeAllowListsResponse> describeAllowListsWithHttpInfo( @NotNull DescribeAllowListsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeAllowListsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeAllowListsResponse>(){}.getType();
@@ -2224,7 +2520,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeAllowListsAsync(DescribeAllowListsRequest body, final ApiCallback<DescribeAllowListsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2258,7 +2558,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeApplyParameterTemplateCall(DescribeApplyParameterTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -2322,7 +2626,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DescribeApplyParameterTemplateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DescribeApplyParameterTemplateResponse describeApplyParameterTemplate(DescribeApplyParameterTemplateRequest body) throws ApiException {
         ApiResponse<DescribeApplyParameterTemplateResponse> resp = describeApplyParameterTemplateWithHttpInfo(body);
         return resp.getData();
@@ -2334,7 +2642,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DescribeApplyParameterTemplateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DescribeApplyParameterTemplateResponse> describeApplyParameterTemplateWithHttpInfo( @NotNull DescribeApplyParameterTemplateRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeApplyParameterTemplateValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeApplyParameterTemplateResponse>(){}.getType();
@@ -2348,7 +2660,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeApplyParameterTemplateAsync(DescribeApplyParameterTemplateRequest body, final ApiCallback<DescribeApplyParameterTemplateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2382,7 +2698,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeDBInstanceCall(DescribeDBInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -2446,7 +2766,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DescribeDBInstanceResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DescribeDBInstanceResponse describeDBInstance(DescribeDBInstanceRequest body) throws ApiException {
         ApiResponse<DescribeDBInstanceResponse> resp = describeDBInstanceWithHttpInfo(body);
         return resp.getData();
@@ -2458,7 +2782,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DescribeDBInstanceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DescribeDBInstanceResponse> describeDBInstanceWithHttpInfo( @NotNull DescribeDBInstanceRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeDBInstanceValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeDBInstanceResponse>(){}.getType();
@@ -2472,7 +2800,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeDBInstanceAsync(DescribeDBInstanceRequest body, final ApiCallback<DescribeDBInstanceResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2506,7 +2838,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeDBInstanceConnectionCall(DescribeDBInstanceConnectionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -2570,7 +2906,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DescribeDBInstanceConnectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DescribeDBInstanceConnectionResponse describeDBInstanceConnection(DescribeDBInstanceConnectionRequest body) throws ApiException {
         ApiResponse<DescribeDBInstanceConnectionResponse> resp = describeDBInstanceConnectionWithHttpInfo(body);
         return resp.getData();
@@ -2582,7 +2922,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DescribeDBInstanceConnectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DescribeDBInstanceConnectionResponse> describeDBInstanceConnectionWithHttpInfo( @NotNull DescribeDBInstanceConnectionRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeDBInstanceConnectionValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeDBInstanceConnectionResponse>(){}.getType();
@@ -2596,7 +2940,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeDBInstanceConnectionAsync(DescribeDBInstanceConnectionRequest body, final ApiCallback<DescribeDBInstanceConnectionResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2630,7 +2978,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeParameterTemplateCall(DescribeParameterTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -2694,7 +3046,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DescribeParameterTemplateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DescribeParameterTemplateResponse describeParameterTemplate(DescribeParameterTemplateRequest body) throws ApiException {
         ApiResponse<DescribeParameterTemplateResponse> resp = describeParameterTemplateWithHttpInfo(body);
         return resp.getData();
@@ -2706,7 +3062,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DescribeParameterTemplateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DescribeParameterTemplateResponse> describeParameterTemplateWithHttpInfo( @NotNull DescribeParameterTemplateRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeParameterTemplateValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeParameterTemplateResponse>(){}.getType();
@@ -2720,7 +3080,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeParameterTemplateAsync(DescribeParameterTemplateRequest body, final ApiCallback<DescribeParameterTemplateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2754,7 +3118,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeRecoverableTimeCall(DescribeRecoverableTimeRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -2818,7 +3186,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DescribeRecoverableTimeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DescribeRecoverableTimeResponse describeRecoverableTime(DescribeRecoverableTimeRequest body) throws ApiException {
         ApiResponse<DescribeRecoverableTimeResponse> resp = describeRecoverableTimeWithHttpInfo(body);
         return resp.getData();
@@ -2830,7 +3202,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DescribeRecoverableTimeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DescribeRecoverableTimeResponse> describeRecoverableTimeWithHttpInfo( @NotNull DescribeRecoverableTimeRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeRecoverableTimeValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeRecoverableTimeResponse>(){}.getType();
@@ -2844,7 +3220,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call describeRecoverableTimeAsync(DescribeRecoverableTimeRequest body, final ApiCallback<DescribeRecoverableTimeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2878,7 +3258,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call disassociateAllowListCall(DisassociateAllowListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -2942,7 +3326,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return DisassociateAllowListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public DisassociateAllowListResponse disassociateAllowList(DisassociateAllowListRequest body) throws ApiException {
         ApiResponse<DisassociateAllowListResponse> resp = disassociateAllowListWithHttpInfo(body);
         return resp.getData();
@@ -2954,7 +3342,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;DisassociateAllowListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<DisassociateAllowListResponse> disassociateAllowListWithHttpInfo( @NotNull DisassociateAllowListRequest body) throws ApiException {
         com.squareup.okhttp.Call call = disassociateAllowListValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DisassociateAllowListResponse>(){}.getType();
@@ -2968,7 +3360,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call disassociateAllowListAsync(DisassociateAllowListRequest body, final ApiCallback<DisassociateAllowListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3002,7 +3398,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call grantAccountPrivilegeCall(GrantAccountPrivilegeRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -3066,7 +3466,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return GrantAccountPrivilegeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public GrantAccountPrivilegeResponse grantAccountPrivilege(GrantAccountPrivilegeRequest body) throws ApiException {
         ApiResponse<GrantAccountPrivilegeResponse> resp = grantAccountPrivilegeWithHttpInfo(body);
         return resp.getData();
@@ -3078,7 +3482,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;GrantAccountPrivilegeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<GrantAccountPrivilegeResponse> grantAccountPrivilegeWithHttpInfo( @NotNull GrantAccountPrivilegeRequest body) throws ApiException {
         com.squareup.okhttp.Call call = grantAccountPrivilegeValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<GrantAccountPrivilegeResponse>(){}.getType();
@@ -3092,7 +3500,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call grantAccountPrivilegeAsync(GrantAccountPrivilegeRequest body, final ApiCallback<GrantAccountPrivilegeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3126,7 +3538,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listAccountsCall(ListAccountsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -3190,7 +3606,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListAccountsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListAccountsResponse listAccounts(ListAccountsRequest body) throws ApiException {
         ApiResponse<ListAccountsResponse> resp = listAccountsWithHttpInfo(body);
         return resp.getData();
@@ -3202,7 +3622,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListAccountsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListAccountsResponse> listAccountsWithHttpInfo( @NotNull ListAccountsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listAccountsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListAccountsResponse>(){}.getType();
@@ -3216,7 +3640,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listAccountsAsync(ListAccountsRequest body, final ApiCallback<ListAccountsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3250,7 +3678,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listBackupsCall(ListBackupsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -3314,7 +3746,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListBackupsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListBackupsResponse listBackups(ListBackupsRequest body) throws ApiException {
         ApiResponse<ListBackupsResponse> resp = listBackupsWithHttpInfo(body);
         return resp.getData();
@@ -3326,7 +3762,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListBackupsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListBackupsResponse> listBackupsWithHttpInfo( @NotNull ListBackupsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listBackupsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListBackupsResponse>(){}.getType();
@@ -3340,7 +3780,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listBackupsAsync(ListBackupsRequest body, final ApiCallback<ListBackupsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3374,7 +3818,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listDBInstanceIPListsCall(ListDBInstanceIPListsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -3438,7 +3886,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListDBInstanceIPListsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListDBInstanceIPListsResponse listDBInstanceIPLists(ListDBInstanceIPListsRequest body) throws ApiException {
         ApiResponse<ListDBInstanceIPListsResponse> resp = listDBInstanceIPListsWithHttpInfo(body);
         return resp.getData();
@@ -3450,7 +3902,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListDBInstanceIPListsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListDBInstanceIPListsResponse> listDBInstanceIPListsWithHttpInfo( @NotNull ListDBInstanceIPListsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listDBInstanceIPListsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListDBInstanceIPListsResponse>(){}.getType();
@@ -3464,7 +3920,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listDBInstanceIPListsAsync(ListDBInstanceIPListsRequest body, final ApiCallback<ListDBInstanceIPListsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3498,7 +3958,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listDBInstancesCall(ListDBInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -3562,7 +4026,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListDBInstancesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListDBInstancesResponse listDBInstances(ListDBInstancesRequest body) throws ApiException {
         ApiResponse<ListDBInstancesResponse> resp = listDBInstancesWithHttpInfo(body);
         return resp.getData();
@@ -3574,7 +4042,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListDBInstancesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListDBInstancesResponse> listDBInstancesWithHttpInfo( @NotNull ListDBInstancesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listDBInstancesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListDBInstancesResponse>(){}.getType();
@@ -3588,7 +4060,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listDBInstancesAsync(ListDBInstancesRequest body, final ApiCallback<ListDBInstancesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3622,7 +4098,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listDatabasesCall(ListDatabasesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -3686,7 +4166,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListDatabasesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListDatabasesResponse listDatabases(ListDatabasesRequest body) throws ApiException {
         ApiResponse<ListDatabasesResponse> resp = listDatabasesWithHttpInfo(body);
         return resp.getData();
@@ -3698,7 +4182,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListDatabasesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListDatabasesResponse> listDatabasesWithHttpInfo( @NotNull ListDatabasesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listDatabasesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListDatabasesResponse>(){}.getType();
@@ -3712,7 +4200,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listDatabasesAsync(ListDatabasesRequest body, final ApiCallback<ListDatabasesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3746,7 +4238,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listInstanceParamsCall(ListInstanceParamsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -3810,7 +4306,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListInstanceParamsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListInstanceParamsResponse listInstanceParams(ListInstanceParamsRequest body) throws ApiException {
         ApiResponse<ListInstanceParamsResponse> resp = listInstanceParamsWithHttpInfo(body);
         return resp.getData();
@@ -3822,7 +4322,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListInstanceParamsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListInstanceParamsResponse> listInstanceParamsWithHttpInfo( @NotNull ListInstanceParamsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listInstanceParamsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListInstanceParamsResponse>(){}.getType();
@@ -3836,7 +4340,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listInstanceParamsAsync(ListInstanceParamsRequest body, final ApiCallback<ListInstanceParamsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3870,7 +4378,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listInstanceParamsHistoryCall(ListInstanceParamsHistoryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -3934,7 +4446,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListInstanceParamsHistoryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListInstanceParamsHistoryResponse listInstanceParamsHistory(ListInstanceParamsHistoryRequest body) throws ApiException {
         ApiResponse<ListInstanceParamsHistoryResponse> resp = listInstanceParamsHistoryWithHttpInfo(body);
         return resp.getData();
@@ -3946,7 +4462,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListInstanceParamsHistoryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListInstanceParamsHistoryResponse> listInstanceParamsHistoryWithHttpInfo( @NotNull ListInstanceParamsHistoryRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listInstanceParamsHistoryValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListInstanceParamsHistoryResponse>(){}.getType();
@@ -3960,7 +4480,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listInstanceParamsHistoryAsync(ListInstanceParamsHistoryRequest body, final ApiCallback<ListInstanceParamsHistoryResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3994,7 +4518,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listParameterTemplatesCall(ListParameterTemplatesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -4058,7 +4586,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListParameterTemplatesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListParameterTemplatesResponse listParameterTemplates(ListParameterTemplatesRequest body) throws ApiException {
         ApiResponse<ListParameterTemplatesResponse> resp = listParameterTemplatesWithHttpInfo(body);
         return resp.getData();
@@ -4070,7 +4602,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListParameterTemplatesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListParameterTemplatesResponse> listParameterTemplatesWithHttpInfo( @NotNull ListParameterTemplatesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listParameterTemplatesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListParameterTemplatesResponse>(){}.getType();
@@ -4084,7 +4620,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listParameterTemplatesAsync(ListParameterTemplatesRequest body, final ApiCallback<ListParameterTemplatesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4118,7 +4658,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listRegionsCall(ListRegionsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -4182,7 +4726,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListRegionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListRegionsResponse listRegions(ListRegionsRequest body) throws ApiException {
         ApiResponse<ListRegionsResponse> resp = listRegionsWithHttpInfo(body);
         return resp.getData();
@@ -4194,7 +4742,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListRegionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListRegionsResponse> listRegionsWithHttpInfo( @NotNull ListRegionsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listRegionsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListRegionsResponse>(){}.getType();
@@ -4208,7 +4760,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listRegionsAsync(ListRegionsRequest body, final ApiCallback<ListRegionsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4242,7 +4798,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listVpcsCall(ListVpcsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -4306,7 +4866,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListVpcsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListVpcsResponse listVpcs(ListVpcsRequest body) throws ApiException {
         ApiResponse<ListVpcsResponse> resp = listVpcsWithHttpInfo(body);
         return resp.getData();
@@ -4318,7 +4882,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListVpcsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListVpcsResponse> listVpcsWithHttpInfo( @NotNull ListVpcsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listVpcsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListVpcsResponse>(){}.getType();
@@ -4332,7 +4900,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listVpcsAsync(ListVpcsRequest body, final ApiCallback<ListVpcsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4366,7 +4938,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listZonesCall(ListZonesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -4430,7 +5006,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ListZonesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ListZonesResponse listZones(ListZonesRequest body) throws ApiException {
         ApiResponse<ListZonesResponse> resp = listZonesWithHttpInfo(body);
         return resp.getData();
@@ -4442,7 +5022,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ListZonesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ListZonesResponse> listZonesWithHttpInfo( @NotNull ListZonesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = listZonesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ListZonesResponse>(){}.getType();
@@ -4456,7 +5040,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call listZonesAsync(ListZonesRequest body, final ApiCallback<ListZonesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4490,7 +5078,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call modifyAllowListCall(ModifyAllowListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -4554,7 +5146,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ModifyAllowListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ModifyAllowListResponse modifyAllowList(ModifyAllowListRequest body) throws ApiException {
         ApiResponse<ModifyAllowListResponse> resp = modifyAllowListWithHttpInfo(body);
         return resp.getData();
@@ -4566,7 +5162,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ModifyAllowListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ModifyAllowListResponse> modifyAllowListWithHttpInfo( @NotNull ModifyAllowListRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyAllowListValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyAllowListResponse>(){}.getType();
@@ -4580,7 +5180,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call modifyAllowListAsync(ModifyAllowListRequest body, final ApiCallback<ModifyAllowListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4614,7 +5218,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call modifyDBInstanceCall(ModifyDBInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -4678,7 +5286,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ModifyDBInstanceResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ModifyDBInstanceResponse modifyDBInstance(ModifyDBInstanceRequest body) throws ApiException {
         ApiResponse<ModifyDBInstanceResponse> resp = modifyDBInstanceWithHttpInfo(body);
         return resp.getData();
@@ -4690,7 +5302,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ModifyDBInstanceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ModifyDBInstanceResponse> modifyDBInstanceWithHttpInfo( @NotNull ModifyDBInstanceRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyDBInstanceValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyDBInstanceResponse>(){}.getType();
@@ -4704,7 +5320,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call modifyDBInstanceAsync(ModifyDBInstanceRequest body, final ApiCallback<ModifyDBInstanceResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4738,7 +5358,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call modifyDBInstanceIPListCall(ModifyDBInstanceIPListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -4802,7 +5426,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ModifyDBInstanceIPListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ModifyDBInstanceIPListResponse modifyDBInstanceIPList(ModifyDBInstanceIPListRequest body) throws ApiException {
         ApiResponse<ModifyDBInstanceIPListResponse> resp = modifyDBInstanceIPListWithHttpInfo(body);
         return resp.getData();
@@ -4814,7 +5442,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ModifyDBInstanceIPListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ModifyDBInstanceIPListResponse> modifyDBInstanceIPListWithHttpInfo( @NotNull ModifyDBInstanceIPListRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyDBInstanceIPListValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyDBInstanceIPListResponse>(){}.getType();
@@ -4828,7 +5460,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call modifyDBInstanceIPListAsync(ModifyDBInstanceIPListRequest body, final ApiCallback<ModifyDBInstanceIPListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4862,7 +5498,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call modifyInstanceParamsCall(ModifyInstanceParamsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -4926,7 +5566,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ModifyInstanceParamsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ModifyInstanceParamsResponse modifyInstanceParams(ModifyInstanceParamsRequest body) throws ApiException {
         ApiResponse<ModifyInstanceParamsResponse> resp = modifyInstanceParamsWithHttpInfo(body);
         return resp.getData();
@@ -4938,7 +5582,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ModifyInstanceParamsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ModifyInstanceParamsResponse> modifyInstanceParamsWithHttpInfo( @NotNull ModifyInstanceParamsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyInstanceParamsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyInstanceParamsResponse>(){}.getType();
@@ -4952,7 +5600,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call modifyInstanceParamsAsync(ModifyInstanceParamsRequest body, final ApiCallback<ModifyInstanceParamsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4986,7 +5638,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call modifyParameterTemplateCall(ModifyParameterTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -5050,7 +5706,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ModifyParameterTemplateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ModifyParameterTemplateResponse modifyParameterTemplate(ModifyParameterTemplateRequest body) throws ApiException {
         ApiResponse<ModifyParameterTemplateResponse> resp = modifyParameterTemplateWithHttpInfo(body);
         return resp.getData();
@@ -5062,7 +5722,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ModifyParameterTemplateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ModifyParameterTemplateResponse> modifyParameterTemplateWithHttpInfo( @NotNull ModifyParameterTemplateRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyParameterTemplateValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyParameterTemplateResponse>(){}.getType();
@@ -5076,7 +5740,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call modifyParameterTemplateAsync(ModifyParameterTemplateRequest body, final ApiCallback<ModifyParameterTemplateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5110,7 +5778,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call recoveryDBInstanceCall(RecoveryDBInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -5174,7 +5846,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return RecoveryDBInstanceResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public RecoveryDBInstanceResponse recoveryDBInstance(RecoveryDBInstanceRequest body) throws ApiException {
         ApiResponse<RecoveryDBInstanceResponse> resp = recoveryDBInstanceWithHttpInfo(body);
         return resp.getData();
@@ -5186,7 +5862,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;RecoveryDBInstanceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<RecoveryDBInstanceResponse> recoveryDBInstanceWithHttpInfo( @NotNull RecoveryDBInstanceRequest body) throws ApiException {
         com.squareup.okhttp.Call call = recoveryDBInstanceValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<RecoveryDBInstanceResponse>(){}.getType();
@@ -5200,7 +5880,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call recoveryDBInstanceAsync(RecoveryDBInstanceRequest body, final ApiCallback<RecoveryDBInstanceResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5234,7 +5918,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call resetAccountPasswordCall(ResetAccountPasswordRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -5298,7 +5986,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ResetAccountPasswordResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ResetAccountPasswordResponse resetAccountPassword(ResetAccountPasswordRequest body) throws ApiException {
         ApiResponse<ResetAccountPasswordResponse> resp = resetAccountPasswordWithHttpInfo(body);
         return resp.getData();
@@ -5310,7 +6002,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;ResetAccountPasswordResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<ResetAccountPasswordResponse> resetAccountPasswordWithHttpInfo( @NotNull ResetAccountPasswordRequest body) throws ApiException {
         com.squareup.okhttp.Call call = resetAccountPasswordValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ResetAccountPasswordResponse>(){}.getType();
@@ -5324,7 +6020,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call resetAccountPasswordAsync(ResetAccountPasswordRequest body, final ApiCallback<ResetAccountPasswordResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5358,7 +6058,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call restartDBInstanceCall(RestartDBInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -5422,7 +6126,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return RestartDBInstanceResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public RestartDBInstanceResponse restartDBInstance(RestartDBInstanceRequest body) throws ApiException {
         ApiResponse<RestartDBInstanceResponse> resp = restartDBInstanceWithHttpInfo(body);
         return resp.getData();
@@ -5434,7 +6142,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;RestartDBInstanceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<RestartDBInstanceResponse> restartDBInstanceWithHttpInfo( @NotNull RestartDBInstanceRequest body) throws ApiException {
         com.squareup.okhttp.Call call = restartDBInstanceValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<RestartDBInstanceResponse>(){}.getType();
@@ -5448,7 +6160,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call restartDBInstanceAsync(RestartDBInstanceRequest body, final ApiCallback<RestartDBInstanceResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5482,7 +6198,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call saveAsParameterTemplateCall(SaveAsParameterTemplateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -5546,7 +6266,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return SaveAsParameterTemplateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public SaveAsParameterTemplateResponse saveAsParameterTemplate(SaveAsParameterTemplateRequest body) throws ApiException {
         ApiResponse<SaveAsParameterTemplateResponse> resp = saveAsParameterTemplateWithHttpInfo(body);
         return resp.getData();
@@ -5558,7 +6282,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;SaveAsParameterTemplateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<SaveAsParameterTemplateResponse> saveAsParameterTemplateWithHttpInfo( @NotNull SaveAsParameterTemplateRequest body) throws ApiException {
         com.squareup.okhttp.Call call = saveAsParameterTemplateValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<SaveAsParameterTemplateResponse>(){}.getType();
@@ -5572,7 +6300,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call saveAsParameterTemplateAsync(SaveAsParameterTemplateRequest body, final ApiCallback<SaveAsParameterTemplateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5606,7 +6338,11 @@ public class RdsMysqlApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call upgradeAllowListVersionCall(UpgradeAllowListVersionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
@@ -5670,7 +6406,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return UpgradeAllowListVersionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public UpgradeAllowListVersionResponse upgradeAllowListVersion(UpgradeAllowListVersionRequest body) throws ApiException {
         ApiResponse<UpgradeAllowListVersionResponse> resp = upgradeAllowListVersionWithHttpInfo(body);
         return resp.getData();
@@ -5682,7 +6422,11 @@ public class RdsMysqlApi {
      * @param body  (required)
      * @return ApiResponse&lt;UpgradeAllowListVersionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public ApiResponse<UpgradeAllowListVersionResponse> upgradeAllowListVersionWithHttpInfo( @NotNull UpgradeAllowListVersionRequest body) throws ApiException {
         com.squareup.okhttp.Call call = upgradeAllowListVersionValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<UpgradeAllowListVersionResponse>(){}.getType();
@@ -5696,7 +6440,11 @@ public class RdsMysqlApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated 请迁移至 API 2022-01-01，使用新版客户端
+     *             {@code com.volcengine.rdsmysqlv2.RdsMysqlV2Api}，
+     *             并按新版定义调整请求和返回模型。
      */
+    @Deprecated
     public com.squareup.okhttp.Call upgradeAllowListVersionAsync(UpgradeAllowListVersionRequest body, final ApiCallback<UpgradeAllowListVersionResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
