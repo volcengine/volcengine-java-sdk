@@ -98,6 +98,9 @@ public class DataForDescribeControlPolicyByRuleIdOutput {
   @SerializedName("IsEffected")
   private Boolean isEffected = null;
 
+  @SerializedName("LastHitTime")
+  private Long lastHitTime = null;
+
   @SerializedName("Prio")
   private Long prio = null;
 
@@ -566,6 +569,24 @@ public class DataForDescribeControlPolicyByRuleIdOutput {
     this.isEffected = isEffected;
   }
 
+  public DataForDescribeControlPolicyByRuleIdOutput lastHitTime(Long lastHitTime) {
+    this.lastHitTime = lastHitTime;
+    return this;
+  }
+
+   /**
+   * Get lastHitTime
+   * @return lastHitTime
+  **/
+  @Schema(description = "")
+  public Long getLastHitTime() {
+    return lastHitTime;
+  }
+
+  public void setLastHitTime(Long lastHitTime) {
+    this.lastHitTime = lastHitTime;
+  }
+
   public DataForDescribeControlPolicyByRuleIdOutput prio(Long prio) {
     this.prio = prio;
     return this;
@@ -910,6 +931,7 @@ public class DataForDescribeControlPolicyByRuleIdOutput {
         Objects.equals(this.hitCnt, dataForDescribeControlPolicyByRuleIdOutput.hitCnt) &&
         Objects.equals(this.ipType, dataForDescribeControlPolicyByRuleIdOutput.ipType) &&
         Objects.equals(this.isEffected, dataForDescribeControlPolicyByRuleIdOutput.isEffected) &&
+        Objects.equals(this.lastHitTime, dataForDescribeControlPolicyByRuleIdOutput.lastHitTime) &&
         Objects.equals(this.prio, dataForDescribeControlPolicyByRuleIdOutput.prio) &&
         Objects.equals(this.proto, dataForDescribeControlPolicyByRuleIdOutput.proto) &&
         Objects.equals(this.repeatDays, dataForDescribeControlPolicyByRuleIdOutput.repeatDays) &&
@@ -930,7 +952,7 @@ public class DataForDescribeControlPolicyByRuleIdOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupType, destinationType, direction, domainResolutionMode, effectStatus, endTime, hitCnt, ipType, isEffected, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupType, sourceType, startTime, status, updateTime, useCount);
+    return Objects.hash(accountId, action, description, destPort, destPortGroupType, destPortList, destPortListV1, destPortType, destination, destinationCidrList, destinationCidrListV1, destinationDomainList, destinationGroupType, destinationType, direction, domainResolutionMode, effectStatus, endTime, hitCnt, ipType, isEffected, lastHitTime, prio, proto, repeatDays, repeatEndTime, repeatStartTime, repeatType, ruleId, source, sourceCidrList, sourceCidrListV1, sourceGroupType, sourceType, startTime, status, updateTime, useCount);
   }
 
 
@@ -960,6 +982,7 @@ public class DataForDescribeControlPolicyByRuleIdOutput {
     sb.append("    hitCnt: ").append(toIndentedString(hitCnt)).append("\n");
     sb.append("    ipType: ").append(toIndentedString(ipType)).append("\n");
     sb.append("    isEffected: ").append(toIndentedString(isEffected)).append("\n");
+    sb.append("    lastHitTime: ").append(toIndentedString(lastHitTime)).append("\n");
     sb.append("    prio: ").append(toIndentedString(prio)).append("\n");
     sb.append("    proto: ").append(toIndentedString(proto)).append("\n");
     sb.append("    repeatDays: ").append(toIndentedString(repeatDays)).append("\n");

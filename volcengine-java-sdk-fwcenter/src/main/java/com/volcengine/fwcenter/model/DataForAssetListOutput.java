@@ -36,6 +36,12 @@ public class DataForAssetListOutput {
   @SerializedName("InstanceID")
   private String instanceID = null;
 
+  @SerializedName("MemberAccountID")
+  private String memberAccountID = null;
+
+  @SerializedName("MemberAccountName")
+  private String memberAccountName = null;
+
   @SerializedName("eip_id")
   private String eipId = null;
 
@@ -100,6 +106,42 @@ public class DataForAssetListOutput {
 
   public void setInstanceID(String instanceID) {
     this.instanceID = instanceID;
+  }
+
+  public DataForAssetListOutput memberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
+    return this;
+  }
+
+   /**
+   * Get memberAccountID
+   * @return memberAccountID
+  **/
+  @Schema(description = "")
+  public String getMemberAccountID() {
+    return memberAccountID;
+  }
+
+  public void setMemberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
+  }
+
+  public DataForAssetListOutput memberAccountName(String memberAccountName) {
+    this.memberAccountName = memberAccountName;
+    return this;
+  }
+
+   /**
+   * Get memberAccountName
+   * @return memberAccountName
+  **/
+  @Schema(description = "")
+  public String getMemberAccountName() {
+    return memberAccountName;
+  }
+
+  public void setMemberAccountName(String memberAccountName) {
+    this.memberAccountName = memberAccountName;
   }
 
   public DataForAssetListOutput eipId(String eipId) {
@@ -294,6 +336,8 @@ public class DataForAssetListOutput {
     DataForAssetListOutput dataForAssetListOutput = (DataForAssetListOutput) o;
     return Objects.equals(this.accountID, dataForAssetListOutput.accountID) &&
         Objects.equals(this.instanceID, dataForAssetListOutput.instanceID) &&
+        Objects.equals(this.memberAccountID, dataForAssetListOutput.memberAccountID) &&
+        Objects.equals(this.memberAccountName, dataForAssetListOutput.memberAccountName) &&
         Objects.equals(this.eipId, dataForAssetListOutput.eipId) &&
         Objects.equals(this.enable, dataForAssetListOutput.enable) &&
         Objects.equals(this.instanceType, dataForAssetListOutput.instanceType) &&
@@ -308,7 +352,7 @@ public class DataForAssetListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, instanceID, eipId, enable, instanceType, ip, ipType, latest7DaysPeakTraffic, name, region, regionN, type);
+    return Objects.hash(accountID, instanceID, memberAccountID, memberAccountName, eipId, enable, instanceType, ip, ipType, latest7DaysPeakTraffic, name, region, regionN, type);
   }
 
 
@@ -319,6 +363,8 @@ public class DataForAssetListOutput {
     
     sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
+    sb.append("    memberAccountID: ").append(toIndentedString(memberAccountID)).append("\n");
+    sb.append("    memberAccountName: ").append(toIndentedString(memberAccountName)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");

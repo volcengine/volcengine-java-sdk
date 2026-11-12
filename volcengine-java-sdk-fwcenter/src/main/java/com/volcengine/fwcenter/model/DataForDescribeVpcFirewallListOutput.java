@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class DataForDescribeVpcFirewallListOutput {
+  @SerializedName("AccountID")
+  private String accountID = null;
+
   @SerializedName("Bandwidth")
   private Long bandwidth = null;
 
@@ -47,6 +50,12 @@ public class DataForDescribeVpcFirewallListOutput {
 
   @SerializedName("InstanceType")
   private Integer instanceType = null;
+
+  @SerializedName("MemberAccountID")
+  private String memberAccountID = null;
+
+  @SerializedName("MemberAccountName")
+  private String memberAccountName = null;
 
   @SerializedName("PeakTrafficWithin7Day")
   private Long peakTrafficWithin7Day = null;
@@ -95,6 +104,24 @@ public class DataForDescribeVpcFirewallListOutput {
 
   @SerializedName("VpcFirewallName")
   private String vpcFirewallName = null;
+
+  public DataForDescribeVpcFirewallListOutput accountID(String accountID) {
+    this.accountID = accountID;
+    return this;
+  }
+
+   /**
+   * Get accountID
+   * @return accountID
+  **/
+  @Schema(description = "")
+  public String getAccountID() {
+    return accountID;
+  }
+
+  public void setAccountID(String accountID) {
+    this.accountID = accountID;
+  }
 
   public DataForDescribeVpcFirewallListOutput bandwidth(Long bandwidth) {
     this.bandwidth = bandwidth;
@@ -202,6 +229,42 @@ public class DataForDescribeVpcFirewallListOutput {
 
   public void setInstanceType(Integer instanceType) {
     this.instanceType = instanceType;
+  }
+
+  public DataForDescribeVpcFirewallListOutput memberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
+    return this;
+  }
+
+   /**
+   * Get memberAccountID
+   * @return memberAccountID
+  **/
+  @Schema(description = "")
+  public String getMemberAccountID() {
+    return memberAccountID;
+  }
+
+  public void setMemberAccountID(String memberAccountID) {
+    this.memberAccountID = memberAccountID;
+  }
+
+  public DataForDescribeVpcFirewallListOutput memberAccountName(String memberAccountName) {
+    this.memberAccountName = memberAccountName;
+    return this;
+  }
+
+   /**
+   * Get memberAccountName
+   * @return memberAccountName
+  **/
+  @Schema(description = "")
+  public String getMemberAccountName() {
+    return memberAccountName;
+  }
+
+  public void setMemberAccountName(String memberAccountName) {
+    this.memberAccountName = memberAccountName;
   }
 
   public DataForDescribeVpcFirewallListOutput peakTrafficWithin7Day(Long peakTrafficWithin7Day) {
@@ -502,12 +565,15 @@ public class DataForDescribeVpcFirewallListOutput {
       return false;
     }
     DataForDescribeVpcFirewallListOutput dataForDescribeVpcFirewallListOutput = (DataForDescribeVpcFirewallListOutput) o;
-    return Objects.equals(this.bandwidth, dataForDescribeVpcFirewallListOutput.bandwidth) &&
+    return Objects.equals(this.accountID, dataForDescribeVpcFirewallListOutput.accountID) &&
+        Objects.equals(this.bandwidth, dataForDescribeVpcFirewallListOutput.bandwidth) &&
         Objects.equals(this.bypassStatus, dataForDescribeVpcFirewallListOutput.bypassStatus) &&
         Objects.equals(this.enableIpv6, dataForDescribeVpcFirewallListOutput.enableIpv6) &&
         Objects.equals(this.errMessage, dataForDescribeVpcFirewallListOutput.errMessage) &&
         Objects.equals(this.firewallStatus, dataForDescribeVpcFirewallListOutput.firewallStatus) &&
         Objects.equals(this.instanceType, dataForDescribeVpcFirewallListOutput.instanceType) &&
+        Objects.equals(this.memberAccountID, dataForDescribeVpcFirewallListOutput.memberAccountID) &&
+        Objects.equals(this.memberAccountName, dataForDescribeVpcFirewallListOutput.memberAccountName) &&
         Objects.equals(this.peakTrafficWithin7Day, dataForDescribeVpcFirewallListOutput.peakTrafficWithin7Day) &&
         Objects.equals(this.projectNameForTR, dataForDescribeVpcFirewallListOutput.projectNameForTR) &&
         Objects.equals(this.region, dataForDescribeVpcFirewallListOutput.region) &&
@@ -528,7 +594,7 @@ public class DataForDescribeVpcFirewallListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bypassStatus, enableIpv6, errMessage, firewallStatus, instanceType, peakTrafficWithin7Day, projectNameForTR, region, routeMode, routePolicyStatus, scheduleEndTime, scheduleStartTime, transitRouterDescription, transitRouterId, transitRouterName, upgradeProgress, upgradeStatus, upgradeVersionCode, versionCode, vpcFirewallId, vpcFirewallName);
+    return Objects.hash(accountID, bandwidth, bypassStatus, enableIpv6, errMessage, firewallStatus, instanceType, memberAccountID, memberAccountName, peakTrafficWithin7Day, projectNameForTR, region, routeMode, routePolicyStatus, scheduleEndTime, scheduleStartTime, transitRouterDescription, transitRouterId, transitRouterName, upgradeProgress, upgradeStatus, upgradeVersionCode, versionCode, vpcFirewallId, vpcFirewallName);
   }
 
 
@@ -537,12 +603,15 @@ public class DataForDescribeVpcFirewallListOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForDescribeVpcFirewallListOutput {\n");
     
+    sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    bypassStatus: ").append(toIndentedString(bypassStatus)).append("\n");
     sb.append("    enableIpv6: ").append(toIndentedString(enableIpv6)).append("\n");
     sb.append("    errMessage: ").append(toIndentedString(errMessage)).append("\n");
     sb.append("    firewallStatus: ").append(toIndentedString(firewallStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    memberAccountID: ").append(toIndentedString(memberAccountID)).append("\n");
+    sb.append("    memberAccountName: ").append(toIndentedString(memberAccountName)).append("\n");
     sb.append("    peakTrafficWithin7Day: ").append(toIndentedString(peakTrafficWithin7Day)).append("\n");
     sb.append("    projectNameForTR: ").append(toIndentedString(projectNameForTR)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
