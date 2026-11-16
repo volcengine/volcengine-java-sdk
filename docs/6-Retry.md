@@ -11,9 +11,9 @@
 > - `maxRetryDelayMs`: `300 * 1000`
 > - `retryCondition`: `com.volcengine.retryer.DefaultRetryCondition`
 > - `backoffStrategy`: `com.volcengine.retryer.ExponentialWithRandomJitterBackoffStrategy`
-> - `retryErrorCode`: empty set
+> - `retryErrorCode`: empty custom set (built-in codes still apply)
 
-The SDK retries on network errors and throttling. Business logic errors are not retried.
+The SDK retries recognized network, throttling, timeout, and expired-credential failures. Ordinary parameter or response-format errors are not retried without another explicit retry condition.
 
 ### Retry Code Configuration
 
@@ -48,26 +48,40 @@ Retry conditions define which situations should trigger a retry. The SDK include
 
 #### Default Retry Conditions
 
+The cause chain is checked through wrappers and nested `ApiException` objects, with identity cycle protection and a 256-node limit. Timeout, DNS, connection, and socket causes are recognized. `ReadError` and `SerializationError` require a recognized cause or an independently retryable HTTP status; a generic `IOException` or JSON-format error alone does not retry. A `RequestError` with a cause also requires a recognized cause. Suppressed errors are printed for diagnostics and do not trigger retry.
+
+Built-in codes are `RequestError`, `RequestTimeout`, `ResponseTimeout`, `RequestTimeoutException`, `ProvisionedThroughputExceededException`, `Throttling`, `ThrottlingException`, `RequestLimitExceeded`, `RequestThrottled`, `RequestThrottledException`, `TooManyRequestsException`, `PriorRequestNotComplete`, `TransactionInProgressException`, `ExpiredToken`, `ExpiredTokenException`, `RequestExpired`, and `InvalidAccessKey`. Custom `retryErrorCodes` extend these defaults. String root-level common `errorcode` also participates in matching.
+
+Before an allowed retry for an expired-credential code, the SDK-owned STS cache used to sign that request is invalidated, even if the client is rebound while the request is in flight. This covers direct AssumeRole/OIDC/SAML providers, default-chain OIDC, and the built-in CLI provider's STS delegate, directly or through the default chain. CLI refresh rereads its config and rebuilds the delegate. The next signing attempt refreshes credentials; failed refreshes retain the previous cache and keep the refresh requirement. The public `Provider` interface, custom providers, and provider subclasses retain their existing refresh behavior. Synchronous and asynchronous calls follow the same rule. OIDC/SAML form requests retain their existing all-5xx/429 policy and also recognize business codes and nested network causes.
+
 The default retry condition `DefaultRetryCondition` includes the following:
 
 1. Retry on network errors.
 2. Retry on server throttling errors.
-3. Retry on user-specified error codes (`retryErrorCodes`). Missing error codes are not matched against the set; a null set disables custom-code matching without disabling status-code or network retries.
+3. Retry on user-specified error codes (`retryErrorCodes`). Missing error codes are not matched against the set; a null set disables custom-code matching without disabling status-code or network retries. Common-call Map error codes are matched only when `ResponseMetadata.Error.Code` is a string; other types are ignored without changing the returned Map.
+
+The default condition retries HTTP `429`, `500`, `502`, `503`, and `504`, including HTML or nonstandard JSON error bodies. The final thrown `ApiException` (or asynchronous `onFailure` exception) retains the last failure's status, headers, original body / received fragment, available metadata and RequestId, and underlying cause. `ErrorUtils.PrintError` exposes the saved snapshot, including a previously decoded successful response when backoff later fails, without rereading its body.
+
+If backoff calculation or waiting fails, retries stop and `getCause()` exposes that current failure. Previous response-error diagnostics are retained, with the previous exception available through `getSuppressed()`. For a successfully decoded response that triggers a retry, its status, headers, and available metadata are retained, including `AbstractResponse` metadata or decodable `ResponseMetadata` in a common-call Map. A nonempty body RequestId takes priority over headers; failed diagnostic metadata conversion does not replace the backoff cause. The consumed successful body is not read again and `getResponseBody()` is null. Without a response, the status remains `0`. Interrupted waits restore the current thread's interrupt flag. Both synchronous and asynchronous calls expose the current backoff failure.
 
 #### Custom Retry Conditions
 
 Users can customize retry conditions based on their business needs.
 
+The base `RetryCondition` initializes an empty mutable `retryErrorCodes` set. A subclass only needs to implement `shouldRetry` to be installed through `setRetryCondition`; previously configured error codes are added to the condition.
+
 **Code Example:**
 
-1. Extend the base class `RetryCondition` and implement `boolean shouldRetry(ApiResponse response, Exception error)`:
+1. Extend the base class `RetryCondition` and implement `boolean shouldRetry(ApiResponse response, ApiException error)`:
 
     ```java
     import com.volcengine.retryer.RetryCondition;
+    import com.volcengine.ApiException;
+    import com.volcengine.ApiResponse;
 
     public abstract class CustomRetryCondition extends RetryCondition {
         @Override
-        public boolean shouldRetry(ApiResponse response, Exception error) {
+        public boolean shouldRetry(ApiResponse response, ApiException error) {
             // Implement your own logic
             return false;
         }
@@ -78,10 +92,12 @@ Users can customize retry conditions based on their business needs.
 
     ```java
     import com.volcengine.retryer.DefaultRetryCondition;
+    import com.volcengine.ApiException;
+    import com.volcengine.ApiResponse;
 
     public class CustomRetryCondition extends DefaultRetryCondition{
         @Override
-        public boolean shouldRetry(ApiResponse response, Exception error) {
+        public boolean shouldRetry(ApiResponse response, ApiException error) {
             boolean shouldRetry = super.shouldRetry(response, error);
             // Implement your own logic
             return false;

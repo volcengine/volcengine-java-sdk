@@ -460,6 +460,16 @@ public class SampleCode {
 }
 ```
 
+### STS 校验与完整诊断
+
+AssumeRole、OIDC、SAML 要求 `Result.Credentials` 内的 `AccessKeyId`、`SecretAccessKey`、`SessionToken` 都是非空字符串。OIDC/SAML 还要求非空字符串 `Expiration`，并成功解析为 instant 或带时区偏移的时间。全部校验成功后才更新凭证与过期时间，失败保留已有缓存；AssumeRole 继续按既有 DurationSeconds 计算缓存到期时间。
+
+STS 的 HTTP 错误、HTTP 200 业务错误、空 / null / 非标准响应、JSON 失败和不合法凭证统一通过 `ApiException` 与 `ErrorUtils.PrintError` 提供实际状态、服务错误码或明确分类、RequestId、响应头、原始字节及存在的底层原因。OIDC token 文件读取失败保留文件异常，尚无 STS 响应。默认凭证链把各 provider 的失败保存为 suppressed，打印时可以展开全部尝试。
+
+`ApiClient.setSimpleError(true)` 启用 `code: message` 显示，也传给绑定的内置 STS provider、默认链 OIDC，以及直接使用或通过默认链使用的 CLI `ramrolearn` / `oidc` 模式。CLI 在委托首次请求 STS 前应用显式配置，开关切换时同步更新当前内置 STS 委托，刷新重建委托后仍保留配置；设为 `false` 恢复原有显示。各内置 STS provider 可单独 `setSimpleError(boolean)`，客户端显式配置优先。此显示配置不改变传输 / 代理选择或缓存身份。服务端凭证过期且允许重试时，下次签名前强制刷新 SDK 自有 STS 缓存。客户 `Provider` 无需增加方法，也不会被强制失效。参见[重试](6-Retry-zh.md)和[异常处理](7-ErrorHandling-zh.md)。
+
+STS 读取会将实收字节数与已知且未经正文变换的长度比较。读取不完整分类为 `ReadError`，保留实收正文并标记 `body_complete=false`，禁止发布凭证。静默提前 EOF 的底层原因为 `EOFException`；传输自身报错时保留原始读取原因。直连与代理表单请求均执行此校验；未知长度或分块响应保留流完成语义。
+
 ### 默认凭证 Provider
 
 当 `credentials` 和 `credentialProvider` 均未设置时，SDK 自动使用 `DefaultCredentialProvider`，无需手动配置。

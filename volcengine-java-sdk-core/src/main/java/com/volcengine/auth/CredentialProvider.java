@@ -10,6 +10,47 @@ public class CredentialProvider {
     private Provider provider;
 
     private ReadWriteLock readWriteLock;
+    private boolean invalidated;
+
+    /** Apply diagnostics configuration only to SDK-owned provider implementations. */
+    public void setSimpleError(boolean enabled) {
+        readWriteLock.writeLock().lock();
+        try {
+            if (provider.getClass() == StsAssumeRoleProvider.class) {
+                ((StsAssumeRoleProvider) provider).setSimpleError(enabled);
+            } else if (provider.getClass() == OidcCredentialProvider.class) {
+                ((OidcCredentialProvider) provider).setSimpleError(enabled);
+            } else if (provider.getClass() == SamlCredentialProvider.class) {
+                ((SamlCredentialProvider) provider).setSimpleError(enabled);
+            } else if (provider.getClass() == CLIConfigCredentialProvider.class) {
+                ((CLIConfigCredentialProvider) provider).setSimpleError(enabled);
+            } else if (provider.getClass() == DefaultCredentialProvider.class) {
+                ((DefaultCredentialProvider) provider).setSimpleError(enabled);
+            }
+        } finally {
+            readWriteLock.writeLock().unlock();
+        }
+    }
+
+    static boolean usesStsCredentials(Provider provider) {
+        return provider != null && (provider.getClass() == StsAssumeRoleProvider.class
+                || provider.getClass() == OidcCredentialProvider.class
+                || provider.getClass() == SamlCredentialProvider.class
+                || (provider.getClass() == CLIConfigCredentialProvider.class
+                    && ((CLIConfigCredentialProvider) provider).usesStsCredentials())
+                || (provider.getClass() == DefaultCredentialProvider.class
+                    && ((DefaultCredentialProvider) provider).usesStsCredentials()));
+    }
+
+    /** Mark only built-in STS caches for refresh after a service expiry error. */
+    public void invalidate() {
+        readWriteLock.writeLock().lock();
+        try {
+            if (usesStsCredentials(provider)) invalidated = true;
+        } finally {
+            readWriteLock.writeLock().unlock();
+        }
+    }
 
     public CredentialProvider(Provider provider) {
         this.provider = provider;
@@ -46,7 +87,7 @@ public class CredentialProvider {
     public CredentialValue get() throws ApiException {
         try {
             readWriteLock.readLock().lock();
-            if (!provider.isExpired()) {
+            if (!invalidated && !provider.isExpired()) {
                 return provider.retrieve();
             }
         } finally {
@@ -55,8 +96,9 @@ public class CredentialProvider {
 
         try {
             readWriteLock.writeLock().lock();
-            if (provider.isExpired()) {
+            if (invalidated || provider.isExpired()) {
                 provider.refresh();
+                invalidated = false;
             }
             return provider.retrieve();
 

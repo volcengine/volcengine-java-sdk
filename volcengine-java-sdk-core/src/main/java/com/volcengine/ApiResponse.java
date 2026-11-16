@@ -24,6 +24,10 @@ public class ApiResponse<T> {
     final private int statusCode;
     final private Map<String, List<String>> headers;
     final private T data;
+    private ResponseDetails responseDetails;
+
+    public ResponseDetails getResponseDetails() { return responseDetails; }
+    void setResponseDetails(ResponseDetails details) { this.responseDetails = details; }
 
     /**
      * @param statusCode The status code of HTTP response

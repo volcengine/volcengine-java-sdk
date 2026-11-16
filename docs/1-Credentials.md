@@ -465,6 +465,16 @@ public class SampleCode {
 }
 ```
 
+### STS validation and diagnostics
+
+AssumeRole, OIDC, and SAML accept only nonempty string `AccessKeyId`, `SecretAccessKey`, and `SessionToken` values inside `Result.Credentials`. OIDC/SAML also require a nonempty string `Expiration` that parses as an instant or offset date-time. Validation completes before updating credentials and expiration; failure leaves any previous cache intact. AssumeRole retains its existing duration-based cache expiration.
+
+STS business errors (including HTTP 200), empty/null/nonstandard responses, JSON failures, and invalid credentials expose actual HTTP status, service code or an explicit classification, RequestId, headers, original bytes, and any underlying cause through `ApiException` and `ErrorUtils.PrintError`. OIDC token-file failures retain the file-read cause and have no STS response. The default credential chain retains each failed provider as a suppressed exception so diagnostics can expand all attempts.
+
+`ApiClient.setSimpleError(true)` applies `code: message` display to SDK response errors and its bound built-in STS providers, including default-chain OIDC and CLI `ramrolearn` / `oidc` modes used directly or through the default chain. CLI applies explicitly configured values before the delegate's first STS request, updates its current built-in STS delegate when the setting changes, and retains the value when rebuilding delegates on refresh; setting `false` restores the existing display. Each built-in STS provider also supports `setSimpleError(boolean)` for direct configuration; explicitly configured client values override it. This setting does not change transport/proxy selection or cache identity. An allowed retry for a service expiry error forces the SDK-owned STS cache to refresh before signing again. Custom `Provider` implementations require no new methods and are not forcibly invalidated. See [Retry](6-Retry.md) and [Error Handling](7-ErrorHandling.md).
+
+STS reads compare received bytes with a known, untransformed body length. An incomplete read raises `ReadError`, preserves delivered bytes with `body_complete=false`, and prevents publishing credentials. A silent early EOF produces an `EOFException`; transport read failures retain their original cause. This applies to direct and proxied form requests; unknown-length or chunked responses retain stream completion semantics.
+
 ### Default Credential Provider
 
 When `credentials` and `credentialProvider` are both unset, the SDK automatically uses `DefaultCredentialProvider` — no manual configuration is needed.

@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.IdentityHashMap;
 
 import static com.volcengine.observability.debugger.SdkDebugLog.SDK_CORE_LOGGER;
 
@@ -22,6 +23,44 @@ public class DefaultRetryCondition extends RetryCondition{
 
     private static final Set<Integer> RETRY_STATUS_CODES =  Collections.unmodifiableSet(
             new HashSet<>(Arrays.asList(429, 500, 502, 503, 504)));
+    private static final Set<String> DEFAULT_CODES = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+            "RequestError", "RequestTimeout", "ResponseTimeout", "RequestTimeoutException",
+            "ProvisionedThroughputExceededException", "Throttling", "ThrottlingException",
+            "RequestLimitExceeded", "RequestThrottled", "RequestThrottledException",
+            "TooManyRequestsException", "PriorRequestNotComplete", "TransactionInProgressException",
+            "ExpiredToken", "ExpiredTokenException", "RequestExpired", "InvalidAccessKey")));
+    private static final Set<String> EXPIRED_CODES = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+            "ExpiredToken", "ExpiredTokenException", "RequestExpired", "InvalidAccessKey")));
+
+    public static boolean isExpiredCredentials(ApiResponse response, Throwable error) {
+        Set<Throwable> seen = Collections.newSetFromMap(new IdentityHashMap<Throwable, Boolean>());
+        for (int count = 0; error != null && count < 256 && seen.add(error); count++) {
+            if (error instanceof ApiException) {
+                ResponseMetadata meta = ((ApiException) error).getResponseMetadata();
+                if (meta != null && meta.getError() != null && EXPIRED_CODES.contains(meta.getError().getCode())) return true;
+            }
+            error = error.getCause();
+        }
+        String code = responseCode(response);
+        return code != null && EXPIRED_CODES.contains(code);
+    }
+
+    private static String responseCode(ApiResponse response) {
+        if (response == null) return null;
+        Object data = response.getData();
+        if (data instanceof AbstractResponse) {
+            ResponseMetadata meta = ((AbstractResponse) data).getResponseMetadata();
+            return meta == null || meta.getError() == null ? null : meta.getError().getCode();
+        }
+        if (data instanceof Map) {
+            Object meta = ((Map<?, ?>) data).get("ResponseMetadata");
+            Object service = meta instanceof Map ? ((Map<?, ?>) meta).get("Error") : null;
+            Object code = service instanceof Map ? ((Map<?, ?>) service).get("Code") : null;
+            if (code == null) code = ((Map<?, ?>) data).get("errorcode");
+            return code instanceof String ? (String) code : null;
+        }
+        return null;
+    }
 
     public DefaultRetryCondition() {
         this.retryErrorCodes = new HashSet<>();
@@ -37,8 +76,10 @@ public class DefaultRetryCondition extends RetryCondition{
         int statusCode = -1;
         String errorCode = null;
 
-        if (apiException != null) {
-            Throwable cause =  apiException.getCause();
+        Set<Throwable> seen = Collections.newSetFromMap(new IdentityHashMap<Throwable, Boolean>());
+        Throwable current = apiException;
+        for (int count = 0; current != null && count < 256 && seen.add(current); count++, current = current.getCause()) {
+            Throwable cause = current;
             if (cause instanceof SocketTimeoutException ||
                     cause instanceof UnknownHostException ||
                     cause instanceof ConnectException ||
@@ -49,8 +90,16 @@ public class DefaultRetryCondition extends RetryCondition{
                 return true;
             }
 
-            statusCode = apiException.getCode();
-            errorCode = getErrorCode(apiException.getResponseMetadata());
+            if (current instanceof ApiException) {
+                ApiException failure = (ApiException) current;
+                statusCode = failure.getCode();
+                errorCode = getErrorCode(failure.getResponseMetadata());
+                if (RETRY_STATUS_CODES.contains(statusCode)) return true;
+                // RequestError needs an explicitly retryable cause when present.
+                if (errorCode != null && (!"RequestError".equals(errorCode) || failure.getCause() == null)
+                        && !"ReadError".equals(errorCode) && !"SerializationError".equals(errorCode)
+                        && (DEFAULT_CODES.contains(errorCode) || (retryErrorCodes != null && retryErrorCodes.contains(errorCode)))) return true;
+            }
         }
 
         if (response != null) {
@@ -75,7 +124,8 @@ public class DefaultRetryCondition extends RetryCondition{
             return true;
         }
 
-        if (errorCode != null && retryErrorCodes != null && retryErrorCodes.contains(errorCode)) {
+        if (response != null && responseCode(response) != null) errorCode = responseCode(response);
+        if (response != null && errorCode != null && (DEFAULT_CODES.contains(errorCode) || (retryErrorCodes != null && retryErrorCodes.contains(errorCode)))) {
             SDK_CORE_LOGGER.debugRetry("Retry triggered by error code: {}", errorCode);
             return true;
         }
@@ -108,7 +158,7 @@ public class DefaultRetryCondition extends RetryCondition{
                 currentMap = (Map<String, Object>) value;
             }else {
                 SDK_CORE_LOGGER.debugRetry("Found value for keys '{}', value: {}", Arrays.toString(keys), value);
-                return responseType.cast(value);
+                return responseType.isInstance(value) ? responseType.cast(value) : null;
             }
         }
 

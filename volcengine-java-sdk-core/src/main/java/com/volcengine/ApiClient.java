@@ -12,6 +12,7 @@
 
 package com.volcengine;
 
+import com.google.gson.JsonParseException;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.okhttp.Call;
@@ -26,6 +27,7 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
+import com.squareup.okhttp.ResponseBody;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import com.volcengine.auth.Authentication;
@@ -55,6 +57,7 @@ import com.volcengine.sign.VolcstackSign;
 import com.volcengine.version.Version;
 import okio.Buffer;
 import okio.BufferedSink;
+import okio.BufferedSource;
 import okio.Okio;
 import org.apache.commons.lang.StringUtils;
 import org.threeten.bp.LocalDate;
@@ -78,6 +81,8 @@ import java.lang.reflect.Type;
 import java.net.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.SecureRandom;
@@ -147,6 +152,26 @@ public class ApiClient extends BaseClient implements Cloneable {
     private Boolean useDualStack;
 
     private boolean autoRetry = DefaultRetryerSetting.DEFAULT_AUTO_RETRY_ENABLED;
+    private boolean simpleError;
+    private boolean simpleErrorConfigured;
+    private boolean commonBusinessErrorEnabled;
+
+    public synchronized ApiClient setSimpleError(boolean enabled) {
+        this.simpleError = enabled;
+        this.simpleErrorConfigured = true;
+        if (boundCredentialProvider != null) boundCredentialProvider.setSimpleError(enabled);
+        return this;
+    }
+
+    public boolean isSimpleError() { return simpleError; }
+
+    /** Opt in to throwing HTTP 200 business errors for common calls. */
+    public ApiClient setCommonBusinessErrorEnabled(boolean enabled) {
+        this.commonBusinessErrorEnabled = enabled;
+        return this;
+    }
+
+    public boolean isCommonBusinessErrorEnabled() { return commonBusinessErrorEnabled; }
     private Retryer retryer = DefaultRetryerSetting.newDefaultRetryer();
 
     private String httpProxy;
@@ -1031,31 +1056,38 @@ public class ApiClient extends BaseClient implements Cloneable {
      */
     @SuppressWarnings("unchecked")
     public <T> T deserialize(Response response, Type returnType, boolean... isCommon) throws ApiException {
+        return deserializeCaptured(response, returnType, new ResponseDetails[1], isCommon);
+    }
+
+    private <T> T deserializeCaptured(Response response, Type returnType, ResponseDetails[] snapshot,
+                                     boolean... isCommon) throws ApiException {
+        try {
+            return deserializeBody(response, returnType, snapshot, isCommon);
+        } catch (ApiException error) {
+            if (snapshot[0] != null) {
+                ResponseMetadata meta = error.getResponseMetadata();
+                error.setResponseDetails(snapshot[0].withRequestId(meta == null ? "" : meta.getRequestId()));
+            }
+            throw error;
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private <T> T deserializeBody(Response response, Type returnType, ResponseDetails[] snapshot,
+                                 boolean... isCommon) throws ApiException {
         if (response == null || returnType == null) {
             return null;
         }
 
-        if ("byte[]".equals(returnType.toString())) {
+        if (returnType.equals(byte[].class) || "byte[]".equals(returnType.toString())) {
             // Handle binary response (byte array).
-            try {
-                return (T) response.body().bytes();
-            } catch (IOException e) {
-                throw new ApiException(e);
-            }
+            return (T) readResponseBytes(response, snapshot);
         } else if (returnType.equals(File.class)) {
             // Handle file downloading.
             return (T) downloadFileFromResponse(response);
         }
 
-        String respBody;
-        try {
-            if (response.body() != null)
-                respBody = response.body().string();
-            else
-                respBody = null;
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
+        String respBody = readResponseBody(response, snapshot);
 
         if (respBody == null || "".equals(respBody)) {
             return null;
@@ -1063,15 +1095,24 @@ public class ApiClient extends BaseClient implements Cloneable {
 
         StringBuilder builder = new StringBuilder();
         Map<String, ResponseMetadata> meta = new HashMap<>();
+        String originalBody = respBody;
+        boolean common = isCommon.length > 0 && isCommon[0];
+        boolean businessError = ErrorUtils.hasBusinessError(originalBody);
+        if (common && commonBusinessErrorEnabled && businessError) {
+            throw responseException(response, response.message(), null, originalBody, null);
+        }
         if (isCommon.length == 0 || !isCommon[0]) {
-            if (!convertResponseBody(respBody, builder, meta)) {
-                throw new ApiException(
-                        response.code(),
-                        response.headers().toMultimap(),
-                        respBody, meta.get("ResponseMetadata"));
-            } else {
-                respBody = builder.toString();
+            boolean converted;
+            try {
+                converted = convertResponseBody(respBody, builder, meta);
+            } catch (RuntimeException e) {
+                throw responseException(response, "Failed to parse response metadata", e,
+                        originalBody, meta.get("ResponseMetadata"));
             }
+            if (!converted || businessError) {
+                throw responseException(response, response.message(), null, originalBody, meta.get("ResponseMetadata"));
+            }
+            respBody = builder.toString();
         }
 
         String contentType = response.headers().get("Content-Type");
@@ -1080,17 +1121,20 @@ public class ApiClient extends BaseClient implements Cloneable {
             contentType = "application/json";
         }
         if (isJsonMime(contentType)) {
-            T t = json.deserialize(respBody, returnType);
+            T t;
+            try {
+                t = json.deserialize(respBody, returnType);
+            } catch (RuntimeException e) {
+                throw responseException(response, "Failed to deserialize response body as " + returnType,
+                        e, originalBody, meta.get("ResponseMetadata"));
+            }
             if (t instanceof AbstractResponse) {
                 try {
                     Method m = t.getClass().getMethod("setResponseMetadata", ResponseMetadata.class);
                     m.invoke(t, meta.get("ResponseMetadata"));
                 } catch (Exception e) {
-                    throw new ApiException(
-                            e.getMessage(),
-                            response.code(),
-                            response.headers().toMultimap(),
-                            respBody, meta.get("ResponseMetadata"));
+                    throw responseException(response, "Failed to set response metadata",
+                            e, originalBody, meta.get("ResponseMetadata"));
                 }
             }
             return t;
@@ -1098,12 +1142,92 @@ public class ApiClient extends BaseClient implements Cloneable {
             // Expecting string, return the raw response body.
             return (T) respBody;
         } else {
-            throw new ApiException(
+            throw responseException(response,
                     "Content type \"" + contentType + "\" is not supported for type: " + returnType,
-                    response.code(),
-                    response.headers().toMultimap(),
-                    respBody, meta.get("ResponseMetadata"));
+                    null, originalBody, meta.get("ResponseMetadata"));
         }
+    }
+
+    private Charset responseCharset(Response response) {
+        MediaType contentType = response.body() == null ? null : response.body().contentType();
+        return contentType == null ? StandardCharsets.UTF_8 : contentType.charset(StandardCharsets.UTF_8);
+    }
+
+    private String readResponseBody(Response response, ResponseDetails[] snapshot) throws ApiException {
+        byte[] bytes = readResponseBytes(response, snapshot);
+        if (bytes == null || bytes.length == 0) {
+            return bytes == null ? null : "";
+        }
+        try {
+            String text = new String(bytes, responseCharset(response));
+            snapshot[0] = snapshot[0].withRequestId(ErrorUtils.requestId(text, null, snapshot[0].getHeaders()));
+            return text;
+        } catch (RuntimeException e) {
+            throw responseException(response, "Failed to decode response body", e,
+                    new String(bytes, StandardCharsets.UTF_8), null);
+        }
+    }
+
+    private String diagnosticResponseBody(Response response, byte[] bytes) {
+        Charset charset = StandardCharsets.UTF_8;
+        try {
+            charset = responseCharset(response);
+        } catch (RuntimeException ignored) {
+            // An invalid charset must not replace the original read failure.
+        }
+        return new String(bytes, charset);
+    }
+
+    private byte[] readResponseBytes(Response response, ResponseDetails[] snapshot) throws ApiException {
+        ResponseBody body = response.body();
+        if (body == null) {
+            snapshot[0] = ResponseDetails.capture(response, null, true, true);
+            return null;
+        }
+        Buffer buffer = new Buffer();
+        try (BufferedSource source = body.source()) {
+            long length = body.contentLength();
+            if (length > Integer.MAX_VALUE) {
+                throw new IOException("Cannot buffer entire body for content length: " + length);
+            }
+            while (source.read(buffer, 8192) != -1) {
+                // Move every chunk into our buffer before the next read can fail.
+            }
+            if (length != -1 && length != buffer.size()) {
+                throw new IOException("Content-Length and stream length disagree");
+            }
+        } catch (IOException e) {
+            // Keep only bytes actually delivered by the source. Never reread a
+            // failed stream or fabricate the missing portion of the response.
+            byte[] bytes = buffer.readByteArray();
+            String partialBody = bytes.length == 0 ? null : diagnosticResponseBody(response, bytes);
+            snapshot[0] = ResponseDetails.capture(response, bytes, true, false);
+            throw ErrorUtils.responseError(response.message(), e, "ReadError", partialBody, null,
+                    snapshot[0], simpleError);
+        }
+        byte[] bytes = buffer.readByteArray();
+        snapshot[0] = ResponseDetails.capture(response, bytes, true, true);
+        return bytes;
+    }
+
+    private ApiException responseException(Response response, String message, Throwable cause,
+                                           String originalBody, ResponseMetadata metadata) {
+        Map<String, ResponseMetadata> parsed = new HashMap<>();
+        if (metadata == null && originalBody != null && !originalBody.isEmpty()) {
+            try {
+                convertResponseBody(originalBody, new StringBuilder(), parsed);
+            } catch (RuntimeException e) {
+                if (cause == null) {
+                    cause = e;
+                }
+            }
+            metadata = parsed.get("ResponseMetadata");
+        }
+        String classification = cause == null ? null : "SerializationError";
+        return ErrorUtils.responseError(message, cause, classification, originalBody, metadata,
+                ResponseDetails.capture(response, originalBody == null ? null
+                        : originalBody.getBytes(StandardCharsets.UTF_8), originalBody != null, originalBody != null),
+                simpleError);
     }
 
     /**
@@ -1253,13 +1377,14 @@ public class ApiClient extends BaseClient implements Cloneable {
                 context.getResponseContext().setOriginalResponse(response);
                 this.interceptorChain.executeResponse(context);
                 apiResponse = new ApiResponse<T>(response.code(), response.headers().toMultimap(), (T) context.getResponseContext().getData());
+                apiResponse.setResponseDetails(context.getResponseContext().getResponseDetails());
             } catch (IOException e) {
                 apiException = new ApiException(e);
             }catch (ApiException e) {
-                apiException = handleApiResponseException(e);
+                apiException = e;
             }
 
-            if (!requestShouldRetry(apiResponse, retryCount, apiException)) {
+            if (!requestShouldRetry(context, apiResponse, retryCount, apiException)) {
                 if (apiException != null) {
                     throw apiException;
                 }
@@ -1270,30 +1395,49 @@ public class ApiClient extends BaseClient implements Cloneable {
         return apiResponse;
     }
 
-    private ApiException handleApiResponseException(ApiException apiException) {
-        if (apiException.getResponseBody() != null) {
-            StringBuilder builder = new StringBuilder();
-            Map<String, ResponseMetadata> meta = new HashMap<>();
-            try {
-                if (!convertResponseBody(apiException.getResponseBody(), builder, meta)) {
-                    apiException.setResponseMetadata(meta.get("ResponseMetadata"));
-                }
-            }catch (Exception e) {
-                return apiException;
-            }
-        }
-        return apiException;
-    }
-
-    private boolean requestShouldRetry(ApiResponse apiResponse, int retryCount, ApiException lastException) throws ApiException {
+    private boolean requestShouldRetry(InterceptorContext context, ApiResponse apiResponse, int retryCount,
+                                       ApiException lastException) throws ApiException {
         if (autoRetry && retryer.shouldRetry(apiResponse, retryCount, lastException)) {
+            if (com.volcengine.retryer.DefaultRetryCondition.isExpiredCredentials(apiResponse, lastException)) {
+                CredentialProvider provider = context.getRequestContext().getCredentialProvider();
+                if (provider != null) provider.invalidate();
+            }
             SDK_CORE_LOGGER.debugRetry("maxReryCout:{}, currentRetryCount:{}, backoffStrategy:{}", retryer.getNumMaxRetries(), retryCount + 1, retryer.getBackoffStrategy().getClass().getSimpleName());
             try {
                 long delay = retryer.getBackoffDelay(retryCount);
                 Thread.sleep(delay);
             } catch (Exception e) {
+                if (e instanceof InterruptedException) {
+                    Thread.currentThread().interrupt();
+                }
                 SDK_CORE_LOGGER.error(()->"Failed to getBackoffDelay or sleep", e);
-                throw new ApiException(e);
+                if (lastException != null) {
+                    ApiException failure = new ApiException("Failed to getBackoffDelay or sleep", e,
+                            lastException.getCode(), lastException.getResponseHeaders(),
+                            lastException.getResponseBody(), lastException.getResponseMetadata());
+                    failure.addSuppressed(lastException);
+                    failure.setResponseDetails(lastException.getResponseDetails());
+                    throw failure;
+                }
+                ResponseMetadata metadata = null;
+                if (apiResponse != null && apiResponse.getData() instanceof AbstractResponse) {
+                    metadata = ((AbstractResponse) apiResponse.getData()).getResponseMetadata();
+                } else if (apiResponse != null && apiResponse.getData() instanceof Map) {
+                    Object value = ((Map<?, ?>) apiResponse.getData()).get("ResponseMetadata");
+                    if (value != null) {
+                        try {
+                            metadata = json.deserialize(json.serialize(value), ResponseMetadata.class);
+                        } catch (RuntimeException ignored) {
+                            // Diagnostic conversion must not replace the backoff failure.
+                        }
+                    }
+                }
+                Map<String, List<String>> headers = apiResponse == null ? null : apiResponse.getHeaders();
+                ApiException failure = new ApiException("Failed to getBackoffDelay or sleep", e,
+                        apiResponse == null ? 0 : apiResponse.getStatusCode(),
+                        headers, null, ensureResponseMetadata(metadata, headers));
+                if (apiResponse != null) failure.setResponseDetails(apiResponse.getResponseDetails());
+                throw failure;
             }
             return true;
         }
@@ -1329,6 +1473,7 @@ public class ApiClient extends BaseClient implements Cloneable {
         }
         final InterceptorContext context = (InterceptorContext) call;
         ResponseInterceptorContext responseInterceptorContext = new ResponseInterceptorContext();
+        responseInterceptorContext.setCommon(context.getInitInterceptorContext().isCommon());
         responseInterceptorContext.setReturnType(returnType);
         context.setResponseContext(responseInterceptorContext);
 
@@ -1363,14 +1508,14 @@ public class ApiClient extends BaseClient implements Cloneable {
                 ApiException apiException = new ApiException(ioe);
                 try {
                     if (autoRetry && current < maxRetries
-                            && requestShouldRetry(null, current, apiException)) {
+                            && requestShouldRetry(context, null, current, apiException)) {
                         retryCount.incrementAndGet();
                         attemptAsync(context, callback, retryCount, maxRetries);
                     } else {
                         callback.onFailure(apiException, 0, null);
                     }
                 }catch (ApiException e) {
-                    callback.onFailure(apiException, 0, null);
+                    callback.onFailure(e, e.getCode(), e.getResponseHeaders());
                 }
 
             }
@@ -1387,12 +1532,13 @@ public class ApiClient extends BaseClient implements Cloneable {
                     context.getApiClient().interceptorChain.executeResponse(context);
                     result = (T) context.responseContext.getData();
                     apiResponse = new ApiResponse<T>(response.code(), response.headers().toMultimap(), result);
+                    apiResponse.setResponseDetails(context.getResponseContext().getResponseDetails());
                 } catch (ApiException e) {
-                    apiException = handleApiResponseException(e);
+                    apiException = e;
                 }
 
                 try {
-                    if (!requestShouldRetry(apiResponse, current, apiException)) {
+                    if (!requestShouldRetry(context, apiResponse, current, apiException)) {
                         if (apiException != null) {
                             callback.onFailure(apiException, response.code(), response.headers().toMultimap());
                         }else {
@@ -1402,7 +1548,7 @@ public class ApiClient extends BaseClient implements Cloneable {
                         attemptAsync(context, callback,retryCount , maxRetries);
                     }
                 }catch (ApiException e){
-                    callback.onFailure(apiException, response.code(), response.headers().toMultimap());
+                    callback.onFailure(e, e.getCode(), e.getResponseHeaders());
                 }
             }
         });
@@ -1420,31 +1566,43 @@ public class ApiClient extends BaseClient implements Cloneable {
      *                      fail to deserialize the response body
      */
     public <T> T handleResponse(Response response, Type returnType, boolean... isCommon) throws ApiException {
-        if (response.isSuccessful()) {
-            if (returnType == null || response.code() == 204) {
-                // returning null if the returnType is not defined,
-                // or the status code is 204 (No Content)
-                if (response.body() != null) {
-                    try {
-                        response.body().close();
-                    } catch (IOException e) {
-                        throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
+        return handleResponseWithDetails(response, returnType, new ResponseDetails[1], isCommon);
+    }
+
+    /** Internal snapshot carrier; scoped to this response, never shared by attempts. */
+    public <T> T handleResponseWithDetails(Response response, Type returnType, ResponseDetails[] snapshot,
+                                boolean... isCommon) throws ApiException {
+        snapshot[0] = ResponseDetails.capture(response, null, false, false);
+        boolean customerDeserializer = false;
+        try {
+            if (response.isSuccessful()) {
+                if (returnType == null || response.code() == 204) {
+                    if (response.body() != null) {
+                        try {
+                            response.body().close();
+                        } catch (IOException e) {
+                            throw ErrorUtils.responseError(response.message(), e, "ReadError",
+                                    null, null, snapshot[0], simpleError);
+                        }
                     }
+                    return null;
                 }
-                return null;
-            } else {
+                if (getClass() == ApiClient.class) {
+                    return deserializeCaptured(response, returnType, snapshot, isCommon);
+                }
+                customerDeserializer = true;
                 return deserialize(response, returnType, isCommon);
             }
-        } else {
-            String respBody = null;
-            if (response.body() != null) {
-                try {
-                    respBody = response.body().string();
-                } catch (IOException e) {
-                    throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
-                }
+            String respBody = readResponseBody(response, snapshot);
+            throw responseException(response, response.message(), null, respBody, null);
+        } catch (ApiException error) {
+            if (!customerDeserializer && snapshot[0] != null
+                    && (snapshot[0].isBodyCaptured() || error.getResponseDetails() == null)) {
+                ResponseMetadata meta = error.getResponseMetadata();
+                String id = meta == null ? snapshot[0].getRequestId() : meta.getRequestId();
+                error.setResponseDetails(snapshot[0].withRequestId(id));
             }
-            throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
+            throw error;
         }
     }
 
@@ -1546,25 +1704,68 @@ public class ApiClient extends BaseClient implements Cloneable {
         Type t = new TypeToken<Map<String, ?>>() {
         }.getType();
         Map<String, ?> temp = json.deserialize(source, t);
-        if (temp.containsKey("ResponseMetadata")) {
-            ResponseMetadata meta = json.deserialize(json.serialize(temp.get("ResponseMetadata")), new TypeToken<ResponseMetadata>() {
-            }.getType());
-            m.put("ResponseMetadata", meta);
+        if (temp == null || !temp.containsKey("ResponseMetadata")) {
+            return false;
+        }
+        m.put("ResponseMetadata", ErrorUtils.metadata(source, null, null));
+        ResponseMetadata meta = json.deserialize(json.serialize(temp.get("ResponseMetadata")), new TypeToken<ResponseMetadata>() {
+        }.getType());
+        if (meta == null) {
+            throw new JsonParseException("ResponseMetadata must not be null");
+        }
+        m.put("ResponseMetadata", meta);
 
-            if (meta.getError() != null) {
-                return false;
-            }
-
-            if (temp.containsKey("Result")) {
-                stringBuilder.append(json.serialize(temp.get("Result")));
-            } else {
-                stringBuilder.append(json.serialize(new HashMap<String, Object>()));
-            }
-
-            return true;
+        if (meta.getError() != null) {
+            return false;
         }
 
-        return false;
+        if (temp.containsKey("Result")) {
+            stringBuilder.append(json.serialize(temp.get("Result")));
+        } else {
+            stringBuilder.append(json.serialize(new HashMap<String, Object>()));
+        }
+
+        return true;
+    }
+
+    private static final String[] REQUEST_ID_HEADERS = {"X-Top-Requestid", "X-Top-Request-Id", "X-Tt-Logid"};
+
+    // resolveRequestIdFromHeaders falls back to the TOP gateway request-id headers
+    // so non-standard responses (which may lack a ResponseMetadata body) still
+    // expose a usable request id for troubleshooting. Header name matching is
+    // case-insensitive because Headers.toMultimap() may lowercase the keys.
+    private String resolveRequestIdFromHeaders(Map<String, List<String>> headers) {
+        if (headers == null) {
+            return null;
+        }
+        for (String name : REQUEST_ID_HEADERS) {
+            for (Map.Entry<String, List<String>> entry : headers.entrySet()) {
+                if (name.equalsIgnoreCase(entry.getKey()) && entry.getValue() != null && !entry.getValue().isEmpty()) {
+                    String value = entry.getValue().get(0);
+                    if (value != null && !value.isEmpty()) {
+                        return value;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    // ensureResponseMetadata keeps the metadata parsed from the body when it already
+    // carries a request id, and otherwise synthesizes (or augments) one with the
+    // request id resolved from the response headers. The body request id always
+    // takes priority over the header fallback, so standard responses are unchanged.
+    private ResponseMetadata ensureResponseMetadata(ResponseMetadata metadata, Map<String, List<String>> headers) {
+        if (metadata != null && metadata.getRequestId() != null && !metadata.getRequestId().isEmpty()) {
+            return metadata;
+        }
+        String requestId = resolveRequestIdFromHeaders(headers);
+        if (requestId == null) {
+            return metadata;
+        }
+        ResponseMetadata result = metadata != null ? metadata : new ResponseMetadata();
+        result.setRequestId(requestId);
+        return result;
     }
 
     public void buildSimpleRequest(Object body, List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, FormEncodingBuilder formBuilder, String chain, boolean... isCommon) throws Exception {
@@ -2046,6 +2247,7 @@ public class ApiClient extends BaseClient implements Cloneable {
         }
         if (boundCredentialProvider == null) {
             boundCredentialProvider = credentialProvider.bind(httpProxy, httpsProxy);
+            if (simpleErrorConfigured) boundCredentialProvider.setSimpleError(simpleError);
         }
         return boundCredentialProvider;
     }

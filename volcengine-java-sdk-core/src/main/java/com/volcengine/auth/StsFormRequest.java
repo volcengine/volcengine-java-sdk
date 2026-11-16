@@ -9,6 +9,9 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.ResponseBody;
 import com.volcengine.ApiException;
+import com.volcengine.ErrorUtils;
+import com.volcengine.ResponseDetails;
+import com.volcengine.retryer.DefaultRetryCondition;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -78,18 +81,36 @@ class StsFormRequest {
      * @throws ApiException on failure after all attempts exhausted
      */
     static String doPostWithRetry(String endpoint, String schema, String action, String formBody, int maxRetries, int retryIntervalMs, String providerName, StsHttpConfig httpConfig) throws ApiException {
+        return requestWithRetry(endpoint, schema, action, formBody, maxRetries, retryIntervalMs, providerName, httpConfig).body;
+    }
+
+    static StsResponse requestWithRetry(String endpoint, String schema, String action, String formBody, int maxRetries, int retryIntervalMs, String providerName, StsHttpConfig httpConfig) throws ApiException {
+        return requestWithRetry(endpoint, schema, action, formBody, maxRetries, retryIntervalMs, providerName, httpConfig, false);
+    }
+
+    static StsResponse requestWithRetry(String endpoint, String schema, String action, String formBody, int maxRetries, int retryIntervalMs, String providerName, StsHttpConfig httpConfig, boolean simpleError) throws ApiException {
         String requestUrl = buildRequestUrl(endpoint, schema, action);
         ApiException lastException = null;
         for (int attempt = 0; attempt <= maxRetries; attempt++) {
             try {
-                return doPost(requestUrl, formBody, providerName, action, httpConfig);
+                StsResponse response = doPost(requestUrl, formBody, providerName, action, httpConfig, simpleError);
+                if (ErrorUtils.hasBusinessError(response.body)) response.parse(providerName, action);
+                return response;
             } catch (ApiException e) {
                 if (!isRetryable(e)) {
                     throw e;
                 }
                 lastException = e;
                 if (attempt < maxRetries) {
-                    trySleep(retryIntervalMs);
+                    try {
+                        Thread.sleep(retryIntervalMs);
+                    } catch (InterruptedException delayError) {
+                        Thread.currentThread().interrupt();
+                        ApiException failure = ErrorUtils.responseError("Interrupted while waiting to retry STS request", delayError,
+                                null, e.getResponseBody(), e.getResponseMetadata(), e.getResponseDetails(), false);
+                        failure.addSuppressed(e);
+                        throw failure;
+                    }
                 }
             }
         }
@@ -99,12 +120,13 @@ class StsFormRequest {
         throw new ApiException(providerName + ": " + action + " request failed after " + (maxRetries + 1) + " attempts");
     }
 
-    private static String doPost(String requestUrl, String formBody, String providerName, String action, StsHttpConfig httpConfig) throws ApiException {
+    private static StsResponse doPost(String requestUrl, String formBody, String providerName, String action, StsHttpConfig httpConfig, boolean simpleError) throws ApiException {
         if (requestUrl.startsWith("https://") && httpConfig != null
                 && !isNullOrEmpty(httpConfig.getProxyUrl())) {
-            return doProxiedHttpsPost(requestUrl, formBody, providerName, action, httpConfig);
+            return doProxiedHttpsPost(requestUrl, formBody, providerName, action, httpConfig, simpleError);
         }
         HttpURLConnection connection = null;
+        ResponseDetails metadata = null;
         try {
             connection = openConnection(requestUrl, httpConfig);
             connection.setRequestMethod("POST");
@@ -128,16 +150,25 @@ class StsFormRequest {
             }
 
             int statusCode = connection.getResponseCode();
+            metadata = new ResponseDetails(statusCode, statusCode + " " + connection.getResponseMessage(),
+                    connection.getHeaderField(0) == null ? null : connection.getHeaderField(0).split(" ", 2)[0],
+                    "", connection.getHeaderFields(), null, false, false);
             InputStream responseStream = statusCode >= 400 ? connection.getErrorStream() : connection.getInputStream();
-            String responseBody = readResponseBody(responseStream);
+            long expectedLength = connection.getHeaderField("Transfer-Encoding") == null
+                    ? connection.getContentLengthLong() : -1;
+            StsResponse response = StsResponse.read(responseStream, metadata, simpleError, expectedLength);
             if (statusCode != 200) {
-                throw new ApiException(statusCode, providerName + ": " + action + " request failed with status " + statusCode + (responseBody.isEmpty() ? "" : " - " + responseBody));
+                // Parsing records service errors or a precise malformed-response cause.
+                response.parse(providerName, action);
+                throw response.error(providerName + ": " + action + " request failed with status " + statusCode
+                        + (response.body.isEmpty() ? "" : " - " + response.body), null, "UnknownError");
             }
-            return responseBody;
+            return response;
         } catch (ApiException e) {
             throw e;
         } catch (IOException e) {
-            throw new StsTransientException(providerName + ": " + action + " request failed - " + e.getMessage());
+            throw ErrorUtils.responseError(providerName + ": " + action + " request failed - " + e.getMessage(),
+                    e, metadata == null ? "RequestError" : "ReadError", null, null, metadata, simpleError);
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -230,8 +261,8 @@ class StsFormRequest {
         };
     }
 
-    private static String doProxiedHttpsPost(String requestUrl, String formBody, String providerName,
-                                            String action, StsHttpConfig config) throws ApiException {
+    private static StsResponse doProxiedHttpsPost(String requestUrl, String formBody, String providerName,
+                                            String action, StsHttpConfig config, boolean simpleError) throws ApiException {
         OkHttpClient client = new OkHttpClient();
         client.setConnectTimeout(DEFAULT_CONNECT_TIMEOUT_MS, TimeUnit.MILLISECONDS);
         client.setReadTimeout(DEFAULT_READ_TIMEOUT_MS, TimeUnit.MILLISECONDS);
@@ -247,20 +278,33 @@ class StsFormRequest {
         Request request = new Request.Builder().url(requestUrl).header("Accept", ACCEPT)
                 .post(RequestBody.create(MediaType.parse(FORM_URLENCODED),
                         formBody.getBytes(StandardCharsets.UTF_8))).build();
+        ResponseDetails metadata = null;
+        StsResponse captured = null;
         try {
             Response response = client.newCall(request).execute();
+            metadata = new ResponseDetails(response.code(), response.code() + " " + response.message(),
+                    response.protocol().toString(), "", response.headers().toMultimap(), null, false, false);
             try (ResponseBody body = response.body()) {
-                String text = readResponseBody(body.byteStream());
+                captured = StsResponse.read(body == null ? null : body.byteStream(), metadata, simpleError,
+                        body == null ? -1 : body.contentLength());
                 if (response.code() != 200) {
-                    throw new ApiException(response.code(), providerName + ": " + action
-                            + " request failed with status " + response.code() + (text.isEmpty() ? "" : " - " + text));
+                    captured.parse(providerName, action);
+                    throw captured.error(providerName + ": " + action + " request failed with status "
+                            + response.code() + (captured.body.isEmpty() ? "" : " - " + captured.body), null, "UnknownError");
                 }
-                return text;
+                return captured;
             }
         } catch (StsProxySupport.AuthenticationException e) {
-            throw new ApiException(407, e.getMessage());
+            throw new ApiException(e.getMessage(), e, 407, null, null);
         } catch (IOException e) {
-            throw new StsTransientException(providerName + ": " + action + " request failed - " + e.getMessage());
+            if (captured != null) {
+                ResponseDetails d = captured.details;
+                metadata = new ResponseDetails(d.getStatusCode(), d.getStatus(), d.getProto(), d.getRequestId(),
+                        d.getHeaders(), d.getBody(), d.isBodyCaptured(), false);
+            }
+            throw ErrorUtils.responseError(providerName + ": " + action + " request failed - " + e.getMessage(),
+                    e, metadata == null ? "RequestError" : "ReadError", captured == null ? null : captured.body,
+                    null, metadata, simpleError);
         }
     }
 
@@ -289,14 +333,12 @@ class StsFormRequest {
 
     /**
      * Determines whether the exception is retryable.
-     * Retries on: IOException (network), HTTP 5xx, HTTP 429.
+     * Retains STS HTTP 5xx/429 retries, plus retryable causes and service codes.
      */
     private static boolean isRetryable(ApiException e) {
-        if (e instanceof StsTransientException) {
-            return true;
-        }
         int code = e.getCode();
-        return code == 429 || (code >= 500 && code < 600);
+        return code == 429 || (code >= 500 && code < 600)
+                || new DefaultRetryCondition().shouldRetry(null, e);
     }
 
     static String buildRequestUrl(String endpoint, String schema, String action) {
@@ -329,6 +371,7 @@ class StsFormRequest {
     }
 
     static String readResponseBody(InputStream stream) throws IOException {
+        // Legacy text helper; live STS requests capture exact bytes with StsResponse.
         if (stream == null) {
             return "";
         }
@@ -356,21 +399,4 @@ class StsFormRequest {
         }
     }
 
-    private static void trySleep(int intervalMs) {
-        try {
-            Thread.sleep(intervalMs);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
-
-    /**
-     * Marker subclass to identify IOException-originated errors as retryable,
-     * since ApiException.getCode() defaults to 0 for non-HTTP errors.
-     */
-    private static class StsTransientException extends ApiException {
-        StsTransientException(String message) {
-            super(message);
-        }
-    }
 }
