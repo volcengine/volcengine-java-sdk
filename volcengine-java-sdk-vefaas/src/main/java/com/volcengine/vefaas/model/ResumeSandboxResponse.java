@@ -14,6 +14,13 @@ package com.volcengine.vefaas.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,27 @@ import javax.validation.Valid;
 
 
 public class ResumeSandboxResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Status")
+  private String status = null;
+
+  public ResumeSandboxResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +60,13 @@ public class ResumeSandboxResponse extends com.volcengine.model.AbstractResponse
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    ResumeSandboxResponse resumeSandboxResponse = (ResumeSandboxResponse) o;
+    return Objects.equals(this.status, resumeSandboxResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(status);
   }
 
 
@@ -46,6 +75,7 @@ public class ResumeSandboxResponse extends com.volcengine.model.AbstractResponse
     StringBuilder sb = new StringBuilder();
     sb.append("class ResumeSandboxResponse {\n");
     
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
