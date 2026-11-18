@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class RelatedResourceForLookupEventsOutput {
+  @SerializedName("AccountID")
+  private String accountID = null;
+
   @SerializedName("IntegratedTrn")
   private String integratedTrn = null;
 
@@ -47,6 +50,24 @@ public class RelatedResourceForLookupEventsOutput {
 
   @SerializedName("SourceType")
   private String sourceType = null;
+
+  public RelatedResourceForLookupEventsOutput accountID(String accountID) {
+    this.accountID = accountID;
+    return this;
+  }
+
+   /**
+   * Get accountID
+   * @return accountID
+  **/
+  @Schema(description = "")
+  public String getAccountID() {
+    return accountID;
+  }
+
+  public void setAccountID(String accountID) {
+    this.accountID = accountID;
+  }
 
   public RelatedResourceForLookupEventsOutput integratedTrn(String integratedTrn) {
     this.integratedTrn = integratedTrn;
@@ -166,7 +187,8 @@ public class RelatedResourceForLookupEventsOutput {
       return false;
     }
     RelatedResourceForLookupEventsOutput relatedResourceForLookupEventsOutput = (RelatedResourceForLookupEventsOutput) o;
-    return Objects.equals(this.integratedTrn, relatedResourceForLookupEventsOutput.integratedTrn) &&
+    return Objects.equals(this.accountID, relatedResourceForLookupEventsOutput.accountID) &&
+        Objects.equals(this.integratedTrn, relatedResourceForLookupEventsOutput.integratedTrn) &&
         Objects.equals(this.resourceID, relatedResourceForLookupEventsOutput.resourceID) &&
         Objects.equals(this.resourceType, relatedResourceForLookupEventsOutput.resourceType) &&
         Objects.equals(this.resourceTypeDisplay, relatedResourceForLookupEventsOutput.resourceTypeDisplay) &&
@@ -176,7 +198,7 @@ public class RelatedResourceForLookupEventsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(integratedTrn, resourceID, resourceType, resourceTypeDisplay, serviceCode, sourceType);
+    return Objects.hash(accountID, integratedTrn, resourceID, resourceType, resourceTypeDisplay, serviceCode, sourceType);
   }
 
 
@@ -185,6 +207,7 @@ public class RelatedResourceForLookupEventsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RelatedResourceForLookupEventsOutput {\n");
     
+    sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
     sb.append("    integratedTrn: ").append(toIndentedString(integratedTrn)).append("\n");
     sb.append("    resourceID: ").append(toIndentedString(resourceID)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");

@@ -39,6 +39,9 @@ public class TrailForLookupEventsOutput {
   @SerializedName("ErrorCode")
   private String errorCode = null;
 
+  @SerializedName("EventCategory")
+  private String eventCategory = null;
+
   @SerializedName("EventDetail")
   private String eventDetail = null;
 
@@ -60,6 +63,9 @@ public class TrailForLookupEventsOutput {
   @SerializedName("EventTime")
   private String eventTime = null;
 
+  @SerializedName("RecipientAccountID")
+  private String recipientAccountID = null;
+
   @SerializedName("Region")
   private String region = null;
 
@@ -68,6 +74,9 @@ public class TrailForLookupEventsOutput {
 
   @SerializedName("RequestID")
   private String requestID = null;
+
+  @SerializedName("SharedEventID")
+  private String sharedEventID = null;
 
   @SerializedName("SourceIPAddress")
   private String sourceIPAddress = null;
@@ -109,6 +118,24 @@ public class TrailForLookupEventsOutput {
 
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
+  }
+
+  public TrailForLookupEventsOutput eventCategory(String eventCategory) {
+    this.eventCategory = eventCategory;
+    return this;
+  }
+
+   /**
+   * Get eventCategory
+   * @return eventCategory
+  **/
+  @Schema(description = "")
+  public String getEventCategory() {
+    return eventCategory;
+  }
+
+  public void setEventCategory(String eventCategory) {
+    this.eventCategory = eventCategory;
   }
 
   public TrailForLookupEventsOutput eventDetail(String eventDetail) {
@@ -237,6 +264,24 @@ public class TrailForLookupEventsOutput {
     this.eventTime = eventTime;
   }
 
+  public TrailForLookupEventsOutput recipientAccountID(String recipientAccountID) {
+    this.recipientAccountID = recipientAccountID;
+    return this;
+  }
+
+   /**
+   * Get recipientAccountID
+   * @return recipientAccountID
+  **/
+  @Schema(description = "")
+  public String getRecipientAccountID() {
+    return recipientAccountID;
+  }
+
+  public void setRecipientAccountID(String recipientAccountID) {
+    this.recipientAccountID = recipientAccountID;
+  }
+
   public TrailForLookupEventsOutput region(String region) {
     this.region = region;
     return this;
@@ -300,6 +345,24 @@ public class TrailForLookupEventsOutput {
     this.requestID = requestID;
   }
 
+  public TrailForLookupEventsOutput sharedEventID(String sharedEventID) {
+    this.sharedEventID = sharedEventID;
+    return this;
+  }
+
+   /**
+   * Get sharedEventID
+   * @return sharedEventID
+  **/
+  @Schema(description = "")
+  public String getSharedEventID() {
+    return sharedEventID;
+  }
+
+  public void setSharedEventID(String sharedEventID) {
+    this.sharedEventID = sharedEventID;
+  }
+
   public TrailForLookupEventsOutput sourceIPAddress(String sourceIPAddress) {
     this.sourceIPAddress = sourceIPAddress;
     return this;
@@ -348,6 +411,7 @@ public class TrailForLookupEventsOutput {
     TrailForLookupEventsOutput trailForLookupEventsOutput = (TrailForLookupEventsOutput) o;
     return Objects.equals(this.accessKeyID, trailForLookupEventsOutput.accessKeyID) &&
         Objects.equals(this.errorCode, trailForLookupEventsOutput.errorCode) &&
+        Objects.equals(this.eventCategory, trailForLookupEventsOutput.eventCategory) &&
         Objects.equals(this.eventDetail, trailForLookupEventsOutput.eventDetail) &&
         Objects.equals(this.eventID, trailForLookupEventsOutput.eventID) &&
         Objects.equals(this.eventName, trailForLookupEventsOutput.eventName) &&
@@ -355,16 +419,18 @@ public class TrailForLookupEventsOutput {
         Objects.equals(this.eventSource, trailForLookupEventsOutput.eventSource) &&
         Objects.equals(this.eventSourceDisplay, trailForLookupEventsOutput.eventSourceDisplay) &&
         Objects.equals(this.eventTime, trailForLookupEventsOutput.eventTime) &&
+        Objects.equals(this.recipientAccountID, trailForLookupEventsOutput.recipientAccountID) &&
         Objects.equals(this.region, trailForLookupEventsOutput.region) &&
         Objects.equals(this.relatedResources, trailForLookupEventsOutput.relatedResources) &&
         Objects.equals(this.requestID, trailForLookupEventsOutput.requestID) &&
+        Objects.equals(this.sharedEventID, trailForLookupEventsOutput.sharedEventID) &&
         Objects.equals(this.sourceIPAddress, trailForLookupEventsOutput.sourceIPAddress) &&
         Objects.equals(this.userName, trailForLookupEventsOutput.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyID, errorCode, eventDetail, eventID, eventName, eventNameDisplay, eventSource, eventSourceDisplay, eventTime, region, relatedResources, requestID, sourceIPAddress, userName);
+    return Objects.hash(accessKeyID, errorCode, eventCategory, eventDetail, eventID, eventName, eventNameDisplay, eventSource, eventSourceDisplay, eventTime, recipientAccountID, region, relatedResources, requestID, sharedEventID, sourceIPAddress, userName);
   }
 
 
@@ -375,6 +441,7 @@ public class TrailForLookupEventsOutput {
     
     sb.append("    accessKeyID: ").append(toIndentedString(accessKeyID)).append("\n");
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+    sb.append("    eventCategory: ").append(toIndentedString(eventCategory)).append("\n");
     sb.append("    eventDetail: ").append(toIndentedString(eventDetail)).append("\n");
     sb.append("    eventID: ").append(toIndentedString(eventID)).append("\n");
     sb.append("    eventName: ").append(toIndentedString(eventName)).append("\n");
@@ -382,9 +449,11 @@ public class TrailForLookupEventsOutput {
     sb.append("    eventSource: ").append(toIndentedString(eventSource)).append("\n");
     sb.append("    eventSourceDisplay: ").append(toIndentedString(eventSourceDisplay)).append("\n");
     sb.append("    eventTime: ").append(toIndentedString(eventTime)).append("\n");
+    sb.append("    recipientAccountID: ").append(toIndentedString(recipientAccountID)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    relatedResources: ").append(toIndentedString(relatedResources)).append("\n");
     sb.append("    requestID: ").append(toIndentedString(requestID)).append("\n");
+    sb.append("    sharedEventID: ").append(toIndentedString(sharedEventID)).append("\n");
     sb.append("    sourceIPAddress: ").append(toIndentedString(sourceIPAddress)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");

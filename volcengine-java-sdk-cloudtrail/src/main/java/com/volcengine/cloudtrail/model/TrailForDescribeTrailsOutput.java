@@ -104,6 +104,9 @@ public class TrailForDescribeTrailsOutput {
   @SerializedName("TrailName")
   private String trailName = null;
 
+  @SerializedName("TrailRegion")
+  private String trailRegion = null;
+
   @SerializedName("TrailType")
   private Integer trailType = null;
 
@@ -550,6 +553,24 @@ public class TrailForDescribeTrailsOutput {
     this.trailName = trailName;
   }
 
+  public TrailForDescribeTrailsOutput trailRegion(String trailRegion) {
+    this.trailRegion = trailRegion;
+    return this;
+  }
+
+   /**
+   * Get trailRegion
+   * @return trailRegion
+  **/
+  @Schema(description = "")
+  public String getTrailRegion() {
+    return trailRegion;
+  }
+
+  public void setTrailRegion(String trailRegion) {
+    this.trailRegion = trailRegion;
+  }
+
   public TrailForDescribeTrailsOutput trailType(Integer trailType) {
     this.trailType = trailType;
     return this;
@@ -620,13 +641,14 @@ public class TrailForDescribeTrailsOutput {
         Objects.equals(this.tosSSEKMSKeyID, trailForDescribeTrailsOutput.tosSSEKMSKeyID) &&
         Objects.equals(this.tosWriteRoleTrn, trailForDescribeTrailsOutput.tosWriteRoleTrn) &&
         Objects.equals(this.trailName, trailForDescribeTrailsOutput.trailName) &&
+        Objects.equals(this.trailRegion, trailForDescribeTrailsOutput.trailRegion) &&
         Objects.equals(this.trailType, trailForDescribeTrailsOutput.trailType) &&
         Objects.equals(this.updatedTime, trailForDescribeTrailsOutput.updatedTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdTime, creatorID, eventRW, eventSources, includeAllEventSources, latestDeliveryError, latestDeliveryTime, loggingStatus, organizationID, startLoggingTime, stopLoggingTime, tlsAccountId, tlsProjectName, tlsProjectRegion, tlsTopicName, tlsWriteRoleTrn, tosAccountId, tosBucketName, tosBucketRegion, tosKeyPrefix, tosSSEAlgorithm, tosSSEKMSKeyID, tosWriteRoleTrn, trailName, trailType, updatedTime);
+    return Objects.hash(createdTime, creatorID, eventRW, eventSources, includeAllEventSources, latestDeliveryError, latestDeliveryTime, loggingStatus, organizationID, startLoggingTime, stopLoggingTime, tlsAccountId, tlsProjectName, tlsProjectRegion, tlsTopicName, tlsWriteRoleTrn, tosAccountId, tosBucketName, tosBucketRegion, tosKeyPrefix, tosSSEAlgorithm, tosSSEKMSKeyID, tosWriteRoleTrn, trailName, trailRegion, trailType, updatedTime);
   }
 
 
@@ -659,6 +681,7 @@ public class TrailForDescribeTrailsOutput {
     sb.append("    tosSSEKMSKeyID: ").append(toIndentedString(tosSSEKMSKeyID)).append("\n");
     sb.append("    tosWriteRoleTrn: ").append(toIndentedString(tosWriteRoleTrn)).append("\n");
     sb.append("    trailName: ").append(toIndentedString(trailName)).append("\n");
+    sb.append("    trailRegion: ").append(toIndentedString(trailRegion)).append("\n");
     sb.append("    trailType: ").append(toIndentedString(trailType)).append("\n");
     sb.append("    updatedTime: ").append(toIndentedString(updatedTime)).append("\n");
     sb.append("}");
