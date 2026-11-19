@@ -1,0 +1,17 @@
+{
+  "actions": [
+    "ModifyBaasSandboxGlobalQuota",
+    "DescribeBaasAccelerationConfig",
+    "DescribeBaasSandboxTemplates",
+    "DescribeBaasSandboxUserSummaries",
+    "DownloadBaasSandboxLogs",
+    "DescribeBaasSandboxGlobalQuota",
+    "ModifyBaasAccelerationConfig",
+    "DescribeBaasSandboxes",
+    "ModifyBaasSandboxUserQuotas",
+    "OperateBaasSandbox"
+  ],
+  "description": "AIDAP: 新增 ModifyBaasSandboxUserQuotas, OperateBaasSandbox, DescribeBaasSandboxGlobalQuota, DescribeBaasSandboxUserSummaries, DownloadBaasSandboxLogs, ModifyBaasAccelerationConfig, ModifyBaasSandboxGlobalQuota, DescribeBaasAccelerationConfig, DescribeBaasSandboxTemplates, DescribeBaasSandboxes",
+  "modules": "service/aidap",
+  "type": "feature"
+}
