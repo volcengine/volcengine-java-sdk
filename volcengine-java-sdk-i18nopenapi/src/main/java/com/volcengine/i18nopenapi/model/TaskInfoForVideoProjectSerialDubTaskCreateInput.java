@@ -68,6 +68,9 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
   @SerializedName("dubVoiceMode")
   private Integer dubVoiceMode = null;
 
+  @SerializedName("enableLipSync")
+  private Boolean enableLipSync = null;
+
   @SerializedName("isDub")
   private Boolean isDub = null;
 
@@ -315,6 +318,24 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
 
   public void setDubVoiceMode(Integer dubVoiceMode) {
     this.dubVoiceMode = dubVoiceMode;
+  }
+
+  public TaskInfoForVideoProjectSerialDubTaskCreateInput enableLipSync(Boolean enableLipSync) {
+    this.enableLipSync = enableLipSync;
+    return this;
+  }
+
+   /**
+   * Get enableLipSync
+   * @return enableLipSync
+  **/
+  @Schema(description = "")
+  public Boolean isEnableLipSync() {
+    return enableLipSync;
+  }
+
+  public void setEnableLipSync(Boolean enableLipSync) {
+    this.enableLipSync = enableLipSync;
   }
 
   public TaskInfoForVideoProjectSerialDubTaskCreateInput isDub(Boolean isDub) {
@@ -655,6 +676,7 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
         Objects.equals(this.dramaTitle, taskInfoForVideoProjectSerialDubTaskCreateInput.dramaTitle) &&
         Objects.equals(this.dubOrTranslationTaskID, taskInfoForVideoProjectSerialDubTaskCreateInput.dubOrTranslationTaskID) &&
         Objects.equals(this.dubVoiceMode, taskInfoForVideoProjectSerialDubTaskCreateInput.dubVoiceMode) &&
+        Objects.equals(this.enableLipSync, taskInfoForVideoProjectSerialDubTaskCreateInput.enableLipSync) &&
         Objects.equals(this.isDub, taskInfoForVideoProjectSerialDubTaskCreateInput.isDub) &&
         Objects.equals(this.llmVideoUnderstandingType, taskInfoForVideoProjectSerialDubTaskCreateInput.llmVideoUnderstandingType) &&
         Objects.equals(this.maxTargetSubtitleLines, taskInfoForVideoProjectSerialDubTaskCreateInput.maxTargetSubtitleLines) &&
@@ -676,7 +698,7 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveType, asrModel, auditFailPolicy, bgmPolicy, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, dubVoiceMode, isDub, llmVideoUnderstandingType, maxTargetSubtitleLines, needTermValidation, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, serialNumber, sourceLang, sourceStyleMap, suppressionParams, targetLangs, targetStyleMap, taskName, useMT);
+    return Objects.hash(aiRemoveType, asrModel, auditFailPolicy, bgmPolicy, comment, deadline, dramaCoverUrl, dramaDescription, dramaTitle, dubOrTranslationTaskID, dubVoiceMode, enableLipSync, isDub, llmVideoUnderstandingType, maxTargetSubtitleLines, needTermValidation, needTranslateCover, needTranslateDesc, needTranslateTitle, needTranslateTitleAndDesc, needVideoSpeed, serialNumber, sourceLang, sourceStyleMap, suppressionParams, targetLangs, targetStyleMap, taskName, useMT);
   }
 
 
@@ -696,6 +718,7 @@ public class TaskInfoForVideoProjectSerialDubTaskCreateInput {
     sb.append("    dramaTitle: ").append(toIndentedString(dramaTitle)).append("\n");
     sb.append("    dubOrTranslationTaskID: ").append(toIndentedString(dubOrTranslationTaskID)).append("\n");
     sb.append("    dubVoiceMode: ").append(toIndentedString(dubVoiceMode)).append("\n");
+    sb.append("    enableLipSync: ").append(toIndentedString(enableLipSync)).append("\n");
     sb.append("    isDub: ").append(toIndentedString(isDub)).append("\n");
     sb.append("    llmVideoUnderstandingType: ").append(toIndentedString(llmVideoUnderstandingType)).append("\n");
     sb.append("    maxTargetSubtitleLines: ").append(toIndentedString(maxTargetSubtitleLines)).append("\n");

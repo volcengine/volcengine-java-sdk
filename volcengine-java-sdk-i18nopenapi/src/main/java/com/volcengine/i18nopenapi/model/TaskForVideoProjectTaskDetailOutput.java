@@ -54,6 +54,9 @@ public class TaskForVideoProjectTaskDetailOutput {
   @SerializedName("id")
   private String id = null;
 
+  @SerializedName("lipSyncEnabled")
+  private Boolean lipSyncEnabled = null;
+
   @SerializedName("name")
   private String name = null;
 
@@ -221,6 +224,24 @@ public class TaskForVideoProjectTaskDetailOutput {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public TaskForVideoProjectTaskDetailOutput lipSyncEnabled(Boolean lipSyncEnabled) {
+    this.lipSyncEnabled = lipSyncEnabled;
+    return this;
+  }
+
+   /**
+   * Get lipSyncEnabled
+   * @return lipSyncEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isLipSyncEnabled() {
+    return lipSyncEnabled;
+  }
+
+  public void setLipSyncEnabled(Boolean lipSyncEnabled) {
+    this.lipSyncEnabled = lipSyncEnabled;
   }
 
   public TaskForVideoProjectTaskDetailOutput name(String name) {
@@ -500,6 +521,7 @@ public class TaskForVideoProjectTaskDetailOutput {
         Objects.equals(this.dramaTaskWorkflow, taskForVideoProjectTaskDetailOutput.dramaTaskWorkflow) &&
         Objects.equals(this.durationCount, taskForVideoProjectTaskDetailOutput.durationCount) &&
         Objects.equals(this.id, taskForVideoProjectTaskDetailOutput.id) &&
+        Objects.equals(this.lipSyncEnabled, taskForVideoProjectTaskDetailOutput.lipSyncEnabled) &&
         Objects.equals(this.name, taskForVideoProjectTaskDetailOutput.name) &&
         Objects.equals(this.needTermValidation, taskForVideoProjectTaskDetailOutput.needTermValidation) &&
         Objects.equals(this.projectId, taskForVideoProjectTaskDetailOutput.projectId) &&
@@ -518,7 +540,7 @@ public class TaskForVideoProjectTaskDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, createdAt, creator, deadline, dramaTaskWorkflow, durationCount, id, name, needTermValidation, projectId, projectName, sourceLanguage, sourceVideos, status, targetLanguages, taskType, translationTeam, updatedAt, updater, wordsCount, workflowType);
+    return Objects.hash(comment, createdAt, creator, deadline, dramaTaskWorkflow, durationCount, id, lipSyncEnabled, name, needTermValidation, projectId, projectName, sourceLanguage, sourceVideos, status, targetLanguages, taskType, translationTeam, updatedAt, updater, wordsCount, workflowType);
   }
 
 
@@ -534,6 +556,7 @@ public class TaskForVideoProjectTaskDetailOutput {
     sb.append("    dramaTaskWorkflow: ").append(toIndentedString(dramaTaskWorkflow)).append("\n");
     sb.append("    durationCount: ").append(toIndentedString(durationCount)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    lipSyncEnabled: ").append(toIndentedString(lipSyncEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    needTermValidation: ").append(toIndentedString(needTermValidation)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
