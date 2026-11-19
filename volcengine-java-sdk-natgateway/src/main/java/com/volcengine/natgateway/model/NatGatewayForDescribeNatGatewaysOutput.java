@@ -73,51 +73,8 @@ public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
 
-  /**
-   * Gets or Sets networkType
-   */
-  @JsonAdapter(NetworkTypeEnum.Adapter.class)
-  public enum NetworkTypeEnum {
-    @SerializedName("internet")
-    INTERNET("internet"),
-    @SerializedName("intranet")
-    INTRANET("intranet");
-
-    private String value;
-
-    NetworkTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static NetworkTypeEnum fromValue(String input) {
-      for (NetworkTypeEnum b : NetworkTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<NetworkTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NetworkTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public NetworkTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return NetworkTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("NetworkType")
-  private NetworkTypeEnum networkType = null;
+  @SerializedName("NetworkType")
+  private String networkType = null;
 
   @SerializedName("OverdueTime")
   private String overdueTime = null;
@@ -134,57 +91,8 @@ public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("SnatEntryIds")
   private List<String> snatEntryIds = null;
 
-  /**
-   * Gets or Sets spec
-   */
-  @JsonAdapter(SpecEnum.Adapter.class)
-  public enum SpecEnum {
-    @SerializedName("Small")
-    SMALL("Small"),
-    @SerializedName("Medium")
-    MEDIUM("Medium"),
-    @SerializedName("Large")
-    LARGE("Large"),
-    @SerializedName("Extra_Large_1")
-    EXTRA_LARGE_1("Extra_Large_1"),
-    @SerializedName("Extra_Large_2")
-    EXTRA_LARGE_2("Extra_Large_2");
-
-    private String value;
-
-    SpecEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static SpecEnum fromValue(String input) {
-      for (SpecEnum b : SpecEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<SpecEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final SpecEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public SpecEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return SpecEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Spec")
-  private SpecEnum spec = null;
+  @SerializedName("Spec")
+  private String spec = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -455,7 +363,7 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     this.networkInterfaceId = networkInterfaceId;
   }
 
-  public NatGatewayForDescribeNatGatewaysOutput networkType(NetworkTypeEnum networkType) {
+  public NatGatewayForDescribeNatGatewaysOutput networkType(String networkType) {
     this.networkType = networkType;
     return this;
   }
@@ -465,11 +373,11 @@ public class NatGatewayForDescribeNatGatewaysOutput {
    * @return networkType
   **/
   @Schema(description = "")
-  public NetworkTypeEnum getNetworkType() {
+  public String getNetworkType() {
     return networkType;
   }
 
-  public void setNetworkType(NetworkTypeEnum networkType) {
+  public void setNetworkType(String networkType) {
     this.networkType = networkType;
   }
 
@@ -571,7 +479,7 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     this.snatEntryIds = snatEntryIds;
   }
 
-  public NatGatewayForDescribeNatGatewaysOutput spec(SpecEnum spec) {
+  public NatGatewayForDescribeNatGatewaysOutput spec(String spec) {
     this.spec = spec;
     return this;
   }
@@ -581,11 +489,11 @@ public class NatGatewayForDescribeNatGatewaysOutput {
    * @return spec
   **/
   @Schema(description = "")
-  public SpecEnum getSpec() {
+  public String getSpec() {
     return spec;
   }
 
-  public void setSpec(SpecEnum spec) {
+  public void setSpec(String spec) {
     this.spec = spec;
   }
 

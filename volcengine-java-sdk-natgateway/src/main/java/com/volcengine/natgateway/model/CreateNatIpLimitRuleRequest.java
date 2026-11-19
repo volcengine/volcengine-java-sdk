@@ -30,17 +30,62 @@ import javax.validation.Valid;
 
 
 public class CreateNatIpLimitRuleRequest {
+  @SerializedName("ConnectionLimit")
+  private Integer connectionLimit = null;
+
+  @SerializedName("CpsLimit")
+  private Integer cpsLimit = null;
+
   @SerializedName("InboundMbpsLimit")
   private Integer inboundMbpsLimit = null;
 
   @SerializedName("InternalIp")
   private String internalIp = null;
 
+  @SerializedName("IsDefault")
+  private Boolean isDefault = null;
+
   @SerializedName("NatGatewayId")
   private String natGatewayId = null;
 
   @SerializedName("OutboundMbpsLimit")
   private Integer outboundMbpsLimit = null;
+
+  public CreateNatIpLimitRuleRequest connectionLimit(Integer connectionLimit) {
+    this.connectionLimit = connectionLimit;
+    return this;
+  }
+
+   /**
+   * Get connectionLimit
+   * @return connectionLimit
+  **/
+  @Schema(description = "")
+  public Integer getConnectionLimit() {
+    return connectionLimit;
+  }
+
+  public void setConnectionLimit(Integer connectionLimit) {
+    this.connectionLimit = connectionLimit;
+  }
+
+  public CreateNatIpLimitRuleRequest cpsLimit(Integer cpsLimit) {
+    this.cpsLimit = cpsLimit;
+    return this;
+  }
+
+   /**
+   * Get cpsLimit
+   * @return cpsLimit
+  **/
+  @Schema(description = "")
+  public Integer getCpsLimit() {
+    return cpsLimit;
+  }
+
+  public void setCpsLimit(Integer cpsLimit) {
+    this.cpsLimit = cpsLimit;
+  }
 
   public CreateNatIpLimitRuleRequest inboundMbpsLimit(Integer inboundMbpsLimit) {
     this.inboundMbpsLimit = inboundMbpsLimit;
@@ -51,8 +96,7 @@ public class CreateNatIpLimitRuleRequest {
    * Get inboundMbpsLimit
    * @return inboundMbpsLimit
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getInboundMbpsLimit() {
     return inboundMbpsLimit;
   }
@@ -70,14 +114,31 @@ public class CreateNatIpLimitRuleRequest {
    * Get internalIp
    * @return internalIp
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInternalIp() {
     return internalIp;
   }
 
   public void setInternalIp(String internalIp) {
     this.internalIp = internalIp;
+  }
+
+  public CreateNatIpLimitRuleRequest isDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+    return this;
+  }
+
+   /**
+   * Get isDefault
+   * @return isDefault
+  **/
+  @Schema(description = "")
+  public Boolean isIsDefault() {
+    return isDefault;
+  }
+
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
   }
 
   public CreateNatIpLimitRuleRequest natGatewayId(String natGatewayId) {
@@ -108,8 +169,7 @@ public class CreateNatIpLimitRuleRequest {
    * Get outboundMbpsLimit
    * @return outboundMbpsLimit
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getOutboundMbpsLimit() {
     return outboundMbpsLimit;
   }
@@ -128,15 +188,18 @@ public class CreateNatIpLimitRuleRequest {
       return false;
     }
     CreateNatIpLimitRuleRequest createNatIpLimitRuleRequest = (CreateNatIpLimitRuleRequest) o;
-    return Objects.equals(this.inboundMbpsLimit, createNatIpLimitRuleRequest.inboundMbpsLimit) &&
+    return Objects.equals(this.connectionLimit, createNatIpLimitRuleRequest.connectionLimit) &&
+        Objects.equals(this.cpsLimit, createNatIpLimitRuleRequest.cpsLimit) &&
+        Objects.equals(this.inboundMbpsLimit, createNatIpLimitRuleRequest.inboundMbpsLimit) &&
         Objects.equals(this.internalIp, createNatIpLimitRuleRequest.internalIp) &&
+        Objects.equals(this.isDefault, createNatIpLimitRuleRequest.isDefault) &&
         Objects.equals(this.natGatewayId, createNatIpLimitRuleRequest.natGatewayId) &&
         Objects.equals(this.outboundMbpsLimit, createNatIpLimitRuleRequest.outboundMbpsLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inboundMbpsLimit, internalIp, natGatewayId, outboundMbpsLimit);
+    return Objects.hash(connectionLimit, cpsLimit, inboundMbpsLimit, internalIp, isDefault, natGatewayId, outboundMbpsLimit);
   }
 
 
@@ -145,8 +208,11 @@ public class CreateNatIpLimitRuleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNatIpLimitRuleRequest {\n");
     
+    sb.append("    connectionLimit: ").append(toIndentedString(connectionLimit)).append("\n");
+    sb.append("    cpsLimit: ").append(toIndentedString(cpsLimit)).append("\n");
     sb.append("    inboundMbpsLimit: ").append(toIndentedString(inboundMbpsLimit)).append("\n");
     sb.append("    internalIp: ").append(toIndentedString(internalIp)).append("\n");
+    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
     sb.append("    outboundMbpsLimit: ").append(toIndentedString(outboundMbpsLimit)).append("\n");
     sb.append("}");
