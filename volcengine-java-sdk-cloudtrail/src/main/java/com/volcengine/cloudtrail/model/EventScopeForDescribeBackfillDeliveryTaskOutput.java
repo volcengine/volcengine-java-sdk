@@ -38,6 +38,9 @@ public class EventScopeForDescribeBackfillDeliveryTaskOutput {
   @SerializedName("EventSources")
   private List<String> eventSources = null;
 
+  @SerializedName("IncludeAllEventSources")
+  private Boolean includeAllEventSources = null;
+
   public EventScopeForDescribeBackfillDeliveryTaskOutput eventRW(Integer eventRW) {
     this.eventRW = eventRW;
     return this;
@@ -82,6 +85,24 @@ public class EventScopeForDescribeBackfillDeliveryTaskOutput {
     this.eventSources = eventSources;
   }
 
+  public EventScopeForDescribeBackfillDeliveryTaskOutput includeAllEventSources(Boolean includeAllEventSources) {
+    this.includeAllEventSources = includeAllEventSources;
+    return this;
+  }
+
+   /**
+   * Get includeAllEventSources
+   * @return includeAllEventSources
+  **/
+  @Schema(description = "")
+  public Boolean isIncludeAllEventSources() {
+    return includeAllEventSources;
+  }
+
+  public void setIncludeAllEventSources(Boolean includeAllEventSources) {
+    this.includeAllEventSources = includeAllEventSources;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -93,12 +114,13 @@ public class EventScopeForDescribeBackfillDeliveryTaskOutput {
     }
     EventScopeForDescribeBackfillDeliveryTaskOutput eventScopeForDescribeBackfillDeliveryTaskOutput = (EventScopeForDescribeBackfillDeliveryTaskOutput) o;
     return Objects.equals(this.eventRW, eventScopeForDescribeBackfillDeliveryTaskOutput.eventRW) &&
-        Objects.equals(this.eventSources, eventScopeForDescribeBackfillDeliveryTaskOutput.eventSources);
+        Objects.equals(this.eventSources, eventScopeForDescribeBackfillDeliveryTaskOutput.eventSources) &&
+        Objects.equals(this.includeAllEventSources, eventScopeForDescribeBackfillDeliveryTaskOutput.includeAllEventSources);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventRW, eventSources);
+    return Objects.hash(eventRW, eventSources, includeAllEventSources);
   }
 
 
@@ -109,6 +131,7 @@ public class EventScopeForDescribeBackfillDeliveryTaskOutput {
     
     sb.append("    eventRW: ").append(toIndentedString(eventRW)).append("\n");
     sb.append("    eventSources: ").append(toIndentedString(eventSources)).append("\n");
+    sb.append("    includeAllEventSources: ").append(toIndentedString(includeAllEventSources)).append("\n");
     sb.append("}");
     return sb.toString();
   }
