@@ -51,6 +51,9 @@ public class UpdateVoicePrintRequest {
   @SerializedName("VoicePrintId")
   private String voicePrintId = null;
 
+  @SerializedName("audioBase64")
+  private String audioBase64 = null;
+
   public UpdateVoicePrintRequest deviceName(String deviceName) {
     this.deviceName = deviceName;
     return this;
@@ -180,6 +183,24 @@ public class UpdateVoicePrintRequest {
     this.voicePrintId = voicePrintId;
   }
 
+  public UpdateVoicePrintRequest audioBase64(String audioBase64) {
+    this.audioBase64 = audioBase64;
+    return this;
+  }
+
+   /**
+   * Get audioBase64
+   * @return audioBase64
+  **/
+  @Schema(description = "")
+  public String getAudioBase64() {
+    return audioBase64;
+  }
+
+  public void setAudioBase64(String audioBase64) {
+    this.audioBase64 = audioBase64;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -196,12 +217,13 @@ public class UpdateVoicePrintRequest {
         Objects.equals(this.nickName, updateVoicePrintRequest.nickName) &&
         Objects.equals(this.productKey, updateVoicePrintRequest.productKey) &&
         Objects.equals(this.type, updateVoicePrintRequest.type) &&
-        Objects.equals(this.voicePrintId, updateVoicePrintRequest.voicePrintId);
+        Objects.equals(this.voicePrintId, updateVoicePrintRequest.voicePrintId) &&
+        Objects.equals(this.audioBase64, updateVoicePrintRequest.audioBase64);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deviceName, fileKey, fileUrl, nickName, productKey, type, voicePrintId);
+    return Objects.hash(deviceName, fileKey, fileUrl, nickName, productKey, type, voicePrintId, audioBase64);
   }
 
 
@@ -217,6 +239,7 @@ public class UpdateVoicePrintRequest {
     sb.append("    productKey: ").append(toIndentedString(productKey)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    voicePrintId: ").append(toIndentedString(voicePrintId)).append("\n");
+    sb.append("    audioBase64: ").append(toIndentedString(audioBase64)).append("\n");
     sb.append("}");
     return sb.toString();
   }
