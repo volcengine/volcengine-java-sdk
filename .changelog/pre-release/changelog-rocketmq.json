@@ -1,0 +1,10 @@
+{
+  "actions": [
+    "DescribeGroupsDetail",
+    "DescribeTopicAccessPolicies",
+    "DescribeTopicQueue"
+  ],
+  "description": "ROCKETMQ: 修改 DescribeGroupsDetail, DescribeTopicAccessPolicies, DescribeTopicQueue",
+  "modules": "service/RocketMQ",
+  "type": "breaking-change"
+}
