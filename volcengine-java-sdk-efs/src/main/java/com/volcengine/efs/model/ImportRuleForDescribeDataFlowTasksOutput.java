@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.efs.model.EntryListFileForDescribeDataFlowTasksOutput;
+import com.volcengine.efs.model.ConvertEntryListFileForDescribeDataFlowTasksOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -128,7 +128,7 @@ public class ImportRuleForDescribeDataFlowTasksOutput {
   private DataTypeEnum dataType = null;
 
   @SerializedName("EntryListFile")
-  private EntryListFileForDescribeDataFlowTasksOutput entryListFile = null;
+  private ConvertEntryListFileForDescribeDataFlowTasksOutput entryListFile = null;
 
   @SerializedName("IncludePaths")
   private List<String> includePaths = null;
@@ -215,7 +215,7 @@ public class ImportRuleForDescribeDataFlowTasksOutput {
     this.dataType = dataType;
   }
 
-  public ImportRuleForDescribeDataFlowTasksOutput entryListFile(EntryListFileForDescribeDataFlowTasksOutput entryListFile) {
+  public ImportRuleForDescribeDataFlowTasksOutput entryListFile(ConvertEntryListFileForDescribeDataFlowTasksOutput entryListFile) {
     this.entryListFile = entryListFile;
     return this;
   }
@@ -226,11 +226,11 @@ public class ImportRuleForDescribeDataFlowTasksOutput {
   **/
   @Valid
   @Schema(description = "")
-  public EntryListFileForDescribeDataFlowTasksOutput getEntryListFile() {
+  public ConvertEntryListFileForDescribeDataFlowTasksOutput getEntryListFile() {
     return entryListFile;
   }
 
-  public void setEntryListFile(EntryListFileForDescribeDataFlowTasksOutput entryListFile) {
+  public void setEntryListFile(ConvertEntryListFileForDescribeDataFlowTasksOutput entryListFile) {
     this.entryListFile = entryListFile;
   }
 

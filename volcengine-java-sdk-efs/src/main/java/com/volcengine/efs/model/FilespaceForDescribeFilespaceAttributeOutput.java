@@ -48,8 +48,63 @@ public class FilespaceForDescribeFilespaceAttributeOutput {
   @SerializedName("Quota")
   private Long quota = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown"),
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("CreateError")
+    CREATEERROR("CreateError"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Updating")
+    UPDATING("Updating"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("DeleteError")
+    DELETEERROR("DeleteError"),
+    @SerializedName("Deleted")
+    DELETED("Deleted");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -165,7 +220,7 @@ public class FilespaceForDescribeFilespaceAttributeOutput {
     this.quota = quota;
   }
 
-  public FilespaceForDescribeFilespaceAttributeOutput status(String status) {
+  public FilespaceForDescribeFilespaceAttributeOutput status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -175,11 +230,11 @@ public class FilespaceForDescribeFilespaceAttributeOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 

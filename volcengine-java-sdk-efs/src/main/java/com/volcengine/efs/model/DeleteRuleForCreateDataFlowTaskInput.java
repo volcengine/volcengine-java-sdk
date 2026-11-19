@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.efs.model.EntryListFileForCreateDataFlowTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -90,7 +91,9 @@ public class DeleteRuleForCreateDataFlowTaskInput {
     @SerializedName("FileSystem")
     FILESYSTEM("FileSystem"),
     @SerializedName("All")
-    ALL("All");
+    ALL("All"),
+    @SerializedName("FileSystemCorruptedFiles")
+    FILESYSTEMCORRUPTEDFILES("FileSystemCorruptedFiles");
 
     private String value;
 
@@ -127,6 +130,9 @@ public class DeleteRuleForCreateDataFlowTaskInput {
     }
   }  @SerializedName("DataLocation")
   private DataLocationEnum dataLocation = null;
+
+  @SerializedName("EntryListFile")
+  private EntryListFileForCreateDataFlowTaskInput entryListFile = null;
 
   @SerializedName("ExcludePaths")
   private List<String> excludePaths = null;
@@ -171,6 +177,25 @@ public class DeleteRuleForCreateDataFlowTaskInput {
 
   public void setDataLocation(DataLocationEnum dataLocation) {
     this.dataLocation = dataLocation;
+  }
+
+  public DeleteRuleForCreateDataFlowTaskInput entryListFile(EntryListFileForCreateDataFlowTaskInput entryListFile) {
+    this.entryListFile = entryListFile;
+    return this;
+  }
+
+   /**
+   * Get entryListFile
+   * @return entryListFile
+  **/
+  @Valid
+  @Schema(description = "")
+  public EntryListFileForCreateDataFlowTaskInput getEntryListFile() {
+    return entryListFile;
+  }
+
+  public void setEntryListFile(EntryListFileForCreateDataFlowTaskInput entryListFile) {
+    this.entryListFile = entryListFile;
   }
 
   public DeleteRuleForCreateDataFlowTaskInput excludePaths(List<String> excludePaths) {
@@ -255,6 +280,7 @@ public class DeleteRuleForCreateDataFlowTaskInput {
     DeleteRuleForCreateDataFlowTaskInput deleteRuleForCreateDataFlowTaskInput = (DeleteRuleForCreateDataFlowTaskInput) o;
     return Objects.equals(this.bucketDeletePolicy, deleteRuleForCreateDataFlowTaskInput.bucketDeletePolicy) &&
         Objects.equals(this.dataLocation, deleteRuleForCreateDataFlowTaskInput.dataLocation) &&
+        Objects.equals(this.entryListFile, deleteRuleForCreateDataFlowTaskInput.entryListFile) &&
         Objects.equals(this.excludePaths, deleteRuleForCreateDataFlowTaskInput.excludePaths) &&
         Objects.equals(this.includePaths, deleteRuleForCreateDataFlowTaskInput.includePaths) &&
         Objects.equals(this.lastAccessTimePoint, deleteRuleForCreateDataFlowTaskInput.lastAccessTimePoint);
@@ -262,7 +288,7 @@ public class DeleteRuleForCreateDataFlowTaskInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketDeletePolicy, dataLocation, excludePaths, includePaths, lastAccessTimePoint);
+    return Objects.hash(bucketDeletePolicy, dataLocation, entryListFile, excludePaths, includePaths, lastAccessTimePoint);
   }
 
 
@@ -273,6 +299,7 @@ public class DeleteRuleForCreateDataFlowTaskInput {
     
     sb.append("    bucketDeletePolicy: ").append(toIndentedString(bucketDeletePolicy)).append("\n");
     sb.append("    dataLocation: ").append(toIndentedString(dataLocation)).append("\n");
+    sb.append("    entryListFile: ").append(toIndentedString(entryListFile)).append("\n");
     sb.append("    excludePaths: ").append(toIndentedString(excludePaths)).append("\n");
     sb.append("    includePaths: ").append(toIndentedString(includePaths)).append("\n");
     sb.append("    lastAccessTimePoint: ").append(toIndentedString(lastAccessTimePoint)).append("\n");

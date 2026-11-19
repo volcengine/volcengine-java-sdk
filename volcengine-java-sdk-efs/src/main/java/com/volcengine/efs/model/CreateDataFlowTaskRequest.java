@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.efs.model.DeleteRuleForCreateDataFlowTaskInput;
 import com.volcengine.efs.model.EvictRuleForCreateDataFlowTaskInput;
 import com.volcengine.efs.model.ExportRuleForCreateDataFlowTaskInput;
-import com.volcengine.efs.model.FileDiffRuleForCreateDataFlowTaskInput;
 import com.volcengine.efs.model.ImportRuleForCreateDataFlowTaskInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -37,9 +36,6 @@ import javax.validation.Valid;
 public class CreateDataFlowTaskRequest {
   @SerializedName("BucketName")
   private String bucketName = null;
-
-  @SerializedName("BucketOwner")
-  private String bucketOwner = null;
 
   @SerializedName("BucketPrefix")
   private String bucketPrefix = null;
@@ -59,9 +55,7 @@ public class CreateDataFlowTaskRequest {
     @SerializedName("Evict")
     EVICT("Evict"),
     @SerializedName("Delete")
-    DELETE("Delete"),
-    @SerializedName("FileDiff")
-    FILEDIFF("FileDiff");
+    DELETE("Delete");
 
     private String value;
 
@@ -111,9 +105,6 @@ public class CreateDataFlowTaskRequest {
   @SerializedName("ExportRule")
   private ExportRuleForCreateDataFlowTaskInput exportRule = null;
 
-  @SerializedName("FileDiffRule")
-  private FileDiffRuleForCreateDataFlowTaskInput fileDiffRule = null;
-
   @SerializedName("FileSystemId")
   private String fileSystemId = null;
 
@@ -130,8 +121,6 @@ public class CreateDataFlowTaskRequest {
   public enum TaskModeEnum {
     @SerializedName("Manual")
     MANUAL("Manual"),
-    @SerializedName("Initial")
-    INITIAL("Initial"),
     @SerializedName("Period")
     PERIOD("Period");
 
@@ -187,24 +176,6 @@ public class CreateDataFlowTaskRequest {
 
   public void setBucketName(String bucketName) {
     this.bucketName = bucketName;
-  }
-
-  public CreateDataFlowTaskRequest bucketOwner(String bucketOwner) {
-    this.bucketOwner = bucketOwner;
-    return this;
-  }
-
-   /**
-   * Get bucketOwner
-   * @return bucketOwner
-  **/
-  @Schema(description = "")
-  public String getBucketOwner() {
-    return bucketOwner;
-  }
-
-  public void setBucketOwner(String bucketOwner) {
-    this.bucketOwner = bucketOwner;
   }
 
   public CreateDataFlowTaskRequest bucketPrefix(String bucketPrefix) {
@@ -337,25 +308,6 @@ public class CreateDataFlowTaskRequest {
     this.exportRule = exportRule;
   }
 
-  public CreateDataFlowTaskRequest fileDiffRule(FileDiffRuleForCreateDataFlowTaskInput fileDiffRule) {
-    this.fileDiffRule = fileDiffRule;
-    return this;
-  }
-
-   /**
-   * Get fileDiffRule
-   * @return fileDiffRule
-  **/
-  @Valid
-  @Schema(description = "")
-  public FileDiffRuleForCreateDataFlowTaskInput getFileDiffRule() {
-    return fileDiffRule;
-  }
-
-  public void setFileDiffRule(FileDiffRuleForCreateDataFlowTaskInput fileDiffRule) {
-    this.fileDiffRule = fileDiffRule;
-  }
-
   public CreateDataFlowTaskRequest fileSystemId(String fileSystemId) {
     this.fileSystemId = fileSystemId;
     return this;
@@ -440,7 +392,6 @@ public class CreateDataFlowTaskRequest {
     }
     CreateDataFlowTaskRequest createDataFlowTaskRequest = (CreateDataFlowTaskRequest) o;
     return Objects.equals(this.bucketName, createDataFlowTaskRequest.bucketName) &&
-        Objects.equals(this.bucketOwner, createDataFlowTaskRequest.bucketOwner) &&
         Objects.equals(this.bucketPrefix, createDataFlowTaskRequest.bucketPrefix) &&
         Objects.equals(this.dataFlowPolicyId, createDataFlowTaskRequest.dataFlowPolicyId) &&
         Objects.equals(this.dataFlowTaskType, createDataFlowTaskRequest.dataFlowTaskType) &&
@@ -448,7 +399,6 @@ public class CreateDataFlowTaskRequest {
         Objects.equals(this.enableTls, createDataFlowTaskRequest.enableTls) &&
         Objects.equals(this.evictRule, createDataFlowTaskRequest.evictRule) &&
         Objects.equals(this.exportRule, createDataFlowTaskRequest.exportRule) &&
-        Objects.equals(this.fileDiffRule, createDataFlowTaskRequest.fileDiffRule) &&
         Objects.equals(this.fileSystemId, createDataFlowTaskRequest.fileSystemId) &&
         Objects.equals(this.fileSystemPath, createDataFlowTaskRequest.fileSystemPath) &&
         Objects.equals(this.importRule, createDataFlowTaskRequest.importRule) &&
@@ -457,7 +407,7 @@ public class CreateDataFlowTaskRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketName, bucketOwner, bucketPrefix, dataFlowPolicyId, dataFlowTaskType, deleteRule, enableTls, evictRule, exportRule, fileDiffRule, fileSystemId, fileSystemPath, importRule, taskMode);
+    return Objects.hash(bucketName, bucketPrefix, dataFlowPolicyId, dataFlowTaskType, deleteRule, enableTls, evictRule, exportRule, fileSystemId, fileSystemPath, importRule, taskMode);
   }
 
 
@@ -467,7 +417,6 @@ public class CreateDataFlowTaskRequest {
     sb.append("class CreateDataFlowTaskRequest {\n");
     
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
-    sb.append("    bucketOwner: ").append(toIndentedString(bucketOwner)).append("\n");
     sb.append("    bucketPrefix: ").append(toIndentedString(bucketPrefix)).append("\n");
     sb.append("    dataFlowPolicyId: ").append(toIndentedString(dataFlowPolicyId)).append("\n");
     sb.append("    dataFlowTaskType: ").append(toIndentedString(dataFlowTaskType)).append("\n");
@@ -475,7 +424,6 @@ public class CreateDataFlowTaskRequest {
     sb.append("    enableTls: ").append(toIndentedString(enableTls)).append("\n");
     sb.append("    evictRule: ").append(toIndentedString(evictRule)).append("\n");
     sb.append("    exportRule: ").append(toIndentedString(exportRule)).append("\n");
-    sb.append("    fileDiffRule: ").append(toIndentedString(fileDiffRule)).append("\n");
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
     sb.append("    fileSystemPath: ").append(toIndentedString(fileSystemPath)).append("\n");
     sb.append("    importRule: ").append(toIndentedString(importRule)).append("\n");

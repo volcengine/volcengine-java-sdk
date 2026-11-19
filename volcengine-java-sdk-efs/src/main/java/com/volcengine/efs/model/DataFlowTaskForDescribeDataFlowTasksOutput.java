@@ -23,8 +23,6 @@ import com.volcengine.efs.model.BucketForDescribeDataFlowTasksOutput;
 import com.volcengine.efs.model.DeleteRuleForDescribeDataFlowTasksOutput;
 import com.volcengine.efs.model.EvictRuleForDescribeDataFlowTasksOutput;
 import com.volcengine.efs.model.ExportRuleForDescribeDataFlowTasksOutput;
-import com.volcengine.efs.model.FileDiffResultForDescribeDataFlowTasksOutput;
-import com.volcengine.efs.model.FileDiffRuleForDescribeDataFlowTasksOutput;
 import com.volcengine.efs.model.ImportRuleForDescribeDataFlowTasksOutput;
 import com.volcengine.efs.model.QueueForDescribeDataFlowTasksOutput;
 import com.volcengine.efs.model.TlsForDescribeDataFlowTasksOutput;
@@ -114,9 +112,7 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
     @SerializedName("Evict")
     EVICT("Evict"),
     @SerializedName("Delete")
-    DELETE("Delete"),
-    @SerializedName("FileDiff")
-    FILEDIFF("FileDiff");
+    DELETE("Delete");
 
     private String value;
 
@@ -168,12 +164,6 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
 
   @SerializedName("ExportRule")
   private ExportRuleForDescribeDataFlowTasksOutput exportRule = null;
-
-  @SerializedName("FileDiffResult")
-  private FileDiffResultForDescribeDataFlowTasksOutput fileDiffResult = null;
-
-  @SerializedName("FileDiffRule")
-  private FileDiffRuleForDescribeDataFlowTasksOutput fileDiffRule = null;
 
   @SerializedName("FileSystemId")
   private String fileSystemId = null;
@@ -484,44 +474,6 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
     this.exportRule = exportRule;
   }
 
-  public DataFlowTaskForDescribeDataFlowTasksOutput fileDiffResult(FileDiffResultForDescribeDataFlowTasksOutput fileDiffResult) {
-    this.fileDiffResult = fileDiffResult;
-    return this;
-  }
-
-   /**
-   * Get fileDiffResult
-   * @return fileDiffResult
-  **/
-  @Valid
-  @Schema(description = "")
-  public FileDiffResultForDescribeDataFlowTasksOutput getFileDiffResult() {
-    return fileDiffResult;
-  }
-
-  public void setFileDiffResult(FileDiffResultForDescribeDataFlowTasksOutput fileDiffResult) {
-    this.fileDiffResult = fileDiffResult;
-  }
-
-  public DataFlowTaskForDescribeDataFlowTasksOutput fileDiffRule(FileDiffRuleForDescribeDataFlowTasksOutput fileDiffRule) {
-    this.fileDiffRule = fileDiffRule;
-    return this;
-  }
-
-   /**
-   * Get fileDiffRule
-   * @return fileDiffRule
-  **/
-  @Valid
-  @Schema(description = "")
-  public FileDiffRuleForDescribeDataFlowTasksOutput getFileDiffRule() {
-    return fileDiffRule;
-  }
-
-  public void setFileDiffRule(FileDiffRuleForDescribeDataFlowTasksOutput fileDiffRule) {
-    this.fileDiffRule = fileDiffRule;
-  }
-
   public DataFlowTaskForDescribeDataFlowTasksOutput fileSystemId(String fileSystemId) {
     this.fileSystemId = fileSystemId;
     return this;
@@ -727,8 +679,6 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
         Objects.equals(this.endTime, dataFlowTaskForDescribeDataFlowTasksOutput.endTime) &&
         Objects.equals(this.evictRule, dataFlowTaskForDescribeDataFlowTasksOutput.evictRule) &&
         Objects.equals(this.exportRule, dataFlowTaskForDescribeDataFlowTasksOutput.exportRule) &&
-        Objects.equals(this.fileDiffResult, dataFlowTaskForDescribeDataFlowTasksOutput.fileDiffResult) &&
-        Objects.equals(this.fileDiffRule, dataFlowTaskForDescribeDataFlowTasksOutput.fileDiffRule) &&
         Objects.equals(this.fileSystemId, dataFlowTaskForDescribeDataFlowTasksOutput.fileSystemId) &&
         Objects.equals(this.fileSystemName, dataFlowTaskForDescribeDataFlowTasksOutput.fileSystemName) &&
         Objects.equals(this.fileSystemPath, dataFlowTaskForDescribeDataFlowTasksOutput.fileSystemPath) &&
@@ -743,7 +693,7 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucket, createTime, dataFlowPolicyId, dataFlowPolicyName, dataFlowTaskId, dataFlowTaskMode, dataFlowTaskType, deleteRule, disableCancel, endTime, evictRule, exportRule, fileDiffResult, fileDiffRule, fileSystemId, fileSystemName, fileSystemPath, importRule, queue, startTime, status, statusDetail, tls, updateTime);
+    return Objects.hash(bucket, createTime, dataFlowPolicyId, dataFlowPolicyName, dataFlowTaskId, dataFlowTaskMode, dataFlowTaskType, deleteRule, disableCancel, endTime, evictRule, exportRule, fileSystemId, fileSystemName, fileSystemPath, importRule, queue, startTime, status, statusDetail, tls, updateTime);
   }
 
 
@@ -764,8 +714,6 @@ public class DataFlowTaskForDescribeDataFlowTasksOutput {
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    evictRule: ").append(toIndentedString(evictRule)).append("\n");
     sb.append("    exportRule: ").append(toIndentedString(exportRule)).append("\n");
-    sb.append("    fileDiffResult: ").append(toIndentedString(fileDiffResult)).append("\n");
-    sb.append("    fileDiffRule: ").append(toIndentedString(fileDiffRule)).append("\n");
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
     sb.append("    fileSystemName: ").append(toIndentedString(fileSystemName)).append("\n");
     sb.append("    fileSystemPath: ").append(toIndentedString(fileSystemPath)).append("\n");

@@ -30,35 +30,11 @@ import javax.validation.Valid;
 
 
 public class EntryListFileForCreateDataFlowTaskInput {
-  @SerializedName("DownloadUrl")
-  private String downloadUrl = null;
-
   @SerializedName("FileBucket")
   private String fileBucket = null;
 
   @SerializedName("FileKey")
   private String fileKey = null;
-
-  @SerializedName("FileName")
-  private String fileName = null;
-
-  public EntryListFileForCreateDataFlowTaskInput downloadUrl(String downloadUrl) {
-    this.downloadUrl = downloadUrl;
-    return this;
-  }
-
-   /**
-   * Get downloadUrl
-   * @return downloadUrl
-  **/
-  @Schema(description = "")
-  public String getDownloadUrl() {
-    return downloadUrl;
-  }
-
-  public void setDownloadUrl(String downloadUrl) {
-    this.downloadUrl = downloadUrl;
-  }
 
   public EntryListFileForCreateDataFlowTaskInput fileBucket(String fileBucket) {
     this.fileBucket = fileBucket;
@@ -96,24 +72,6 @@ public class EntryListFileForCreateDataFlowTaskInput {
     this.fileKey = fileKey;
   }
 
-  public EntryListFileForCreateDataFlowTaskInput fileName(String fileName) {
-    this.fileName = fileName;
-    return this;
-  }
-
-   /**
-   * Get fileName
-   * @return fileName
-  **/
-  @Schema(description = "")
-  public String getFileName() {
-    return fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -124,15 +82,13 @@ public class EntryListFileForCreateDataFlowTaskInput {
       return false;
     }
     EntryListFileForCreateDataFlowTaskInput entryListFileForCreateDataFlowTaskInput = (EntryListFileForCreateDataFlowTaskInput) o;
-    return Objects.equals(this.downloadUrl, entryListFileForCreateDataFlowTaskInput.downloadUrl) &&
-        Objects.equals(this.fileBucket, entryListFileForCreateDataFlowTaskInput.fileBucket) &&
-        Objects.equals(this.fileKey, entryListFileForCreateDataFlowTaskInput.fileKey) &&
-        Objects.equals(this.fileName, entryListFileForCreateDataFlowTaskInput.fileName);
+    return Objects.equals(this.fileBucket, entryListFileForCreateDataFlowTaskInput.fileBucket) &&
+        Objects.equals(this.fileKey, entryListFileForCreateDataFlowTaskInput.fileKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(downloadUrl, fileBucket, fileKey, fileName);
+    return Objects.hash(fileBucket, fileKey);
   }
 
 
@@ -141,10 +97,8 @@ public class EntryListFileForCreateDataFlowTaskInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EntryListFileForCreateDataFlowTaskInput {\n");
     
-    sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
     sb.append("    fileBucket: ").append(toIndentedString(fileBucket)).append("\n");
     sb.append("    fileKey: ").append(toIndentedString(fileKey)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

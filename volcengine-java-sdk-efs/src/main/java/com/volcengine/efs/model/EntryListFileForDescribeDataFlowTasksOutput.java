@@ -14,13 +14,6 @@ package com.volcengine.efs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,90 +23,6 @@ import javax.validation.Valid;
 
 
 public class EntryListFileForDescribeDataFlowTasksOutput {
-  @SerializedName("DownloadUrl")
-  private String downloadUrl = null;
-
-  @SerializedName("FileBucket")
-  private String fileBucket = null;
-
-  @SerializedName("FileKey")
-  private String fileKey = null;
-
-  @SerializedName("FileName")
-  private String fileName = null;
-
-  public EntryListFileForDescribeDataFlowTasksOutput downloadUrl(String downloadUrl) {
-    this.downloadUrl = downloadUrl;
-    return this;
-  }
-
-   /**
-   * Get downloadUrl
-   * @return downloadUrl
-  **/
-  @Schema(description = "")
-  public String getDownloadUrl() {
-    return downloadUrl;
-  }
-
-  public void setDownloadUrl(String downloadUrl) {
-    this.downloadUrl = downloadUrl;
-  }
-
-  public EntryListFileForDescribeDataFlowTasksOutput fileBucket(String fileBucket) {
-    this.fileBucket = fileBucket;
-    return this;
-  }
-
-   /**
-   * Get fileBucket
-   * @return fileBucket
-  **/
-  @Schema(description = "")
-  public String getFileBucket() {
-    return fileBucket;
-  }
-
-  public void setFileBucket(String fileBucket) {
-    this.fileBucket = fileBucket;
-  }
-
-  public EntryListFileForDescribeDataFlowTasksOutput fileKey(String fileKey) {
-    this.fileKey = fileKey;
-    return this;
-  }
-
-   /**
-   * Get fileKey
-   * @return fileKey
-  **/
-  @Schema(description = "")
-  public String getFileKey() {
-    return fileKey;
-  }
-
-  public void setFileKey(String fileKey) {
-    this.fileKey = fileKey;
-  }
-
-  public EntryListFileForDescribeDataFlowTasksOutput fileName(String fileName) {
-    this.fileName = fileName;
-    return this;
-  }
-
-   /**
-   * Get fileName
-   * @return fileName
-  **/
-  @Schema(description = "")
-  public String getFileName() {
-    return fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,16 +32,12 @@ public class EntryListFileForDescribeDataFlowTasksOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EntryListFileForDescribeDataFlowTasksOutput entryListFileForDescribeDataFlowTasksOutput = (EntryListFileForDescribeDataFlowTasksOutput) o;
-    return Objects.equals(this.downloadUrl, entryListFileForDescribeDataFlowTasksOutput.downloadUrl) &&
-        Objects.equals(this.fileBucket, entryListFileForDescribeDataFlowTasksOutput.fileBucket) &&
-        Objects.equals(this.fileKey, entryListFileForDescribeDataFlowTasksOutput.fileKey) &&
-        Objects.equals(this.fileName, entryListFileForDescribeDataFlowTasksOutput.fileName);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(downloadUrl, fileBucket, fileKey, fileName);
+    return Objects.hash();
   }
 
 
@@ -141,10 +46,6 @@ public class EntryListFileForDescribeDataFlowTasksOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EntryListFileForDescribeDataFlowTasksOutput {\n");
     
-    sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
-    sb.append("    fileBucket: ").append(toIndentedString(fileBucket)).append("\n");
-    sb.append("    fileKey: ").append(toIndentedString(fileKey)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
