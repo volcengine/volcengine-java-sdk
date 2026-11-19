@@ -47,6 +47,9 @@ public class VideoProjectSerialDubTaskCreateFromTranslationRequest {
   @SerializedName("dubVoiceMode")
   private Integer dubVoiceMode = null;
 
+  @SerializedName("enableLipSync")
+  private Boolean enableLipSync = null;
+
   @SerializedName("maxTargetSubtitleLines")
   private Integer maxTargetSubtitleLines = null;
 
@@ -141,6 +144,24 @@ public class VideoProjectSerialDubTaskCreateFromTranslationRequest {
 
   public void setDubVoiceMode(Integer dubVoiceMode) {
     this.dubVoiceMode = dubVoiceMode;
+  }
+
+  public VideoProjectSerialDubTaskCreateFromTranslationRequest enableLipSync(Boolean enableLipSync) {
+    this.enableLipSync = enableLipSync;
+    return this;
+  }
+
+   /**
+   * Get enableLipSync
+   * @return enableLipSync
+  **/
+  @Schema(description = "")
+  public Boolean isEnableLipSync() {
+    return enableLipSync;
+  }
+
+  public void setEnableLipSync(Boolean enableLipSync) {
+    this.enableLipSync = enableLipSync;
   }
 
   public VideoProjectSerialDubTaskCreateFromTranslationRequest maxTargetSubtitleLines(Integer maxTargetSubtitleLines) {
@@ -313,6 +334,7 @@ public class VideoProjectSerialDubTaskCreateFromTranslationRequest {
         Objects.equals(this.auditFailPolicy, videoProjectSerialDubTaskCreateFromTranslationRequest.auditFailPolicy) &&
         Objects.equals(this.bgmPolicy, videoProjectSerialDubTaskCreateFromTranslationRequest.bgmPolicy) &&
         Objects.equals(this.dubVoiceMode, videoProjectSerialDubTaskCreateFromTranslationRequest.dubVoiceMode) &&
+        Objects.equals(this.enableLipSync, videoProjectSerialDubTaskCreateFromTranslationRequest.enableLipSync) &&
         Objects.equals(this.maxTargetSubtitleLines, videoProjectSerialDubTaskCreateFromTranslationRequest.maxTargetSubtitleLines) &&
         Objects.equals(this.needVideoSpeed, videoProjectSerialDubTaskCreateFromTranslationRequest.needVideoSpeed) &&
         Objects.equals(this.projectId, videoProjectSerialDubTaskCreateFromTranslationRequest.projectId) &&
@@ -325,7 +347,7 @@ public class VideoProjectSerialDubTaskCreateFromTranslationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiRemoveType, auditFailPolicy, bgmPolicy, dubVoiceMode, maxTargetSubtitleLines, needVideoSpeed, projectId, sourceStyleMap, suppressionParams, targetStyleMap, taskIds, taskName);
+    return Objects.hash(aiRemoveType, auditFailPolicy, bgmPolicy, dubVoiceMode, enableLipSync, maxTargetSubtitleLines, needVideoSpeed, projectId, sourceStyleMap, suppressionParams, targetStyleMap, taskIds, taskName);
   }
 
 
@@ -338,6 +360,7 @@ public class VideoProjectSerialDubTaskCreateFromTranslationRequest {
     sb.append("    auditFailPolicy: ").append(toIndentedString(auditFailPolicy)).append("\n");
     sb.append("    bgmPolicy: ").append(toIndentedString(bgmPolicy)).append("\n");
     sb.append("    dubVoiceMode: ").append(toIndentedString(dubVoiceMode)).append("\n");
+    sb.append("    enableLipSync: ").append(toIndentedString(enableLipSync)).append("\n");
     sb.append("    maxTargetSubtitleLines: ").append(toIndentedString(maxTargetSubtitleLines)).append("\n");
     sb.append("    needVideoSpeed: ").append(toIndentedString(needVideoSpeed)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");

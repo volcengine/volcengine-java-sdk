@@ -30,6 +30,12 @@ import javax.validation.Valid;
 
 
 public class ModifyNatIpLimitRuleAttributesRequest {
+  @SerializedName("ConnectionLimit")
+  private String connectionLimit = null;
+
+  @SerializedName("CpsLimit")
+  private Integer cpsLimit = null;
+
   @SerializedName("InboundMbpsLimit")
   private Integer inboundMbpsLimit = null;
 
@@ -38,6 +44,42 @@ public class ModifyNatIpLimitRuleAttributesRequest {
 
   @SerializedName("OutboundMbpsLimit")
   private Integer outboundMbpsLimit = null;
+
+  public ModifyNatIpLimitRuleAttributesRequest connectionLimit(String connectionLimit) {
+    this.connectionLimit = connectionLimit;
+    return this;
+  }
+
+   /**
+   * Get connectionLimit
+   * @return connectionLimit
+  **/
+  @Schema(description = "")
+  public String getConnectionLimit() {
+    return connectionLimit;
+  }
+
+  public void setConnectionLimit(String connectionLimit) {
+    this.connectionLimit = connectionLimit;
+  }
+
+  public ModifyNatIpLimitRuleAttributesRequest cpsLimit(Integer cpsLimit) {
+    this.cpsLimit = cpsLimit;
+    return this;
+  }
+
+   /**
+   * Get cpsLimit
+   * @return cpsLimit
+  **/
+  @Schema(description = "")
+  public Integer getCpsLimit() {
+    return cpsLimit;
+  }
+
+  public void setCpsLimit(Integer cpsLimit) {
+    this.cpsLimit = cpsLimit;
+  }
 
   public ModifyNatIpLimitRuleAttributesRequest inboundMbpsLimit(Integer inboundMbpsLimit) {
     this.inboundMbpsLimit = inboundMbpsLimit;
@@ -104,14 +146,16 @@ public class ModifyNatIpLimitRuleAttributesRequest {
       return false;
     }
     ModifyNatIpLimitRuleAttributesRequest modifyNatIpLimitRuleAttributesRequest = (ModifyNatIpLimitRuleAttributesRequest) o;
-    return Objects.equals(this.inboundMbpsLimit, modifyNatIpLimitRuleAttributesRequest.inboundMbpsLimit) &&
+    return Objects.equals(this.connectionLimit, modifyNatIpLimitRuleAttributesRequest.connectionLimit) &&
+        Objects.equals(this.cpsLimit, modifyNatIpLimitRuleAttributesRequest.cpsLimit) &&
+        Objects.equals(this.inboundMbpsLimit, modifyNatIpLimitRuleAttributesRequest.inboundMbpsLimit) &&
         Objects.equals(this.limitRuleId, modifyNatIpLimitRuleAttributesRequest.limitRuleId) &&
         Objects.equals(this.outboundMbpsLimit, modifyNatIpLimitRuleAttributesRequest.outboundMbpsLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inboundMbpsLimit, limitRuleId, outboundMbpsLimit);
+    return Objects.hash(connectionLimit, cpsLimit, inboundMbpsLimit, limitRuleId, outboundMbpsLimit);
   }
 
 
@@ -120,6 +164,8 @@ public class ModifyNatIpLimitRuleAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyNatIpLimitRuleAttributesRequest {\n");
     
+    sb.append("    connectionLimit: ").append(toIndentedString(connectionLimit)).append("\n");
+    sb.append("    cpsLimit: ").append(toIndentedString(cpsLimit)).append("\n");
     sb.append("    inboundMbpsLimit: ").append(toIndentedString(inboundMbpsLimit)).append("\n");
     sb.append("    limitRuleId: ").append(toIndentedString(limitRuleId)).append("\n");
     sb.append("    outboundMbpsLimit: ").append(toIndentedString(outboundMbpsLimit)).append("\n");

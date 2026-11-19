@@ -60,7 +60,9 @@ public class LookupConditionForLookupEventsInput {
     @SerializedName("ResourceID")
     RESOURCEID("ResourceID"),
     @SerializedName("ErrorCode")
-    ERRORCODE("ErrorCode");
+    ERRORCODE("ErrorCode"),
+    @SerializedName("SourceIPAddress")
+    SOURCEIPADDRESS("SourceIPAddress");
 
     private String value;
 

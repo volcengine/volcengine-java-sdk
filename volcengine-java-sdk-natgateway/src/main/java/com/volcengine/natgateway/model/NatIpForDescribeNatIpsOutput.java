@@ -51,55 +51,8 @@ public class NatIpForDescribeNatIpsOutput {
   @SerializedName("Status")
   private String status = null;
 
-  /**
-   * Gets or Sets usingStatus
-   */
-  @JsonAdapter(UsingStatusEnum.Adapter.class)
-  public enum UsingStatusEnum {
-    @SerializedName("Idle")
-    IDLE("Idle"),
-    @SerializedName("UsedBySnat")
-    USEDBYSNAT("UsedBySnat"),
-    @SerializedName("UsedByDnat")
-    USEDBYDNAT("UsedByDnat"),
-    @SerializedName("UsedByNat")
-    USEDBYNAT("UsedByNat");
-
-    private String value;
-
-    UsingStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static UsingStatusEnum fromValue(String input) {
-      for (UsingStatusEnum b : UsingStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<UsingStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final UsingStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public UsingStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return UsingStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("UsingStatus")
-  private UsingStatusEnum usingStatus = null;
+  @SerializedName("UsingStatus")
+  private String usingStatus = null;
 
   public NatIpForDescribeNatIpsOutput isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
@@ -227,7 +180,7 @@ public class NatIpForDescribeNatIpsOutput {
     this.status = status;
   }
 
-  public NatIpForDescribeNatIpsOutput usingStatus(UsingStatusEnum usingStatus) {
+  public NatIpForDescribeNatIpsOutput usingStatus(String usingStatus) {
     this.usingStatus = usingStatus;
     return this;
   }
@@ -237,11 +190,11 @@ public class NatIpForDescribeNatIpsOutput {
    * @return usingStatus
   **/
   @Schema(description = "")
-  public UsingStatusEnum getUsingStatus() {
+  public String getUsingStatus() {
     return usingStatus;
   }
 
-  public void setUsingStatus(UsingStatusEnum usingStatus) {
+  public void setUsingStatus(String usingStatus) {
     this.usingStatus = usingStatus;
   }
 

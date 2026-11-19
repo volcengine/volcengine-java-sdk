@@ -230,8 +230,7 @@ public class CreateTrailRequest {
    * Get includeAllEventSources
    * @return includeAllEventSources
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Boolean isIncludeAllEventSources() {
     return includeAllEventSources;
   }
