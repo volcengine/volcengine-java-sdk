@@ -21,13 +21,7 @@ public class DeserializedResponseInterceptor implements ResponseInterceptor {
         boolean common = context.getResponseContext().isCommon();
         com.volcengine.ResponseDetails[] snapshot = new com.volcengine.ResponseDetails[1];
         context.getResponseContext().setResponseDetails(null);
-        Object data;
-        if (context.getApiClient().getClass() == com.volcengine.ApiClient.class) {
-            data = context.getApiClient().handleResponseWithDetails(response, returnType, snapshot, common);
-        } else {
-            // Retain existing subclass override dispatch.
-            data = context.getApiClient().handleResponse(response, returnType, common);
-        }
+        Object data = context.getApiClient().handleResponseWithDetails(response, returnType, snapshot, common);
         context.getResponseContext().setResponseDetails(snapshot[0]);
         context.getResponseContext().setData(data);
         return null;

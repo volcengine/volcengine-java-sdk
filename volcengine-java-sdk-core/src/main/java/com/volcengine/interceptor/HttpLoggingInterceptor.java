@@ -13,10 +13,11 @@ import com.squareup.okhttp.internal.http.HttpEngine;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
-import com.volcengine.ApiClient;
 import com.volcengine.observability.debugger.LogLevel;
 import okio.Buffer;
 import okio.BufferedSource;
+import okio.ForwardingSource;
+import okio.Okio;
 import static com.volcengine.utils.ConstantsUtil.NEW_LINE;
 import static com.volcengine.observability.debugger.SdkDebugLog.SDK_CORE_LOGGER;
 
@@ -40,7 +41,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
         long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
         // 打印响应的日志
         logResponseLog(response, tookMs);
-        return response;
+        return logConsumedBody(response);
     }
 
     private void logResponseLog(Response response, long tookMs) throws IOException {
@@ -56,7 +57,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
             ResponseBody responseBody = response.body();
             responseInfo.append(NEW_LINE + "<-- " + protocol(response.protocol()) + ' ' + response.code() + ' '
                     + response.message() + " (" + tookMs + "ms"
-                    +  ", " + responseBody.contentLength() + "-byte body"  + ')');
+                    +  ", " + diagnosticContentLength(responseBody) + "-byte body"  + ')');
 
             for (int i = 0, count = headers.size(); i < count; i++) {
                 responseInfo.append(NEW_LINE + headers.name(i) + ": " + headers.value(i));
@@ -67,22 +68,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
             } else if (bodyEncoded(response.headers())) {
                 responseInfo.append(NEW_LINE + "<-- END HTTP (encoded body omitted)");
             } else {
-                BufferedSource source = responseBody.source();
-                source.request(Long.MAX_VALUE); // Buffer the entire body.
-                Buffer buffer = source.buffer();
-
-                Charset charset = UTF8;
-                MediaType contentType = responseBody.contentType();
-                if (contentType != null) {
-                    charset = contentType.charset(UTF8);
-                }
-
-                if (responseBody.contentLength() != 0) {
-                    responseInfo.append(NEW_LINE + "ResponseBody: ");
-                    responseInfo.append(buffer.clone().readString(charset));
-                }
-
-                responseInfo.append(NEW_LINE + "<-- END HTTP (" + buffer.size() + "-byte body)");
+                responseInfo.append(NEW_LINE + "<-- Body logged when consumed");
             }
 
             if (logBody){
@@ -93,6 +79,83 @@ public final class HttpLoggingInterceptor implements Interceptor {
 
         }
 
+    }
+
+    /** Observe consumer reads without reading ahead or changing their failure. */
+    private Response logConsumedBody(Response response) {
+        final ResponseBody body = response.body();
+        if (body == null || !HttpEngine.hasBody(response) || bodyEncoded(response.headers())
+                || !SDK_CORE_LOGGER.isDebugEnabled()
+                || !SDK_CORE_LOGGER.matches(LogLevel.LOG_DEBUG_WITH_RESPONSE)
+                || !SDK_CORE_LOGGER.matches(LogLevel.LOG_DEBUG_WITH_RESPONSE_BODY)) return response;
+        return response.newBuilder().body(new ResponseBody() {
+            private BufferedSource source;
+            public MediaType contentType() { return body.contentType(); }
+            public long contentLength() throws IOException { return body.contentLength(); }
+            public BufferedSource source() throws IOException {
+                if (source != null) return source;
+                source = loggedSource(body);
+                return source;
+            }
+        }).build();
+    }
+
+    private BufferedSource loggedSource(final ResponseBody body) throws IOException {
+        return Okio.buffer(new ForwardingSource(body.source()) {
+            private final Buffer captured = new Buffer();
+            private boolean logged;
+
+            @Override
+            public long read(Buffer sink, long count) throws IOException {
+                long start = sink.size();
+                boolean complete = false;
+                boolean failed = false;
+                try {
+                    long read = super.read(sink, count);
+                    complete = read == -1;
+                    return read;
+                } catch (IOException e) {
+                    failed = true;
+                    throw e;
+                } finally {
+                    long added = sink.size() - start;
+                    if (!logged && added > 0) sink.copyTo(captured, start, added);
+                    if (complete || failed) logBody(complete);
+                }
+            }
+
+            @Override
+            public void close() throws IOException {
+                try {
+                    super.close();
+                } finally {
+                    logBody(false);
+                }
+            }
+
+            private void logBody(boolean complete) {
+                if (logged) return;
+                logged = true;
+                try {
+                    Charset charset = UTF8;
+                    MediaType type = body.contentType();
+                    if (type != null) charset = type.charset(UTF8);
+                    long size = captured.size();
+                    SDK_CORE_LOGGER.debugResponseBody(NEW_LINE + "ResponseBody: "
+                            + captured.readString(charset) + NEW_LINE + "<-- END HTTP ("
+                            + size + "-byte body" + (complete ? "" : ", incomplete") + ")");
+                } catch (RuntimeException ignored) {
+                    // Diagnostic decoding must never replace the consumer's read error.
+                } finally {
+                    captured.clear();
+                }
+            }
+        });
+    }
+
+    private long diagnosticContentLength(ResponseBody body) {
+        try { return body == null ? 0 : body.contentLength(); }
+        catch (IOException ignored) { return -1; }
     }
 
     private void logRequestLog(Chain chain) throws IOException {

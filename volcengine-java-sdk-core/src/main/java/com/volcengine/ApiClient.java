@@ -141,6 +141,7 @@ public class ApiClient extends BaseClient implements Cloneable {
     private EndpointResolver endpointResolver;
 
     private CredentialProvider credentialProvider;
+    private ThreadLocal<ResponseDetails[]> responseSnapshot = new ThreadLocal<>();
     private CredentialProvider boundCredentialProvider;
 
     private Integer maxIdleConns = 5;
@@ -1056,7 +1057,9 @@ public class ApiClient extends BaseClient implements Cloneable {
      */
     @SuppressWarnings("unchecked")
     public <T> T deserialize(Response response, Type returnType, boolean... isCommon) throws ApiException {
-        return deserializeCaptured(response, returnType, new ResponseDetails[1], isCommon);
+        ResponseDetails[] snapshot = responseSnapshot.get();
+        return deserializeCaptured(response, returnType,
+                snapshot == null ? new ResponseDetails[1] : snapshot, isCommon);
     }
 
     private <T> T deserializeCaptured(Response response, Type returnType, ResponseDetails[] snapshot,
@@ -1397,7 +1400,8 @@ public class ApiClient extends BaseClient implements Cloneable {
 
     private boolean requestShouldRetry(InterceptorContext context, ApiResponse apiResponse, int retryCount,
                                        ApiException lastException) throws ApiException {
-        if (autoRetry && retryer.shouldRetry(apiResponse, retryCount, lastException)) {
+        if (autoRetry && retryer.shouldRetry(apiResponse, retryCount, lastException,
+                context.getRequestContext().hasRefreshableCredentials())) {
             if (com.volcengine.retryer.DefaultRetryCondition.isExpiredCredentials(apiResponse, lastException)) {
                 CredentialProvider provider = context.getRequestContext().getCredentialProvider();
                 if (provider != null) provider.invalidate();
@@ -1423,20 +1427,44 @@ public class ApiClient extends BaseClient implements Cloneable {
                 if (apiResponse != null && apiResponse.getData() instanceof AbstractResponse) {
                     metadata = ((AbstractResponse) apiResponse.getData()).getResponseMetadata();
                 } else if (apiResponse != null && apiResponse.getData() instanceof Map) {
-                    Object value = ((Map<?, ?>) apiResponse.getData()).get("ResponseMetadata");
-                    if (value != null) {
-                        try {
-                            metadata = json.deserialize(json.serialize(value), ResponseMetadata.class);
-                        } catch (RuntimeException ignored) {
-                            // Diagnostic conversion must not replace the backoff failure.
-                        }
+                    try {
+                        Object value = ((Map<?, ?>) apiResponse.getData()).get("ResponseMetadata");
+                        if (value != null) metadata = json.deserialize(json.serialize(value), ResponseMetadata.class);
+                    } catch (RuntimeException ignored) {
+                        // Diagnostic conversion must not replace the backoff failure.
                     }
                 }
                 Map<String, List<String>> headers = apiResponse == null ? null : apiResponse.getHeaders();
+                // Work on a copy; customer response metadata remains unchanged.
+                if (metadata != null) {
+                    ResponseMetadata copy = new ResponseMetadata();
+                    copy.setRequestId(metadata.getRequestId());
+                    copy.setAction(metadata.getAction());
+                    copy.setVersion(metadata.getVersion());
+                    copy.setService(metadata.getService());
+                    copy.setRegion(metadata.getRegion());
+                    if (metadata.getError() != null) {
+                        com.volcengine.model.Error service = new com.volcengine.model.Error();
+                        service.setCode(metadata.getError().getCode());
+                        service.setMessage(metadata.getError().getMessage());
+                        copy.setError(service);
+                    }
+                    metadata = copy;
+                }
+                ResponseDetails details = apiResponse == null ? null : apiResponse.getResponseDetails();
+                Response original = context.getResponseContext().getOriginalResponse();
+                String body = details != null && details.isBodyCaptured()
+                        ? (original == null ? new String(details.getBody(), StandardCharsets.UTF_8)
+                        : diagnosticResponseBody(original, details.getBody())) : null;
+                if (body == null && apiResponse != null && apiResponse.getData() instanceof Map) {
+                    try { body = json.serialize(apiResponse.getData()); }
+                    catch (RuntimeException ignored) { /* Preserve the backoff cause. */ }
+                }
+                metadata = ErrorUtils.metadata(body, metadata, headers);
                 ApiException failure = new ApiException("Failed to getBackoffDelay or sleep", e,
                         apiResponse == null ? 0 : apiResponse.getStatusCode(),
                         headers, null, ensureResponseMetadata(metadata, headers));
-                if (apiResponse != null) failure.setResponseDetails(apiResponse.getResponseDetails());
+                if (details != null) failure.setResponseDetails(details.withRequestId(metadata.getRequestId()));
                 throw failure;
             }
             return true;
@@ -1566,12 +1594,27 @@ public class ApiClient extends BaseClient implements Cloneable {
      *                      fail to deserialize the response body
      */
     public <T> T handleResponse(Response response, Type returnType, boolean... isCommon) throws ApiException {
-        return handleResponseWithDetails(response, returnType, new ResponseDetails[1], isCommon);
+        ResponseDetails[] snapshot = responseSnapshot.get();
+        return handleResponseCaptured(response, returnType,
+                snapshot == null ? new ResponseDetails[1] : snapshot, isCommon);
     }
 
     /** Internal snapshot carrier; scoped to this response, never shared by attempts. */
     public <T> T handleResponseWithDetails(Response response, Type returnType, ResponseDetails[] snapshot,
                                 boolean... isCommon) throws ApiException {
+        ResponseDetails[] previous = responseSnapshot.get();
+        snapshot[0] = null;
+        responseSnapshot.set(snapshot);
+        try {
+            return handleResponse(response, returnType, isCommon);
+        } finally {
+            if (previous == null) responseSnapshot.remove();
+            else responseSnapshot.set(previous);
+        }
+    }
+
+    private <T> T handleResponseCaptured(Response response, Type returnType, ResponseDetails[] snapshot,
+                                        boolean... isCommon) throws ApiException {
         snapshot[0] = ResponseDetails.capture(response, null, false, false);
         boolean customerDeserializer = false;
         try {
@@ -1587,10 +1630,12 @@ public class ApiClient extends BaseClient implements Cloneable {
                     }
                     return null;
                 }
-                if (getClass() == ApiClient.class) {
-                    return deserializeCaptured(response, returnType, snapshot, isCommon);
+                try {
+                    customerDeserializer = getClass().getMethod("deserialize",
+                            Response.class, Type.class, boolean[].class).getDeclaringClass() != ApiClient.class;
+                } catch (NoSuchMethodException e) {
+                    throw new AssertionError(e);
                 }
-                customerDeserializer = true;
                 return deserialize(response, returnType, isCommon);
             }
             String respBody = readResponseBody(response, snapshot);
@@ -2267,6 +2312,7 @@ public class ApiClient extends BaseClient implements Cloneable {
     public synchronized ApiClient copyForCredentialProvider() {
         try {
             ApiClient copy = (ApiClient) super.clone();
+            copy.responseSnapshot = new ThreadLocal<>();
             copy.httpClient = httpClient.clone();
             copy.retryer = retryer.copy();
             copy.defaultHeaderMap = new HashMap<String, String>(defaultHeaderMap);

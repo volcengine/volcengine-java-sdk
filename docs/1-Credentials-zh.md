@@ -470,6 +470,8 @@ STS 的 HTTP 错误、HTTP 200 业务错误、空 / null / 非标准响应、JSO
 
 STS 读取会将实收字节数与已知且未经正文变换的长度比较。读取不完整分类为 `ReadError`，保留实收正文并标记 `body_complete=false`，禁止发布凭证。静默提前 EOF 的底层原因为 `EOFException`；传输自身报错时保留原始读取原因。直连与代理表单请求均执行此校验；未知长度或分块响应保留流完成语义。
 
+四种凭证过期码仅在本次签名使用可刷新的内置 STS 缓存时默认触发业务调用重试。静态 / 环境变量 / CLI AK 凭证以及 STS 交换不因源凭证过期码本身重复发送，独立瞬时错误仍可重试。OIDC/SAML 表单使用缓冲请求输出，使完整的 401/403/407 错误正文可读取，同时继续校验响应长度以识别真实截断。
+
 ### 默认凭证 Provider
 
 当 `credentials` 和 `credentialProvider` 均未设置时，SDK 自动使用 `DefaultCredentialProvider`，无需手动配置。

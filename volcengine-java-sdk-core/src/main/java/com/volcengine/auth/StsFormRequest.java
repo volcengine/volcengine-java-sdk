@@ -137,7 +137,6 @@ class StsFormRequest {
             connection.setDoOutput(true);
 
             byte[] bodyBytes = formBody.getBytes(StandardCharsets.UTF_8);
-            connection.setFixedLengthStreamingMode(bodyBytes.length);
             OutputStream outputStream = null;
             try {
                 outputStream = connection.getOutputStream();

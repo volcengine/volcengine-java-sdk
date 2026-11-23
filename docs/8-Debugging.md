@@ -6,6 +6,8 @@
 
 To help with troubleshooting and debugging when handling requests, the SDK supports logging with multiple levels. Configure your logging settings based on your needs to get detailed request/response information and improve observability.
 
+Response logging does not read the body ahead of the SDK or caller. With Debug enabled, body logs observe actual consumer reads and mark incomplete bodies; charset errors in logging do not replace the original read failure. With Debug disabled, the default log mask still leaves status, headers, delivered bytes, and read-completeness diagnostics available.
+
 ### Print saved errors without Debug
 
 Use `com.volcengine.ErrorUtils.PrintError(System.err, error)` from a catch block or `ApiCallback.onFailure`, or pass a `StringWriter` and write its JSON to your logger. Debug and SLF4J level configuration are not required. The JSON includes service code/message, HTTP status, RequestId, headers, original body bytes as UTF-8 or Base64, read-completeness flags, and cause/suppressed trees. Printing flushes but does not close the output; output failures raise `IOException`. See [Error Handling](7-ErrorHandling.md) for examples, optional customer snapshots, and capture boundaries.

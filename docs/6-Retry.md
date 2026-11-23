@@ -13,7 +13,7 @@
 > - `backoffStrategy`: `com.volcengine.retryer.ExponentialWithRandomJitterBackoffStrategy`
 > - `retryErrorCode`: empty custom set (built-in codes still apply)
 
-The SDK retries recognized network, throttling, timeout, and expired-credential failures. Ordinary parameter or response-format errors are not retried without another explicit retry condition.
+The SDK retries recognized network, throttling, and timeout failures. Expired credentials trigger a default retry only when the signing credentials came from a refreshable SDK-owned STS cache. Ordinary parameter or response-format errors are not retried without another explicit retry condition.
 
 ### Retry Code Configuration
 
@@ -50,9 +50,9 @@ Retry conditions define which situations should trigger a retry. The SDK include
 
 The cause chain is checked through wrappers and nested `ApiException` objects, with identity cycle protection and a 256-node limit. Timeout, DNS, connection, and socket causes are recognized. `ReadError` and `SerializationError` require a recognized cause or an independently retryable HTTP status; a generic `IOException` or JSON-format error alone does not retry. A `RequestError` with a cause also requires a recognized cause. Suppressed errors are printed for diagnostics and do not trigger retry.
 
-Built-in codes are `RequestError`, `RequestTimeout`, `ResponseTimeout`, `RequestTimeoutException`, `ProvisionedThroughputExceededException`, `Throttling`, `ThrottlingException`, `RequestLimitExceeded`, `RequestThrottled`, `RequestThrottledException`, `TooManyRequestsException`, `PriorRequestNotComplete`, `TransactionInProgressException`, `ExpiredToken`, `ExpiredTokenException`, `RequestExpired`, and `InvalidAccessKey`. Custom `retryErrorCodes` extend these defaults. String root-level common `errorcode` also participates in matching.
+Built-in transient codes are `RequestError`, `RequestTimeout`, `ResponseTimeout`, `RequestTimeoutException`, `ProvisionedThroughputExceededException`, `Throttling`, `ThrottlingException`, `RequestLimitExceeded`, `RequestThrottled`, `RequestThrottledException`, `TooManyRequestsException`, `PriorRequestNotComplete`, and `TransactionInProgressException`. Custom `retryErrorCodes` extend these defaults. String root-level common `errorcode` also participates in matching. If an exception has no nonempty service code, the default condition reads a string code from its saved response body without changing the exception or rereading the response stream.
 
-Before an allowed retry for an expired-credential code, the SDK-owned STS cache used to sign that request is invalidated, even if the client is rebound while the request is in flight. This covers direct AssumeRole/OIDC/SAML providers, default-chain OIDC, and the built-in CLI provider's STS delegate, directly or through the default chain. CLI refresh rereads its config and rebuilds the delegate. The next signing attempt refreshes credentials; failed refreshes retain the previous cache and keep the refresh requirement. The public `Provider` interface, custom providers, and provider subclasses retain their existing refresh behavior. Synchronous and asynchronous calls follow the same rule. OIDC/SAML form requests retain their existing all-5xx/429 policy and also recognize business codes and nested network causes.
+`ExpiredToken`, `ExpiredTokenException`, `RequestExpired`, and `InvalidAccessKey` trigger a default retry only when that attempt was signed with a refreshable SDK-owned STS cache. The cache actually used for signing is invalidated even if the client is rebound while the request is in flight. This covers direct AssumeRole/OIDC/SAML providers, default-chain OIDC, and the built-in CLI provider's STS delegate, directly or through the default chain. CLI refresh rereads its config and rebuilds the delegate. The next signing attempt refreshes credentials; failed refreshes retain the previous cache and keep the refresh requirement. Static credentials, environment AKs, CLI AK mode, custom providers, and provider subclasses do not retry solely because of these codes. STS exchanges also do not resend an expired source AK, OIDC token, or SAML assertion solely because of an expiry code. Independent network, throttling, 429/5xx rules still apply; OIDC/SAML retain their all-5xx policy. Explicit custom codes and custom retry strategies retain their dispatch. No new methods are required on `Provider`. Synchronous and asynchronous calls follow the same rule.
 
 The default retry condition `DefaultRetryCondition` includes the following:
 
@@ -68,7 +68,7 @@ If backoff calculation or waiting fails, retries stop and `getCause()` exposes t
 
 Users can customize retry conditions based on their business needs.
 
-The base `RetryCondition` initializes an empty mutable `retryErrorCodes` set. A subclass only needs to implement `shouldRetry` to be installed through `setRetryCondition`; previously configured error codes are added to the condition.
+The base `RetryCondition` initializes an empty mutable `retryErrorCodes` set. A subclass only needs to implement `shouldRetry` to be installed through `setRetryCondition`; previously configured error codes are added to the condition. Merging a null or empty source set does nothing; adding explicit codes initializes a null target set. Existing set matching and copying semantics remain unchanged.
 
 **Code Example:**
 
@@ -166,6 +166,10 @@ Users can customize their own backoff strategy based on their needs.
         }
     }
     ```
+
+### Write requests and replay
+
+A retry can repeat an operation already accepted by the server. HTTP GET alone does not prove an action is idempotent. For non-idempotent actions, use a supported service idempotency token or disable both SDK retries (`setAutoRetry(false)`) and transport retries (`getHttpClient().setRetryOnConnectionFailure(false)`), then confirm the result through a service query when it is uncertain.
 
 ---
 

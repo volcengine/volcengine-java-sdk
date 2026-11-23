@@ -475,6 +475,8 @@ STS business errors (including HTTP 200), empty/null/nonstandard responses, JSON
 
 STS reads compare received bytes with a known, untransformed body length. An incomplete read raises `ReadError`, preserves delivered bytes with `body_complete=false`, and prevents publishing credentials. A silent early EOF produces an `EOFException`; transport read failures retain their original cause. This applies to direct and proxied form requests; unknown-length or chunked responses retain stream completion semantics.
 
+The four expiry codes trigger a default business-call retry only for the refreshable built-in STS cache used in that signing attempt. Static/environment/CLI AK credentials and STS exchanges do not retry solely for an expired source credential; independent transient failures remain retryable. OIDC/SAML form requests use buffered request output so complete 401/403/407 error bodies can be read, while response-length validation still detects real truncation.
+
 ### Default Credential Provider
 
 When `credentials` and `credentialProvider` are both unset, the SDK automatically uses `DefaultCredentialProvider` — no manual configuration is needed.

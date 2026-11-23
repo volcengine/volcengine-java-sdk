@@ -51,7 +51,9 @@ JSON 包含 `type`、`error`、可选 `code` / `message`、`response` 和可选 
 - RequestId 优先使用响应正文中可解析的非空 `ResponseMetadata.RequestId`；后续处理保留已有元数据，再依次检查 `X-Top-Requestid`、`X-Top-Request-Id`、`X-Tt-Logid`。响应头名称忽略大小写，各候选头取第一个值；全部缺失时不生成替代 ID。
 - 正文成功读取时，`getResponseBody()` 保留原文，TOP 的 Result / 模型解析失败也保留完整 envelope。读取失败时只保存已经取得的片段；未取得任何字节时正文为 null，无法恢复未读内容。诊断片段按响应 charset 解码，缺失、非法或不受支持时使用 UTF-8，并保留原始读取异常作为 cause。完整的非空文本遇到非法或不受支持的 charset 时返回 `ApiException`，cause 为字符集异常，诊断正文使用 UTF-8。成功的空正文和字节数组读取无需解析 charset。
 - `getMessage()` 与服务端 `Error.Message`、原始正文相互独立。`getCause()` 保存读取、解析或反射失败的底层异常；正常的业务错误或缺少元数据的合法 JSON 不会凭空产生解析 cause。
-- `toString()` 的格式为 `com.volcengine.ApiException: status=<HTTP状态码>[, requestId=<请求ID>][, message=<message>][, body=<原始正文或已读片段>]`。cause 与 suppressed 异常需要单独读取或打印完整堆栈。
+- `toString()` 保持原有运行时类名，正文非 null 时才追加 `: <响应正文>`，不额外添加 HTTP 状态、RequestId 或 message。完整诊断从访问器或 `ErrorUtils.PrintError` 获取；显式启用的简化错误文字可从 `getMessage()` 读取。
+
+HTML 或其他格式不合法的非标准错误正文解析失败时分类为 `SerializationError`，504 等独立 HTTP 状态规则仍可触发重试。诊断元数据提取允许忽略无关字段的类型错误，TOP 模型解析仍严格校验。继承响应 / 反序列化方法以及重写后调用 `super` 均保留快照；客户重写保持原有分派和异常对象身份。
 
 通用调用 `isCommon=true` 保留原有响应形状，不要求 TOP 元数据；模型解析失败也封装为 `ApiException`，`String` 类型解析 JSON 失败时仍返回原文。异步调用沿用 `buildCall` 的 common 标记。`returnType=null`、HTTP 204、2xx 空正文、TOP `Result:null` 和通用 JSON `null` 保留原有成功返回 null 的行为。
 

@@ -13,7 +13,7 @@
 > - `backoffStrategy` - `com.volcengine.retryer.ExponentialWithRandomJitterBackoffStrategy`
 > - `retryErrorCode` - 自定义集合默认为空，内置错误码仍生效
 
-SDK 会重试明确的网络、限流、超时和凭证过期错误。参数错误、资源不存在和普通响应格式错误没有其他明确的可重试条件时不会重试。
+SDK 会重试明确的网络、限流和超时错误。凭证过期仅在本次签名使用可刷新的 SDK 自有 STS 缓存时默认触发重试。参数错误、资源不存在和普通响应格式错误没有其他明确的可重试条件时不会重试。
 
 ### 重试代码配置
 
@@ -56,9 +56,9 @@ public class SampleCode {
 
 cause 链会穿过包装异常和嵌套 `ApiException`，按对象身份防循环，最多检查 256 个节点，识别超时、DNS、连接和 socket 原因。`ReadError` / `SerializationError` 只有明确可重试的 cause 或独立 HTTP 状态规则才重试；普通 `IOException` 或 JSON 格式错误本身不触发重试。带 cause 的 `RequestError` 也要求明确原因。suppressed 仅用于打印诊断，不触发重试。
 
-内置码为 `RequestError`、`RequestTimeout`、`ResponseTimeout`、`RequestTimeoutException`、`ProvisionedThroughputExceededException`、`Throttling`、`ThrottlingException`、`RequestLimitExceeded`、`RequestThrottled`、`RequestThrottledException`、`TooManyRequestsException`、`PriorRequestNotComplete`、`TransactionInProgressException`、`ExpiredToken`、`ExpiredTokenException`、`RequestExpired`、`InvalidAccessKey`。客户 `retryErrorCodes` 在此基础上扩展，通用响应根层的字符串 `errorcode` 也参与匹配。
+内置瞬时错误码为 `RequestError`、`RequestTimeout`、`ResponseTimeout`、`RequestTimeoutException`、`ProvisionedThroughputExceededException`、`Throttling`、`ThrottlingException`、`RequestLimitExceeded`、`RequestThrottled`、`RequestThrottledException`、`TooManyRequestsException`、`PriorRequestNotComplete`、`TransactionInProgressException`。客户 `retryErrorCodes` 在此基础上扩展，通用响应根层的字符串 `errorcode` 也参与匹配。异常没有非空业务码时，默认条件从已保存的正文中宽容读取字符串错误码，不改写异常，也不重读响应流。
 
-凭证过期码满足重试条件后，使本次请求实际签名使用的 SDK 自有 STS 缓存失效，即使请求期间客户端已重新绑定 provider，也刷新原签名缓存。覆盖直接 AssumeRole/OIDC/SAML、默认链 OIDC，以及直接或默认链中的内置 CLI provider 的 STS 委托。CLI 刷新会重新读取配置并重建委托；下次签名取得新凭证，刷新失败保留旧缓存并继续要求刷新。公共 `Provider` 接口、客户 provider 和 provider 子类保持既有刷新约定，同步与异步调用执行相同规则。OIDC/SAML 表单请求保留既有全部 5xx/429 规则，并补充业务码与嵌套网络原因识别。
+`ExpiredToken`、`ExpiredTokenException`、`RequestExpired`、`InvalidAccessKey` 仅在本次签名使用可刷新的 SDK 自有 STS 缓存时默认触发重试，并使实际签名缓存失效；请求期间客户端重新绑定 provider 也不会刷新错误的缓存。覆盖直接 AssumeRole/OIDC/SAML、默认链 OIDC，以及直接或默认链中的内置 CLI provider 的 STS 委托。CLI 刷新会重新读取配置并重建委托；下次签名取得新凭证，刷新失败保留旧缓存并继续要求刷新。静态凭证、环境变量 AK、CLI AK 模式、客户 provider 和 provider 子类不会仅因这四个码默认重试。STS 交换也不会仅因这些码重复发送已过期的源 AK、OIDC token 或 SAML 断言。独立的网络、限流、429/5xx 规则仍生效，OIDC/SAML 保留全部 5xx 规则。客户显式配置的错误码和自定义重试策略保持原有分派，公共 `Provider` 接口无需增加方法。同步与异步执行相同规则。
 
 默认重试条件 `DefaultRetryCondition`，其中包含以下重试条件：
 
@@ -74,7 +74,7 @@ HTTP `429`、`500`、`502`、`503`、`504` 会按默认条件重试，包括 HTM
 
 用户可以根据自己的业务需求，自定义重试条件。
 
-基类 `RetryCondition` 默认初始化一个可修改的空 `retryErrorCodes` 集合。子类只需实现 `shouldRetry` 即可通过 `setRetryCondition` 安装；此前配置的错误码会加入该条件。
+基类 `RetryCondition` 默认初始化一个可修改的空 `retryErrorCodes` 集合。子类只需实现 `shouldRetry` 即可通过 `setRetryCondition` 安装；此前配置的错误码会加入该条件。合并 null 或空来源集合时不操作，显式添加错误码时初始化为 null 的目标集合，已有集合的匹配与复制语义保持不变。
 
 **代码示例：**
 
@@ -172,6 +172,10 @@ HTTP `429`、`500`、`502`、`503`、`504` 会按默认条件重试，包括 HTM
         }
     }
     ```
+
+### 写请求与重放
+
+重试可能重复执行服务端已经接受的操作，HTTP GET 本身不能证明业务动作幂等。非幂等动作应使用接口支持的幂等 token，或同时关闭 SDK 重试（`setAutoRetry(false)`）与传输重发（`getHttpClient().setRetryOnConnectionFailure(false)`），结果不确定时再通过业务查询确认。
 
 ---
 

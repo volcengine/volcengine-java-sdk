@@ -2,6 +2,7 @@ package com.volcengine.retryer;
 
 import com.volcengine.ApiException;
 import com.volcengine.ApiResponse;
+import com.volcengine.ErrorUtils;
 import com.volcengine.model.AbstractResponse;
 import com.volcengine.model.ResponseMetadata;
 
@@ -27,8 +28,7 @@ public class DefaultRetryCondition extends RetryCondition{
             "RequestError", "RequestTimeout", "ResponseTimeout", "RequestTimeoutException",
             "ProvisionedThroughputExceededException", "Throttling", "ThrottlingException",
             "RequestLimitExceeded", "RequestThrottled", "RequestThrottledException",
-            "TooManyRequestsException", "PriorRequestNotComplete", "TransactionInProgressException",
-            "ExpiredToken", "ExpiredTokenException", "RequestExpired", "InvalidAccessKey")));
+            "TooManyRequestsException", "PriorRequestNotComplete", "TransactionInProgressException")));
     private static final Set<String> EXPIRED_CODES = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
             "ExpiredToken", "ExpiredTokenException", "RequestExpired", "InvalidAccessKey")));
 
@@ -36,8 +36,7 @@ public class DefaultRetryCondition extends RetryCondition{
         Set<Throwable> seen = Collections.newSetFromMap(new IdentityHashMap<Throwable, Boolean>());
         for (int count = 0; error != null && count < 256 && seen.add(error); count++) {
             if (error instanceof ApiException) {
-                ResponseMetadata meta = ((ApiException) error).getResponseMetadata();
-                if (meta != null && meta.getError() != null && EXPIRED_CODES.contains(meta.getError().getCode())) return true;
+                if (EXPIRED_CODES.contains(exceptionCode((ApiException) error))) return true;
             }
             error = error.getCause();
         }
@@ -72,7 +71,11 @@ public class DefaultRetryCondition extends RetryCondition{
 
     @Override
     public boolean shouldRetry(ApiResponse response, ApiException apiException) {
+        return shouldRetry(response, apiException, false);
+    }
 
+    /** SDK default path: expiry alone is retryable only with a refreshable signing cache. */
+    public boolean shouldRetry(ApiResponse response, ApiException apiException, boolean refreshableCredentials) {
         int statusCode = -1;
         String errorCode = null;
 
@@ -93,12 +96,12 @@ public class DefaultRetryCondition extends RetryCondition{
             if (current instanceof ApiException) {
                 ApiException failure = (ApiException) current;
                 statusCode = failure.getCode();
-                errorCode = getErrorCode(failure.getResponseMetadata());
+                errorCode = exceptionCode(failure);
                 if (RETRY_STATUS_CODES.contains(statusCode)) return true;
                 // RequestError needs an explicitly retryable cause when present.
                 if (errorCode != null && (!"RequestError".equals(errorCode) || failure.getCause() == null)
                         && !"ReadError".equals(errorCode) && !"SerializationError".equals(errorCode)
-                        && (DEFAULT_CODES.contains(errorCode) || (retryErrorCodes != null && retryErrorCodes.contains(errorCode)))) return true;
+                        && retryCode(errorCode, refreshableCredentials)) return true;
             }
         }
 
@@ -125,7 +128,7 @@ public class DefaultRetryCondition extends RetryCondition{
         }
 
         if (response != null && responseCode(response) != null) errorCode = responseCode(response);
-        if (response != null && errorCode != null && (DEFAULT_CODES.contains(errorCode) || (retryErrorCodes != null && retryErrorCodes.contains(errorCode)))) {
+        if (response != null && errorCode != null && retryCode(errorCode, refreshableCredentials)) {
             SDK_CORE_LOGGER.debugRetry("Retry triggered by error code: {}", errorCode);
             return true;
         }
@@ -133,6 +136,21 @@ public class DefaultRetryCondition extends RetryCondition{
         SDK_CORE_LOGGER.debugRetry("No retry condition met. StatusCode: {}, ErrorCode: {}", statusCode, errorCode);
 
         return false;
+    }
+
+    private boolean retryCode(String code, boolean refreshableCredentials) {
+        return DEFAULT_CODES.contains(code)
+                || (refreshableCredentials && EXPIRED_CODES.contains(code))
+                || (retryErrorCodes != null && retryErrorCodes.contains(code));
+    }
+
+    private static String exceptionCode(ApiException error) {
+        ResponseMetadata metadata = error.getResponseMetadata();
+        String code = metadata == null || metadata.getError() == null ? null : metadata.getError().getCode();
+        if (code != null && !code.isEmpty()) return code;
+        // Legacy constructors retain their identity and metadata; only inspect saved text.
+        metadata = ErrorUtils.metadata(error.getResponseBody(), null, null);
+        return metadata.getError() == null ? null : metadata.getError().getCode();
     }
 
     private <T> T getErrorCodeFromMap(Map<String, Object> map, Class<T> responseType, String ... keys) {

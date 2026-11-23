@@ -42,6 +42,16 @@ public class CredentialProvider {
                     && ((DefaultCredentialProvider) provider).usesStsCredentials()));
     }
 
+    /** Whether the currently selected built-in credential source supports forced refresh. */
+    public boolean canRefreshCredentials() {
+        readWriteLock.readLock().lock();
+        try {
+            return getClass() == CredentialProvider.class && usesStsCredentials(provider);
+        } finally {
+            readWriteLock.readLock().unlock();
+        }
+    }
+
     /** Mark only built-in STS caches for refresh after a service expiry error. */
     public void invalidate() {
         readWriteLock.writeLock().lock();

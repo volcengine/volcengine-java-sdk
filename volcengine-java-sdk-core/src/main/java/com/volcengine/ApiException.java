@@ -124,19 +124,7 @@ import java.util.Map;
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(getClass().getName());
-        sb.append(": status=").append(code);
-        String requestId = responseMetadata != null ? responseMetadata.getRequestId() : null;
-        if (requestId != null && !requestId.isEmpty()) {
-            sb.append(", requestId=").append(requestId);
-        }
-        String message = getMessage();
-        if (message != null && !message.isEmpty()) {
-            sb.append(", message=").append(message);
-        }
-        if (responseBody != null) {
-            sb.append(", body=").append(responseBody);
-        }
-        return sb.toString();
+        String name = getClass().getName();
+        return responseBody == null ? name : name + ": " + responseBody;
     }
 }
