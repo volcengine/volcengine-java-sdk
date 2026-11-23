@@ -59,6 +59,12 @@ HTML 或其他格式不合法的非标准错误正文解析失败时分类为 `S
 
 ### 代码示例
 
+快照作用域同时记录线程与 `Response` 对象。客户 JSON 反序列化器可在同一 client 内调用 `handleResponse` 或 `deserialize` 处理另一响应，不覆盖外层的状态、正文与 RequestId。同一响应共享快照，嵌套处理在 `finally` 中恢复外层作用域，失败路径也会恢复。
+
+客户反序列化器或下载覆写方法若向外抛出另一响应的异常，该异常保留原有诊断信息，外层响应不会替换它。
+
+通过 `ErrorUtils.PrintError` 查看已保存的 HTTP 状态码、RequestId 和正文。`ApiException.toString()` 保留原有格式，不用于输出结构化诊断。
+
 以下辅助类可在同步 `catch (ApiException e)` 或异步 `onFailure` 中调用。示例对可选字段作 null 检查。
 
 ```java

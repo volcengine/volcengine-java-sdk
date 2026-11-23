@@ -10,6 +10,8 @@
 
 ### 无需 Debug，主动打印已保存错误
 
+响应正文日志包装保留原 `ResponseBody.close()` 的资源清理，包括客户资源和关闭异常。未读或部分读取时关闭也会释放原正文，不额外预读，重复关闭包装不会重复清理。
+
 在 catch 或 `ApiCallback.onFailure` 中调用 `com.volcengine.ErrorUtils.PrintError(System.err, error)`，或传入 `StringWriter` 后将 JSON 写入日志。无需开启 Debug 或调整 SLF4J 级别；JSON 包含服务错误码 / 描述、HTTP 状态、RequestId、响应头、UTF-8 或 Base64 原始正文、读取完整性以及 cause / suppressed 原因树。打印时刷新但不关闭输出，写入失败抛出 `IOException`。示例、客户可选快照和采集边界见[异常处理](7-ErrorHandling-zh.md)。
 
 STS 正文不完整时，先检查 `ReadError`、底层读取原因与 `body_complete=false`，再判断已保存片段的 JSON 内容；包装码兜底和原因遍历边界见异常处理。

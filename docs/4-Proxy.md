@@ -60,7 +60,12 @@ The `setHttpProxy` / `setHttpsProxy` above apply to the `ApiClient` used for **b
 
 > ⚠️ **Notes**
 >
-> 1. All three parameters are optional. Without an explicit provider or client proxy, OIDC/SAML retain URLConnection proxy selection, including JVM `http.proxyHost` / `http.proxyPort` and `https.proxyHost` / `https.proxyPort` system properties. They do not parse `HTTP_PROXY` / `HTTPS_PROXY` or their lowercase variants. AssumeRole retains its original ApiClient proxy selection, including supported proxy environment variables. Environment variables are not copied into provider options.
+> 1. All three parameters are optional. Without an explicit provider or client proxy, OIDC/SAML use the JVM default `ProxySelector`, including JVM `http.proxyHost` / `http.proxyPort` and `https.proxyHost` / `https.proxyPort` system properties. They do not parse `HTTP_PROXY` / `HTTPS_PROXY` or their lowercase variants. AssumeRole retains its original ApiClient proxy selection, including supported proxy environment variables. Environment variables are not copied into provider options.
+> HTTP STS requests use OkHttp absolute-form proxy requests; default ports such as `:80` are normalized away without changing the destination. Proxy Basic authorization remains on the HTTP proxy request; HTTPS uses CONNECT without forwarding that header to the origin.
+>
+> For HTTP STS, when no proxy URL credentials are supplied, a Basic 407 from the actual HTTP proxy can use the JVM `Authenticator`. A Basic 401 from the STS origin can also use it on the JVM-routed transport. Proxy credentials are sent only on requests through the proxy that challenged for them.
+>
+> For OIDC/SAML over HTTPS without an explicit proxy, TLS negotiation uses the protocols and cipher suites enabled by the SSL socket factory. The JVM properties `https.protocols` and `https.cipherSuites`, when set, narrow those choices. This does not disable certificate or hostname checks.
 > 2. `InsecureSkipVerify` disables certificate verification and exposes you to MITM risk. Never enable it in production.
 > 3. When both `CAFile` and `InsecureSkipVerify` are set, `InsecureSkipVerify` takes precedence (verification is skipped entirely).
 

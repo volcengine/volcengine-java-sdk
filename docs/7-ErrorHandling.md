@@ -59,6 +59,12 @@ Common calls (`isCommon=true`) retain their existing response shape without requ
 
 ### Code Example
 
+Snapshot scopes track both the thread and the `Response` object. A custom JSON deserializer can call the same client's `handleResponse` or `deserialize` for another response without overwriting the outer status, body or RequestId. Calls handling the same response share its snapshot; nested calls restore the outer scope in `finally`, including failures.
+
+When a custom deserializer or download override propagates another response's exception, its original diagnostics stay with that exception. The outer response does not replace them.
+
+Use `ErrorUtils.PrintError` to inspect the saved HTTP status, RequestId, and body. The existing `ApiException.toString()` format is unchanged; it is not the structured diagnostics API.
+
 Call this helper from a synchronous `catch (ApiException e)` or asynchronous `onFailure`. Optional fields are checked for null.
 
 ```java

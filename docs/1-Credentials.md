@@ -179,7 +179,8 @@ public class SampleCode {
 The following proxy/TLS rules apply to `StsAssumeRoleProvider`, `OidcCredentialProvider`, and `SamlCredentialProvider`:
 
 - `proxyUrl` supports only HTTP forward proxies: `http://[user:password@]host:port`, with an explicit port in `1..65535`. HTTPS STS can use CONNECT through an HTTP proxy; TLS-to-proxy (`https://` proxy URLs) and SOCKS are unsupported.
-- An explicit provider proxy takes precedence over the bound client's explicit `httpProxy` / `httpsProxy`, selected by the **STS URL** scheme, not the business API scheme. Without either, OIDC/SAML retain URLConnection proxy selection, including JVM `http.proxyHost` / `http.proxyPort` and `https.proxyHost` / `https.proxyPort` system properties. They do not parse `HTTP_PROXY` / `HTTPS_PROXY` or their lowercase variants. AssumeRole retains its original ApiClient proxy selection, including supported proxy environment variables.
+- An explicit provider proxy takes precedence over the bound client's explicit `httpProxy` / `httpsProxy`, selected by the **STS URL** scheme, not the business API scheme. Without either, OIDC/SAML use the JVM default `ProxySelector`, including JVM `http.proxyHost` / `http.proxyPort` and `https.proxyHost` / `https.proxyPort` system properties. They do not parse `HTTP_PROXY` / `HTTPS_PROXY` or their lowercase variants. AssumeRole retains its original ApiClient proxy selection, including supported proxy environment variables.
+- OIDC/SAML form POSTs use OkHttp with connection retries disabled. `maxRetries=0` sends one attempt if the server closes after receiving the form without responding; `n` permits at most `n+1` SDK attempts. Where JVM redirects are enabled, a same-scheme 307 preserves the POST and its form. Basic authentication challenges and redirects are bounded HTTP follow-ups within an attempt. Terminal 401/403/407 bodies remain readable. HTTPS without an explicit proxy uses the JVM-enabled TLS protocols and cipher suites, the default SSL socket factory unless the provider overrides it, and standard hostname matching before the caller verifier fallback.
 - An empty `caFile` together with `insecureSkipVerify=false` removes the provider TLS override and uses the original transport TLS settings, which may include a custom factory. JVM default trust applies only when the original settings were not customized. `insecureSkipVerify=true` takes precedence over `caFile`; clearing the CA alone does not restore verification.
 
 **Snapshot migration:** When supplied directly through `CredentialProvider`, these exact built-in classes are snapshotted on first credential access by each `ApiClient`, with separate caches and refresh locks. Changing the source object's role, source credentials, proxy, TLS, expiry, or retry settings no longer updates an existing binding. After changes, call `apiClient.setCredentialProvider(credentialProvider)` again on each affected client; use a new provider for constructor-only settings. Setting the source AssumeRole provider's expiration time to `0` does not force an existing binding to refresh. Separate client caches may increase STS calls. Custom providers, subclasses, and the default credential chain retain their existing behavior.
@@ -259,7 +260,7 @@ public class SampleCode {
         oidcProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
         oidcProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
         // Proxy / TLS for reaching STS (optional)
-        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; empty uses client STS-scheme fallback, then URLConnection, not proxy env vars
+        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; empty uses client STS-scheme fallback, then JVM ProxySelector, not proxy env vars
         // oidcProvider.setCaFile("/path/to/ca.pem");                  // PEM CA; empty + insecureSkipVerify=false uses original transport TLS, possibly custom
         // oidcProvider.setInsecureSkipVerify(false);                  // Pass true to skip STS TLS verification; debugging only, default false, never in production
 
@@ -324,7 +325,7 @@ public class SampleCode {
         samlProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
         samlProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
         // Proxy / TLS for reaching STS (optional)
-        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; empty uses client STS-scheme fallback, then URLConnection, not proxy env vars
+        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; empty uses client STS-scheme fallback, then JVM ProxySelector, not proxy env vars
         // samlProvider.setCaFile("/path/to/ca.pem");                  // PEM CA; empty + insecureSkipVerify=false uses original transport TLS, possibly custom
         // samlProvider.setInsecureSkipVerify(false);                  // Pass true to skip STS TLS verification; debugging only, default false, never in production
 

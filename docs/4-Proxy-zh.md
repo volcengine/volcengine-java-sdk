@@ -60,7 +60,12 @@ public class SampleCode {
 
 > ⚠️ **注意事项**
 >
-> 1. 三个参数均为选填；Provider 和客户端均未显式指定代理时，OIDC/SAML 保留 URLConnection 代理选择，包括 JVM `http.proxyHost` / `http.proxyPort` 和 `https.proxyHost` / `https.proxyPort` 系统属性，不解析 `HTTP_PROXY` / `HTTPS_PROXY` 及其小写环境变量。AssumeRole 保留原 ApiClient 的代理选择，包括其支持的代理环境变量。不会将环境变量写入 Provider 配置。
+> 1. 三个参数均为选填；Provider 和客户端均未显式指定代理时，OIDC/SAML 使用 JVM 默认 `ProxySelector`，包括 JVM `http.proxyHost` / `http.proxyPort` 和 `https.proxyHost` / `https.proxyPort` 系统属性，不解析 `HTTP_PROXY` / `HTTPS_PROXY` 及其小写环境变量。AssumeRole 保留原 ApiClient 的代理选择，包括其支持的代理环境变量。不会将环境变量写入 Provider 配置。
+> HTTP STS 使用 OkHttp 的绝对 URI 代理请求行，`:80` 等默认端口会规范化省略，目标地址不变。HTTP 代理请求保留 Basic 认证头；HTTPS 通过 CONNECT 认证，不将该头转发给源站。
+>
+> HTTP STS 的代理 URL 未提供凭据时，实际 HTTP 代理返回的 Basic 407 可通过 JVM `Authenticator` 协商。沿用 JVM 传输设置的分支中，STS 源站返回的 Basic 401 也可使用它。代理凭据仅随经对应代理发送的请求传递。
+>
+> OIDC/SAML 通过 HTTPS 请求且未显式设置代理时，TLS 协商使用 SSL socket factory 已启用的协议和密码套件。设置 JVM 属性 `https.protocols` 或 `https.cipherSuites` 可进一步限制选择，不会关闭证书或主机名校验。
 > 2. `InsecureSkipVerify` 会关闭证书校验，存在中间人风险，切勿在生产环境启用。
 > 3. `CAFile` 与 `InsecureSkipVerify` 同时设置时，`InsecureSkipVerify` 优先（直接跳过校验）。
 

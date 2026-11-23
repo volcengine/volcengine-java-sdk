@@ -181,7 +181,8 @@ public class SampleCode {
 以下代理/TLS 规则适用于 `StsAssumeRoleProvider`、`OidcCredentialProvider` 和 `SamlCredentialProvider`：
 
 - `proxyUrl` 仅支持 HTTP 正向代理：`http://[user:password@]host:port`，必须显式填写 `1..65535` 范围内的端口。HTTPS STS 可通过 HTTP 代理建立 CONNECT 隧道；不支持 TLS-to-proxy（`https://` 代理 URL）和 SOCKS。
-- Provider 显式代理优先于绑定客户端显式设置的 `httpProxy` / `httpsProxy`，按 **STS URL** 的协议选择，不使用业务 API 协议。两者均未指定时，OIDC/SAML 保留 URLConnection 代理选择，包括 JVM `http.proxyHost` / `http.proxyPort` 和 `https.proxyHost` / `https.proxyPort` 系统属性，不解析 `HTTP_PROXY` / `HTTPS_PROXY` 及其小写环境变量。AssumeRole 保留原 ApiClient 的代理选择，包括其支持的代理环境变量。
+- Provider 显式代理优先于绑定客户端显式设置的 `httpProxy` / `httpsProxy`，按 **STS URL** 的协议选择，不使用业务 API 协议。两者均未指定时，OIDC/SAML 使用 JVM 默认 `ProxySelector`，包括 JVM `http.proxyHost` / `http.proxyPort` 和 `https.proxyHost` / `https.proxyPort` 系统属性，不解析 `HTTP_PROXY` / `HTTPS_PROXY` 及其小写环境变量。AssumeRole 保留原 ApiClient 的代理选择，包括其支持的代理环境变量。
+- OIDC/SAML 表单 POST 使用 OkHttp 并禁用连接重试。服务端收到完整表单后未响应就断开时，`maxRetries=0` 仅尝试一次，`n` 最多允许 `n+1` 次 SDK 尝试。JVM 启用重定向时，同协议的 307 保留 POST 和表单；Basic 认证协商和重定向是在同一次尝试内有上限的 HTTP 后续请求。终态 401/403/407 的错误正文仍可读取。HTTPS 未显式指定代理时使用 JVM 已启用的 TLS 协议和密码套件，未被 Provider 覆盖时使用默认 SSL socket factory，并在标准主机名匹配失败后调用客户默认 hostname verifier。
 - `caFile` 为空且 `insecureSkipVerify=false` 时，撤销 Provider TLS 覆盖并使用原传输 TLS 设置，其中可能包含自定义 factory。仅原设置未定制时才使用 JVM 默认信任库。`insecureSkipVerify=true` 优先于 `caFile`，仅清空 CA 不会恢复证书校验。
 
 **快照迁移说明：** 上述三个精确内置类型通过 `CredentialProvider` 直接传入 `ApiClient` 时，每个客户端在首次访问凭证时创建快照，并拥有独立缓存和刷新锁。修改源对象的角色、源凭证、代理、TLS、到期或重试设置，不再更新已有绑定。修改后需对每个受影响客户端再次调用 `apiClient.setCredentialProvider(credentialProvider)`；仅能通过构造参数设置的字段需新建 Provider。将源 AssumeRole Provider 的到期时间设为 `0` 不会强制已有绑定刷新。独立的客户端缓存可能增加 STS 请求量。自定义 Provider、子类和默认凭证链保持原有行为。
@@ -262,7 +263,7 @@ public class SampleCode {
         oidcProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
         oidcProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
         // 访问 STS 的代理 / TLS（选填）
-        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理；留空先按 STS 协议使用客户端 fallback，再由 URLConnection 选择，不解析代理环境变量
+        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理；留空先按 STS 协议使用客户端 fallback，再由 JVM ProxySelector 选择，不解析代理环境变量
         // oidcProvider.setCaFile("/path/to/ca.pem");                  // PEM CA；为空且 insecureSkipVerify=false 时使用原传输 TLS，可能是自定义配置
         // oidcProvider.setInsecureSkipVerify(false);                  // 传 true 可跳过 STS TLS 证书校验，仅限联调；默认 false，生产禁用
 
@@ -327,7 +328,7 @@ public class SampleCode {
         samlProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
         samlProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
         // 访问 STS 的代理 / TLS（选填）
-        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理；留空先按 STS 协议使用客户端 fallback，再由 URLConnection 选择，不解析代理环境变量
+        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理；留空先按 STS 协议使用客户端 fallback，再由 JVM ProxySelector 选择，不解析代理环境变量
         // samlProvider.setCaFile("/path/to/ca.pem");                  // PEM CA；为空且 insecureSkipVerify=false 时使用原传输 TLS，可能是自定义配置
         // samlProvider.setInsecureSkipVerify(false);                  // 传 true 可跳过 STS TLS 证书校验，仅限联调；默认 false，生产禁用
 

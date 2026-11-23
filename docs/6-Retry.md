@@ -66,6 +66,10 @@ If backoff calculation or waiting fails, retries stop and `getCause()` exposes t
 
 #### Custom Retry Conditions
 
+For `DefaultRetryCondition` subclasses, `Retryer` supplies the signing attempt's refreshable-cache flag through the existing virtual dispatch. Both `shouldRetry` overloads retain their `super` behavior: the two-argument default passes the scoped flag to the three-argument method, and the three-argument default evaluates its explicit flag. Custom decisions remain authoritative. Nested calls restore the outer flag, concurrent calls remain isolated, and copied conditions have independent contexts.
+
+OIDC/SAML form POSTs disable transport connection retries. `maxRetries=0` makes one SDK attempt; `n` allows at most `n+1` attempts. If the connection drops before a response arrives, the SDK sends the POST again only if its transient-error rules and retry budget permit it. Within one attempt, redirects and Basic authentication can send HTTP follow-up requests after an explicit response, up to 20 follow-ups in total. An enabled same-scheme 307 redirect preserves the POST and its form. The explicit HTTPS proxy path does not follow redirects.
+
 Users can customize retry conditions based on their business needs.
 
 The base `RetryCondition` initializes an empty mutable `retryErrorCodes` set. A subclass only needs to implement `shouldRetry` to be installed through `setRetryCondition`; previously configured error codes are added to the condition. Merging a null or empty source set does nothing; adding explicit codes initializes a null target set. Existing set matching and copying semantics remain unchanged.
