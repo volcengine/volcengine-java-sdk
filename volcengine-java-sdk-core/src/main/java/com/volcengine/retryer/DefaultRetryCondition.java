@@ -17,10 +17,13 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.IdentityHashMap;
+import java.util.function.BooleanSupplier;
 
 import static com.volcengine.observability.debugger.SdkDebugLog.SDK_CORE_LOGGER;
 
 public class DefaultRetryCondition extends RetryCondition{
+
+    private ThreadLocal<Boolean> refreshableContext = new ThreadLocal<>();
 
     private static final Set<Integer> RETRY_STATUS_CODES =  Collections.unmodifiableSet(
             new HashSet<>(Arrays.asList(429, 500, 502, 503, 504)));
@@ -71,11 +74,34 @@ public class DefaultRetryCondition extends RetryCondition{
 
     @Override
     public boolean shouldRetry(ApiResponse response, ApiException apiException) {
-        return shouldRetry(response, apiException, false);
+        return shouldRetry(response, apiException, Boolean.TRUE.equals(refreshableContext.get()));
     }
 
     /** SDK default path: expiry alone is retryable only with a refreshable signing cache. */
     public boolean shouldRetry(ApiResponse response, ApiException apiException, boolean refreshableCredentials) {
+        return evaluateRetry(response, apiException, refreshableCredentials);
+    }
+
+    /** Supply signing context without changing the legacy overload dispatch. */
+    boolean withRefreshableCredentials(boolean refreshableCredentials, BooleanSupplier decision) {
+        Boolean previous = refreshableContext.get();
+        refreshableContext.set(refreshableCredentials);
+        try {
+            return decision.getAsBoolean();
+        } finally {
+            if (previous == null) refreshableContext.remove();
+            else refreshableContext.set(previous);
+        }
+    }
+
+    @Override
+    public RetryCondition copy() {
+        DefaultRetryCondition copy = (DefaultRetryCondition) super.copy();
+        copy.refreshableContext = new ThreadLocal<>();
+        return copy;
+    }
+
+    private boolean evaluateRetry(ApiResponse response, ApiException apiException, boolean refreshableCredentials) {
         int statusCode = -1;
         String errorCode = null;
 

@@ -141,7 +141,17 @@ public class ApiClient extends BaseClient implements Cloneable {
     private EndpointResolver endpointResolver;
 
     private CredentialProvider credentialProvider;
-    private ThreadLocal<ResponseDetails[]> responseSnapshot = new ThreadLocal<>();
+    private ThreadLocal<ResponseSnapshot> responseSnapshot = new ThreadLocal<>();
+
+    private static final class ResponseSnapshot {
+        private final Response response;
+        private final ResponseDetails[] details;
+
+        private ResponseSnapshot(Response response, ResponseDetails[] details) {
+            this.response = response;
+            this.details = details;
+        }
+    }
     private CredentialProvider boundCredentialProvider;
 
     private Integer maxIdleConns = 5;
@@ -1057,21 +1067,16 @@ public class ApiClient extends BaseClient implements Cloneable {
      */
     @SuppressWarnings("unchecked")
     public <T> T deserialize(Response response, Type returnType, boolean... isCommon) throws ApiException {
-        ResponseDetails[] snapshot = responseSnapshot.get();
-        return deserializeCaptured(response, returnType,
-                snapshot == null ? new ResponseDetails[1] : snapshot, isCommon);
-    }
-
-    private <T> T deserializeCaptured(Response response, Type returnType, ResponseDetails[] snapshot,
-                                     boolean... isCommon) throws ApiException {
+        ResponseSnapshot previous = responseSnapshot.get();
+        if (previous != null && previous.response == response) {
+            return deserializeBody(response, returnType, previous.details, isCommon);
+        }
+        ResponseSnapshot current = new ResponseSnapshot(response, new ResponseDetails[1]);
+        responseSnapshot.set(current);
         try {
-            return deserializeBody(response, returnType, snapshot, isCommon);
-        } catch (ApiException error) {
-            if (snapshot[0] != null) {
-                ResponseMetadata meta = error.getResponseMetadata();
-                error.setResponseDetails(snapshot[0].withRequestId(meta == null ? "" : meta.getRequestId()));
-            }
-            throw error;
+            return deserializeBody(response, returnType, current.details, isCommon);
+        } finally {
+            restoreResponseSnapshot(previous);
         }
     }
 
@@ -1102,18 +1107,18 @@ public class ApiClient extends BaseClient implements Cloneable {
         boolean common = isCommon.length > 0 && isCommon[0];
         boolean businessError = ErrorUtils.hasBusinessError(originalBody);
         if (common && commonBusinessErrorEnabled && businessError) {
-            throw responseException(response, response.message(), null, originalBody, null);
+            throw responseException(snapshot[0], response.message(), null, originalBody, null);
         }
         if (isCommon.length == 0 || !isCommon[0]) {
             boolean converted;
             try {
                 converted = convertResponseBody(respBody, builder, meta);
             } catch (RuntimeException e) {
-                throw responseException(response, "Failed to parse response metadata", e,
+                throw responseException(snapshot[0], "Failed to parse response metadata", e,
                         originalBody, meta.get("ResponseMetadata"));
             }
             if (!converted || businessError) {
-                throw responseException(response, response.message(), null, originalBody, meta.get("ResponseMetadata"));
+                throw responseException(snapshot[0], response.message(), null, originalBody, meta.get("ResponseMetadata"));
             }
             respBody = builder.toString();
         }
@@ -1128,7 +1133,7 @@ public class ApiClient extends BaseClient implements Cloneable {
             try {
                 t = json.deserialize(respBody, returnType);
             } catch (RuntimeException e) {
-                throw responseException(response, "Failed to deserialize response body as " + returnType,
+                throw responseException(snapshot[0], "Failed to deserialize response body as " + returnType,
                         e, originalBody, meta.get("ResponseMetadata"));
             }
             if (t instanceof AbstractResponse) {
@@ -1136,7 +1141,7 @@ public class ApiClient extends BaseClient implements Cloneable {
                     Method m = t.getClass().getMethod("setResponseMetadata", ResponseMetadata.class);
                     m.invoke(t, meta.get("ResponseMetadata"));
                 } catch (Exception e) {
-                    throw responseException(response, "Failed to set response metadata",
+                    throw responseException(snapshot[0], "Failed to set response metadata",
                             e, originalBody, meta.get("ResponseMetadata"));
                 }
             }
@@ -1145,7 +1150,7 @@ public class ApiClient extends BaseClient implements Cloneable {
             // Expecting string, return the raw response body.
             return (T) respBody;
         } else {
-            throw responseException(response,
+            throw responseException(snapshot[0],
                     "Content type \"" + contentType + "\" is not supported for type: " + returnType,
                     null, originalBody, meta.get("ResponseMetadata"));
         }
@@ -1166,7 +1171,7 @@ public class ApiClient extends BaseClient implements Cloneable {
             snapshot[0] = snapshot[0].withRequestId(ErrorUtils.requestId(text, null, snapshot[0].getHeaders()));
             return text;
         } catch (RuntimeException e) {
-            throw responseException(response, "Failed to decode response body", e,
+            throw responseException(snapshot[0], "Failed to decode response body", e,
                     new String(bytes, StandardCharsets.UTF_8), null);
         }
     }
@@ -1213,7 +1218,7 @@ public class ApiClient extends BaseClient implements Cloneable {
         return bytes;
     }
 
-    private ApiException responseException(Response response, String message, Throwable cause,
+    private ApiException responseException(ResponseDetails details, String message, Throwable cause,
                                            String originalBody, ResponseMetadata metadata) {
         Map<String, ResponseMetadata> parsed = new HashMap<>();
         if (metadata == null && originalBody != null && !originalBody.isEmpty()) {
@@ -1227,10 +1232,7 @@ public class ApiClient extends BaseClient implements Cloneable {
             metadata = parsed.get("ResponseMetadata");
         }
         String classification = cause == null ? null : "SerializationError";
-        return ErrorUtils.responseError(message, cause, classification, originalBody, metadata,
-                ResponseDetails.capture(response, originalBody == null ? null
-                        : originalBody.getBytes(StandardCharsets.UTF_8), originalBody != null, originalBody != null),
-                simpleError);
+        return ErrorUtils.responseError(message, cause, classification, originalBody, metadata, details, simpleError);
     }
 
     /**
@@ -1277,7 +1279,12 @@ public class ApiClient extends BaseClient implements Cloneable {
             sink.close();
             return file;
         } catch (IOException e) {
-            throw new ApiException(e);
+            ApiException failure = new ApiException(e);
+            ResponseSnapshot current = responseSnapshot.get();
+            if (current != null && current.response == response && current.details[0] != null) {
+                failure.setResponseDetails(current.details[0]);
+            }
+            throw failure;
         }
     }
 
@@ -1594,61 +1601,56 @@ public class ApiClient extends BaseClient implements Cloneable {
      *                      fail to deserialize the response body
      */
     public <T> T handleResponse(Response response, Type returnType, boolean... isCommon) throws ApiException {
-        ResponseDetails[] snapshot = responseSnapshot.get();
-        return handleResponseCaptured(response, returnType,
-                snapshot == null ? new ResponseDetails[1] : snapshot, isCommon);
+        ResponseSnapshot previous = responseSnapshot.get();
+        if (previous != null && previous.response == response) {
+            return handleResponseCaptured(response, returnType, previous.details, isCommon);
+        }
+        ResponseSnapshot current = new ResponseSnapshot(response, new ResponseDetails[1]);
+        responseSnapshot.set(current);
+        try {
+            return handleResponseCaptured(response, returnType, current.details, isCommon);
+        } finally {
+            restoreResponseSnapshot(previous);
+        }
     }
 
     /** Internal snapshot carrier; scoped to this response, never shared by attempts. */
     public <T> T handleResponseWithDetails(Response response, Type returnType, ResponseDetails[] snapshot,
                                 boolean... isCommon) throws ApiException {
-        ResponseDetails[] previous = responseSnapshot.get();
+        ResponseSnapshot previous = responseSnapshot.get();
         snapshot[0] = null;
-        responseSnapshot.set(snapshot);
+        responseSnapshot.set(new ResponseSnapshot(response, snapshot));
         try {
             return handleResponse(response, returnType, isCommon);
         } finally {
-            if (previous == null) responseSnapshot.remove();
-            else responseSnapshot.set(previous);
+            restoreResponseSnapshot(previous);
         }
+    }
+
+    private void restoreResponseSnapshot(ResponseSnapshot previous) {
+        if (previous == null) responseSnapshot.remove();
+        else responseSnapshot.set(previous);
     }
 
     private <T> T handleResponseCaptured(Response response, Type returnType, ResponseDetails[] snapshot,
                                         boolean... isCommon) throws ApiException {
         snapshot[0] = ResponseDetails.capture(response, null, false, false);
-        boolean customerDeserializer = false;
-        try {
-            if (response.isSuccessful()) {
-                if (returnType == null || response.code() == 204) {
-                    if (response.body() != null) {
-                        try {
-                            response.body().close();
-                        } catch (IOException e) {
-                            throw ErrorUtils.responseError(response.message(), e, "ReadError",
-                                    null, null, snapshot[0], simpleError);
-                        }
+        if (response.isSuccessful()) {
+            if (returnType == null || response.code() == 204) {
+                if (response.body() != null) {
+                    try {
+                        response.body().close();
+                    } catch (IOException e) {
+                        throw ErrorUtils.responseError(response.message(), e, "ReadError",
+                                null, null, snapshot[0], simpleError);
                     }
-                    return null;
                 }
-                try {
-                    customerDeserializer = getClass().getMethod("deserialize",
-                            Response.class, Type.class, boolean[].class).getDeclaringClass() != ApiClient.class;
-                } catch (NoSuchMethodException e) {
-                    throw new AssertionError(e);
-                }
-                return deserialize(response, returnType, isCommon);
+                return null;
             }
-            String respBody = readResponseBody(response, snapshot);
-            throw responseException(response, response.message(), null, respBody, null);
-        } catch (ApiException error) {
-            if (!customerDeserializer && snapshot[0] != null
-                    && (snapshot[0].isBodyCaptured() || error.getResponseDetails() == null)) {
-                ResponseMetadata meta = error.getResponseMetadata();
-                String id = meta == null ? snapshot[0].getRequestId() : meta.getRequestId();
-                error.setResponseDetails(snapshot[0].withRequestId(id));
-            }
-            throw error;
+            return deserialize(response, returnType, isCommon);
         }
+        String respBody = readResponseBody(response, snapshot);
+        throw responseException(snapshot[0], response.message(), null, respBody, null);
     }
 
     /**

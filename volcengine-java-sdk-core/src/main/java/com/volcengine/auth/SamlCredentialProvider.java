@@ -51,7 +51,7 @@ public class SamlCredentialProvider implements Provider {
     private int maxRetries = StsFormRequest.DEFAULT_MAX_RETRIES;
     private int retryIntervalMs = StsFormRequest.DEFAULT_RETRY_INTERVAL_MS;
 
-    // Without provider or client fallback overrides, retain URLConnection
+    // Without provider or client fallback overrides, use the JVM ProxySelector
     // proxy selection and transport TLS settings; do not parse proxy env vars.
     private String proxyUrl;
     private String fallbackProxyUrl;
@@ -182,7 +182,7 @@ public class SamlCredentialProvider implements Provider {
      * {@code http://[user:password@]host:port}, with an explicit port in
      * {@code 1..65535}. TLS-to-proxy and SOCKS are unsupported.
      * When empty, the bound client's explicit STS-scheme proxy applies, then
-     * URLConnection proxy selection, including JVM
+     * JVM default ProxySelector selection, including JVM
      * {@code http.proxyHost}/{@code http.proxyPort} and
      * {@code https.proxyHost}/{@code https.proxyPort} system properties.
      * Does not parse {@code HTTP_PROXY}/{@code HTTPS_PROXY} or their lowercase

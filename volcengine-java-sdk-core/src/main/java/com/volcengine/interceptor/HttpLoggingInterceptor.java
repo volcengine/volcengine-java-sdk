@@ -90,12 +90,27 @@ public final class HttpLoggingInterceptor implements Interceptor {
                 || !SDK_CORE_LOGGER.matches(LogLevel.LOG_DEBUG_WITH_RESPONSE_BODY)) return response;
         return response.newBuilder().body(new ResponseBody() {
             private BufferedSource source;
+            private boolean closed;
             public MediaType contentType() { return body.contentType(); }
             public long contentLength() throws IOException { return body.contentLength(); }
             public BufferedSource source() throws IOException {
                 if (source != null) return source;
                 source = loggedSource(body);
                 return source;
+            }
+            @Override
+            public void close() throws IOException {
+                if (closed) return;
+                closed = true;
+                if (source == null) {
+                    body.close();
+                } else {
+                    try {
+                        source.close();
+                    } finally {
+                        source.buffer().clear();
+                    }
+                }
             }
         }).build();
     }
@@ -127,7 +142,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
             @Override
             public void close() throws IOException {
                 try {
-                    super.close();
+                    body.close();
                 } finally {
                     logBody(false);
                 }

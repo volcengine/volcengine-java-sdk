@@ -26,9 +26,13 @@ public class Retryer {
 
     public boolean shouldRetry(ApiResponse response, int retryCount, ApiException apiException,
                                boolean refreshableCredentials) {
-        if (retryCondition.getClass() == DefaultRetryCondition.class) {
+        if (retryCondition != null && retryCondition.getClass() == DefaultRetryCondition.class) {
             return retryCount < numMaxRetries && ((DefaultRetryCondition) retryCondition)
                     .shouldRetry(response, apiException, refreshableCredentials);
+        }
+        if (retryCondition instanceof DefaultRetryCondition) {
+            return ((DefaultRetryCondition) retryCondition).withRefreshableCredentials(refreshableCredentials,
+                    () -> shouldRetry(response, retryCount, apiException));
         }
         return shouldRetry(response, retryCount, apiException);
     }
