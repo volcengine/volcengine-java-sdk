@@ -263,8 +263,7 @@ public class ListBillDetailRequest {
    * Get limit
    * @return limit
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getLimit() {
     return limit;
   }
