@@ -75,6 +75,9 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ExclusiveMode")
   private Boolean exclusiveMode = null;
 
+  @SerializedName("FunctionType")
+  private String functionType = null;
+
   @SerializedName("Id")
   private String id = null;
 
@@ -363,6 +366,24 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   public void setExclusiveMode(Boolean exclusiveMode) {
     this.exclusiveMode = exclusiveMode;
+  }
+
+  public GetFunctionResponse functionType(String functionType) {
+    this.functionType = functionType;
+    return this;
+  }
+
+   /**
+   * Get functionType
+   * @return functionType
+  **/
+  @Schema(description = "")
+  public String getFunctionType() {
+    return functionType;
+  }
+
+  public void setFunctionType(String functionType) {
+    this.functionType = functionType;
   }
 
   public GetFunctionResponse id(String id) {
@@ -769,6 +790,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.enableApmplus, getFunctionResponse.enableApmplus) &&
         Objects.equals(this.envs, getFunctionResponse.envs) &&
         Objects.equals(this.exclusiveMode, getFunctionResponse.exclusiveMode) &&
+        Objects.equals(this.functionType, getFunctionResponse.functionType) &&
         Objects.equals(this.id, getFunctionResponse.id) &&
         Objects.equals(this.initializerSec, getFunctionResponse.initializerSec) &&
         Objects.equals(this.instanceType, getFunctionResponse.instanceType) &&
@@ -794,7 +816,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, command, cpu, cpuStrategy, creationTime, description, efsMountConfig, enableApmplus, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, command, cpu, cpuStrategy, creationTime, description, efsMountConfig, enableApmplus, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -815,6 +837,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    enableApmplus: ").append(toIndentedString(enableApmplus)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
+    sb.append("    functionType: ").append(toIndentedString(functionType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
