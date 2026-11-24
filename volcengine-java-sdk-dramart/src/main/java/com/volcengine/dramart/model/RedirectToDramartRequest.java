@@ -39,6 +39,9 @@ public class RedirectToDramartRequest {
   @SerializedName("Password")
   private String password = null;
 
+  @SerializedName("TeamID")
+  private String teamID = null;
+
   @SerializedName("Type")
   private String type = null;
 
@@ -101,6 +104,24 @@ public class RedirectToDramartRequest {
     this.password = password;
   }
 
+  public RedirectToDramartRequest teamID(String teamID) {
+    this.teamID = teamID;
+    return this;
+  }
+
+   /**
+   * Get teamID
+   * @return teamID
+  **/
+  @Schema(description = "")
+  public String getTeamID() {
+    return teamID;
+  }
+
+  public void setTeamID(String teamID) {
+    this.teamID = teamID;
+  }
+
   public RedirectToDramartRequest type(String type) {
     this.type = type;
     return this;
@@ -151,13 +172,14 @@ public class RedirectToDramartRequest {
     return Objects.equals(this.accountInfo, redirectToDramartRequest.accountInfo) &&
         Objects.equals(this.domain, redirectToDramartRequest.domain) &&
         Objects.equals(this.password, redirectToDramartRequest.password) &&
+        Objects.equals(this.teamID, redirectToDramartRequest.teamID) &&
         Objects.equals(this.type, redirectToDramartRequest.type) &&
         Objects.equals(this.userName, redirectToDramartRequest.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, domain, password, type, userName);
+    return Objects.hash(accountInfo, domain, password, teamID, type, userName);
   }
 
 
@@ -169,6 +191,7 @@ public class RedirectToDramartRequest {
     sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    teamID: ").append(toIndentedString(teamID)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
