@@ -64,6 +64,9 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ExclusiveMode")
   private Boolean exclusiveMode = null;
 
+  @SerializedName("FunctionType")
+  private String functionType = null;
+
   @SerializedName("HealthCheckConfig")
   private HealthCheckConfigForGetRevisionOutput healthCheckConfig = null;
 
@@ -280,6 +283,24 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
 
   public void setExclusiveMode(Boolean exclusiveMode) {
     this.exclusiveMode = exclusiveMode;
+  }
+
+  public GetRevisionResponse functionType(String functionType) {
+    this.functionType = functionType;
+    return this;
+  }
+
+   /**
+   * Get functionType
+   * @return functionType
+  **/
+  @Schema(description = "")
+  public String getFunctionType() {
+    return functionType;
+  }
+
+  public void setFunctionType(String functionType) {
+    this.functionType = functionType;
   }
 
   public GetRevisionResponse healthCheckConfig(HealthCheckConfigForGetRevisionOutput healthCheckConfig) {
@@ -683,6 +704,7 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.efsMountConfig, getRevisionResponse.efsMountConfig) &&
         Objects.equals(this.envs, getRevisionResponse.envs) &&
         Objects.equals(this.exclusiveMode, getRevisionResponse.exclusiveMode) &&
+        Objects.equals(this.functionType, getRevisionResponse.functionType) &&
         Objects.equals(this.healthCheckConfig, getRevisionResponse.healthCheckConfig) &&
         Objects.equals(this.id, getRevisionResponse.id) &&
         Objects.equals(this.initializerSec, getRevisionResponse.initializerSec) &&
@@ -708,7 +730,7 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, creationTime, description, efsMountConfig, envs, exclusiveMode, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(asyncTaskConfig, codeSize, codeSizeLimit, creationTime, description, efsMountConfig, envs, exclusiveMode, functionType, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, role, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -725,6 +747,7 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    efsMountConfig: ").append(toIndentedString(efsMountConfig)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
+    sb.append("    functionType: ").append(toIndentedString(functionType)).append("\n");
     sb.append("    healthCheckConfig: ").append(toIndentedString(healthCheckConfig)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
