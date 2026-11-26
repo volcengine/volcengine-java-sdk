@@ -76,7 +76,7 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
   private String totalConsumedRate = null;
 
   @SerializedName("TotalDiff")
-  private Integer totalDiff = null;
+  private Long totalDiff = null;
 
   public DescribeGroupsDetailResponse consumeMessageOrderly(Boolean consumeMessageOrderly) {
     this.consumeMessageOrderly = consumeMessageOrderly;
@@ -348,7 +348,7 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
     this.totalConsumedRate = totalConsumedRate;
   }
 
-  public DescribeGroupsDetailResponse totalDiff(Integer totalDiff) {
+  public DescribeGroupsDetailResponse totalDiff(Long totalDiff) {
     this.totalDiff = totalDiff;
     return this;
   }
@@ -358,11 +358,11 @@ public class DescribeGroupsDetailResponse extends com.volcengine.model.AbstractR
    * @return totalDiff
   **/
   @Schema(description = "")
-  public Integer getTotalDiff() {
+  public Long getTotalDiff() {
     return totalDiff;
   }
 
-  public void setTotalDiff(Integer totalDiff) {
+  public void setTotalDiff(Long totalDiff) {
     this.totalDiff = totalDiff;
   }
 

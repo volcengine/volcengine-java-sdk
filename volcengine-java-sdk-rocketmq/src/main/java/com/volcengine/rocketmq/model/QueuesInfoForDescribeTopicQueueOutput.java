@@ -31,21 +31,21 @@ import javax.validation.Valid;
 
 public class QueuesInfoForDescribeTopicQueueOutput {
   @SerializedName("EndOffset")
-  private Integer endOffset = null;
+  private Long endOffset = null;
 
   @SerializedName("LastUpdateTimestamp")
   private Long lastUpdateTimestamp = null;
 
   @SerializedName("MessageCount")
-  private Integer messageCount = null;
+  private Long messageCount = null;
 
   @SerializedName("QueueId")
   private String queueId = null;
 
   @SerializedName("StartOffset")
-  private Integer startOffset = null;
+  private Long startOffset = null;
 
-  public QueuesInfoForDescribeTopicQueueOutput endOffset(Integer endOffset) {
+  public QueuesInfoForDescribeTopicQueueOutput endOffset(Long endOffset) {
     this.endOffset = endOffset;
     return this;
   }
@@ -55,11 +55,11 @@ public class QueuesInfoForDescribeTopicQueueOutput {
    * @return endOffset
   **/
   @Schema(description = "")
-  public Integer getEndOffset() {
+  public Long getEndOffset() {
     return endOffset;
   }
 
-  public void setEndOffset(Integer endOffset) {
+  public void setEndOffset(Long endOffset) {
     this.endOffset = endOffset;
   }
 
@@ -81,7 +81,7 @@ public class QueuesInfoForDescribeTopicQueueOutput {
     this.lastUpdateTimestamp = lastUpdateTimestamp;
   }
 
-  public QueuesInfoForDescribeTopicQueueOutput messageCount(Integer messageCount) {
+  public QueuesInfoForDescribeTopicQueueOutput messageCount(Long messageCount) {
     this.messageCount = messageCount;
     return this;
   }
@@ -91,11 +91,11 @@ public class QueuesInfoForDescribeTopicQueueOutput {
    * @return messageCount
   **/
   @Schema(description = "")
-  public Integer getMessageCount() {
+  public Long getMessageCount() {
     return messageCount;
   }
 
-  public void setMessageCount(Integer messageCount) {
+  public void setMessageCount(Long messageCount) {
     this.messageCount = messageCount;
   }
 
@@ -117,7 +117,7 @@ public class QueuesInfoForDescribeTopicQueueOutput {
     this.queueId = queueId;
   }
 
-  public QueuesInfoForDescribeTopicQueueOutput startOffset(Integer startOffset) {
+  public QueuesInfoForDescribeTopicQueueOutput startOffset(Long startOffset) {
     this.startOffset = startOffset;
     return this;
   }
@@ -127,11 +127,11 @@ public class QueuesInfoForDescribeTopicQueueOutput {
    * @return startOffset
   **/
   @Schema(description = "")
-  public Integer getStartOffset() {
+  public Long getStartOffset() {
     return startOffset;
   }
 
-  public void setStartOffset(Integer startOffset) {
+  public void setStartOffset(Long startOffset) {
     this.startOffset = startOffset;
   }
 

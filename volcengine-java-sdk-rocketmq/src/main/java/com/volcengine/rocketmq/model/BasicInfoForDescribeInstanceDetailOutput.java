@@ -525,11 +525,9 @@ public class BasicInfoForDescribeInstanceDetailOutput {
 
    /**
    * Get sendReceiveRatio
-   * minimum: 1
-   * maximum: 99
    * @return sendReceiveRatio
   **/
- @Min(1) @Max(99)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getSendReceiveRatio() {
     return sendReceiveRatio;
   }

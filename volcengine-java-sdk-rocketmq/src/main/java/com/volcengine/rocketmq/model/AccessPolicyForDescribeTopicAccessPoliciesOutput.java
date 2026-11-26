@@ -45,7 +45,7 @@ public class AccessPolicyForDescribeTopicAccessPoliciesOutput {
    * Get accessKey
    * @return accessKey
   **/
- @Size(min=24,max=24)  @Schema(description = "")
+  @Schema(description = "")
   public String getAccessKey() {
     return accessKey;
   }
@@ -63,7 +63,7 @@ public class AccessPolicyForDescribeTopicAccessPoliciesOutput {
    * Get authority
    * @return authority
   **/
- @Size(min=3,max=4)  @Schema(description = "")
+  @Schema(description = "")
   public String getAuthority() {
     return authority;
   }
