@@ -50,6 +50,7 @@ public class UniversalApi {
 
     @SuppressWarnings("unchecked")
     private void processNumber(Map<String,Object> map){
+        if (map == null) return;
         for (Map.Entry<String,Object> entry:map.entrySet()){
             if (entry.getValue()!= null && entry.getValue() instanceof Map){
                 processNumber((Map<String,Object>)entry.getValue());

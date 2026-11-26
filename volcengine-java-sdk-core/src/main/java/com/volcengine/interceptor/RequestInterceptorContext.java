@@ -13,6 +13,15 @@ import java.util.UUID;
 
 public class RequestInterceptorContext {
     private com.volcengine.auth.CredentialProvider credentialProvider;
+    private boolean refreshableCredentials;
+
+    public boolean hasRefreshableCredentials() {
+        return refreshableCredentials;
+    }
+
+    public void setRefreshableCredentials(boolean refreshableCredentials) {
+        this.refreshableCredentials = refreshableCredentials;
+    }
 
     public com.volcengine.auth.CredentialProvider getCredentialProvider() {
         return credentialProvider;

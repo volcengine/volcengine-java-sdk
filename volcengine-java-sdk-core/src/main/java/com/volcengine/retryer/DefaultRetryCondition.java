@@ -2,6 +2,7 @@ package com.volcengine.retryer;
 
 import com.volcengine.ApiException;
 import com.volcengine.ApiResponse;
+import com.volcengine.ErrorUtils;
 import com.volcengine.model.AbstractResponse;
 import com.volcengine.model.ResponseMetadata;
 
@@ -15,13 +16,53 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.IdentityHashMap;
+import java.util.function.BooleanSupplier;
 
 import static com.volcengine.observability.debugger.SdkDebugLog.SDK_CORE_LOGGER;
 
 public class DefaultRetryCondition extends RetryCondition{
 
+    private ThreadLocal<Boolean> refreshableContext = new ThreadLocal<>();
+
     private static final Set<Integer> RETRY_STATUS_CODES =  Collections.unmodifiableSet(
             new HashSet<>(Arrays.asList(429, 500, 502, 503, 504)));
+    private static final Set<String> DEFAULT_CODES = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+            "RequestError", "RequestTimeout", "ResponseTimeout", "RequestTimeoutException",
+            "ProvisionedThroughputExceededException", "Throttling", "ThrottlingException",
+            "RequestLimitExceeded", "RequestThrottled", "RequestThrottledException",
+            "TooManyRequestsException", "PriorRequestNotComplete", "TransactionInProgressException")));
+    private static final Set<String> EXPIRED_CODES = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+            "ExpiredToken", "ExpiredTokenException", "RequestExpired", "InvalidAccessKey")));
+
+    public static boolean isExpiredCredentials(ApiResponse response, Throwable error) {
+        Set<Throwable> seen = Collections.newSetFromMap(new IdentityHashMap<Throwable, Boolean>());
+        for (int count = 0; error != null && count < 256 && seen.add(error); count++) {
+            if (error instanceof ApiException) {
+                if (EXPIRED_CODES.contains(exceptionCode((ApiException) error))) return true;
+            }
+            error = error.getCause();
+        }
+        String code = responseCode(response);
+        return code != null && EXPIRED_CODES.contains(code);
+    }
+
+    private static String responseCode(ApiResponse response) {
+        if (response == null) return null;
+        Object data = response.getData();
+        if (data instanceof AbstractResponse) {
+            ResponseMetadata meta = ((AbstractResponse) data).getResponseMetadata();
+            return meta == null || meta.getError() == null ? null : meta.getError().getCode();
+        }
+        if (data instanceof Map) {
+            Object meta = ((Map<?, ?>) data).get("ResponseMetadata");
+            Object service = meta instanceof Map ? ((Map<?, ?>) meta).get("Error") : null;
+            Object code = service instanceof Map ? ((Map<?, ?>) service).get("Code") : null;
+            if (code == null) code = ((Map<?, ?>) data).get("errorcode");
+            return code instanceof String ? (String) code : null;
+        }
+        return null;
+    }
 
     public DefaultRetryCondition() {
         this.retryErrorCodes = new HashSet<>();
@@ -33,12 +74,41 @@ public class DefaultRetryCondition extends RetryCondition{
 
     @Override
     public boolean shouldRetry(ApiResponse response, ApiException apiException) {
+        return shouldRetry(response, apiException, Boolean.TRUE.equals(refreshableContext.get()));
+    }
 
+    /** SDK default path: expiry alone is retryable only with a refreshable signing cache. */
+    public boolean shouldRetry(ApiResponse response, ApiException apiException, boolean refreshableCredentials) {
+        return evaluateRetry(response, apiException, refreshableCredentials);
+    }
+
+    /** Supply signing context without changing the legacy overload dispatch. */
+    boolean withRefreshableCredentials(boolean refreshableCredentials, BooleanSupplier decision) {
+        Boolean previous = refreshableContext.get();
+        refreshableContext.set(refreshableCredentials);
+        try {
+            return decision.getAsBoolean();
+        } finally {
+            if (previous == null) refreshableContext.remove();
+            else refreshableContext.set(previous);
+        }
+    }
+
+    @Override
+    public RetryCondition copy() {
+        DefaultRetryCondition copy = (DefaultRetryCondition) super.copy();
+        copy.refreshableContext = new ThreadLocal<>();
+        return copy;
+    }
+
+    private boolean evaluateRetry(ApiResponse response, ApiException apiException, boolean refreshableCredentials) {
         int statusCode = -1;
         String errorCode = null;
 
-        if (apiException != null) {
-            Throwable cause =  apiException.getCause();
+        Set<Throwable> seen = Collections.newSetFromMap(new IdentityHashMap<Throwable, Boolean>());
+        Throwable current = apiException;
+        for (int count = 0; current != null && count < 256 && seen.add(current); count++, current = current.getCause()) {
+            Throwable cause = current;
             if (cause instanceof SocketTimeoutException ||
                     cause instanceof UnknownHostException ||
                     cause instanceof ConnectException ||
@@ -49,8 +119,16 @@ public class DefaultRetryCondition extends RetryCondition{
                 return true;
             }
 
-            statusCode = apiException.getCode();
-            errorCode = getErrorCode(apiException.getResponseMetadata());
+            if (current instanceof ApiException) {
+                ApiException failure = (ApiException) current;
+                statusCode = failure.getCode();
+                errorCode = exceptionCode(failure);
+                if (RETRY_STATUS_CODES.contains(statusCode)) return true;
+                // RequestError needs an explicitly retryable cause when present.
+                if (errorCode != null && (!"RequestError".equals(errorCode) || failure.getCause() == null)
+                        && !"ReadError".equals(errorCode) && !"SerializationError".equals(errorCode)
+                        && retryCode(errorCode, refreshableCredentials)) return true;
+            }
         }
 
         if (response != null) {
@@ -75,7 +153,8 @@ public class DefaultRetryCondition extends RetryCondition{
             return true;
         }
 
-        if (errorCode != null && retryErrorCodes != null && retryErrorCodes.contains(errorCode)) {
+        if (response != null && responseCode(response) != null) errorCode = responseCode(response);
+        if (response != null && errorCode != null && retryCode(errorCode, refreshableCredentials)) {
             SDK_CORE_LOGGER.debugRetry("Retry triggered by error code: {}", errorCode);
             return true;
         }
@@ -83,6 +162,21 @@ public class DefaultRetryCondition extends RetryCondition{
         SDK_CORE_LOGGER.debugRetry("No retry condition met. StatusCode: {}, ErrorCode: {}", statusCode, errorCode);
 
         return false;
+    }
+
+    private boolean retryCode(String code, boolean refreshableCredentials) {
+        return DEFAULT_CODES.contains(code)
+                || (refreshableCredentials && EXPIRED_CODES.contains(code))
+                || (retryErrorCodes != null && retryErrorCodes.contains(code));
+    }
+
+    private static String exceptionCode(ApiException error) {
+        ResponseMetadata metadata = error.getResponseMetadata();
+        String code = metadata == null || metadata.getError() == null ? null : metadata.getError().getCode();
+        if (code != null && !code.isEmpty()) return code;
+        // Legacy constructors retain their identity and metadata; only inspect saved text.
+        metadata = ErrorUtils.metadata(error.getResponseBody(), null, null);
+        return metadata.getError() == null ? null : metadata.getError().getCode();
     }
 
     private <T> T getErrorCodeFromMap(Map<String, Object> map, Class<T> responseType, String ... keys) {
@@ -108,7 +202,7 @@ public class DefaultRetryCondition extends RetryCondition{
                 currentMap = (Map<String, Object>) value;
             }else {
                 SDK_CORE_LOGGER.debugRetry("Found value for keys '{}', value: {}", Arrays.toString(keys), value);
-                return responseType.cast(value);
+                return responseType.isInstance(value) ? responseType.cast(value) : null;
             }
         }
 

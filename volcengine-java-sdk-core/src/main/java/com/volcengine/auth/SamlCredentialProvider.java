@@ -1,10 +1,7 @@
 package com.volcengine.auth;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.volcengine.ApiException;
 
-import java.lang.reflect.Type;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.LinkedHashMap;
@@ -38,9 +35,9 @@ public class SamlCredentialProvider implements Provider {
     private static final int DEFAULT_DURATION_SECONDS = 3600;
     private static final int DEFAULT_EXPIRE_BUFFER_SECONDS = 300;
     private static final int MAX_EXPIRE_BUFFER_SECONDS = 600;
-    private static final Gson GSON = new Gson();
-    private static final Type MAP_TYPE = new TypeToken<Map<String, Object>>() {
-    }.getType();
+    private boolean simpleError;
+
+    public void setSimpleError(boolean enabled) { this.simpleError = enabled; }
 
     private final String roleTrn;
     private final String samlProviderTrn;
@@ -54,7 +51,7 @@ public class SamlCredentialProvider implements Provider {
     private int maxRetries = StsFormRequest.DEFAULT_MAX_RETRIES;
     private int retryIntervalMs = StsFormRequest.DEFAULT_RETRY_INTERVAL_MS;
 
-    // Without provider or client fallback overrides, retain URLConnection
+    // Without provider or client fallback overrides, use the JVM ProxySelector
     // proxy selection and transport TLS settings; do not parse proxy env vars.
     private String proxyUrl;
     private String fallbackProxyUrl;
@@ -99,6 +96,7 @@ public class SamlCredentialProvider implements Provider {
         copy.schema = schema;
         copy.maxRetries = maxRetries;
         copy.retryIntervalMs = retryIntervalMs;
+        copy.simpleError = simpleError;
         copy.proxyUrl = proxyUrl;
         copy.caFile = caFile;
         copy.insecureSkipVerify = insecureSkipVerify;
@@ -114,42 +112,20 @@ public class SamlCredentialProvider implements Provider {
 
     @Override
     public void refresh() throws ApiException {
-        long now = System.currentTimeMillis() / 1000;
-        String responseBody = StsFormRequest.doPostWithRetry(
+        StsResponse response = StsFormRequest.requestWithRetry(
                 stsEndpoint, schema, ASSUME_ROLE_ACTION,
-                buildRequestBody(), maxRetries, retryIntervalMs, PROVIDER_NAME, buildHttpConfig());
-        Map<String, Object> responseData = parseResponse(responseBody);
-
-        Map<String, Object> responseMetadata = asMap(responseData.get("ResponseMetadata"));
-        if (responseMetadata != null && responseMetadata.get("Error") != null) {
-            throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithSAML returned error - " + stringify(responseMetadata.get("Error")));
-        }
-
-        Map<String, Object> resultMap = asMap(responseData.get("Result"));
-        if (resultMap == null) {
-            throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithSAML returned no result");
-        }
-
-        Map<String, Object> credentialMap = asMap(resultMap.get("Credentials"));
-        if (credentialMap == null) {
-            throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithSAML returned no credentials");
-        }
-
-        String accessKey = asString(credentialMap.get("AccessKeyId"));
-        String secretAccessKey = asString(credentialMap.get("SecretAccessKey"));
-        String sessionToken = asString(credentialMap.get("SessionToken"));
-        if (isNullOrEmpty(accessKey) || isNullOrEmpty(secretAccessKey)) {
-            throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithSAML response missing AccessKeyId or SecretAccessKey");
-        }
-
-        long expiration = now + durationSeconds;
-        String expirationStr = asString(credentialMap.get("Expiration"));
-        if (!isNullOrEmpty(expirationStr)) {
-            try {
-                expiration = parseExpirationEpochSecond(expirationStr);
-            } catch (Exception e) {
-                throw new ApiException(PROVIDER_NAME + ": failed to parse expiration - " + expirationStr);
-            }
+                buildRequestBody(), maxRetries, retryIntervalMs, PROVIDER_NAME, buildHttpConfig(), simpleError);
+        Map<String, Object> credentials = response.credentials(response.parse(PROVIDER_NAME, ASSUME_ROLE_ACTION));
+        String accessKey = response.required(credentials, "AccessKeyId");
+        String secretAccessKey = response.required(credentials, "SecretAccessKey");
+        String sessionToken = response.required(credentials, "SessionToken");
+        String expirationStr = response.required(credentials, "Expiration");
+        long expiration;
+        try {
+            expiration = parseExpirationEpochSecond(expirationStr);
+        } catch (RuntimeException cause) {
+            throw response.error(PROVIDER_NAME + ": failed to parse expiration - " + expirationStr,
+                    cause, "InvalidCredentials");
         }
 
         this.credentialValue = new CredentialValue(accessKey, secretAccessKey, sessionToken, PROVIDER_NAME);
@@ -206,7 +182,7 @@ public class SamlCredentialProvider implements Provider {
      * {@code http://[user:password@]host:port}, with an explicit port in
      * {@code 1..65535}. TLS-to-proxy and SOCKS are unsupported.
      * When empty, the bound client's explicit STS-scheme proxy applies, then
-     * URLConnection proxy selection, including JVM
+     * JVM default ProxySelector selection, including JVM
      * {@code http.proxyHost}/{@code http.proxyPort} and
      * {@code https.proxyHost}/{@code https.proxyPort} system properties.
      * Does not parse {@code HTTP_PROXY}/{@code HTTPS_PROXY} or their lowercase
@@ -279,34 +255,4 @@ public class SamlCredentialProvider implements Provider {
         return body.toString();
     }
 
-    private Map<String, Object> parseResponse(String responseBody) throws ApiException {
-        try {
-            Map<String, Object> responseData = GSON.fromJson(responseBody, MAP_TYPE);
-            if (responseData == null) {
-                throw new ApiException(PROVIDER_NAME + ": AssumeRoleWithSAML returned empty response");
-            }
-            return responseData;
-        } catch (ApiException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new ApiException(PROVIDER_NAME + ": failed to parse AssumeRoleWithSAML response - " + e.getMessage());
-        }
-    }
-
-    private static Map<String, Object> asMap(Object value) {
-        if (!(value instanceof Map)) {
-            return null;
-        }
-        @SuppressWarnings("unchecked")
-        Map<String, Object> map = (Map<String, Object>) value;
-        return map;
-    }
-
-    private static String asString(Object value) {
-        return value == null ? null : String.valueOf(value);
-    }
-
-    private static String stringify(Object value) {
-        return value == null ? null : GSON.toJson(value);
-    }
 }

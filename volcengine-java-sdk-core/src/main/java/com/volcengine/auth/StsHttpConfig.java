@@ -17,7 +17,7 @@ package com.volcengine.auth;
  *       TLS-to-proxy ({@code https://} proxy URLs) and SOCKS are unsupported.
  *       Provider bindings prefer the explicit provider proxy, then the bound
  *       client's explicit proxy selected by the STS URL scheme. With neither,
- *       OIDC/SAML retain URLConnection proxy selection, including JVM
+ *       OIDC/SAML use the JVM default ProxySelector, including JVM
  *       {@code http.proxyHost}/{@code http.proxyPort} and
  *       {@code https.proxyHost}/{@code https.proxyPort} system properties;
  *       they do not parse {@code HTTP_PROXY}/{@code HTTPS_PROXY} or their

@@ -196,6 +196,8 @@ public class StsAssumeRoleProvider implements Provider {
         this.expireBufferSeconds = expireBufferSeconds;
     }
 
+    public void setSimpleError(boolean enabled) { this.apiClient.setSimpleError(enabled); }
+
     public String getProxyUrl() {
         return proxyUrl;
     }
@@ -362,39 +364,27 @@ public class StsAssumeRoleProvider implements Provider {
         requestMap.put("RoleTrn", String.format("trn:iam::%s:role/%s", accountId, roleName));
         long now = System.currentTimeMillis() / 1000;
         ApiResponse<Map<String, Object>> apiResponse = api.doCallWithHttpInfo(request, requestMap);
-        if (apiResponse.getStatusCode() == 200) {
-            Map<String, Object> responseData = apiResponse.getData();
-            try {
-                if (responseData != null) {
-                    if (responseData.get("ResponseMetadata") != null) {
-                        Map<String, Object> responseMetadata = (Map<String, Object>) responseData.get("ResponseMetadata");
-                        if (responseMetadata.get("Error") != null) {
-                            throw new ApiException("StsAssumeRole request return Error");
-                        }
-                    }
-                    if (responseData.get("Result") != null) {
-                        Map<String, Object> resultMap = (Map<String, Object>) responseData.get("Result");
-                        Object credentials = resultMap.get("Credentials");
-                        Map<String, Object> credentialMap = (Map<String, Object>) credentials;
-                        String accessKey = (String) credentialMap.get("AccessKeyId");
-                        String secretAccessKey = (String) credentialMap.get("SecretAccessKey");
-                        String sessionToken = (String) credentialMap.get("SessionToken");
-                        this.credentialValue = new CredentialValue(accessKey, secretAccessKey, sessionToken, "StsCredentialProvider");
-                        this.expirationTime = now + durationSeconds - expireBufferSeconds;
-                        return;
-                    } else {
-                        throw new ApiException("StsAssumeRole request return Error");
-
-                    }
-                }
-            } catch (Exception e) {
-                throw new ApiException("StsAssumeRole Provider Error", apiResponse.getStatusCode(),
-                        apiResponse.getHeaders(), this.apiClient.getJSON().serialize(apiResponse.getData()));
-            }
-
+        com.volcengine.ResponseDetails details = apiResponse.getResponseDetails();
+        String body = details != null && details.isBodyCaptured()
+                ? new String(details.getBody(), java.nio.charset.StandardCharsets.UTF_8)
+                : this.apiClient.getJSON().serialize(apiResponse.getData());
+        if (details == null) {
+            // Custom clients may supply parsed data only; do not claim raw capture.
+            details = new com.volcengine.ResponseDetails(apiResponse.getStatusCode(), null, null,
+                    com.volcengine.ErrorUtils.requestId(body, null, apiResponse.getHeaders()),
+                    apiResponse.getHeaders(), null, false, false);
         }
-        throw new ApiException("StsAssumeRole Provider Error", apiResponse.getStatusCode(),
-                apiResponse.getHeaders(), this.apiClient.getJSON().serialize(apiResponse.getData()));
-
+        StsResponse response = new StsResponse(details, body, apiClient.isSimpleError());
+        Map<String, Object> data = response.parse("StsAssumeRoleProvider", "AssumeRole");
+        if (apiResponse.getStatusCode() != 200) {
+            throw response.error("StsAssumeRole Provider Error", null, "UnknownError");
+        }
+        Map<String, Object> credentials = response.credentials(data);
+        String accessKey = response.required(credentials, "AccessKeyId");
+        String secretAccessKey = response.required(credentials, "SecretAccessKey");
+        String sessionToken = response.required(credentials, "SessionToken");
+        CredentialValue value = new CredentialValue(accessKey, secretAccessKey, sessionToken, "StsCredentialProvider");
+        this.credentialValue = value;
+        this.expirationTime = now + durationSeconds - expireBufferSeconds;
     }
 }

@@ -44,6 +44,27 @@ public class DefaultCredentialProvider implements Provider {
         return new Builder();
     }
 
+    boolean usesStsCredentials() {
+        return lastSuccessProvider != null && (lastSuccessProvider.getClass() == OidcEnvProviderWrapper.class
+                || CredentialProvider.usesStsCredentials(lastSuccessProvider));
+    }
+
+    void setSimpleError(boolean enabled) {
+        for (Provider provider : providers) {
+            if (provider.getClass() == OidcEnvProviderWrapper.class) {
+                ((OidcEnvProviderWrapper) provider).setSimpleError(enabled);
+            } else if (provider.getClass() == OidcCredentialProvider.class) {
+                ((OidcCredentialProvider) provider).setSimpleError(enabled);
+            } else if (provider.getClass() == SamlCredentialProvider.class) {
+                ((SamlCredentialProvider) provider).setSimpleError(enabled);
+            } else if (provider.getClass() == StsAssumeRoleProvider.class) {
+                ((StsAssumeRoleProvider) provider).setSimpleError(enabled);
+            } else if (provider.getClass() == CLIConfigCredentialProvider.class) {
+                ((CLIConfigCredentialProvider) provider).setSimpleError(enabled);
+            }
+        }
+    }
+
     @Override
     public boolean isExpired() {
         return lastSuccessProvider == null || lastSuccessProvider.isExpired();
@@ -51,12 +72,14 @@ public class DefaultCredentialProvider implements Provider {
 
     @Override
     public void refresh() throws ApiException {
+        List<Exception> causes = new ArrayList<>();
         // Fast path: reuse last successful provider
         if (reuseLastProviderEnabled && lastSuccessProvider != null) {
             try {
                 lastSuccessProvider.refresh();
                 return;
             } catch (Exception e) {
+                causes.add(e);
                 // Fall through to full chain traversal
                 lastSuccessProvider = null;
             }
@@ -71,6 +94,7 @@ public class DefaultCredentialProvider implements Provider {
                 return;
             } catch (Exception e) {
                 errors.add(provider.getClass().getSimpleName() + ": " + e.getMessage());
+                causes.add(e);
             }
         }
 
@@ -81,7 +105,9 @@ public class DefaultCredentialProvider implements Provider {
                 sb.append("\n");
             }
         }
-        throw new ApiException(sb.toString());
+        ApiException failure = new ApiException(sb.toString());
+        for (Exception cause : causes) failure.addSuppressed(cause);
+        throw failure;
     }
 
     @Override
@@ -123,6 +149,14 @@ public class DefaultCredentialProvider implements Provider {
      */
     private static class OidcEnvProviderWrapper implements Provider {
         private Provider delegate;
+        private boolean simpleError;
+
+        void setSimpleError(boolean enabled) {
+            simpleError = enabled;
+            if (delegate != null && delegate.getClass() == OidcCredentialProvider.class) {
+                ((OidcCredentialProvider) delegate).setSimpleError(enabled);
+            }
+        }
 
         @Override
         public boolean isExpired() {
@@ -133,6 +167,7 @@ public class DefaultCredentialProvider implements Provider {
         public void refresh() throws ApiException {
             if (delegate == null) {
                 delegate = OidcCredentialProvider.fromEnvironment();
+                ((OidcCredentialProvider) delegate).setSimpleError(simpleError);
             }
             delegate.refresh();
         }

@@ -6,6 +6,10 @@ import com.squareup.okhttp.Response;
 import java.lang.reflect.Type;
 
 public class ResponseInterceptorContext {
+    private com.volcengine.ResponseDetails responseDetails;
+
+    public com.volcengine.ResponseDetails getResponseDetails() { return responseDetails; }
+    public void setResponseDetails(com.volcengine.ResponseDetails details) { this.responseDetails = details; }
 
     private Type returnType;
 
