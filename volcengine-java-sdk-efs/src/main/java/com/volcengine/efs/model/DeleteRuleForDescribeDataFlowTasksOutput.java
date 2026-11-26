@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.efs.model.EntryListFileForDescribeDataFlowTasksOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -90,7 +91,9 @@ public class DeleteRuleForDescribeDataFlowTasksOutput {
     @SerializedName("FileSystem")
     FILESYSTEM("FileSystem"),
     @SerializedName("All")
-    ALL("All");
+    ALL("All"),
+    @SerializedName("FileSystemCorruptedFiles")
+    FILESYSTEMCORRUPTEDFILES("FileSystemCorruptedFiles");
 
     private String value;
 
@@ -128,8 +131,23 @@ public class DeleteRuleForDescribeDataFlowTasksOutput {
   }  @SerializedName("DataLocation")
   private DataLocationEnum dataLocation = null;
 
+  @SerializedName("DownloadUrl")
+  private String downloadUrl = null;
+
+  @SerializedName("EntryListFile")
+  private EntryListFileForDescribeDataFlowTasksOutput entryListFile = null;
+
   @SerializedName("ExcludePaths")
   private List<String> excludePaths = null;
+
+  @SerializedName("FileBucket")
+  private String fileBucket = null;
+
+  @SerializedName("FileKey")
+  private String fileKey = null;
+
+  @SerializedName("FileName")
+  private String fileName = null;
 
   @SerializedName("IncludePaths")
   private List<String> includePaths = null;
@@ -173,6 +191,43 @@ public class DeleteRuleForDescribeDataFlowTasksOutput {
     this.dataLocation = dataLocation;
   }
 
+  public DeleteRuleForDescribeDataFlowTasksOutput downloadUrl(String downloadUrl) {
+    this.downloadUrl = downloadUrl;
+    return this;
+  }
+
+   /**
+   * Get downloadUrl
+   * @return downloadUrl
+  **/
+  @Schema(description = "")
+  public String getDownloadUrl() {
+    return downloadUrl;
+  }
+
+  public void setDownloadUrl(String downloadUrl) {
+    this.downloadUrl = downloadUrl;
+  }
+
+  public DeleteRuleForDescribeDataFlowTasksOutput entryListFile(EntryListFileForDescribeDataFlowTasksOutput entryListFile) {
+    this.entryListFile = entryListFile;
+    return this;
+  }
+
+   /**
+   * Get entryListFile
+   * @return entryListFile
+  **/
+  @Valid
+  @Schema(description = "")
+  public EntryListFileForDescribeDataFlowTasksOutput getEntryListFile() {
+    return entryListFile;
+  }
+
+  public void setEntryListFile(EntryListFileForDescribeDataFlowTasksOutput entryListFile) {
+    this.entryListFile = entryListFile;
+  }
+
   public DeleteRuleForDescribeDataFlowTasksOutput excludePaths(List<String> excludePaths) {
     this.excludePaths = excludePaths;
     return this;
@@ -197,6 +252,60 @@ public class DeleteRuleForDescribeDataFlowTasksOutput {
 
   public void setExcludePaths(List<String> excludePaths) {
     this.excludePaths = excludePaths;
+  }
+
+  public DeleteRuleForDescribeDataFlowTasksOutput fileBucket(String fileBucket) {
+    this.fileBucket = fileBucket;
+    return this;
+  }
+
+   /**
+   * Get fileBucket
+   * @return fileBucket
+  **/
+  @Schema(description = "")
+  public String getFileBucket() {
+    return fileBucket;
+  }
+
+  public void setFileBucket(String fileBucket) {
+    this.fileBucket = fileBucket;
+  }
+
+  public DeleteRuleForDescribeDataFlowTasksOutput fileKey(String fileKey) {
+    this.fileKey = fileKey;
+    return this;
+  }
+
+   /**
+   * Get fileKey
+   * @return fileKey
+  **/
+  @Schema(description = "")
+  public String getFileKey() {
+    return fileKey;
+  }
+
+  public void setFileKey(String fileKey) {
+    this.fileKey = fileKey;
+  }
+
+  public DeleteRuleForDescribeDataFlowTasksOutput fileName(String fileName) {
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * Get fileName
+   * @return fileName
+  **/
+  @Schema(description = "")
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
   }
 
   public DeleteRuleForDescribeDataFlowTasksOutput includePaths(List<String> includePaths) {
@@ -255,14 +364,19 @@ public class DeleteRuleForDescribeDataFlowTasksOutput {
     DeleteRuleForDescribeDataFlowTasksOutput deleteRuleForDescribeDataFlowTasksOutput = (DeleteRuleForDescribeDataFlowTasksOutput) o;
     return Objects.equals(this.bucketDeletePolicy, deleteRuleForDescribeDataFlowTasksOutput.bucketDeletePolicy) &&
         Objects.equals(this.dataLocation, deleteRuleForDescribeDataFlowTasksOutput.dataLocation) &&
+        Objects.equals(this.downloadUrl, deleteRuleForDescribeDataFlowTasksOutput.downloadUrl) &&
+        Objects.equals(this.entryListFile, deleteRuleForDescribeDataFlowTasksOutput.entryListFile) &&
         Objects.equals(this.excludePaths, deleteRuleForDescribeDataFlowTasksOutput.excludePaths) &&
+        Objects.equals(this.fileBucket, deleteRuleForDescribeDataFlowTasksOutput.fileBucket) &&
+        Objects.equals(this.fileKey, deleteRuleForDescribeDataFlowTasksOutput.fileKey) &&
+        Objects.equals(this.fileName, deleteRuleForDescribeDataFlowTasksOutput.fileName) &&
         Objects.equals(this.includePaths, deleteRuleForDescribeDataFlowTasksOutput.includePaths) &&
         Objects.equals(this.lastAccessTimePoint, deleteRuleForDescribeDataFlowTasksOutput.lastAccessTimePoint);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketDeletePolicy, dataLocation, excludePaths, includePaths, lastAccessTimePoint);
+    return Objects.hash(bucketDeletePolicy, dataLocation, downloadUrl, entryListFile, excludePaths, fileBucket, fileKey, fileName, includePaths, lastAccessTimePoint);
   }
 
 
@@ -273,7 +387,12 @@ public class DeleteRuleForDescribeDataFlowTasksOutput {
     
     sb.append("    bucketDeletePolicy: ").append(toIndentedString(bucketDeletePolicy)).append("\n");
     sb.append("    dataLocation: ").append(toIndentedString(dataLocation)).append("\n");
+    sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
+    sb.append("    entryListFile: ").append(toIndentedString(entryListFile)).append("\n");
     sb.append("    excludePaths: ").append(toIndentedString(excludePaths)).append("\n");
+    sb.append("    fileBucket: ").append(toIndentedString(fileBucket)).append("\n");
+    sb.append("    fileKey: ").append(toIndentedString(fileKey)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    includePaths: ").append(toIndentedString(includePaths)).append("\n");
     sb.append("    lastAccessTimePoint: ").append(toIndentedString(lastAccessTimePoint)).append("\n");
     sb.append("}");

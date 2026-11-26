@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.efs.model.AutoEvictRuleForUpdateDataFlowPolicyInput;
 import com.volcengine.efs.model.AutoExportRuleForUpdateDataFlowPolicyInput;
 import com.volcengine.efs.model.AutoImportRuleForUpdateDataFlowPolicyInput;
-import com.volcengine.efs.model.LazyloadRuleForUpdateDataFlowPolicyInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -102,9 +101,6 @@ public class UpdateDataFlowPolicyRequest {
 
   @SerializedName("FileSystemId")
   private String fileSystemId = null;
-
-  @SerializedName("LazyloadRule")
-  private LazyloadRuleForUpdateDataFlowPolicyInput lazyloadRule = null;
 
   public UpdateDataFlowPolicyRequest autoEvictRule(AutoEvictRuleForUpdateDataFlowPolicyInput autoEvictRule) {
     this.autoEvictRule = autoEvictRule;
@@ -255,25 +251,6 @@ public class UpdateDataFlowPolicyRequest {
     this.fileSystemId = fileSystemId;
   }
 
-  public UpdateDataFlowPolicyRequest lazyloadRule(LazyloadRuleForUpdateDataFlowPolicyInput lazyloadRule) {
-    this.lazyloadRule = lazyloadRule;
-    return this;
-  }
-
-   /**
-   * Get lazyloadRule
-   * @return lazyloadRule
-  **/
-  @Valid
-  @Schema(description = "")
-  public LazyloadRuleForUpdateDataFlowPolicyInput getLazyloadRule() {
-    return lazyloadRule;
-  }
-
-  public void setLazyloadRule(LazyloadRuleForUpdateDataFlowPolicyInput lazyloadRule) {
-    this.lazyloadRule = lazyloadRule;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -291,13 +268,12 @@ public class UpdateDataFlowPolicyRequest {
         Objects.equals(this.dataFlowPolicyId, updateDataFlowPolicyRequest.dataFlowPolicyId) &&
         Objects.equals(this.dataFlowPolicyName, updateDataFlowPolicyRequest.dataFlowPolicyName) &&
         Objects.equals(this.enableTls, updateDataFlowPolicyRequest.enableTls) &&
-        Objects.equals(this.fileSystemId, updateDataFlowPolicyRequest.fileSystemId) &&
-        Objects.equals(this.lazyloadRule, updateDataFlowPolicyRequest.lazyloadRule);
+        Objects.equals(this.fileSystemId, updateDataFlowPolicyRequest.fileSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoEvictRule, autoExportRule, autoImportRule, conflictPolicy, dataFlowPolicyId, dataFlowPolicyName, enableTls, fileSystemId, lazyloadRule);
+    return Objects.hash(autoEvictRule, autoExportRule, autoImportRule, conflictPolicy, dataFlowPolicyId, dataFlowPolicyName, enableTls, fileSystemId);
   }
 
 
@@ -314,7 +290,6 @@ public class UpdateDataFlowPolicyRequest {
     sb.append("    dataFlowPolicyName: ").append(toIndentedString(dataFlowPolicyName)).append("\n");
     sb.append("    enableTls: ").append(toIndentedString(enableTls)).append("\n");
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
-    sb.append("    lazyloadRule: ").append(toIndentedString(lazyloadRule)).append("\n");
     sb.append("}");
     return sb.toString();
   }

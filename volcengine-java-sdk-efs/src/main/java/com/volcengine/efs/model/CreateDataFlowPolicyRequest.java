@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.efs.model.AutoEvictRuleForCreateDataFlowPolicyInput;
 import com.volcengine.efs.model.AutoExportRuleForCreateDataFlowPolicyInput;
 import com.volcengine.efs.model.AutoImportRuleForCreateDataFlowPolicyInput;
-import com.volcengine.efs.model.LazyloadRuleForCreateDataFlowPolicyInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -46,9 +45,6 @@ public class CreateDataFlowPolicyRequest {
   @SerializedName("BucketName")
   private String bucketName = null;
 
-  @SerializedName("BucketOwner")
-  private String bucketOwner = null;
-
   @SerializedName("BucketPrefix")
   private String bucketPrefix = null;
 
@@ -57,12 +53,8 @@ public class CreateDataFlowPolicyRequest {
    */
   @JsonAdapter(ConflictPolicyEnum.Adapter.class)
   public enum ConflictPolicyEnum {
-    @SerializedName("Skip")
-    SKIP("Skip"),
     @SerializedName("KeepLatest")
-    KEEPLATEST("KeepLatest"),
-    @SerializedName("Overwrite")
-    OVERWRITE("Overwrite");
+    KEEPLATEST("KeepLatest");
 
     private String value;
 
@@ -111,9 +103,6 @@ public class CreateDataFlowPolicyRequest {
 
   @SerializedName("FileSystemPath")
   private String fileSystemPath = null;
-
-  @SerializedName("LazyloadRule")
-  private LazyloadRuleForCreateDataFlowPolicyInput lazyloadRule = null;
 
   public CreateDataFlowPolicyRequest autoEvictRule(AutoEvictRuleForCreateDataFlowPolicyInput autoEvictRule) {
     this.autoEvictRule = autoEvictRule;
@@ -189,24 +178,6 @@ public class CreateDataFlowPolicyRequest {
 
   public void setBucketName(String bucketName) {
     this.bucketName = bucketName;
-  }
-
-  public CreateDataFlowPolicyRequest bucketOwner(String bucketOwner) {
-    this.bucketOwner = bucketOwner;
-    return this;
-  }
-
-   /**
-   * Get bucketOwner
-   * @return bucketOwner
-  **/
-  @Schema(description = "")
-  public String getBucketOwner() {
-    return bucketOwner;
-  }
-
-  public void setBucketOwner(String bucketOwner) {
-    this.bucketOwner = bucketOwner;
   }
 
   public CreateDataFlowPolicyRequest bucketPrefix(String bucketPrefix) {
@@ -321,25 +292,6 @@ public class CreateDataFlowPolicyRequest {
     this.fileSystemPath = fileSystemPath;
   }
 
-  public CreateDataFlowPolicyRequest lazyloadRule(LazyloadRuleForCreateDataFlowPolicyInput lazyloadRule) {
-    this.lazyloadRule = lazyloadRule;
-    return this;
-  }
-
-   /**
-   * Get lazyloadRule
-   * @return lazyloadRule
-  **/
-  @Valid
-  @Schema(description = "")
-  public LazyloadRuleForCreateDataFlowPolicyInput getLazyloadRule() {
-    return lazyloadRule;
-  }
-
-  public void setLazyloadRule(LazyloadRuleForCreateDataFlowPolicyInput lazyloadRule) {
-    this.lazyloadRule = lazyloadRule;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -354,19 +306,17 @@ public class CreateDataFlowPolicyRequest {
         Objects.equals(this.autoExportRule, createDataFlowPolicyRequest.autoExportRule) &&
         Objects.equals(this.autoImportRule, createDataFlowPolicyRequest.autoImportRule) &&
         Objects.equals(this.bucketName, createDataFlowPolicyRequest.bucketName) &&
-        Objects.equals(this.bucketOwner, createDataFlowPolicyRequest.bucketOwner) &&
         Objects.equals(this.bucketPrefix, createDataFlowPolicyRequest.bucketPrefix) &&
         Objects.equals(this.conflictPolicy, createDataFlowPolicyRequest.conflictPolicy) &&
         Objects.equals(this.dataFlowPolicyName, createDataFlowPolicyRequest.dataFlowPolicyName) &&
         Objects.equals(this.enableTls, createDataFlowPolicyRequest.enableTls) &&
         Objects.equals(this.fileSystemId, createDataFlowPolicyRequest.fileSystemId) &&
-        Objects.equals(this.fileSystemPath, createDataFlowPolicyRequest.fileSystemPath) &&
-        Objects.equals(this.lazyloadRule, createDataFlowPolicyRequest.lazyloadRule);
+        Objects.equals(this.fileSystemPath, createDataFlowPolicyRequest.fileSystemPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoEvictRule, autoExportRule, autoImportRule, bucketName, bucketOwner, bucketPrefix, conflictPolicy, dataFlowPolicyName, enableTls, fileSystemId, fileSystemPath, lazyloadRule);
+    return Objects.hash(autoEvictRule, autoExportRule, autoImportRule, bucketName, bucketPrefix, conflictPolicy, dataFlowPolicyName, enableTls, fileSystemId, fileSystemPath);
   }
 
 
@@ -379,14 +329,12 @@ public class CreateDataFlowPolicyRequest {
     sb.append("    autoExportRule: ").append(toIndentedString(autoExportRule)).append("\n");
     sb.append("    autoImportRule: ").append(toIndentedString(autoImportRule)).append("\n");
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
-    sb.append("    bucketOwner: ").append(toIndentedString(bucketOwner)).append("\n");
     sb.append("    bucketPrefix: ").append(toIndentedString(bucketPrefix)).append("\n");
     sb.append("    conflictPolicy: ").append(toIndentedString(conflictPolicy)).append("\n");
     sb.append("    dataFlowPolicyName: ").append(toIndentedString(dataFlowPolicyName)).append("\n");
     sb.append("    enableTls: ").append(toIndentedString(enableTls)).append("\n");
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
     sb.append("    fileSystemPath: ").append(toIndentedString(fileSystemPath)).append("\n");
-    sb.append("    lazyloadRule: ").append(toIndentedString(lazyloadRule)).append("\n");
     sb.append("}");
     return sb.toString();
   }

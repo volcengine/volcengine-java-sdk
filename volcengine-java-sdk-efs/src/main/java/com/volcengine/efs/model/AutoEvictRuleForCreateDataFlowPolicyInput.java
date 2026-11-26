@@ -129,56 +129,6 @@ public class AutoEvictRuleForCreateDataFlowPolicyInput {
   }  @SerializedName("LogicOperator")
   private LogicOperatorEnum logicOperator = null;
 
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    @SerializedName("Stopped")
-    STOPPED("Stopped"),
-    @SerializedName("Starting")
-    STARTING("Starting"),
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Stopping")
-    STOPPING("Stopping");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String input) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Status")
-  private StatusEnum status = null;
-
   public AutoEvictRuleForCreateDataFlowPolicyInput dataType(DataTypeEnum dataType) {
     this.dataType = dataType;
     return this;
@@ -260,24 +210,6 @@ public class AutoEvictRuleForCreateDataFlowPolicyInput {
     this.logicOperator = logicOperator;
   }
 
-  public AutoEvictRuleForCreateDataFlowPolicyInput status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -291,13 +223,12 @@ public class AutoEvictRuleForCreateDataFlowPolicyInput {
     return Objects.equals(this.dataType, autoEvictRuleForCreateDataFlowPolicyInput.dataType) &&
         Objects.equals(this.excludePaths, autoEvictRuleForCreateDataFlowPolicyInput.excludePaths) &&
         Objects.equals(this.lastAccessTimeInterval, autoEvictRuleForCreateDataFlowPolicyInput.lastAccessTimeInterval) &&
-        Objects.equals(this.logicOperator, autoEvictRuleForCreateDataFlowPolicyInput.logicOperator) &&
-        Objects.equals(this.status, autoEvictRuleForCreateDataFlowPolicyInput.status);
+        Objects.equals(this.logicOperator, autoEvictRuleForCreateDataFlowPolicyInput.logicOperator);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataType, excludePaths, lastAccessTimeInterval, logicOperator, status);
+    return Objects.hash(dataType, excludePaths, lastAccessTimeInterval, logicOperator);
   }
 
 
@@ -310,7 +241,6 @@ public class AutoEvictRuleForCreateDataFlowPolicyInput {
     sb.append("    excludePaths: ").append(toIndentedString(excludePaths)).append("\n");
     sb.append("    lastAccessTimeInterval: ").append(toIndentedString(lastAccessTimeInterval)).append("\n");
     sb.append("    logicOperator: ").append(toIndentedString(logicOperator)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

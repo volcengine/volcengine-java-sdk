@@ -84,56 +84,6 @@ public class AutoExportRuleForUpdateDataFlowPolicyInput {
   @SerializedName("PeriodExport")
   private PeriodExportForUpdateDataFlowPolicyInput periodExport = null;
 
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    @SerializedName("Stopped")
-    STOPPED("Stopped"),
-    @SerializedName("Starting")
-    STARTING("Starting"),
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Stopping")
-    STOPPING("Stopping");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String input) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Status")
-  private StatusEnum status = null;
-
   public AutoExportRuleForUpdateDataFlowPolicyInput exportType(ExportTypeEnum exportType) {
     this.exportType = exportType;
     return this;
@@ -190,24 +140,6 @@ public class AutoExportRuleForUpdateDataFlowPolicyInput {
     this.periodExport = periodExport;
   }
 
-  public AutoExportRuleForUpdateDataFlowPolicyInput status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -220,13 +152,12 @@ public class AutoExportRuleForUpdateDataFlowPolicyInput {
     AutoExportRuleForUpdateDataFlowPolicyInput autoExportRuleForUpdateDataFlowPolicyInput = (AutoExportRuleForUpdateDataFlowPolicyInput) o;
     return Objects.equals(this.exportType, autoExportRuleForUpdateDataFlowPolicyInput.exportType) &&
         Objects.equals(this.immediateExport, autoExportRuleForUpdateDataFlowPolicyInput.immediateExport) &&
-        Objects.equals(this.periodExport, autoExportRuleForUpdateDataFlowPolicyInput.periodExport) &&
-        Objects.equals(this.status, autoExportRuleForUpdateDataFlowPolicyInput.status);
+        Objects.equals(this.periodExport, autoExportRuleForUpdateDataFlowPolicyInput.periodExport);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exportType, immediateExport, periodExport, status);
+    return Objects.hash(exportType, immediateExport, periodExport);
   }
 
 
@@ -238,7 +169,6 @@ public class AutoExportRuleForUpdateDataFlowPolicyInput {
     sb.append("    exportType: ").append(toIndentedString(exportType)).append("\n");
     sb.append("    immediateExport: ").append(toIndentedString(immediateExport)).append("\n");
     sb.append("    periodExport: ").append(toIndentedString(periodExport)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

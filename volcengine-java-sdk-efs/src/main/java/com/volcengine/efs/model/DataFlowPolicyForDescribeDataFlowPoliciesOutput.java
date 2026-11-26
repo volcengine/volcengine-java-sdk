@@ -23,7 +23,6 @@ import com.volcengine.efs.model.AutoEvictRuleForDescribeDataFlowPoliciesOutput;
 import com.volcengine.efs.model.AutoExportRuleForDescribeDataFlowPoliciesOutput;
 import com.volcengine.efs.model.AutoImportRuleForDescribeDataFlowPoliciesOutput;
 import com.volcengine.efs.model.BucketForDescribeDataFlowPoliciesOutput;
-import com.volcengine.efs.model.LazyloadRuleForDescribeDataFlowPoliciesOutput;
 import com.volcengine.efs.model.TlsForDescribeDataFlowPoliciesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -116,9 +115,6 @@ public class DataFlowPolicyForDescribeDataFlowPoliciesOutput {
 
   @SerializedName("FileSystemPath")
   private String fileSystemPath = null;
-
-  @SerializedName("LazyloadRule")
-  private LazyloadRuleForDescribeDataFlowPoliciesOutput lazyloadRule = null;
 
   @SerializedName("RunningTaskCount")
   private Integer runningTaskCount = null;
@@ -456,25 +452,6 @@ public class DataFlowPolicyForDescribeDataFlowPoliciesOutput {
     this.fileSystemPath = fileSystemPath;
   }
 
-  public DataFlowPolicyForDescribeDataFlowPoliciesOutput lazyloadRule(LazyloadRuleForDescribeDataFlowPoliciesOutput lazyloadRule) {
-    this.lazyloadRule = lazyloadRule;
-    return this;
-  }
-
-   /**
-   * Get lazyloadRule
-   * @return lazyloadRule
-  **/
-  @Valid
-  @Schema(description = "")
-  public LazyloadRuleForDescribeDataFlowPoliciesOutput getLazyloadRule() {
-    return lazyloadRule;
-  }
-
-  public void setLazyloadRule(LazyloadRuleForDescribeDataFlowPoliciesOutput lazyloadRule) {
-    this.lazyloadRule = lazyloadRule;
-  }
-
   public DataFlowPolicyForDescribeDataFlowPoliciesOutput runningTaskCount(Integer runningTaskCount) {
     this.runningTaskCount = runningTaskCount;
     return this;
@@ -606,7 +583,6 @@ public class DataFlowPolicyForDescribeDataFlowPoliciesOutput {
         Objects.equals(this.fileSystemId, dataFlowPolicyForDescribeDataFlowPoliciesOutput.fileSystemId) &&
         Objects.equals(this.fileSystemName, dataFlowPolicyForDescribeDataFlowPoliciesOutput.fileSystemName) &&
         Objects.equals(this.fileSystemPath, dataFlowPolicyForDescribeDataFlowPoliciesOutput.fileSystemPath) &&
-        Objects.equals(this.lazyloadRule, dataFlowPolicyForDescribeDataFlowPoliciesOutput.lazyloadRule) &&
         Objects.equals(this.runningTaskCount, dataFlowPolicyForDescribeDataFlowPoliciesOutput.runningTaskCount) &&
         Objects.equals(this.status, dataFlowPolicyForDescribeDataFlowPoliciesOutput.status) &&
         Objects.equals(this.statusDetail, dataFlowPolicyForDescribeDataFlowPoliciesOutput.statusDetail) &&
@@ -617,7 +593,7 @@ public class DataFlowPolicyForDescribeDataFlowPoliciesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoEvictRule, autoExportRule, autoImportRule, bucket, conflictPolicy, createTime, dataFlowPolicyId, dataFlowPolicyName, deletePolicyDataFlowTaskId, fileSystemId, fileSystemName, fileSystemPath, lazyloadRule, runningTaskCount, status, statusDetail, syncStatus, tls, updateTime);
+    return Objects.hash(autoEvictRule, autoExportRule, autoImportRule, bucket, conflictPolicy, createTime, dataFlowPolicyId, dataFlowPolicyName, deletePolicyDataFlowTaskId, fileSystemId, fileSystemName, fileSystemPath, runningTaskCount, status, statusDetail, syncStatus, tls, updateTime);
   }
 
 
@@ -638,7 +614,6 @@ public class DataFlowPolicyForDescribeDataFlowPoliciesOutput {
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
     sb.append("    fileSystemName: ").append(toIndentedString(fileSystemName)).append("\n");
     sb.append("    fileSystemPath: ").append(toIndentedString(fileSystemPath)).append("\n");
-    sb.append("    lazyloadRule: ").append(toIndentedString(lazyloadRule)).append("\n");
     sb.append("    runningTaskCount: ").append(toIndentedString(runningTaskCount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDetail: ").append(toIndentedString(statusDetail)).append("\n");

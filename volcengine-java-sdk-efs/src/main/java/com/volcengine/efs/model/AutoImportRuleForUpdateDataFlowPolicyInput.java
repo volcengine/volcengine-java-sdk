@@ -173,56 +173,6 @@ public class AutoImportRuleForUpdateDataFlowPolicyInput {
   @SerializedName("ImmediateImport")
   private Boolean immediateImport = null;
 
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    @SerializedName("Stopped")
-    STOPPED("Stopped"),
-    @SerializedName("Starting")
-    STARTING("Starting"),
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Stopping")
-    STOPPING("Stopping");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String input) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Status")
-  private StatusEnum status = null;
-
   public AutoImportRuleForUpdateDataFlowPolicyInput bucketEventTypes(List<BucketEventTypesEnum> bucketEventTypes) {
     this.bucketEventTypes = bucketEventTypes;
     return this;
@@ -303,24 +253,6 @@ public class AutoImportRuleForUpdateDataFlowPolicyInput {
     this.immediateImport = immediateImport;
   }
 
-  public AutoImportRuleForUpdateDataFlowPolicyInput status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -334,13 +266,12 @@ public class AutoImportRuleForUpdateDataFlowPolicyInput {
     return Objects.equals(this.bucketEventTypes, autoImportRuleForUpdateDataFlowPolicyInput.bucketEventTypes) &&
         Objects.equals(this.dataType, autoImportRuleForUpdateDataFlowPolicyInput.dataType) &&
         Objects.equals(this.fileSystemDeletePolicy, autoImportRuleForUpdateDataFlowPolicyInput.fileSystemDeletePolicy) &&
-        Objects.equals(this.immediateImport, autoImportRuleForUpdateDataFlowPolicyInput.immediateImport) &&
-        Objects.equals(this.status, autoImportRuleForUpdateDataFlowPolicyInput.status);
+        Objects.equals(this.immediateImport, autoImportRuleForUpdateDataFlowPolicyInput.immediateImport);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketEventTypes, dataType, fileSystemDeletePolicy, immediateImport, status);
+    return Objects.hash(bucketEventTypes, dataType, fileSystemDeletePolicy, immediateImport);
   }
 
 
@@ -353,7 +284,6 @@ public class AutoImportRuleForUpdateDataFlowPolicyInput {
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    fileSystemDeletePolicy: ").append(toIndentedString(fileSystemDeletePolicy)).append("\n");
     sb.append("    immediateImport: ").append(toIndentedString(immediateImport)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
