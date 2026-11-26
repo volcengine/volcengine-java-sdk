@@ -1,0 +1,11 @@
+{
+  "actions": [
+    "CreateTeam",
+    "UploadFileUrl",
+    "CreateProject",
+    "RedirectToDramart"
+  ],
+  "description": "DRAMART: 新增 CreateTeam, UploadFileUrl, CreateProject；修改 RedirectToDramart",
+  "modules": "service/dramart",
+  "type": "feature"
+}
