@@ -33,9 +33,6 @@ public class CertificateGetOrganizationRequest {
   @SerializedName("OrganizationId")
   private String organizationId = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
   public CertificateGetOrganizationRequest organizationId(String organizationId) {
     this.organizationId = organizationId;
     return this;
@@ -55,24 +52,6 @@ public class CertificateGetOrganizationRequest {
     this.organizationId = organizationId;
   }
 
-  public CertificateGetOrganizationRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,13 +62,12 @@ public class CertificateGetOrganizationRequest {
       return false;
     }
     CertificateGetOrganizationRequest certificateGetOrganizationRequest = (CertificateGetOrganizationRequest) o;
-    return Objects.equals(this.organizationId, certificateGetOrganizationRequest.organizationId) &&
-        Objects.equals(this.projectName, certificateGetOrganizationRequest.projectName);
+    return Objects.equals(this.organizationId, certificateGetOrganizationRequest.organizationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(organizationId, projectName);
+    return Objects.hash(organizationId);
   }
 
 
@@ -99,7 +77,6 @@ public class CertificateGetOrganizationRequest {
     sb.append("class CertificateGetOrganizationRequest {\n");
     
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
