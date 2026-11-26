@@ -48,6 +48,9 @@ public class CreateVoicePrintRequest {
   @SerializedName("Type")
   private String type = null;
 
+  @SerializedName("audioBase64")
+  private String audioBase64 = null;
+
   public CreateVoicePrintRequest deviceName(String deviceName) {
     this.deviceName = deviceName;
     return this;
@@ -158,6 +161,24 @@ public class CreateVoicePrintRequest {
     this.type = type;
   }
 
+  public CreateVoicePrintRequest audioBase64(String audioBase64) {
+    this.audioBase64 = audioBase64;
+    return this;
+  }
+
+   /**
+   * Get audioBase64
+   * @return audioBase64
+  **/
+  @Schema(description = "")
+  public String getAudioBase64() {
+    return audioBase64;
+  }
+
+  public void setAudioBase64(String audioBase64) {
+    this.audioBase64 = audioBase64;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -173,12 +194,13 @@ public class CreateVoicePrintRequest {
         Objects.equals(this.fileUrl, createVoicePrintRequest.fileUrl) &&
         Objects.equals(this.nickName, createVoicePrintRequest.nickName) &&
         Objects.equals(this.productKey, createVoicePrintRequest.productKey) &&
-        Objects.equals(this.type, createVoicePrintRequest.type);
+        Objects.equals(this.type, createVoicePrintRequest.type) &&
+        Objects.equals(this.audioBase64, createVoicePrintRequest.audioBase64);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deviceName, fileKey, fileUrl, nickName, productKey, type);
+    return Objects.hash(deviceName, fileKey, fileUrl, nickName, productKey, type, audioBase64);
   }
 
 
@@ -193,6 +215,7 @@ public class CreateVoicePrintRequest {
     sb.append("    nickName: ").append(toIndentedString(nickName)).append("\n");
     sb.append("    productKey: ").append(toIndentedString(productKey)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    audioBase64: ").append(toIndentedString(audioBase64)).append("\n");
     sb.append("}");
     return sb.toString();
   }

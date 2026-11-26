@@ -434,7 +434,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
         // --------------------------- tis ---------------------------
         DEFAULT_ENDPOINT_MAP.put("tis", new ServiceEndpointInfo(
                 "tis",
-                true,
+                false,
                 "",
                 ENDPOINT,
                 createRegionEndpointMap()
