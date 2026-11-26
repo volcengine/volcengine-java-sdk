@@ -179,7 +179,8 @@ public class SampleCode {
 The following proxy/TLS rules apply to `StsAssumeRoleProvider`, `OidcCredentialProvider`, and `SamlCredentialProvider`:
 
 - `proxyUrl` supports only HTTP forward proxies: `http://[user:password@]host:port`, with an explicit port in `1..65535`. HTTPS STS can use CONNECT through an HTTP proxy; TLS-to-proxy (`https://` proxy URLs) and SOCKS are unsupported.
-- An explicit provider proxy takes precedence over the bound client's explicit `httpProxy` / `httpsProxy`, selected by the **STS URL** scheme, not the business API scheme. Without either, OIDC/SAML retain URLConnection proxy selection, including JVM `http.proxyHost` / `http.proxyPort` and `https.proxyHost` / `https.proxyPort` system properties. They do not parse `HTTP_PROXY` / `HTTPS_PROXY` or their lowercase variants. AssumeRole retains its original ApiClient proxy selection, including supported proxy environment variables.
+- An explicit provider proxy takes precedence over the bound client's explicit `httpProxy` / `httpsProxy`, selected by the **STS URL** scheme, not the business API scheme. Without either, OIDC/SAML use the JVM default `ProxySelector`, including JVM `http.proxyHost` / `http.proxyPort` and `https.proxyHost` / `https.proxyPort` system properties. They do not parse `HTTP_PROXY` / `HTTPS_PROXY` or their lowercase variants. AssumeRole retains its original ApiClient proxy selection, including supported proxy environment variables.
+- OIDC/SAML form POSTs use OkHttp with connection retries disabled. `maxRetries=0` sends one attempt if the server closes after receiving the form without responding; `n` permits at most `n+1` SDK attempts. Where JVM redirects are enabled, a same-scheme 307 preserves the POST and its form. Basic authentication challenges and redirects are bounded HTTP follow-ups within an attempt. Terminal 401/403/407 bodies remain readable. HTTPS without an explicit proxy uses the JVM-enabled TLS protocols and cipher suites, the default SSL socket factory unless the provider overrides it, and standard hostname matching before the caller verifier fallback.
 - An empty `caFile` together with `insecureSkipVerify=false` removes the provider TLS override and uses the original transport TLS settings, which may include a custom factory. JVM default trust applies only when the original settings were not customized. `insecureSkipVerify=true` takes precedence over `caFile`; clearing the CA alone does not restore verification.
 
 **Snapshot migration:** When supplied directly through `CredentialProvider`, these exact built-in classes are snapshotted on first credential access by each `ApiClient`, with separate caches and refresh locks. Changing the source object's role, source credentials, proxy, TLS, expiry, or retry settings no longer updates an existing binding. After changes, call `apiClient.setCredentialProvider(credentialProvider)` again on each affected client; use a new provider for constructor-only settings. Setting the source AssumeRole provider's expiration time to `0` does not force an existing binding to refresh. Separate client caches may increase STS calls. Custom providers, subclasses, and the default credential chain retain their existing behavior.
@@ -259,7 +260,7 @@ public class SampleCode {
         oidcProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
         oidcProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
         // Proxy / TLS for reaching STS (optional)
-        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; empty uses client STS-scheme fallback, then URLConnection, not proxy env vars
+        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; empty uses client STS-scheme fallback, then JVM ProxySelector, not proxy env vars
         // oidcProvider.setCaFile("/path/to/ca.pem");                  // PEM CA; empty + insecureSkipVerify=false uses original transport TLS, possibly custom
         // oidcProvider.setInsecureSkipVerify(false);                  // Pass true to skip STS TLS verification; debugging only, default false, never in production
 
@@ -324,7 +325,7 @@ public class SampleCode {
         samlProvider.setMaxRetries(3);                  // Retry attempts, default: 3, 0 disables retry
         samlProvider.setRetryIntervalMs(1000);          // Retry interval in ms, default: 1000
         // Proxy / TLS for reaching STS (optional)
-        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; empty uses client STS-scheme fallback, then URLConnection, not proxy env vars
+        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP forward proxy; empty uses client STS-scheme fallback, then JVM ProxySelector, not proxy env vars
         // samlProvider.setCaFile("/path/to/ca.pem");                  // PEM CA; empty + insecureSkipVerify=false uses original transport TLS, possibly custom
         // samlProvider.setInsecureSkipVerify(false);                  // Pass true to skip STS TLS verification; debugging only, default false, never in production
 
@@ -464,6 +465,18 @@ public class SampleCode {
     }
 }
 ```
+
+### STS validation and diagnostics
+
+AssumeRole, OIDC, and SAML accept only nonempty string `AccessKeyId`, `SecretAccessKey`, and `SessionToken` values inside `Result.Credentials`. OIDC/SAML also require a nonempty string `Expiration` that parses as an instant or offset date-time. Validation completes before updating credentials and expiration; failure leaves any previous cache intact. AssumeRole retains its existing duration-based cache expiration.
+
+STS business errors (including HTTP 200), empty/null/nonstandard responses, JSON failures, and invalid credentials expose actual HTTP status, service code or an explicit classification, RequestId, headers, original bytes, and any underlying cause through `ApiException` and `ErrorUtils.PrintError`. OIDC token-file failures retain the file-read cause and have no STS response. The default credential chain retains each failed provider as a suppressed exception so diagnostics can expand all attempts.
+
+`ApiClient.setSimpleError(true)` applies `code: message` display to SDK response errors and its bound built-in STS providers, including default-chain OIDC and CLI `ramrolearn` / `oidc` modes used directly or through the default chain. CLI applies explicitly configured values before the delegate's first STS request, updates its current built-in STS delegate when the setting changes, and retains the value when rebuilding delegates on refresh; setting `false` restores the existing display. Each built-in STS provider also supports `setSimpleError(boolean)` for direct configuration; explicitly configured client values override it. This setting does not change transport/proxy selection or cache identity. An allowed retry for a service expiry error forces the SDK-owned STS cache to refresh before signing again. Custom `Provider` implementations require no new methods and are not forcibly invalidated. See [Retry](6-Retry.md) and [Error Handling](7-ErrorHandling.md).
+
+STS reads compare received bytes with a known, untransformed body length. An incomplete read raises `ReadError`, preserves delivered bytes with `body_complete=false`, and prevents publishing credentials. A silent early EOF produces an `EOFException`; transport read failures retain their original cause. This applies to direct and proxied form requests; unknown-length or chunked responses retain stream completion semantics.
+
+The four expiry codes trigger a default business-call retry only for the refreshable built-in STS cache used in that signing attempt. Static/environment/CLI AK credentials and STS exchanges do not retry solely for an expired source credential; independent transient failures remain retryable. OIDC/SAML form requests use buffered request output so complete 401/403/407 error bodies can be read, while response-length validation still detects real truncation.
 
 ### Default Credential Provider
 

@@ -17,12 +17,23 @@ import com.volcengine.model.ResponseMetadata;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-17T19:20:18.609954+08:00[Asia/Shanghai]")public class ApiException extends Exception {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-17T19:20:18.609954+08:00[Asia/Shanghai]")public class ApiException extends Exception implements DetailedException {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
 
     private ResponseMetadata responseMetadata;
+    private ResponseDetails responseDetails;
+
+    @Override
+    public ResponseDetails getResponseDetails() {
+        return responseDetails;
+    }
+
+    // Only SDK-created exceptions receive captured diagnostics.
+    void setResponseDetails(ResponseDetails responseDetails) {
+        this.responseDetails = responseDetails;
+    }
 
     public ApiException() {}
 
@@ -41,7 +52,7 @@ import java.util.Map;
         this.responseBody = responseBody;
     }
     public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders, String responseBody,ResponseMetadata metadata) {
-        this((String) null, (Throwable) null, code, responseHeaders, responseBody);
+        this(message, throwable, code, responseHeaders, responseBody);
         this.responseMetadata = metadata;
     }
 
@@ -113,8 +124,7 @@ import java.util.Map;
 
     @Override
     public String toString() {
-        String s = getClass().getName();
-        String message = responseBody;
-        return (message != null) ? (s + ": " + message) : s;
+        String name = getClass().getName();
+        return responseBody == null ? name : name + ": " + responseBody;
     }
 }

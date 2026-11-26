@@ -24,6 +24,19 @@ public class Retryer {
         return retryCount < numMaxRetries && retryCondition.shouldRetry(response, apiException);
     }
 
+    public boolean shouldRetry(ApiResponse response, int retryCount, ApiException apiException,
+                               boolean refreshableCredentials) {
+        if (retryCondition != null && retryCondition.getClass() == DefaultRetryCondition.class) {
+            return retryCount < numMaxRetries && ((DefaultRetryCondition) retryCondition)
+                    .shouldRetry(response, apiException, refreshableCredentials);
+        }
+        if (retryCondition instanceof DefaultRetryCondition) {
+            return ((DefaultRetryCondition) retryCondition).withRefreshableCredentials(refreshableCredentials,
+                    () -> shouldRetry(response, retryCount, apiException));
+        }
+        return shouldRetry(response, retryCount, apiException);
+    }
+
     public long getBackoffDelay(int retryCount) throws ApiException {
         if (retryCount >= numMaxRetries) {
             throw new ApiException("Retry count exceeds maximum allowed retries.");

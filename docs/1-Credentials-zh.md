@@ -181,7 +181,8 @@ public class SampleCode {
 以下代理/TLS 规则适用于 `StsAssumeRoleProvider`、`OidcCredentialProvider` 和 `SamlCredentialProvider`：
 
 - `proxyUrl` 仅支持 HTTP 正向代理：`http://[user:password@]host:port`，必须显式填写 `1..65535` 范围内的端口。HTTPS STS 可通过 HTTP 代理建立 CONNECT 隧道；不支持 TLS-to-proxy（`https://` 代理 URL）和 SOCKS。
-- Provider 显式代理优先于绑定客户端显式设置的 `httpProxy` / `httpsProxy`，按 **STS URL** 的协议选择，不使用业务 API 协议。两者均未指定时，OIDC/SAML 保留 URLConnection 代理选择，包括 JVM `http.proxyHost` / `http.proxyPort` 和 `https.proxyHost` / `https.proxyPort` 系统属性，不解析 `HTTP_PROXY` / `HTTPS_PROXY` 及其小写环境变量。AssumeRole 保留原 ApiClient 的代理选择，包括其支持的代理环境变量。
+- Provider 显式代理优先于绑定客户端显式设置的 `httpProxy` / `httpsProxy`，按 **STS URL** 的协议选择，不使用业务 API 协议。两者均未指定时，OIDC/SAML 使用 JVM 默认 `ProxySelector`，包括 JVM `http.proxyHost` / `http.proxyPort` 和 `https.proxyHost` / `https.proxyPort` 系统属性，不解析 `HTTP_PROXY` / `HTTPS_PROXY` 及其小写环境变量。AssumeRole 保留原 ApiClient 的代理选择，包括其支持的代理环境变量。
+- OIDC/SAML 表单 POST 使用 OkHttp 并禁用连接重试。服务端收到完整表单后未响应就断开时，`maxRetries=0` 仅尝试一次，`n` 最多允许 `n+1` 次 SDK 尝试。JVM 启用重定向时，同协议的 307 保留 POST 和表单；Basic 认证协商和重定向是在同一次尝试内有上限的 HTTP 后续请求。终态 401/403/407 的错误正文仍可读取。HTTPS 未显式指定代理时使用 JVM 已启用的 TLS 协议和密码套件，未被 Provider 覆盖时使用默认 SSL socket factory，并在标准主机名匹配失败后调用客户默认 hostname verifier。
 - `caFile` 为空且 `insecureSkipVerify=false` 时，撤销 Provider TLS 覆盖并使用原传输 TLS 设置，其中可能包含自定义 factory。仅原设置未定制时才使用 JVM 默认信任库。`insecureSkipVerify=true` 优先于 `caFile`，仅清空 CA 不会恢复证书校验。
 
 **快照迁移说明：** 上述三个精确内置类型通过 `CredentialProvider` 直接传入 `ApiClient` 时，每个客户端在首次访问凭证时创建快照，并拥有独立缓存和刷新锁。修改源对象的角色、源凭证、代理、TLS、到期或重试设置，不再更新已有绑定。修改后需对每个受影响客户端再次调用 `apiClient.setCredentialProvider(credentialProvider)`；仅能通过构造参数设置的字段需新建 Provider。将源 AssumeRole Provider 的到期时间设为 `0` 不会强制已有绑定刷新。独立的客户端缓存可能增加 STS 请求量。自定义 Provider、子类和默认凭证链保持原有行为。
@@ -262,7 +263,7 @@ public class SampleCode {
         oidcProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
         oidcProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
         // 访问 STS 的代理 / TLS（选填）
-        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理；留空先按 STS 协议使用客户端 fallback，再由 URLConnection 选择，不解析代理环境变量
+        // oidcProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理；留空先按 STS 协议使用客户端 fallback，再由 JVM ProxySelector 选择，不解析代理环境变量
         // oidcProvider.setCaFile("/path/to/ca.pem");                  // PEM CA；为空且 insecureSkipVerify=false 时使用原传输 TLS，可能是自定义配置
         // oidcProvider.setInsecureSkipVerify(false);                  // 传 true 可跳过 STS TLS 证书校验，仅限联调；默认 false，生产禁用
 
@@ -327,7 +328,7 @@ public class SampleCode {
         samlProvider.setMaxRetries(3);                  // 重试次数，默认: 3，0 表示不重试
         samlProvider.setRetryIntervalMs(1000);          // 重试间隔（毫秒），默认: 1000
         // 访问 STS 的代理 / TLS（选填）
-        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理；留空先按 STS 协议使用客户端 fallback，再由 URLConnection 选择，不解析代理环境变量
+        // samlProvider.setProxyUrl("http://user:pass@10.0.0.1:8080"); // HTTP 正向代理；留空先按 STS 协议使用客户端 fallback，再由 JVM ProxySelector 选择，不解析代理环境变量
         // samlProvider.setCaFile("/path/to/ca.pem");                  // PEM CA；为空且 insecureSkipVerify=false 时使用原传输 TLS，可能是自定义配置
         // samlProvider.setInsecureSkipVerify(false);                  // 传 true 可跳过 STS TLS 证书校验，仅限联调；默认 false，生产禁用
 
@@ -459,6 +460,18 @@ public class SampleCode {
     }
 }
 ```
+
+### STS 校验与完整诊断
+
+AssumeRole、OIDC、SAML 要求 `Result.Credentials` 内的 `AccessKeyId`、`SecretAccessKey`、`SessionToken` 都是非空字符串。OIDC/SAML 还要求非空字符串 `Expiration`，并成功解析为 instant 或带时区偏移的时间。全部校验成功后才更新凭证与过期时间，失败保留已有缓存；AssumeRole 继续按既有 DurationSeconds 计算缓存到期时间。
+
+STS 的 HTTP 错误、HTTP 200 业务错误、空 / null / 非标准响应、JSON 失败和不合法凭证统一通过 `ApiException` 与 `ErrorUtils.PrintError` 提供实际状态、服务错误码或明确分类、RequestId、响应头、原始字节及存在的底层原因。OIDC token 文件读取失败保留文件异常，尚无 STS 响应。默认凭证链把各 provider 的失败保存为 suppressed，打印时可以展开全部尝试。
+
+`ApiClient.setSimpleError(true)` 启用 `code: message` 显示，也传给绑定的内置 STS provider、默认链 OIDC，以及直接使用或通过默认链使用的 CLI `ramrolearn` / `oidc` 模式。CLI 在委托首次请求 STS 前应用显式配置，开关切换时同步更新当前内置 STS 委托，刷新重建委托后仍保留配置；设为 `false` 恢复原有显示。各内置 STS provider 可单独 `setSimpleError(boolean)`，客户端显式配置优先。此显示配置不改变传输 / 代理选择或缓存身份。服务端凭证过期且允许重试时，下次签名前强制刷新 SDK 自有 STS 缓存。客户 `Provider` 无需增加方法，也不会被强制失效。参见[重试](6-Retry-zh.md)和[异常处理](7-ErrorHandling-zh.md)。
+
+STS 读取会将实收字节数与已知且未经正文变换的长度比较。读取不完整分类为 `ReadError`，保留实收正文并标记 `body_complete=false`，禁止发布凭证。静默提前 EOF 的底层原因为 `EOFException`；传输自身报错时保留原始读取原因。直连与代理表单请求均执行此校验；未知长度或分块响应保留流完成语义。
+
+四种凭证过期码仅在本次签名使用可刷新的内置 STS 缓存时默认触发业务调用重试。静态 / 环境变量 / CLI AK 凭证以及 STS 交换不因源凭证过期码本身重复发送，独立瞬时错误仍可重试。OIDC/SAML 表单使用缓冲请求输出，使完整的 401/403/407 错误正文可读取，同时继续校验响应长度以识别真实截断。
 
 ### 默认凭证 Provider
 

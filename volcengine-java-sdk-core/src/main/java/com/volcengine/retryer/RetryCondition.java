@@ -73,10 +73,13 @@ public abstract class RetryCondition implements Cloneable {
     }
 
     public void addRetryErrorCode(String retryErrorCode) {
+        if (this.retryErrorCodes == null) this.retryErrorCodes = new HashSet<>();
         this.retryErrorCodes.add(retryErrorCode);
     }
 
     public void addRetryErrorCodes(Set<String> retryErrorCodes) {
+        if (retryErrorCodes == null || retryErrorCodes.isEmpty()) return;
+        if (this.retryErrorCodes == null) this.retryErrorCodes = new HashSet<>();
         this.retryErrorCodes.addAll(retryErrorCodes);
     }
 

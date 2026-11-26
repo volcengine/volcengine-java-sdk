@@ -47,6 +47,7 @@ public class SignRequestInterceptor implements RequestInterceptor {
 
         //sign
         VolcstackSign volcengineSign = new VolcstackSign();
+        context.getRequestContext().setRefreshableCredentials(false);
         if (context.getApiClient().getCredentials() != null) {
             volcengineSign.setCredentials(context.getApiClient().getCredentials());
         } else {
@@ -64,6 +65,7 @@ public class SignRequestInterceptor implements RequestInterceptor {
             }
             context.getRequestContext().setCredentialProvider(credentialProvider);
             CredentialValue credentialValue = credentialProvider.get();
+            context.getRequestContext().setRefreshableCredentials(credentialProvider.canRefreshCredentials());
             if (credentialValue == null) {
                 throw new ApiException("credentialProvider return null");
             }

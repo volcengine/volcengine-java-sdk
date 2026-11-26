@@ -41,6 +41,33 @@ public class CLIConfigCredentialProvider implements Provider {
     private final String profileName;
     private final String configPath;
     private Provider delegate;
+    private boolean simpleError;
+    private boolean simpleErrorConfigured;
+
+    void setSimpleError(boolean enabled) {
+        this.simpleError = enabled;
+        this.simpleErrorConfigured = true;
+        applySimpleError(delegate);
+    }
+
+    private void applySimpleError(Provider provider) {
+        if (!simpleErrorConfigured || provider == null) {
+            return;
+        }
+        if (provider.getClass() == StsAssumeRoleProvider.class) {
+            ((StsAssumeRoleProvider) provider).setSimpleError(simpleError);
+        } else if (provider.getClass() == OidcCredentialProvider.class) {
+            ((OidcCredentialProvider) provider).setSimpleError(simpleError);
+        } else if (provider.getClass() == SamlCredentialProvider.class) {
+            ((SamlCredentialProvider) provider).setSimpleError(simpleError);
+        }
+    }
+
+    boolean usesStsCredentials() {
+        return delegate != null && (delegate.getClass() == StsAssumeRoleProvider.class
+                || delegate.getClass() == OidcCredentialProvider.class
+                || delegate.getClass() == SamlCredentialProvider.class);
+    }
 
     public CLIConfigCredentialProvider() {
         this(null, null);
@@ -195,6 +222,7 @@ public class CLIConfigCredentialProvider implements Provider {
                 Provider d = new StsAssumeRoleProvider(ak, sk,
                         sourceSessionToken == null ? "" : sourceSessionToken,
                         roleName, accountId);
+                applySimpleError(d);
                 d.refresh();
                 return d;
             }
@@ -207,6 +235,7 @@ public class CLIConfigCredentialProvider implements Provider {
                 }
 
                 Provider d = new OidcCredentialProvider(roleTrn, null, oidcTokenFile, null, null);
+                applySimpleError(d);
                 d.refresh();
                 return d;
             }

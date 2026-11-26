@@ -11,9 +11,9 @@
 > - `maxRetryDelayMs` - `300 * 1000`
 > - `retryCondition` - `com.volcengine.retryer.DefaultRetryCondition`
 > - `backoffStrategy` - `com.volcengine.retryer.ExponentialWithRandomJitterBackoffStrategy`
-> - `retryErrorCode` - `empty set`
+> - `retryErrorCode` - 自定义集合默认为空，内置错误码仍生效
 
-请求的处理逻辑内置了网络异常重试逻辑，即当遇到网络异常问题或限流错误时，系统会自动尝试重新发起请求，以确保服务的稳定性和可靠性。若请求因业务逻辑错误而报错，例如参数错误、资源不存在等情况，SDK 将不会执行重试操作，这是因为业务层面的错误通常需要应用程序根据具体的错误信息做出相应的处理或调整，而非简单地重复尝试。
+SDK 会重试明确的网络、限流和超时错误。凭证过期仅在本次签名使用可刷新的 SDK 自有 STS 缓存时默认触发重试。参数错误、资源不存在和普通响应格式错误没有其他明确的可重试条件时不会重试。
 
 ### 重试代码配置
 
@@ -54,26 +54,44 @@ public class SampleCode {
 
 #### 默认重试条件
 
+cause 链会穿过包装异常和嵌套 `ApiException`，按对象身份防循环，最多检查 256 个节点，识别超时、DNS、连接和 socket 原因。`ReadError` / `SerializationError` 只有明确可重试的 cause 或独立 HTTP 状态规则才重试；普通 `IOException` 或 JSON 格式错误本身不触发重试。带 cause 的 `RequestError` 也要求明确原因。suppressed 仅用于打印诊断，不触发重试。
+
+内置瞬时错误码为 `RequestError`、`RequestTimeout`、`ResponseTimeout`、`RequestTimeoutException`、`ProvisionedThroughputExceededException`、`Throttling`、`ThrottlingException`、`RequestLimitExceeded`、`RequestThrottled`、`RequestThrottledException`、`TooManyRequestsException`、`PriorRequestNotComplete`、`TransactionInProgressException`。客户 `retryErrorCodes` 在此基础上扩展，通用响应根层的字符串 `errorcode` 也参与匹配。异常没有非空业务码时，默认条件从已保存的正文中宽容读取字符串错误码，不改写异常，也不重读响应流。
+
+`ExpiredToken`、`ExpiredTokenException`、`RequestExpired`、`InvalidAccessKey` 仅在本次签名使用可刷新的 SDK 自有 STS 缓存时默认触发重试，并使实际签名缓存失效；请求期间客户端重新绑定 provider 也不会刷新错误的缓存。覆盖直接 AssumeRole/OIDC/SAML、默认链 OIDC，以及直接或默认链中的内置 CLI provider 的 STS 委托。CLI 刷新会重新读取配置并重建委托；下次签名取得新凭证，刷新失败保留旧缓存并继续要求刷新。静态凭证、环境变量 AK、CLI AK 模式、客户 provider 和 provider 子类不会仅因这四个码默认重试。STS 交换也不会仅因这些码重复发送已过期的源 AK、OIDC token 或 SAML 断言。独立的网络、限流、429/5xx 规则仍生效，OIDC/SAML 保留全部 5xx 规则。客户显式配置的错误码和自定义重试策略保持原有分派，公共 `Provider` 接口无需增加方法。同步与异步执行相同规则。
+
 默认重试条件 `DefaultRetryCondition`，其中包含以下重试条件：
 
 1. 网络错误会进行重试。
 2. 服务端限流错误会进行重试。
-3. 包含客户自定义的错误码 `retryErrorCodes`。响应没有错误码时不查询该集合；集合为 null 时仅禁用自定义错误码匹配，不影响状态码和网络异常重试。
+3. 包含客户自定义的错误码 `retryErrorCodes`。响应没有错误码时不查询该集合；集合为 null 时仅禁用自定义错误码匹配，不影响状态码和网络异常重试。通用 Map 的 `ResponseMetadata.Error.Code` 仅在值为字符串时参与匹配；其他类型会被忽略，返回的 Map 不变。
+
+HTTP `429`、`500`、`502`、`503`、`504` 会按默认条件重试，包括 HTML 或非标准 JSON 错误正文。最终抛出的 `ApiException`（或异步 `onFailure` 的异常）保留最后一次失败的状态码、响应头、原始正文 / 已读片段、可用的元数据与 RequestId、底层 cause。`ErrorUtils.PrintError` 输出已保存快照，也包括成功解析后退避失败的前次响应，无需重读正文。
+
+退避计算或等待失败时停止重试，`getCause()` 是当前退避 / 等待异常；已有响应异常的诊断字段保留，前次异常通过 `getSuppressed()` 获取。已成功解析的响应触发重试时，保留其状态码、响应头与可用元数据，包括 `AbstractResponse` 元数据及通用 Map 中可解析的 `ResponseMetadata`。正文非空 RequestId 优先于响应头；诊断元数据转换失败不会覆盖退避 cause。已消费的成功正文不会重新读取，`getResponseBody()` 为 null。没有响应时状态码仍为 `0`。等待被中断时恢复当前线程的中断标记。同步与异步均返回当前退避失败异常。
 
 #### 自定义重试条件
 
+`Retryer` 通过原有的虚方法调用为 `DefaultRetryCondition` 子类提供本次签名缓存是否可刷新的标记。两种 `shouldRetry` 重载保留原有的 `super` 调用行为：两参默认实现将作用域标记传给三参方法，三参默认实现按显式传入的标记判断。客户策略仍可自行决定是否重试。嵌套调用恢复外层标记，并发调用互不影响，复制后的条件拥有独立上下文。
+
+OIDC/SAML 表单 POST 禁用传输层连接重试。`maxRetries=0` 仅一次 SDK 尝试，`n` 最多 `n+1` 次。收到响应前连接断开时，只有满足 SDK 瞬时错误规则且尚有重试次数才会重发 POST。同一次尝试内，收到明确响应后可进行重定向或 Basic 认证，合计最多 20 次 HTTP 后续请求。启用重定向时，同协议 307 保留 POST 和表单。显式 HTTPS 代理分支不跟随重定向。
+
 用户可以根据自己的业务需求，自定义重试条件。
+
+基类 `RetryCondition` 默认初始化一个可修改的空 `retryErrorCodes` 集合。子类只需实现 `shouldRetry` 即可通过 `setRetryCondition` 安装；此前配置的错误码会加入该条件。合并 null 或空来源集合时不操作，显式添加错误码时初始化为 null 的目标集合，已有集合的匹配与复制语义保持不变。
 
 **代码示例：**
 
-1. 继承基类 `RetryCondition`，实现 `boolean shouldRetry(ApiResponse response, Exception error)`：
+1. 继承基类 `RetryCondition`，实现 `boolean shouldRetry(ApiResponse response, ApiException error)`：
 
     ```java
     import com.volcengine.retryer.RetryCondition;
+    import com.volcengine.ApiException;
+    import com.volcengine.ApiResponse;
 
     public abstract class CustomRetryCondition extends RetryCondition {
         @Override
-        public boolean shouldRetry(ApiResponse response, Exception error) {
+        public boolean shouldRetry(ApiResponse response, ApiException error) {
             // #................实现自己逻辑
             return false;
         }
@@ -84,10 +102,12 @@ public class SampleCode {
 
     ```java
     import com.volcengine.retryer.DefaultRetryCondition;
+    import com.volcengine.ApiException;
+    import com.volcengine.ApiResponse;
 
     public class CustomRetryCondition extends DefaultRetryCondition{
         @Override
-        public boolean shouldRetry(ApiResponse response, Exception error) {
+        public boolean shouldRetry(ApiResponse response, ApiException error) {
             boolean shouldRetry = super.shouldRetry(response, error);
             // #................实现自己逻辑
             return false;
@@ -156,6 +176,10 @@ public class SampleCode {
         }
     }
     ```
+
+### 写请求与重放
+
+重试可能重复执行服务端已经接受的操作，HTTP GET 本身不能证明业务动作幂等。非幂等动作应使用接口支持的幂等 token，或同时关闭 SDK 重试（`setAutoRetry(false)`）与传输重发（`getHttpClient().setRetryOnConnectionFailure(false)`），结果不确定时再通过业务查询确认。
 
 ---
 
