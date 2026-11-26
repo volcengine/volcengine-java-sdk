@@ -1,0 +1,13 @@
+{
+  "actions": [
+    "DescribeNatProxyRules",
+    "DisableNatProxy",
+    "EnableNatProxy",
+    "ModifyNatProxyRuleAttributes",
+    "BatchDeleteNatProxyRules",
+    "CreateNatProxyRule"
+  ],
+  "description": "NATGATEWAY: 新增 ModifyNatProxyRuleAttributes, BatchDeleteNatProxyRules, CreateNatProxyRule, DescribeNatProxyRules, DisableNatProxy, EnableNatProxy",
+  "modules": "service/natgateway",
+  "type": "feature"
+}
